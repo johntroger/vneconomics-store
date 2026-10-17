@@ -1,0 +1,8 @@
+node_modules/
+.local/
+tmp/
+.env
+.env.*
+!.env.example
+*.log
+artifacts/private/
