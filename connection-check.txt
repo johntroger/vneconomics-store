@@ -1,3 +1,3 @@
 Vneconomics Store deployment connection check
 Status: OK
-Revision: connection-v1
+Revision: connection-v2
