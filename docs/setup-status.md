@@ -27,3 +27,26 @@ chuẩn bị payload và nhánh phát hành riêng, kiểm thử staging rồi m
   https://store.vneconomics.com/codex-deploy-check/connection-check.txt
 - Người dùng cần chọn release, chọn đúng thư mục riêng và Automatic trong Plesk.
 - Chưa xác minh file đã được triển khai; không được coi HTTP 204 webhook là bằng chứng file đã xuất hiện.
+
+## Đã kiểm chứng triển khai tự động
+
+Ngày 2026-10-17, người dùng cung cấp ảnh Plesk xác nhận:
+- Branch: release.
+- Automatic deployment vào /store.vneconomics.com/codex-deploy-check.
+- Thư mục đích đã được tạo bằng terminal trước khi lưu thành công.
+
+Đã đẩy commit 4fe952ac7eec550d3125be9885fa6271aece2718 lên release, chỉ thay
+connection-check.txt từ connection-v1 sang connection-v2. Sau push, không dùng
+Pull now hoặc Deploy now. HTTP GET tới đường dẫn kiểm tra (kèm query tránh cache)
+trả 200 và nội dung chính xác:
+
+    Vneconomics Store deployment connection check
+    Status: OK
+    Revision: connection-v2
+
+Kết luận: local -> GitHub -> webhook -> Plesk pull -> tự triển khai file -> website
+đã được kiểm chứng trong thư mục thử tách biệt. Giữ file này làm bằng chứng nghiệm thu.
+Chưa triển khai theme/plugin, chưa thay đổi database hoặc giao diện WordPress.
+Không đổi đích sang web root với payload công cụ trên main. Khi phát triển giao diện,
+cần xác định payload phát hành và thư mục đích tương ứng trước khi thay cấu hình.
+Các ghi chú 'chưa xác minh triển khai' ở trên là lịch sử và được thay thế bởi kết quả này.
