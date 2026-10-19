@@ -1194,6 +1194,12 @@ hóa cổng đã kiểm chứng, không cần xây hệ deploy mới trước A.
 hoặc bật workflow phát hành bằng việc cập nhật tài liệu này.
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
+Quy trình thực thi bắt buộc theo yêu cầu ngày 19/10/2026 nằm ở
+[implementation-plan-gated.vi.md](implementation-plan-gated.vi.md): chỉ code bước
+đã được cho phép -> kiểm thử/sửa đến đạt -> báo cáo và dừng chờ chủ dự án đồng ý
+mới làm bước tiếp. Bảng chặng dưới đây là roadmap, không cấp quyền chạy liên tiếp.
+Lượt lập kế hoạch thực thi chưa bắt đầu code, test nghiệp vụ hoặc deploy.
+
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
 tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.10; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
