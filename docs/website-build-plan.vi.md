@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.2 — tích hợp phản biện sản phẩm, AI, kiến trúc, UI/UX và content marketing.
+Ngày: 19/10/2026. Phiên bản: 1.3 — chốt người mới hoàn toàn và điều chỉnh lộ trình nhập môn.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -19,7 +19,7 @@ headless, vector database, chatbot, tài khoản thành viên hay thanh toán �
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
-Bản 1.2 tích hợp đề xuất từ docs/website-plan-review.vi.md. Những lựa chọn về phân khúc,
+Bản 1.2 tích hợp đề xuất từ docs/website-plan-review.vi.md. Những lựa chọn còn mở về
 bài mở đầu, thương hiệu và nguồn lực ghi là giả thuyết, không phải quyết định người dùng đã chốt.
 
 ## 2. Hiện trạng và giả định
@@ -34,10 +34,10 @@ Local đang có WordPress 7.1.3, PHP 8.3 qua Playground, database SQLite. Chưa 
 Trước phát hành phải kiểm tra môi trường thật và tạo staging; không coi Playground
 là bằng chứng tương thích đầy đủ với hosting.
 
-Giả định lập kế hoạch:
-- Giả thuyết độc giả chính để thử: người Việt đã dùng ít nhất một AI coding agent nhưng chưa tự hoàn thành một sản phẩm nhỏ; chưa chốt với chủ website.
-- Người mới hoàn toàn có đường chuẩn bị riêng; người biết code tìm skill là nhóm mở rộng, chưa đồng thời tối ưu mọi hành trình.
-- Giả thuyết bài đầu: làm và sửa một trang giới thiệu trên local; chọn một công cụ và một OS sau khi thảo luận. Không mặc định cả ba agent đều được kiểm chứng.
+Quyết định và giả định lập kế hoạch:
+- Đã chốt với chủ website: người mới hoàn toàn, chưa biết cài công cụ, là độc giả ưu tiên của bản đầu. Không giả định đã biết Git, terminal, API key hoặc đã có agent.
+- Người đã dùng agent và người biết code tìm skill là nhóm mở rộng; vẫn có trang Khám phá, nhưng hành trình nhập môn được ưu tiên.
+- Bài mở đầu bắt buộc có chọn công cụ, yêu cầu, tài khoản, cài và kiểm tra lần đầu. Kết quả thực hành đầu tiên, công cụ và OS chưa chốt; trang giới thiệu local chỉ là một phương án. Không mặc định cả ba agent đều được kiểm chứng.
 - Nhóm phụ: người làm nội dung, giảng viên, marketer và developer muốn tìm công cụ nhanh.
 - Nội dung nền tảng miễn phí; chưa coi đây là cửa hàng dù đang dùng subdomain store.
 - Chủ website chịu trách nhiệm biên tập cuối; AI hỗ trợ nghiên cứu, bản nháp và kiểm tra.
@@ -49,7 +49,7 @@ Các giả định này có thể đổi mà không cần thiết kế lại to�
 
 | Người đọc | Nhu cầu | Website giúp bằng cách nào |
 |---|---|---|
-| Người mới hoàn toàn | Không hiểu repo, skill, agent là gì | Trang Bắt đầu, từ điển và ví dụ nhỏ |
+| Người mới hoàn toàn — nhóm chính | Chưa biết chọn/cài công cụ hoặc bắt đầu từ đâu | Lộ trình chuẩn bị, cài đặt có kiểm tra, tác vụ đầu tiên; giải thích thuật ngữ đúng lúc |
 | Người có việc cụ thể | Muốn làm landing page, slide hoặc tự động hóa | Tìm theo kết quả công việc, xem yêu cầu trước khi cài |
 | Người đang dùng agent | Cần skill phù hợp với công cụ của mình | Bộ lọc công cụ, hệ điều hành và trạng thái kiểm chứng |
 | Người đã cài thử | Không biết kết quả đúng hoặc sửa lỗi thế nào | Kết quả mong đợi, lỗi thường gặp và cách gỡ bỏ |
@@ -57,8 +57,31 @@ Các giả định này có thể đổi mà không cần thiết kế lại to�
 
 Giả thuyết khác biệt: giúp người đọc vượt bước chọn công cụ và thiết lập bằng bài tiếng Việt có bằng chứng, so với phương án họ đang dùng (AI, video, tìm kiếm hoặc directory). Cần thử với 5 người đầu tiên; không coi danh sách repo hoặc bản dịch là lợi thế đã được chứng minh.
 
-Luồng ưu tiên: chọn việc muốn làm -> xem 2–3 lựa chọn có lý do -> đọc yêu cầu -> thực
-hành -> đối chiếu kết quả -> gửi phản hồi nếu vướng. Không buộc tạo tài khoản để đọc.
+Luồng ưu tiên: chọn việc muốn làm -> kiểm tra thiết bị/tài khoản/ngân sách -> chọn một
+công cụ có lý do -> cài/khởi tạo theo OS -> kiểm tra công cụ chạy được -> tác vụ nhỏ
+đầu tiên -> đối chiếu kết quả -> giới thiệu repo/skill khi thực sự cần. Người đọc có
+thể bỏ qua bước đã biết; không buộc tạo tài khoản website để đọc. Tài khoản công cụ
+bên ngoài là yêu cầu khác, phải giải thích trước và có đường xem thử/chuẩn bị nếu thiếu.
+
+### 3.1. Thiết kế nhập môn cho người chưa cài công cụ
+
+Trang chủ ưu tiên Tôi bắt đầu từ đâu và kết quả có thể làm; không mở đầu bằng GitHub,
+stars, CLI hoặc bảng so sánh nhiều agent. Repo mới vẫn có mục khám phá, nhưng không
+buộc đọc danh mục trước khi bắt đầu học.
+
+Hướng dẫn dùng ảnh chụp phiên bản đã kiểm tra, dấu hiệu thành công sau từng bước và
+đường sửa lỗi tương ứng. Chưa đưa lệnh cài dài trước khi xác định OS và nơi chạy lệnh.
+Giải thích terminal, thư mục và repo tại lúc cần, tránh dạy mọi thuật ngữ trước tác vụ.
+Không tự cài hàng loạt skill hoặc đưa key vào prompt để rút ngắn bài.
+
+Nêu rõ máy tính cần có, tài khoản/chi phí công cụ và quyền trước cài. Gemini API trả
+phí của chủ website dùng cho bộ biên tập nền; không có nghĩa học viên phải mua Gemini
+API hoặc website cung cấp quota chạy agent cho họ. Chưa hứa lộ trình miễn phí khi chưa
+chọn và kiểm tra công cụ. Có thể xem kết quả mẫu trước nếu chưa đủ điều kiện thực hành.
+
+Nghiệm thu nhập môn gồm hai kết quả tách biệt: (1) công cụ đã sẵn sàng, (2) tác vụ đầu
+tiên đạt checklist. Thử với người chưa từng cài công cụ; ghi trợ giúp, lỗi OS, điều
+kiện thiếu và lỗi hướng dẫn. Chưa dùng phản hồi của developer thay cho nhóm chính.
 
 ## 4. Cấu trúc nội dung và điều hướng
 
@@ -69,7 +92,7 @@ Skills là trang đích/bộ lọc dưới Khám phá; Hướng dẫn và Bộ t
 | Trang | Nội dung chính | Hành động ưu tiên |
 |---|---|---|
 | Trang chủ | Chọn nhu cầu, lộ trình người mới, đề xuất có biên tập, cập nhật đáng chú ý | Tìm công cụ hoặc bắt đầu một bài |
-| Bắt đầu | Repo là gì, công cụ AI là gì, Git cơ bản, dự án đầu tiên | Tiếp tục bước kế tiếp |
+| Bắt đầu | Chọn công cụ theo điều kiện, chuẩn bị/cài/kiểm tra, tác vụ đầu; thuật ngữ giải thích đúng lúc | Hoàn thành bước hiện tại và biết bước kế tiếp |
 | Khám phá | Repo, ứng dụng và bộ mẫu dự án; danh sách có lọc | Mở hướng dẫn phù hợp |
 | Skills | Skill cụ thể, công dụng, công cụ đã thử và quyền cần cấp | Xem cách cài và ví dụ |
 | Chi tiết tài nguyên | Lợi ích, điều kiện, nguồn, tình trạng, hướng dẫn và giới hạn | Đọc hướng dẫn / mở repo gốc |
@@ -104,7 +127,7 @@ Tuyển chọn tập trung, tránh đăng hàng trăm mục chỉ có bản dị
 
 Chia thành hai mốc để có đường cắt rõ khi quá tải:
 - Mốc A — mở thử: theme/plugin nội dung, tìm/lọc, trạng thái nguồn, nhập tay; 10 tài nguyên,
-  3 hướng dẫn và 1 bộ thực hành. Ưu tiên kiểm chứng ít công cụ/OS, không gắn nhãn rộng.
+  3 hướng dẫn và 1 bộ thực hành; bao phủ chuẩn bị/cài/kiểm tra cho người mới hoàn toàn. Ưu tiên một công cụ/OS được chọn, không gắn nhãn rộng.
 - Mốc B — MVP có tự động hóa: collector, AI, quản trị job/ngân sách; mở rộng tới mục tiêu
   20/6/3 sau khi đo được công suất biên tập. Mốc A không phụ thuộc phải có API AI.
 Nếu vượt nguồn lực, hoãn mốc B hoặc giảm lượng bài; không cắt provenance, kiểm chứng và
@@ -535,7 +558,7 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.2. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.3. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -561,7 +584,7 @@ công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàn
 
 Nghiệm thu A:
 - Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
-- Luồng đọc -> đủ điều kiện -> thực hành -> checklist -> bước tiếp hoạt động; ghi rõ trợ giúp.
+- Luồng đọc -> đủ điều kiện -> cài/khởi tạo -> kiểm tra sẵn sàng -> thực hành -> checklist -> bước tiếp hoạt động; ghi trợ giúp. Người thử nhập môn chưa từng cài công cụ.
 - Không gắn nhãn đã thử tương thích ngoài validation đúng công cụ/OS/version/phạm vi.
 - 15–20 truy vấn có đáp án kỳ vọng, có/không dấu, lọc ưu tiên, URL và trạng thái rỗng.
 - Mobile 360px trở lên không tràn ngang ngoài vùng mã; biết bài cần máy tính trước cài.
@@ -654,20 +677,22 @@ kết quả: chọn công cụ, chuẩn bị, tạo sản phẩm, sửa thay đ�
 một kênh tiếp cận và đo công trước khi xây collector lớn. Giữ nguồn cấp trường bắt
 buộc ngay cả ở nội dung nhập tay.
 
+Đã chốt: nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
+chọn phân khúc này trừ khi chủ website muốn đổi.
+
 Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
-1. Nhóm chính đề xuất: đã dùng agent nhưng chưa hoàn thành sản phẩm; có thể đổi sang
-   người hoàn toàn mới hoặc người biết code theo mục tiêu chủ website.
-2. Bài mở đầu đề xuất: trang giới thiệu trên local; công cụ và OS ưu tiên chưa chốt.
+1. Kết quả đầu tiên người mới muốn làm: website nhỏ, tài liệu hoặc tác vụ khác; cần bàn tiếp.
+2. Công cụ và OS ưu tiên chưa chốt. Trang giới thiệu local là một phương án, không phải quyết định cuối.
 3. Tên VibeLab Việt và domain dài hạn; hiện giữ store.vneconomics.com để tiếp tục thử.
 4. Mục tiêu cộng đồng/uy tín/dịch vụ, giờ duyệt–bảo trì mỗi tuần, người trực và trần AI.
 5. Một kênh tiếp cận nhóm đầu và tiêu chí quyết định tiếp tục sau thử người dùng.
 
-Thảo luận theo thứ tự người dùng -> việc đầu -> công cụ/OS -> công suất/kênh -> thương
+Người dùng chính đã chốt; thảo luận tiếp theo thứ tự việc đầu -> công cụ/OS -> công suất/kênh -> thương
 hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.2 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.3 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
