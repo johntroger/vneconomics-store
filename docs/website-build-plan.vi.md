@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.1 — bổ sung Gemini API và tuyển chọn repo hằng ngày.
+Ngày: 19/10/2026. Phiên bản: 1.2 — tích hợp phản biện sản phẩm, AI, kiến trúc, UI/UX và content marketing.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -19,6 +19,9 @@ headless, vector database, chatbot, tài khoản thành viên hay thanh toán �
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
+Bản 1.2 tích hợp đề xuất từ docs/website-plan-review.vi.md. Những lựa chọn về phân khúc,
+bài mở đầu, thương hiệu và nguồn lực ghi là giả thuyết, không phải quyết định người dùng đã chốt.
+
 ## 2. Hiện trạng và giả định
 
 Đã kiểm chứng ngày 17/10/2026: local -> GitHub -> webhook -> Plesk -> file công khai.
@@ -32,7 +35,9 @@ Trước phát hành phải kiểm tra môi trường thật và tạo staging; 
 là bằng chứng tương thích đầy đủ với hosting.
 
 Giả định lập kế hoạch:
-- Độc giả chính: người Việt ít kinh nghiệm lập trình, biết dùng máy tính và AI cơ bản.
+- Giả thuyết độc giả chính để thử: người Việt đã dùng ít nhất một AI coding agent nhưng chưa tự hoàn thành một sản phẩm nhỏ; chưa chốt với chủ website.
+- Người mới hoàn toàn có đường chuẩn bị riêng; người biết code tìm skill là nhóm mở rộng, chưa đồng thời tối ưu mọi hành trình.
+- Giả thuyết bài đầu: làm và sửa một trang giới thiệu trên local; chọn một công cụ và một OS sau khi thảo luận. Không mặc định cả ba agent đều được kiểm chứng.
 - Nhóm phụ: người làm nội dung, giảng viên, marketer và developer muốn tìm công cụ nhanh.
 - Nội dung nền tảng miễn phí; chưa coi đây là cửa hàng dù đang dùng subdomain store.
 - Chủ website chịu trách nhiệm biên tập cuối; AI hỗ trợ nghiên cứu, bản nháp và kiểm tra.
@@ -50,12 +55,15 @@ Các giả định này có thể đổi mà không cần thiết kế lại to�
 | Người đã cài thử | Không biết kết quả đúng hoặc sửa lỗi thế nào | Kết quả mong đợi, lỗi thường gặp và cách gỡ bỏ |
 | Biên tập viên | Bài có thể lỗi thời sau mỗi lần upstream đổi | Hàng đợi thay đổi, bản so sánh và cảnh báo cần thử lại |
 
+Giả thuyết khác biệt: giúp người đọc vượt bước chọn công cụ và thiết lập bằng bài tiếng Việt có bằng chứng, so với phương án họ đang dùng (AI, video, tìm kiếm hoặc directory). Cần thử với 5 người đầu tiên; không coi danh sách repo hoặc bản dịch là lợi thế đã được chứng minh.
+
 Luồng ưu tiên: chọn việc muốn làm -> xem 2–3 lựa chọn có lý do -> đọc yêu cầu -> thực
 hành -> đối chiếu kết quả -> gửi phản hồi nếu vướng. Không buộc tạo tài khoản để đọc.
 
 ## 4. Cấu trúc nội dung và điều hướng
 
-Menu chính: Bắt đầu / Khám phá / Skills / Hướng dẫn / Bộ thực hành.
+Menu đề xuất để thử: Bắt đầu / Khám phá / Thực hành.
+Skills là trang đích/bộ lọc dưới Khám phá; Hướng dẫn và Bộ thực hành thuộc Thực hành. Các loại nội dung vẫn tách trong dữ liệu; kiểm tra người dùng hiểu nhãn trước khi khóa thiết kế.
 Ô tìm kiếm luôn dễ thấy; trang giới thiệu, tiêu chí tuyển chọn và liên hệ ở footer.
 
 | Trang | Nội dung chính | Hành động ưu tiên |
@@ -73,9 +81,20 @@ URL dự kiến: /bat-dau/, /kham-pha/, /tai-nguyen/{slug}/, /huong-dan/{slug}/,
 /bo-thuc-hanh/{slug}/. /skills/ là bộ lọc theo loại tài nguyên; một skill chỉ có một
 trang chi tiết chuẩn để không trùng nội dung.
 
-Bộ lọc MVP: nhu cầu, loại tài nguyên, công cụ AI, độ khó, hệ điều hành, yêu cầu chi phí
+Mốc A ưu tiên bộ lọc nhu cầu và công cụ AI; các bộ lọc khác chỉ mở rộng khi dữ liệu đủ hữu ích. Bộ lọc toàn MVP: loại tài nguyên, độ khó, hệ điều hành, yêu cầu chi phí
 và tình trạng thử nghiệm. Chi phí công cụ/API/hosting phải tách khỏi giấy phép repo:
 repo mã nguồn mở không đồng nghĩa chạy hoàn toàn miễn phí.
+
+### 4.1. Hai lớp nội dung với cam kết khác nhau
+
+| Lớp | Cam kết với người đọc | Điều kiện |
+|---|---|---|
+| Khám phá có nguồn | Biết công cụ mới làm được gì, vì sao đáng chú ý | Nguồn/version rõ; chưa thử thì ghi Chưa thử |
+| Thực hành có kiểm chứng | Làm ra kết quả theo checklist trong môi trường đã nêu | Có validation, input mẫu, kết quả và cách sửa lỗi |
+
+Một phát hiện có thể chỉ ở hàng đợi nội bộ; không mặc định sinh một bài SEO. Trang
+khám phá có thể dẫn sang bài thực hành khi đã thử. Thu thập hằng ngày nhưng xuất bản
+theo chất lượng/công suất. Không buộc mỗi repo có bài thực hành riêng.
 
 ## 5. Phạm vi bản đầu
 
@@ -94,10 +113,11 @@ khả năng khôi phục. Không dùng số lượng bài để ép xuất bản
 Có trong MVP:
 - Trang chủ, danh sách, lọc và tìm kiếm tiếng Việt; liên kết nguồn gốc rõ ràng.
 - Trang chi tiết thống nhất, trạng thái thử nghiệm và lịch sử cập nhật.
-- Hệ quản trị nguồn, tài nguyên, bản nháp, công việc đồng bộ và lỗi.
-- Theo dõi các nguồn đã chọn; tự cập nhật dữ liệu quan sát và tạo bản nháp có thay đổi.
+- Mốc A: quản trị tài nguyên/bài/nguồn nhập tay, trạng thái thử và field bằng chứng bắt buộc.
+- Mốc B: quản trị nguồn theo dõi, job đồng bộ, bản nháp AI, lỗi và ngân sách; không chặn mở thử A.
+- Mốc B: theo dõi các nguồn đã chọn; tự cập nhật field quan sát và tạo bản nháp có thay đổi.
 - Phản hồi bài lỗi/lỗi thời có chống spam; không cho tải lên file hay chạy lệnh từ form.
-- Lưu mục yêu thích trên thiết bị bằng localStorage; không cần tài khoản.
+- Lưu mục yêu thích trên thiết bị bằng localStorage nếu pilot cần; có thể hoãn để ưu tiên luồng thực hành, không cần tài khoản.
 
 Để sau MVP: cộng đồng, đánh giá sao công khai, đồng bộ bookmark đa thiết bị, chatbot,
 gói skill cài một lần, sandbox công khai, khóa học trả phí, marketplace và newsletter.
@@ -129,6 +149,16 @@ Mẫu bài:
 6. Lỗi thường gặp, cách dừng, gỡ bỏ hoặc khôi phục.
 7. Nguồn, tác giả, giấy phép tương ứng, commit/release, ngày thử và thay đổi mới.
 
+Mỗi bài thực hành có manifest: nguồn/commit, agent/OS/version, quyền/dịch vụ ngoài,
+input mẫu, brief và prompt khởi đầu, checkpoint phiên bản, checklist kết quả, ngày thử
+và phạm vi đã kiểm tra. Cùng prompt có thể tạo mã khác; tiêu chí là đầu ra/hành vi đạt
+checklist, không hứa kết quả giống demo. Có một bước sửa/kiểm tra bằng agent để dạy
+vòng làm việc, không chỉ sao chép lệnh cài.
+
+Giới hạn ma trận kiểm chứng theo công suất: một công cụ/OS ưu tiên ở bản mở thử, tổ hợp
+khác chỉ khẳng định ở mức có nguồn hoặc chưa thử. Không suy ra đã kiểm tra mọi tính
+năng từ một lượt lệnh chạy được.
+
 Trạng thái công khai: Chưa thử / Đã thử với môi trường cụ thể / Cần kiểm tra lại /
 Tạm ngừng khuyến nghị. Thông tin hoạt động GitHub có ngày lấy dữ liệu riêng với ngày
 kiểm thử. Một repo mới commit không tự trở thành bài vừa được kiểm chứng lại.
@@ -153,7 +183,7 @@ Tiêu đề, nút và thuật ngữ dùng tiếng Việt nhất quán; giữ ngu
 
 Wireframe trang chủ:
 
-    Logo       Bắt đầu   Khám phá   Skills   Hướng dẫn       Tìm kiếm
+    Logo       Bắt đầu   Khám phá   Thực hành       Tìm kiếm
     Bạn muốn làm gì cùng AI?
     [Tạo website] [Làm tài liệu] [Tự động hóa] [Tìm skill]
     Ô tìm: Ví dụ “tạo trang giới thiệu bằng tiếng Việt”
@@ -177,6 +207,20 @@ Lệnh phải có tên môi trường, nút sao chép và phản hồi rõ ràng
 Trải nghiệm tìm kiếm: nhận từ có/không dấu, alias “vibecode”, “vibe coding”, “kỹ năng”,
 “skill”; ưu tiên tên và nhu cầu trước độ phổ biến. Kết quả rỗng gợi ý bỏ bộ lọc hoặc
 xem hướng dẫn nền tảng. Không ngầm hứa tìm kiếm ngữ nghĩa trong MVP.
+
+Prototype bắt buộc có bốn màn hình: trang chủ, danh sách, tài nguyên, hướng dẫn thực
+hành. Kiểm tra toàn hành trình tới kết quả và bước tiếp theo, không chỉ điều hướng.
+Trang hướng dẫn có: điều kiện đầu vào -> bước hiện tại -> kết quả -> lỗi -> bước tiếp.
+Nếu thiếu tài khoản/ngân sách/quyền cài, giải thích sớm và dẫn tới bài phù hợp hoặc mẫu
+để xem trước; không để người đọc mắc sau khi đã làm nhiều bước.
+
+Mobile: ghi rõ bài cần máy tính trước CTA; link tới từng bước để tự chuyển thiết bị.
+Lưu lựa chọn OS cục bộ nếu phù hợp, không trộn lệnh các OS vào một luồng mặc định;
+chưa cần đồng bộ tài khoản. Prototype thử cả đóng/mở lại bài và tiếp tục thực hành.
+
+Tìm/lọc: xây 15–20 truy vấn từ lời người dùng với đáp án kỳ vọng, thử có/không dấu,
+alias, giữ bộ lọc trong URL, bỏ từng bộ lọc và tổ hợp rỗng. Chỉ mở bộ lọc nâng cao khi
+có giá trị phân biệt. Không coi search mặc định của WordPress là đã đạt các tiêu chí.
 
 ## 8. Kiến trúc phần mềm
 
@@ -227,7 +271,7 @@ truy cập từng field, kích thước request và không nhận URL đích tù
 
 WordPress Custom Post Types: tài nguyên, hướng dẫn và bộ thực hành. Taxonomy cho nhu
 cầu, loại tài nguyên và công cụ; các field version/nguồn dùng metadata có schema.
-Jobs và snapshot dùng bảng riêng có index/unique key, tránh nhồi log lớn vào postmeta.
+Mốc B: Jobs và snapshot dùng bảng riêng có index/unique key, tránh nhồi log lớn vào postmeta. Mốc A vẫn lưu đủ nguồn cho field bắt buộc, nhưng có thể hoãn cơ chế claim tổng quát/tự động tới B.
 Đổi tên repo vẫn theo repository ID; đổi đường dẫn skill phải được đối chiếu trước khi
 gộp. Nội dung bị xóa upstream được đánh dấu, không tự xóa bài hoặc redirect sai mục.
 
@@ -239,6 +283,11 @@ nhà phát triển nói hỗ trợ thì lưu upstream_claimed, chưa gắn nhãn
 Chi phí cần chỉ rõ loại phí và nguồn/ngày tra cứu; không xác định được thì unknown,
 không chuyển thành miễn phí. Thông tin mâu thuẫn giữ cả hai nguồn, đánh dấu conflicted
 và đưa vào hàng đợi; không để AI tự chọn một nguồn rồi che mâu thuẫn.
+
+Field độ mới: owner, reviewed_at, review_due_at, lý do/tác động kiểm tra lại và hạn ưu
+tiên. Hàng đợi có cả bài tới hạn dù repo không đổi, vì giao diện công cụ, giá và điều
+kiện tài khoản có thể đổi độc lập. Chọn chu kỳ theo rủi ro từng claim từ pilot; không
+cập nhật ngày Đã thử chỉ vì link trả HTTP 200. Bài quá hạn được cảnh báo/giảm đề xuất.
 
 Hướng dẫn do người sửa và dữ liệu GitHub tự cập nhật được lưu ở field khác nhau. Mỗi
 lần nhập có khóa idempotency, chạy lại không tạo bài trùng và không mất chỉnh sửa tay.
@@ -283,6 +332,23 @@ lượt công cụ; một lượt gọi model có thể phát sinh nhiều truy 
 thực tế nếu API cung cấp, dự trù trước mỗi job và dừng nhận job mới khi gần ngưỡng.
 Ngưỡng trong ứng dụng không được quảng bá là trần hóa đơn tuyệt đối của nhà cung cấp.
 
+### 10.1. Cổng chất lượng Gemini trước khi mở rộng
+
+Kiểm tra trước nhập draft: snapshot/path tồn tại, excerpt khớp phần nguồn lưu được,
+phiên bản/môi trường phù hợp, claim bắt buộc có evidence. Thiếu hoặc mâu thuẫn chuyển
+unknown/conflicted. Việc đoạn dẫn có thực sự hỗ trợ kết luận vẫn cần người duyệt;
+JSON đúng schema hoặc hai model đồng ý không chứng minh nội dung đúng [S11].
+
+Bộ benchmark ban đầu 10 ca đại diện: đủ/thiếu/mâu thuẫn nguồn, repo nhiều skill, quyền
+phức tạp, README cũ hơn release, đổi lệnh cài, link hỏng và prompt injection. Tách ca
+phát triển và một phần ca giữ lại; đổi model/prompt/schema đáng kể phải chạy lại.
+Mười ca là test hồi quy ban đầu, không phải đo độ tin cậy mọi repo.
+
+Lỗi chặn: bịa đã thử, sai/lệch nguồn về lệnh/chi phí/quyền/tương thích, dịch hỏng định
+danh, thực thi chỉ dẫn từ nguồn. Không cho điểm tổng bù lỗi chặn. Chủ biên chốt rubric
+và ngưỡng trước benchmark; điểm mềm gồm tiếng Việt, độ hữu ích, công sửa và chi phí.
+Báo từng ca, lỗi lọt/lỗi chặn nhầm, thời gian biên tập và chi phí mỗi bài được duyệt.
+
 ## 11. Cập nhật tự động và vận hành
 
 Lịch đề xuất ban đầu: một lượt tìm ứng viên và cập nhật metadata mỗi ngày theo múi giờ
@@ -322,6 +388,14 @@ Bản nháp phải có: vì sao đáng chú ý hôm nay và số liệu quan sá
 đối tượng phù hợp, yêu cầu, chi phí còn chưa rõ, link nguồn và ngày lấy dữ liệu. Các
 lệnh/cách dùng chỉ ghi theo nguồn; nếu chưa thử thực hành phải giữ nhãn Chưa thử.
 Không biến tăng sao thành lời xác nhận an toàn, tương thích hoặc chất lượng mã.
+
+Tách chọn trước AI và sau AI: trước AI dựa trên dữ kiện quan sát và mức liên quan; sau
+AI/biên tập mới đánh giá hữu ích/dễ bắt đầu. Ghi query_version, cửa sổ thời gian,
+trang/cursor/checkpoint, rule_version và lý do chọn. Dữ liệu thiếu không tự được điểm
+cao. Chia suất giữa nguồn theo dõi, repo mới và nguồn tăng nhanh; tỷ lệ sẽ thử trong
+pilot. Giới hạn tác giả/repo nhiều skill chiếm hết suất, có ngoại lệ biên tập có lý do.
+Đạt 50 suất phải báo phần chưa quét, không tuyên bố bao phủ toàn GitHub. Fixture có
+hơn 50 mục, trùng nhiều truy vấn và mất lượt chạy phải tiếp tục được, không bịa tăng sao.
 
 ### 11.2. Chạy thử 7 ngày trước khi mở rộng
 
@@ -365,6 +439,40 @@ Màn hình quản trị: nguồn đang theo dõi; ứng viên; bản nháp; bài
 job lỗi; lần chạy thành công cuối; ngân sách AI đã dùng. Có tắt riêng collector/AI/
 xuất bản, chạy lại job và ghi chú lý do duyệt. MVP vẫn cần duyệt nội dung mới/thay đổi
 cách dùng; tương lai chỉ nới tự động xuất bản khi có bằng chứng chất lượng và quy tắc rõ.
+
+### 11.3. Phục hồi job, ngân sách và bằng chứng
+
+Job tối thiểu: queued -> running có lease -> source_ready -> ai_ready -> imported;
+thêm failed/retry/deferred. Nhận job nguyên tử, lease có hạn, thu hồi job treo. Lưu
+kết quả AI trước nhập draft để retry nhập không gọi AI lại. Nếu Gemini xử lý nhưng
+response mất, có thể tính phí lần nữa; ghi chi phí chưa rõ, không hứa exactly-once
+đối với API ngoài. Khóa thế hệ AI gồm source hash + model/prompt/schema version; khóa
+nhập tài nguyên ổn định để đổi prompt không tạo bài trùng hoặc mất chỉnh sửa tay.
+
+Ngân sách: estimated/reserved/actual/unknown; tính cả job đang chạy và retry trước cấp
+job mới. Thiếu usage thì giữ dự phòng để đối soát. Giới hạn ngày theo Asia/Saigon và
+tháng, token và công cụ; dừng nhận việc khi gần ngưỡng. Ngưỡng ứng dụng vẫn không phải
+trần hóa đơn tuyệt đối. Thử hai runner cùng nhận job và gần hết ngân sách, response
+mất usage, runner chết giữa các checkpoint.
+
+Retention: giữ bằng chứng tối thiểu đang được bài công khai/validation tham chiếu trong
+phạm vi được phép lưu; không dọn theo tuổi đơn thuần. Chỉ dọn snapshot trung gian hết
+hạn/không còn tham chiếu. Backup và restore phải giữ cả liên kết bài–nguồn–validation.
+Không cần hệ thống hàng đợi ngoài cho pilot nếu WordPress đáp ứng các hợp đồng này.
+
+### 11.4. Công suất biên tập và giới hạn danh mục đang duy trì
+
+Chốt người phụ trách, giờ thực có mỗi tuần, phần dự phòng bảo trì/hỗ trợ trước khi bật
+pipeline. Công suất bài mới = phần nguyên của (giờ thực có - bảo trì - hỗ trợ) / giờ
+trung vị mỗi bài; xem cả bài khó nhất để dự phòng. Mức 3 nháp/ngày là trần thử, không
+phải chỉ tiêu publish. Khóa việc mới khi backlog/tuổi hàng đợi vượt ngưỡng đã chốt từ
+phép đo; có thể giữ lấy metadata nhẹ nhưng tạm ngừng gọi Gemini.
+
+Ưu tiên: cảnh báo quan trọng -> bài cũ tới/quá hạn -> bài nền tảng -> tin mới. Khi chủ
+biên vắng không tự publish/bỏ duyệt; giữ cảnh báo, giảm đề xuất và giảm nhận draft.
+Mục tiêu xử lý một ngày làm việc ở trên chỉ áp dụng khi có người trực phù hợp; chốt
+lịch trực thực tế trước vận hành. Mô phỏng vắng một tuần bằng fixture/đồng hồ giả,
+không bắt buộc thêm một tuần lịch kiểm thử. Giới hạn danh mục theo khả năng duy trì.
 
 ## 12. An toàn và chất lượng nội dung
 
@@ -426,41 +534,51 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
-Ước lượng phục vụ lập kế hoạch, chưa phải cam kết tiến độ. Giả định một người triển khai
-được AI hỗ trợ, một chủ biên phản hồi đều, chưa có tích hợp trả phí phức tạp. Thời gian
-chờ hosting, credential, phản hồi và số lần sửa thiết kế có thể kéo dài lịch.
+Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.2. Tách lại công kỹ thuật,
+công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
+Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
-| Chặng | Công việc | Đầu ra nghiệm thu | Ước lượng ngày công |
-|---|---|---|---|
-| 0. Khảo sát | Hosting, dữ liệu cũ, quyền, chọn mẫu nguồn, brief thương hiệu | Quyết định môi trường và 5 bài mẫu có nguồn | 1–2 |
-| 1. Thiết kế | Luồng người mới, schema, wireframe, UI desktop/mobile | Prototype và mẫu bài chi tiết được xem xét | 2–4 |
-| 2. Website | Plugin nội dung, theme, tìm/lọc, phản hồi | Duyệt danh mục và hướng dẫn hoàn chỉnh trên local | 4–6 |
-| 3. Thu thập | GitHub adapter, snapshot, diff, job, nhập draft | Chạy lại không trùng, giữ bài tay, xử lý lỗi | 3–5 |
-| 4. Gemini và biên tập | Schema đầu ra, glossary, nguồn, ngân sách, luồng duyệt | Benchmark 10 đầu vào; pipeline đạt rubric; chuẩn bị pilot 7 ngày chỉ tạo bản nháp | 3–6 |
-| 5. Staging và launch | E2E, môi trường thật, backup/restore, deploy | Bản phát hành và diễn tập khôi phục thành công | 2–4 |
+| Chặng | Công việc | Cổng nghiệm thu / phụ thuộc |
+|---|---|---|
+| A0. Xác định phạm vi | Brief người dùng, mục tiêu dự án, công cụ/OS, hosting, nguồn lực | Một nhu cầu rõ và bài mẫu đầu tiên có nguồn; giả thuyết ghi minh bạch |
+| A1. Thiết kế | Prototype 4 màn hình và luồng điều kiện đầu vào tới kết quả | Thử với nhóm đầu, sửa lỗi chặn; chưa cần credential Gemini |
+| A2. Xây bản đọc/nhập tay | Theme/plugin, field nguồn, tìm/lọc tối thiểu, bài thực hành | Bài có checklist/validation; truy vấn và quyền nhập tay hoạt động |
+| A3. Mở thử A | Staging thật, backup/restore, nội dung, một kênh tiếp cận | Có thể mở thử độc lập với collector, Gemini và pilot 7 ngày |
+| A4. Học từ mở thử | Quan sát hoàn thành, lỗi, công duyệt/bảo trì và nhu cầu tiếp theo | Quyết định giữ/thu hẹp/đổi phạm vi trước đầu tư B |
+| B1. Collector | Truy vấn, snapshot, thứ tự chọn, job/lease, quyền nhập nháp | Không trùng, không mất sửa tay, phục hồi lỗi và giữ bằng chứng |
+| B2. Gemini | Benchmark, evidence gate, ngân sách, draft và Grounding có hạn mức | Đạt rubric đã chốt, không lỗi chặn, usage/chi phí được đối soát |
+| B3. Pilot 7 ngày | Chỉ tạo bản nháp, kiểm tra vận hành và công suất | Chất lượng/công suất đạt mới bật B; không chứng minh thị trường bằng pilot này |
+| C. Mở rộng | Chủ đề, công cụ/OS, lượng nguồn và tính năng theo nhu cầu | Có bằng chứng người dùng và đủ khả năng bảo trì |
 
-Tổng dự kiến 15–27 ngày công kỹ thuật, chưa bao gồm toàn bộ công nghiên cứu, thử và duyệt nội dung. Có thể trải 4–7 tuần nếu nội dung và phản hồi sẵn sàng; đây chưa phải lịch launch.
-Cập nhật ước lượng sau chặng 0–1; khối lượng thử 20 tài nguyên là rủi ro tiến độ lớn. Pilot Gemini cần ít nhất 7 ngày lịch quan sát riêng, không đồng nghĩa 7 ngày công bổ sung; chỉ chạy sau khi luồng nháp đã sẵn sàng.
-Các chặng là gói công việc có điều kiện nghiệm thu, không phải tất cả có thể chạy tự động.
-Sau 5 bài mẫu, ghi giờ nghiên cứu, cài/thử, viết, duyệt và cập nhật của từng bài. Dùng
-trung vị lẫn bài khó nhất để dự báo lượng bài theo số giờ chủ biên thực có mỗi tuần;
-không tính thời gian agent chạy là thay thế toàn bộ công kiểm chứng. Lịch mốc A được
-chốt sau phép đo này; mốc B chỉ bật khi hàng đợi duyệt có thể được xử lý ổn định.
+Mục tiêu số bài ở mục 5 là phạm vi dự kiến; có thể giảm để đạt chất lượng. Bộ 5 bài mẫu
+phục vụ một kết quả chung, gồm trang lựa chọn/chuẩn bị, hướng dẫn và bài trong bộ thực
+hành; không phải 5 dự án độc lập hoặc quota bắt buộc xuất bản trước thử bài đầu.
 
-Nghiệm thu bắt buộc:
-- Mỗi mục xuất bản có source/version, thông tin quyền tương ứng, trạng thái thử và yêu cầu.
-- Không có nhãn tương thích đã kiểm chứng nếu không có Validation đúng công cụ/phiên bản.
-- Tìm có/không dấu, bộ lọc kết hợp, link chia sẻ, trạng thái rỗng hoạt động.
-- Import cùng nguồn hai lần không tạo trùng; sửa bài tay không bị đồng bộ ghi đè.
-- API collector không thể publish hoặc sửa field biên tập công khai ngoài phạm vi.
-- Mô phỏng timeout/rate-limit/AI lỗi/nguồn bị xóa/giấy phép đổi không làm mất bài.
-- Mobile 360px trở lên không tràn ngang, ngoại trừ khối mã cuộn trong vùng riêng.
-- Đi bằng bàn phím, focus rõ, nhãn form và thứ tự heading hợp lý; hướng tới WCAG 2.2 AA,
-  cần kiểm thử thực tế, không coi công cụ tự động là chứng nhận.
-- Mục tiêu lab: LCP <=2.5s, CLS <=0.1, không có lỗi console chặn tác vụ trên trang mẫu.
-  INP và số liệu người dùng thật đánh giá sau khi có traffic; không hứa điểm PageSpeed cố định.
-- Không có credential/dữ liệu riêng trong Git, payload, log hoặc bằng chứng công khai.
-- Kiểm chứng deploy và restore trên staging; production không bị ghi đè dữ liệu từ local.
+Đo giờ nghiên cứu, thử, viết, sửa và bảo trì. Không coi thời gian agent chạy là thay thế
+công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàng; không đồng nghĩa
+7 ngày công bổ sung hoặc điều kiện để mở thử A.
+
+Nghiệm thu A:
+- Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
+- Luồng đọc -> đủ điều kiện -> thực hành -> checklist -> bước tiếp hoạt động; ghi rõ trợ giúp.
+- Không gắn nhãn đã thử tương thích ngoài validation đúng công cụ/OS/version/phạm vi.
+- 15–20 truy vấn có đáp án kỳ vọng, có/không dấu, lọc ưu tiên, URL và trạng thái rỗng.
+- Mobile 360px trở lên không tràn ngang ngoài vùng mã; biết bài cần máy tính trước cài.
+- Bàn phím, focus, label và heading hợp lý; hướng tới WCAG 2.2 AA, phải thử thực tế.
+- Mục tiêu lab LCP <=2.5s, CLS <=0.1; không lỗi console chặn tác vụ. INP/field data đo
+  sau khi có traffic; không hứa điểm PageSpeed cố định.
+- Chính sách index/sitemap/URL rõ, nguồn truy cập thử được ghi phù hợp, không fingerprint.
+- Staging PHP/MySQL thật, backup/restore và deploy thành phần được diễn tập; không ghi
+  đè database production từ local, không lộ credential trong Git/log/bằng chứng.
+
+Nghiệm thu B bổ sung:
+- Import cùng nguồn không trùng; đổi prompt/model có thể tạo bản sửa mà không mất sửa tay.
+- Collector không publish hoặc sửa field biên tập công khai ngoài quyền cho phép.
+- Benchmark có ca đúng/sai/mâu thuẫn/thiếu nguồn, lỗi chặn và công sửa theo từng ca.
+- Mô phỏng rate-limit, nguồn bị xóa, AI lỗi, hai runner, mất response và thiếu usage.
+- Job phục hồi, budget tính cả việc đang chạy, nguồn của bài không bị dọn mất.
+- Pilot không tự publish, backlog trong khả năng xử lý; mô phỏng vắng người vẫn an toàn.
 
 ## 15. Chi phí, đo lường và rủi ro
 
@@ -473,30 +591,84 @@ Khi vượt trần thì hoãn job, không tự mua quota hoặc nâng gói.
 Chỉ số giai đoạn đầu: tìm kiếm ra kết quả phù hợp; tỷ lệ mở hướng dẫn; kết quả khảo sát
 hoàn thành bài; tỷ lệ mục có bằng chứng thử; số phản hồi lỗi; tuổi hàng đợi biên tập;
 chi phí mỗi bài được duyệt. Không suy ra đã hoàn thành chỉ từ thao tác copy lệnh.
-Pilot 5–8 người mới, yêu cầu họ tìm một công cụ và làm bài đầu tiên; mục tiêu ban đầu
-ít nhất 4/5 người hoàn thành luồng mà không cần người hướng dẫn can thiệp trực tiếp,
-điều chỉnh ngưỡng sau pilot. Giới hạn phân tích hành vi và có thông báo phù hợp trước
-khi thêm công cụ theo dõi hoặc thu thập email.
+Tách ba phép thử: benchmark AI theo ca; pilot kỹ thuật Gemini 7 ngày; thử sản phẩm với
+5–8 người thuộc phân khúc dự kiến. Mẫu nhỏ dùng tìm lỗi/hypothesis, không suy rộng tỷ lệ
+ra toàn thị trường. Chốt nhiệm vụ, điều kiện thiết bị/tài khoản, trợ giúp được phép và
+checklist trước thử. Báo người hoàn thành / tổng người làm từng nhiệm vụ, thời gian,
+trợ giúp, lỗi bài/môi trường/thiếu điều kiện; không dùng mẫu số 5 nếu tuyển số khác.
+
+Hoàn thành = đầu ra vượt checklist, không phải xem hết bài/copy lệnh. Sửa và thử lại
+lỗi chặn trước tăng nội dung. Theo dõi có tiếp tục hoặc áp dụng việc riêng ở lần trao
+đổi sau; thử 7 ngày pipeline không chứng minh nhu cầu quay lại hoặc doanh thu. Đặt
+ngưỡng quyết định trước mỗi phép thử, ghi giới hạn của mẫu và việc phải làm khi không đạt.
+Giới hạn phân tích hành vi, công khai phù hợp; không fingerprint để nhận diện người.
 
 Rủi ro chính: quá nhiều ứng viên làm nghẽn duyệt; bài lỗi thời; lời khẳng định AI thiếu
 nguồn; khác biệt nền tảng; thay đổi quyền sử dụng; script độc hại; quota/chi phí; hosting
 không đủ khả năng staging. Đáp án vận hành là giới hạn danh sách theo dõi, lưu version,
 nguồn kiểm chứng, quyền tối thiểu, checkpoint, budget cap và mở rộng sau pilot.
 
+Chi phí mỗi bài được duyệt cần tính cả AI, Grounding, runner, thử công cụ và công người
+(nếu quy đổi giờ thì ghi đơn giá giả định). Ghi riêng giờ tạo bài, sửa và bảo trì.
+Ngân sách tối đa, số giờ mỗi tuần và giới hạn danh mục đang duy trì phải được chốt
+trước khi mở rộng, không mặc định API trả phí hiện có là chi phí biên bằng 0.
+
+### 15.1. Content marketing và động lực quay lại
+
+Mục tiêu cần chọn: tài nguyên cộng đồng, xây uy tín chuyên môn hoặc hỗ trợ dịch vụ
+trong tương lai. Chưa chốt mục tiêu kinh tế; không mặc định phải bán hàng hoặc dự báo
+doanh thu/traffic. Bài nền tảng miễn phí vẫn là giả định cho mốc A.
+
+Ba nhóm nội dung: nền tảng làm được việc; lựa chọn công cụ theo điều kiện; tuyển chọn
+cập nhật giải thích ảnh hưởng và dẫn về bài thực hành. Mỗi mục mới phải có đóng góp
+riêng như kết quả thử, ví dụ Việt Nam, lý do chọn hoặc cách vượt lỗi, không chỉ dịch
+mô tả. Google khuyến nghị nội dung hữu ích và có quy định chống scaled content để thao
+túng xếp hạng [S12, S14]; không mặc định AI bị phạt hoặc bảo đảm AI giúp SEO.
+
+Mốc A thử một kênh chủ website đã sở hữu/được phép dùng; chọn khi thảo luận. Soạn đoạn
+giới thiệu/ảnh đầu ra dẫn vào đúng bài, ghi nguồn chiến dịch ở mức phù hợp. Chưa tạo
+lịch đăng, gửi tin nhắn hoặc email; xuất bản ra kênh khác là hành động riêng khi có yêu
+cầu. Chưa cần xây newsletter hoặc nhiều kênh cùng lúc.
+
+Vòng quay lại đề xuất: bài đầu -> biến thể áp dụng công việc riêng -> bài kế tiếp có
+lý do -> cập nhật khi công cụ quan tâm đổi. Bookmark là tiện ích, không phải bằng chứng
+retention. Đo người thực sự bắt đầu/hoàn thành theo nguồn và phản hồi nhu cầu tiếp;
+không chỉ traffic, số draft hoặc lượt copy. Directory như skills.sh đã có chức năng
+khám phá [S10]; lợi thế của website cần kiểm chứng bằng hướng dẫn/kết quả địa phương.
+
+### 15.2. SEO kỹ thuật tối thiểu trước launch A
+
+Một URL chuẩn cho tài nguyên; title/mô tả đúng; sitemap chỉ trang công khai đã duyệt;
+liên kết bài nền tảng–thực hành–tài nguyên–sửa lỗi; redirect khi đổi slug/domain. Không
+tạo URL indexable cho mọi phát hiện AI hoặc mọi tổ hợp lọc. Chọn rõ trang nào index,
+chính sách crawl và trang tương đương nào dùng canonical. Tránh chặn crawl rồi mong
+crawler đọc noindex; không coi canonical là cách che mọi nội dung khác nhau [S13].
+Tác giả, ngày thử/sửa, nguồn và ảnh có alt hữu ích; không nhồi từ khóa hoặc tự gắn nhãn
+miễn phí/tốt nhất/dễ cài nếu thiếu phạm vi và căn cứ.
+
 ## 16. Đề xuất thứ tự bắt đầu và điều cần chốt
 
-Bắt đầu bằng 5 bài mẫu hoàn chỉnh và prototype ba màn hình: trang chủ, danh sách,
-trang chi tiết. Điều này kiểm chứng cấu trúc nội dung trước khi viết collector lớn.
-Sau đó xây plugin dữ liệu và theme, rồi tự động hóa phần việc đã làm tốt bằng tay.
+Bắt đầu bằng brief một trang, một bài thực hành mẫu và prototype bốn màn hình: trang
+chủ, danh sách, tài nguyên, hướng dẫn thực hành. Bộ 5 bài mẫu sau đó xoay quanh cùng
+kết quả: chọn công cụ, chuẩn bị, tạo sản phẩm, sửa thay đổi/lỗi, áp dụng biến thể. Thử
+một kênh tiếp cận và đo công trước khi xây collector lớn. Giữ nguồn cấp trường bắt
+buộc ngay cả ở nội dung nhập tay.
 
-Ba quyết định sản phẩm còn mở, tạm dùng giả định ở mục 2 để không chặn bản thiết kế:
-1. Người mới hoàn toàn là nhóm chính hay người biết code cơ bản?
-2. Tên VibeLab Việt và việc tiếp tục dùng store.vneconomics.com có phù hợp lâu dài?
-3. Ai dành thời gian kiểm chứng và duyệt bài; ngân sách AI tối đa mỗi tháng là bao nhiêu?
+Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
+1. Nhóm chính đề xuất: đã dùng agent nhưng chưa hoàn thành sản phẩm; có thể đổi sang
+   người hoàn toàn mới hoặc người biết code theo mục tiêu chủ website.
+2. Bài mở đầu đề xuất: trang giới thiệu trên local; công cụ và OS ưu tiên chưa chốt.
+3. Tên VibeLab Việt và domain dài hạn; hiện giữ store.vneconomics.com để tiếp tục thử.
+4. Mục tiêu cộng đồng/uy tín/dịch vụ, giờ duyệt–bảo trì mỗi tuần, người trực và trần AI.
+5. Một kênh tiếp cận nhóm đầu và tiêu chí quyết định tiếp tục sau thử người dùng.
 
-Khóa API, quyền WordPress, staging và tài khoản thử sẽ chỉ cấu hình khi triển khai bước
-liên quan; không yêu cầu gửi bí mật trong chat. Kế hoạch này chưa tạo lịch chạy, chưa
-đăng bài, chưa chuyển thư mục triển khai hoặc kích hoạt theme/plugin trên website.
+Thảo luận theo thứ tự người dùng -> việc đầu -> công cụ/OS -> công suất/kênh -> thương
+hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
+prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
+
+Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
+không yêu cầu gửi bí mật trong chat. Plan 1.2 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
 
@@ -526,6 +698,21 @@ https://docs.github.com/en/search-github/searching-on-github/searching-for-repos
 
 [S9] Google — Gemini Developer API pricing (đối chiếu model và usage lúc cấu hình):
 https://ai.google.dev/gemini-api/docs/pricing
+
+[S10] Skills directory — phương án khám phá hiện có:
+https://www.skills.sh/
+
+[S11] Gemini — Structured outputs và kiểm tra giá trị:
+https://ai.google.dev/gemini-api/docs/structured-output
+
+[S12] Google — Helpful, reliable, people-first content:
+https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+
+[S13] Google — Faceted navigation URLs:
+https://developers.google.com/crawling/docs/faceted-navigation
+
+[S14] Google — Spam policies, scaled content abuse:
+https://developers.google.com/search/docs/essentials/spam-policies#scaled-content
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
