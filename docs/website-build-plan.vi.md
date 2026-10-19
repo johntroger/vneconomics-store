@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.4 — website miễn phí, tính năng AI cho khách dùng API riêng (BYOK).
+Ngày: 19/10/2026. Phiên bản: 1.5 — chốt AI hỗ trợ bài thực hành và giải thích tài nguyên theo nhu cầu.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -391,8 +391,9 @@ Không dùng key khách cho cron, cải thiện kho bài, khách khác hoặc l�
 chủ hết quota. Không dùng key chủ bù lỗi/quota của khách. Nội dung AI riêng không được
 nhập công khai hoặc gộp vào pipeline biên tập mà không có hành động chia sẻ riêng.
 
-Phạm vi AI cho khách cần chốt: ví dụ giải thích/Việt hóa repo theo nhu cầu hoặc hỗ trợ
-hiểu bước học. Đây là ứng viên tính năng, chưa phải quyết định xây chatbot/tất cả tác vụ.
+Đã chốt phạm vi AI đầu tiên cho khách: (1) hỗ trợ theo bài thực hành, (2) giải thích tài
+nguyên theo nhu cầu. Hai chức năng nằm ngay trong ngữ cảnh trang, chưa xây chatbot đa
+năng, agent tự thao tác máy, kho upload file hoặc tìm web không giới hạn.
 Đề xuất adapter Gemini trước cho pilot; các nhà cung cấp/model được hỗ trợ và thời
 điểm phát hành còn mở. Không coi key từ bất kỳ dịch vụ nào đều tương thích Gemini.
 Mốc A đọc/học vẫn độc lập; tính năng BYOK chỉ phát hành sau cổng an toàn, không tự gộp
@@ -434,6 +435,55 @@ Nghiệm thu BYOK trước khi công khai:
   WordPress nonce công khai đơn lẻ là đủ để cấp quyền proxy không giới hạn.
 - Dùng key thử riêng/quota giới hạn khi kiểm thử được cho phép; không yêu cầu gửi key
   trong chat. Chưa có key khách hay API có phí nào được dùng trong bước lập kế hoạch.
+
+### 10.3. Hai tính năng AI đầu tiên đã chốt
+
+**U1. Hỗ trợ theo bài thực hành — nút Giúp tôi ở bước này.**
+- Ngữ cảnh: hướng dẫn và revision, bước hiện tại, môi trường đã chọn, yêu cầu/bằng
+  chứng kiểm chứng của bài. Backend lấy nội dung bài công khai được phép dùng theo ID,
+  không coi văn bản hướng dẫn do client gửi lên là nguồn chuẩn.
+- Đầu vào người dùng: điều chưa hiểu, mô tả đã làm, kết quả đang thấy hoặc lỗi dạng
+  văn bản. Đề xuất bản đầu ưu tiên văn bản; nhận ảnh là mở rộng cần chốt riêng.
+- Đầu ra: giải thích ngắn đúng bước; một thao tác/kiểm tra tiếp theo khi đủ dữ liệu;
+  kết quả mong đợi; đường quay lại bài. Thiếu thông tin thì hỏi bổ sung, không đoán
+  nguyên nhân chắc chắn hoặc tuôn nhiều lệnh sửa máy cùng lúc.
+- Khi lời khuyên vượt bài đã kiểm chứng, ghi rõ giới hạn và đề xuất đường kiểm tra
+  nguồn/phản hồi bài; không tự coi kiến thức model là validation. Không thực thi lệnh,
+  điều khiển máy hoặc đánh dấu người học đã làm đúng chỉ từ câu trả lời AI.
+
+**U2. Giải thích tài nguyên theo nhu cầu — nút Giải thích theo nhu cầu của tôi.**
+- Ngữ cảnh: tài nguyên đang xem, phiên bản/snapshot có nguồn, trạng thái đã thử và
+  tài liệu liên quan trong thư viện. Đề xuất bản đầu dùng tài nguyên đã được tuyển;
+  phân tích URL GitHub tùy ý là phạm vi sau, chưa tự bật fetch URL từ khách.
+- Đầu vào: việc muốn làm, kinh nghiệm, thiết bị/OS, công cụ đã có và hạn chế ngân sách
+  nếu người dùng muốn cung cấp. Chỉ hỏi phần cần thiết, không thu thông tin riêng không cần.
+- Đầu ra: tài nguyên làm được gì cho nhu cầu; phù hợp/cần chuẩn bị/chưa đủ thông tin;
+  khó khăn cần biết; bước bắt đầu hoặc bài hướng dẫn liên quan. Chỉ đưa lựa chọn thay
+  thế khi có dữ liệu trong thư viện, không bịa repo hoặc điều kiện tài khoản/chi phí.
+- Giải thích bằng tiếng Việt và dẫn nguồn/phiên bản tương ứng. Không biến tổng sao,
+  lời upstream hoặc giải thích cá nhân hóa thành nhãn an toàn/đã thử/tương thích.
+
+Quy tắc chung U1/U2:
+- Đọc toàn bộ nội dung gốc không cần key; nhập key chỉ để chạy hỗ trợ AI tùy chọn.
+- Chỉ gọi khi người dùng bấm gửi, hiển thị provider/model, dữ liệu gửi và phí/quota có
+  thể phát sinh. Không tự gọi AI khi mở trang; giữ cách xử lý key và chi phí ở 10.2.
+- Kết quả riêng, không sửa bài gốc, ghi vào validation hoặc tự đưa vào nội dung công khai.
+- Ngữ cảnh được giới hạn kích thước và quyền; hội thoại nếu cần chỉ giữ phạm vi tối
+  thiểu trong phiên theo thiết kế được duyệt, không lưu lịch sử dài hạn mặc định.
+- Nguồn hoặc bài đang cần rà soát phải hiện cảnh báo, không che trạng thái bằng câu
+  trả lời tự tin. Đầu ra sai/có thể lỗi có nút báo vấn đề, tách khỏi dữ liệu bí mật.
+
+Nghiệm thu riêng trước phát hành U:
+- U1 trả lời đúng bài/bước và OS đã chọn; không lấy nhầm revision hoặc hướng dẫn khác.
+- U1 có ca thiếu dữ liệu, lỗi chưa biết, bài quá hạn và yêu cầu nguy hiểm/ngoài phạm vi;
+  phản hồi phải giữ giới hạn và không bịa xác nhận đã sửa thành công.
+- U2 thay đổi giải thích theo nhu cầu nhưng không thay đổi dữ kiện nguồn; có ca người
+  mới, thiếu ngân sách, không tương thích đã biết và dữ liệu tương thích chưa rõ.
+- U2 không tự fetch URL/base URL ngoài danh sách cho phép hoặc bịa lựa chọn thay thế.
+- Cả hai dẫn đúng nguồn, không lộ key/input khách khác và không ghi nội dung riêng vào
+  bài; có thể quay lại đọc/học khi không có key hoặc API lỗi.
+- Thử người mới để đo có hiểu/vượt bước mắc hay chọn đúng tài nguyên; không coi trả lời
+  nhanh, dài hoặc số lượt chat là bằng chứng hữu ích. Kiểm thử không tự dùng key có phí.
 
 ## 11. Cập nhật tự động và vận hành
 
@@ -621,7 +671,7 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.4. BYOK là phạm vi mới cần ước lượng riêng sau khi chốt tác vụ. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.5. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -635,7 +685,7 @@ Không chốt lịch launch khi chưa biết công suất duyệt, hosting và s
 | B1. Collector | Truy vấn, snapshot, thứ tự chọn, job/lease, quyền nhập nháp | Không trùng, không mất sửa tay, phục hồi lỗi và giữ bằng chứng |
 | B2. Gemini | Benchmark, evidence gate, ngân sách, draft và Grounding có hạn mức | Đạt rubric đã chốt, không lỗi chặn, usage/chi phí được đối soát |
 | B3. Pilot 7 ngày | Chỉ tạo bản nháp, kiểm tra vận hành và công suất | Chất lượng/công suất đạt mới bật B; không chứng minh thị trường bằng pilot này |
-| U. AI cho khách (thời điểm chưa chốt) | Một tác vụ BYOK, proxy theo provider, không lưu key mặc định | Vượt cổng an toàn/riêng tư, tách key chủ và khách; không chặn A/B |
+| U. AI cho khách (thời điểm chưa chốt) | U1 hỗ trợ bài thực hành + U2 giải thích tài nguyên, BYOK, proxy, đề xuất không lưu key | Vượt nghiệm thu 10.2–10.3, tách key chủ/khách; không chặn A/B |
 | C. Mở rộng | Chủ đề, công cụ/OS, lượng nguồn và tính năng theo nhu cầu | Có bằng chứng người dùng và đủ khả năng bảo trì |
 
 Mục tiêu số bài ở mục 5 là phạm vi dự kiến; có thể giảm để đạt chất lượng. Bộ 5 bài mẫu
@@ -741,7 +791,7 @@ kết quả: chọn công cụ, chuẩn bị, tạo sản phẩm, sửa thay đ�
 một kênh tiếp cận và đo công trước khi xây collector lớn. Giữ nguồn cấp trường bắt
 buộc ngay cả ở nội dung nhập tay.
 
-Đã chốt: website miễn phí; AI cho khách dùng API riêng; nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
+Đã chốt: website miễn phí; AI cho khách dùng API riêng; hai tính năng đầu là hỗ trợ theo bài thực hành và giải thích tài nguyên theo nhu cầu; nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
 chọn phân khúc này trừ khi chủ website muốn đổi.
 
 Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
@@ -750,14 +800,14 @@ Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùn
 3. Tên VibeLab Việt và domain dài hạn; hiện giữ store.vneconomics.com để tiếp tục thử.
 4. Mục tiêu cộng đồng/uy tín/dịch vụ, giờ duyệt–bảo trì mỗi tuần, người trực và trần AI.
 5. Một kênh tiếp cận nhóm đầu và tiêu chí quyết định tiếp tục sau thử người dùng.
-6. Tác vụ AI đầu tiên cho khách, provider/model hỗ trợ và thời điểm phát hành BYOK; lưu key lâu dài chưa được chọn, mặc định đề xuất không lưu.
+6. Hai tác vụ AI đã chốt; còn provider/model hỗ trợ và thời điểm phát hành BYOK. Lưu key lâu dài chưa được chọn, mặc định đề xuất không lưu. Phạm vi ảnh/URL ngoài thư viện còn mở, chưa đưa vào bản đầu mặc định.
 
 Người dùng chính đã chốt; thảo luận tiếp theo thứ tự việc đầu -> công cụ/OS -> công suất/kênh -> thương
 hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.4 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.5 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
