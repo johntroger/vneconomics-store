@@ -2,11 +2,15 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {startSite} from './local-runtime.mjs';
+// Bound a stuck bootstrap; process exit closes workers before run-clean removes fixtures.
+const deadline=setTimeout(()=>{console.error('FAIL: smoke exceeded 300-second deadline');process.exit(1);},300000);
+deadline.unref();
 mkdirSync('tmp/tests',{recursive:true});
 const fixture=mkdtempSync(resolve('tmp/tests/wordpress-'));
 for(let boot=1;boot<=2;boot++){
  let app;
  try{
+  console.log(`START: boot ${boot}`);
   app=await startSite(fixture,19400);
   for(const route of ['/','/wp-login.php','/wp-json/']){
    const result=await fetch(`http://127.0.0.1:19400${route}`,{signal:AbortSignal.timeout(30000)});
@@ -21,3 +25,5 @@ for(let boot=1;boot<=2;boot++){
   console.log(`PASS: boot ${boot}: homepage, login, REST API, persistent WordPress and database`);
  }finally{if(app)await app[Symbol.asyncDispose]();}
 }
+
+clearTimeout(deadline);
