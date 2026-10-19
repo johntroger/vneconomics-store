@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.8 — bổ sung đặc tả trải nghiệm, nội dung và nghiệm thu danh mục e-commerce.
+Ngày: 19/10/2026. Phiên bản: 1.9 — tích hợp rà soát AI, vibe coding, kiến trúc, UX e-commerce và content marketing.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -19,7 +19,7 @@ headless, vector database, chatbot tổng quát, tài khoản thành viên hay t
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
-Bản 1.2 tích hợp đề xuất từ docs/website-plan-review.vi.md. Những lựa chọn còn mở về
+Bản 1.9 tích hợp khuyến nghị từ docs/website-plan-review-v1.8.vi.md; mục 16.1 ghi vị trí áp dụng. Bản 1.2 trước đây tích hợp docs/website-plan-review.vi.md. Những lựa chọn còn mở về
 bài mở đầu, thương hiệu và nguồn lực ghi là giả thuyết, không phải quyết định người dùng đã chốt.
 
 ## 2. Hiện trạng và giả định
@@ -156,8 +156,7 @@ tablet, 1 cột điện thoại, điều chỉnh qua prototype theo độ rộng
 thêm, biên tập đề xuất và dữ liệu sao nếu có; chỉ có mục Tăng nhanh khi đủ snapshot
 đúng khoảng thời gian. Trạng thái rỗng có cách bỏ lọc, danh mục dài có phân trang.
 
-Trang chi tiết giữ cùng CTA trực tiếp, đồng thời có Giải thích theo nhu cầu của tôi
-(BYOK), hướng dẫn bắt đầu và nguồn/version. Không bắt người đọc đi qua AI mới mở repo.
+Trang chi tiết giữ CTA trực tiếp, hướng dẫn bắt đầu và nguồn/version. Chỉ khi chặng U phát hành mới hiện Giải thích theo nhu cầu của tôi (BYOK). Không bắt người đọc đi qua AI mới mở repo.
 
 Nghiệm thu: nút trên thẻ và trang chi tiết tới đúng nguồn khi chưa có key/không đăng
 nhập; title/link phụ mở đúng trang giải thích; tìm/lọc/sắp xếp hoạt động và không có
@@ -219,8 +218,32 @@ Có trong MVP:
 - Sau mốc A, chỉ thêm lưu mục yêu thích trên thiết bị nếu phản hồi mở thử xác nhận nhu cầu; không cần tài khoản (mục 7.6).
 
 Để sau MVP: cộng đồng, đánh giá sao công khai, đồng bộ bookmark đa thiết bị, chatbot,
-gói skill cài một lần, sandbox công khai, khóa học trả phí, marketplace và newsletter.
-Không thêm WooCommerce khi chưa có nhu cầu giao dịch thực tế.
+gói skill cài một lần, sandbox công khai, marketplace và newsletter.
+Website miễn phí ở mọi giai đoạn; khóa học trả phí, paywall và bán lượt AI không thuộc roadmap. Không cần WooCommerce cho danh mục này.
+
+### 5.1. Giới hạn mốc A và đơn vị nội dung mẫu
+
+Đầu tiên lập brief một nhiệm vụ: người dùng -> việc muốn làm -> thiết bị/OS -> tài
+khoản/ngân sách -> đầu ra quan sát được -> checklist -> bước tiếp. Ưu tiên nhiệm vụ
+ít dependency, hoàn thành được với người chưa từng cài công cụ; chọn công cụ/OS sau
+nhiệm vụ. Kết quả đầu tiên vẫn chưa chốt. Trang giới thiệu chỉ là ứng viên, không
+phải quyết định được mặc định bằng việc cập nhật kế hoạch.
+
+Làm một trang sản phẩm và một hướng dẫn thực tế trước khi nhân nội dung. Mẫu phải
+bao phủ chuẩn bị, kiểm tra môi trường, đầu ra, một thay đổi/sửa lỗi và điểm khôi phục.
+Ghi giờ nghiên cứu, thử, viết, sửa và bảo trì để lập dự toán A; không coi các mục tiêu
+10/3/1 hoặc 20/6/3 là điều kiện ép phải xuất bản khi nội dung chưa đạt.
+
+A bắt buộc: bốn template lõi; tìm/lọc tối thiểu; nguồn/trạng thái/yêu cầu; chi phí,
+quyền và tương thích có nguồn hoặc nói rõ chưa xác định; báo lỗi, preview thẻ/chi
+tiết; chính sách phù hợp; staging/backup/restore/deploy đã thử. Chưa cần claim engine,
+collector, bảng job hoặc AI để nhập tay và mở thử.
+
+Gallery nhiều ảnh, demo, FAQ và tài nguyên liên quan là module có điều kiện: chỉ
+hiện khi có tư liệu/căn cứ, không nghiên cứu hoặc tạo nội dung giả cho đủ khối.
+Một ảnh hợp lệ hoặc ảnh dự phòng có nhãn là đủ ở A; bookmark/so sánh vẫn sau A.
+Không thêm nhiều danh mục rỗng để tạo cảm giác quy mô lớn. Kho nội dung có thể mở
+rộng sau; lần mở thử tập trung quanh nhiệm vụ đã chọn, vẫn duyệt và mở repo tự do.
 
 ## 6. Tuyển chọn và cấu trúc một mục giới thiệu
 
@@ -261,6 +284,25 @@ năng từ một lượt lệnh chạy được.
 Trạng thái công khai: Chưa thử / Đã thử với môi trường cụ thể / Cần kiểm tra lại /
 Tạm ngừng khuyến nghị. Thông tin hoạt động GitHub có ngày lấy dữ liệu riêng với ngày
 kiểm thử. Một repo mới commit không tự trở thành bài vừa được kiểm chứng lại.
+
+### 6.1. Rubric khả năng bắt đầu và tính tái hiện
+
+Điểm dễ bắt đầu trong thang 100 cần checklist riêng: có ví dụ đầu ra; hướng dẫn từ
+máy chưa cài; số tài khoản/dependency; có cần API/terminal/quyền; cách dừng/gỡ/khôi
+phục; tài liệu khớp revision; có một tác vụ nhỏ kiểm tra được. Với mỗi tiêu chí ghi
+đáp ứng/không đáp ứng/chưa rõ, nguồn và môi trường; không dùng tổng sao để điền thiếu.
+Quy tắc quy đổi vào 25 điểm do biên tập chốt trước chấm mẫu, hiệu chỉnh sau pilot;
+chưa dùng một ngưỡng số làm chứng nhận chất lượng hoặc an toàn.
+
+Tách ba dữ liệu: độ phổ biến theo snapshot; mức sẵn sàng cho người mới theo điều
+kiện; validation đã thử theo môi trường. Nhãn công khai cụ thể như Cần cài công cụ,
+Cần API riêng hoặc Có bài bắt đầu; không gắn một nhãn Dễ dùng chung cho mọi OS/agent.
+
+Hướng dẫn ghi release/commit đã thử và ghim phiên bản ở bước cài khi upstream hỗ trợ.
+Không hướng dẫn âm thầm lấy latest/default branch rồi gắn bằng chứng SHA cũ. Nếu
+không ghim được, nêu giới hạn, ngày thử và cách kiểm tra phiên bản trước làm bài.
+Nút Truy cập repo vẫn dẫn nguồn hiện tại; link Nguồn đã thử dẫn revision riêng.
+Checklist kiểm tra kết quả/hành vi, không hứa mã do agent sinh ra giống hệt demo.
 
 ## 7. Thiết kế UI/UX
 
@@ -516,6 +558,25 @@ Checklist nghiệm thu thêm cho A:
   quy định kích thước ảnh, responsive image, lazy load ảnh dưới màn hình và giữ chỗ.
 - Nội dung footer/chính sách/form hoạt động; không có nút hoặc trang placeholder công khai.
 
+### 7.8. Đọc nhanh, phạm vi tìm kiếm và thử bằng nội dung thật
+
+Phần đầu trang sản phẩm phải trả lời bốn câu: làm được gì, cần có gì, phù hợp điều
+kiện của tôi không, bước tiếp là gì. Yêu cầu công cụ/OS/API và chi phí ảnh hưởng lựa
+chọn phải thấy sớm; metadata kỹ thuật sâu nằm dưới. Dùng cùng layout cho repo/skill/
+ứng dụng nhưng nhãn loại và yêu cầu tương ứng khác nhau.
+
+Thiết kế A chọn phạm vi mặc định Tìm tài nguyên: từ header/danh mục truy vấn tài
+nguyên công khai, không trộn bài hướng dẫn vào grid sản phẩm. Có đường Tìm hướng
+dẫn và sửa lỗi dẫn tìm riêng hướng dẫn/bộ thực hành công khai; giữ từ khóa khi
+chuyển phạm vi, ghi scope trong URL và nhãn. Hai scope tái dùng hạ tầng tìm kiếm,
+không xây search service mới. Bổ sung ca không mở được terminal để thử việc chuyển
+sang đúng hướng dẫn; không báo không có kết quả chỉ vì đang tìm nhầm loại nội dung.
+
+Thử người mới có phân biệt Danh mục và Khám phá không; nếu không thì gộp/đổi nhãn
+lối vào sau prototype, không tạo hai kho dữ liệu. Prototype dùng tên dài, ảnh thiếu,
+sao/chi phí chưa rõ, nhãn quá hạn và link ngoài thật. Mobile phục vụ tìm/chọn/đọc;
+bài cần máy tính nói rõ và có link chuyển thiết bị, không yêu cầu terminal trên mobile.
+
 ## 8. Kiến trúc phần mềm
 
     GitHub API + tài liệu nguồn được phép đọc
@@ -586,6 +647,72 @@ cập nhật ngày Đã thử chỉ vì link trả HTTP 200. Bài quá hạn đ�
 Hướng dẫn do người sửa và dữ liệu GitHub tự cập nhật được lưu ở field khác nhau. Mỗi
 lần nhập có khóa idempotency, chạy lại không tạo bài trùng và không mất chỉnh sửa tay.
 Schema database có version và migration tương thích ngược; backup trước migration.
+
+### 9.1. Hợp đồng dữ liệu tối thiểu của A
+
+A lưu nguồn cho field quan trọng bằng meta có cấu trúc, schema và kiểm tra quyền;
+chưa cần xây claim engine/bảng job của B. Trước code phải chốt field dictionary,
+ví dụ payload và preview thẻ/chi tiết theo bảng sau. Quyền sửa là vai trò thiết kế,
+chưa có nghĩa đã tạo tài khoản hoặc gán người vận hành.
+
+| Nhóm field | Kiểu và bắt buộc | Thiếu/chưa rõ | Nguồn, quyền sửa và chỗ hiển thị |
+|---|---|---|---|
+| ID, title, slug, loại | ID/text/enum; bắt buộc | Không publish thiếu định danh | Biên tập; thẻ, chi tiết, URL |
+| Source | repo ID khi có, URL HTTPS, path, revision đã dùng | Không publish nguồn chưa xác minh; skill path phải đúng | Nguồn đã kiểm tra; biên tập; CTA/nguồn |
+| Công dụng/đối tượng | Text ngắn; bắt buộc | Bản nháp nếu chưa giải thích được | Nhận xét biên tập tách dữ kiện; thẻ/chi tiết |
+| Danh mục/nhu cầu | Taxonomy ID, danh mục chính | Nhóm có nội dung; không tạo taxonomy rỗng để đủ hình thức | Biên tập; breadcrumb/lọc/danh sách |
+| OS/công cụ/yêu cầu | Mảng có schema, giá trị và mức xác nhận | Unknown có mô tả tác động, không suy ra hỗ trợ | source_url, ngày, validation nếu đã thử; biên tập; thẻ/chi tiết/lọc |
+| Chi phí/quyền/license/lệnh | Mỗi claim gồm value, source_url/path, observed_at, verification_status, note | Unknown hoặc conflicted, không ép về 0/miễn phí; thao tác chưa rõ quyền không đưa vào bài thực hành | Biên tập; chi tiết/cảnh báo; lệnh chỉ hiện khi đủ căn cứ |
+| Trạng thái và lịch rà soát | Các trục 9.3 + reviewed_at/review_due_at | Không gán đã thử theo mặc định | Biên tập/quyền vận hành giới hạn; mọi view |
+| Media | URL/file, quyền/credit, alt và loại ảnh | Dùng fallback có nhãn; gallery tùy tư liệu | Biên tập; ảnh thẻ/chi tiết |
+| Validation/liên kết bài | ID/revision, môi trường, bằng chứng và checklist khi đã thử | Không có thì Chưa thử; module bài liên quan chỉ hiện khi có | Biên tập; chi tiết/hướng dẫn |
+| Đề xuất/thứ tự | Giá trị có lý do, người sửa và ngày | Không mặc định mọi mục mới đều nổi bật | Biên tập; trang chủ/sắp xếp |
+
+Các trường claim có thể dùng chung cấu trúc ở A, nhưng từng field phải có validation
+riêng và phân biệt null/unknown/conflicted với giá trị xác nhận. Public API chỉ trả
+bản đã duyệt và field công khai. B không được dùng import để mất nguồn/sửa tay của A;
+migration schema có fixture giữ nguyên bằng chứng và quan hệ.
+
+### 9.2. Revision bài hướng dẫn và dependency
+
+Thêm GuideRevision (guide ID + revision) và GuideValidation (revision + bước + OS +
+công cụ/version + nguồn nếu có + ngày thử + input/output/checklist/bằng chứng).
+ResourceValidation và GuideValidation có thể dùng chung cấu trúc nền; bước tạo tài
+khoản/cài công cụ không bắt buộc có repo hoặc agent. Nguồn chính thức ngoài GitHub
+có URL/ngày kiểm tra; không bịa commit cho nội dung không có version.
+
+Lưu quan hệ guide revision -> resource/source/tool/version. Khi đổi lệnh cài, quyền,
+giấy phép hoặc dependency quan trọng: đánh dấu guide liên quan cần rà soát, hiện
+cảnh báo ngay tại các bước phụ thuộc, loại khỏi đề xuất đã kiểm chứng mới và tạo
+việc thử lại. Không tự viết lại nội dung, không xóa validation cũ. Chỉ thử lại đúng
+revision/môi trường mới khôi phục nhãn hiện hành; sao hoặc ngày hoạt động đổi đơn
+thuần không làm mọi bài mất hiệu lực.
+
+A quản lý quan hệ và cập nhật cảnh báo bằng thao tác biên tập; B tự động nhận diện
+thay đổi và gắn cờ theo quyền vận hành đã giới hạn. Khi triển khai U, ngữ cảnh phải
+lấy đúng guide revision và cảnh báo dependency, không lấy một bài cũ chỉ vì cùng slug.
+
+### 9.3. Trạng thái kết hợp và ưu tiên hiển thị
+
+Tách publication_status (draft/published/hidden), source_status (available/unknown/
+unavailable/archived), validation_status (not_tested/tested/review_needed) và
+recommendation_status (normal/suspended). Tên enum là hợp đồng đề xuất để chốt trước
+code; không dùng một field duy nhất vừa biểu diễn đã thử vừa biểu diễn nguồn.
+
+| Điều kiện ưu tiên | Badge/cảnh báo và đề xuất | CTA |
+|---|---|---|
+| Không published | Không xuất hiện qua trang/API/tìm kiếm công khai | Không có CTA công khai |
+| Suspended dù trước đây tested | Tạm ngừng khuyến nghị, lý do; loại khỏi đề xuất | Xem lý do/thay thế; nguồn phụ khi phù hợp |
+| Nguồn unavailable đã xác minh | Nguồn không truy cập được, ngày kiểm tra; không đề xuất | Chi tiết giải thích, không nút nguồn hỏng |
+| Review_needed hoặc dependency quá hạn | Cần kiểm tra lại; giữ lịch sử thử; không badge xanh đơn lẻ | Có thể mở nguồn còn hợp lệ, khối lệnh tùy rủi ro |
+| Archived với nguồn còn hợp lệ | Hiện archived; biên tập quyết định duy trì/giảm/ngừng đề xuất có lý do | Mở nguồn trừ khi đã suspended |
+| Tested hiện hành, normal, nguồn hợp lệ | Đã thử kèm môi trường/ngày; được xem xét đề xuất | Truy cập repo |
+| Not_tested hoặc nguồn unknown tạm thời | Chưa thử/chưa xác minh trạng thái hiện tại; không bịa dữ kiện | Giữ URL đã xác minh trước nếu không có dấu hiệu rủi ro; giải thích giới hạn |
+
+Hàng cao hơn ưu tiên hơn khi trùng điều kiện; archived vẫn có cảnh báo phụ khi cần
+rà soát. Nguồn unknown do lỗi/rate limit không tự chuyển unavailable. Thẻ, chi tiết,
+bộ lọc, preview và AI dùng chung hàm suy trạng thái; override biên tập có ghi lý do,
+ngày và người sửa. Mọi tổ hợp reachable phải có ca thử trước publish.
 
 ## 10. AI và Việt hóa
 
@@ -755,6 +882,31 @@ Nghiệm thu riêng trước phát hành U:
 - Thử người mới để đo có hiểu/vượt bước mắc hay chọn đúng tài nguyên; không coi trả lời
   nhanh, dài hoặc số lượt chat là bằng chứng hữu ích. Kiểm thử không tự dùng key có phí.
 
+### 10.4. Hiệu quả AI và hợp đồng input của khách
+
+Benchmark biên tập ngoài rubric lỗi chặn còn so với nhập tay cùng loại đầu vào:
+tổng thời gian từ nguồn tới bài duyệt, số claim phải sửa, tỷ lệ nháp bị bỏ, giờ sửa
+và chi phí mỗi bài dùng được. Đo cả công người, không coi tốc độ sinh token là tiết
+kiệm đã chứng minh. Không dùng nguồn đang benchmark để tự gắn nhãn đã thử.
+
+Trước phát hành U, thử người dùng với nội dung tĩnh và hỗ trợ U1/U2 trên nhiệm vụ
+cùng loại; tránh lấy việc lặp cùng bài đã thuộc làm bằng chứng AI hữu ích hơn. Ghi
+khả năng vượt bước/chọn phù hợp, lỗi, trợ giúp và chi phí; mẫu nhỏ phục vụ tìm lỗi,
+không tuyên bố hiệu quả thống kê. Nếu AI chỉ lặp nội dung trang, cải thiện bài trước
+mở rộng hội thoại. Các tiêu chí hữu ích phải chốt trước thử; không có threshold bịa
+sẵn hoặc dùng tỷ lệ nhập key làm chỉ số thành công của catalog miễn phí.
+
+Input lỗi có cảnh báo không gửi bí mật, phát hiện và che các mẫu key/token thường
+gặp, cho xem lại phần sẽ gửi và xác nhận hành động gửi. Không hứa bộ phát hiện bắt
+mọi bí mật. Không log raw input; không tự lưu hội thoại/lỗi riêng làm benchmark hay
+nội dung công khai nếu chưa có đồng ý riêng và quy trình loại dữ liệu riêng tư.
+
+Mỗi thao tác có request ID, giới hạn kích thước/ngữ cảnh và chống bấm gửi trùng;
+không replay lời gọi tính phí chỉ vì client mất response. Hiện đang xử lý/thất bại,
+cho người dùng quyết định thử lại khi chi phí chưa rõ. Hủy nhận phản hồi không bảo
+đảm provider dừng tính phí hoặc hoàn tiền; không hứa hủy là miễn phí. Kiểm thử các
+ca lộ bí mật, request trùng, cancel và response mất cùng checklist 10.2–10.3 trước U.
+
 ## 11. Cập nhật tự động và vận hành
 
 Lịch đề xuất ban đầu: một lượt tìm ứng viên và cập nhật metadata mỗi ngày theo múi giờ
@@ -770,6 +922,12 @@ Bộ tìm kiếm dùng nhóm từ khóa/topic cho vibe coding, agent skills, cô
 lập trình, starter và tự động hóa. Dùng các bộ lọc ngày tạo/hoạt động, chủ đề và số sao
 được GitHub hỗ trợ [S8]. Có nhánh phát hiện repo mới để không bỏ qua dự án ít sao nhưng
 hữu ích. Không tuyên bố thu thập hết GitHub hoặc tái tạo chính xác GitHub Trending.
+
+GitHub REST Search giới hạn tối đa 1.000 kết quả mỗi truy vấn [S18]. Khi tập ứng viên
+vượt cửa sổ hoặc phản hồi báo chưa đầy đủ, ghi phạm vi chưa quét; phân vùng truy vấn
+theo ngày/topic hoặc khoảng sao phù hợp và checkpoint từng phân vùng. Giữ khóa repo
+ID để loại trùng; không hứa phân vùng sẽ tìm đủ mọi repo hoặc tái tạo GitHub Trending.
+Chỉ triển khai mức phân vùng cần thiết từ dữ liệu pilot, không mở rộng A để làm việc này.
 
 Ba nhóm đề xuất công khai:
 - Đang tăng nhanh: có số liệu thực về mức tăng trong khoảng quan sát.
@@ -880,6 +1038,18 @@ Mục tiêu xử lý một ngày làm việc ở trên chỉ áp dụng khi có 
 lịch trực thực tế trước vận hành. Mô phỏng vắng một tuần bằng fixture/đồng hồ giả,
 không bắt buộc thêm một tuần lịch kiểm thử. Giới hạn danh mục theo khả năng duy trì.
 
+### 11.5. Chế độ vận hành khi thiếu nguồn lực
+
+Trước B/U phải cấu hình người trực, giờ thực/tuần, trần tiền và ngưỡng backlog từ
+phép đo. Khi quá tải: giảm ứng viên -> dừng draft mới -> ưu tiên cảnh báo/bài cũ ->
+giữ catalog đọc được. Hiển thị tình trạng cập nhật phù hợp, không đổi ngày thử để
+che backlog. U có công tắc riêng, tắt AI không làm mất nội dung hoặc nguồn.
+
+Có checklist khôi phục: xử lý cảnh báo quan trọng, kiểm tra quota/log an toàn,
+xác nhận người duyệt/công suất rồi mới mở job dần; không tự mua quota hoặc bỏ duyệt.
+A áp dụng kiểm tra thủ công; B/U mới cần dashboard/công tắc tự động tương ứng.
+Giới hạn danh mục đang duy trì theo giờ đo được, không theo tổng repo đã phát hiện.
+
 ## 12. An toàn và chất lượng nội dung
 
 Repo, README và SKILL.md là dữ liệu không tin cậy. Lệnh nhúng trong nguồn không có
@@ -941,14 +1111,14 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.8; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.9; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
 | Chặng | Công việc | Cổng nghiệm thu / phụ thuộc |
 |---|---|---|
-| A0. Xác định phạm vi | Brief người dùng, mục tiêu dự án, công cụ/OS, hosting, nguồn lực | Một nhu cầu rõ và bài mẫu đầu tiên có nguồn; giả thuyết ghi minh bạch |
-| A1. Thiết kế | Prototype 4 màn hình và luồng điều kiện đầu vào tới kết quả | Thử với nhóm đầu, sửa lỗi chặn; chưa cần credential Gemini |
+| A0. Xác định phạm vi | Brief nhiệm vụ 5.1; chọn công cụ/OS sau nhiệm vụ; khảo sát hosting/nguồn lực | Brief có đầu ra/checklist, một sản phẩm và hướng dẫn mẫu; ghi giờ làm và quyết định còn mở |
+| A1. Thiết kế | Prototype 4 template bằng nội dung thật; chốt scope A, dictionary 9.1 và trạng thái 9.3 | Thử tìm/chọn và thực hành, hiểu CTA/phạm vi search, sửa lỗi chặn; chưa cần Gemini |
 | A2. Xây bản đọc/nhập tay | Theme/plugin, field nguồn, tìm/lọc tối thiểu, bài thực hành | Bài có checklist/validation; truy vấn và quyền nhập tay hoạt động |
 | A3. Mở thử A | Staging thật, backup/restore, nội dung, một kênh tiếp cận | Có thể mở thử độc lập với collector, Gemini và pilot 7 ngày |
 | A4. Học từ mở thử | Quan sát hoàn thành, lỗi, công duyệt/bảo trì và nhu cầu tiếp theo | Quyết định giữ/thu hẹp/đổi phạm vi trước đầu tư B |
@@ -967,6 +1137,8 @@ công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàn
 7 ngày công bổ sung hoặc điều kiện để mở thử A.
 
 Nghiệm thu A (kèm checklist catalog ở mục 7.7):
+- Hoàn tất field dictionary/payload/preview 9.1; thử trạng thái kết hợp 9.3 và dependency 9.2. Tìm tài nguyên và tìm hướng dẫn có phạm vi rõ; nguồn sửa tay không mất khi nhập lại.
+- Bài mẫu tái thử từ môi trường mới với revision đã ghi; nếu không ghim được phải thể hiện giới hạn. Đo công để dự toán, không tự xác nhận đã đạt khi chỉ hoàn tất tài liệu.
 - Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
 - Danh mục e-commerce có CTA trực tiếp đúng repo, title/link chi tiết riêng; không cần key, không có giỏ hàng hoặc checkout.
 - Luồng đọc -> đủ điều kiện -> cài/khởi tạo -> kiểm tra sẵn sàng -> thực hành -> checklist -> bước tiếp hoạt động; ghi trợ giúp. Người thử nhập môn chưa từng cài công cụ.
@@ -1054,6 +1226,25 @@ crawler đọc noindex; không coi canonical là cách che mọi nội dung khá
 Tác giả, ngày thử/sửa, nguồn và ảnh có alt hữu ích; không nhồi từ khóa hoặc tự gắn nhãn
 miễn phí/tốt nhất/dễ cài nếu thiếu phạm vi và căn cứ.
 
+### 15.3. Cụm nội dung và phép thử phân phối đầu tiên
+
+Chuẩn bị một cụm quanh nhiệm vụ ở 5.1: lựa chọn/chuẩn bị -> hướng dẫn chính -> trang
+repo/skill thực sự cần -> lỗi thường gặp hoặc biến thể áp dụng. Mỗi bài có đầu vào,
+đầu ra mẫu, nguồn, phạm vi và CTA tới bước phù hợp. Số bài theo nhu cầu thực, không
+xuất bản thêm để đạt quota SEO. Tin nóng không lấn hết giờ bảo trì bài nhập môn.
+
+Trước mở thử A có brief phân phối: một kênh đã sở hữu/được phép; đối tượng; nội dung
+giới thiệu và ảnh kết quả có quyền; trang đích; cách tuyển người thử; người nhận
+phản hồi và mốc hỏi lại. Kênh, người phụ trách, thời gian và chi phí vẫn cần chốt;
+không mặc định đã được quyền đăng/gửi chỉ vì cập nhật plan. Chưa lập lịch tự đăng,
+newsletter hoặc nhắn tin ra ngoài.
+
+Ghi nguồn giới thiệu ở mức phù hợp quyền riêng tư; đo tìm/chọn/truy cập nguồn và
+bắt đầu/hoàn thành thực hành riêng. Phép thử phân phối đo có tiếp cận đúng người;
+usability đo có dùng được; pilot B đo pipeline. Không dùng traffic hoặc pilot 7
+ngày thay cả ba. Đối chiếu vài tài nguyên cùng nhiệm vụ với nguồn gốc/directory/
+video/AI để ghi rõ website bổ sung gì; chưa có kết quả thì giữ là giả thuyết lợi thế.
+
 ## 16. Đề xuất thứ tự bắt đầu và điều cần chốt
 
 Bắt đầu bằng brief một trang, một bài thực hành mẫu và prototype bốn màn hình: trang
@@ -1078,8 +1269,43 @@ hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các v
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.8 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.9 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
+
+### 16.1. Truy vết rà soát 1.8 và đầu việc kế tiếp
+
+Các khuyến nghị đã được tích hợp như yêu cầu kế hoạch; nhiệm vụ/công cụ/OS, người
+trực, ngân sách, kênh và provider/model còn mở ở trên không tự trở thành quyết định.
+
+| Khuyến nghị | Vị trí tích hợp |
+|---|---|
+| Miễn phí nhất quán, bỏ khóa học trả phí | 5 |
+| Một kết quả đầu tiên và scope A thực tế | 5.1, 14 |
+| Readiness riêng độ phổ biến/đã thử | 6.1 |
+| Revision thực sự cài và bài phụ thuộc | 6.1, 9.2 |
+| Hợp đồng dữ liệu nhập tay A | 9.1 |
+| Trạng thái kết hợp/CTA nhất quán | 9.3 |
+| Đọc nhanh, phạm vi tìm kiếm, prototype thật | 7.8 |
+| AI hiệu quả, input riêng tư và chống gọi trùng | 10.4 |
+| Vận hành trong giới hạn | 11.5 |
+| Cụm nội dung, kênh và đo phân phối | 15.3 |
+| Phạm vi truy vấn GitHub và checkpoint khi vượt cửa sổ | 11.1 |
+
+Backlog khởi động theo vai trò; tên người và thời hạn chưa gán. Mỗi dòng là đầu ra
+cần làm, không phải chứng nhận đã hoàn tất:
+
+| Đầu việc | Vai trò phụ trách | Phụ thuộc | Tiêu chí xong |
+|---|---|---|---|
+| Brief nhiệm vụ, công cụ/OS và nguồn lực | Chủ dự án + biên tập | Lựa chọn còn mở mục 16 | Brief 5.1 được chốt; thông tin hosting có bằng chứng |
+| Một sản phẩm và hướng dẫn mẫu | Biên tập + kỹ thuật | Brief | Nguồn, revision, checklist; chạy từ môi trường mới, đo công |
+| Scope A, schema/payload và trạng thái | Kỹ thuật + biên tập | Nội dung mẫu | Mapping field/quyền/preview và ca unknown/dependency/CTA được chốt |
+| Prototype và thử người mới | Thiết kế + biên tập | Nội dung/schema mẫu | Chủ/danh mục/chi tiết/hướng dẫn; sửa lỗi chặn tìm/chọn/thực hành |
+| Xây A và diễn tập phát hành | Kỹ thuật | Prototype, hosting, scope | Checklist A + staging/restore/deploy đạt, dữ liệu gốc được giữ |
+| Gói mở thử một kênh | Chủ dự án + nội dung | Cụm nội dung và quyền kênh | Brief 15.3, người nhận phản hồi và tiêu chí đánh giá đã chốt |
+| Quyết định mở B và U riêng | Chủ dự án + kỹ thuật/biên tập | Kết quả A, công suất/budget | B đạt cổng pipeline; U đạt cổng hữu ích/an toàn, không tự gộp |
+
+Không chốt lịch launch hoặc mua hạ tầng/model trước khi có các phép đo cần thiết;
+khảo sát, nội dung mẫu và prototype vẫn có thể tiến hành với giả thuyết được ghi rõ.
 
 ## 17. Nguồn tham chiếu
 
@@ -1133,6 +1359,9 @@ https://www.w3.org/WAI/tutorials/menus/multiple-ways/
 
 [S17] Google — Product structured data, điều kiện dùng theo loại trang:
 https://developers.google.com/search/docs/appearance/structured-data/product
+
+[S18] GitHub — REST Search, giới hạn kết quả mỗi truy vấn:
+https://docs.github.com/en/rest/search/search
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
