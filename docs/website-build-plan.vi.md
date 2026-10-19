@@ -37,7 +37,7 @@ là bằng chứng tương thích đầy đủ với hosting.
 Quyết định và giả định lập kế hoạch:
 - Đã chốt với chủ website: người mới hoàn toàn, chưa biết cài công cụ, là độc giả ưu tiên của bản đầu. Không giả định đã biết Git, terminal, API key hoặc đã có agent.
 - Người đã dùng agent và người biết code tìm skill là nhóm mở rộng; vẫn có trang Khám phá, nhưng hành trình nhập môn được ưu tiên.
-- Bài mở đầu bắt buộc có chọn công cụ, yêu cầu, tài khoản, cài và kiểm tra lần đầu. Kết quả thực hành đầu tiên, công cụ và OS chưa chốt; trang giới thiệu local chỉ là một phương án. Không mặc định cả ba agent đều được kiểm chứng.
+- Bài mở đầu bắt buộc có chọn công cụ, yêu cầu, tài khoản, cài và kiểm tra lần đầu. S00 đã chốt bài đầu là landing page sản phẩm/dịch vụ, dùng Codex trên Windows; nội dung sản phẩm cụ thể chốt khi làm mẫu. Không mặc định cả ba agent đều được kiểm chứng.
 - Nhóm phụ: người làm nội dung, giảng viên, marketer và developer muốn tìm công cụ nhanh.
 - Đã chốt: website hoàn toàn miễn phí cho người dùng; không paywall, gói thành viên trả phí hoặc bán lượt AI. Dịch vụ API/công cụ bên ngoài có điều kiện và chi phí riêng.
 - Đã chốt: người muốn dùng tính năng AI của website tự kết nối API riêng (BYOK). Đọc nội dung, tìm tài nguyên và học theo hướng dẫn không bắt buộc nhập key.
@@ -226,8 +226,8 @@ Website miễn phí ở mọi giai đoạn; khóa học trả phí, paywall và 
 Đầu tiên lập brief một nhiệm vụ: người dùng -> việc muốn làm -> thiết bị/OS -> tài
 khoản/ngân sách -> đầu ra quan sát được -> checklist -> bước tiếp. Ưu tiên nhiệm vụ
 ít dependency, hoàn thành được với người chưa từng cài công cụ; chọn công cụ/OS sau
-nhiệm vụ. Kết quả đầu tiên vẫn chưa chốt. Trang giới thiệu chỉ là ứng viên, không
-phải quyết định được mặc định bằng việc cập nhật kế hoạch.
+nhiệm vụ. S00 đã chốt kết quả landing page sản phẩm/dịch vụ và Codex trên Windows.
+Nội dung/đề bài sản phẩm cụ thể còn mở, không tự thay bằng trang cá nhân.
 
 Làm một trang sản phẩm và một hướng dẫn thực tế trước khi nhân nội dung. Mẫu phải
 bao phủ chuẩn bị, kiểm tra môi trường, đầu ra, một thay đổi/sửa lỗi và điểm khôi phục.
@@ -1347,15 +1347,15 @@ buộc ngay cả ở nội dung nhập tay.
 chọn phân khúc này trừ khi chủ website muốn đổi.
 
 Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
-1. Kết quả đầu tiên người mới muốn làm: website nhỏ, tài liệu hoặc tác vụ khác; cần bàn tiếp.
-2. Công cụ và OS ưu tiên chưa chốt. Trang giới thiệu local là một phương án, không phải quyết định cuối.
+1. Sản phẩm/dịch vụ và nội dung minh họa cụ thể cho landing page. Kết quả landing page, Codex và Windows đã được chủ dự án chốt ở S00.
+2. Quyền cài/chạy, tài khoản công cụ và điều kiện của người học mẫu; không suy từ môi trường chủ dự án rằng mọi người học đều sẵn sàng.
 3. Tên VibeLab Việt và domain dài hạn; hiện giữ store.vneconomics.com để tiếp tục thử.
 4. Mục tiêu cộng đồng/uy tín/dịch vụ, giờ duyệt–bảo trì mỗi tuần, người trực và trần AI.
 5. Một kênh tiếp cận nhóm đầu và tiêu chí quyết định tiếp tục sau thử người dùng.
 6. Hai tác vụ AI đã chốt; còn provider/model hỗ trợ và thời điểm phát hành BYOK. Lưu key lâu dài chưa được chọn, mặc định đề xuất không lưu. Phạm vi ảnh/URL ngoài thư viện còn mở, chưa đưa vào bản đầu mặc định.
 
-Người dùng chính đã chốt; thảo luận tiếp theo thứ tự việc đầu -> công cụ/OS -> công suất/kênh -> thương
-hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
+Người dùng chính, việc đầu và công cụ/OS đã chốt; thảo luận tiếp về nội dung mẫu,
+công suất/kênh rồi thương hiệu khi cần, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
@@ -1364,8 +1364,8 @@ không yêu cầu gửi bí mật trong chat. Plan 1.10 chưa tạo lịch chạ
 
 ### 16.1. Truy vết rà soát 1.8–1.9 và đầu việc kế tiếp
 
-Các khuyến nghị đã được tích hợp như yêu cầu kế hoạch; nhiệm vụ/công cụ/OS, người
-trực, ngân sách, kênh và provider/model còn mở ở trên không tự trở thành quyết định.
+Các khuyến nghị đã được tích hợp như yêu cầu kế hoạch; nhiệm vụ/công cụ/OS đã chốt ở S00; nội dung sản phẩm mẫu, người
+trực, giờ/tuần, ngân sách, kênh và provider/model còn mở không tự trở thành quyết định.
 
 | Khuyến nghị | Vị trí tích hợp |
 |---|---|
@@ -1427,7 +1427,7 @@ Nội dung lấy câu hỏi/thuật ngữ/lỗi thật từ quan sát người m
 chỉ dùng dữ liệu được phép và không công khai thông tin riêng. Tìm/lọc/sắp xếp/nhãn
 vẫn dựa dữ liệu biên tập. Chưa thêm AI cho mọi thao tác, agent tự điều khiển máy,
 semantic search hoặc RAG lớn để thay việc thử mẫu. Không cần một vòng mở rộng tính
-năng mới trước khi có bằng chứng thực tế; nhiệm vụ/OS/provider/kênh còn mở ở mục 16
+năng mới trước khi có bằng chứng thực tế; nội dung mẫu/provider/kênh còn mở ở mục 16
 vẫn cần chốt khi tới bước liên quan, không được xem là đã chọn do im lặng.
 ## 17. Nguồn tham chiếu
 
@@ -1490,3 +1490,5 @@ https://developer.wordpress.org/rest-api/reference/posts/
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
+
+Cập nhật S00 ngày 19/10/2026: [brief thực thi](S00-implementation-brief.vi.md) và [báo cáo khảo sát](acceptance/S00-brief-and-conditions.vi.md). Chưa cho phép S01.

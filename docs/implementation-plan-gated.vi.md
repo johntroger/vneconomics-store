@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: CHỜ DUYỆT KẾ HOẠCH; chưa bắt đầu bước triển khai nào trong tài liệu này.
+Trạng thái: S00 đã được cho phép và lập đầu ra; chờ chủ dự án nghiệm thu. S01 và các bước sau chưa được phép bắt đầu.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -84,7 +84,7 @@ release/codex-deploy-check hiện có cho bằng chứng kết nối.
 
 ## 4. Các bước của bản A
 
-Tất cả bước dưới đây CHƯA BẮT ĐẦU. Mỗi hàng là một gate độc lập, không phải một lệnh
+S00 có brief/báo cáo chờ nghiệm thu; các bước còn lại CHƯA BẮT ĐẦU. Mỗi hàng là một gate độc lập, không phải một lệnh
 cho phép thực hiện liên tiếp. Bước lớn phát hiện không thể nghiệm thu rõ phải chia
 nhỏ và xin duyệt phạm vi mới trước khi làm thêm.
 
@@ -150,8 +150,9 @@ B04; tài liệu hiện tại không tạo automation.
 
 ## 7. Mốc hiện tại và hành động chờ duyệt
 
-- Kế hoạch này: đã soạn; chưa duyệt triển khai S00.
-- S00–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU.
-- Chưa tạo source theme/plugin, test nghiệp vụ, automation hoặc nhánh deploy trong lượt này.
-- Khi chủ dự án duyệt kế hoạch và nói bắt đầu S00, chỉ làm brief/khảo sát S00, báo
-  kết quả và dừng. Chỉ bắt đầu S01 khi có sự đồng ý tiếp theo.
+- S00: đã được chủ dự án cho phép, đã lập [brief](S00-implementation-brief.vi.md)
+  và [báo cáo](acceptance/S00-brief-and-conditions.vi.md); chờ nghiệm thu.
+- Đã chốt trong S00: landing page sản phẩm/dịch vụ; Codex trên Windows; giờ/tuần chưa xác định.
+- S01–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- Chưa tạo source theme/plugin, chạy runtime test, automation hoặc nhánh deploy ở S00.
+- Chỉ bắt đầu S01 khi chủ dự án đồng ý rõ ràng sau báo cáo S00.
