@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.9 — tích hợp rà soát AI, vibe coding, kiến trúc, UX e-commerce và content marketing.
+Ngày: 19/10/2026. Phiên bản: 1.10 — hoàn thiện hợp đồng trạng thái, bản sửa, cache và cổng phát hành; ưu tiên kiểm chứng mẫu thật.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -19,7 +19,7 @@ headless, vector database, chatbot tổng quát, tài khoản thành viên hay t
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
-Bản 1.9 tích hợp khuyến nghị từ docs/website-plan-review-v1.8.vi.md; mục 16.1 ghi vị trí áp dụng. Bản 1.2 trước đây tích hợp docs/website-plan-review.vi.md. Những lựa chọn còn mở về
+Bản 1.10 tích hợp docs/website-plan-review-v1.9.vi.md; bản 1.9 tích hợp docs/website-plan-review-v1.8.vi.md. Mục 16.1 ghi vị trí áp dụng. Bản 1.2 trước đây tích hợp docs/website-plan-review.vi.md. Những lựa chọn còn mở về
 bài mở đầu, thương hiệu và nguồn lực ghi là giả thuyết, không phải quyết định người dùng đã chốt.
 
 ## 2. Hiện trạng và giả định
@@ -692,27 +692,94 @@ A quản lý quan hệ và cập nhật cảnh báo bằng thao tác biên tập
 thay đổi và gắn cờ theo quyền vận hành đã giới hạn. Khi triển khai U, ngữ cảnh phải
 lấy đúng guide revision và cảnh báo dependency, không lấy một bài cũ chỉ vì cùng slug.
 
-### 9.3. Trạng thái kết hợp và ưu tiên hiển thị
+### 9.3. Trạng thái kết hợp, thẩm quyền và ưu tiên hiển thị
 
-Tách publication_status (draft/published/hidden), source_status (available/unknown/
-unavailable/archived), validation_status (not_tested/tested/review_needed) và
-recommendation_status (normal/suspended). Tên enum là hợp đồng đề xuất để chốt trước
-code; không dùng một field duy nhất vừa biểu diễn đã thử vừa biểu diễn nguồn.
+Tách source_access_status (available/unknown/unavailable) khỏi maintenance_status
+(active/archived/unknown), có nguồn/ngày quan sát riêng. Một repo có thể vừa archived
+vừa unavailable; không làm mất thông tin khi đổi trạng thái truy cập. Chưa archived
+không đồng nghĩa có người đang duy trì tích cực. validation_status dùng not_tested/
+tested/review_needed; recommendation_status dùng normal/suspended.
+
+Trạng thái xuất bản dùng WordPress post_status làm nguồn sự thật: publish là công
+khai; draft/pending/future/private/trash không xuất hiện trong catalog/API công khai.
+Hidden là hành động thu hồi khỏi công khai, ánh xạ sang private ở A; không tạo thêm
+một publication_status ghi độc lập. Mọi truy cập riêng vẫn theo capability WordPress;
+private không có nghĩa đã xóa dữ liệu. API trả derived is_public khi cần; không gửi
+published/hidden vào core như thể đó là enum sẵn có [S19].
+
+Plugin vne-library-core là nơi suy trạng thái chuẩn từ bản đã duyệt, dữ kiện nguồn
+và cờ vận hành được phép. API công khai trả badge/cảnh báo/loại CTA đã suy ra theo
+schema có version; theme dùng cùng resolver của plugin. Collector gửi dữ kiện theo
+quyền, không tự quyết định nhãn; AI chỉ sử dụng trạng thái chuẩn trong ngữ cảnh, không
+được thay đổi hoặc nâng mức xác nhận. Trước U phải chốt hợp đồng truyền trạng thái,
+không viết lại logic độc lập trong prompt/Node.
 
 | Điều kiện ưu tiên | Badge/cảnh báo và đề xuất | CTA |
 |---|---|---|
-| Không published | Không xuất hiện qua trang/API/tìm kiếm công khai | Không có CTA công khai |
+| post_status khác publish | Không xuất hiện qua catalog/API/tìm kiếm công khai | Không có CTA công khai |
 | Suspended dù trước đây tested | Tạm ngừng khuyến nghị, lý do; loại khỏi đề xuất | Xem lý do/thay thế; nguồn phụ khi phù hợp |
-| Nguồn unavailable đã xác minh | Nguồn không truy cập được, ngày kiểm tra; không đề xuất | Chi tiết giải thích, không nút nguồn hỏng |
+| Access unavailable đã xác minh | Nguồn không truy cập được, ngày kiểm tra; không đề xuất | Chi tiết giải thích, không nút nguồn hỏng |
 | Review_needed hoặc dependency quá hạn | Cần kiểm tra lại; giữ lịch sử thử; không badge xanh đơn lẻ | Có thể mở nguồn còn hợp lệ, khối lệnh tùy rủi ro |
-| Archived với nguồn còn hợp lệ | Hiện archived; biên tập quyết định duy trì/giảm/ngừng đề xuất có lý do | Mở nguồn trừ khi đã suspended |
-| Tested hiện hành, normal, nguồn hợp lệ | Đã thử kèm môi trường/ngày; được xem xét đề xuất | Truy cập repo |
-| Not_tested hoặc nguồn unknown tạm thời | Chưa thử/chưa xác minh trạng thái hiện tại; không bịa dữ kiện | Giữ URL đã xác minh trước nếu không có dấu hiệu rủi ro; giải thích giới hạn |
+| Maintenance archived, access available | Hiện archived; biên tập quyết định duy trì/giảm/ngừng đề xuất có lý do | Mở nguồn trừ khi đã suspended |
+| Tested hiện hành, normal, access available | Đã thử kèm môi trường/ngày; được xem xét đề xuất | Truy cập repo |
+| Not_tested hoặc access unknown tạm thời | Chưa thử/chưa xác minh truy cập hiện tại; không bịa dữ kiện | Giữ URL đã xác minh trước nếu không có dấu hiệu rủi ro; giải thích giới hạn |
 
-Hàng cao hơn ưu tiên hơn khi trùng điều kiện; archived vẫn có cảnh báo phụ khi cần
-rà soát. Nguồn unknown do lỗi/rate limit không tự chuyển unavailable. Thẻ, chi tiết,
-bộ lọc, preview và AI dùng chung hàm suy trạng thái; override biên tập có ghi lý do,
-ngày và người sửa. Mọi tổ hợp reachable phải có ca thử trước publish.
+Hàng cao hơn quyết định badge chính/CTA khi trùng điều kiện; các cảnh báo phụ vẫn
+được giữ, kể cả archived + unavailable hoặc archived + review_needed. Access unknown
+do lỗi/rate limit không tự chuyển unavailable. Unknown về truy cập không xóa lịch
+sử validation đã thử; không dùng badge chưa thử để thay trạng thái truy cập chưa rõ.
+
+Fixture chung xác định đầu vào và kết quả resolver cho template/API/ngữ cảnh U;
+bao phủ tổ hợp reachable, cảnh báo phụ, quyền và CTA. Override biên tập có lý do,
+ngày và người sửa; không vượt quy tắc ẩn bài hoặc tự nâng validation. Khi trạng thái
+đổi, áp dụng hợp đồng cache 9.5 để bản công khai không tiếp tục hiển thị nhãn cũ.
+
+### 9.4. Bản duyệt và bản sửa chờ duyệt
+
+Một resource/guide có ID và URL công khai ổn định; nội dung hiển thị lấy từ revision
+đã duyệt. Bản sửa chờ duyệt lưu proposed_revision, base_revision và trường thay đổi;
+không sửa bài đang công khai hoặc đổi bài gốc về draft chỉ để giữ đề xuất AI. Không
+tạo hai sản phẩm/URL công khai cho hai revision. Field dictionary 9.1 phải ánh xạ
+cấu trúc này vào cơ chế lưu A trước code; chưa bắt buộc một bảng hoặc workflow engine mới.
+
+Quy trình: tạo đề xuất từ base_revision -> preview thẻ/chi tiết -> duyệt hoặc bỏ.
+Khi áp dụng, kiểm tra base_revision còn trùng approved_revision hiện tại; nếu biên
+tập đã sửa bài, yêu cầu đối chiếu thay đổi, không ghi đè. Bước áp dụng kiểm tra quyền
+và version ngay tại thời điểm ghi, giữ lịch sử và ngăn hai lần duyệt chồng nhau.
+A có thể quản lý đề xuất thủ công; B nhập AI vào cùng hợp đồng và không được tự duyệt.
+
+Public API chỉ trả bản duyệt và cờ vận hành công khai; preview bản sửa yêu cầu quyền,
+không public-cache/index. Cờ an toàn/cần rà soát theo 11.2 có thể hiển thị ngay trong
+khi nội dung sửa còn chờ; đây không phải quyền tự thay nội dung đã duyệt. Nếu cờ đã
+đổi từ lúc tạo draft, duyệt draft không tự xóa cờ mới; chỉ người có quyền xử lý với
+bằng chứng tương ứng mới khôi phục nhãn. Hủy đề xuất không làm mất bản công khai.
+
+Nghiệm thu trước B: nhập lại không nhân resource; sửa tay khi draft đang chờ không
+bị mất; hai người duyệt không ghi đè; preview khác public đúng quyền; áp dụng revision
+mới cập nhật trạng thái/nguồn/cache, không làm đổi URL hoặc tự xác nhận validation.
+
+### 9.5. Cache công khai và thời điểm cảnh báo có hiệu lực
+
+Khảo sát cache thật trên hosting: trang, object, plugin/server hoặc CDN nếu có;
+không mặc định hệ thống đang dùng bất kỳ tầng nào. Ghi TTL/cách purge/phạm vi và
+người vận hành. Không cần thêm nền tảng cache mới cho A.
+
+Khi publish/thu hồi bài, áp dụng revision, đổi trạng thái nguồn/khuyến nghị hoặc
+cảnh báo dependency: làm mới các view liên quan đang cache, gồm chi tiết, thẻ trên
+trang chủ/danh mục/kết quả tìm, API và bài phụ thuộc. Dùng cùng thay đổi trạng thái
+chuẩn, không purge một trang rồi coi toàn bộ website đã cập nhật.
+
+A có thể purge thủ công có checklist và xác nhận bản công khai; B mới tự động theo
+cùng rule. Trước phát hành cấu hình mức trễ chấp nhận được, TTL/bypass và cách báo
+lỗi purge phù hợp các tầng thực có. Nếu purge thất bại với cảnh báo quan trọng,
+ghi sự cố và áp dụng bypass/tạm ngừng phần bị ảnh hưởng hoặc biện pháp đã diễn tập;
+không báo cảnh báo đã có hiệu lực khi chưa xác nhận. Không khôi phục đề xuất chỉ vì
+hết TTL, vẫn cần quyết định biên tập. BYOK/preview tiếp tục không public-cache.
+
+Nghiệm thu: làm nóng cache rồi đổi cảnh báo/ngừng khuyến nghị/thu hồi bài; kiểm tra
+cả detail, danh mục/trang chủ, API và guide liên quan; mô phỏng purge thất bại rồi
+khôi phục. Giữ bằng chứng thời điểm thay đổi và thời điểm các view cập nhật; giá trị
+TTL/mức trễ chỉ chốt sau khảo sát, không hứa realtime khi chưa có cơ chế.
 
 ## 10. AI và Việt hóa
 
@@ -1108,10 +1175,27 @@ Khôi phục mã bằng bản phát hành trước; rollback database chỉ theo
 Thử quy trình backup/restore trên staging trước lần launch đầu. Dọn fixture/cache đúng
 bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói phát hành.
 
+### 13.1. Cổng xác nhận từng thành phần phát hành
+
+Thứ tự cập nhật Git ref không bảo đảm thứ tự Plesk triển khai xong. Cổng phát hành:
+1. Build/kiểm tra cả hai payload từ cùng source_sha, xác nhận manifest và cặp tương thích.
+2. Cập nhật ref plugin; đợi Plesk hoàn tất, xác nhận plugin đang chạy đúng phiên bản,
+   schema/migration theo quy trình và smoke check cần thiết trên môi trường đích.
+3. Chỉ khi bước 2 đạt mới cập nhật ref theme; đợi hoàn tất, xác nhận phiên bản và
+   kiểm tra trang chủ/danh mục/chi tiết/hướng dẫn cùng trạng thái và CTA.
+4. Xác nhận cache theo 9.5, lưu manifest/bằng chứng; lỗi hoặc quá hạn bước nào thì
+   dừng bước sau, không coi push/webhook thành công là deploy thành công.
+
+Diễn tập staging gồm plugin chậm/lỗi, theme chưa triển khai, một gói thành công và
+mất xác nhận. Khôi phục cặp tương thích đã thử theo 13; không tự rollback database
+nếu chỉ khôi phục file. Cách đọc trạng thái Plesk, xác nhận version và timeout phải
+chọn khi khảo sát quyền/hạ tầng. Có thể bắt đầu bằng checklist thủ công; chỉ tự động
+hóa cổng đã kiểm chứng, không cần xây hệ deploy mới trước A. Chưa đổi ref/đích deploy
+hoặc bật workflow phát hành bằng việc cập nhật tài liệu này.
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.9; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.10; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -1137,7 +1221,7 @@ công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàn
 7 ngày công bổ sung hoặc điều kiện để mở thử A.
 
 Nghiệm thu A (kèm checklist catalog ở mục 7.7):
-- Hoàn tất field dictionary/payload/preview 9.1; thử trạng thái kết hợp 9.3 và dependency 9.2. Tìm tài nguyên và tìm hướng dẫn có phạm vi rõ; nguồn sửa tay không mất khi nhập lại.
+- Hoàn tất field dictionary/payload/preview 9.1; thử trạng thái kết hợp 9.3, dependency 9.2, bản sửa/quyền 9.4 và cache đã làm nóng/purge lỗi 9.5. Tìm tài nguyên và tìm hướng dẫn có phạm vi rõ; nguồn sửa tay không mất khi nhập lại.
 - Bài mẫu tái thử từ môi trường mới với revision đã ghi; nếu không ghim được phải thể hiện giới hạn. Đo công để dự toán, không tự xác nhận đã đạt khi chỉ hoàn tất tài liệu.
 - Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
 - Danh mục e-commerce có CTA trực tiếp đúng repo, title/link chi tiết riêng; không cần key, không có giỏ hàng hoặc checkout.
@@ -1149,7 +1233,7 @@ Nghiệm thu A (kèm checklist catalog ở mục 7.7):
 - Mục tiêu lab LCP <=2.5s, CLS <=0.1; không lỗi console chặn tác vụ. INP/field data đo
   sau khi có traffic; không hứa điểm PageSpeed cố định.
 - Chính sách index/sitemap/URL rõ, nguồn truy cập thử được ghi phù hợp, không fingerprint.
-- Staging PHP/MySQL thật, backup/restore và deploy thành phần được diễn tập; không ghi
+- Staging PHP/MySQL thật, backup/restore và cổng xác nhận deploy từng thành phần 13.1 được diễn tập; không ghi
   đè database production từ local, không lộ credential trong Git/log/bằng chứng.
 
 Nghiệm thu B bổ sung:
@@ -1269,10 +1353,10 @@ hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các v
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.9 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.10 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
-### 16.1. Truy vết rà soát 1.8 và đầu việc kế tiếp
+### 16.1. Truy vết rà soát 1.8–1.9 và đầu việc kế tiếp
 
 Các khuyến nghị đã được tích hợp như yêu cầu kế hoạch; nhiệm vụ/công cụ/OS, người
 trực, ngân sách, kênh và provider/model còn mở ở trên không tự trở thành quyết định.
@@ -1290,6 +1374,11 @@ trực, ngân sách, kênh và provider/model còn mở ở trên không tự tr
 | Vận hành trong giới hạn | 11.5 |
 | Cụm nội dung, kênh và đo phân phối | 15.3 |
 | Phạm vi truy vấn GitHub và checkpoint khi vượt cửa sổ | 11.1 |
+| Trạng thái truy cập/archived độc lập; plugin là nguồn chuẩn; mapping WordPress | 9.3 |
+| Bản duyệt/bản sửa và chống ghi đè sửa tay | 9.4 |
+| Cache cảnh báo/thu hồi bài và xác nhận hiệu lực | 9.5 |
+| Đợi/xác nhận plugin trước cập nhật theme | 13.1 |
+| Khóa scope A, ngưỡng thử và ưu tiên mẫu thật | 16.2 |
 
 Backlog khởi động theo vai trò; tên người và thời hạn chưa gán. Mỗi dòng là đầu ra
 cần làm, không phải chứng nhận đã hoàn tất:
@@ -1298,7 +1387,7 @@ cần làm, không phải chứng nhận đã hoàn tất:
 |---|---|---|---|
 | Brief nhiệm vụ, công cụ/OS và nguồn lực | Chủ dự án + biên tập | Lựa chọn còn mở mục 16 | Brief 5.1 được chốt; thông tin hosting có bằng chứng |
 | Một sản phẩm và hướng dẫn mẫu | Biên tập + kỹ thuật | Brief | Nguồn, revision, checklist; chạy từ môi trường mới, đo công |
-| Scope A, schema/payload và trạng thái | Kỹ thuật + biên tập | Nội dung mẫu | Mapping field/quyền/preview và ca unknown/dependency/CTA được chốt |
+| Scope A, schema/payload và trạng thái | Kỹ thuật + biên tập | Nội dung mẫu | Mapping field/quyền/preview, bản sửa, cache và ca unknown/dependency/CTA được chốt |
 | Prototype và thử người mới | Thiết kế + biên tập | Nội dung/schema mẫu | Chủ/danh mục/chi tiết/hướng dẫn; sửa lỗi chặn tìm/chọn/thực hành |
 | Xây A và diễn tập phát hành | Kỹ thuật | Prototype, hosting, scope | Checklist A + staging/restore/deploy đạt, dữ liệu gốc được giữ |
 | Gói mở thử một kênh | Chủ dự án + nội dung | Cụm nội dung và quyền kênh | Brief 15.3, người nhận phản hồi và tiêu chí đánh giá đã chốt |
@@ -1307,6 +1396,33 @@ cần làm, không phải chứng nhận đã hoàn tất:
 Không chốt lịch launch hoặc mua hạ tầng/model trước khi có các phép đo cần thiết;
 khảo sát, nội dung mẫu và prototype vẫn có thể tiến hành với giả thuyết được ghi rõ.
 
+### 16.2. Chuyển sang kiểm chứng, không mở rộng module mặc định
+
+Bản 1.10 đủ làm tham chiếu để bắt đầu A0/A1; không coi kế hoạch là bằng chứng tính
+năng đã xây/đạt. Việc kế tiếp theo thứ tự: brief nhiệm vụ/tool/OS + khảo sát hosting/
+nguồn lực -> một sản phẩm và bài thực hành thật -> chốt schema/trạng thái/bản sửa/
+cache tối thiểu -> prototype bốn template -> thử người mới/sửa lỗi chặn -> ước lượng
+và khóa scope A -> xây, staging, diễn tập phát hành, mở thử cùng một cụm nội dung/kênh.
+
+Tạo brief thực thi ngắn tham chiếu các mục plan, ghi phải làm/chưa làm, phụ thuộc,
+người phụ trách và bằng chứng xong; không nhân toàn bộ plan sang nhiều tài liệu.
+Trước code A khóa phiên bản phạm vi và điều kiện hoàn tất sau vòng mẫu/prototype.
+Thay đổi mới chỉ vào A khi sửa lỗi chặn hoặc có bằng chứng cần thiết, kèm đánh giá
+công/phụ thuộc; module mở rộng còn lại xếp sau. Giữ danh mục/chi tiết/CTA trực tiếp,
+miễn phí và các yêu cầu chất lượng, không coi khóa scope là lý do bỏ chúng.
+
+Trước từng phép thử điền: ai thử, nhiệm vụ, môi trường, trợ giúp được phép, đầu ra,
+lỗi chặn, giới hạn giờ/tiền và quyết định khi không đạt. Dùng kết quả mẫu để chốt
+ngưỡng thực tế, không thêm KPI tùy ý hoặc cam kết tỷ lệ/traffic chưa có dữ liệu.
+Tách tìm/chọn, chuẩn bị/thực hành, benchmark AI và phân phối; tiếp tục A hoặc thu
+hẹp nếu chưa đủ công suất/giá trị để mở B/U. U giữ cổng an toàn và hữu ích riêng.
+
+Nội dung lấy câu hỏi/thuật ngữ/lỗi thật từ quan sát người mới để hoàn thiện cụm 15.3;
+chỉ dùng dữ liệu được phép và không công khai thông tin riêng. Tìm/lọc/sắp xếp/nhãn
+vẫn dựa dữ liệu biên tập. Chưa thêm AI cho mọi thao tác, agent tự điều khiển máy,
+semantic search hoặc RAG lớn để thay việc thử mẫu. Không cần một vòng mở rộng tính
+năng mới trước khi có bằng chứng thực tế; nhiệm vụ/OS/provider/kênh còn mở ở mục 16
+vẫn cần chốt khi tới bước liên quan, không được xem là đã chọn do im lặng.
 ## 17. Nguồn tham chiếu
 
 [S1] WordPress — Registering Custom Post Types:
@@ -1362,6 +1478,9 @@ https://developers.google.com/search/docs/appearance/structured-data/product
 
 [S18] GitHub — REST Search, giới hạn kết quả mỗi truy vấn:
 https://docs.github.com/en/rest/search/search
+
+[S19] WordPress — REST API Posts, trạng thái xuất bản:
+https://developer.wordpress.org/rest-api/reference/posts/
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
