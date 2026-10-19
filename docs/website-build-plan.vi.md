@@ -1,12 +1,12 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.5 — chốt AI hỗ trợ bài thực hành và giải thích tài nguyên theo nhu cầu.
+Ngày: 19/10/2026. Phiên bản: 1.6 — danh mục repo/skill kiểu e-commerce, CTA dẫn thẳng repo.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
 ## 1. Tóm tắt quyết định
 
-Xây một thư viện tuyển chọn kết hợp hướng dẫn thực hành tiếng Việt. Lời hứa sản phẩm:
+Xây một danh mục repo/skill được tuyển chọn, trình bày kiểu e-commerce, kết hợp hướng dẫn thực hành tiếng Việt. Mỗi tài nguyên là một thẻ giới thiệu; CTA chính dẫn thẳng repo gốc. Lời hứa sản phẩm:
 **Tìm công cụ phù hợp, hiểu cách dùng và hoàn thành việc đầu tiên.**
 
 Giá trị cốt lõi gồm tuyển chọn có lý do, ví dụ dùng thực tế, hướng dẫn có phiên bản,
@@ -43,7 +43,8 @@ Quyết định và giả định lập kế hoạch:
 - Đã chốt: người muốn dùng tính năng AI của website tự kết nối API riêng (BYOK). Đọc nội dung, tìm tài nguyên và học theo hướng dẫn không bắt buộc nhập key.
 - Chủ website chịu trách nhiệm biên tập cuối; AI hỗ trợ nghiên cứu, bản nháp và kiểm tra.
 - Người dùng xác nhận có Gemini API trả phí; chọn Gemini làm nhà cung cấp AI ban đầu. Chưa cấu hình key hoặc chọn model.
-- MVP ưu tiên đọc, tìm kiếm và thực hành; chưa cung cấp môi trường chạy repo cho khách.
+- Đã chốt giao diện: danh mục kiểu e-commerce, không giỏ hàng/checkout/thanh toán; nút Truy cập repo dẫn trực tiếp nguồn gốc, không bắt qua bài chi tiết hoặc đăng nhập.
+- MVP ưu tiên duyệt danh mục, đọc, tìm kiếm và thực hành; chưa cung cấp môi trường chạy repo cho khách.
 Các giả định này có thể đổi mà không cần thiết kế lại toàn hệ thống.
 
 ## 3. Trải nghiệm cần giải quyết
@@ -66,9 +67,11 @@ bên ngoài là yêu cầu khác, phải giải thích trước và có đườn
 
 ### 3.1. Thiết kế nhập môn cho người chưa cài công cụ
 
-Trang chủ ưu tiên Tôi bắt đầu từ đâu và kết quả có thể làm; không mở đầu bằng GitHub,
-stars, CLI hoặc bảng so sánh nhiều agent. Repo mới vẫn có mục khám phá, nhưng không
-buộc đọc danh mục trước khi bắt đầu học.
+Theo lựa chọn giao diện mới của chủ website, trang chủ dùng danh mục kiểu e-commerce.
+Giữ đường Tôi mới bắt đầu dễ thấy để người chưa cài không phải tự hiểu GitHub, stars,
+CLI hoặc chọn nhiều agent. Không buộc học trước khi mở repo, cũng không buộc duyệt
+hết danh mục trước khi vào bài nhập môn. Thông tin trên thẻ giải thích công dụng bằng
+ngôn ngữ người mới, số sao chỉ là thông tin phụ có nhãn rõ.
 
 Hướng dẫn dùng ảnh chụp phiên bản đã kiểm tra, dấu hiệu thành công sau từng bước và
 đường sửa lỗi tương ứng. Chưa đưa lệnh cài dài trước khi xác định OS và nơi chạy lệnh.
@@ -86,17 +89,17 @@ kiện thiếu và lỗi hướng dẫn. Chưa dùng phản hồi của develope
 
 ## 4. Cấu trúc nội dung và điều hướng
 
-Menu đề xuất để thử: Bắt đầu / Khám phá / Thực hành.
+Điều hướng đề xuất theo danh mục: Khám phá / Skills / Bắt đầu / Thực hành. Danh mục là trọng tâm trình bày, đường nhập môn vẫn nổi bật; nhãn/thứ tự chi tiết kiểm tra qua prototype.
 Skills là trang đích/bộ lọc dưới Khám phá; Hướng dẫn và Bộ thực hành thuộc Thực hành. Các loại nội dung vẫn tách trong dữ liệu; kiểm tra người dùng hiểu nhãn trước khi khóa thiết kế.
 Ô tìm kiếm luôn dễ thấy; trang giới thiệu, tiêu chí tuyển chọn và liên hệ ở footer.
 
 | Trang | Nội dung chính | Hành động ưu tiên |
 |---|---|---|
-| Trang chủ | Chọn nhu cầu, lộ trình người mới, đề xuất có biên tập, cập nhật đáng chú ý | Tìm công cụ hoặc bắt đầu một bài |
+| Trang chủ | Danh mục dạng lưới, tìm/lọc, mục mới/nổi bật và đường nhập môn | Truy cập repo trực tiếp; tên tài nguyên mở trang giải thích |
 | Bắt đầu | Chọn công cụ theo điều kiện, chuẩn bị/cài/kiểm tra, tác vụ đầu; thuật ngữ giải thích đúng lúc | Hoàn thành bước hiện tại và biết bước kế tiếp |
-| Khám phá | Repo, ứng dụng và bộ mẫu dự án; danh sách có lọc | Mở hướng dẫn phù hợp |
-| Skills | Skill cụ thể, công dụng, công cụ đã thử và quyền cần cấp | Xem cách cài và ví dụ |
-| Chi tiết tài nguyên | Lợi ích, điều kiện, nguồn, tình trạng, hướng dẫn và giới hạn | Đọc hướng dẫn / mở repo gốc |
+| Khám phá | Repo, ứng dụng và bộ mẫu dự án; lưới có lọc/sắp xếp | Truy cập repo hoặc xem chi tiết riêng |
+| Skills | Skill cụ thể, công dụng, công cụ đã thử và quyền cần cấp | Mở nguồn GitHub đúng repo/thư mục skill; hướng dẫn là đường riêng |
+| Chi tiết tài nguyên | Mô tả như trang sản phẩm: hình, kết quả, điều kiện, nguồn, trạng thái, hướng dẫn | Truy cập repo; giải thích AI và hướng dẫn là hành động phụ |
 | Hướng dẫn | Các bước thực hiện, kết quả, lỗi, gỡ bỏ | Hoàn thành một việc |
 | Bộ thực hành | Chuỗi bài dẫn tới một sản phẩm nhỏ | Bắt đầu bài đầu tiên |
 | Có gì mới | Thay đổi ảnh hưởng tới cách dùng, có giải thích | Xem bài đã cập nhật |
@@ -120,6 +123,45 @@ Một phát hiện có thể chỉ ở hàng đợi nội bộ; không mặc đ�
 khám phá có thể dẫn sang bài thực hành khi đã thử. Thu thập hằng ngày nhưng xuất bản
 theo chất lượng/công suất. Không buộc mỗi repo có bài thực hành riêng.
 
+### 4.2. Danh mục kiểu e-commerce, không giao dịch
+
+Quyết định đã chốt: thẻ danh mục và trang chi tiết có cách tổ chức quen thuộc của cửa
+hàng, nhưng không có giá bán, giảm giá, giỏ hàng, đơn hàng, thanh toán hoặc paywall.
+Không cần WooCommerce để thực hiện danh mục này. Nội dung vẫn được quản lý bởi plugin
+thư viện và theme riêng; không tạo sản phẩm thương mại giả chỉ để có lưới.
+
+Thẻ tài nguyên bản đầu:
+- Ảnh/thumbnail dùng đúng quyền hoặc minh họa tự tạo có nhãn; không giả ảnh kết quả thử.
+- Tên repo/skill và tác giả, mô tả tiếng Việt ngắn theo việc làm được.
+- Nhãn loại/nhu cầu; công cụ tương thích chỉ ở mức có bằng chứng, trạng thái thử rõ.
+- Nút chính Truy cập repo; tên hoặc link Xem chi tiết mở trang trong website.
+- GitHub stars nếu có dữ liệu, kèm ngày lấy ở vị trí phù hợp; không vẽ thành đánh giá
+  5 sao của khách hàng. Không bịa review, lượt dùng, badge đã thử hoặc gắn Miễn phí
+  chỉ vì website không thu phí. Bookmark/so sánh có thể để sau nếu chưa cần.
+
+CTA Truy cập repo là liên kết trực tiếp tới URL nguồn đã xác minh, không bắt khách qua
+trang giải thích, màn hình kết nối API hoặc đăng nhập. Với một skill trong repo nhiều
+skill, ưu tiên đúng thư mục và dùng nhãn rõ như Xem skill trên GitHub; không đưa mọi
+thẻ về cùng root khi làm mất ngữ cảnh. Nguồn demo/trang tác giả là link phụ có nhãn
+riêng, không thay thế repo gốc một cách ngầm định.
+
+Không dùng link chuyển hướng có đích tùy ý; endpoint/URL nguồn được kiểm tra theo loại
+nguồn. Nếu đo click, không làm chặn điều hướng hoặc ghi key/nội dung riêng. Link ngoài
+có dấu hiệu nhận biết, hành vi tab nhất quán và thuộc tính an toàn nếu mở tab mới.
+Không gắn click vào toàn thẻ theo cách làm nút phụ và điều khiển bàn phím xung đột.
+
+Mốc A ưu tiên tìm kiếm, bộ lọc nhu cầu/công cụ và lưới; đề xuất thử 3 cột desktop, 2 cột
+tablet, 1 cột điện thoại, điều chỉnh qua prototype theo độ rộng nội dung. Sắp xếp mới
+thêm, biên tập đề xuất và dữ liệu sao nếu có; chỉ có mục Tăng nhanh khi đủ snapshot
+đúng khoảng thời gian. Trạng thái rỗng có cách bỏ lọc, danh mục dài có phân trang.
+
+Trang chi tiết giữ cùng CTA trực tiếp, đồng thời có Giải thích theo nhu cầu của tôi
+(BYOK), hướng dẫn bắt đầu và nguồn/version. Không bắt người đọc đi qua AI mới mở repo.
+
+Nghiệm thu: nút trên thẻ và trang chi tiết tới đúng nguồn khi chưa có key/không đăng
+nhập; title/link phụ mở đúng trang giải thích; tìm/lọc/sắp xếp hoạt động và không có
+luồng checkout. Ngày/sao/trạng thái chưa rõ không được đổi thành số 0 hoặc xác nhận giả.
+
 ## 5. Phạm vi bản đầu
 
 Mục tiêu nội dung bản MVP đầy đủ: 20 tài nguyên tuyển chọn, 6 hướng dẫn nền tảng, 3 bộ thực
@@ -135,7 +177,7 @@ Nếu vượt nguồn lực, hoãn mốc B hoặc giảm lượng bài; không c
 khả năng khôi phục. Không dùng số lượng bài để ép xuất bản nội dung chưa được kiểm tra.
 
 Có trong MVP:
-- Trang chủ, danh sách, lọc và tìm kiếm tiếng Việt; liên kết nguồn gốc rõ ràng.
+- Trang chủ/danh sách dạng lưới kiểu e-commerce, lọc/tìm kiếm tiếng Việt; CTA Truy cập repo trực tiếp và link chi tiết tách biệt.
 - Trang chi tiết thống nhất, trạng thái thử nghiệm và lịch sử cập nhật.
 - Mốc A: quản trị tài nguyên/bài/nguồn nhập tay, trạng thái thử và field bằng chứng bắt buộc.
 - Mốc B: quản trị nguồn theo dõi, job đồng bộ, bản nháp AI, lỗi và ngân sách; không chặn mở thử A.
@@ -189,8 +231,8 @@ kiểm thử. Một repo mới commit không tự trở thành bài vừa đư�
 
 ## 7. Thiết kế UI/UX
 
-Hướng mỹ thuật: một bàn làm việc học công cụ có hướng dẫn. Dùng bố cục sáng, dễ đọc,
-nhiều khoảng thở; điểm nhận diện là ô chọn nhu cầu và ví dụ đầu ra, thay vì banner AI
+Hướng mỹ thuật: danh mục công cụ kiểu e-commerce có biên tập và hướng dẫn cho người mới. Dùng bố cục sáng, dễ đọc,
+nhiều khoảng thở; điểm nhận diện là thẻ tài nguyên có công dụng rõ, CTA tới nguồn và ví dụ đầu ra, thay vì banner AI
 với hiệu ứng nền hoặc danh sách vô tận các thẻ giống nhau.
 
 Bảng màu đề xuất:
@@ -205,23 +247,28 @@ Cỡ thân bài 17–18px, chiều rộng nội dung khoảng 65–75 ký tự, 
 Kiểm tra giấy phép font, tự lưu font trên hosting nếu phù hợp và dùng font dự phòng.
 Tiêu đề, nút và thuật ngữ dùng tiếng Việt nhất quán; giữ nguyên tên sản phẩm/lệnh.
 
-Wireframe trang chủ:
+Wireframe trang chủ/danh mục:
 
-    Logo       Bắt đầu   Khám phá   Thực hành       Tìm kiếm
-    Bạn muốn làm gì cùng AI?
-    [Tạo website] [Làm tài liệu] [Tự động hóa] [Tìm skill]
-    Ô tìm: Ví dụ “tạo trang giới thiệu bằng tiếng Việt”
-    Lần đầu bắt đầu? [Lộ trình ngắn có hướng dẫn]
-    3 lựa chọn được biên tập: lý do chọn + điều kiện sử dụng
-    Bài thực hành nổi bật        Những hướng dẫn vừa thay đổi
+    Logo       Khám phá   Skills   Bắt đầu   Thực hành
+    Tìm công cụ theo việc bạn muốn làm [Tìm kiếm]
+    [Nhu cầu] [Công cụ AI]                      [Sắp xếp]
+    Mới dùng AI? [Tôi bắt đầu từ đâu]
+    Ảnh / Tên A             Ảnh / Tên B             Ảnh / Tên C
+    Công dụng tiếng Việt    Công dụng tiếng Việt    Công dụng tiếng Việt
+    Nhãn và trạng thái      Nhãn và trạng thái      Nhãn và trạng thái
+    [Truy cập repo]         [Truy cập repo]         [Truy cập repo]
+    Xem chi tiết            Xem chi tiết            Xem chi tiết
+    Các mục mới / biên tập đề xuất / phân trang
     Tiêu chí tuyển chọn / Nguồn / Giới thiệu / Góp ý
 
-Wireframe trang tài nguyên trên desktop:
+Wireframe trang tài nguyên:
 
-    Tên + mô tả kết quả                      Nguồn và thông tin nhanh
-    Trạng thái thử + ngày + phiên bản        [Xem hướng dẫn]
-    Ví dụ đầu ra                            [Mở GitHub gốc]
-    Dùng khi nào / Yêu cầu / Cách bắt đầu / Lỗi / Lịch sử
+    Ảnh / ví dụ đầu ra           Tên + mô tả kết quả
+                                Nguồn, điều kiện, trạng thái thử
+                                [Truy cập repo]
+                                [Giải thích theo nhu cầu của tôi] — BYOK tùy chọn
+                                [Xem hướng dẫn]
+    Giới thiệu / Yêu cầu / Bắt đầu / Lỗi thường gặp / Nguồn và lịch sử
 
 Màn hình nhỏ: nội dung một cột, bộ lọc mở theo yêu cầu, giữ lựa chọn trong URL; nút
 hướng dẫn dễ thấy, không dùng sidebar hẹp. Không ép người dùng copy lệnh quá sớm.
@@ -671,7 +718,7 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.5. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.6. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -698,6 +745,7 @@ công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàn
 
 Nghiệm thu A:
 - Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
+- Danh mục e-commerce có CTA trực tiếp đúng repo, title/link chi tiết riêng; không cần key, không có giỏ hàng hoặc checkout.
 - Luồng đọc -> đủ điều kiện -> cài/khởi tạo -> kiểm tra sẵn sàng -> thực hành -> checklist -> bước tiếp hoạt động; ghi trợ giúp. Người thử nhập môn chưa từng cài công cụ.
 - Không gắn nhãn đã thử tương thích ngoài validation đúng công cụ/OS/version/phạm vi.
 - 15–20 truy vấn có đáp án kỳ vọng, có/không dấu, lọc ưu tiên, URL và trạng thái rỗng.
@@ -791,7 +839,7 @@ kết quả: chọn công cụ, chuẩn bị, tạo sản phẩm, sửa thay đ�
 một kênh tiếp cận và đo công trước khi xây collector lớn. Giữ nguồn cấp trường bắt
 buộc ngay cả ở nội dung nhập tay.
 
-Đã chốt: website miễn phí; AI cho khách dùng API riêng; hai tính năng đầu là hỗ trợ theo bài thực hành và giải thích tài nguyên theo nhu cầu; nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
+Đã chốt: danh mục kiểu e-commerce và nút Truy cập repo trực tiếp, không checkout; website miễn phí; AI cho khách dùng API riêng; hai tính năng đầu là hỗ trợ theo bài thực hành và giải thích tài nguyên theo nhu cầu; nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
 chọn phân khúc này trừ khi chủ website muốn đổi.
 
 Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
@@ -807,7 +855,7 @@ hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các v
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.5 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.6 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
