@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.6 — danh mục repo/skill kiểu e-commerce, CTA dẫn thẳng repo.
+Ngày: 19/10/2026. Phiên bản: 1.7 — cấu trúc e-commerce đầy đủ với trang danh mục và trang sản phẩm chi tiết.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -161,6 +161,38 @@ Trang chi tiết giữ cùng CTA trực tiếp, đồng thời có Giải thích
 Nghiệm thu: nút trên thẻ và trang chi tiết tới đúng nguồn khi chưa có key/không đăng
 nhập; title/link phụ mở đúng trang giải thích; tìm/lọc/sắp xếp hoạt động và không có
 luồng checkout. Ngày/sao/trạng thái chưa rõ không được đổi thành số 0 hoặc xác nhận giả.
+
+
+### 4.3. Cấu trúc trang như một website e-commerce
+
+Chủ website xác nhận: trải nghiệm phải giống e-commerce cả cấu trúc và bố cục,
+không chỉ dùng lưới thẻ. Mỗi repo/skill là một sản phẩm tài nguyên có trang chi tiết
+riêng; nút Truy cập repo thay cho nút mua hàng. Đây là yêu cầu đã chốt.
+
+- Trang chủ: banner giới thiệu, các nhóm danh mục, tài nguyên nổi bật, mới thêm và
+  lối vào hướng dẫn cho người mới.
+- Trang danh mục: mỗi nhóm có URL, tên, mô tả và danh sách riêng, ví dụ
+  /danh-muc/skills/ hoặc /danh-muc/mau-website/. Có breadcrumb, số kết quả, bộ lọc,
+  sắp xếp và phân trang; danh mục rỗng có hướng dẫn quay lại/bỏ lọc.
+- Trang sản phẩm chi tiết: URL /tai-nguyen/{slug}/, breadcrumb; bên trái là ảnh chính
+  và thư viện ảnh khi có tư liệu thật; bên phải là tên, mô tả ngắn, tác giả, nhãn,
+  trạng thái kiểm thử và nút Truy cập repo nổi bật thay vị trí nút mua hàng.
+- Phần dưới trang sản phẩm: Giới thiệu, Tính năng, Yêu cầu sử dụng, Hướng dẫn bắt đầu,
+  Giấy phép/chi phí liên quan, Nguồn và lịch sử cập nhật; dùng tab hoặc mục cuộn dễ
+  truy cập. Có tài nguyên liên quan và sản phẩm cùng danh mục.
+- Trang kết quả tìm kiếm: giữ cách trình bày, lọc và sắp xếp như trang danh mục.
+
+Ảnh và tên trên thẻ mở trang sản phẩm chi tiết. Nút Truy cập repo trên thẻ và trang
+chi tiết đều mở nguồn trực tiếp, không ép đi qua bước trung gian. CTA AI và hướng dẫn
+là hành động phụ; không có chọn số lượng, giỏ hàng hoặc checkout.
+
+Danh mục là taxonomy được biên tập, có thể gắn nhiều tài nguyên; công cụ tương thích,
+nhu cầu và độ khó là bộ lọc riêng, không tạo mọi tổ hợp bộ lọc thành trang danh mục.
+Mỗi tài nguyên có một URL chi tiết chuẩn dù xuất hiện trong nhiều danh mục.
+
+Prototype/kiểm thử nghiệm thu phải có riêng trang chủ, trang danh mục và trang sản
+phẩm chi tiết, thêm trang hướng dẫn cho luồng thực hành. Kiểm tra từ trang chủ vào
+danh mục, mở sản phẩm, xem sản phẩm liên quan và truy cập đúng repo trên mobile và desktop.
 
 ## 5. Phạm vi bản đầu
 
