@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.3 — chốt người mới hoàn toàn và điều chỉnh lộ trình nhập môn.
+Ngày: 19/10/2026. Phiên bản: 1.4 — website miễn phí, tính năng AI cho khách dùng API riêng (BYOK).
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -15,7 +15,7 @@ trên hệ điều hành nào và khi nào cần kiểm tra lại.
 
 Đề xuất giữ WordPress làm hệ quản trị nội dung và website, viết theme riêng cùng plugin
 nghiệp vụ; dùng bộ xử lý Node.js tách biệt cho GitHub và nội dung AI. Chưa cần frontend
-headless, vector database, chatbot, tài khoản thành viên hay thanh toán ở bản đầu.
+headless, vector database, chatbot tổng quát, tài khoản thành viên hay thanh toán ở bản đầu. Tính năng AI theo yêu cầu dùng API riêng là luồng tách biệt, phạm vi cụ thể chưa chốt.
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
@@ -39,7 +39,8 @@ Quyết định và giả định lập kế hoạch:
 - Người đã dùng agent và người biết code tìm skill là nhóm mở rộng; vẫn có trang Khám phá, nhưng hành trình nhập môn được ưu tiên.
 - Bài mở đầu bắt buộc có chọn công cụ, yêu cầu, tài khoản, cài và kiểm tra lần đầu. Kết quả thực hành đầu tiên, công cụ và OS chưa chốt; trang giới thiệu local chỉ là một phương án. Không mặc định cả ba agent đều được kiểm chứng.
 - Nhóm phụ: người làm nội dung, giảng viên, marketer và developer muốn tìm công cụ nhanh.
-- Nội dung nền tảng miễn phí; chưa coi đây là cửa hàng dù đang dùng subdomain store.
+- Đã chốt: website hoàn toàn miễn phí cho người dùng; không paywall, gói thành viên trả phí hoặc bán lượt AI. Dịch vụ API/công cụ bên ngoài có điều kiện và chi phí riêng.
+- Đã chốt: người muốn dùng tính năng AI của website tự kết nối API riêng (BYOK). Đọc nội dung, tìm tài nguyên và học theo hướng dẫn không bắt buộc nhập key.
 - Chủ website chịu trách nhiệm biên tập cuối; AI hỗ trợ nghiên cứu, bản nháp và kiểm tra.
 - Người dùng xác nhận có Gemini API trả phí; chọn Gemini làm nhà cung cấp AI ban đầu. Chưa cấu hình key hoặc chọn model.
 - MVP ưu tiên đọc, tìm kiếm và thực hành; chưa cung cấp môi trường chạy repo cho khách.
@@ -76,7 +77,7 @@ Không tự cài hàng loạt skill hoặc đưa key vào prompt để rút ng�
 
 Nêu rõ máy tính cần có, tài khoản/chi phí công cụ và quyền trước cài. Gemini API trả
 phí của chủ website dùng cho bộ biên tập nền; không có nghĩa học viên phải mua Gemini
-API hoặc website cung cấp quota chạy agent cho họ. Chưa hứa lộ trình miễn phí khi chưa
+API để đọc/học. Khách chỉ kết nối API riêng khi chủ động dùng tính năng AI của website; website không cấp quota của chủ để chạy thay họ. Chưa hứa mọi công cụ ngoài miễn phí khi chưa
 chọn và kiểm tra công cụ. Có thể xem kết quả mẫu trước nếu chưa đủ điều kiện thực hành.
 
 Nghiệm thu nhập môn gồm hai kết quả tách biệt: (1) công cụ đã sẵn sàng, (2) tác vụ đầu
@@ -372,6 +373,68 @@ danh, thực thi chỉ dẫn từ nguồn. Không cho điểm tổng bù lỗi c
 và ngưỡng trước benchmark; điểm mềm gồm tiếng Việt, độ hữu ích, công sửa và chi phí.
 Báo từng ca, lỗi lọt/lỗi chặn nhầm, thời gian biên tập và chi phí mỗi bài được duyệt.
 
+### 10.2. AI cho người dùng: Bring Your Own Key (BYOK)
+
+Quyết định sản phẩm: website không thu phí sử dụng. Người dùng tự kết nối API của mình
+khi muốn chạy tính năng AI. Token/quota và phí dịch vụ phát sinh thuộc tài khoản API
+của họ theo điều kiện nhà cung cấp; website không thu tiền hộ, bán credit hoặc mặc định
+bảo đảm AI miễn phí. Không cần API key để đọc nội dung, tìm kiếm thông thường hoặc học.
+
+Hai luồng phải được cô lập:
+
+| Luồng | Key sử dụng | Ai khởi chạy | Phạm vi |
+|---|---|---|---|
+| Biên tập nền | Gemini API của chủ website, trong secret hệ thống | Job đã cấu hình theo ngân sách biên tập | Tìm nguồn, tạo draft, cập nhật nội dung |
+| AI theo yêu cầu của khách | API key do khách cung cấp | Khách chủ động bấm tác vụ được mô tả | Kết quả riêng của yêu cầu, không tự xuất bản |
+
+Không dùng key khách cho cron, cải thiện kho bài, khách khác hoặc làm fallback khi key
+chủ hết quota. Không dùng key chủ bù lỗi/quota của khách. Nội dung AI riêng không được
+nhập công khai hoặc gộp vào pipeline biên tập mà không có hành động chia sẻ riêng.
+
+Phạm vi AI cho khách cần chốt: ví dụ giải thích/Việt hóa repo theo nhu cầu hoặc hỗ trợ
+hiểu bước học. Đây là ứng viên tính năng, chưa phải quyết định xây chatbot/tất cả tác vụ.
+Đề xuất adapter Gemini trước cho pilot; các nhà cung cấp/model được hỗ trợ và thời
+điểm phát hành còn mở. Không coi key từ bất kỳ dịch vụ nào đều tương thích Gemini.
+Mốc A đọc/học vẫn độc lập; tính năng BYOK chỉ phát hành sau cổng an toàn, không tự gộp
+vào collector B hoặc buộc người mới có key ngay trong bài đầu.
+
+Thiết kế mặc định đề xuất: key chỉ dùng cho yêu cầu đang chạy, không lưu lâu dài.
+Khách nhập trong giao diện có che ký tự; bản đầu không ghi key vào localStorage,
+cookie/session server, database, job queue, URL, Git, analytics hoặc log. Trình duyệt
+cần giữ giá trị trong bộ nhớ khi gửi; có nút Ngắt kết nối/xóa giá trị khỏi giao diện.
+Không quảng bá là không qua server: nếu dùng backend proxy, key và input đi qua
+backend qua HTTPS để gọi đúng nhà cung cấp [S15]. Cần nói rõ luồng này trước khi gửi.
+
+Backend dùng key theo từng request/đối tượng client, không đổi biến môi trường dùng
+chung hoặc singleton toàn hệ. Xử lý xong không giữ key cho việc sau; không hứa xóa
+bộ nhớ vật lý tuyệt đối. Phải kiểm tra reverse proxy, error tracking, cache và log PHP
+không lưu request body/header có bí mật; response riêng không được public-cache.
+Nếu hạ tầng không bảo đảm các điều này, chưa bật BYOK công khai. Lưu key lâu dài chỉ
+là lựa chọn tương lai cần thiết kế kho mã hóa, quyền, thời hạn và thu hồi riêng.
+
+Giao diện cho biết provider/model, dữ liệu sẽ gửi, hạn mức đầu vào/đầu ra và phí có thể
+phát sinh trước khi khách bấm tác vụ. Mọi phép kiểm tra key có thể gọi API phải giải
+thích rõ, không ngầm gọi model có phí khi chỉ nhập key hoặc tải trang. Không tự chuyển
+model đắt hơn, bật tìm kiếm Grounding hoặc retry nhiều lần vượt lựa chọn của khách.
+Usage/cost không xác định thì báo chưa xác định, không báo bằng 0; không hứa trần hóa
+đơn tuyệt đối. Khách có thể thu hồi key ở nhà cung cấp.
+
+Giới hạn tải máy chủ riêng với quota API: rate limit, concurrency, token/input, timeout
+và chống gửi tác vụ lặp. Mốc đầu không nhận base URL API tùy ý, endpoint provider theo
+danh sách cho phép để tránh biến proxy thành dịch vụ chuyển tiếp tùy ý. Kết quả HTML
+phải được sanitize/escape; source/prompt vẫn là dữ liệu không tin cậy.
+
+Nghiệm thu BYOK trước khi công khai:
+- Hai khách dùng hai key đồng thời không lẫn key, input hoặc output; không fallback key chủ.
+- Key không xuất hiện ở log/error/cache/database/URL/queue; truy vết bằng mã sự kiện an toàn.
+- Thiếu key, sai key, hết quota, timeout, response mất và ngắt kết nối có thông báo đúng,
+  không tự retry gây phí mà người dùng không được biết hoặc chuyển sang provider khác.
+- Đọc/học vẫn hoạt động khi chưa kết nối, provider lỗi hoặc BYOK tạm tắt.
+- Có kiểm tra quyền truy cập/origin/chống lạm dụng phù hợp mô hình phiên; không coi
+  WordPress nonce công khai đơn lẻ là đủ để cấp quyền proxy không giới hạn.
+- Dùng key thử riêng/quota giới hạn khi kiểm thử được cho phép; không yêu cầu gửi key
+  trong chat. Chưa có key khách hay API có phí nào được dùng trong bước lập kế hoạch.
+
 ## 11. Cập nhật tự động và vận hành
 
 Lịch đề xuất ban đầu: một lượt tìm ứng viên và cập nhật metadata mỗi ngày theo múi giờ
@@ -558,7 +621,7 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.3. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.4. BYOK là phạm vi mới cần ước lượng riêng sau khi chốt tác vụ. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -572,6 +635,7 @@ Không chốt lịch launch khi chưa biết công suất duyệt, hosting và s
 | B1. Collector | Truy vấn, snapshot, thứ tự chọn, job/lease, quyền nhập nháp | Không trùng, không mất sửa tay, phục hồi lỗi và giữ bằng chứng |
 | B2. Gemini | Benchmark, evidence gate, ngân sách, draft và Grounding có hạn mức | Đạt rubric đã chốt, không lỗi chặn, usage/chi phí được đối soát |
 | B3. Pilot 7 ngày | Chỉ tạo bản nháp, kiểm tra vận hành và công suất | Chất lượng/công suất đạt mới bật B; không chứng minh thị trường bằng pilot này |
+| U. AI cho khách (thời điểm chưa chốt) | Một tác vụ BYOK, proxy theo provider, không lưu key mặc định | Vượt cổng an toàn/riêng tư, tách key chủ và khách; không chặn A/B |
 | C. Mở rộng | Chủ đề, công cụ/OS, lượng nguồn và tính năng theo nhu cầu | Có bằng chứng người dùng và đủ khả năng bảo trì |
 
 Mục tiêu số bài ở mục 5 là phạm vi dự kiến; có thể giảm để đạt chất lượng. Bộ 5 bài mẫu
@@ -606,7 +670,7 @@ Nghiệm thu B bổ sung:
 ## 15. Chi phí, đo lường và rủi ro
 
 Không chốt số tiền khi chưa benchmark và xem hạn mức tài khoản. Bảng chi phí cần theo
-riêng: hosting/staging/backup; phút runner; lượt gọi GitHub; AI; dung lượng snapshot;
+riêng: hosting/staging/backup; phút runner; lượt gọi GitHub; AI biên tập nền; hạ tầng xử lý BYOK cho khách; dung lượng snapshot;
 thời gian biên tập/thử nghiệm. Đặt ngân sách tạm ngày/tháng trước khi gọi API; sau 7 ngày pilot điều chỉnh bằng dữ liệu thực tế. Tách chi phí token Gemini khỏi Google Search grounding, không mặc định được bao gồm trong gói hiện có.
 AI chỉ xử lý nguồn thay đổi, không dịch toàn bộ repo và không re-run mọi bài mỗi ngày.
 Khi vượt trần thì hoãn job, không tự mua quota hoặc nâng gói.
@@ -640,7 +704,7 @@ trước khi mở rộng, không mặc định API trả phí hiện có là chi
 
 Mục tiêu cần chọn: tài nguyên cộng đồng, xây uy tín chuyên môn hoặc hỗ trợ dịch vụ
 trong tương lai. Chưa chốt mục tiêu kinh tế; không mặc định phải bán hàng hoặc dự báo
-doanh thu/traffic. Bài nền tảng miễn phí vẫn là giả định cho mốc A.
+doanh thu/traffic. Website miễn phí là quyết định đã chốt, không còn là giả định. Không xây paywall, bán lượt AI hoặc buộc mua gói của website để học; chi phí API bên ngoài phải được giải thích riêng.
 
 Ba nhóm nội dung: nền tảng làm được việc; lựa chọn công cụ theo điều kiện; tuyển chọn
 cập nhật giải thích ảnh hưởng và dẫn về bài thực hành. Mỗi mục mới phải có đóng góp
@@ -677,7 +741,7 @@ kết quả: chọn công cụ, chuẩn bị, tạo sản phẩm, sửa thay đ�
 một kênh tiếp cận và đo công trước khi xây collector lớn. Giữ nguồn cấp trường bắt
 buộc ngay cả ở nội dung nhập tay.
 
-Đã chốt: nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
+Đã chốt: website miễn phí; AI cho khách dùng API riêng; nhóm chính là người mới hoàn toàn, chưa biết cài công cụ. Không hỏi lại lựa
 chọn phân khúc này trừ khi chủ website muốn đổi.
 
 Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùng đã phê duyệt:
@@ -686,13 +750,14 @@ Các giả thuyết/lựa chọn còn mở, chưa được coi là người dùn
 3. Tên VibeLab Việt và domain dài hạn; hiện giữ store.vneconomics.com để tiếp tục thử.
 4. Mục tiêu cộng đồng/uy tín/dịch vụ, giờ duyệt–bảo trì mỗi tuần, người trực và trần AI.
 5. Một kênh tiếp cận nhóm đầu và tiêu chí quyết định tiếp tục sau thử người dùng.
+6. Tác vụ AI đầu tiên cho khách, provider/model hỗ trợ và thời điểm phát hành BYOK; lưu key lâu dài chưa được chọn, mặc định đề xuất không lưu.
 
 Người dùng chính đã chốt; thảo luận tiếp theo thứ tự việc đầu -> công cụ/OS -> công suất/kênh -> thương
 hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các việc khảo sát/tài liệu và
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.3 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.4 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
@@ -738,6 +803,9 @@ https://developers.google.com/crawling/docs/faceted-navigation
 
 [S14] Google — Spam policies, scaled content abuse:
 https://developers.google.com/search/docs/essentials/spam-policies#scaled-content
+
+[S15] Google — Using Gemini API keys (bí mật, proxy backend và quản lý key):
+https://ai.google.dev/gemini-api/docs/api-key
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
