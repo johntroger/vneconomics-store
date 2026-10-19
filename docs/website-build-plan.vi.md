@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.7 — cấu trúc e-commerce đầy đủ với trang danh mục và trang sản phẩm chi tiết.
+Ngày: 19/10/2026. Phiên bản: 1.8 — bổ sung đặc tả trải nghiệm, nội dung và nghiệm thu danh mục e-commerce.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -15,7 +15,7 @@ trên hệ điều hành nào và khi nào cần kiểm tra lại.
 
 Đề xuất giữ WordPress làm hệ quản trị nội dung và website, viết theme riêng cùng plugin
 nghiệp vụ; dùng bộ xử lý Node.js tách biệt cho GitHub và nội dung AI. Chưa cần frontend
-headless, vector database, chatbot tổng quát, tài khoản thành viên hay thanh toán ở bản đầu. Tính năng AI theo yêu cầu dùng API riêng là luồng tách biệt, phạm vi cụ thể chưa chốt.
+headless, vector database, chatbot tổng quát, tài khoản thành viên hay thanh toán ở bản đầu. Tính năng AI theo yêu cầu dùng API riêng là luồng tách biệt: hỗ trợ theo bài thực hành và giải thích tài nguyên theo nhu cầu; provider và thời điểm phát hành chưa chốt.
 
 Kế hoạch này chưa triển khai mã, chưa bật lịch thu thập và chưa phát sinh gọi AI có phí.
 
@@ -89,14 +89,15 @@ kiện thiếu và lỗi hướng dẫn. Chưa dùng phản hồi của develope
 
 ## 4. Cấu trúc nội dung và điều hướng
 
-Điều hướng đề xuất theo danh mục: Khám phá / Skills / Bắt đầu / Thực hành. Danh mục là trọng tâm trình bày, đường nhập môn vẫn nổi bật; nhãn/thứ tự chi tiết kiểm tra qua prototype.
-Skills là trang đích/bộ lọc dưới Khám phá; Hướng dẫn và Bộ thực hành thuộc Thực hành. Các loại nội dung vẫn tách trong dữ liệu; kiểm tra người dùng hiểu nhãn trước khi khóa thiết kế.
+Điều hướng đề xuất theo danh mục: Danh mục / Khám phá / Bắt đầu / Thực hành. Danh mục là trọng tâm trình bày, đường nhập môn vẫn nổi bật; nhãn/thứ tự chi tiết kiểm tra qua prototype.
+Skills là một trang danh mục; Hướng dẫn và Bộ thực hành thuộc Thực hành. Các loại nội dung vẫn tách trong dữ liệu; kiểm tra người dùng hiểu nhãn trước khi khóa thiết kế.
 Ô tìm kiếm luôn dễ thấy; trang giới thiệu, tiêu chí tuyển chọn và liên hệ ở footer.
 
 | Trang | Nội dung chính | Hành động ưu tiên |
 |---|---|---|
 | Trang chủ | Danh mục dạng lưới, tìm/lọc, mục mới/nổi bật và đường nhập môn | Truy cập repo trực tiếp; tên tài nguyên mở trang giải thích |
 | Bắt đầu | Chọn công cụ theo điều kiện, chuẩn bị/cài/kiểm tra, tác vụ đầu; thuật ngữ giải thích đúng lúc | Hoàn thành bước hiện tại và biết bước kế tiếp |
+| Trang danh mục | Nhóm tài nguyên có URL, mô tả, breadcrumb, bộ lọc và danh sách riêng | Mở sản phẩm chi tiết hoặc truy cập repo |
 | Khám phá | Repo, ứng dụng và bộ mẫu dự án; lưới có lọc/sắp xếp | Truy cập repo hoặc xem chi tiết riêng |
 | Skills | Skill cụ thể, công dụng, công cụ đã thử và quyền cần cấp | Mở nguồn GitHub đúng repo/thư mục skill; hướng dẫn là đường riêng |
 | Chi tiết tài nguyên | Mô tả như trang sản phẩm: hình, kết quả, điều kiện, nguồn, trạng thái, hướng dẫn | Truy cập repo; giải thích AI và hướng dẫn là hành động phụ |
@@ -105,8 +106,8 @@ Skills là trang đích/bộ lọc dưới Khám phá; Hướng dẫn và Bộ t
 | Có gì mới | Thay đổi ảnh hưởng tới cách dùng, có giải thích | Xem bài đã cập nhật |
 
 URL dự kiến: /bat-dau/, /kham-pha/, /tai-nguyen/{slug}/, /huong-dan/{slug}/,
-/bo-thuc-hanh/{slug}/. /skills/ là bộ lọc theo loại tài nguyên; một skill chỉ có một
-trang chi tiết chuẩn để không trùng nội dung.
+/bo-thuc-hanh/{slug}/, /danh-muc/{slug}/. /skills/ là trang lối vào danh mục Skills; một skill chỉ có một
+trang chi tiết chuẩn để không trùng nội dung. Danh mục Skills có một URL chuẩn /danh-muc/skills/; /skills/ chuyển hướng tới đó, không tạo hai trang index trùng nhau.
 
 Mốc A ưu tiên bộ lọc nhu cầu và công cụ AI; các bộ lọc khác chỉ mở rộng khi dữ liệu đủ hữu ích. Bộ lọc toàn MVP: loại tài nguyên, độ khó, hệ điều hành, yêu cầu chi phí
 và tình trạng thử nghiệm. Chi phí công cụ/API/hosting phải tách khỏi giấy phép repo:
@@ -215,7 +216,7 @@ Có trong MVP:
 - Mốc B: quản trị nguồn theo dõi, job đồng bộ, bản nháp AI, lỗi và ngân sách; không chặn mở thử A.
 - Mốc B: theo dõi các nguồn đã chọn; tự cập nhật field quan sát và tạo bản nháp có thay đổi.
 - Phản hồi bài lỗi/lỗi thời có chống spam; không cho tải lên file hay chạy lệnh từ form.
-- Lưu mục yêu thích trên thiết bị bằng localStorage nếu pilot cần; có thể hoãn để ưu tiên luồng thực hành, không cần tài khoản.
+- Sau mốc A, chỉ thêm lưu mục yêu thích trên thiết bị nếu phản hồi mở thử xác nhận nhu cầu; không cần tài khoản (mục 7.6).
 
 Để sau MVP: cộng đồng, đánh giá sao công khai, đồng bộ bookmark đa thiết bị, chatbot,
 gói skill cài một lần, sandbox công khai, khóa học trả phí, marketplace và newsletter.
@@ -279,9 +280,9 @@ Cỡ thân bài 17–18px, chiều rộng nội dung khoảng 65–75 ký tự, 
 Kiểm tra giấy phép font, tự lưu font trên hosting nếu phù hợp và dùng font dự phòng.
 Tiêu đề, nút và thuật ngữ dùng tiếng Việt nhất quán; giữ nguyên tên sản phẩm/lệnh.
 
-Wireframe trang chủ/danh mục:
+Wireframe danh sách dùng ở trang danh mục (trang chủ có các khối riêng ở mục 7.2):
 
-    Logo       Khám phá   Skills   Bắt đầu   Thực hành
+    Logo       Danh mục   Khám phá   Bắt đầu   Thực hành
     Tìm công cụ theo việc bạn muốn làm [Tìm kiếm]
     [Nhu cầu] [Công cụ AI]                      [Sắp xếp]
     Mới dùng AI? [Tôi bắt đầu từ đâu]
@@ -311,7 +312,7 @@ Trải nghiệm tìm kiếm: nhận từ có/không dấu, alias “vibecode”,
 “skill”; ưu tiên tên và nhu cầu trước độ phổ biến. Kết quả rỗng gợi ý bỏ bộ lọc hoặc
 xem hướng dẫn nền tảng. Không ngầm hứa tìm kiếm ngữ nghĩa trong MVP.
 
-Prototype bắt buộc có bốn màn hình: trang chủ, danh sách, tài nguyên, hướng dẫn thực
+Prototype bắt buộc có bốn template lõi: trang chủ, trang danh mục, sản phẩm chi tiết, hướng dẫn thực
 hành. Kiểm tra toàn hành trình tới kết quả và bước tiếp theo, không chỉ điều hướng.
 Trang hướng dẫn có: điều kiện đầu vào -> bước hiện tại -> kết quả -> lỗi -> bước tiếp.
 Nếu thiếu tài khoản/ngân sách/quyền cài, giải thích sớm và dẫn tới bài phù hợp hoặc mẫu
@@ -324,6 +325,196 @@ chưa cần đồng bộ tài khoản. Prototype thử cả đóng/mở lại b�
 Tìm/lọc: xây 15–20 truy vấn từ lời người dùng với đáp án kỳ vọng, thử có/không dấu,
 alias, giữ bộ lọc trong URL, bỏ từng bộ lọc và tổ hợp rỗng. Chỉ mở bộ lọc nâng cao khi
 có giá trị phân biệt. Không coi search mặc định của WordPress là đã đạt các tiêu chí.
+
+### 7.1. Kết quả rà soát e-commerce và mức ưu tiên
+
+Bản 1.7 đã chốt đúng cấu trúc cửa hàng tài nguyên, nhưng còn mô tả ở mức ý tưởng.
+Các phần thiếu dưới đây được bổ sung để designer, lập trình và biên tập cùng hiểu
+một hành vi. Đây là đánh giá thiết kế trên kế hoạch, chưa phải kết quả thử website.
+
+| Khoảng trống trước rà soát | Bổ sung | Mức |
+|---|---|---|
+| Có tên trang nhưng thiếu nội dung từng khu vực | Header/footer, trang chủ, danh mục, chi tiết, trang hỗ trợ | A bắt buộc |
+| Danh mục và bộ lọc dễ chồng chéo | Quy tắc taxonomy, URL chuẩn, nhóm nhu cầu và nhóm loại riêng | A bắt buộc |
+| Thẻ sản phẩm chưa có thứ tự thông tin thống nhất | Mẫu thẻ, ảnh, nhãn, hai đích nhấn và dữ liệu thiếu | A bắt buộc |
+| Trang chi tiết thiếu khối hỗ trợ quyết định | Lợi ích, yêu cầu, chi phí ngoài, giấy phép, giới hạn, nguồn | A bắt buộc |
+| Bộ lọc mới liệt kê tên | Logic AND/OR, URL, Back, phân trang, trạng thái rỗng/lỗi | A bắt buộc |
+| Chưa rõ khi repo bị xóa/đổi tên/ngừng duy trì | Trạng thái nguồn, CTA tương ứng và xử lý biên tập | A bắt buộc |
+| Đo lường thiên về bài thực hành | Đo tìm -> xem chi tiết -> mở nguồn, tách khỏi hoàn thành bài | A bắt buộc |
+| Lưu/so sánh dễ làm phình bản đầu | Đặc tả và điều kiện mở sau; không tự thêm tài khoản | Sau A |
+
+### 7.2. Nội dung toàn website và trang chủ
+
+Header desktop: logo về trang chủ; Danh mục, Khám phá, Bắt đầu, Thực hành; ô tìm kiếm
+nổi bật. Nhóm Skills nằm trong Danh mục, có thể thêm lối tắt nếu kiểm thử cho thấy cần.
+Tên menu cuối cùng thử bằng tác vụ tìm tài nguyên, tránh hai tên dẫn tới nội dung
+khó phân biệt. Mobile dùng tìm kiếm dễ thấy và menu thu gọn có trạng thái rõ, không
+phụ thuộc hover. Breadcrumb trên trang danh mục và sản phẩm giúp quay lên cấp trên
+[S16]. Không tạo mega-menu nhiều cột khi chỉ có vài nhóm nội dung.
+
+Thứ tự nội dung trang chủ đề xuất:
+1. Thông điệp ngắn: tìm repo/skill phù hợp, hiểu bằng tiếng Việt; một banner tĩnh,
+   tìm kiếm và lối vào Bắt đầu. Không dùng carousel tự chạy ở bản đầu.
+2. Các nhóm danh mục có tên, mô tả/biểu tượng và số tài nguyên công khai thực tế.
+3. Tài nguyên biên tập đề xuất: ghi lý do chọn, không gọi là bán chạy.
+4. Tài nguyên mới thêm: dùng ngày xuất bản của website, không nhầm ngày repo cập nhật.
+5. Hướng dẫn/bộ thực hành cho người mới; mỗi khối có Xem tất cả dẫn đúng trang.
+6. Giải thích cách tuyển chọn, ai biên tập, ý nghĩa nhãn Đã thử và cách báo lỗi.
+Không ép tạo nhiều khối khi chỉ có 10 tài nguyên; gộp hoặc ẩn khối thiếu nội dung,
+tránh lặp cùng một sản phẩm trên mọi hàng. Bộ sưu tập theo công việc để sau nếu chưa
+có nội dung/lý do chọn riêng; không tự thêm một loại trang mới vào A.
+
+Footer phải có Giới thiệu, Tiêu chí tuyển chọn, Liên hệ/Góp ý, Câu hỏi thường gặp,
+Quyền riêng tư, Điều khoản sử dụng, ghi công nguồn và đường Bắt đầu. Các trang này
+có nội dung thật trước launch: miễn phí của website khác chi phí công cụ ngoài;
+website giới thiệu độc lập với tác giả repo; phạm vi kiểm chứng; AI tùy chọn dùng
+API người dùng; dữ liệu form/phân tích được thu và thời hạn giữ. Không dùng trang
+chính sách mẫu chưa khớp cách vận hành; phạm vi lưu dữ liệu phải được chốt khi triển khai.
+
+### 7.3. Danh mục, bộ lọc, tìm kiếm và thẻ sản phẩm
+
+Taxonomy A dùng nhóm loại chính đề xuất: Skills cho AI agent; Ứng dụng mã nguồn mở;
+Mẫu dự án/website; Công cụ hỗ trợ phát triển. Đây là nhãn đề xuất cần thử, chưa phải
+quyết định thêm công cụ/OS ưu tiên. Nhóm theo mục tiêu như Làm website hoặc Xử lý tài
+liệu là bộ lọc nhu cầu độc lập. Chỉ công khai nhóm có nội dung phù hợp; không tạo
+hàng chục danh mục rỗng. Giữ cấu trúc tối đa hai cấp ở A; chọn một danh mục chính cho
+breadcrumb, tài nguyên vẫn có thể xuất hiện ở nhiều nhóm.
+
+Trang danh mục có H1, mô tả ngắn giúp chọn, breadcrumb, số kết quả và danh sách.
+Desktop: bộ lọc cạnh lưới khi đủ không gian; mobile: nút Bộ lọc kèm số đang chọn,
+panel có Áp dụng/Xóa tất cả. Lựa chọn trong panel là bản nháp; chỉ Áp dụng mới đổi kết quả/URL và đóng panel. Nút X, chạm nền, Escape hoặc Back đóng panel và hủy thay đổi chưa áp dụng; mở lại hiển thị bộ lọc đang áp dụng. Xóa tất cả trong panel chỉ xóa bản nháp, còn Xóa tất cả trên danh sách có hiệu lực ngay.
+Thứ tự thẻ: ảnh -> tên -> công dụng một câu -> loại/công cụ -> trạng thái thử -> CTA.
+Tối đa vài nhãn quan trọng trên thẻ; điều kiện chi tiết nằm ở trang sản phẩm. Nhãn
+Đã thử phải mở được ngữ cảnh công cụ/OS/ngày thử; thiếu dữ liệu ghi Chưa xác định.
+Ảnh dùng tỷ lệ thống nhất, không cắt mất nội dung quan trọng; có ảnh dự phòng và alt
+phù hợp. Không buộc thư viện nhiều ảnh cho repo chỉ có một ảnh hợp lệ.
+
+Hành vi truy vấn cần đặc tả và nghiệm thu:
+- Từ khóa, danh mục và các nhóm bộ lọc kết hợp AND; nhiều lựa chọn trong cùng nhóm
+  kết hợp OR. Công cụ tương thích vẫn thể hiện mức đã thử/nhà phát triển công bố.
+- A ưu tiên nhu cầu và công cụ; chỉ thêm độ khó/chi phí/OS khi dữ liệu đủ phân biệt.
+  Lọc chi phí có giá trị Chưa rõ; không loại ngầm mọi mục chưa có dữ liệu.
+- Hiện chip bộ lọc đang áp dụng, xóa từng chip hoặc tất cả; đổi lọc/sắp xếp về trang 1.
+- URL giữ từ khóa, bộ lọc, sắp xếp và trang. Mở lại/share/Back khôi phục kết quả và vị
+  trí cuộn hợp lý; không mất lựa chọn khi từ chi tiết quay lại danh mục.
+- Sắp xếp Biên tập đề xuất, Mới thêm, GitHub stars khi có. Quy tắc đề xuất do người
+  biên tập quản lý; mục chưa có sao xếp sau, không giả bằng 0; đồng hạng có thứ tự ổn định.
+- Phân trang có liên kết truy cập được; không phụ thuộc infinite scroll. Tắt lựa chọn
+  lọc không khả dụng chỉ khi giải thích được; tổng số phải khớp tập đang hiển thị.
+- Tìm kiếm cho phép nhấn Enter, xóa từ khóa; gợi ý tức thời/khả năng chịu lỗi gõ để
+  sau A nếu chưa cần. Từ khóa không có kết quả gợi ý đổi từ/bỏ lọc và đường Bắt đầu.
+
+Khi ảnh hoặc tên được nhấn mở trang sản phẩm; CTA mở repo. Không lồng nút trong link
+bao toàn thẻ. Focus, tên link và biểu tượng link ngoài phải phân biệt được hai hành
+động bằng bàn phím và trình đọc màn hình. Không hiển thị nút Lưu/So sánh chưa làm xong.
+
+### 7.4. Trang sản phẩm chi tiết: mẫu nội dung bắt buộc
+
+Phần đầu giữ bố cục e-commerce: breadcrumb; khối ảnh/thư viện ảnh bên trái; bên phải
+là tên, tác giả, lợi ích một câu, loại, điều kiện chính, trạng thái và CTA Truy cập
+repo. Dưới CTA ghi đích GitHub và việc mở nguồn không tự cài phần mềm. Xem hướng dẫn
+là hành động phụ. CTA AI chỉ hiện khi chặng U đã phát hành; khi đó có nhãn Cần API riêng, không che nút nguồn bằng popup. Trước U ẩn CTA AI, không để nút chưa hoạt động hoặc yêu cầu kết nối key.
+
+| Khối nội dung | Câu hỏi phải trả lời |
+|---|---|
+| Tóm tắt lợi ích | Làm được việc gì, dành cho ai, không phù hợp khi nào? |
+| Ảnh/demo | Đầu ra trông thế nào; ảnh thật, ảnh tác giả hay minh họa; có nguồn/quyền? |
+| Tính năng và giới hạn | Làm được gì, chưa làm được gì; tuyên bố từ tác giả hay đã thử? |
+| Thông số/yêu cầu | Loại tài nguyên, OS, công cụ/version, mức kiến thức, tài khoản, quyền cần cấp |
+| Chi phí và giấy phép | Website miễn phí; phí API/công cụ/hosting nào có thể phát sinh; giấy phép áp dụng và nguồn/ngày kiểm tra |
+| Bắt đầu | Chuẩn bị -> hướng dẫn phù hợp -> kết quả mẫu/checklist; chưa biết cài thì đi đâu? |
+| Nguồn và độ mới | Repo/thư mục gốc, tác giả, release/commit, ngày quan sát, ngày biên tập và ngày thử tách biệt |
+| Giải đáp theo tài nguyên | Câu hỏi thường gặp, lỗi đã gặp, cách dừng/gỡ khi có hướng dẫn đã kiểm chứng |
+| Trách nhiệm biên tập | Người biên tập, bằng chứng/phạm vi đã thử, nút Báo lỗi hoặc nội dung lỗi thời |
+| Sản phẩm liên quan | Cùng nhu cầu/loại và điều kiện tương thích phù hợp, ghi lý do liên quan |
+
+Các khối hiển thị theo nội dung có thật; trường bắt buộc chưa rõ vẫn phải nêu Chưa
+xác định và tác động tới quyết định dùng. Không tạo FAQ/ảnh demo/testimonial bằng
+phỏng đoán. Link demo chính thức phân biệt với repo và chỉ hiện khi đã xác minh.
+Bản dịch tóm lược có dẫn nguồn, giữ nguyên tên/lệnh, không mặc định được phân phối
+bản Việt hóa toàn bộ repo. Không dùng stars như điểm đánh giá sản phẩm.
+
+Dùng mục lục/anchor cho bài dài ở A; nếu prototype chọn tab thì phải truy cập bằng
+bàn phím, link thẳng được từng phần và nội dung đọc được khi JavaScript lỗi. Mobile
+xếp ảnh -> tóm tắt/CTA -> phần nội dung; thanh CTA cố định chỉ dùng nếu thử cho thấy
+hữu ích, không che nội dung/focus, không lặp thông báo và không chèn khi bàn phím mở.
+
+### 7.5. Tin cậy, trạng thái ngoại lệ và hỗ trợ
+
+| Tình huống | Hành vi yêu cầu ở A |
+|---|---|
+| Đang tải lọc/tìm kiếm | Có trạng thái tiến trình; giữ tiêu chí; lỗi có Thử lại, không giả thành Không có kết quả |
+| Repo đổi tên/chuyển chủ | Đối chiếu repository ID, cập nhật nguồn đã xác minh; giữ URL sản phẩm chuẩn |
+| Nguồn 404/private/không truy cập được | Ghi thời điểm/trạng thái; chưa kết luận bị xóa chỉ từ một lần lỗi hoặc rate limit; ngừng CTA hỏng sau xác minh |
+| Repo archived/ngừng duy trì | Hiện cảnh báo theo nguồn; chuyển biên tập xem xét, không tự gắn nguy hiểm hay an toàn |
+| Tạm ngừng khuyến nghị | Hiện lý do/phạm vi; giữ bài giải thích; thay CTA chính bằng xem lý do/tài nguyên thay thế, link gốc chỉ còn ở mục nguồn nếu phù hợp |
+| Bài lỗi thời/thiếu dữ liệu | Cảnh báo rõ; không xuất hiện trong nhóm đã kiểm chứng mới; không tự đổi ngày Đã thử |
+| URL sản phẩm không tồn tại | Trang 404 có tìm kiếm/danh mục; chỉ redirect tới mục thay thế tương đương đã xác nhận |
+| JS/ảnh/API AI lỗi | Nội dung, tìm kiếm server và link nguồn vẫn dùng được; ảnh dự phòng; AI lỗi không chặn đọc |
+
+CTA trực tiếp là hành vi bình thường cho tài nguyên còn được giới thiệu; ngoại lệ
+ngừng khuyến nghị/nguồn hỏng phải giải thích ngay tại thẻ và chi tiết. Thẻ trạng thái
+không còn nút nguồn hoạt động thì vẫn mở được trang chi tiết để hiểu lý do.
+Không cần quét link tự động hằng ngày ở A; người biên tập kiểm tra trước đăng và khi
+có báo lỗi/tới hạn. Lịch kiểm tra tự động bổ sung vào B với backoff và giới hạn gọi.
+
+Form Báo lỗi đặt theo từng sản phẩm, tự gắn resource ID/URL; nhận loại vấn đề, mô tả,
+email tùy chọn; thông báo không gửi API key hoặc mật khẩu, chống spam và phản hồi
+thành công/thất bại rõ. Công bố cách xử lý thực tế, không hứa thời gian hỗ trợ khi
+chưa có người phụ trách. Form góp ý repo mới để sau A; nếu mở thì vào hàng đợi duyệt,
+không publish ngay và không tự fetch URL bất kỳ. Không bổ sung live chat/diễn đàn vào A.
+
+### 7.6. Lưu, so sánh và quay lại: phạm vi sau A
+
+Lưu yêu thích không cần đăng nhập có thể làm sau mở thử nếu người dùng cần; dữ liệu
+chỉ trên thiết bị, có xóa danh sách, thông báo không đồng bộ và xử lý khi bộ nhớ bị
+chặn. Không lưu API key cùng dữ liệu này. Đã xem gần đây chỉ thêm khi có ích, phải
+cho xóa và ghi đúng chính sách dữ liệu.
+
+So sánh tối đa ba tài nguyên cùng nhu cầu là đề xuất sau A: công dụng, yêu cầu,
+OS/công cụ, chi phí ngoài, giấy phép, trạng thái kiểm chứng và thời điểm thông tin;
+Chưa rõ không được trình bày thành không có/miễn phí. Không cần AI để làm bảng so
+sánh, không mặc định tài nguyên khác loại có thể thay thế nhau. Mỗi cột có CTA nguồn
+và trang chi tiết; mobile có phương án đọc được, bỏ từng mục/xóa tất cả.
+Đánh giá người dùng, hỏi đáp công khai, tài khoản và email thông báo chỉ cân nhắc khi
+có nhu cầu và người duyệt; không sao chép các module e-commerce này vào bản đầu.
+
+### 7.7. SEO, dữ liệu quản trị, đo lường và nghiệm thu bổ sung
+
+Trang danh mục cần intro riêng, H1/title/mô tả, breadcrumb và liên kết nội bộ; không
+index nhóm rỗng hoặc mọi tổ hợp facet. Sơ đồ dữ liệu có thể dùng CollectionPage,
+ItemList, BreadcrumbList và kiểu tài nguyên phù hợp với nội dung thực tế; kiểm tra
+trước triển khai. Bố cục sản phẩm không tự tạo điều kiện cho rich result. Không thêm
+Offer giá 0, AggregateRating hoặc Review giả để trông như cửa hàng; Product/SoftwareApplication
+chỉ dùng khi đúng đối tượng và đáp ứng hướng dẫn hiện hành, không cam kết rich result
+[S17]. Open Graph có ảnh/tên/mô tả đúng khi chia sẻ; sitemap và canonical nhất quán.
+
+Bổ sung schema quản trị: category chính/phụ và mô tả/ảnh/quyền; thứ tự biên tập/lý do
+đề xuất; media và attribution; FAQ có nguồn; điều kiện sử dụng/chi phí có ngày kiểm
+tra; trạng thái nguồn/CTA; quan hệ bài hướng dẫn và tài nguyên liên quan. Dữ liệu chỉ
+nhập một lần, dùng chung ở thẻ, chi tiết, bộ lọc và so sánh tương lai. Mỗi field mới
+phải ánh xạ sang CPT/taxonomy/meta và quyền sửa trong plugin; không lưu nghiệp vụ chỉ
+ở theme. Preview phải cho người duyệt xem cả thẻ và trang chi tiết trước publish.
+
+Chỉ số A cho hành trình catalog: xem danh mục -> dùng lọc/tìm -> mở chi tiết hoặc
+mở repo trực tiếp; hai nhánh đều là hành vi hợp lệ. Ghi riêng vị trí click nguồn ở
+thẻ/chi tiết, tài nguyên và bộ lọc ở mức cần thiết; không coi mở repo là đã cài/thực
+hành thành công. Không gửi từ khóa tự do/nội dung lỗi/khóa lên analytics; không thêm
+nhận diện bền vững để đo quay lại. Chốt công cụ và cấu hình tối thiểu khi triển khai.
+
+Checklist nghiệm thu thêm cho A:
+- Từ chủ -> danh mục -> chi tiết -> nguồn, và thẻ -> nguồn đều đúng trên desktop/mobile.
+- Trang chủ, trang danh mục, chi tiết có template riêng; kết quả tìm kiếm tái dùng
+  template danh sách. Bốn màn hình prototype trước đây là bốn template lõi; thêm
+  trạng thái tìm kiếm, menu/filter mobile, 404 và lỗi nguồn, không cần nhân trang.
+- Quay lại danh mục giữ bộ lọc/trang/vị trí; số kết quả, logic AND/OR, phân trang đúng.
+- Thử bàn phím với menu, bộ lọc/panel, gallery và mục lục/tab; focus không bị che,
+  heading/label/link mô tả rõ; kiểm tra zoom và chữ dài tiếng Việt.
+- Có ca nguồn hỏng, đổi tên, ngừng khuyến nghị, thiếu ảnh/sao/chi phí, không kết quả,
+  JS bị tắt; không tạo badge/giá trị giả. A nghiệm thu luồng không cần AI; chỉ khi phát hành U mới thêm ca lỗi API AI và kiểm tra fallback đọc/tìm/truy cập nguồn.
+- Không thêm ảnh nặng/sliders/video tự tải làm hỏng ngân sách hiệu năng ở mục 14;
+  quy định kích thước ảnh, responsive image, lazy load ảnh dưới màn hình và giữ chỗ.
+- Nội dung footer/chính sách/form hoạt động; không có nút hoặc trang placeholder công khai.
 
 ## 8. Kiến trúc phần mềm
 
@@ -750,7 +941,7 @@ bộ chạy run-clean; giữ database local, nguồn, bằng chứng và gói ph
 ## 14. Lộ trình và tiêu chí nghiệm thu
 
 Tách rõ mở thử A khỏi tự động hóa B. Ước lượng cũ 15–27 ngày công kỹ thuật chỉ là mốc
-tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.6. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
+tham chiếu của 1.1, chưa phải dự toán đã kiểm chứng cho 1.8; các chi tiết e-commerce bổ sung cần đưa vào dự toán A. BYOK với hai tác vụ đã chốt cần ước lượng riêng sau khi chốt provider và thiết kế request. Tách lại công kỹ thuật,
 công nội dung và thời gian lịch sau khảo sát, một bài thực hành mẫu và prototype.
 Không chốt lịch launch khi chưa biết công suất duyệt, hosting và số vòng sửa.
 
@@ -775,7 +966,7 @@ hành; không phải 5 dự án độc lập hoặc quota bắt buộc xuất b�
 công kiểm chứng. Pilot B cần 7 ngày lịch khi pipeline nháp sẵn sàng; không đồng nghĩa
 7 ngày công bổ sung hoặc điều kiện để mở thử A.
 
-Nghiệm thu A:
+Nghiệm thu A (kèm checklist catalog ở mục 7.7):
 - Mỗi mục công khai có nguồn/version, thông tin quyền phù hợp, trạng thái thử và yêu cầu.
 - Danh mục e-commerce có CTA trực tiếp đúng repo, title/link chi tiết riêng; không cần key, không có giỏ hàng hoặc checkout.
 - Luồng đọc -> đủ điều kiện -> cài/khởi tạo -> kiểm tra sẵn sàng -> thực hành -> checklist -> bước tiếp hoạt động; ghi trợ giúp. Người thử nhập môn chưa từng cài công cụ.
@@ -887,7 +1078,7 @@ hiệu, tránh bắt chủ website quyết định tất cả cùng lúc. Các v
 prototype có thể tiến hành với nhãn giả thuyết; chưa chốt các quyết định đó bằng im lặng.
 
 Khóa API, quyền WordPress, staging và tài khoản thử chỉ cấu hình khi tới bước liên quan;
-không yêu cầu gửi bí mật trong chat. Plan 1.6 chưa tạo lịch chạy, gọi Gemini, đăng bài,
+không yêu cầu gửi bí mật trong chat. Plan 1.8 chưa tạo lịch chạy, gọi Gemini, đăng bài,
 đổi thư mục triển khai hoặc kích hoạt theme/plugin trên website.
 
 ## 17. Nguồn tham chiếu
@@ -936,6 +1127,12 @@ https://developers.google.com/search/docs/essentials/spam-policies#scaled-conten
 
 [S15] Google — Using Gemini API keys (bí mật, proxy backend và quản lý key):
 https://ai.google.dev/gemini-api/docs/api-key
+
+[S16] W3C WAI — Multiple ways, navigation và breadcrumbs:
+https://www.w3.org/WAI/tutorials/menus/multiple-ways/
+
+[S17] Google — Product structured data, điều kiện dùng theo loại trang:
+https://developers.google.com/search/docs/appearance/structured-data/product
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
