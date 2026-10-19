@@ -1,6 +1,6 @@
 # Kế hoạch xây dựng thư viện Vibe Coding và AI Agent cho người Việt
 
-Ngày: 19/10/2026. Phiên bản: 1.0 — đề xuất để triển khai.
+Ngày: 19/10/2026. Phiên bản: 1.1 — bổ sung Gemini API và tuyển chọn repo hằng ngày.
 Tên làm việc: VibeLab Việt; chưa kiểm tra tên thương hiệu hoặc domain.
 Website hiện tại: https://store.vneconomics.com/.
 
@@ -36,6 +36,7 @@ Giả định lập kế hoạch:
 - Nhóm phụ: người làm nội dung, giảng viên, marketer và developer muốn tìm công cụ nhanh.
 - Nội dung nền tảng miễn phí; chưa coi đây là cửa hàng dù đang dùng subdomain store.
 - Chủ website chịu trách nhiệm biên tập cuối; AI hỗ trợ nghiên cứu, bản nháp và kiểm tra.
+- Người dùng xác nhận có Gemini API trả phí; chọn Gemini làm nhà cung cấp AI ban đầu. Chưa cấu hình key hoặc chọn model.
 - MVP ưu tiên đọc, tìm kiếm và thực hành; chưa cung cấp môi trường chạy repo cho khách.
 Các giả định này có thể đổi mà không cần thiết kế lại toàn hệ thống.
 
@@ -265,16 +266,79 @@ Không dịch tên file, mã, cờ CLI, khóa YAML hoặc định danh API. Bả
 hành vi agent; cần thử lại trước khi cung cấp như gói dùng được. Giấy phép được xem tại
 file cụ thể và revision tương ứng; một repo có thể chứa nhiều điều kiện [S5, S6].
 
-Model/provider chưa chốt. Chọn sau một bộ 10 đầu vào đại diện, so sánh độ đúng nguồn,
-chất lượng tiếng Việt, độ đúng cấu trúc và chi phí. Không mặc định gói thuê bao chat
-của chủ website cung cấp API cho tác vụ nền. Giới hạn số token, số mục mỗi lượt và
-ngân sách ngày; hết ngân sách thì hoãn job, giữ nguyên bài công khai.
+Nhà cung cấp AI ban đầu: Gemini API trả phí do chủ website đã có. Model cụ thể chưa
+chọn: benchmark trên 10 đầu vào đại diện về độ đúng nguồn, tiếng Việt, đầu ra JSON và
+chi phí, rồi ghim model ID vào cấu hình. Chưa dùng API key hoặc gọi dịch vụ có phí trong
+bước lập kế hoạch. Key lưu trong secret của môi trường chạy, không ở frontend hoặc Git.
+
+Phân vai rõ: GitHub API xác minh repository, số sao, thời điểm hoạt động và release;
+Gemini đọc tài liệu, phân loại, giải thích, tóm tắt và viết bản nháp. Có thể bật Grounding
+with Google Search ở model hỗ trợ để tìm bài giới thiệu hoặc thông báo ngoài GitHub,
+giữ thông tin trích dẫn trả về và đáp ứng yêu cầu hiển thị/điều khoản của dịch vụ [S7].
+Không coi kết quả tìm kiếm hoặc câu trả lời AI là bằng chứng repo đã được chạy thử.
+
+Grounding là công cụ có cơ chế tính phí riêng theo model [S9]; có Gemini API trả phí
+không đồng nghĩa tìm kiếm không giới hạn hoặc miễn phí. Giới hạn token, số mục và số
+lượt công cụ; một lượt gọi model có thể phát sinh nhiều truy vấn tìm kiếm. Ghi usage
+thực tế nếu API cung cấp, dự trù trước mỗi job và dừng nhận job mới khi gần ngưỡng.
+Ngưỡng trong ứng dụng không được quảng bá là trần hóa đơn tuyệt đối của nhà cung cấp.
 
 ## 11. Cập nhật tự động và vận hành
 
-Lịch đề xuất ban đầu: lấy metadata nguồn đã chọn mỗi ngày; tìm ứng viên mới hai lần
-mỗi tuần; kiểm tra sâu khi có thay đổi tài liệu/release; biên tập theo đợt. Đây là lịch
-đề xuất cho phần mềm tương lai, chưa phải automation đã được tạo.
+Lịch đề xuất ban đầu: một lượt tìm ứng viên và cập nhật metadata mỗi ngày theo múi giờ
+Asia/Saigon; kiểm tra sâu khi có thay đổi tài liệu/release; biên tập theo đợt. Thời điểm
+chạy sẽ chọn khi triển khai. Đây là lịch thiết kế, chưa có automation được tạo hoặc bật.
+
+### 11.1. Biên tập viên AI tìm repo hằng ngày
+
+Luồng: GitHub Search + danh sách nguồn theo dõi -> loại trùng/lọc chất lượng -> lưu số
+liệu -> xếp ứng viên -> Gemini đọc nguồn -> tạo bản nháp WordPress -> người biên tập duyệt.
+
+Bộ tìm kiếm dùng nhóm từ khóa/topic cho vibe coding, agent skills, công cụ AI hỗ trợ
+lập trình, starter và tự động hóa. Dùng các bộ lọc ngày tạo/hoạt động, chủ đề và số sao
+được GitHub hỗ trợ [S8]. Có nhánh phát hiện repo mới để không bỏ qua dự án ít sao nhưng
+hữu ích. Không tuyên bố thu thập hết GitHub hoặc tái tạo chính xác GitHub Trending.
+
+Ba nhóm đề xuất công khai:
+- Đang tăng nhanh: có số liệu thực về mức tăng trong khoảng quan sát.
+- Mới đáng chú ý: dự án mới, công dụng và tài liệu rõ; chưa cần lịch sử dài.
+- Hữu ích lâu dài: phù hợp nhu cầu người mới và còn được duy trì, dù không gây sốt.
+
+Dữ liệu sức hút lưu theo repository ID: stargazers_count, forks_count, observed_at,
+ngày tạo, pushed_at và thông tin release. Tính chênh lệch sao ròng giữa các snapshot,
+ghi đúng khoảng thời gian; nếu lệch mốc 24 giờ thì không gắn nhãn chính xác 24 giờ.
+Snapshot đầu chỉ là baseline. Repo mới phát hiện chưa có lịch sử thì hiển thị chưa đủ
+dữ liệu; không suy ra tăng trưởng từ tổng sao, ngày cập nhật hoặc lời Gemini nói.
+Mức tăng sao chỉ là tín hiệu xếp hạng, không thay thế tiêu chí hữu ích và chất lượng.
+
+Hạn mức pilot mỗi ngày (có thể giảm khi quota/chi phí không phù hợp):
+- Tối đa 50 ứng viên duy nhất sau lọc và loại trùng; đây không phải số request API.
+- Tối đa 10 ứng viên được Gemini phân tích sâu, ưu tiên mục mới hoặc nguồn thay đổi.
+- Tối đa 3 bài nháp tiếng Việt; không đủ chất lượng thì tạo ít hơn hoặc không tạo.
+- Grounding là bổ sung có hạn mức riêng, không gọi cho tất cả ứng viên mặc định.
+- Job có khóa resource/source-hash, lưu checkpoint bền vững; chạy lại không trùng bài.
+
+Bản nháp phải có: vì sao đáng chú ý hôm nay và số liệu quan sát hỗ trợ, công dụng,
+đối tượng phù hợp, yêu cầu, chi phí còn chưa rõ, link nguồn và ngày lấy dữ liệu. Các
+lệnh/cách dùng chỉ ghi theo nguồn; nếu chưa thử thực hành phải giữ nhãn Chưa thử.
+Không biến tăng sao thành lời xác nhận an toàn, tương thích hoặc chất lượng mã.
+
+### 11.2. Chạy thử 7 ngày trước khi mở rộng
+
+Sau khi đã cấu hình credential, quyền và ngân sách, chạy pilot 7 ngày ở chế độ bản
+nháp; chưa tự xuất bản. Mục tiêu là kiểm chứng cả tuyển chọn, chi phí và tải biên tập,
+không phải cam kết luôn có 3 bài mỗi ngày. Không chạy mã từ repo được phát hiện.
+
+Ghi mỗi ngày: số ứng viên mới/trùng, số mục đủ nguồn, chi phí token/grounding, số bản
+nháp được duyệt, thời gian sửa và lỗi thực tế. Ngày đầu ghi baseline; đến cuối pilot
+chỉ có thể đánh giá tăng trưởng trong khoảng đã quan sát, chưa mặc định có lịch sử
+7 ngày cho mọi repo. Chạy kiểm thử nguồn không đổi, rate-limit, lỗi Gemini, thiếu quota,
+JSON sai schema, nguồn bị xóa và nội dung chỉ dẫn độc hại trước khi bật lịch thật.
+
+Điều kiện hoàn thành pilot: không xuất bản ngoài quyền; không tạo trùng khi chạy lại;
+không gắn nhãn Đã thử do AI tự sinh; bản nháp có nguồn hoặc đánh dấu thiếu; thống kê
+usage/chi phí và checkpoint đầy đủ, không lộ key. Chỉ mở rộng khi chất lượng và công
+suất duyệt đáp ứng; nếu bài tồn tăng thì giảm lượng ứng viên/bản nháp thay vì tự duyệt.
 
 | Thay đổi | Xử lý |
 |---|---|
@@ -372,11 +436,11 @@ chờ hosting, credential, phản hồi và số lần sửa thiết kế có th
 | 1. Thiết kế | Luồng người mới, schema, wireframe, UI desktop/mobile | Prototype và mẫu bài chi tiết được xem xét | 2–4 |
 | 2. Website | Plugin nội dung, theme, tìm/lọc, phản hồi | Duyệt danh mục và hướng dẫn hoàn chỉnh trên local | 4–6 |
 | 3. Thu thập | GitHub adapter, snapshot, diff, job, nhập draft | Chạy lại không trùng, giữ bài tay, xử lý lỗi | 3–5 |
-| 4. AI và biên tập | Schema đầu ra, glossary, nguồn, ngân sách, luồng duyệt | Pipeline đạt rubric trên 5 đầu vào mẫu; nội dung sản xuất theo công suất đo | 3–6 |
+| 4. Gemini và biên tập | Schema đầu ra, glossary, nguồn, ngân sách, luồng duyệt | Benchmark 10 đầu vào; pipeline đạt rubric; chuẩn bị pilot 7 ngày chỉ tạo bản nháp | 3–6 |
 | 5. Staging và launch | E2E, môi trường thật, backup/restore, deploy | Bản phát hành và diễn tập khôi phục thành công | 2–4 |
 
 Tổng dự kiến 15–27 ngày công kỹ thuật, chưa bao gồm toàn bộ công nghiên cứu, thử và duyệt nội dung. Có thể trải 4–7 tuần nếu nội dung và phản hồi sẵn sàng; đây chưa phải lịch launch.
-Cập nhật ước lượng sau chặng 0–1; khối lượng thử 20 tài nguyên là rủi ro tiến độ lớn.
+Cập nhật ước lượng sau chặng 0–1; khối lượng thử 20 tài nguyên là rủi ro tiến độ lớn. Pilot Gemini cần ít nhất 7 ngày lịch quan sát riêng, không đồng nghĩa 7 ngày công bổ sung; chỉ chạy sau khi luồng nháp đã sẵn sàng.
 Các chặng là gói công việc có điều kiện nghiệm thu, không phải tất cả có thể chạy tự động.
 Sau 5 bài mẫu, ghi giờ nghiên cứu, cài/thử, viết, duyệt và cập nhật của từng bài. Dùng
 trung vị lẫn bài khó nhất để dự báo lượng bài theo số giờ chủ biên thực có mỗi tuần;
@@ -402,7 +466,7 @@ Nghiệm thu bắt buộc:
 
 Không chốt số tiền khi chưa benchmark và xem hạn mức tài khoản. Bảng chi phí cần theo
 riêng: hosting/staging/backup; phút runner; lượt gọi GitHub; AI; dung lượng snapshot;
-thời gian biên tập/thử nghiệm. Ghi dữ liệu thực tế 7 ngày pilot rồi đặt trần ngày/tháng.
+thời gian biên tập/thử nghiệm. Đặt ngân sách tạm ngày/tháng trước khi gọi API; sau 7 ngày pilot điều chỉnh bằng dữ liệu thực tế. Tách chi phí token Gemini khỏi Google Search grounding, không mặc định được bao gồm trong gói hiện có.
 AI chỉ xử lý nguồn thay đổi, không dịch toàn bộ repo và không re-run mọi bài mỗi ngày.
 Khi vượt trần thì hoãn job, không tự mua quota hoặc nâng gói.
 
@@ -453,6 +517,15 @@ https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-f
 
 [S6] Anthropic — Skills README (phân biệt giấy phép từng nhóm):
 https://github.com/anthropics/skills
+
+[S7] Google — Grounding with Google Search:
+https://ai.google.dev/gemini-api/docs/google-search
+
+[S8] GitHub — Searching for repositories:
+https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+
+[S9] Google — Gemini Developer API pricing (đối chiếu model và usage lúc cấu hình):
+https://ai.google.dev/gemini-api/docs/pricing
 
 Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch, chỉ tiêu, thiết kế và
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
