@@ -12,7 +12,8 @@
     "test:prototype": "node scripts/run-clean.mjs script scripts/test-s02-prototype.mjs",
     "test:library": "node scripts/run-clean.mjs script scripts/test-s03-library.mjs",
     "test:state": "node scripts/run-clean.mjs script scripts/test-s04-state.mjs",
-    "test:revisions": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs"
+    "test:revisions": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs",
+    "test:theme": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

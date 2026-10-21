@@ -4,44 +4,51 @@ Dự án riêng cho https://store.vneconomics.com/.
 
 ## Trạng thái
 
-- Môi trường phát triển mới bằng WordPress Playground, PHP 8.3, SQLite.
-- Đây chưa phải bản sao dữ liệu, plugin hay theme của website hiện tại.
-- Đã có prototype tĩnh S02 và plugin dữ liệu/trạng thái/bản sửa S05 đạt kiểm thử local; chưa phát hành theme/plugin lên hosting.
+- WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
+- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền và trang chủ S06.
+- Theme/plugin chưa cài vào database local đang dùng hoặc đưa lên hosting.
 - Repository riêng tư: https://github.com/johntroger/vneconomics-store
 
 ## Chạy local
 
-```powershell
+~~~powershell
 npm ci
 npm run dev
-```
+~~~
 
 Mở http://127.0.0.1:9400. Dừng bằng Ctrl+C.
-Dữ liệu local được giữ ở `.local/site`, thành phần WordPress tải về ở `.local/home`.
-Các thư mục này không đưa lên GitHub. Không xóa database local như dữ liệu tạm.
+Database local giữ ở .local/site; runtime WordPress ở .local/home. Không đưa hai
+thư mục này lên GitHub, không xóa database như file tạm. Lệnh dev mở site local
+hiện có, không tự kích hoạt theme/plugin hoặc nạp dữ liệu mẫu.
 
 ## Kiểm thử
 
-```powershell
+~~~powershell
 npm test
-```
+npm run test:revisions
+npm run test:theme
+~~~
 
-Kiểm thử khởi động WordPress hai lần với cùng database fixture; kiểm tra trang chủ,
-trang đăng nhập và REST API. Bộ chạy `scripts/run-clean.mjs` dọn fixture/cache mới
-của lần chạy sau khi server đã đóng, kể cả khi thất bại. Không chạy fixture song song.
+Chạy từng lệnh, không song song. npm test kiểm tra baseline hai boot; test:revisions
+kiểm tra S03–S05; test:theme khởi động fixture riêng với plugin/theme và dữ liệu
+QA để kiểm tra home, responsive, liên kết, bàn phím, JS lỗi, snapshot và state.
 
-SQLite/PHP WebAssembly giúp bắt đầu nhanh. Trước phát hành cần kiểm tra trên staging
-PHP/MySQL của hosting, bao gồm plugin/theme tùy chỉnh và các plugin bên thứ ba.
+Mọi runner qua scripts/run-clean.mjs, đóng browser/server trước khi dọn fixture
+và cache mới tạo, kể cả khi thất bại. Giữ bằng chứng ở docs/acceptance.
+Playwright Node sẵn trong runtime Codex và Microsoft Edge được dùng cho kiểm thử UI.
+SQLite/PHP WebAssembly không thay thế kiểm thử PHP/MySQL/cache/plugin trên hosting.
 
-## Quy trình phát hành dự kiến
+## Quy trình phát hành
 
-Local -> kiểm thử -> GitHub -> Plesk Git webhook -> thư mục mã tùy chỉnh.
-Chi tiết: [docs/plesk-setup.md](docs/plesk-setup.md).
-Không đưa database, uploads, wp-config.php, khóa bí mật hoặc toàn bộ WordPress core
-vào nhánh triển khai. Nhánh release chỉ nhận payload đã kiểm thử và được duyệt triển khai.
+Local → kiểm thử → GitHub → Plesk webhook → thư mục mã tùy chỉnh.
+Chi tiết: [plesk-setup.md](docs/plesk-setup.md).
+Không đưa database, uploads, wp-config.php, khóa bí mật hoặc WordPress core vào
+nhánh triển khai. release chỉ nhận payload đã kiểm thử và được duyệt triển khai.
 
 ## Tiến độ theo bước
 
-S05 đã đạt kiểm thử local; xem [báo cáo S05](docs/acceptance/S05-revisions-and-preview.vi.md).
-Chạy kiểm thử plugin/trạng thái: npm run test:revisions. Plugin chưa cài vào database local đang dùng.
-Chờ chủ dự án cho phép S06 theo [kế hoạch gated](docs/implementation-plan-gated.vi.md).
+[Báo cáo S05](docs/acceptance/S05-revisions-and-preview.vi.md) và
+[báo cáo S06](docs/acceptance/S06-theme-and-home.vi.md) (59 điểm kiểm tra PASS local).
+Theme: [themes/vibelab](themes/vibelab/README.md).
+Phạm vi và quyền từng bước theo [kế hoạch gated](docs/implementation-plan-gated.vi.md).
+Chỉ làm S07 khi chủ dự án cho phép rõ ràng sau báo cáo S06.
