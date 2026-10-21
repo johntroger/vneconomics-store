@@ -68,11 +68,11 @@ function vne_library_save_state($id,$input) {
     update_post_meta($id,'_vne_state',wp_slash($valid));
     return vne_library_item($id,true);
 }
-function vne_library_revision($id) {
+function vne_library_revision($id,$candidate=null) {
     $post=get_post($id);
     if (!$post||!isset(vne_library_types()[$post->post_type])) { return ''; }
     if ($post->post_type==='vne_resource') {
-        $data=get_post_meta($id,'_vne_resource',true);
+        $data=$candidate['data']??get_post_meta($id,'_vne_resource',true);
         $critical=array();
         foreach(array('source_url','source_path','source_revision') as $key) { $critical[$key]=$data[$key]??null; }
         $critical['claims']=array();
@@ -81,7 +81,7 @@ function vne_library_revision($id) {
             $critical['claims'][$name]=array('value'=>$claim['value'],'status'=>$claim['verification_status'],'source_url'=>$claim['source_url'],'conflict_sources'=>$sources);
         }
     } else {
-        $critical=array('content'=>$post->post_content,'source'=>get_post_meta($id,'_vne_document_source',true)['source_url']??'','dependencies'=>vne_library_dependencies($id));
+        $critical=array('content'=>$candidate['content']??$post->post_content,'source'=>$candidate['document_source']['source_url']??(get_post_meta($id,'_vne_document_source',true)['source_url']??''),'dependencies'=>vne_library_dependencies($id));
     }
     return hash('sha256',wp_json_encode($critical,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
 }
@@ -158,12 +158,12 @@ function vne_library_dependency_warnings($id) {
     }
     return $warnings;
 }
-function vne_library_resolve_state($id) {
-    $post=get_post($id);$state=vne_library_state_input($id);$revision=vne_library_revision($id);
+function vne_library_resolve_state($id,$candidate=null) {
+    $post=get_post($id);$state=vne_library_state_input($id);$revision=vne_library_revision($id,$candidate);
     $history=vne_library_validations($id);$latest=$history?end($history):null;
     $dependencies=$post&&$post->post_type!=='vne_resource'?vne_library_dependency_warnings($id):array();
     $due=$state['review']['review_due_at'];
-    $resource_data=$post&&$post->post_type==='vne_resource'?get_post_meta($id,'_vne_resource',true):array();
+    $resource_data=$post&&$post->post_type==='vne_resource'?($candidate['data']??get_post_meta($id,'_vne_resource',true)):array();
     $claim_risk=false;$claim_warnings=array();
     foreach (($resource_data['claims']??array()) as $name=>$claim) {
         if ($claim['verification_status']==='conflicted') { $claim_warnings[]=array('code'=>'claim_conflicted','field'=>$name); }
@@ -187,7 +187,7 @@ function vne_library_resolve_state($id) {
     if (!$latest) { $warnings[]=array('code'=>'not_tested'); }
     $public=$post&&$post->post_status==='publish';
     $primary=!$public?'hidden':($recommendation==='suspended'?'suspended':($access==='unavailable'?'unavailable':($validation==='review_needed'?'review_needed':($maintenance==='archived'?'archived':($access==='unknown'?'access_unknown':$validation)))));
-    $data=$post&&$post->post_type==='vne_resource'?get_post_meta($id,'_vne_resource',true):get_post_meta($id,'_vne_document_source',true);
+    $data=$post&&$post->post_type==='vne_resource'?($candidate['data']??get_post_meta($id,'_vne_resource',true)):($candidate['document_source']??get_post_meta($id,'_vne_document_source',true));
     $url=$data['source_url']??'';
     $verified=$post&&$post->post_type==='vne_resource'?($data['source_verified']??false):vne_library_https_url($url);
     $can_open=$public&&$recommendation!=='suspended'&&$access!=='unavailable'&&$verified&&vne_library_https_url($url);

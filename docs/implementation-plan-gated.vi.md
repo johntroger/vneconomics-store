@@ -155,7 +155,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S01: smoke hai boot và cleanup PASS; [báo cáo](acceptance/S01-local-baseline.vi.md); chủ dự án đã cho phép S02.
 - S02: kỹ thuật prototype PASS; [báo cáo](acceptance/S02-prototype-and-content.vi.md); chủ dự án đã cho phép bắt đầu S03. Việc này không thay nghiệm thu người mới ở S13.
 - S03: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S03-library-data.vi.md), [hợp đồng dữ liệu](S03-data-contract.vi.md). Chủ dự án đã cho phép S04.
-- S04: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S04-state-and-dependencies.vi.md), [hợp đồng trạng thái](S04-state-contract.vi.md). Chờ chủ dự án cho phép S05.
-- S05–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S04: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S04-state-and-dependencies.vi.md), [hợp đồng trạng thái](S04-state-contract.vi.md). Chủ dự án đã cho phép S05.
+- S05: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S05-revisions-and-preview.vi.md), [hợp đồng bản sửa](S05-revision-contract.vi.md). Chờ chủ dự án cho phép S06.
+- S06–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Hoàn tất và báo cáo S04; chỉ bắt đầu S05 khi chủ dự án đồng ý rõ ràng.
+- Hoàn tất và báo cáo S05; chỉ bắt đầu S06 khi chủ dự án đồng ý rõ ràng.

@@ -25,7 +25,7 @@ function vne_library_register_routes() {
     ));
     register_rest_route($namespace,'/items/(?P<id>\d+)',array(
         array('methods'=>'GET','permission_callback'=>'__return_true','callback'=>function($request){return vne_library_item((int)$request['id'],$request->get_param('context')==='edit');}),
-        array('methods'=>'POST','permission_callback'=>function($request){return vne_library_can_edit((int)$request['id']);},'callback'=>function($request){return vne_library_save_item($request->get_json_params(),(int)$request['id']);})
+        array('methods'=>'POST','permission_callback'=>function($request){return vne_library_can_edit((int)$request['id']);},'callback'=>function($request){return vne_library_manual_api_save($request);})
     ));
     register_rest_route($namespace,'/terms',array('methods'=>'POST','permission_callback'=>function(){return vne_library_can_edit();},'callback'=>function($request){return vne_library_create_term($request->get_json_params());}));
 }

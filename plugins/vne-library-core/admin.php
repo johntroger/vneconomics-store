@@ -43,21 +43,29 @@ function vne_library_admin_page(){
         $raw=wp_unslash($_POST);
         if(($raw['operation']??'')==='term'){
             $result=vne_library_create_term(array('taxonomy'=>$raw['taxonomy']??'','name'=>$raw['term_name']??'','parent'=>absint($raw['parent']??0)));
+        }elseif(in_array($raw['operation']??'',array('approve','reject'),true)){
+            $proposal_id=absint($raw['proposal_id']??0);$proposal=vne_library_get_proposal($proposal_id);
+            $result=is_wp_error($proposal)?$proposal:($proposal['item_id']!==$id?vne_library_error('Sai nội dung của bản sửa.'):vne_library_decide_proposal($proposal_id,$raw['operation']==='approve'?'approved':'rejected',$raw['decision_reason']??''));
+            if(!is_wp_error($result)){$item=vne_library_item($id,true);}
+        }elseif(($raw['operation']??'')==='propose'){
+            $payload=vne_library_admin_payload($raw,$type);
+            $result=vne_library_create_proposal($id,array('base_revision'=>$raw['base_revision']??'','payload'=>$payload));
         }elseif(in_array($raw['operation']??'',array('state','validation','dependency'),true)){
             $result=vne_library_state_form_handle($id,$raw);
             if(!is_wp_error($result)){$item=$result;}
         }else{
-            $payload=vne_library_admin_payload($raw,$type);$result=vne_library_save_item($payload,$id);
+            $payload=vne_library_admin_payload($raw,$type);$result=$id&&empty($raw['base_revision'])?vne_library_error('Cần phiên bản gốc; tải lại form.'):vne_library_save_item($payload,$id,$id?$raw['base_revision']:null);
             $item=array_replace($item,$payload);
-            if(!is_wp_error($result)){$item=$result;$id=$result['id'];}
+            if(!is_wp_error($result)){$item=$result;$id=$result['id'];}elseif($id&&($result->get_error_data()['status']??0)===409&&is_string($raw['base_revision']??null)){$item['approved_revision']=$raw['base_revision'];}
         }
         $error=is_wp_error($result);$notice=$error?$result->get_error_message():'Đã lưu dữ liệu.';
     }
     echo '<div class="wrap"><h1>Thư viện · Nhập liệu thủ công</h1><p>Nguồn được đối chiếu không có nghĩa là tài nguyên đã được kiểm thử. Các thông tin chưa biết cần giữ “Chưa xác định”.</p>';
+    if($error&&($result->get_error_data()['status']??0)===409){echo '<p><a href="'.esc_url(admin_url('admin.php?page=vne-library&id='.$id)).'">Tải lại bản hiện tại để đối chiếu</a></p>';}
     if($notice){echo '<div class="notice '.($error?'notice-error':'notice-success').'"><p>'.esc_html($notice).'</p></div>';}
     foreach(vne_library_types() as $key=>$config){echo '<a class="button" href="'.esc_url(admin_url('admin.php?page=vne-library&kind='.$key)).'">'.esc_html($config[0]).'</a> ';}
     echo '<form method="post" action="'.esc_url(admin_url('admin.php?page=vne-library&kind='.$type.($id?'&id='.$id:''))).'">';
-    wp_nonce_field('vne_library_save');echo '<input type="hidden" name="operation" value="item">';
+    wp_nonce_field('vne_library_save');if($id){echo '<input type="hidden" name="base_revision" value="'.esc_attr($item['approved_revision']).'">';}
     vne_library_field('Tiêu đề','title',$item['title']);
     vne_library_field('Công dụng ngắn','excerpt',$item['excerpt'],true);
     vne_library_field('Nội dung (HTML cơ bản)','content',$item['content'],true);
@@ -85,7 +93,7 @@ function vne_library_admin_page(){
         foreach(array('source_url'=>'URL nguồn HTTPS','observed_at'=>'Ngày đối chiếu YYYY-MM-DD','note'=>'Ghi chú nguồn') as $field=>$text){vne_library_field($text,'document_source['.$field.']',$item['document_source'][$field]);}
     }
     vne_library_field('Ghi chú nội bộ (không trả về API công khai)','editorial_note',$item['editorial_note'],true);
-    submit_button('Lưu nội dung');echo '</form>';vne_library_state_admin($id);echo '<h2>Phân loại mới</h2><form method="post">';
+    if(!$id||current_user_can('vne_approve_library')){echo '<button class="button button-primary" type="submit" name="operation" value="item">Lưu nội dung</button> ';}if($id){echo '<button class="button" type="submit" name="operation" value="propose">Tạo bản sửa chờ duyệt</button>';}echo '</form>';vne_library_revision_admin_list($id);vne_library_state_admin($id);echo '<h2>Phân loại mới</h2><form method="post">';
     wp_nonce_field('vne_library_save');echo '<input type="hidden" name="operation" value="term"><label>Loại phân loại <select name="taxonomy">';
     foreach(vne_library_taxonomies() as $key=>$label){echo '<option value="'.$key.'">'.esc_html($label).'</option>';}echo '</select></label>';
     vne_library_field('Tên phân loại','term_name','');vne_library_field('ID danh mục cha (0 nếu không có)','parent','0');submit_button('Thêm phân loại','secondary');echo '</form>';

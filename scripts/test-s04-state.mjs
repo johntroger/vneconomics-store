@@ -75,7 +75,7 @@ try{
  app=await startSite(fixture,19404);
  const persisted=JSON.parse(await php("<?php require '/wordpress/wp-load.php'; $ids=get_option('s04_persist_ids'); echo wp_json_encode(array('state'=>vne_library_resolve_state($ids['resource']),'guide'=>vne_library_resolve_state($ids['guide']),'history_count'=>count(vne_library_validations($ids['resource'])),'guide_history_count'=>count(vne_library_validations($ids['guide'])),'schema'=>get_option('vne_library_schema_version')));"));
  assert.equal(persisted.state.primary_badge,'suspended');assert.equal(persisted.guide.validation_status,'review_needed');
- assert.equal(persisted.history_count,2);assert.equal(persisted.guide_history_count,3);assert.equal(Number(persisted.schema),2);
+ assert.equal(persisted.history_count,2);assert.equal(persisted.guide_history_count,3);assert.equal(Number(persisted.schema),3);
  for(const route of ['/','/wp-login.php','/wp-json/']){const response=await fetch(base+route);assert.equal(response.status,200);assert.doesNotMatch(await response.text(),/Fatal error:|Error establishing a database connection/);}
  assert.deepEqual(hashes(),before);
  writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',regressionChecks:regression.checks,stateChecks:result.checks,matrix:result.matrix,browser:['editor login','state form saved','nonce 403','HTTP public state matches','guide step warning','no page errors','manual dependency bind','manual validation append'],restart:persisted,baseline:['home 200','login 200','REST 200'],liveFilesUnchanged:true},null,2)+'\n');

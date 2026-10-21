@@ -1,6 +1,6 @@
-# vne-library-core — S04
+# vne-library-core — S05
 
-Plugin dữ liệu WordPress, phiên bản 0.2.0. Mã PHP yêu cầu 8.1+; đã chọn kiểm thử
+Plugin dữ liệu WordPress, phiên bản 0.3.0. Mã PHP yêu cầu 8.1+; đã chọn kiểm thử
 local PHP 8.3 / WordPress 7.1.3. Chưa có xác nhận tương thích MySQL/Plesk.
 
 - Ba loại nội dung: tài nguyên, hướng dẫn, bộ thực hành.
@@ -32,8 +32,7 @@ Schema và điều kiện xuất bản: [hợp đồng S03](../../docs/S03-data-
 Chạy kiểm thử từ gốc repo: npm run test:library (tự dọn fixture/cache).
 Script kiểm thử dùng Edge và Playwright đi kèm Codex; không cần provider AI.
 
-S04 chưa có theme riêng, collector, AI hoặc quy trình
-bản sửa/duyệt. Các chức năng đó cần phê duyệt bước tương ứng. Không sao chép toàn
+S05 có bản sửa/preview/duyệt riêng; chưa có theme, collector hoặc AI. Các bước tiếp theo cần phê duyệt riêng. Không sao chép toàn
 bộ repo vào thư mục WordPress để cài plugin.
 
 ## Trạng thái và kiểm chứng S04
@@ -50,3 +49,27 @@ Các form ở Thư viện cho phép ghi thủ công; plugin không tự chạy r
 Xem [hợp đồng trạng thái](../../docs/S04-state-contract.vi.md).
 Kiểm thử: npm run test:state; gồm hồi quy S03, 54 tổ hợp, quyền, dependency,
 form quản trị, HTTP và restart trong fixture tự dọn. Schema meta 2 / derived schema 1.
+
+## Bản sửa và preview S05
+
+Plugin 0.3.0 / meta schema 3; derived state schema 1 giữ tương thích.
+GET edit item trả approved_revision và approval_history. Lưu trực tiếp existing
+item qua POST /items/{id} cần base_revision trong body cùng payload đầy đủ và
+capability vne_approve_library. Form cũ bị xung đột không tự lấy token mới.
+
+- GET/POST /items/{id}/proposals: danh sách riêng/tạo proposal {base_revision,payload}.
+- GET /proposals/{pid}: bản ghi riêng với base/current comparison metadata.
+- GET /proposals/{pid}/preview: dữ liệu preview riêng, trạng thái vận hành hiện tại.
+- POST /proposals/{pid}/approve hoặc /reject: body {reason}, cần quyền approve.
+
+Các route proposal đều no-store/private/noindex, kể cả response từ chối.
+Metadata bản sửa nằm ở protected postmeta của CPT private; không qua HTML filter
+của post_content. Public item chỉ dùng approved snapshot; ID/slug được giữ.
+Trên form nội dung có Tạo bản sửa chờ duyệt; link xem riêng mở thẻ/chi tiết và
+đối chiếu ba bản base/current/candidate trước Duyệt/Bỏ.
+
+Kiểm thử: npm run test:revisions (bao gồm hồi quy S03/S04).
+Hợp đồng đầy đủ: [S05](../../docs/S05-revision-contract.vi.md).
+Khóa không tự bị phá khi hết thời gian; request lỗi thường tự rollback/nhả khóa.
+Worker bị giết cần vận hành đối chiếu trước phục hồi. MySQL/InnoDB/cache hosting
+chưa được chứng nhận bởi bộ test SQLite local này.
