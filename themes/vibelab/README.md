@@ -1,40 +1,59 @@
-# VibeLab Việt — theme 0.2.0
+# VibeLab Việt — theme 0.3.0
 
-Theme nền/trang chủ S06 và danh mục/thẻ S07, dùng plugin vne-library-core 0.3.0.
-Không có WooCommerce, giỏ hàng hoặc thanh toán. Website là thư viện miễn phí;
-CTA mở đúng repo/path. Không bắt người đọc kết nối AI trước khi mở nguồn.
+Theme nền/trang chủ S06, danh mục/thẻ S07 và trang chi tiết S08.
+Dùng plugin vne-library-core 0.3.0/schema 3. Không WooCommerce, giỏ hàng hay thanh toán.
+Thư viện miễn phí, CTA mở đúng repo/path; không bắt kết nối AI để đọc hoặc mở nguồn.
 
 ## Dữ liệu và điều hướng
 
-Theme không tự tạo dữ liệu khi kích hoạt. Nội dung công khai lấy qua
-vne_library_item(), từ approved snapshot và derived state. Home tối đa 6 resource;
-guide đầu tiên theo tên. Thẻ ghi loại, chủ repo theo namespace URL, yêu cầu theo
-claim hoặc chưa xác định; không tự nhận đã thử hay tương thích agent.
+Theme không tạo dữ liệu khi kích hoạt. vne_library_item() public trả approved snapshot
+và derived state. Home tối đa 6 resource; guide đầu tiên theo tên. Thẻ ghi loại,
+chủ repo theo namespace URL, yêu cầu và mức xác minh; không tự nhận đã thử.
 
-Archive tài nguyên và taxonomy category/need/tool có breadcrumb, danh mục có counts,
-grid 3/2/1 cột, 9 mục/trang theo tên approved. Category cha tính cả con, đa danh mục
-không đếm trùng. Sidebar bỏ nhóm rỗng trừ nhóm đang xem; guide/private/draft/proposal
-không vào số resource. Không dùng WP term.count để đếm. Không có combined filters/sort S09.
-
-Danh mục đã có nhưng rỗng trả 200 và liên kết phục hồi; URL không có hoặc trang ngoài
-phạm vi trả 404. Main query dùng tập ID approved để membership/count/phân trang đồng nhất,
-không dựa raw taxonomy. Snapshot nạp trong từng request, chưa cache/index cho thư viện lớn.
+Archive và taxonomy category/need/tool: breadcrumb, danh mục có counts, grid 3/2/1,
+9 mục/trang theo tên approved. Category cha gồm con; đa danh mục không đếm trùng.
+Guide/private/draft/proposal không vào số resource; không dùng WP term.count.
+Tập approved ID thống nhất main query, membership, count và pagination.
+Danh mục có thật nhưng rỗng trả 200; taxonomy không có hoặc ngoài phạm vi trả 404.
+Snapshot chỉ cache trong request; chưa có index/cache cho thư viện lớn.
 MVP dự kiến 20 resource; xem hợp đồng S07 trước khi tăng quy mô.
 
-Ảnh SVG từ S02 là minh họa tự biên soạn. Nguồn chưa có bìa hoặc thiếu file dùng bìa chung;
-thiếu cả file chung hiện nhãn Chưa có ảnh minh họa. Không tải font/ảnh từ dịch vụ ngoài.
-Font Segoe UI/system-ui. Menu primary hỗ trợ hai cấp; không JS vẫn hiện liên kết.
+## Trang tài nguyên chi tiết S08
 
-## Phạm vi và kiểm thử
+single-vne_resource.php và detail.php: ảnh trái/thông tin phải trên desktop,
+một cột mobile, CTA nguồn, điều hướng mục bằng anchor HTML.
+Có giới thiệu; yêu cầu/quyền/tương thích/giấy phép/chi phí; tình trạng và phạm vi
+kiểm chứng; cách tìm hiểu; nguồn/path/revision và các mốc đã ghi.
+Không dựng gallery, rating, FAQ hoặc lịch sử thiếu dữ liệu.
 
-catalog-template.php và catalog.php: danh mục S07.
-index.php: bản đọc/danh sách tạm cho các đích chưa có template riêng.
-Chưa hoàn tất sản phẩm chi tiết S08, tìm/lọc S09, bài học tương tác S10 hoặc trang hỗ trợ S11.
+Unknown / theo nguồn / mâu thuẫn được trình bày riêng, không nâng thành đã xác minh.
+Bằng chứng cũ vẫn có thể được đọc nhưng không xác nhận phiên bản hiện tại.
+Không hiển thị audit nội bộ. Suspended/unavailable chỉ mở giải thích, URL nguồn
+và tham chiếu trên trang đó không còn là link ngoài. Các cảnh báo phụ được giữ.
 
-Tại root, chạy tuần tự:
-- npm run test:catalog
-- npm run test:catalog-regression
+Giới thiệu được lọc HTML, không media/form/shortcode ngoài, không h1/style;
+ID/anchor được prefix để tránh đụng template. commands_allowed=false thay khối pre
+bằng giải thích. Không sinh/copy/chạy lệnh; mã inline/văn xuôi vẫn cần biên tập.
+Related dùng category approved chung, tối đa3, bỏ suspended/unavailable;
+guide cùng chủ đề không được coi là đã sử dụng repo. Không dữ liệu thì bỏ mục.
+Frontend private/draft không hiển thị kể cả đã đăng nhập; preview S05 ở admin riêng.
 
-Bộ thứ hai chạy lại 59 điểm S06 trên theme mới, lưu bằng chứng ở
-docs/acceptance/S07/S06-regression để giữ nguyên hồ sơ S06 gốc.
-Mọi thử nghiệm qua run-clean, không sửa database local đang dùng và không deploy.
+Ảnh SVG S02 là minh họa tự biên soạn, không là demo. Thiếu bìa dùng bìa chung;
+thiếu cả bìa chung hiện placeholder có nhãn. Không tải font/ảnh từ dịch vụ ngoài.
+Font Segoe UI/system-ui. Menu hai cấp, liên kết và nội dung vẫn dùng được khi tắt JS.
+
+## Kiểm thử và giới hạn
+
+Chạy tuần tự tại root:
+
+- npm run test:detail
+- npm run test:detail-catalog-regression
+- npm run test:detail-home-regression
+
+Hai lệnh hồi quy ghi riêng vào docs/acceptance/S08/S07-regression và S06-regression.
+Hồ sơ S06/S07 gốc giữ nguyên. Mọi runner qua run-clean, fixture độc lập;
+không nạp QA vào database local đang dùng, không deploy hoặc gọi API trả phí.
+
+index.php còn là bản đọc nền cho guide/practice và fallback chung.
+Chưa làm tìm/lọc kết hợp S09, bài học tương tác S10 hoặc hỗ trợ S11.
+SQLite/PHP WebAssembly/Edge local chưa chứng nhận hosting MySQL/cache/browser khác.

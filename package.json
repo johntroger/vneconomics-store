@@ -15,7 +15,10 @@
     "test:revisions": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs",
     "test:theme": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs",
     "test:catalog": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs",
-    "test:catalog-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s07"
+    "test:catalog-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s07",
+    "test:detail": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs",
+    "test:detail-catalog-regression": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs --s08",
+    "test:detail-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s08"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

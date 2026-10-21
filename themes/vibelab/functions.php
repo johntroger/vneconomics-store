@@ -103,3 +103,4 @@ function vibelab_image_exists($file){
     clearstatcache(true,$path);
     return is_file($path)&&is_readable($path);
 }
+require_once __DIR__.'/detail.php';

@@ -11,7 +11,7 @@ const hashes=()=>files.map(p=>createHash('sha256').update(readFileSync(p)).diges
 const before=hashes(),checks=[],errors=[],badHTTP=[];
 const check=(value,label)=>{assert.ok(value,label);checks.push(label);};
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s07-'));
-const evidence=resolve('docs/acceptance/S07');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s08')?'docs/acceptance/S08/S07-regression':'docs/acceptance/S07');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19407';let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S07 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -137,6 +137,6 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS errors or unexpected internal HTTP failures');
  assert.deepEqual(hashes(),before);check(true,'protected local database/config unchanged');
  await context.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',checks,fixtureChecks:result.checks,counts:Object.fromEntries(Object.entries(result.terms).map(([k,v])=>[k,v.count])),taxonomyResults,archivePages:allIDs,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Cached S02 sources, synthetic extra14 and state fixtures; no external source certification','No hosting/MySQL/cache/large-library/browser compatibility certification','Basic read detail retained until S08; combined filters/sort S09','No AI calls, deploy or main/release update']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',checks,fixtureChecks:result.checks,counts:Object.fromEntries(Object.entries(result.terms).map(([k,v])=>[k,v.count])),taxonomyResults,archivePages:allIDs,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Cached S02 sources, synthetic extra14 and state fixtures; no external source certification','No hosting/MySQL/cache/large-library/browser compatibility certification',process.argv.includes('--s08')?'S07 regression on theme0.3.0; detailed resource covered by S08 suite; filters/sort still S09':'Basic read detail retained until S08; combined filters/sort S09','No AI calls, deploy or main/release update']},null,2)+'\n');
  console.log('PASS S07 '+checks.length+' checks + '+result.checks.length+' fixture checks; protected data unchanged; closing cleanup');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

@@ -5,7 +5,7 @@ Dự án riêng cho https://store.vneconomics.com/.
 ## Trạng thái
 
 - WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
-- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06 và danh mục/thẻ S07.
+- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07 và trang chi tiết S08 (PASS kỹ thuật local).
 - Theme/plugin chưa cài vào database local đang dùng hoặc đưa lên hosting.
 - Repository riêng tư: https://github.com/johntroger/vneconomics-store
 
@@ -29,6 +29,9 @@ npm run test:revisions
 npm run test:theme
 npm run test:catalog
 npm run test:catalog-regression
+npm run test:detail
+npm run test:detail-catalog-regression
+npm run test:detail-home-regression
 ~~~
 
 Chạy từng lệnh, không song song. npm test kiểm tra baseline hai boot; test:revisions
@@ -37,6 +40,9 @@ QA để kiểm tra home, responsive, liên kết, bàn phím, JS lỗi, snapsho
 
 test:catalog kiểm tra taxonomy, counts, phân trang và thẻ. test:catalog-regression
 chạy lại S06 trên theme mới, ghi riêng tại docs/acceptance/S07/S06-regression.
+
+test:detail kiểm tra single resource, điều kiện/nguồn/evidence/preview và responsive.
+Hai lệnh test:detail-*-regression ghi riêng bằng chứng hồi quy S07/S06 vào hồ sơ S08.
 
 Mọi runner qua scripts/run-clean.mjs, đóng browser/server trước khi dọn fixture
 và cache mới tạo, kể cả khi thất bại. Giữ bằng chứng ở docs/acceptance.
@@ -58,4 +64,5 @@ Theme: [themes/vibelab](themes/vibelab/README.md).
 Phạm vi và quyền từng bước theo [kế hoạch gated](docs/implementation-plan-gated.vi.md).
 S07: [báo cáo nghiệm thu](docs/acceptance/S07-catalog-and-cards.vi.md) — 44 điểm UI/HTTP,
 23 kiểm tra fixture, hồi quy S06 59 điểm PASS local.
-Chỉ làm S08 khi chủ dự án cho phép rõ ràng sau báo cáo S07.
+S08: [báo cáo nghiệm thu](docs/acceptance/S08-resource-detail.vi.md) — 54 điểm UI/HTTP,
+19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. Dừng chờ phê duyệt S09.
