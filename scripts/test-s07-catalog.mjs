@@ -1,3 +1,4 @@
+import {themeEvidence} from './theme-evidence.mjs';
 import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,cpSync,readFileSync,writeFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
@@ -11,7 +12,7 @@ const hashes=()=>files.map(p=>createHash('sha256').update(readFileSync(p)).diges
 const before=hashes(),checks=[],errors=[],badHTTP=[];
 const check=(value,label)=>{assert.ok(value,label);checks.push(label);};
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s07-'));
-const evidence=resolve(process.argv.includes('--s08')?'docs/acceptance/S08/S07-regression':'docs/acceptance/S07');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s09')?'docs/acceptance/S09/S07-regression':process.argv.includes('--s08')?'docs/acceptance/S08/S07-regression':'docs/acceptance/S07');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19407';let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S07 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -101,6 +102,16 @@ try{
  await Promise.all([page.waitForNavigation(),page.getByRole('navigation',{name:'Phân trang tài nguyên'}).getByRole('link',{name:'Trang tiếp',exact:true}).click()]);await page.waitForLoadState('networkidle');
  parentIDs.push(...(await cards(page)).map(c=>c.id));assert.equal(parentIDs.length,13);assert.equal(new Set(parentIDs).size,13);assert.ok(parentIDs.includes(seed.ids[0])&&parentIDs.includes(result.long));
  check(true,'parent includes children and approved memberships missing from raw tax, no duplicates');
+ if(process.argv.includes('--s09')){
+   await page.setViewportSize({width:1440,height:1000});
+   await go(page,result.archive+'page/2/');
+   await page.locator('#discovery-form').getByLabel('Landing page',{exact:true}).check();
+   await page.locator('#discovery-form').getByRole('button',{name:'Áp dụng',exact:true}).click();await page.waitForLoadState('networkidle');
+   check(!new URL(page.url()).searchParams.has('paged')&&await page.locator('[data-resource-id]').count()===3,'S09 filter Apply resets page2 to page1 with correct approved result set');
+   await go(page,result.terms.need.url);
+   await page.getByRole('navigation',{name:'Chọn danh mục'}).getByRole('link').filter({hasText:result.terms.skills.name}).click();await page.waitForLoadState('networkidle');
+   check(await page.locator('[data-resource-id]').count()===1&&await page.locator('[data-resource-id]').getAttribute('data-resource-id')===String(result.long),'S09 category navigation preserves implicit need from native taxonomy URL');
+ }
  const edge=await Promise.all([response(result.archive+'page/4/'),response(base+'/danh-muc/khong-ton-tai-s07/'),response(base+'/?vne_category='+encodeURIComponent(result.terms.parent.slug)+'&paged=2')]);
  assert.equal(edge[0].status,404);assert.equal(edge[1].status,404);assert.equal(edge[2].status,200);assert.ok(edge[2].html.includes('10–13 trong 13 tài nguyên'));
  check(true,'out-of-range / unknown term404; query-string taxonomy page2 resolves correctly');
@@ -132,11 +143,11 @@ try{
  check(await page.locator('.catalog-categories').innerText().then(t=>!t.includes('RIENG-CHUA-DUYET')),'withdrawal reflected next request, private taxonomy still excluded');
  await php("<?php require '/wordpress/wp-load.php';global $wpdb;$wpdb->query(\"UPDATE {$wpdb->posts} SET post_status='draft' WHERE post_type='vne_resource'\");wp_cache_flush();");
  await go(page,result.archive);check(await page.locator('.result-count').innerText()==='0 tài nguyên'&&await page.locator('.catalog-pagination').count()===0,'empty archive200 and no phantom pages');
- check(await page.locator('.empty-state a').getAttribute('href')===base+'/','empty archive recovery returns home, not itself');
+ check(await page.locator('.empty-state a.button').getAttribute('href')===base+'/','empty archive recovery returns home, not itself');
  await capture(page,'empty-archive');
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS errors or unexpected internal HTTP failures');
  assert.deepEqual(hashes(),before);check(true,'protected local database/config unchanged');
  await context.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',checks,fixtureChecks:result.checks,counts:Object.fromEntries(Object.entries(result.terms).map(([k,v])=>[k,v.count])),taxonomyResults,archivePages:allIDs,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Cached S02 sources, synthetic extra14 and state fixtures; no external source certification','No hosting/MySQL/cache/large-library/browser compatibility certification',process.argv.includes('--s08')?'S07 regression on theme0.3.0; detailed resource covered by S08 suite; filters/sort still S09':'Basic read detail retained until S08; combined filters/sort S09','No AI calls, deploy or main/release update']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',testedThemeHashes:process.argv.includes('--s09')?themeEvidence(fixture):undefined,checks,fixtureChecks:result.checks,counts:Object.fromEntries(Object.entries(result.terms).map(([k,v])=>[k,v.count])),taxonomyResults,archivePages:allIDs,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Cached S02 sources, synthetic extra14 and state fixtures; no external source certification','No hosting/MySQL/cache/large-library/browser compatibility certification',process.argv.includes('--s09')?'S07 regression on theme0.4.0; filter/search semantics covered in S09 suite':process.argv.includes('--s08')?'S07 regression on theme0.3.0; detailed resource covered by S08 suite; filters/sort still S09':'Basic read detail retained until S08; combined filters/sort S09','No AI calls, deploy or main/release update']},null,2)+'\n');
  console.log('PASS S07 '+checks.length+' checks + '+result.checks.length+' fixture checks; protected data unchanged; closing cleanup');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

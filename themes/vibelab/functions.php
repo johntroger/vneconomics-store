@@ -104,3 +104,5 @@ function vibelab_image_exists($file){
     return is_file($path)&&is_readable($path);
 }
 require_once __DIR__.'/detail.php';
+
+require_once __DIR__.'/discovery.php';

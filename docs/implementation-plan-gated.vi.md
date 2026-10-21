@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: S08 PASS kỹ thuật local ngày 21/10/2026; chờ chủ dự án xem giao diện và cho phép S09. S09 trở đi chưa được phép bắt đầu.
+Trạng thái: S09 PASS kỹ thuật local ngày 21/10/2026; chờ chủ dự án xem giao diện và cho phép S10. S10 trở đi chưa được phép bắt đầu.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -84,7 +84,7 @@ release/codex-deploy-check hiện có cho bằng chứng kết nối.
 
 ## 4. Các bước của bản A
 
-S00/S01 đã báo cáo; S02 đã có prototype chờ duyệt UI/nội dung; S03 trở đi CHƯA BẮT ĐẦU. Mỗi hàng là một gate độc lập, không phải một lệnh
+Tiến độ thực tế được ghi tại mục 7. Mỗi hàng dưới đây là một gate độc lập, không phải một lệnh
 cho phép thực hiện liên tiếp. Bước lớn phát hiện không thể nghiệm thu rõ phải chia
 nhỏ và xin duyệt phạm vi mới trước khi làm thêm.
 
@@ -159,7 +159,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S05: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S05-revisions-and-preview.vi.md), [hợp đồng bản sửa](S05-revision-contract.vi.md). Chủ dự án đã cho phép S06.
 - S06: PASS kỹ thuật local ngày 21/10/2026; 59 điểm kiểm tra; [báo cáo nghiệm thu](acceptance/S06-theme-and-home.vi.md), [hợp đồng theme](S06-theme-contract.vi.md). Chủ dự án đã cho phép S07.
 - S07: PASS kỹ thuật local ngày 21/10/2026; 44 điểm UI/HTTP + 23 kiểm tra fixture, hồi quy S06 59 điểm; [báo cáo nghiệm thu](acceptance/S07-catalog-and-cards.vi.md), [hợp đồng danh mục](S07-catalog-contract.vi.md). Chủ dự án đã cho phép S08.
-- S08: PASS kỹ thuật local ngày 21/10/2026; 54 điểm UI/HTTP + 19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. [Báo cáo nghiệm thu](acceptance/S08-resource-detail.vi.md), [hợp đồng chi tiết](S08-detail-contract.vi.md). Chờ chủ dự án cho phép S09.
-- S09–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S08: PASS kỹ thuật local ngày 21/10/2026; 54 điểm UI/HTTP + 19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. [Báo cáo nghiệm thu](acceptance/S08-resource-detail.vi.md), [hợp đồng chi tiết](S08-detail-contract.vi.md). Chủ dự án đã cho phép S09.
+- S09: PASS kỹ thuật local ngày 21/10/2026;74 kiểm tra +28 fixture,20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS. [Báo cáo](acceptance/S09-search-and-filters.vi.md), [hợp đồng](S09-search-contract.vi.md). Chờ chủ dự án cho phép S10.
+- S10–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Đã hoàn tất S08, dừng chờ chủ dự án đồng ý rõ ràng cho S09. Chưa deploy.
+- Đã hoàn tất S09; dừng chờ chủ dự án đồng ý rõ ràng cho S10. Chưa deploy.

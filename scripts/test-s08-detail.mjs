@@ -1,3 +1,4 @@
+import {themeEvidence} from './theme-evidence.mjs';
 import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,cpSync,readFileSync,writeFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
@@ -11,7 +12,7 @@ const hashes=()=>files.map(p=>createHash('sha256').update(readFileSync(p)).diges
 const before=hashes(),checks=[],errors=[],badHTTP=[];
 const check=(value,label)=>{assert.ok(value,label);checks.push(label);};
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s08-'));
-const evidence=resolve('docs/acceptance/S08');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s09')?'docs/acceptance/S09/S08-regression':'docs/acceptance/S08');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19408',password=randomBytes(24).toString('hex');let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S08 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -46,6 +47,10 @@ try{
  const seed=JSON.parse(await php(readFileSync('scripts/fixtures/s06-theme-seed.php','utf8').replace('<?php',"<?php define('S06_OBSERVATIONS',"+JSON.stringify(obs)+");")));
  const result=JSON.parse(await php(readFileSync('scripts/fixtures/s08-detail-seed.php','utf8').replace('<?php',"<?php define('S08_BASE',"+JSON.stringify(JSON.stringify(seed))+");define('S08_PASSWORD',"+JSON.stringify(password)+");")));
  console.log('PASS S08 fixture setup');
+ if(process.argv.includes('--s09')){
+  const invalidTax=await Promise.all([response(base+'/danh-muc/khong-ton-tai-s09/'),response(base+'/danh-muc/khong-ton-tai-s09/?s=css&vne_find=1')]);
+  check(invalidTax.every(r=>r.status===404&&!/RAW-S08|PENDING-S08/.test(r.html)),'S09 unknown taxonomy remains404 with and without keyword, no broadened search');
+ }
  const {context,page}=await pageFor({viewport:{width:1440,height:1000}});
  await go(page,result.target_url);
  check(await page.locator('[data-resource-detail="'+result.target+'"]').count()===1,'native single resource template');
@@ -156,6 +161,6 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS errors or unexpected internal HTTP failures');
  assert.deepEqual(hashes(),before);check(true,'protected local database/config unchanged');
  await context.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',checks,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['S02 cached sources; fabricated QA trial and extra resources only test state rendering, not external repo certification','Only pre code blocks gated; inline/prose installation content still requires editorial review','No hosting/MySQL/cache/load/cross-browser certification','No AI calls, deployment, main/release update']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',testedThemeHashes:process.argv.includes('--s09')?themeEvidence(fixture):undefined,checks,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['S02 cached sources; fabricated QA trial and extra resources only test state rendering, not external repo certification','Only pre code blocks gated; inline/prose installation content still requires editorial review','No hosting/MySQL/cache/load/cross-browser certification','No AI calls, deployment, main/release update']},null,2)+'\n');
  console.log('PASS S08 '+checks.length+' checks + '+result.checks.length+' fixture checks; protected data unchanged; closing cleanup');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

@@ -5,7 +5,7 @@ Dự án riêng cho https://store.vneconomics.com/.
 ## Trạng thái
 
 - WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
-- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07 và trang chi tiết S08 (PASS kỹ thuật local).
+- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07, trang chi tiết S08 và tìm/lọc S09 (PASS kỹ thuật local).
 - Theme/plugin chưa cài vào database local đang dùng hoặc đưa lên hosting.
 - Repository riêng tư: https://github.com/johntroger/vneconomics-store
 
@@ -32,6 +32,10 @@ npm run test:catalog-regression
 npm run test:detail
 npm run test:detail-catalog-regression
 npm run test:detail-home-regression
+npm run test:search
+npm run test:search-catalog-regression
+npm run test:search-detail-regression
+npm run test:search-home-regression
 ~~~
 
 Chạy từng lệnh, không song song. npm test kiểm tra baseline hai boot; test:revisions
@@ -65,4 +69,8 @@ Phạm vi và quyền từng bước theo [kế hoạch gated](docs/implementati
 S07: [báo cáo nghiệm thu](docs/acceptance/S07-catalog-and-cards.vi.md) — 44 điểm UI/HTTP,
 23 kiểm tra fixture, hồi quy S06 59 điểm PASS local.
 S08: [báo cáo nghiệm thu](docs/acceptance/S08-resource-detail.vi.md) — 54 điểm UI/HTTP,
-19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. Dừng chờ phê duyệt S09.
+19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. Chủ dự án đã cho phép S09.
+
+S09: [báo cáo nghiệm thu](docs/acceptance/S09-search-and-filters.vi.md) — 74 kiểm tra,
+28 fixture và 20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS.
+Dừng chờ phê duyệt S10. Chưa deploy hosting.

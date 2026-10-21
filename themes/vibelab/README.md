@@ -1,6 +1,6 @@
-# VibeLab Việt — theme 0.3.0
+# VibeLab Việt — theme 0.4.0
 
-Theme nền/trang chủ S06, danh mục/thẻ S07 và trang chi tiết S08.
+Theme nền/trang chủ S06, danh mục/thẻ S07, chi tiết S08 và tìm/lọc S09.
 Dùng plugin vne-library-core 0.3.0/schema 3. Không WooCommerce, giỏ hàng hay thanh toán.
 Thư viện miễn phí, CTA mở đúng repo/path; không bắt kết nối AI để đọc hoặc mở nguồn.
 
@@ -46,14 +46,36 @@ Font Segoe UI/system-ui. Menu hai cấp, liên kết và nội dung vẫn dùng 
 
 Chạy tuần tự tại root:
 
-- npm run test:detail
-- npm run test:detail-catalog-regression
-- npm run test:detail-home-regression
+- npm run test:search
+- npm run test:search-catalog-regression
+- npm run test:search-detail-regression
+- npm run test:search-home-regression
 
-Hai lệnh hồi quy ghi riêng vào docs/acceptance/S08/S07-regression và S06-regression.
-Hồ sơ S06/S07 gốc giữ nguyên. Mọi runner qua run-clean, fixture độc lập;
+Các lệnh hồi quy ghi riêng vào docs/acceptance/S09/S07-regression, S08-regression và S06-regression.
+Hồ sơ S06/S07/S08 gốc giữ nguyên. Mọi runner qua run-clean, fixture độc lập;
 không nạp QA vào database local đang dùng, không deploy hoặc gọi API trả phí.
 
 index.php còn là bản đọc nền cho guide/practice và fallback chung.
-Chưa làm tìm/lọc kết hợp S09, bài học tương tác S10 hoặc hỗ trợ S11.
+S09 PASS kỹ thuật local; xem docs/acceptance/S09-search-and-filters.vi.md. Chưa làm bài học tương tác S10 hoặc hỗ trợ S11.
 SQLite/PHP WebAssembly/Edge local chưa chứng nhận hosting MySQL/cache/browser khác.
+
+## Tìm kiếm và bộ lọc S09
+
+discovery.php và discovery-template.php dùng chung cho search/archive/taxonomy.
+Header mặc định tài nguyên, có scope hướng dẫn + bộ thực hành; chuyển scope giữ từ khóa.
+Index từ approved title/excerpt/content/taxonomy, không raw/proposal/private/audit.
+Unicode NFC/bỏ dấu Việt, alias hữu hạn vibe coding/vibecode, kỹ năng/skill/skills.
+Từ khóa và các nhóm dùng AND; nhiều nhãn need/tool cùng nhóm dùng OR.
+Sort tên dùng fold dấu riêng, không alias; có relevance và ngày đối chiếu nguồn.
+Không dựng sort đề xuất/stars, lọc OS/chi phí/độ khó khi thiếu dữ liệu hữu ích.
+
+URL GET lưu scope/s/category/need[]/tool[]/sort/paged. Chip/scope/form/sort reset trang1;
+pagination và Back/share giữ kết quả. Counts danh mục theo scope trước bộ lọc;
+counts kết quả sau toàn bộ tiêu chí. Category cha gồm con, hiển thị cha trước con.
+Danh mục rỗng đã chọn vẫn giữ được qua GET. Input sai có alert, không mở rộng truy vấn.
+
+discovery.js chỉ nâng cấp panel mobile: native dialog, focus trap/restore, draft,
+Áp dụng, Xóa draft; Đóng/Escape/backdrop/Back hủy nháp. Apply thay entry panel bằng
+URL kết quả để Back về kết quả trước. Không JS/script lỗi: form GET hiện inline.
+Không dùng AJAX; reload có tiến trình và lỗi thư viện khác với kết quả0 hợp lệ.
+Xem docs/S09-search-contract.vi.md; staging/MySQL/cache/usability vẫn chờ bước riêng.

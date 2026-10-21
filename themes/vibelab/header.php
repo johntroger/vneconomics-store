@@ -1,10 +1,10 @@
-<?php if (!defined('ABSPATH')) { exit; } $guide=vibelab_guide(); ?>
+<?php if (!defined('ABSPATH')) { exit; } $guide=vibelab_guide();$finder=vibelab_find_current(); ?>
 <!doctype html>
 <html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><?php wp_head(); ?></head>
 <body <?php body_class(); ?>><?php wp_body_open(); ?><a class="skip-link" href="#main">Đến nội dung</a>
 <header class="site-header"><div class="container header-main">
 <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="VibeLab Việt, trang chủ"><span class="brand-mark" aria-hidden="true">vl</span><span>VibeLab Việt<small>Kho tài nguyên để bắt đầu</small></span></a>
-<form class="header-search" action="<?php echo esc_url(home_url('/')); ?>" method="get" role="search"><label class="sr-only" for="global-search">Tìm tài nguyên</label><input id="global-search" name="s" placeholder="Bạn muốn làm được việc gì?" type="search" value="<?php echo esc_attr(get_search_query()); ?>"><button type="submit">Tìm</button></form>
+<form class="header-search" action="<?php echo esc_url(home_url('/')); ?>" method="get" role="search"><label class="sr-only" for="global-search"><?php echo $finder&&$finder['scope']==='guides'?'Tìm hướng dẫn và sửa lỗi':'Tìm tài nguyên'; ?></label><input type="hidden" name="vne_find" value="1"><input type="hidden" name="scope" value="<?php $finder=vibelab_find_current();echo esc_attr($finder?$finder['scope']:'resources'); ?>"><input id="global-search" name="s" placeholder="Bạn muốn làm được việc gì?" type="search" value="<?php echo esc_attr(get_search_query()); ?>"><button type="submit">Tìm</button></form>
 <a class="start-link" href="<?php echo esc_url($guide?get_permalink($guide['id']):home_url('/#bat-dau')); ?>">Tôi mới bắt đầu</a>
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button></div>
 <nav id="main-nav" class="container site-nav" aria-label="Điều hướng chính" data-open="false">

@@ -18,7 +18,11 @@
     "test:catalog-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s07",
     "test:detail": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs",
     "test:detail-catalog-regression": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs --s08",
-    "test:detail-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s08"
+    "test:detail-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s08",
+    "test:search": "node scripts/run-clean.mjs script scripts/test-s09-search.mjs",
+    "test:search-catalog-regression": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs --s09",
+    "test:search-detail-regression": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs --s09",
+    "test:search-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"
