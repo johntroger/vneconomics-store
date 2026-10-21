@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: chủ dự án đã cho phép S01 sau báo cáo S00. S01 smoke local PASS, chờ nghiệm thu; S02 và các bước sau chưa được phép bắt đầu.
+Trạng thái: S02 đã được cho phép; prototype kiểm thử kỹ thuật PASS, chờ duyệt UI/nội dung. S03 trở đi chưa được phép bắt đầu.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -84,7 +84,7 @@ release/codex-deploy-check hiện có cho bằng chứng kết nối.
 
 ## 4. Các bước của bản A
 
-S00 đã báo cáo, S01 được phép và đã PASS local chờ nghiệm thu; S02 trở đi CHƯA BẮT ĐẦU. Mỗi hàng là một gate độc lập, không phải một lệnh
+S00/S01 đã báo cáo; S02 đã có prototype chờ duyệt UI/nội dung; S03 trở đi CHƯA BẮT ĐẦU. Mỗi hàng là một gate độc lập, không phải một lệnh
 cho phép thực hiện liên tiếp. Bước lớn phát hiện không thể nghiệm thu rõ phải chia
 nhỏ và xin duyệt phạm vi mới trước khi làm thêm.
 
@@ -152,7 +152,8 @@ B04; tài liệu hiện tại không tạo automation.
 
 - S00: đã có [brief](S00-implementation-brief.vi.md) và [báo cáo](acceptance/S00-brief-and-conditions.vi.md); chủ dự án đã cho phép tiếp S01.
 - Đã chốt trong S00: landing page sản phẩm/dịch vụ; Codex trên Windows; giờ/tuần chưa xác định.
-- S01: smoke hai boot và cleanup PASS; [báo cáo](acceptance/S01-local-baseline.vi.md), chờ chủ dự án nghiệm thu.
-- S02–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
-- S01 chỉ sửa nền/runner và chạy runtime test; chưa tạo theme/plugin, automation hoặc nhánh deploy.
-- Chỉ bắt đầu S02 khi chủ dự án đồng ý rõ ràng sau báo cáo S01.
+- S01: smoke hai boot và cleanup PASS; [báo cáo](acceptance/S01-local-baseline.vi.md); chủ dự án đã cho phép S02.
+- S02: kỹ thuật prototype PASS; [báo cáo](acceptance/S02-prototype-and-content.vi.md); chờ chủ dự án duyệt UI/nội dung.
+- S03–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
+- Chỉ bắt đầu S03 khi chủ dự án đồng ý rõ ràng sau xem prototype/báo cáo S02.

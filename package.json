@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "node scripts/run-clean.mjs script scripts/dev.mjs",
     "test": "node scripts/run-clean.mjs script scripts/smoke.mjs",
-    "local:init": "node scripts/run-clean.mjs script scripts/init-local.mjs"
+    "local:init": "node scripts/run-clean.mjs script scripts/init-local.mjs",
+    "prototype:build": "node scripts/run-clean.mjs script scripts/build-s02-prototype.mjs",
+    "prototype:dev": "node scripts/run-clean.mjs script scripts/s02-prototype-server.mjs",
+    "test:prototype": "node scripts/run-clean.mjs script scripts/test-s02-prototype.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

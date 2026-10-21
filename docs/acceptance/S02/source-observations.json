@@ -1,0 +1,47 @@
+[
+  {
+    "repo": "microsoft/Web-Dev-For-Beginners",
+    "url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+    "sha": "78085398be0dea7abaaf5eda914817f46f6ddbbc",
+    "license": "MIT",
+    "archived": false,
+    "observed_date": "2026-10-19",
+    "validation": "source-reviewed-not-executed"
+  },
+  {
+    "repo": "mdn/learning-area",
+    "url": "https://github.com/mdn/learning-area",
+    "sha": "d55e1c2e3ff401519811b64e5b2a7d3643b43d0f",
+    "license": "CC0-1.0",
+    "archived": false,
+    "observed_date": "2026-10-19",
+    "validation": "source-reviewed-not-executed"
+  },
+  {
+    "repo": "vercel-labs/agent-skills",
+    "url": "https://github.com/vercel-labs/agent-skills",
+    "sha": "063bee94c3f4df8453406c830b0a7df0f2860278",
+    "license": null,
+    "archived": false,
+    "observed_date": "2026-10-19",
+    "validation": "source-reviewed-not-executed"
+  },
+  {
+    "repo": "withastro/astro",
+    "url": "https://github.com/withastro/astro",
+    "sha": "70834bbea43695c563358ea055d32ecb5e0a78dd",
+    "license": "NOASSERTION",
+    "archived": false,
+    "observed_date": "2026-10-19",
+    "validation": "source-reviewed-not-executed"
+  },
+  {
+    "repo": "picocss/pico",
+    "url": "https://github.com/picocss/pico",
+    "sha": "a07563ddc856e6ed31a740e33b0397814227d469",
+    "license": "MIT",
+    "archived": true,
+    "observed_date": "2026-10-19",
+    "validation": "source-reviewed-not-executed"
+  }
+]
