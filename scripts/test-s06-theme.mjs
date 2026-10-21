@@ -12,7 +12,7 @@ const hashes=()=>liveFiles.map(p=>createHash('sha256').update(readFileSync(p)).d
 const before=hashes(),checks=[];
 function check(value,label){assert.ok(value,label);checks.push(label);}
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s06-'));
-const evidence=resolve('docs/acceptance/S06');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s07')?'docs/acceptance/S07/S06-regression':'docs/acceptance/S06');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19406';let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S06 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){

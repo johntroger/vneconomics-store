@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: chủ dự án đã cho phép S06 ngày 21/10/2026. S06 PASS kỹ thuật local; chờ duyệt giao diện và cho phép S07. S07 trở đi chưa được phép bắt đầu.
+Trạng thái: S07 PASS kỹ thuật local ngày 21/10/2026; chờ chủ dự án duyệt giao diện và cho phép S08. S08 trở đi chưa được phép bắt đầu.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -157,7 +157,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S03: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S03-library-data.vi.md), [hợp đồng dữ liệu](S03-data-contract.vi.md). Chủ dự án đã cho phép S04.
 - S04: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S04-state-and-dependencies.vi.md), [hợp đồng trạng thái](S04-state-contract.vi.md). Chủ dự án đã cho phép S05.
 - S05: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S05-revisions-and-preview.vi.md), [hợp đồng bản sửa](S05-revision-contract.vi.md). Chủ dự án đã cho phép S06.
-- S06: PASS kỹ thuật local ngày 21/10/2026; 59 điểm kiểm tra; [báo cáo nghiệm thu](acceptance/S06-theme-and-home.vi.md), [hợp đồng theme](S06-theme-contract.vi.md). Chờ chủ dự án duyệt giao diện và cho phép S07.
-- S07–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S06: PASS kỹ thuật local ngày 21/10/2026; 59 điểm kiểm tra; [báo cáo nghiệm thu](acceptance/S06-theme-and-home.vi.md), [hợp đồng theme](S06-theme-contract.vi.md). Chủ dự án đã cho phép S07.
+- S07: PASS kỹ thuật local ngày 21/10/2026; 44 điểm UI/HTTP + 23 kiểm tra fixture, hồi quy S06 59 điểm; [báo cáo nghiệm thu](acceptance/S07-catalog-and-cards.vi.md), [hợp đồng danh mục](S07-catalog-contract.vi.md). Chờ chủ dự án cho phép S08.
+- S08–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Đã hoàn tất kiểm thử/báo cáo S06; dừng chờ chủ dự án đồng ý rõ ràng cho S07. Chưa deploy.
+- Đã hoàn tất kiểm thử/báo cáo S07; dừng chờ chủ dự án đồng ý rõ ràng cho S08. Chưa deploy.

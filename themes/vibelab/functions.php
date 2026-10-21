@@ -35,25 +35,37 @@ function vibelab_category_name($item) {
 function vibelab_cover($item) {
     $map=array('https://github.com/microsoft/Web-Dev-For-Beginners'=>'web-basics','https://github.com/mdn/learning-area'=>'mdn','https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines'=>'web-design','https://github.com/withastro/astro/tree/main/examples/basics'=>'astro','https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices'=>'react','https://github.com/picocss/pico'=>'pico');
     $key=$map[$item['data']['source_url']??'']??'default';
-    return get_theme_file_uri('/assets/cover-'.$key.'.svg');
+    $file='/assets/cover-'.$key.'.svg';
+    if(!vibelab_image_exists($file)){$file='/assets/cover-default.svg';}
+    return vibelab_image_exists($file)?get_theme_file_uri($file):null;
 }
 function vibelab_cta($item,$class='button') {
     $cta=$item['derived']['cta'];$url=get_permalink($item['id']).'#tinh-trang';$external=false;
     if ($cta['kind']==='source'&&!empty($cta['href'])) { $url=$cta['href'];$external=true; }
     if ($cta['kind']==='none') { return; }
     echo '<a class="'.esc_attr($class).'" href="'.esc_url($url).'"'.($external?' target="_blank" rel="noopener noreferrer"':'').'>'.esc_html($cta['label']);
-    if($external){echo '<span class="sr-only"> (mở tab mới)</span>';}
+    if($external){echo '<span aria-hidden="true"> ↗</span><span class="sr-only"> (mở tab mới)</span>';}
     echo '</a>';
 }
 function vibelab_card($item) {
-    $url=get_permalink($item['id']); ?>
+    $url=get_permalink($item['id']);$cover=vibelab_cover($item);
+    $kinds=array('learn'=>'Nền tảng web','skill'=>'Skill cho AI agent','starter'=>'Mẫu dự án','tool'=>'Công cụ');
+    $kind=$kinds[$item['data']['resource_type']??'']??'Tài nguyên';
+    $path=explode('/',trim(wp_parse_url($item['data']['source_url']??'',PHP_URL_PATH)??'','/'));
+    $owner=$path[0]??'';
+    $claim=$item['data']['claims']['requirements']??array();
+    $requirements=($claim['verification_status']??'unknown')==='upstream_claimed'&&is_string($claim['value']??null)?'Theo nguồn: '.wp_html_excerpt($claim['value'],140,'…'):((($claim['verification_status']??'unknown')==='conflicted')?'Thông tin mâu thuẫn':'Chưa xác định');
+    ?>
     <article class="resource-card" data-resource-id="<?php echo (int)$item['id']; ?>">
-        <a class="card-cover" href="<?php echo esc_url($url); ?>" aria-label="<?php echo esc_attr('Xem chi tiết '.$item['title']); ?>"><img src="<?php echo esc_url(vibelab_cover($item)); ?>" width="720" height="430" alt="Minh họa biên soạn riêng, không phải ảnh chạy thử" loading="lazy"></a>
-        <div class="card-body"><div class="card-meta"><?php echo esc_html(vibelab_category_name($item)); ?></div>
+        <a class="card-cover" href="<?php echo esc_url($url); ?>" aria-label="<?php echo esc_attr('Xem chi tiết '.$item['title']); ?>">
+        <?php if($cover){ ?><img src="<?php echo esc_url($cover); ?>" width="720" height="430" alt="Minh họa biên soạn riêng, không phải ảnh chạy thử" loading="lazy"><?php }else{ ?><span class="cover-placeholder" role="img" aria-label="Chưa có ảnh minh họa">Chưa có ảnh minh họa</span><?php } ?></a>
+        <div class="card-body"><div class="card-meta"><?php echo esc_html($kind); ?> <span><?php echo esc_html(vibelab_category_name($item)); ?></span></div>
         <h3><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($item['title']); ?></a></h3>
+        <?php if($owner){ ?><p class="repo-owner">Chủ repo: <?php echo esc_html($owner); ?></p><?php } ?>
         <p><?php echo esc_html($item['excerpt']?:'Đọc thông tin và tình trạng nguồn trước khi lựa chọn.'); ?></p>
-        <span class="badge"><?php echo esc_html($item['derived']['primary_label']); ?></span>
-        <?php if($item['derived']['validation_status']==='not_tested'&&$item['derived']['primary_badge']!=='not_tested'){ ?><span class="badge">Chưa thử</span><?php } ?>
+        <p class="card-requirements"><strong>Yêu cầu:</strong> <?php echo esc_html($requirements); ?></p>
+        <div class="card-badges"><span class="badge"><?php echo esc_html($item['derived']['primary_label']); ?></span>
+        <?php if($item['derived']['validation_status']==='not_tested'&&$item['derived']['primary_badge']!=='not_tested'){ ?><span class="badge">Chưa thử</span><?php } ?></div>
         <div class="card-actions"><?php vibelab_cta($item); ?><a href="<?php echo esc_url($url); ?>">Xem chi tiết</a></div></div>
     </article>
     <?php
@@ -83,3 +95,11 @@ function vibelab_document_title($parts) {
     return $parts;
 }
 add_filter('document_title_parts','vibelab_document_title');
+
+require_once __DIR__.'/catalog.php';
+
+function vibelab_image_exists($file){
+    $path=get_theme_file_path($file);
+    clearstatcache(true,$path);
+    return is_file($path)&&is_readable($path);
+}
