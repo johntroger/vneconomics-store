@@ -153,7 +153,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S00: đã có [brief](S00-implementation-brief.vi.md) và [báo cáo](acceptance/S00-brief-and-conditions.vi.md); chủ dự án đã cho phép tiếp S01.
 - Đã chốt trong S00: landing page sản phẩm/dịch vụ; Codex trên Windows; giờ/tuần chưa xác định.
 - S01: smoke hai boot và cleanup PASS; [báo cáo](acceptance/S01-local-baseline.vi.md); chủ dự án đã cho phép S02.
-- S02: kỹ thuật prototype PASS; [báo cáo](acceptance/S02-prototype-and-content.vi.md); chờ chủ dự án duyệt UI/nội dung.
-- S03–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S02: kỹ thuật prototype PASS; [báo cáo](acceptance/S02-prototype-and-content.vi.md); chủ dự án đã cho phép bắt đầu S03. Việc này không thay nghiệm thu người mới ở S13.
+- S03: PASS local ngày 21/10/2026; [báo cáo nghiệm thu](acceptance/S03-library-data.vi.md), [hợp đồng dữ liệu](S03-data-contract.vi.md). Chờ chủ dự án cho phép S04.
+- S04–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Chỉ bắt đầu S03 khi chủ dự án đồng ý rõ ràng sau xem prototype/báo cáo S02.
+- Hoàn tất và báo cáo S03 trước; chỉ bắt đầu S04 khi chủ dự án đồng ý rõ ràng.
