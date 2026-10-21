@@ -6,7 +6,7 @@ Dự án riêng cho https://store.vneconomics.com/.
 
 - Môi trường phát triển mới bằng WordPress Playground, PHP 8.3, SQLite.
 - Đây chưa phải bản sao dữ liệu, plugin hay theme của website hiện tại.
-- Đã có prototype tĩnh S02 và plugin dữ liệu S03 đạt kiểm thử local; chưa phát hành theme/plugin lên hosting.
+- Đã có prototype tĩnh S02 và plugin dữ liệu/trạng thái S04 đạt kiểm thử local; chưa phát hành theme/plugin lên hosting.
 - Repository riêng tư: https://github.com/johntroger/vneconomics-store
 
 ## Chạy local
@@ -42,6 +42,6 @@ vào nhánh triển khai. Nhánh release chỉ nhận payload đã kiểm thử 
 
 ## Tiến độ theo bước
 
-S03 đã đạt kiểm thử local; xem [báo cáo S03](docs/acceptance/S03-library-data.vi.md).
-Chạy kiểm thử plugin: npm run test:library. Plugin chưa cài vào database local đang dùng.
-Chờ chủ dự án cho phép S04 theo [kế hoạch gated](docs/implementation-plan-gated.vi.md).
+S04 đã đạt kiểm thử local; xem [báo cáo S04](docs/acceptance/S04-state-and-dependencies.vi.md).
+Chạy kiểm thử plugin/trạng thái: npm run test:state. Plugin chưa cài vào database local đang dùng.
+Chờ chủ dự án cho phép S05 theo [kế hoạch gated](docs/implementation-plan-gated.vi.md).

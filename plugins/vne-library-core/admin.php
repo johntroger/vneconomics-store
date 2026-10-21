@@ -9,10 +9,11 @@ function vne_library_admin_preflight(){
 }
 function vne_library_admin_menu(){add_menu_page('Thư viện','Thư viện','vne_manage_library','vne-library','vne_library_admin_page','dashicons-book-alt');}
 function vne_library_field($label,$name,$value,$textarea=false){
-    echo '<p><label>'.esc_html($label).'<br>';
-    if($textarea){echo '<textarea rows="3" class="large-text" name="'.esc_attr($name).'">'.esc_textarea($value??'').'</textarea>';}
-    else{echo '<input class="regular-text" name="'.esc_attr($name).'" value="'.esc_attr($value??'').'">';}
-    echo '</label></p>';
+    static $index=0;$index++;$id='vne-field-'.$index;
+    echo '<p><label for="'.esc_attr($id).'">'.esc_html($label).'</label><br>';
+    if($textarea){echo '<textarea id="'.esc_attr($id).'" rows="3" class="large-text" name="'.esc_attr($name).'">'.esc_textarea($value??'').'</textarea>';}
+    else{echo '<input id="'.esc_attr($id).'" class="regular-text" name="'.esc_attr($name).'" value="'.esc_attr($value??'').'">';}
+    echo '</p>';
 }
 function vne_library_admin_payload($raw,$type){
     $input=array('post_type'=>$type,'title'=>$raw['title']??'','excerpt'=>$raw['excerpt']??'','content'=>$raw['content']??'','status'=>$raw['status']??'draft','primary_category'=>absint($raw['primary_category']??0),'editorial_note'=>$raw['editorial_note']??'');
@@ -42,6 +43,9 @@ function vne_library_admin_page(){
         $raw=wp_unslash($_POST);
         if(($raw['operation']??'')==='term'){
             $result=vne_library_create_term(array('taxonomy'=>$raw['taxonomy']??'','name'=>$raw['term_name']??'','parent'=>absint($raw['parent']??0)));
+        }elseif(in_array($raw['operation']??'',array('state','validation','dependency'),true)){
+            $result=vne_library_state_form_handle($id,$raw);
+            if(!is_wp_error($result)){$item=$result;}
         }else{
             $payload=vne_library_admin_payload($raw,$type);$result=vne_library_save_item($payload,$id);
             $item=array_replace($item,$payload);
@@ -81,7 +85,7 @@ function vne_library_admin_page(){
         foreach(array('source_url'=>'URL nguồn HTTPS','observed_at'=>'Ngày đối chiếu YYYY-MM-DD','note'=>'Ghi chú nguồn') as $field=>$text){vne_library_field($text,'document_source['.$field.']',$item['document_source'][$field]);}
     }
     vne_library_field('Ghi chú nội bộ (không trả về API công khai)','editorial_note',$item['editorial_note'],true);
-    submit_button('Lưu nội dung');echo '</form><h2>Phân loại mới</h2><form method="post">';
+    submit_button('Lưu nội dung');echo '</form>';vne_library_state_admin($id);echo '<h2>Phân loại mới</h2><form method="post">';
     wp_nonce_field('vne_library_save');echo '<input type="hidden" name="operation" value="term"><label>Loại phân loại <select name="taxonomy">';
     foreach(vne_library_taxonomies() as $key=>$label){echo '<option value="'.$key.'">'.esc_html($label).'</option>';}echo '</select></label>';
     vne_library_field('Tên phân loại','term_name','');vne_library_field('ID danh mục cha (0 nếu không có)','parent','0');submit_button('Thêm phân loại','secondary');echo '</form>';

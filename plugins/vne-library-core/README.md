@@ -1,6 +1,6 @@
-# vne-library-core — S03
+# vne-library-core — S04
 
-Plugin dữ liệu WordPress, phiên bản 0.1.0. Mã PHP yêu cầu 8.1+; đã chọn kiểm thử
+Plugin dữ liệu WordPress, phiên bản 0.2.0. Mã PHP yêu cầu 8.1+; đã chọn kiểm thử
 local PHP 8.3 / WordPress 7.1.3. Chưa có xác nhận tương thích MySQL/Plesk.
 
 - Ba loại nội dung: tài nguyên, hướng dẫn, bộ thực hành.
@@ -32,6 +32,21 @@ Schema và điều kiện xuất bản: [hợp đồng S03](../../docs/S03-data-
 Chạy kiểm thử từ gốc repo: npm run test:library (tự dọn fixture/cache).
 Script kiểm thử dùng Edge và Playwright đi kèm Codex; không cần provider AI.
 
-S03 chưa có theme riêng, collector, AI, resolver toàn bộ trạng thái hoặc quy trình
+S04 chưa có theme riêng, collector, AI hoặc quy trình
 bản sửa/duyệt. Các chức năng đó cần phê duyệt bước tương ứng. Không sao chép toàn
 bộ repo vào thư mục WordPress để cài plugin.
+
+## Trạng thái và kiểm chứng S04
+
+Resolver dùng chung cho view/API, ba POST route thêm: /items/{id}/state,
+/items/{id}/validations, /items/{id}/dependencies. Cần quyền sửa item; ghi bằng
+chứng cần thêm vne_validate_library. Không nhận validation_status từ client.
+
+Nguồn sự thật publication là post_status; hidden dùng private. Source access và
+archived độc lập; lịch sử thử giữ nguyên khi cần review hoặc nguồn không mở được.
+Bằng chứng pass cần revision/môi trường/ngày/input/output/checklist/URL bằng chứng.
+Các form ở Thư viện cho phép ghi thủ công; plugin không tự chạy repo.
+
+Xem [hợp đồng trạng thái](../../docs/S04-state-contract.vi.md).
+Kiểm thử: npm run test:state; gồm hồi quy S03, 54 tổ hợp, quyền, dependency,
+form quản trị, HTTP và restart trong fixture tự dọn. Schema meta 2 / derived schema 1.

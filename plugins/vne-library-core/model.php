@@ -5,10 +5,11 @@ function vne_library_taxonomies() { return array('vne_category' => 'Danh mục',
 function vne_library_register_types() {
     foreach (vne_library_types() as $type => $config) {
         if (!post_type_exists($type)) { register_post_type($type, array('label'=>$config[0], 'public'=>true, 'show_ui'=>false, 'show_in_rest'=>false, 'has_archive'=>true, 'rewrite'=>array('slug'=>$config[1], 'with_front'=>false), 'capability_type'=>array($config[2],$config[3]), 'map_meta_cap'=>true, 'supports'=>array('title','editor','excerpt','revisions'), 'taxonomies'=>array_keys(vne_library_taxonomies()))); }
-        foreach (array('_vne_resource'=>'object', '_vne_document_source'=>'object', '_vne_primary_category'=>'integer', '_vne_editorial_note'=>'string') as $key=>$kind) {
+        foreach (array('_vne_resource'=>'object', '_vne_document_source'=>'object', '_vne_primary_category'=>'integer', '_vne_editorial_note'=>'string', '_vne_state'=>'object', '_vne_dependencies'=>'array', '_vne_review_epoch'=>'integer') as $key=>$kind) {
             register_post_meta($type,$key,array('type'=>$kind,'single'=>true,'show_in_rest'=>false,'auth_callback'=>function($allowed,$meta_key,$post_id){ return current_user_can('vne_manage_library') && current_user_can('edit_post',$post_id); }));
         }
     }
+    foreach (array_keys(vne_library_types()) as $type) { register_post_meta($type,'_vne_validation',array('type'=>'object','single'=>false,'show_in_rest'=>false,'auth_callback'=>function($allowed,$key,$post_id){return vne_library_can_edit($post_id)&&current_user_can('vne_validate_library');})); }
     foreach (vne_library_taxonomies() as $name=>$label) {
         if (!taxonomy_exists($name)) { register_taxonomy($name,array_keys(vne_library_types()),array('label'=>$label,'public'=>true,'show_ui'=>false,'show_in_rest'=>false,'hierarchical'=>$name==='vne_category','rewrite'=>array('slug'=>$name==='vne_category'?'danh-muc':$name),'capabilities'=>array('manage_terms'=>'vne_manage_library','edit_terms'=>'vne_manage_library','delete_terms'=>'vne_manage_library','assign_terms'=>'vne_manage_library'))); }
     }
@@ -20,13 +21,14 @@ function vne_library_activate() {
     foreach (array($role,get_role('administrator')) as $target) {
         if (!$target) { continue; }
         $target->add_cap('vne_manage_library');
+        $target->add_cap('vne_validate_library');
         foreach (vne_library_types() as $config) {
             foreach (array('edit_posts','edit_others_posts','publish_posts','read_private_posts','delete_posts','delete_private_posts','delete_published_posts','delete_others_posts','edit_private_posts','edit_published_posts','create_posts') as $cap) {
                 $target->add_cap(str_replace('posts',$config[3],$cap));
             }
         }
     }
-    update_option('vne_library_schema_version',1,false);flush_rewrite_rules(false);
+    update_option('vne_library_schema_version',2,false);flush_rewrite_rules(false);
 }
 function vne_library_error($message,$status=400) { return new WP_Error('vne_library_invalid',$message,array('status'=>$status)); }
 function vne_library_keys($array,$allowed) { return is_array($array) && !array_diff(array_keys($array),$allowed); }
@@ -125,6 +127,8 @@ function vne_library_item($id,$edit=false) {
     $result=array('id'=>(int)$id,'post_type'=>$post->post_type,'title'=>$post->post_title,'content'=>$post->post_content,'excerpt'=>$post->post_excerpt,'status'=>$post->post_status,'primary_category'=>(int)get_post_meta($id,'_vne_primary_category',true),'categories'=>wp_get_object_terms($id,'vne_category',array('fields'=>'ids')),'needs'=>wp_get_object_terms($id,'vne_need',array('fields'=>'ids')),'tools'=>wp_get_object_terms($id,'vne_tool',array('fields'=>'ids')));
     if($post->post_type==='vne_resource'){$result['data']=get_post_meta($id,'_vne_resource',true);}else{$result['document_source']=get_post_meta($id,'_vne_document_source',true);}
     if($edit){$result['editorial_note']=get_post_meta($id,'_vne_editorial_note',true);}
+    $result['derived']=vne_library_resolve_state($id);
+    if($edit){$result['state_input']=vne_library_state_input($id);$result['dependencies']=vne_library_dependencies($id);$result['validations']=vne_library_validations($id);}
     return $result;
 }
 function vne_library_publication_guard($data,$postarr,$unsanitized=array(),$update=false) {

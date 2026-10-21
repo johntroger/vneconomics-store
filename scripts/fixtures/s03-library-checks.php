@@ -7,7 +7,7 @@ function request_s03($method,$path,$body=null){$parts=explode('?',$path,2);$requ
 $admin=get_user_by('login','admin');wp_set_current_user($admin->ID);
 $activated=activate_plugin('vne-library-core/vne-library-core.php');
 wp_set_current_user(0);wp_set_current_user($admin->ID);
-check_s03(!is_wp_error($activated)&&get_option('vne_library_schema_version')===1,'activate/schema');
+check_s03(!is_wp_error($activated)&&get_option('vne_library_schema_version')===2,'activate/schema');
 check_s03(count(array_filter(array_keys(vne_library_types()),'post_type_exists'))===3,'three CPTs');
 check_s03(count(array_filter(array_keys(vne_library_taxonomies()),'taxonomy_exists'))===3,'three taxonomies');
 $category=vne_library_create_term(array('taxonomy'=>'vne_category','name'=>'Bắt đầu'));
