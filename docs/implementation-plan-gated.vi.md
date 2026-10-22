@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: S10 PASS kỹ thuật local ngày 22/10/2026; chờ chủ dự án xem giao diện và duyệt S11. S11 trở đi chưa được phép bắt đầu.
+Trạng thái: S11 PASS kỹ thuật local ngày 22/10/2026; chờ chủ dự án duyệt S12. S12 trở đi chưa được phép bắt đầu.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -161,7 +161,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S07: PASS kỹ thuật local ngày 21/10/2026; 44 điểm UI/HTTP + 23 kiểm tra fixture, hồi quy S06 59 điểm; [báo cáo nghiệm thu](acceptance/S07-catalog-and-cards.vi.md), [hợp đồng danh mục](S07-catalog-contract.vi.md). Chủ dự án đã cho phép S08.
 - S08: PASS kỹ thuật local ngày 21/10/2026; 54 điểm UI/HTTP + 19 kiểm tra fixture; hồi quy S07 44/23 và S06 59 PASS. [Báo cáo nghiệm thu](acceptance/S08-resource-detail.vi.md), [hợp đồng chi tiết](S08-detail-contract.vi.md). Chủ dự án đã cho phép S09.
 - S09: PASS kỹ thuật local ngày 21/10/2026;74 kiểm tra +28 fixture,20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS. [Báo cáo](acceptance/S09-search-and-filters.vi.md), [hợp đồng](S09-search-contract.vi.md). Chủ dự án đã duyệt S10 ngày 22/10/2026.
-- S10: PASS kỹ thuật local ngày 22/10/2026; 55 kiểm tra + hai luồng PowerShell; hồi quy S09 74/28, S08 55/19, S07 46/23, S06 59 PASS; 31 file runtime khớp source, dữ liệu gốc/cleanup/ports đạt. [Báo cáo](acceptance/S10-guided-practice.vi.md), [hợp đồng](S10-lesson-contract.vi.md). Chưa thử cài/đăng nhập Windows sạch hoặc phiên AI mới; chờ duyệt S11.
-- S11–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S10: PASS kỹ thuật local ngày 22/10/2026; 55 kiểm tra + hai luồng PowerShell; hồi quy S09 74/28, S08 55/19, S07 46/23, S06 59 PASS; 31 file runtime khớp source, dữ liệu gốc/cleanup/ports đạt. [Báo cáo](acceptance/S10-guided-practice.vi.md), [hợp đồng](S10-lesson-contract.vi.md). Chưa thử cài/đăng nhập Windows sạch hoặc phiên AI mới; chủ dự án đã duyệt S11 ngày 22/10/2026.
+- S11: PASS kỹ thuật local ngày 22/10/2026; 61 UI/HTTP +37 backend; hồi quy S05 gồm S03/S04, S08 55/19, S10 55 +hai shell, S06 59 PASS. 35 file theme/9 file PHP plugin khớp source; hash gốc/cleanup/cổng test đạt. [Báo cáo](acceptance/S11-reports-and-support.vi.md), [hợp đồng](S11-reports-support-contract.vi.md). Chưa gửi thư/deploy; chờ duyệt S12.
+- S12–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Đã hoàn tất kiểm thử kỹ thuật local S10; dừng chờ chủ dự án duyệt S11. Chưa deploy.
+- Đã hoàn tất kiểm thử kỹ thuật local S11; dừng chờ chủ dự án duyệt S12. Chưa deploy.

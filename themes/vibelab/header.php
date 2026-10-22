@@ -9,7 +9,7 @@
 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button></div>
 <nav id="main-nav" class="container site-nav" aria-label="Điều hướng chính" data-open="false">
 <?php if(has_nav_menu('primary')){wp_nav_menu(array('theme_location'=>'primary','container'=>false,'menu_class'=>'custom-menu','depth'=>2,'fallback_cb'=>false));}else{ ?>
-<a href="<?php echo esc_url(home_url('/')); ?>" <?php if(is_front_page()){echo 'aria-current="page"';} ?>>Trang chủ</a>
+<a href="<?php echo esc_url(home_url('/')); ?>" <?php if(is_front_page()&&!vibelab_support_current()){echo 'aria-current="page"';} ?>>Trang chủ</a>
 <a href="<?php echo esc_url(vibelab_archive()); ?>">Tài nguyên</a>
 <a href="<?php echo esc_url(vibelab_archive('vne_guide')); ?>">Hướng dẫn thực hành</a>
 <a href="<?php echo esc_url(home_url('/#cach-chon')); ?>">Cách chúng tôi tuyển chọn</a>

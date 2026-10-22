@@ -96,3 +96,16 @@ examples/s10-moc-studio; test kiểm tra hai bản giống nhau.
 Cổng lệnh/cảnh báo/bằng chứng dùng derived state hiện hành, không suy từ lượt copy
 hay checkbox. Tiến độ chỉ lưu trên trình duyệt; JavaScript không bắt buộc để đọc bài.
 Không có thực thi lệnh, chatbot, API, analytics hay chứng nhận hoàn thành.
+
+
+## S11 — Hỗ trợ và báo lỗi (0.6.0)
+
+Footer nối trang giới thiệu, tiêu chí, FAQ, quyền riêng tư, điều kiện và trợ giúp.
+Query route vne_support do plugin/controller nhận; theme hỗ trợ đọc nội dung và form
+native POST, không cần JS. Trang tài nguyên/bài học có link gắn đúng nội dung;
+trang thiếu plugin báo503 cho form. JS chỉ phản hồi đang gửi, không quyết định lưu.
+
+support.php/support-template.php/assets/support.* chứa nội dung/giao diện.
+Bản sao chính sách mô tả đúng hàng đợi riêng/no-email/no-SLA hiện tại; không giả
+người trực/email/hotline hoặc chứng nhận pháp lý. Trước mở hosting phải đối chiếu
+người xử lý, log và backup thực tế theo kế hoạch. Chưa tự deploy từ S11.

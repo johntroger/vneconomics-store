@@ -1,3 +1,4 @@
+import {pluginEvidence} from './theme-evidence.mjs';
 import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,cpSync,readFileSync,writeFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
@@ -10,7 +11,7 @@ const liveFiles=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-co
 const hashes=()=>liveFiles.map(p=>createHash('sha256').update(readFileSync(p)).digest('hex'));
 const before=hashes(),password=randomBytes(24).toString('hex');
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s05-'));
-const evidence=resolve('docs/acceptance/S05');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s11')?'docs/acceptance/S11/S05-regression':'docs/acceptance/S05');mkdirSync(evidence,{recursive:true});
 const deadline=setTimeout(()=>{console.error('FAIL S05 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 let app,browser;const base='http://127.0.0.1:19405';
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -103,7 +104,7 @@ try{
  assert.equal(persisted.title,'UI-Bản sửa riêng S05');assert.equal(persisted.race_title,racePublic.title);assert.equal(persisted.history,4);assert.equal(persisted.ui_author,result.ui_author);assert.equal(Number(persisted.schema),3);
  for(const path of ['/','/wp-login.php','/wp-json/']){const r=await fetch(base+path);assert.equal(r.status,200);assert.doesNotMatch(await r.text(),/Fatal error:|Error establishing a database connection/);}
  assert.deepEqual(hashes(),before);
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',regression:regression.checks,stateRegression:state.checks,matrix:state.matrix,checks:result.checks,browser:['propose without changing public','desktop/mobile private preview','no-store/noindex including denied REST','nonce 403','approve from UI','no page errors','stale manual form retries remain conflicted'],concurrentApproval:{statuses:race.map(r=>r.status),winner:racePublic.title},restart:persisted,liveFilesUnchanged:true},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:process.argv.includes('--s11')?'2026-10-22':'2026-10-21',testedPluginHashes:process.argv.includes('--s11')?pluginEvidence(fixture):undefined,regression:regression.checks,stateRegression:state.checks,matrix:state.matrix,checks:result.checks,browser:['propose without changing public','desktop/mobile private preview','no-store/noindex including denied REST','nonce 403','approve from UI','no page errors','stale manual form retries remain conflicted'],concurrentApproval:{statuses:race.map(r=>r.status),winner:racePublic.title},restart:persisted,liveFilesUnchanged:true},null,2)+'\n');
  console.log('PASS S05 restart, baseline, protected files unchanged');
 }finally{
  if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);

@@ -73,3 +73,20 @@ Hợp đồng đầy đủ: [S05](../../docs/S05-revision-contract.vi.md).
 Khóa không tự bị phá khi hết thời gian; request lỗi thường tự rollback/nhả khóa.
 Worker bị giết cần vận hành đối chiếu trước phục hồi. MySQL/InnoDB/cache hosting
 chưa được chứng nhận bởi bộ test SQLite local này.
+
+
+## S11 — Báo lỗi riêng (0.4.0, schema thư viện vẫn 3)
+
+reports.php nhận báo lỗi vào vne_report private và menu Thư viện > Báo lỗi riêng.
+Mọi capability của loại này gắn vne_manage_library; không REST/export/query public.
+Form từ theme tự gắn ID/permalink/approved_revision đã duyệt, không nhận URL tùy ý.
+Email tùy chọn; không gửi email, webhook, fetch repo, thay nguồn hoặc publish tự động.
+
+Nonce + ticket HMAC2 giờ + honeypot + rate bucket15 phút + khóa sở hữu chống gửi trùng.
+Cùng ticket được giữ khi POST lỗi nếu còn hợp lệ. Mã xác nhận ký15 phút chỉ hiện mã
+báo cáo. Rate giữ chỗ trước insert và không trả chỗ khi kết quả ghi chưa xác định.
+Rà/xóa queue là thao tác của biên tập; không có cron xóa mới. Log/backup/hosting
+và xử lý khóa bỏ dở cần đối chiếu khi mở thật, không suy từ test local đã đạt.
+
+Hợp đồng: docs/S11-reports-support-contract.vi.md. Test: npm run test:support.
+Không activate/seed vào DB local thật từ các script fixture.

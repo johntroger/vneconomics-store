@@ -26,4 +26,4 @@ get_header(); ?>
 <dl class="lesson-environment"><?php foreach(array('tested_at'=>'Ngày thử','os'=>'Hệ điều hành','tool'=>'Công cụ','version'=>'Phiên bản','input'=>'Đầu vào','output'=>'Kết quả đã ghi') as $key=>$label){ ?><dt><?php echo esc_html($label); ?></dt><dd><?php echo esc_html($trial[$key]); ?></dd><?php } ?></dl><ul><?php foreach($trial['checklist'] as $result){ ?><li><?php echo esc_html($result); ?></li><?php } ?></ul><p><?php vibelab_detail_reference($trial['evidence_url'],$item,'Xem bằng chứng'); ?></p>
 <?php }else{ ?><p>Chưa có bằng chứng chạy thử cho bài này. Việc đọc nguồn hoặc sao chép nội dung không tạo kết quả thử.</p><?php } ?></section>
 <?php if($related){ ?><section class="lesson-related"><h2>Bài đọc liên quan</h2><p>Cùng chủ đề; không mặc định là điều kiện bắt buộc hoặc đã thử cùng bài này.</p><ul><?php foreach($related as $other){ ?><li><a href="<?php echo esc_url(get_permalink($other['id'])); ?>"><?php echo esc_html($other['title']); ?></a></li><?php } ?></ul></section><?php } ?>
-</article></div></div><?php get_footer(); ?>
+<?php vibelab_report_link($item); ?></article></div></div><?php get_footer(); ?>
