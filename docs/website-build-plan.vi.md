@@ -781,6 +781,13 @@ cả detail, danh mục/trang chủ, API và guide liên quan; mô phỏng purge
 khôi phục. Giữ bằng chứng thời điểm thay đổi và thời điểm các view cập nhật; giá trị
 TTL/mức trễ chỉ chốt sau khảo sát, không hứa realtime khi chưa có cơ chế.
 
+Phương án local S12 được ghi ở [hợp đồng cache](S12-cache-contract.vi.md):
+bypass HTML/API và tính lại derived state mỗi request; nếu purge lỗi thì tạm chặn
+phần công khai bằng 503 cho tới khi người có quyền xác nhận phục hồi. Incident
+và điều khiển phục hồi đọc trực tiếp DB để không tin object cache đang lỗi.
+Đây chưa là chứng nhận cache hosting; TTL/tầng cache thật và mức trễ chờ S15.
+Native RSS chưa được cung cấp, chặn trước đường conditional 304 của WordPress.
+
 ## 10. AI và Việt hóa
 
 Dùng một pipeline có các bước chuyên biệt và đầu ra JSON kiểm tra được; chưa cần hệ

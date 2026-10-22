@@ -33,3 +33,4 @@ add_action('admin_menu','vne_library_revision_menu');
 add_action('admin_init','vne_library_preview_preflight');
 
 require_once __DIR__ . '/reports.php';
+require_once __DIR__ . '/cache.php';

@@ -1,0 +1,700 @@
+{
+  "date": "2026-10-22",
+  "checks": [
+    "warm listing bypass",
+    "warm listing membership /",
+    "warm approved title",
+    "warm listing bypass",
+    "warm listing membership /tai-nguyen/",
+    "warm approved title",
+    "warm listing bypass",
+    "warm listing membership /danh-muc/nen-tang-web/",
+    "warm approved title",
+    "warm listing bypass",
+    "warm listing membership /?s=Web&vne_find=1",
+    "warm approved title",
+    "warm detail bypass",
+    "warm detail title",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "warm API canonical",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "warm API list membership",
+    "warm guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "approved-edit listing bypass",
+    "approved-edit listing membership /",
+    "approved-edit approved title",
+    "approved-edit listing bypass",
+    "approved-edit listing membership /tai-nguyen/",
+    "approved-edit approved title",
+    "approved-edit listing bypass",
+    "approved-edit listing membership /danh-muc/nen-tang-web/",
+    "approved-edit approved title",
+    "approved-edit listing bypass",
+    "approved-edit listing membership /?s=Web&vne_find=1",
+    "approved-edit approved title",
+    "approved-edit detail bypass",
+    "approved-edit detail title",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "approved-edit API canonical",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "approved-edit API list membership",
+    "approved-edit guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "restored history page reloads current snapshot",
+    "taxonomy rename marks whole library dirty",
+    "warm home shows renamed taxonomy",
+    "suspended listing bypass",
+    "suspended listing membership /",
+    "suspended approved title",
+    "suspended card source blocked",
+    "suspended listing bypass",
+    "suspended listing membership /tai-nguyen/",
+    "suspended approved title",
+    "suspended card source blocked",
+    "suspended listing bypass",
+    "suspended listing membership /danh-muc/nen-tang-web/",
+    "suspended approved title",
+    "suspended card source blocked",
+    "suspended listing bypass",
+    "suspended listing membership /?s=Web&vne_find=1",
+    "suspended approved title",
+    "suspended card source blocked",
+    "suspended detail bypass",
+    "suspended detail title",
+    "suspended detail source blocked",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "suspended API canonical",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "suspended API list membership",
+    "suspended guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "suspended dependent guide blocked",
+    "suspended exact dependency warning",
+    "suspended visible dependency warning",
+    "withdrawn listing bypass",
+    "withdrawn listing membership /",
+    "withdrawn listing bypass",
+    "withdrawn listing membership /tai-nguyen/",
+    "withdrawn listing bypass",
+    "withdrawn listing membership /danh-muc/nen-tang-web/",
+    "withdrawn listing bypass",
+    "withdrawn listing membership /?s=Web&vne_find=1",
+    "withdrawn detail bypass",
+    "/wp-json/vne-library/v1/items/4 HTTP 404",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "withdrawn API list membership",
+    "withdrawn guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "withdrawn dependent guide blocked",
+    "withdrawn exact dependency warning",
+    "withdrawn visible dependency warning",
+    "republished-still-suspended listing bypass",
+    "republished-still-suspended listing membership /",
+    "republished-still-suspended approved title",
+    "republished-still-suspended card source blocked",
+    "republished-still-suspended listing bypass",
+    "republished-still-suspended listing membership /tai-nguyen/",
+    "republished-still-suspended approved title",
+    "republished-still-suspended card source blocked",
+    "republished-still-suspended listing bypass",
+    "republished-still-suspended listing membership /danh-muc/nen-tang-web/",
+    "republished-still-suspended approved title",
+    "republished-still-suspended card source blocked",
+    "republished-still-suspended listing bypass",
+    "republished-still-suspended listing membership /?s=Web&vne_find=1",
+    "republished-still-suspended approved title",
+    "republished-still-suspended card source blocked",
+    "republished-still-suspended detail bypass",
+    "republished-still-suspended detail title",
+    "republished-still-suspended detail source blocked",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "republished-still-suspended API canonical",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "republished-still-suspended API list membership",
+    "republished-still-suspended guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "republished-still-suspended dependent guide blocked",
+    "republished-still-suspended exact dependency warning",
+    "republished-still-suspended visible dependency warning",
+    "native object-cache exception recorded without fatal response",
+    "purge failure recorded without false success",
+    "/ HTTP 503",
+    "/ bypass",
+    "purge failure blocks potentially stale public content /",
+    "/tai-nguyen/ HTTP 503",
+    "/tai-nguyen/ bypass",
+    "purge failure blocks potentially stale public content /tai-nguyen/",
+    "/danh-muc/nen-tang-web/ HTTP 503",
+    "/danh-muc/nen-tang-web/ bypass",
+    "purge failure blocks potentially stale public content /danh-muc/nen-tang-web/",
+    "/?s=Web&vne_find=1 HTTP 503",
+    "/?s=Web&vne_find=1 bypass",
+    "purge failure blocks potentially stale public content /?s=Web&vne_find=1",
+    "/tai-nguyen/web-dev-for-beginners/ HTTP 503",
+    "/tai-nguyen/web-dev-for-beginners/ bypass",
+    "purge failure blocks potentially stale public content /tai-nguyen/web-dev-for-beginners/",
+    "/huong-dan/lam-landing-page-cho-mot-dich-vu-chup-anh/ HTTP 503",
+    "/huong-dan/lam-landing-page-cho-mot-dich-vu-chup-anh/ bypass",
+    "purge failure blocks potentially stale public content /huong-dan/lam-landing-page-cho-mot-dich-vu-chup-anh/",
+    "/wp-json/vne-library/v1/items/4 HTTP 503",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "purge failure blocks potentially stale public content /wp-json/vne-library/v1/items/4",
+    "/wp-json/vne-library/v1/items HTTP 503",
+    "/wp-json/vne-library/v1/items bypass",
+    "purge failure blocks potentially stale public content /wp-json/vne-library/v1/items",
+    "safety switch read bypasses stale object-cache option",
+    "recovery notice reads actual DB incident despite stale cached option",
+    "ordinary successful purge does not clear incident",
+    "anonymous retry denied",
+    "wrong incident retry denied",
+    "purge exception does not store raw message",
+    "authorized exact-incident recovery confirmed",
+    "recovery cannot erase a newer concurrent incident",
+    "purge-recovered-still-suspended listing bypass",
+    "purge-recovered-still-suspended listing membership /",
+    "purge-recovered-still-suspended approved title",
+    "purge-recovered-still-suspended card source blocked",
+    "purge-recovered-still-suspended listing bypass",
+    "purge-recovered-still-suspended listing membership /tai-nguyen/",
+    "purge-recovered-still-suspended approved title",
+    "purge-recovered-still-suspended card source blocked",
+    "purge-recovered-still-suspended listing bypass",
+    "purge-recovered-still-suspended listing membership /danh-muc/nen-tang-web/",
+    "purge-recovered-still-suspended approved title",
+    "purge-recovered-still-suspended card source blocked",
+    "purge-recovered-still-suspended listing bypass",
+    "purge-recovered-still-suspended listing membership /?s=Web&vne_find=1",
+    "purge-recovered-still-suspended approved title",
+    "purge-recovered-still-suspended card source blocked",
+    "purge-recovered-still-suspended detail bypass",
+    "purge-recovered-still-suspended detail title",
+    "purge-recovered-still-suspended detail source blocked",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "purge-recovered-still-suspended API canonical",
+    "/wp-json/vne-library/v1/items HTTP 200",
+    "/wp-json/vne-library/v1/items bypass",
+    "purge-recovered-still-suspended API list membership",
+    "purge-recovered-still-suspended guide bypass",
+    "/wp-json/vne-library/v1/items/10 HTTP 200",
+    "/wp-json/vne-library/v1/items/10 bypass",
+    "purge-recovered-still-suspended dependent guide blocked",
+    "purge-recovered-still-suspended exact dependency warning",
+    "purge-recovered-still-suspended visible dependency warning",
+    "operator sees durable incident and recovery action",
+    "recovery UI invalid nonce rejected",
+    "operator recovery UI clears only confirmed incident",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "/wp-json/vne-library/v1/items/4 HTTP 200",
+    "/wp-json/vne-library/v1/items/4 bypass",
+    "compliant shared cache refuses warmed public API",
+    "/wp-json/vne-library/v1/items/4?context=edit HTTP 403",
+    "/wp-json/vne-library/v1/items/4?context=edit bypass",
+    "edit response private",
+    "/wp-json/vne-library/v1/proposals/13 HTTP 403",
+    "/wp-json/vne-library/v1/proposals/13 bypass",
+    "pending preview denied",
+    "/wp-json/vne-library/v1/byok HTTP 404",
+    "/wp-json/vne-library/v1/byok bypass",
+    "unsupported native feed cannot bypass policy with conditional 304",
+    "native feed bypass",
+    "/?vne_support=bao-loi&resource=4 HTTP 200",
+    "/?vne_support=bao-loi&resource=4 bypass",
+    "/?vne_support=bao-loi&receipt=invalid HTTP 410",
+    "/?vne_support=bao-loi&receipt=invalid bypass",
+    "authorized private preview bypass",
+    "private preview noindex",
+    "preview never contaminates public cache",
+    "no browser script errors",
+    "mutation shutdown coordinator ran"
+  ],
+  "observations": [
+    {
+      "label": "warm",
+      "started": "2026-10-22T11:15:31.437Z",
+      "completed": "2026-10-22T11:15:53.825Z",
+      "mutation": {
+        "number": 1,
+        "started": "2026-10-22T11:15:18.803Z",
+        "completed": "2026-10-22T11:15:21.704Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:15:34.808Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:15:37.378Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:15:39.930Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:15:42.426Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_claim_risk",
+          "step": "Bước kiểm tra S12",
+          "message": "Quyền, giấy phép hoặc yêu cầu của bước này chưa đủ rõ để đề xuất lệnh."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    },
+    {
+      "label": "approved-edit",
+      "started": "2026-10-22T11:15:55.988Z",
+      "completed": "2026-10-22T11:16:17.230Z",
+      "mutation": {
+        "number": 2,
+        "started": "2026-10-22T11:15:53.826Z",
+        "completed": "2026-10-22T11:15:55.988Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:15:58.561Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:16:01.091Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:16:03.522Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:16:05.959Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_claim_risk",
+          "step": "Bước kiểm tra S12",
+          "message": "Quyền, giấy phép hoặc yêu cầu của bước này chưa đủ rõ để đề xuất lệnh."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    },
+    {
+      "label": "suspended",
+      "started": "2026-10-22T11:16:28.723Z",
+      "completed": "2026-10-22T11:17:03.094Z",
+      "mutation": {
+        "number": 4,
+        "started": "2026-10-22T11:16:26.689Z",
+        "completed": "2026-10-22T11:16:28.723Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:16:32.992Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:16:37.021Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:16:40.965Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:16:44.897Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_suspended",
+          "step": "Bước kiểm tra S12",
+          "message": "Tài nguyên của bước này đang tạm ngừng khuyến nghị."
+        },
+        {
+          "code": "dependency_claim_risk",
+          "step": "Bước kiểm tra S12",
+          "message": "Quyền, giấy phép hoặc yêu cầu của bước này chưa đủ rõ để đề xuất lệnh."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    },
+    {
+      "label": "withdrawn",
+      "started": "2026-10-22T11:17:07.159Z",
+      "completed": "2026-10-22T11:17:39.834Z",
+      "mutation": {
+        "number": 5,
+        "started": "2026-10-22T11:17:03.388Z",
+        "completed": "2026-10-22T11:17:07.159Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:17:11.204Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:17:15.100Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:17:19.014Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:17:23.126Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_hidden",
+          "step": "Bước kiểm tra S12",
+          "message": "Tài nguyên của bước này không còn công khai."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    },
+    {
+      "label": "republished-still-suspended",
+      "started": "2026-10-22T11:17:43.349Z",
+      "completed": "2026-10-22T11:18:16.295Z",
+      "mutation": {
+        "number": 6,
+        "started": "2026-10-22T11:17:39.835Z",
+        "completed": "2026-10-22T11:17:43.349Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:17:47.255Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:17:51.162Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:17:55.523Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:17:59.406Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_suspended",
+          "step": "Bước kiểm tra S12",
+          "message": "Tài nguyên của bước này đang tạm ngừng khuyến nghị."
+        },
+        {
+          "code": "dependency_claim_risk",
+          "step": "Bước kiểm tra S12",
+          "message": "Quyền, giấy phép hoặc yêu cầu của bước này chưa đủ rõ để đề xuất lệnh."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    },
+    {
+      "label": "purge-recovered-still-suspended",
+      "started": "2026-10-22T11:19:35.474Z",
+      "completed": "2026-10-22T11:20:30.132Z",
+      "mutation": {
+        "number": 15,
+        "started": "2026-10-22T11:19:30.920Z",
+        "completed": "2026-10-22T11:19:35.474Z"
+      },
+      "values": [
+        {
+          "url": "/",
+          "status": 200,
+          "at": "2026-10-22T11:19:42.758Z"
+        },
+        {
+          "url": "/tai-nguyen/",
+          "status": 200,
+          "at": "2026-10-22T11:19:48.694Z"
+        },
+        {
+          "url": "/danh-muc/nen-tang-web/",
+          "status": 200,
+          "at": "2026-10-22T11:19:55.053Z"
+        },
+        {
+          "url": "/?s=Web&vne_find=1",
+          "status": 200,
+          "at": "2026-10-22T11:20:02.260Z"
+        }
+      ],
+      "guideWarnings": [
+        {
+          "code": "dependency_suspended",
+          "step": "Bước kiểm tra S12",
+          "message": "Tài nguyên của bước này đang tạm ngừng khuyến nghị."
+        },
+        {
+          "code": "dependency_claim_risk",
+          "step": "Bước kiểm tra S12",
+          "message": "Quyền, giấy phép hoặc yêu cầu của bước này chưa đủ rõ để đề xuất lệnh."
+        },
+        {
+          "code": "access_unknown",
+          "message": "Chưa xác minh truy cập hiện tại; không kết luận nguồn bị xóa."
+        },
+        {
+          "code": "review_needed",
+          "reason": "",
+          "message": "Cần kiểm tra lại trước khi dựa vào kết quả thử cũ."
+        },
+        {
+          "code": "not_tested",
+          "message": "Chưa có bằng chứng thử."
+        }
+      ]
+    }
+  ],
+  "mutations": [
+    {
+      "number": 1,
+      "started": "2026-10-22T11:15:18.803Z",
+      "completed": "2026-10-22T11:15:21.704Z"
+    },
+    {
+      "number": 2,
+      "started": "2026-10-22T11:15:53.826Z",
+      "completed": "2026-10-22T11:15:55.988Z"
+    },
+    {
+      "number": 3,
+      "started": "2026-10-22T11:16:22.086Z",
+      "completed": "2026-10-22T11:16:24.240Z"
+    },
+    {
+      "number": 4,
+      "started": "2026-10-22T11:16:26.689Z",
+      "completed": "2026-10-22T11:16:28.723Z"
+    },
+    {
+      "number": 5,
+      "started": "2026-10-22T11:17:03.388Z",
+      "completed": "2026-10-22T11:17:07.159Z"
+    },
+    {
+      "number": 6,
+      "started": "2026-10-22T11:17:39.835Z",
+      "completed": "2026-10-22T11:17:43.349Z"
+    },
+    {
+      "number": 7,
+      "started": "2026-10-22T11:18:16.295Z",
+      "completed": "2026-10-22T11:18:19.369Z"
+    },
+    {
+      "number": 8,
+      "started": "2026-10-22T11:18:19.369Z",
+      "completed": "2026-10-22T11:18:22.619Z"
+    },
+    {
+      "number": 9,
+      "started": "2026-10-22T11:18:54.639Z",
+      "completed": "2026-10-22T11:18:58.505Z"
+    },
+    {
+      "number": 10,
+      "started": "2026-10-22T11:18:58.506Z",
+      "completed": "2026-10-22T11:19:02.909Z"
+    },
+    {
+      "number": 11,
+      "started": "2026-10-22T11:19:06.580Z",
+      "completed": "2026-10-22T11:19:11.082Z"
+    },
+    {
+      "number": 12,
+      "started": "2026-10-22T11:19:11.082Z",
+      "completed": "2026-10-22T11:19:15.623Z"
+    },
+    {
+      "number": 13,
+      "started": "2026-10-22T11:19:20.538Z",
+      "completed": "2026-10-22T11:19:26.212Z"
+    },
+    {
+      "number": 14,
+      "started": "2026-10-22T11:19:26.212Z",
+      "completed": "2026-10-22T11:19:30.920Z"
+    },
+    {
+      "number": 15,
+      "started": "2026-10-22T11:19:30.920Z",
+      "completed": "2026-10-22T11:19:35.474Z"
+    },
+    {
+      "number": 16,
+      "started": "2026-10-22T11:20:30.132Z",
+      "completed": "2026-10-22T11:20:36.308Z"
+    }
+  ],
+  "testedThemeHashes": {
+    "archive-vne_resource.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "assets/cover-astro.svg": "630b950d4af6d0731f0bf0cc22e1b18d38f0013af021ffc46840c21cdf842001",
+    "assets/cover-default.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-mdn.svg": "d779f88b87b213693ed56de56e0b616f456fc2438f3fb05f14fc2d50c8829493",
+    "assets/cover-pico.svg": "47771b773d17fee8cd5e4e35b270c45753ef6b1e4a13f131554fec1a2e82d5f5",
+    "assets/cover-react.svg": "8f96b1d8ce5d49339ec399e2750797665a85376e8338f7011bdaf1e0d29b07d8",
+    "assets/cover-web-basics.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-web-design.svg": "33eacd1dc728eece4a5759b1fbda4bfe6dda19dc74aecbf284a6fbff91ef4ca8",
+    "assets/discovery.js": "cdd2fc6e074eaa210494a6801a79ad66f200cfc50f5e1f652c339d57fa6a908f",
+    "assets/lesson.css": "a6c13865485ad492d896db308c22e45b12e2a63ca098571370cd353b65d8e5d5",
+    "assets/lesson.js": "9ba49f0fb47a4d01dce9551e8462f1173925fc72e710ace8f1c4bff105e30c73",
+    "assets/menu.js": "acb2ff5b5b8395f7e649c51c73846f5001d0ccd72873045faae6dbec43471283",
+    "assets/moc-studio/index.html": "add426737a36ac24f868f5e2f97009378ffd3ba3e53a23865642b48649f72b03",
+    "assets/moc-studio/style.css": "e49c59b342708f293f8ab75c463db27fb2b15004541e7dfadea5499c52572514",
+    "assets/support.css": "5f5994ce2f64d91c7f7e1b9f2cbf55a8052fb4fd7e0257baae50835dabbee658",
+    "assets/support.js": "c2c0eacab17133bd7f3a5a9b84852f7f59cb5708be5ba93434df7488954633d3",
+    "catalog-template.php": "a2bcf5c89152a6f33424f4bd3f0149c3eeefef3b19cffc2b074278403a37a066",
+    "catalog.php": "f9740ce2cb1de7a603ebd718531d29e39732f1abdf25c099f157e097c4274a5a",
+    "detail.php": "b425d547aa7a1500389f9de113e791f304fa488f32e7e12cd4e41f33c12347c3",
+    "discovery-template.php": "1e59557b3c59c37cd1c004f85d7b2a835b5e33143586683040f8297b445feff8",
+    "discovery.php": "c2aa781cc5dd8459ae34f79ccfe11c2e8d34c61be825d87e773ea0619950d00d",
+    "footer.php": "5740254af91f81096c63ef4d31e7856a35ee9eed9272f2f419745763bb76fc11",
+    "front-page.php": "ca7ed2b60f46d3bd840674195c716140cf375aca2b918465ba70b75c2d1ff9bf",
+    "functions.php": "7d745edcb593879f2268fd6130d12e677bee62fd2e27909f9a6d74b29535bfb4",
+    "header.php": "b47231a8bf341f641d061df07acf010a0d69e33a86485381a893c7a7fe61860a",
+    "index.php": "a15678648fed9067a7efd27ee1ccb2aa25f5928e71c3adc642280396e7822ec1",
+    "lesson-template.php": "c15bb57a6cef0b559527452ef213e3176c5a41a8e709174d2a73acf2abb3d772",
+    "lesson.php": "af98d06bfd9faa46491dceeb91905f54ed0c43ab80b55299b15aba9f1a052e88",
+    "single-vne_resource.php": "f9482d863ba713bebee2baba5002d932c711bae725ce10ba75f114211cb8adc7",
+    "style.css": "45447b203216518d59270c1a691304116e26263a7d0f9bd6d15af35b187de62f",
+    "support-template.php": "493ab6ab7b3ff45da58c54828e92eb7c05c79ad648803d95dd5babcd2490fe71",
+    "support.php": "18745edcaa8639e768b432930309a14f6a88f2322544593c32b3be040cacba19",
+    "taxonomy-vne_category.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_need.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_tool.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+  },
+  "testedPluginHashes": {
+    "admin.php": "e8af77d55c732cd7ecf41c3eb7993161ebea991d5ea1e91aad18eca7c75b902a",
+    "api.php": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890",
+    "cache.php": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6",
+    "model.php": "b28c9a7ca5c469709ecd54499dc4ec564360bc608f96c04ee5cf44b0b2917852",
+    "reports.php": "df68e3320981760a0e09a82d2fc768f41c1cf0c7cc75578786fae0913ef2b30a",
+    "revision-admin.php": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8",
+    "revisions.php": "7f2943beec516a843812f02fe8f341779432a7582e5d6546d1f85c16d1a2a911",
+    "state-admin.php": "b201063a4762c719dec107cb88d32a99dd15aedebf8a4f64e41db8f7f1e45318",
+    "state.php": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c",
+    "vne-library-core.php": "7bc5144ddabe3807a44769a0833794bd0dad18d1b9094f0802d38875c2e4dd29"
+  },
+  "protectedHashes": [
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8"
+  ],
+  "errors": [],
+  "limits": [
+    "Local WordPress/SQLite only; external cache not configured or verified",
+    "BYOK not built; namespace denial only",
+    "No deployment, external API, messages or paid requests"
+  ]
+}

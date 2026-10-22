@@ -7,7 +7,7 @@ import {pathToFileURL} from 'node:url';
 import {createHash,randomBytes} from 'node:crypto';
 const {chromium}=await import(pathToFileURL(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs')).href);
 const browserEnv={...process.env};const {startSite}=await import('./local-runtime.mjs');
-const evidence=resolve('docs/acceptance/S11');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s11-'));
+const evidence=resolve(process.argv.includes('--s12')?'docs/acceptance/S12/S11-regression':'docs/acceptance/S11');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s11-'));
 const files=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-config.php'],hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex'),hashes=()=>files.map(hash),before=hashes();
 const checks=[],errors=[],badHTTP=[],externalPublic=[];const check=(v,n)=>{assert.ok(v,n);checks.push(n);};
 const base='http://127.0.0.1:19411',password=randomBytes(24).toString('hex');let app,browser;
@@ -26,7 +26,7 @@ async function newPage(options={},adminMedia=false){
 async function go(page,url,status=200){const r=await page.goto(url);assert.equal(r.status(),status,url);await page.waitForLoadState('networkidle');assert.doesNotMatch(await page.content(),/Fatal error:|Warning:|Notice:|MUST-NOT-LEAK/);}
 async function shot(page,name){await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:join(evidence,name+'.png'),fullPage:true});await page.screenshot({path:join(evidence,name+'-top.png')});}
 async function values(page){return page.locator('#resource-report-form').evaluate(f=>Object.fromEntries(new FormData(f)));}
-async function submitFailure(f,data,status){f.expected.add(status);await f.page.locator('#resource-report-form').evaluate((form,data)=>{form.noValidate=true;for(const[k,v]of Object.entries(data)){const n=form.elements.namedItem(k);if(n){if(n.type==='checkbox')n.checked=v==='1';else n.value=v;}}},data);const response=f.page.waitForResponse(r=>r.request().isNavigationRequest()&&r.status()===status);await f.page.locator('button[type=submit]').last().click();await response;await f.page.waitForLoadState('networkidle');f.expected.clear();}
+async function submitFailure(f,data,status){f.expected.add(status);await f.page.locator('#resource-report-form').evaluate((form,data)=>{form.noValidate=true;for(const[k,v]of Object.entries(data)){const n=form.elements.namedItem(k);if(n){if(n.type==='checkbox')n.checked=v==='1';else n.value=v;}}},data);const response=f.page.waitForResponse(r=>r.request().isNavigationRequest()&&r.url().startsWith(base));await f.page.locator('button[type=submit]').last().click();const observed=await response;assert.equal(observed.status(),status,'failure form HTTP status');await f.page.waitForLoadState('networkidle');f.expected.clear();}
 async function login(f,user){await go(f.page,base+'/wp-login.php?redirect_to='+encodeURIComponent(base+'/wp-admin/admin.php?page=vne-reports'));await f.page.locator('#user_login').fill(user);await f.page.locator('#user_pass').fill(password);await f.page.locator('#wp-submit').click();await f.page.waitForLoadState('networkidle');}
 function pluginHashes(root){
  const result={};function scan(dir,relative=''){for(const e of readdirSync(dir,{withFileTypes:true})){const name=relative+e.name,p=join(dir,e.name);if(e.isDirectory())scan(p,name+'/');else if(e.name.endsWith('.php'))result[name]=hash(p);}}scan(root);return result;
@@ -35,6 +35,7 @@ try{
  app=await startSite(fixture,19411);
  cpSync(resolve('plugins/vne-library-core'),join(fixture,'wp-content/plugins/vne-library-core'),{recursive:true});cpSync(resolve('themes/vibelab'),join(fixture,'wp-content/themes/vibelab'),{recursive:true});
  mkdirSync(join(fixture,'wp-content/mu-plugins'),{recursive:true});
+ writeFileSync(join(fixture,'wp-content/mu-plugins/s11-rate-fixture.php'),"<?php $_SERVER['REMOTE_ADDR']='203.0.113.211';");
  writeFileSync(join(fixture,'wp-content/mu-plugins/s11-mail-guard.php'),"<?php add_filter('pre_wp_mail',function(){update_option('s11_mail_attempts',(int)get_option('s11_mail_attempts')+1);return false;});");
  const obs=readFileSync('docs/acceptance/S02/source-observations.json','utf8').replace(/^\uFEFF/,'');
  const seed=JSON.parse(await php(readFileSync('scripts/fixtures/s06-theme-seed.php','utf8').replace('<?php',"<?php define('S06_OBSERVATIONS',"+JSON.stringify(obs)+");")));
@@ -84,6 +85,8 @@ try{
   if(mode==='no-js'){const n=await count();await g.page.getByRole('button',{name:'Gửi báo lỗi',exact:true}).click();await g.page.waitForURL(u=>u.searchParams.has('receipt'));check((await count())===n+1,'no JS native form succeeds');}
   await g.ctx.close();
  }
+ // Prime the UI boundary immediately; preceding flows may cross the real 15-minute window.
+ await admin("$bucket=(int)floor(time()/900);foreach(array($bucket,$bucket+1) as $b){$key='vne_report_rate_'.hash_hmac('sha256','203.0.113.211|'.$b,wp_salt('auth'));set_transient($key,array('attempts'=>3,'saved'=>3),900);}");
  await go(page,support('bao-loi',{resource:seed.ids[0]}));await submitFailure(f,{kind:'other',description:validDescription,consent:'1'},429);check(await page.getByRole('alert').innerText().then(t=>t.includes('15 phút')),'rate limited UI status no success');await shot(page,'report-rate-limit');
  await page.setViewportSize({width:320,height:760});await shot(page,'report-small-mobile');check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'320px error form no overflow');
  await go(page,support('cau-hoi'));await page.locator('summary').first().focus();await page.keyboard.press('Enter');check(await page.locator('details').first().getAttribute('open')!==null,'FAQ keyboard/native details');await shot(page,'faq-mobile');
@@ -95,7 +98,7 @@ try{
   [base+'/?post_type%5B%5D=vne_report&feed=rss2',404],[base+'/wp-json/wp/v2/vne_report',404]
  ];
  for(const[url,status]of requests){const r=await ctx.request.get(url);const html=await r.text();check(r.status()===status&&!html.includes('qa-s11@example.com')&&!html.includes('QA Unicode'),'privacy/status '+url.replace(base,'')+' actual='+r.status());}
- const invalidReceipt=receiptURL.replace(/.$/,'0');const rr=await ctx.request.get(invalidReceipt);check(rr.status()===410,'forged signature never confirms');
+ const invalidReceipt=receiptURL.replace(/.$/,last=>last==='0'?'1':'0');assert.notEqual(invalidReceipt,receiptURL,'forged receipt must differ from valid receipt');const rr=await ctx.request.get(invalidReceipt);check(rr.status()===410,'forged signature never confirms, HTTP '+rr.status());
  const rawEmail='EDITOR-PRIVATE-S11@example.com';
  // View and delete are administrative capabilities, independent of public form nonces.
  const a=await newPage({viewport:{width:1440,height:1000}},true);await login(a,'admin');
@@ -112,6 +115,6 @@ try{
  assert.deepEqual(hashes(),before);check(true,'protected live data unchanged');
  await ctx.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
  const sourcePlugin=pluginHashes(resolve('plugins/vne-library-core'));assert.deepEqual(sourcePlugin,pluginHashes(join(fixture,'wp-content/plugins/vne-library-core')));
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-22',checks,backendChecks:unit.checks,testedThemeHashes:themeEvidence(fixture),testedPluginHashes:sourcePlugin,errors,badHTTP,externalPublic,protectedHashes:before,liveFilesUnchanged:true,limits:['Local fixture/mock storage failures; no external messages/API/deployment','Basic IP bucket/honeypot/token controls, not hosting WAF or distributed abuse certification','No hosting/MySQL/cache/real user or legal compliance certification']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-22',checks,backendChecks:unit.checks,rateUIFixture:{remoteAddress:'203.0.113.211',quota:'saved=3/attempts=3 in current and next bucket immediately before UI POST; backend separately exercises real three-save cap'},testedThemeHashes:themeEvidence(fixture),testedPluginHashes:sourcePlugin,errors,badHTTP,externalPublic,protectedHashes:before,liveFilesUnchanged:true,limits:['Local fixture/mock storage failures; no external messages/API/deployment','Basic IP bucket/honeypot/token controls, not hosting WAF or distributed abuse certification','No hosting/MySQL/cache/real user or legal compliance certification']},null,2)+'\n');
  console.log('PASS S11 '+checks.length+' browser/HTTP checks + '+unit.checks.length+' backend checks');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(timeout);assert.deepEqual(hashes(),before);}

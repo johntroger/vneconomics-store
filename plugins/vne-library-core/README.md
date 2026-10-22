@@ -90,3 +90,20 @@ và xử lý khóa bỏ dở cần đối chiếu khi mở thật, không suy t�
 
 Hợp đồng: docs/S11-reports-support-contract.vi.md. Test: npm run test:support.
 Không activate/seed vào DB local thật từ các script fixture.
+
+## S12 — Chính sách cache local
+
+cache.php giữ HTML WordPress/VibeLab, admin và namespace REST vne-library ở chế độ
+private/no-store; không thêm page cache hay cache cho derived state. Việc ghi nội
+dung/meta/taxonomy đánh dấu dirty và làm sạch native object cache toàn thư viện
+sau transaction. Tài nguyên tĩnh có chính sách riêng.
+
+Khi purge thất bại, incident được giữ trong DB. Phần công khai tạm trả 503; admin
+và preview riêng còn dùng được. Không tự mở lại chỉ vì lần ghi sau thành công.
+Menu quản trị hiện nút thử phục hồi, yêu cầu POST/capability/nonce/đúng incident;
+phục hồi cũ không được xóa incident mới. Filter vne_library_cache_purge_result
+mặc định chỉ đại diện local; không được coi là xác nhận hosting/CDN.
+
+Kiểm thử: npm run test:cache, test:cache-revisions-regression,
+test:cache-support-regression. Hợp đồng/checklist: docs/S12-cache-contract.vi.md.
+Các tầng hosting/TTL/bypass thật phải nghiệm thu S15 trước phát hành. BYOK chưa xây.

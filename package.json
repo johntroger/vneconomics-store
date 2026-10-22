@@ -32,7 +32,10 @@
     "test:support-revisions-regression": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs --s11",
     "test:support-detail-regression": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs --s09 --s10 --s11",
     "test:support-lesson-regression": "node scripts/run-clean.mjs script scripts/test-s10-lesson.mjs --s11",
-    "test:support-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09 --s10 --s11"
+    "test:support-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09 --s10 --s11",
+    "test:cache": "node scripts/run-clean.mjs script scripts/test-s12-cache.mjs",
+    "test:cache-revisions-regression": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs --s11 --s12",
+    "test:cache-support-regression": "node scripts/run-clean.mjs script scripts/test-s11-support.mjs --s12"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-22",
+  "checkedAtUTC": "2026-10-22T12:03:48.0809705Z",
+  "themeFiles": 35,
+  "pluginFiles": 10,
+  "testedRuntimeMatchesSource": true,
+  "checks": {
+    "S12": 225,
+    "S05Model": 69,
+    "S05State": 265,
+    "S05Matrix": 54,
+    "S05Revisions": 50,
+    "S11UI": 61,
+    "S11Backend": 37
+  },
+  "protectedHashes": {
+    ".local/site/wp-config.php": "B2B3F3FE6DBF560B38DB952A868DF3120FFF14BB39BA96EA34E2F26B5C2892F8",
+    ".local/site/wp-content/database/.ht.sqlite": "F2A35E44C395FB790E6EA5524B21F2525D49F75D19FF129E8E3894FA08721FD8"
+  },
+  "protectedFilesUnchanged": true,
+  "historicalEvidenceUnchanged": true,
+  "legacyRuntimeUnchanged": true,
+  "temporaryFixtures": 0,
+  "runCacheDirectories": 0,
+  "runLockExists": false,
+  "testListeners": 0,
+  "hostingVerified": false,
+  "byokImplemented": false,
+  "deployed": false
+}
