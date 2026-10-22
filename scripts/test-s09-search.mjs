@@ -12,7 +12,7 @@ const hashes=()=>files.map(p=>createHash('sha256').update(readFileSync(p)).diges
 const before=hashes(),checks=[],errors=[],badHTTP=[],queries=[];
 const check=(v,label)=>{assert.ok(v,label);checks.push(label);};
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s09-'));
-const evidence=resolve('docs/acceptance/S09');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s10')?'docs/acceptance/S10/S09-regression':'docs/acceptance/S09');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19409';let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S09 timeout');process.exit(1);},1200000);deadline.unref();
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -138,6 +138,6 @@ try{
  await capture(page,'library-unavailable');
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS or unexpected internal HTTP failures');assert.deepEqual(hashes(),before);check(true,'live database/config hashes unchanged');
  await context.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3 PHP8.3 SQLite Edge headless PlaywrightNode1.62.1',testedThemeHashes:themeEvidence(fixture),checks,queries,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Synthetic QA fixtures, no external repository/API certification','No hosting/MySQL/cache/load/cross-browser/usability certification','No stars/editorial recommendations without data; no semantic search or AI','Existing source date required by schema; missing-date ordering is defensive fallback']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:process.argv.includes('--s10')?'2026-10-22':'2026-10-21',runtime:'WordPress7.1.3 PHP8.3 SQLite Edge headless PlaywrightNode1.62.1',testedThemeHashes:themeEvidence(fixture),checks,queries,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Synthetic QA fixtures, no external repository/API certification','No hosting/MySQL/cache/load/cross-browser/usability certification','No stars/editorial recommendations without data; no semantic search or AI','Existing source date required by schema; missing-date ordering is defensive fallback']},null,2)+'\n');
  console.log('PASS S09 '+checks.length+' checks + '+result.checks.length+' fixture checks,20 query cases');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

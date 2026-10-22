@@ -11,7 +11,7 @@ export function themeEvidence(fixture){
   for(const entry of readdirSync(join(root,relative),{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){
    const file=join(relative,entry.name);
    if(entry.isDirectory())Object.assign(result,hashes(root,file));
-   else if(/\.(php|css|js|svg)$/.test(entry.name))result[file.replaceAll('\\','/')]=createHash('sha256').update(readFileSync(join(root,file))).digest('hex');
+   else if(/\.(php|css|js|svg|html)$/.test(entry.name))result[file.replaceAll('\\','/')]=createHash('sha256').update(readFileSync(join(root,file))).digest('hex');
   }
   return result;
  }

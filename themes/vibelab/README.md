@@ -79,3 +79,20 @@ discovery.js chỉ nâng cấp panel mobile: native dialog, focus trap/restore, 
 URL kết quả để Back về kết quả trước. Không JS/script lỗi: form GET hiện inline.
 Không dùng AJAX; reload có tiến trình và lỗi thư viện khác với kết quả0 hợp lệ.
 Xem docs/S09-search-contract.vi.md; staging/MySQL/cache/usability vẫn chờ bước riêng.
+
+
+## S10 — Bài thực hành (0.5.0)
+
+Guide và practice dùng lesson-template.php. Nội dung phải nhập/duyệt qua VNE Library
+Core; theme không tự seed hoặc sửa database. Soạn theo hợp đồng
+docs/S10-lesson-contract.vi.md: h2 cho mục lục, pre.language-powershell cho lệnh,
+pre cho prompt, ul.lesson-checklist/li cho tự kiểm tra. Bản mẫu MOC-WIN-1 nằm trong
+docs/content-samples/S10-moc-studio-lesson.html.
+
+Marker p.lesson-example dành riêng cho demo Mộc Studio đã đóng gói ở
+assets/moc-studio; không phải cơ chế nhúng/chạy repo bất kỳ. Bản gốc ở
+examples/s10-moc-studio; test kiểm tra hai bản giống nhau.
+
+Cổng lệnh/cảnh báo/bằng chứng dùng derived state hiện hành, không suy từ lượt copy
+hay checkbox. Tiến độ chỉ lưu trên trình duyệt; JavaScript không bắt buộc để đọc bài.
+Không có thực thi lệnh, chatbot, API, analytics hay chứng nhận hoàn thành.

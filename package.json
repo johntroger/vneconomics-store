@@ -22,7 +22,12 @@
     "test:search": "node scripts/run-clean.mjs script scripts/test-s09-search.mjs",
     "test:search-catalog-regression": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs --s09",
     "test:search-detail-regression": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs --s09",
-    "test:search-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09"
+    "test:search-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09",
+    "test:lesson": "node scripts/run-clean.mjs script scripts/test-s10-lesson.mjs",
+    "test:lesson-search-regression": "node scripts/run-clean.mjs script scripts/test-s09-search.mjs --s10",
+    "test:lesson-detail-regression": "node scripts/run-clean.mjs script scripts/test-s08-detail.mjs --s09 --s10",
+    "test:lesson-catalog-regression": "node scripts/run-clean.mjs script scripts/test-s07-catalog.mjs --s09 --s10",
+    "test:lesson-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09 --s10"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

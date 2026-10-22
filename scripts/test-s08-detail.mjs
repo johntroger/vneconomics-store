@@ -12,7 +12,7 @@ const hashes=()=>files.map(p=>createHash('sha256').update(readFileSync(p)).diges
 const before=hashes(),checks=[],errors=[],badHTTP=[];
 const check=(value,label)=>{assert.ok(value,label);checks.push(label);};
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s08-'));
-const evidence=resolve(process.argv.includes('--s09')?'docs/acceptance/S09/S08-regression':'docs/acceptance/S08');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s10')?'docs/acceptance/S10/S08-regression':process.argv.includes('--s09')?'docs/acceptance/S09/S08-regression':'docs/acceptance/S08');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19408',password=randomBytes(24).toString('hex');let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S08 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}
@@ -161,6 +161,6 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS errors or unexpected internal HTTP failures');
  assert.deepEqual(hashes(),before);check(true,'protected local database/config unchanged');
  await context.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',testedThemeHashes:process.argv.includes('--s09')?themeEvidence(fixture):undefined,checks,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['S02 cached sources; fabricated QA trial and extra resources only test state rendering, not external repo certification','Only pre code blocks gated; inline/prose installation content still requires editorial review','No hosting/MySQL/cache/load/cross-browser certification','No AI calls, deployment, main/release update']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:process.argv.includes('--s10')?'2026-10-22':'2026-10-21',runtime:'WordPress7.1.3/PHP8.3/SQLite; Edge headless; Playwright Node1.62.1',testedThemeHashes:(process.argv.includes('--s09')||process.argv.includes('--s10'))?themeEvidence(fixture):undefined,checks,fixtureChecks:result.checks,errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['S02 cached sources; fabricated QA trial and extra resources only test state rendering, not external repo certification','Only pre code blocks gated; inline/prose installation content still requires editorial review','No hosting/MySQL/cache/load/cross-browser certification','No AI calls, deployment, main/release update']},null,2)+'\n');
  console.log('PASS S08 '+checks.length+' checks + '+result.checks.length+' fixture checks; protected data unchanged; closing cleanup');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

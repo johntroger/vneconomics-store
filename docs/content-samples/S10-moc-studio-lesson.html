@@ -1,0 +1,58 @@
+<p>Mộc Studio là dịch vụ chụp ảnh sản phẩm hư cấu. Bạn sẽ làm một trang HTML/CSS chạy trên máy, sửa một tiêu đề rồi thử khôi phục. Mẫu không thu thập dữ liệu, không nhận đặt lịch và không tự đưa lên mạng.</p>
+<p class="lesson-example">Xem đầu ra Mộc Studio minh họa. Đây là mẫu, không phải bằng chứng cho mã trên máy bạn.</p>
+<h2>Trước khi bắt đầu</h2>
+<dl class="lesson-environment"><dt>Nhánh hướng dẫn</dt><dd>Windows native · PowerShell · Codex trong ứng dụng desktop. Không dùng lệnh Bash/WSL của bài khác.</dd><dt>Bản nội dung</dt><dd>MOC-WIN-1 · 22/10/2026. Nguồn ứng dụng đã đọc ngày 22/10/2026; vị trí nút có thể đổi theo bản cài.</dd><dt>Cần có</dt><dd>Windows có quyền chạy ứng dụng, trình duyệt, thư mục mới có quyền ghi và tài khoản đủ điều kiện dùng Codex.</dd><dt>Tài khoản / chi phí</dt><dd>Website miễn phí. Kiểm tra quyền sử dụng, hạn mức và chi phí tại tài khoản nhà cung cấp trước khi gửi yêu cầu. Không cần Gemini API cho bài này; không dán khóa API lên website.</dd><dt>Quyền và kết nối</dt><dd>Codex cần đọc/ghi thư mục bài tập và kết nối dịch vụ AI để trả lời. Chỉ chọn thư mục mới, không cấp cả ổ đĩa. Mã trang mẫu chạy local không cần dịch vụ ngoài.</dd><dt>Không cần cho trang mẫu</dt><dd>Node, npm, Python, framework, database, WordPress hay tài khoản GitHub. Nếu agent đề nghị cài thêm, dừng và hỏi lý do.</dd></dl>
+<p>Phạm vi đã thử nằm ở cuối bài. Chạy từ thư mục mới không chứng minh đã thử cài ứng dụng trên một máy Windows sạch. Kết quả AI có thể khác mẫu; dùng checklist để đánh giá.</p>
+<h2>1. Cài và kiểm tra Codex</h2>
+<p>Mở <a href="https://learn.chatgpt.com/docs/windows/windows-app">hướng dẫn Windows chính thức</a> và dùng liên kết tải tại đó. Sau khi cài, mở ứng dụng, đăng nhập tài khoản của bạn và chọn Codex. Xem <a href="https://learn.chatgpt.com/docs/quickstart">quickstart chính thức</a> nếu giao diện khác.</p>
+<p>Chọn môi trường Windows native và PowerShell. Giữ quyền hạn trong thư mục bài tập; nếu sandbox yêu cầu thiết lập, làm theo <a href="https://learn.chatgpt.com/docs/windows/windows-sandbox">hướng dẫn sandbox</a>. Không bỏ giới hạn quyền để né lỗi chưa hiểu.</p>
+<p><strong>Đạt khi:</strong> vào được Codex, thấy nơi chọn dự án local; tài khoản sẵn sàng gửi yêu cầu. Nếu không đủ quyền/hạn mức, dừng tại đây, vẫn có thể đọc bài. Không có thao tác nào trên website tự đăng nhập thay bạn.</p>
+<h2>2. Tạo thư mục bài tập</h2>
+<p>Tạo một thư mục trống bằng File Explorer, mở thư mục đó, gõ <code>powershell</code> vào thanh địa chỉ rồi Enter. Terminal là cửa sổ nhận lệnh văn bản. Dán ba dòng sau vào PowerShell; không nhập chữ PS hoặc ký hiệu &gt; của dòng nhắc.</p>
+<pre class="language-powershell"><code>New-Item -ItemType Directory -Name moc-studio -ErrorAction Stop
+Set-Location -LiteralPath .\moc-studio
+Get-Location</code></pre>
+<p><strong>Đạt khi:</strong> dòng đường dẫn kết thúc bằng <code>moc-studio</code>. Nếu báo đã tồn tại, không ghi đè: mở thư mục trống khác rồi thử lại. Trong Codex, mở/chọn chính thư mục <code>moc-studio</code> đó làm dự án local. Không chọn thư mục chứa website đang dùng.</p>
+<h2>3. Duyệt đề bài rồi tạo trang</h2>
+<p>Gửi nội dung dưới đây vào ô chat Codex, không dán vào PowerShell. Đọc phương án trước khi đồng ý tạo file.</p>
+<pre class="lesson-prompt"><code>Tôi mới học, đang dùng Windows native và PowerShell trong thư mục moc-studio trống.
+Hãy đề xuất ngắn gọn cấu trúc landing page cho Mộc Studio, dịch vụ chụp ảnh sản phẩm HƯ CẤU; chờ tôi đồng ý mới viết mã.
+Chỉ dùng index.html và style.css, mở trực tiếp bằng trình duyệt, UTF-8, lang=vi, responsive.
+Có hero, lợi ích, 3 dịch vụ, quy trình 3 bước và vùng liên hệ minh họa.
+Tiêu đề chính: "Ảnh đẹp để sản phẩm lên tiếng". CTA "Xem cách liên hệ" dẫn #lien-he.
+Ghi rõ thông tin minh họa, chưa nhận đặt lịch. Không bịa khách hàng, giá, đánh giá hoặc cam kết.
+Không ảnh/font ngoài, thư viện, JavaScript, form, API, analytics, cài package hoặc triển khai.
+Chỉ đọc/ghi thư mục bài tập. Sau khi tôi duyệt và bạn tạo mã, giải thích cách mở file và cách tự kiểm tra. Không báo đã thử nếu chưa chạy.</code></pre>
+<p>Nếu phương án đúng, gửi câu: “Đồng ý, hãy tạo hai file theo phương án vừa duyệt.” Chờ agent hoàn tất, xem lại thay đổi. Trong PowerShell đang ở <code>moc-studio</code>, kiểm tra:</p>
+<pre class="language-powershell"><code>Get-Item -LiteralPath .\index.html, .\style.css</code></pre>
+<p><strong>Đạt khi:</strong> có đủ hai file, không có package hay file khóa bí mật được thêm. Nếu chỉ thấy tin nhắn chứa mã mà chưa có file, yêu cầu agent lưu đúng thư mục rồi chạy kiểm tra lại.</p>
+<h2>4. Mở và tự kiểm tra kết quả</h2>
+<p>Trong File Explorer mở <code>moc-studio</code>, nhấp đúp <code>index.html</code>. Địa chỉ trình duyệt bắt đầu bằng <code>file:///</code>. Trang mẫu này không cần server; nếu mở nhầm trình soạn thảo, chọn Open with và trình duyệt.</p>
+<p>Đọc tiêu đề, bấm điều hướng và “Xem cách liên hệ”; vùng thông tin minh họa phải xuất hiện. Thu nhỏ cửa sổ khoảng 390px rồi 320px; chữ vẫn đọc được, không kéo ngang. Phóng to chữ để kiểm tra.</p>
+<p><strong>Đạt khi:</strong> trang có các phần đã yêu cầu, CSS có hiệu lực, tất cả liên kết trong trang tới đúng vùng, không có nút nhận đặt lịch giả. Ảnh minh họa hoặc trang mẫu đẹp không phải bằng chứng phiên bản AI của bạn đã chạy đúng.</p>
+<h2>5. Lưu mốc trước khi sửa</h2>
+<p>Trong PowerShell ở <code>moc-studio</code>, sao lưu hai file. Không đổi tên mốc cũ để ghi đè:</p>
+<pre class="language-powershell"><code>New-Item -ItemType Directory -Name checkpoint-v1 -ErrorAction Stop
+Copy-Item -LiteralPath .\index.html, .\style.css -Destination .\checkpoint-v1\ -ErrorAction Stop
+Get-ChildItem -LiteralPath .\checkpoint-v1</code></pre>
+<p><strong>Đạt khi:</strong> thư mục <code>checkpoint-v1</code> chứa cả hai file. Nếu tên đã tồn tại, dừng và kiểm tra bản đang giữ trước khi chọn tên mới. Bản sao trong cùng máy chỉ giúp quay lại bài tập, không thay thế sao lưu dữ liệu quan trọng.</p>
+<h2>6. Sửa một chi tiết rồi kiểm tra lại</h2>
+<p>Gửi vào chat Codex:</p>
+<pre class="lesson-prompt"><code>Chỉ đổi tiêu đề h1 thành "Hình ảnh chỉn chu cho sản phẩm của bạn" trong index.html. Giữ nguyên CSS, liên kết, các phần khác và checkpoint-v1. Không cài thêm, không triển khai. Nêu đúng file đã đổi và cách tôi kiểm tra.</code></pre>
+<p>Tải lại trang bằng Ctrl+R. Kiểm tra tiêu đề mới, thử lại CTA và màn hình nhỏ. So sánh <code>style.css</code> với bản mốc: file này không được đổi.</p>
+<p><strong>Đạt khi:</strong> thấy tiêu đề mới và các chức năng trước vẫn đúng. “Agent nói xong” chưa đủ; bạn cần quan sát trang sau sửa.</p>
+<h2>7. Thử quay lại bản mốc</h2>
+<p>Chỉ làm nếu muốn trở về bản trước bước 6. Hai lệnh đầu sẽ thay nội dung hai file hiện tại bằng bản mốc; giữ bản sửa ở nơi khác trước nếu muốn lưu cả hai. Không xóa cả thư mục.</p>
+<pre class="language-powershell"><code>Copy-Item -LiteralPath .\checkpoint-v1\index.html -Destination .\index.html -Force -ErrorAction Stop
+Copy-Item -LiteralPath .\checkpoint-v1\style.css -Destination .\style.css -Force -ErrorAction Stop
+Get-Item -LiteralPath .\index.html, .\style.css</code></pre>
+<p><strong>Đạt khi:</strong> tải lại trang thấy “Ảnh đẹp để sản phẩm lên tiếng”; CTA vẫn tới vùng liên hệ. Không cần Git reset, cài lại Codex hay thay đổi hosting.</p>
+<h2>Khi gặp lỗi</h2>
+<details><summary>Không tạo được thư mục hoặc báo Access denied</summary><p>Kiểm tra đúng thư mục mới và quyền ghi. Chọn nơi bạn được phép lưu; với máy do tổ chức quản lý, nhờ quản trị viên hỗ trợ. Không tự chạy toàn bộ ứng dụng bằng quyền quản trị để bỏ qua lỗi.</p></details>
+<details><summary>Không tìm thấy file hoặc trang không có định dạng</summary><p>Đối chiếu đường dẫn bằng Get-Location; kiểm tra hai tên file chính xác, không phải index.html.txt. CSS phải ở cùng thư mục và thẻ link trong HTML trỏ tới style.css. Gửi agent tên file, thông báo lỗi đã che thông tin riêng; không gửi khóa API.</p></details>
+<details><summary>Codex hết hạn mức hoặc không phản hồi</summary><p>Kiểm tra đăng nhập, kết nối và điều kiện tài khoản ở nhà cung cấp. Giữ file và bản mốc đã có; dừng yêu cầu AI. Không cần mua API khác hoặc dán khóa vào website để tiếp tục đọc.</p></details>
+<details><summary>Đã sửa nhưng trang vẫn hiển thị bản cũ</summary><p>Lưu file, kiểm tra đúng tab file:/// trong thư mục bài tập rồi Ctrl+R. Nếu lỗi xuất hiện sau sửa, đối chiếu bản mốc và chỉ khôi phục hai file theo bước 7.</p></details>
+<h2>Checklist kết quả của bạn</h2>
+<p>Chỉ tích sau khi thực sự đối chiếu. Website không đọc máy của bạn, không chạy code và không chứng nhận các dấu này. Phiên bản bài thay đổi sẽ bỏ áp dụng dấu cũ.</p>
+<ul class="lesson-checklist"><li>Mở đúng index.html và nhìn thấy nội dung, CSS hoạt động.</li><li>Hero, dịch vụ, quy trình và thông tin minh họa có đủ; CTA và điều hướng tới đúng mục.</li><li>Ở 390px và 320px không tràn ngang; chữ, liên kết dùng được.</li><li>Đã sửa tiêu đề, tải lại và thử lại CTA; style.css không đổi.</li><li>Đã lưu hai file mốc, khôi phục thử và thấy tiêu đề gốc trở lại.</li><li>Không có khóa bí mật, form gửi dữ liệu, dịch vụ ngoài hoặc thao tác publish.</li></ul>
+<p>Nếu còn mục chưa đạt, quay về bước tương ứng và mô tả điều bạn quan sát được cho Codex. Tiếp theo, đọc tài nguyên nền tảng HTML/CSS trong danh mục để hiểu phần mã vừa tạo trước khi thêm framework hoặc skill.</p>
