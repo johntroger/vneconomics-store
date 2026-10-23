@@ -1,0 +1,106 @@
+Đây là cài đặt quan trọng để dịch vụ tên miền của bạn hoạt động. Hãy thận trọng khi thêm hoặc chỉnh sửa các bản ghi này. Xem hướng dẫn chi tiết.
+
+Số lượng bản ghi 11/200 200 là số lượng bản ghi tối đa cho các tên miền. Nếu dùng quá số lượng bạn có thể mua thêm ở đây.
+
+Mua bản ghi
+
+Lưu ý: Tùy nhà cung cấp internet bạn đang sử dụng mà thời gian cập nhật có thể sẽ mất từ 5 phút đến 3 tiếng sau khi thao tác hoàn tất.
+
+Tạo bản ghi
+Mẫu DNS có sẵn
+Xuất tệp CSV
+Xóa
+
+Tạo bản ghi: Nhập giá trị theo các thông tin bên dưới để tạo bản ghi. Xem hướng dẫn chi tiết.
+
+Host
+Loại
+A (Address)
+A (Address)
+AAAA (Address)
+CNAME (Alias)
+MX (Mail)
+TXT
+NS
+URL Redirect
+URL Frame
+SRV
+CAA
+Giá trị
+Thêm giá trị vào bản ghi này
+TTL
+Mặc định (TTL)
+Mặc định (TTL)
+2 phút
+5 phút
+10 phút
+15 phút
+30 phút
+1 giờ
+2 giờ
+5 giờ
+12 giờ
+1 ngày
+Thêm bản ghi
+Đóng
+	Host
+	Loại
+	Giá trị
+	TTL
+	Thao tác
+
+	@	A	
+103.138.88.13
+	3600	
+
+
+	staging-store	A	
+103.138.88.13
+	3600	
+
+
+	store	A	
+103.138.88.13
+	3600	
+
+
+	@	AAAA	
+2404:c6c0::13
+	3600	
+
+
+	ftp	CNAME	
+vneconomics.com.
+	3600	
+
+
+	k2._domainkey.vneconomics.com	CNAME	
+dkim2.mcsv.net.
+	3600	
+
+
+	k3._domainkey.vneconomics.com	CNAME	
+dkim3.mcsv.net.
+	3600	
+
+
+	www	CNAME	
+vneconomics.com.
+	3600	
+
+
+	@	MX	
+10 mx1.larksuite.com.
+20 mx2.larksuite.com.
+30 mx3.larksuite.com.
+	600	
+
+	@	NS	
+ns1.matbao.com.
+ns2.matbao.com.
+	3600	
+Hiển thị hàng
+10
+1
+2
+Hiển thị từ 1 đến 10 của 11 mẫu

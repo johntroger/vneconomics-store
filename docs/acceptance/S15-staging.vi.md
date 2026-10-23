@@ -108,3 +108,9 @@ Bằng chứng: [nhật ký WP-CLI](S15/hosting-cli-plugin-log.txt), [JSON tríc
 Form Mắt Bão đã chuẩn bị **một** bản ghi A `staging-store` → `103.138.88.13`, TTL mặc định; 10 bản ghi hiện có được giữ nguyên. [Ảnh đề xuất](S15/dns-staging-proposal.jpg). Chưa bấm Thêm bản ghi: câu trả lời “tôi chưa sửa được DNS” chưa phải đồng ý rõ ràng cho thay đổi này, đã hỏi xác nhận cụ thể để agent thao tác giúp.
 
 S15 còn thiếu DNS/chứng chỉ và kiểm thử HTTP/HTTPS; khảo sát quota/cache và purge thật; cạnh tranh đồng thời; health/cặp Astra đầy đủ trước mở cổng theme; triển khai VibeLab và smoke UI; các ca lỗi/chậm/timeout/khôi phục từng gói và hậu kiểm restore đầy đủ. Không suy kết quả backend thành S15 PASS. Không bắt đầu S16.
+
+### DNS đã lưu sau xác nhận rõ ràng
+
+Chủ dự án xác nhận “Đồng ý thêm DNS”. Agent bấm Thêm bản ghi đúng một lần tại Mắt Bão: A `staging-store` → `103.138.88.13`, TTL mặc định được lưu là 3600 giây. Giao diện chuyển từ 10 lên 11 bản ghi và hiển thị dòng staging mới; không sửa/xóa các dòng hiện có. [Ảnh kết quả](S15/dns-staging-added.jpg), [nội dung giao diện](S15/dns-staging-added.txt).
+
+Truy vấn riêng cả `ns1.matbao.com` và `ns2.matbao.com` đều trả A `staging-store.vneconomics.com = 103.138.88.13`, TTL 3600. [Kết quả authoritative](S15/dns-authoritative-results.json). Truy vấn trong sandbox ban đầu không ra được máy chủ DNS; kiểm tra lại ngoài sandbox thành công. Chưa chứng nhận mọi resolver đã hết negative cache. DNS authoritative đã đạt; chứng chỉ và HTTP/HTTPS vẫn chờ kiểm tra, không nâng thành S15 PASS.
