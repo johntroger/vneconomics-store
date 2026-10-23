@@ -49,56 +49,56 @@ Thêm bản ghi
 	TTL
 	Thao tác
 
-	@	A	
+	@	A
 103.138.88.13
-	3600	
+	3600
 
 
-	staging-store	A	
+	staging-store	A
 103.138.88.13
-	3600	
+	3600
 
 
-	store	A	
+	store	A
 103.138.88.13
-	3600	
+	3600
 
 
-	@	AAAA	
+	@	AAAA
 2404:c6c0::13
-	3600	
+	3600
 
 
-	ftp	CNAME	
+	ftp	CNAME
 vneconomics.com.
-	3600	
+	3600
 
 
-	k2._domainkey.vneconomics.com	CNAME	
+	k2._domainkey.vneconomics.com	CNAME
 dkim2.mcsv.net.
-	3600	
+	3600
 
 
-	k3._domainkey.vneconomics.com	CNAME	
+	k3._domainkey.vneconomics.com	CNAME
 dkim3.mcsv.net.
-	3600	
+	3600
 
 
-	www	CNAME	
+	www	CNAME
 vneconomics.com.
-	3600	
+	3600
 
 
-	@	MX	
+	@	MX
 10 mx1.larksuite.com.
 20 mx2.larksuite.com.
 30 mx3.larksuite.com.
-	600	
+	600
 
-	@	NS	
+	@	NS
 ns1.matbao.com.
 ns2.matbao.com.
-	3600	
+	3600
 Hiển thị hàng
 10
 1
