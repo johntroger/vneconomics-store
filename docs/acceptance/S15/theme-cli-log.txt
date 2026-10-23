@@ -1,0 +1,80 @@
+WP-CLIWP-CLI commands executed here will directly affect your WordPress site, bypassing WP Toolkit GUI. To see these changes in WP Toolkit GUI, click Refresh in the top right corner of the site card or wait until the installation cache is refreshed automatically.Learn more about running WP-CLI in WP ToolkitCommandwpEnvironment variablesEnvironment variables  Add one more# wp eval if(DB_NAME!=="vne35060_wp_udx1z"||get_option("home")!=="https://staging-store.vneconomics.com")WP_CLI::error("Wrong staging");$manifest="/var/www/vhosts/vneconomics.com/s15-release/manifest.json";if(hash_file("sha256",$manifest)!=="985b5286324e301925abc0369ef0bc47ff8a2ea3c8252c6f569508da74b08a0c")WP_CLI::error("Manifest hash mismatch");$m=json_decode(file_get_contents($manifest),true);$root=get_theme_root()."/vibelab";$expected=array();$changed=array();foreach($m["components"]["theme"]["files"] as $f){if(!str_starts_with($f["path"],"vibelab/")||str_contains($f["path"],".."))WP_CLI::error("Invalid path");$name=substr($f["path"],8);$expected[]=$name;$path=$root."/".$name;if(!is_file($path)||is_link($path)||hash_file("sha256",$path)!==$f["sha256"])$changed[]=$name;}$actual=array();$it=new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root,FilesystemIterator::SKIP_DOTS));foreach($it as $file){if($file->isLink())WP_CLI::error("Theme link forbidden");if($file->isFile())$actual[]=str_replace("\\","/",substr($file->getPathname(),strlen($root)+1));}$extra=array_values(array_diff($actual,$expected));$out=array("installedVersion"=>wp_get_theme("vibelab")->get("Version"),"activeTheme"=>get_stylesheet(),"expectedFiles"=>count($expected),"actualFiles"=>count($actual),"changedOrMissing"=>$changed,"unexpected"=>$extra,"hashesMatch"=>!$changed&&!$extra,"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version"));echo wp_json_encode($out,JSON_PRETTY_PRINT),PHP_EOL;if(!$out["hashesMatch"]||$out["installedVersion"]!=="0.7.0")WP_CLI::error("Theme verification failed");
+{
+    "installedVersion": "0.7.0",
+    "activeTheme": "astra",
+    "expectedFiles": 36,
+    "actualFiles": 36,
+    "changedOrMissing": [],
+    "unexpected": [],
+    "hashesMatch": true,
+    "plugin": "0.4.2",
+    "schema": 3
+}
+
+
+< exit code: 0 >
+# wp eval if(DB_NAME!=="vne35060_wp_udx1z"||get_stylesheet()!=="vibelab"||get_option("home")!=="https://staging-store.vneconomics.com")WP_CLI::error("Wrong theme target");$path="/var/www/vhosts/vneconomics.com/s15-release/vibelab-initial-theme-mods.json";if(!file_exists($path)){if(file_put_contents($path,wp_json_encode(get_theme_mods(),JSON_PRETTY_PRINT))===false)WP_CLI::error("Cannot preserve theme settings");} $old=get_theme_mod("nav_menu_locations",array());set_theme_mod("nav_menu_locations",array());echo wp_json_encode(array("theme"=>get_stylesheet(),"version"=>wp_get_theme()->get("Version"),"previousMenuLocations"=>$old,"currentMenuLocations"=>get_theme_mod("nav_menu_locations"),"backupOutsideWebroot"=>is_file($path),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL;
+{
+    "theme": "vibelab",
+    "version": "0.7.0",
+    "previousMenuLocations": {
+        "primary": 16
+    },
+    "currentMenuLocations": [],
+    "backupOutsideWebroot": true,
+    "plugin": "0.4.2",
+    "schema": 3
+}
+
+
+< exit code: 0 >
+# wp eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php
+{
+    "status": "ACTIVE_PLUGIN_OBSERVED",
+    "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+    },
+    "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+    "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+    },
+    "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+    },
+    "plugin": {
+        "active": true,
+        "runtimeVersion": "0.4.2",
+        "schema": "3",
+        "files": {
+            "present": true,
+            "hashesMatch": true,
+            "missing": [],
+            "unexpected": [],
+            "changed": []
+        }
+    },
+    "theme": {
+        "stylesheet": "vibelab",
+        "version": "0.7.0"
+    },
+    "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+    ]
+}
+
+
+< exit code: 0 >
+# Clear

@@ -132,3 +132,43 @@ Thử lại cùng yêu cầu đã duyệt: riêng staging, HTTP-01, không wildc
 Lượt mở HTTPS khi đang cấp còn báo `ERR_CERT_COMMON_NAME_INVALID`; không bỏ qua cảnh báo. Sau khi Plesk báo thành công, mở tab mới `https://staging-store.vneconomics.com/` thành công với kiểm tra chứng chỉ bình thường, hiển thị website Astra của clone. DOM trang thật có robots `noindex, nofollow`. [Metadata HTTPS](S15/https-meta.json), [ảnh website](S15/https-astra.jpg). Chưa kiểm chứng redirect bằng chuỗi response HTTP hoặc chính sách noindex mọi route.
 
 Kết luận phần SSL/noindex trang chủ: **PASS** trong phạm vi quan sát trên. Không tạo dữ liệu kiểm thử trên site; giữ chứng chỉ thật và bằng chứng. Plugin vẫn 0.4.2/schema 3, Astra giữ nguyên; chưa triển khai VibeLab. S15 còn các ca HTTP/plugin/quyền/revision/cache, đồng thời, theme và phục hồi; chưa PASS toàn bước, không chuyển S16.
+
+## HTTP, quyền, revision, khóa và báo lỗi trên hosting
+
+Đã dùng phiên WordPress staging từ Plesk. `scripts/test-s15-public-http.mjs` chỉ gửi tới hostname staging cố định, anonymous, xác minh TLS mặc định; POST probe là payload rỗng vào các route phải từ chối. Chạy qua run-clean, tuần tự; không lưu cookie/nonce/credentials vào runner.
+
+| Lượt | Điểm kiểm tra | Request | Bằng chứng |
+|---|---:|---:|---|
+| Public nền Astra: HTTPS redirect, robots/noindex, API, quyền, conditional request/bypass | 57 | 13 | [JSON](S15/public-http-results.json) |
+| Nháp thật: API/list/native URL không lộ nội dung | 12 | 3 | [JSON](S15/public-draft-http-results.json) |
+| Trước duyệt: public giữ bản gốc, preview/proposal chỉ riêng | 18 | 4 | [JSON](S15/public-fixture-before.json) |
+| Sau duyệt: public item/list chuyển đúng title mới | 18 | 4 | [JSON](S15/public-fixture-after.json) |
+| Báo lỗi private: URL/type/API/admin chặn anonymous | 9 | 5 | [JSON](S15/public-fixture-report.json) |
+| Sau xóa fixture: 404 và vắng khỏi danh sách public | 10 | 2 | [JSON](S15/public-fixture-cleanup.json) |
+| Theme mới: home/archive/search/support/privacy, noindex/bypass/feed | 56 | 8 | [JSON](S15/theme-http-results.json) |
+
+Tổng **180 điểm kiểm tra HTTP đạt, 39 request**. Không suy các header này thành chứng nhận mọi tầng CDN hoặc purge upstream.
+
+- UI draft #101: lưu/sửa thành công, biểu mẫu cũ báo xung đột revision, đọc lại vẫn giữ title mới. Lưu suspended không nâng validation khỏi not_tested. Đề xuất thiếu danh mục/nguồn bị chặn, không ghi đè. [Kết quả](S15/ui-draft-results.json), [ảnh xung đột](S15/ui-stale-revision.jpg), [trạng thái](S15/ui-state-saved.jpg).
+- Cleanup draft lần đầu dừng trước xóa vì CLI actor 0 đọc private item trả WP_Error; sửa quyền actor trong riêng tiến trình rồi chạy lại. Kết quả post/revision/meta/lock đều 0, Astra giữ nguyên. Giữ cả lỗi và kết quả sửa trong [log](S15/ui-cleanup-cli-log.txt).
+- Khóa MariaDB: hai kết nối mysqli độc lập gửi INSERT IGNORE bất đồng bộ vào cùng option UUID; affected rows `[0,1]`, đúng một chủ thắng, chủ không bị thay, cleanup true. Đây là cạnh tranh SQL thực, không phải hai request WordPress sửa cùng bài. [Log](S15/ui-and-sql-cli-log.txt).
+- Chủ dự án cho phép bài tạm công khai trên staging. Tạo guide #103, danh mục #19 và đề xuất #104; so sánh/preview riêng đúng title. UI duyệt #104 thành approved; API/list anonymous trước/sau đạt. [Preview](S15/ui-proposal-preview.jpg), [duyệt](S15/ui-proposal-approved.jpg).
+- Service báo lỗi dưới anonymous actor: **9 kiểm tra đạt** gồm nonce/honeypot/revision sai, một report private #106, idempotency, pin approved revision và type không public. Chặn mail/HTTP ngoài trong tiến trình. Đây là service invocation, chưa phải gửi form qua browser. [Hàng đợi quản trị](S15/private-report-admin.jpg).
+- Xóa đúng guide/proposal/report/category/transient/registry thuộc lượt thử. Post/children/meta/lock đều 0; danh mục và rate transient đã mất; hash 14 bài/trang gốc khớp trước/sau. [Kết quả CLI](S15/plugin-extended-results.json), [log](S15/plugin-extended-cli-log.txt), [ảnh cleanup](S15/public-fixture-cleanup.jpg). Mọi lượt runner đóng và dọn cache local; backup thật giữ nguyên.
+
+## Cổng plugin và triển khai theme S14
+
+Cổng chức năng plugin đạt trên cặp Astra 4.12.0 + VNE 0.4.2/schema 3 bằng bằng chứng backend/HTTP/UI/report/SQL nêu trên. Vẫn giữ giới hạn về contention toàn request, upstream cache và hiệu năng hosting trong nghiệm thu S15. Helper audit chỉ quan sát và không tự quyết định mở cổng.
+
+Đọc lại SHA256 theme ZIP S14 khớp `f6124d7693e8c8af7e8dcd7668012b8c0ed986d338c2a9e864e0f77afa3f0778`. WordPress báo cài thành công; trước kích hoạt, đối chiếu **36/36 file** với manifest pin hash: không thiếu, thừa hoặc thay đổi. Sau đó kích hoạt VibeLab 0.7.0, UI báo New theme activated. Không cập nhật các theme/plugin khác.
+
+WordPress tự chuyển menu primary #16 từ theme clone sang VibeLab. Đã lưu cấu hình ban đầu tại Home `/s15-release/vibelab-initial-theme-mods.json` ngoài webroot, bỏ riêng binding menu trong theme VibeLab để dùng bốn link fallback đúng thiết kế. Không xóa menu hoặc bài cũ, không đổi theme mods Astra.
+
+Hậu kiểm plugin vẫn 0.4.2/schema 3, 10 file hash khớp; theme runtime vibelab 0.7.0. [Log theme](S15/theme-cli-log.txt), [JSON runtime](S15/theme-runtime-results.json), [ảnh trang chủ](S15/vibelab-home.jpg). HTTP theme đạt 56 điểm; trang chủ hiện empty state đúng vì chưa nhập nội dung VNE thật.
+
+## Giới hạn hiện tại và bước cần quyết định
+
+- Site Health: REST, loopback, HTTPS và modules đạt; cảnh báo page cache không phát hiện và trung vị phản hồi 2222ms, cùng 5 khuyến nghị. [Chi tiết](S15/site-health.txt), [ảnh](S15/site-health.jpg). Plesk PHP riêng domain hiển thị opcache.enable on (Default) nhưng vô hiệu hóa opcache_get_status, nên chưa kết luận OPcache thật tắt chỉ từ Site Health. Không bật page cache để che cảnh báo vì thiết kế đang yêu cầu bypass/no-store.
+- Chưa có bộ nội dung VNE trên staging để kiểm thử card/detail/guide/CTA và form hoàn chỉnh; chỉ có các fixture đã xóa. Đã chuẩn bị [đề xuất nhập 6 tài nguyên, 4 hướng dẫn, 1 bộ thực hành](../S15-content-import-proposal.vi.md), chờ chủ dự án chọn trước khi giữ nội dung công khai lâu dài.
+- Chưa kiểm chứng UI mobile trên hosting (công cụ trình duyệt hiện không có chỉnh viewport), LCP/CLS hosting, tình huống cache fail/503/recover thật, lỗi/chậm/timeout/theme rollback và hậu kiểm restore đầy đủ. Không ghi PASS từ local để thay các mục này.
+- S15 **đang thực hiện, chưa nghiệm thu**. Không đổi production, không chuyển S16; lưu nhánh staging và bằng chứng để tiếp tục.

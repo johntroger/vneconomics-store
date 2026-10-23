@@ -1,0 +1,18 @@
+{
+  "id": 101,
+  "marker": "S15 UI disposable draft 1792738386005",
+  "checks": [
+    "admin library page loaded over HTTPS",
+    "draft 101 saved through UI; status draft; derived is_public false",
+    "proposal with incomplete source/category rejected without changing approved draft",
+    "current draft UI save succeeds",
+    "stale form rejected with revision conflict; current title preserved",
+    "suspended state saved through UI; validation remains not_tested",
+    "anonymous real draft API/native URL hidden; 12 HTTP checks pass",
+    "CLI confirms approved title current, draft, not_tested, suspended",
+    "fixture post/revisions/meta/content-lock all zero after cleanup"
+  ],
+  "proposalIds": [],
+  "cleanup": true,
+  "cleanupNote": "First CLI attempt could not read private item as actor 0; stopped before delete. Retry with existing admin 1 succeeded."
+}

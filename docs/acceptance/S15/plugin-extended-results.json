@@ -1,0 +1,66 @@
+[
+  {
+    "beforeCleanup": {
+      "title": "S15 UI disposable draft 1792738386005 current",
+      "status": "draft",
+      "validation": "not_tested",
+      "recommendation": "suspended"
+    },
+    "remainingPostsOrChildren": 0,
+    "remainingMeta": 0,
+    "remainingContentLock": 0,
+    "theme": "astra",
+    "plugin": "0.4.2",
+    "schema": 3
+  },
+  {
+    "twoIndependentAsyncConnections": true,
+    "affectedRows": [
+      0,
+      1
+    ],
+    "exactlyOneWinner": true,
+    "winnerOwnsLock": true,
+    "cleanup": true
+  },
+  {
+    "registry": "vne_s15_fixture_1792738796732",
+    "fixture": {
+      "marker": "S15 PUBLIC DISPOSABLE 1792738796732",
+      "id": 103,
+      "term": 19,
+      "proposal": 104,
+      "baselinePostsPagesHash": "2a66c50e9447f5850e62a513f1069698e4ed302a387ab961c61dbd89d1123d00"
+    },
+    "publicTitleBeforeApproval": "S15 PUBLIC DISPOSABLE 1792738796732",
+    "proposalStatus": "pending"
+  },
+  {
+    "status": "PASS_REPORT_SERVICE_ONLY",
+    "checks": [
+      "invalid nonce rejected",
+      "honeypot rejected",
+      "old approved revision rejected",
+      "one private report saved",
+      "duplicate submission same receipt code",
+      "no duplicate report",
+      "report pins approved item revision",
+      "no personal email stored in fixture",
+      "report type hidden from REST and public query"
+    ],
+    "reportId": 106,
+    "limits": "Service invocation under anonymous actor, not a submitted browser form; mail and external HTTP blocked"
+  },
+  {
+    "remainingPostsOrChildren": 0,
+    "remainingMeta": 0,
+    "remainingLocks": 0,
+    "termRemoved": true,
+    "rateTransientRemoved": true,
+    "existingPostsPagesUnchanged": true,
+    "theme": "astra",
+    "plugin": "0.4.2",
+    "schema": 3,
+    "registryRemoved": true
+  }
+]

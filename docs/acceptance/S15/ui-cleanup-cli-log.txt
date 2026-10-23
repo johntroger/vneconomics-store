@@ -1,0 +1,62 @@
+WP-CLIWP-CLI commands executed here will directly affect your WordPress site, bypassing WP Toolkit GUI. To see these changes in WP Toolkit GUI, click Refresh in the top right corner of the site card or wait until the installation cache is refreshed automatically.Learn more about running WP-CLI in WP ToolkitCommandwpEnvironment variablesEnvironment variables  Add one more# wp eval global $wpdb; if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com"){WP_CLI::error("Wrong staging");} $id=101; $p=get_post($id); if(!$p || $p->post_type!=="vne_resource" || $p->post_title!=="S15 UI disposable draft 1792738386005 current" || $p->post_status!=="draft"){WP_CLI::error("Fixture ownership mismatch");} $proposals=get_posts(array("post_type"=>"vne_proposal","post_parent"=>$id,"post_status"=>"any","numberposts"=>-1,"fields"=>"ids")); if($proposals){WP_CLI::error("Unexpected proposals; preserve for review");} $before=array("title"=>$p->post_title,"status"=>$p->post_status,"validation"=>vne_library_item($id,true)["derived"]["validation_status"],"recommendation"=>vne_library_state_input($id)["recommendation"]["status"]); wp_delete_post($id,true); $left=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE ID=%d OR post_parent=%d",$id,$id)); $meta=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id=%d",$id)); $lock=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name=%s",vne_library_content_lock_key($id))); echo wp_json_encode(array("beforeCleanup"=>$before,"remainingPostsOrChildren"=>$left,"remainingMeta"=>$meta,"remainingContentLock"=>$lock,"theme"=>get_stylesheet(),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL; if($left || $meta || $lock){WP_CLI::error("Cleanup incomplete");}
+
+PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code:1
+Stack trace:
+#0 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44): eval()
+#1 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(63): Eval_Command->{closure}()
+#2 [internal function]: Eval_Command->__invoke()
+#3 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#4 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#5 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#6 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#7 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#8 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(136): WP_CLI\Runner->run_command_and_exit()
+#9 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1248): WP_CLI\Runner->do_early_invoke()
+#10 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#11 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#12 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#13 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/boot-fs.php(17): require_once('...')
+#14 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/wpt-wp-cli.php(49): require_once('...')
+#15 {main}
+  thrown in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code on line 1
+Fatal error: Uncaught Error: Cannot use object of type WP_Error as array in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code:1
+Stack trace:
+#0 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44): eval()
+#1 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(63): Eval_Command->{closure}()
+#2 [internal function]: Eval_Command->__invoke()
+#3 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#4 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#5 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#6 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#7 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#8 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(136): WP_CLI\Runner->run_command_and_exit()
+#9 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1248): WP_CLI\Runner->do_early_invoke()
+#10 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#11 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#12 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#13 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/boot-fs.php(17): require_once('...')
+#14 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/wpt-wp-cli.php(49): require_once('...')
+#15 {main}
+  thrown in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code on line 1
+Error: There has been a critical error on this website.Learn more about troubleshooting WordPress. There has been a critical error on this website.
+
+< exit code: 1 >
+# wp eval global $wpdb; if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com"){WP_CLI::error("Wrong staging");} $id=101; $p=get_post($id); if(!$p || $p->post_type!=="vne_resource" || $p->post_title!=="S15 UI disposable draft 1792738386005 current" || $p->post_status!=="draft"){WP_CLI::error("Fixture ownership mismatch");} $proposals=get_posts(array("post_type"=>"vne_proposal","post_parent"=>$id,"post_status"=>"any","numberposts"=>-1,"fields"=>"ids")); if($proposals){WP_CLI::error("Unexpected proposals; preserve for review");} $actor=get_current_user_id(); wp_set_current_user(1); if(!current_user_can("vne_manage_library")){WP_CLI::error("Cleanup admin unavailable");} $before=array("title"=>$p->post_title,"status"=>$p->post_status,"validation"=>vne_library_item($id,true)["derived"]["validation_status"],"recommendation"=>vne_library_state_input($id)["recommendation"]["status"]); wp_delete_post($id,true); $left=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE ID=%d OR post_parent=%d",$id,$id)); $meta=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id=%d",$id)); $lock=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name=%s",vne_library_content_lock_key($id))); echo wp_json_encode(array("beforeCleanup"=>$before,"remainingPostsOrChildren"=>$left,"remainingMeta"=>$meta,"remainingContentLock"=>$lock,"theme"=>get_stylesheet(),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL; if($left || $meta || $lock){WP_CLI::error("Cleanup incomplete");}
+{
+    "beforeCleanup": {
+        "title": "S15 UI disposable draft 1792738386005 current",
+        "status": "draft",
+        "validation": "not_tested",
+        "recommendation": "suspended"
+    },
+    "remainingPostsOrChildren": 0,
+    "remainingMeta": 0,
+    "remainingContentLock": 0,
+    "theme": "astra",
+    "plugin": "0.4.2",
+    "schema": 3
+}
+
+
+< exit code: 0 >
+# Clear
