@@ -5,7 +5,7 @@ import {spawn,spawnSync} from 'node:child_process';
 import {once} from 'node:events';
 import {randomBytes} from 'node:crypto';
 import {verifyRelease,sourceFiles,sha256,dryRunGate} from './release-lib.mjs';
-import {previousThemeRef,policy} from './release-policy.mjs';
+import {previousThemeRef} from './release-policy.mjs';
 const packageDir=resolve(process.argv[2]||''),ref=process.argv[3]||'HEAD';
 const manifest=verifyRelease(packageDir,ref),evidence=resolve('docs/acceptance/S14');mkdirSync(evidence,{recursive:true});
 const runtime=resolve('.local/php-8.3.36-nts-x64'),php=join(runtime,'php.exe');assert.ok(existsSync(php),'Pinned PHP dependency required');
@@ -55,6 +55,10 @@ try{
  writeFileSync(join(fixture,'wp-content/db.php'),readFileSync(join(sqlite,'db.copy'),'utf8').replaceAll('{SQLITE_IMPLEMENTATION_FOLDER_PATH}',slash(sqlite)).replaceAll('{SQLITE_PLUGIN}','sqlite-database-integration/load.php'));
  writeFileSync(join(fixture,'wp-content/mu-plugins/s14-guard.php'),"<?php add_filter('pre_wp_mail','__return_false');");
  writeFileSync(ini,'extension_dir="'+slash(join(runtime,'ext'))+'"\nextension=pdo_sqlite\nextension=sqlite3\nextension=intl\nextension=mbstring\nextension=openssl\nextension=curl\ndate.timezone=UTC\nmemory_limit=512M\ndisplay_errors=0\nlog_errors=1\nerror_log="'+slash(join(fixture,'php-errors.log'))+'"\nallow_url_fopen=0\n');
+ for(const [kind,p]of Object.entries(manifest.components))for(const file of p.files.filter(f=>f.path.endsWith('.php'))){
+  const r=spawnSync(php,['-c',ini,'-l',join(fixture,'wp-content',kind==='plugin'?'plugins':'themes',file.path)],{encoding:'utf8',windowsHide:true,timeout:30000});
+  check(r.status===0,'PHP lint package '+file.path);
+ }
  writeFileSync(join(fixture,'wp-config.php'),"<?php $table_prefix='wp_';define('DB_NAME','wordpress');define('DB_USER','wordpress');define('DB_PASSWORD','');define('DB_HOST','localhost');define('DB_CHARSET','utf8');define('DB_COLLATE','');define('DB_ENGINE','sqlite');define('DB_PATH',"+JSON.stringify(slash(join(fixture,'wp-content/database/.ht.sqlite')))+");define('WP_HOME',"+JSON.stringify(base)+");define('WP_SITEURL',"+JSON.stringify(base)+");define('AUTH_KEY',"+JSON.stringify(randomBytes(32).toString('hex'))+");define('WP_ENVIRONMENT_TYPE','local');define('WP_HTTP_BLOCK_EXTERNAL',true);define('DISABLE_WP_CRON',true);define('AUTOMATIC_UPDATER_DISABLED',true);define('WP_DEBUG',true);define('WP_DEBUG_DISPLAY',false);if(!defined('ABSPATH'))define('ABSPATH',"+JSON.stringify(slash(fixture)+'/')+");require_once ABSPATH.'wp-settings.php';");
  const version=cli("echo PHP_VERSION;",'version');assert.equal(version,'8.3.36');
  cli("define('WP_INSTALLING',true);"+load+"require_once ABSPATH.'wp-admin/includes/upgrade.php';wp_install('S14 fixture','admin','admin@example.test',0,'',"+JSON.stringify(randomBytes(24).toString('hex'))+",'vi');",'install');

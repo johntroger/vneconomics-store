@@ -20,10 +20,15 @@ export function sourceFiles(sha,kind,{previous=false}={}){
  const rows=git(['ls-tree','-rz',sha+':'+p.source]).toString().split('\0').filter(Boolean).map(row=>{
   const [mode,type,oid,name]=row.split(/[\t ]/);return {mode,type,oid,name};
  });
+ const expected=validateSourceTree(rows,kind,{previous});
+ return expected.map(name=>({name:policy[kind].slug+'/'+name,data:git(['show',sha+':'+p.source+'/'+name])}));
+}
+export function validateSourceTree(rows,kind,{previous=false}={}){
+ const p=policy[kind];assert.ok(p,'Unknown component');
  const expected=previous?p.files.filter(n=>n!=='seo.php'):p.files;
  assert.deepEqual(rows.map(r=>r.name).sort(),[...expected,'README.md'].sort(),'Component tree must match allowlist plus excluded README');
  for(const row of rows)assert.ok(row.mode==='100644'&&row.type==='blob','Reject executable, symlink or submodule '+row.name);
- return expected.map(name=>({name:policy[kind].slug+'/'+name,data:git(['show',sha+':'+p.source+'/'+name])}));
+ return expected;
 }
 function version(files,kind){
  const file=files.find(f=>f.name===policy[kind].slug+'/'+policy[kind].header);
@@ -36,7 +41,7 @@ function crc32(b){let c=0xffffffff;for(const v of b)c=crcTable[(c^v)&255]^(c>>>8
 export function makeZip(files){
  const local=[],central=[];let offset=0;
  for(const f of [...files].sort((a,b)=>a.name<b.name?-1:a.name>b.name?1:0)){
-  assert.match(f.name,/^[a-z0-9][a-z0-9/-]*\.[a-z]+$/);assert.ok(!f.name.includes('..'));
+  assert.match(f.name,/^[a-z0-9][a-z0-9_/-]*\.[a-z]+$/);assert.ok(!f.name.includes('..'));
   const name=Buffer.from(f.name),crc=crc32(f.data),h=Buffer.alloc(30);
   h.writeUInt32LE(0x04034b50);h.writeUInt16LE(20,4);h.writeUInt16LE(0x800,6);h.writeUInt16LE(33,12);
   h.writeUInt32LE(crc,14);h.writeUInt32LE(f.data.length,18);h.writeUInt32LE(f.data.length,22);h.writeUInt16LE(name.length,26);
