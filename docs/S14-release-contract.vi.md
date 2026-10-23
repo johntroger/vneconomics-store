@@ -2,7 +2,7 @@
 
 Chủ dự án cho phép riêng S14 ngày 23/10/2026 bằng yêu cầu “làm s14”. S13 còn chờ phản hồi trải nghiệm; không tự ghi nhận đã được nghiệm thu giao diện. S15/S16 chưa được phép.
 
-Phạm vi: `scripts/release-policy.mjs`, `release-lib.mjs`, `build-s14-release.mjs`, hai runner kiểm thử S14, npm scripts, CI kiểm tra gói và hồ sơ này. Không sửa mã theme/plugin hoặc dữ liệu gốc.
+Phạm vi: `scripts/release-policy.mjs`, `release-lib.mjs`, `build-s14-release.mjs`, hai runner kiểm thử S14 và `postflight-s14.mjs`, npm scripts, CI kiểm tra gói và hồ sơ này. Không sửa mã theme/plugin hoặc dữ liệu gốc.
 
 Tiêu chí: build hai ZIP từ cùng SHA commit, tái tạo byte giống nhau; allowlist từng file, không symlink/submodule/executable; không DB/uploads/config/key/tooling/README trong payload. Manifest bên ngoài ZIP ghi SHA nguồn, tree, SHA256/size từng file và ZIP, phiên bản 0.7.0/0.4.2, schema 3, cặp trung gian plugin 0.4.2 + theme 0.6.0. ZIP có đúng một thư mục thành phần, không có `wp-content/` hay mã ngoài thành phần.
 

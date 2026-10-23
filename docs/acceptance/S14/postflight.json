@@ -1,0 +1,34 @@
+{
+  "status": "PASS_LOCAL_S14_POSTFLIGHT",
+  "date": "2026-10-23T02:36:18.657Z",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "packagingChecks": 76,
+  "runtimeChecks": 153,
+  "httpVisits": 12,
+  "originalDatabaseAndConfigUnchanged": true,
+  "S13EvidenceUnchanged": true,
+  "mainReleaseDeployRefsUnchanged": true,
+  "fixturesRemaining": [],
+  "temporaryCache": "Only own active postflight cache; wrapper removes after exit",
+  "artifacts": {
+    "plugin": {
+      "archive": "vne-library-core-0.4.2.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5",
+      "files": 10,
+      "bytes": 108507
+    },
+    "theme": {
+      "archive": "vibelab-0.7.0.zip",
+      "sha256": "f6124d7693e8c8af7e8dcd7668012b8c0ed986d338c2a9e864e0f77afa3f0778",
+      "files": 36,
+      "bytes": 158966
+    }
+  },
+  "limitations": {
+    "remoteCI": "not run; manual validation workflow prepared only",
+    "S13OwnerReview": "pending",
+    "S15": "not authorized",
+    "S16": "not authorized",
+    "hosting": "PHP/MySQL/Plesk/cache/real backup restore not tested"
+  }
+}

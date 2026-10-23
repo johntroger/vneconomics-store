@@ -85,4 +85,8 @@ S08: [báo cáo nghiệm thu](docs/acceptance/S08-resource-detail.vi.md) — 54 
 
 S09: [báo cáo nghiệm thu](docs/acceptance/S09-search-and-filters.vi.md) — 74 kiểm tra,
 28 fixture và 20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS.
-S10–S12 đã được phép và hoàn tất kỹ thuật local; hiện thực hiện S13, chưa deploy hosting.
+S10–S12 đã hoàn tất kỹ thuật local; S13 còn chờ phản hồi trải nghiệm.
+S14 được cho phép riêng ngày 23/10/2026 và PASS local: [báo cáo](docs/acceptance/S14-release-and-dry-run.vi.md),
+[checklist phát hành/restore](docs/S14-release-checklist.vi.md). Gói từ SHA `594ccd9` nằm trong
+`artifacts/releases/594ccd9a7de812a49f2c0d8260d20cbfced71752/`.
+Chưa deploy hoặc push nhánh phát hành; S15 cần duyệt riêng.

@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: S13 đang thực hiện theo phê duyệt của chủ dự án ngày 22/10/2026. Chưa nghiệm thu đủ S13; chủ dự án sẽ trực tiếp thử website. S14 trở đi chưa được phép bắt đầu; hosting chờ S15.
+Trạng thái: S14 PASS local ngày 23/10/2026 theo phê duyệt riêng “làm s14”: 76 kiểm tra gói, 153 runtime/12 lượt HTTP và hậu kiểm/cleanup đạt. S13 vẫn chờ phản hồi trải nghiệm, không tự ghi nhận nghiệm thu giao diện. S15 trở đi chưa được phép; chưa deploy hosting.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -161,6 +161,7 @@ B04; tài liệu hiện tại không tạo automation.
 - S11: PASS kỹ thuật local ngày 22/10/2026; 61 UI/HTTP +37 backend; hồi quy S05 gồm S03/S04, S08 55/19, S10 55 +hai shell, S06 59 PASS. 35 file theme/9 file PHP plugin khớp source; hash gốc/cleanup/cổng test đạt. [Báo cáo](acceptance/S11-reports-and-support.vi.md), [hợp đồng](S11-reports-support-contract.vi.md). Chưa gửi thư/deploy; chủ dự án đã duyệt S12 ngày 22/10/2026.
 - S12: PASS kỹ thuật local ngày 22/10/2026; 225 kiểm tra; hồi quy S05 (69 model/265 state, ma trận 54, 50 revision + UI/race/restart) và S11 (61 UI/37 backend) PASS. 35 file theme/10 PHP plugin khớp source; dữ liệu gốc, bằng chứng cũ, cleanup/cổng test đạt. [Báo cáo](acceptance/S12-cache-and-consistency.vi.md), [hợp đồng](S12-cache-contract.vi.md). Bypass/503 và phục hồi có quyền/nonce; hosting chờ S15, BYOK chưa xây. Chủ dự án đã cho phép S13.
 - S13: đã chuẩn bị nội dung bản nghiệm thu riêng; tích hợp/SEO/mobile/bàn phím và hồi quy S05/S06/S09/S10/S11 đạt trên plugin 0.4.2. Hồi quy S12 đạt 225 kiểm tra; hậu kiểm hash/bảo toàn/cleanup đạt; lần đo lại native ngày 23/10 đạt LCP/CLS 12/12 (LCP1200–2308ms), giữ lượt thất bại LCP3016ms để truy vết; chưa nghiệm thu toàn bộ, chờ chủ dự án thử. [Kịch bản](S13-owner-review.vi.md). Theo quyết định ngày 22/10/2026, chủ dự án trực tiếp thử và báo lỗi; không cần tuyển người mới. Chờ phản hồi, không tự chuyển S14.
-- S14–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S14: PASS local ngày 23/10/2026; ref nguồn `594ccd9a7de812a49f2c0d8260d20cbfced71752`, ZIP plugin 0.4.2/theme 0.7.0 và manifest giữ trong artifacts/releases. 76 kiểm tra gói, 153 runtime/12 lượt HTTP, hậu kiểm/cleanup PASS; cặp theme 0.6.0/plugin 0.4.2 và restore file đạt local. [Báo cáo](acceptance/S14-release-and-dry-run.vi.md), [hợp đồng](S14-release-contract.vi.md), [checklist](S14-release-checklist.vi.md). CI remote chưa chạy, hosting/MySQL/Plesk chờ S15; không suy thành nghiệm thu trải nghiệm S13 hoặc quyền S15.
+- S15–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Đang thực hiện S13. Chưa deploy; không thay nhánh main/release, hosting hoặc dịch vụ AI trả phí.
+- S14 hoàn tất phạm vi local, dừng chờ duyệt bước tiếp; S13 chờ phản hồi trải nghiệm. Chưa deploy; không thay nhánh main/release, hosting hoặc dịch vụ AI trả phí.
