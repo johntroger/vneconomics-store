@@ -1,0 +1,18 @@
+name: Validate release packages (no deployment)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  packages:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Rebuild, inspect archives and exercise failure gates
+        shell: pwsh
+        run: npm run test:release -- $env:GITHUB_SHA
