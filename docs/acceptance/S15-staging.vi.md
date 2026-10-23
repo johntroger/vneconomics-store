@@ -122,3 +122,13 @@ Chủ dự án đồng ý tiếp tục SSL trong S15. Phiên Plesk cũ hết h�
 Form chỉ chọn `staging-store.vneconomics.com`, không wildcard/www, xác minh HTTP-01; thông báo chứng chỉ tự gia hạn trước hạn 30 ngày. Chủ dự án xác nhận rõ “Đồng ý điều khoản và cấp SSL staging”; sau đó agent bấm Get it free một lần.
 
 Kết quả **FAIL cấp chứng chỉ**, nguyên nhân cụ thể: `The domain's owner does not have an email address. Please specify a valid email address and request the SSL/TLS certificate again.` [Chi tiết lỗi](S15/ssl-issue-missing-email.txt), [ảnh lỗi](S15/ssl-issue-missing-email.jpg), [form điều khoản](S15/ssl-terms-pending.jpg). Chưa có SSL mới; không bỏ qua cảnh báo chứng chỉ hoặc đổi production. Đã hỏi địa chỉ email chủ dự án muốn dùng cho liên hệ Plesk/đăng ký Let's Encrypt; chưa tự điền email hoặc sửa hồ sơ tài khoản. Không tạo fixture/cache mới trong lượt này; giữ ảnh/log làm bằng chứng. HTTPS/noindex qua HTTP và các ca S15 còn mở.
+
+### SSL cấp thành công sau bổ sung email được duyệt
+
+Chủ dự án cung cấp địa chỉ email để dùng cho liên hệ Plesk và đăng ký Let's Encrypt. Chỉ điền External email address trong My Profile, giữ trống các trường mật khẩu; Apply trả `Profile was updated.` Không ghi địa chỉ email vào hồ sơ Git này.
+
+Thử lại cùng yêu cầu đã duyệt: riêng staging, HTTP-01, không wildcard/www. Plesk cấp và gán `Lets Encrypt staging-store.vneconomics.com`, hạn 21/01/2027, `Will be automatically renewed`; domain chính `Secured`. Redirect HTTP → HTTPS hiển thị bật; HSTS giữ tắt. Không chạy SSL Labs hoặc mua dịch vụ. [Ảnh SSL](S15/ssl-installed.jpg), [trạng thái Plesk](S15/ssl-installed.txt).
+
+Lượt mở HTTPS khi đang cấp còn báo `ERR_CERT_COMMON_NAME_INVALID`; không bỏ qua cảnh báo. Sau khi Plesk báo thành công, mở tab mới `https://staging-store.vneconomics.com/` thành công với kiểm tra chứng chỉ bình thường, hiển thị website Astra của clone. DOM trang thật có robots `noindex, nofollow`. [Metadata HTTPS](S15/https-meta.json), [ảnh website](S15/https-astra.jpg). Chưa kiểm chứng redirect bằng chuỗi response HTTP hoặc chính sách noindex mọi route.
+
+Kết luận phần SSL/noindex trang chủ: **PASS** trong phạm vi quan sát trên. Không tạo dữ liệu kiểm thử trên site; giữ chứng chỉ thật và bằng chứng. Plugin vẫn 0.4.2/schema 3, Astra giữ nguyên; chưa triển khai VibeLab. S15 còn các ca HTTP/plugin/quyền/revision/cache, đồng thời, theme và phục hồi; chưa PASS toàn bước, không chuyển S16.
