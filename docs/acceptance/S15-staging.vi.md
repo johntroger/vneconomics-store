@@ -114,3 +114,11 @@ S15 còn thiếu DNS/chứng chỉ và kiểm thử HTTP/HTTPS; khảo sát quot
 Chủ dự án xác nhận “Đồng ý thêm DNS”. Agent bấm Thêm bản ghi đúng một lần tại Mắt Bão: A `staging-store` → `103.138.88.13`, TTL mặc định được lưu là 3600 giây. Giao diện chuyển từ 10 lên 11 bản ghi và hiển thị dòng staging mới; không sửa/xóa các dòng hiện có. [Ảnh kết quả](S15/dns-staging-added.jpg), [nội dung giao diện](S15/dns-staging-added.txt).
 
 Truy vấn riêng cả `ns1.matbao.com` và `ns2.matbao.com` đều trả A `staging-store.vneconomics.com = 103.138.88.13`, TTL 3600. [Kết quả authoritative](S15/dns-authoritative-results.json). Truy vấn trong sandbox ban đầu không ra được máy chủ DNS; kiểm tra lại ngoài sandbox thành công. Chưa chứng nhận mọi resolver đã hết negative cache. DNS authoritative đã đạt; chứng chỉ và HTTP/HTTPS vẫn chờ kiểm tra, không nâng thành S15 PASS.
+
+### Cấp SSL: đã duyệt điều khoản, đang thiếu email liên hệ
+
+Chủ dự án đồng ý tiếp tục SSL trong S15. Phiên Plesk cũ hết hạn; đã làm mới bằng nút Bảng điều khiển tại Mắt Bão và điều hướng bằng liên kết trong phiên mới. SSL/TLS của đúng domain 319 hiển thị No Certificate Installed và lựa chọn Let's Encrypt miễn phí.
+
+Form chỉ chọn `staging-store.vneconomics.com`, không wildcard/www, xác minh HTTP-01; thông báo chứng chỉ tự gia hạn trước hạn 30 ngày. Chủ dự án xác nhận rõ “Đồng ý điều khoản và cấp SSL staging”; sau đó agent bấm Get it free một lần.
+
+Kết quả **FAIL cấp chứng chỉ**, nguyên nhân cụ thể: `The domain's owner does not have an email address. Please specify a valid email address and request the SSL/TLS certificate again.` [Chi tiết lỗi](S15/ssl-issue-missing-email.txt), [ảnh lỗi](S15/ssl-issue-missing-email.jpg), [form điều khoản](S15/ssl-terms-pending.jpg). Chưa có SSL mới; không bỏ qua cảnh báo chứng chỉ hoặc đổi production. Đã hỏi địa chỉ email chủ dự án muốn dùng cho liên hệ Plesk/đăng ký Let's Encrypt; chưa tự điền email hoặc sửa hồ sơ tài khoản. Không tạo fixture/cache mới trong lượt này; giữ ảnh/log làm bằng chứng. HTTPS/noindex qua HTTP và các ca S15 còn mở.
