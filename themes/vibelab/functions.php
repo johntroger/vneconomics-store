@@ -10,7 +10,7 @@ add_action('after_setup_theme','vibelab_setup');
 function vibelab_assets() {
     $version=wp_get_theme()->get('Version');
     wp_enqueue_style('vibelab',get_stylesheet_uri(),array(),$version);
-    wp_enqueue_script('vibelab-menu',get_theme_file_uri('/assets/menu.js'),array(),$version,true);
+
 }
 add_action('wp_enqueue_scripts','vibelab_assets');
 function vibelab_ready() { return function_exists('vne_library_item'); }
@@ -110,3 +110,19 @@ require_once __DIR__.'/discovery.php';
 require_once __DIR__.'/lesson.php';
 
 require_once __DIR__.'/support.php';
+
+require_once __DIR__.'/seo.php';
+
+// Native system emoji are sufficient for this text-first library.
+remove_action('wp_head','print_emoji_detection_script',7);
+remove_action('wp_enqueue_scripts','wp_enqueue_emoji_styles');
+remove_action('wp_print_styles','print_emoji_styles');
+
+function vibelab_inline_enhancement($name) {
+    // Trusted bundled code runs after its controls, before the content it reflows.
+    // With JS/CSP disabled the native navigation/forms remain visible.
+    $paths=array('menu'=>'/assets/menu.js','discovery'=>'/assets/discovery.js');
+    if(!isset($paths[$name])){return;}
+    $path=get_theme_file_path($paths[$name]);
+    if(is_readable($path)){echo wp_get_inline_script_tag(file_get_contents($path),array('id'=>'vibelab-'.$name.'-inline'));}
+}

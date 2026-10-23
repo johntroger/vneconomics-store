@@ -1,6 +1,6 @@
 <?php if (!defined('ABSPATH')) { exit; } $guide=vibelab_guide();$finder=vibelab_find_current(); ?>
 <!doctype html>
-<html <?php language_attributes(); ?>><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><?php wp_head(); ?></head>
+<html lang="vi"><head><meta charset="<?php bloginfo('charset'); ?>"><meta name="viewport" content="width=device-width,initial-scale=1"><?php wp_head(); ?></head>
 <body <?php body_class(); ?>><?php wp_body_open(); ?><a class="skip-link" href="#main">Đến nội dung</a>
 <header class="site-header"><div class="container header-main">
 <a class="brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="VibeLab Việt, trang chủ"><span class="brand-mark" aria-hidden="true">vl</span><span>VibeLab Việt<small>Kho tài nguyên để bắt đầu</small></span></a>
@@ -13,4 +13,4 @@
 <a href="<?php echo esc_url(vibelab_archive()); ?>">Tài nguyên</a>
 <a href="<?php echo esc_url(vibelab_archive('vne_guide')); ?>">Hướng dẫn thực hành</a>
 <a href="<?php echo esc_url(home_url('/#cach-chon')); ?>">Cách chúng tôi tuyển chọn</a>
-<?php } ?></nav></header><main id="main" tabindex="-1">
+<?php } ?></nav></header><?php vibelab_inline_enhancement('menu'); ?><main id="main" tabindex="-1">

@@ -6,8 +6,20 @@ Dự án riêng cho https://store.vneconomics.com/.
 
 - WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
 - Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07, trang chi tiết S08 và tìm/lọc S09 (PASS kỹ thuật local).
-- Theme/plugin chưa cài vào database local đang dùng hoặc đưa lên hosting.
+- Baseline .local/site chưa kích hoạt theme/plugin; bản thử S13 dùng database riêng. Chưa đưa code thư viện lên hosting.
 - Repository riêng tư: https://github.com/johntroger/vneconomics-store
+
+
+## Bản thử S13
+
+`npm run dev:s13` mở thư viện tích hợp tại http://127.0.0.1:9430/ với database riêng .local/s13-site.
+Lệnh tạo bản thử lần đầu; những lần sau không seed đè nội dung đã sửa. Bản này noindex, không gửi email, không cần API key để đọc bài.
+.local/site là baseline gốc, vẫn được giữ nguyên; không đưa .local lên Git hoặc hosting.
+Chỉ chạy sau khi các bộ fixture đã kết thúc vì cùng dùng khóa run-clean.
+
+S13 dùng plugin0.4.2, theme0.7.0; 122 kiểm tra tích hợp và sáu bộ hồi quy S05/S06/S09/S10/S11/S12 đạt; hậu kiểm hash/bảo toàn/cleanup đạt. Budget lab chưa đạt đủ: native có một lượt LCP3016ms vượt2500ms; WASM chậm hơn. Chưa nghiệm thu S13 hoặc cho phép S14.
+Chủ dự án trực tiếp thử và phản hồi theo [hướng dẫn](docs/S13-owner-review.vi.md).
+Xem [báo cáo](docs/acceptance/S13-local-integrated-acceptance.vi.md) và [hợp đồng nghiệm thu](docs/S13-local-acceptance-contract.vi.md).
 
 ## Chạy local
 
@@ -73,4 +85,4 @@ S08: [báo cáo nghiệm thu](docs/acceptance/S08-resource-detail.vi.md) — 54 
 
 S09: [báo cáo nghiệm thu](docs/acceptance/S09-search-and-filters.vi.md) — 74 kiểm tra,
 28 fixture và 20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS.
-Dừng chờ phê duyệt S10. Chưa deploy hosting.
+S10–S12 đã được phép và hoàn tất kỹ thuật local; hiện thực hiện S13, chưa deploy hosting.

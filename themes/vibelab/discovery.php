@@ -187,5 +187,5 @@ add_action('template_redirect',function(){
 add_filter('get_search_query',function($value){$state=vibelab_find_current();return $state?$state['s']:$value;});
 add_filter('document_title_parts',function($parts){$state=vibelab_find_current();if($state&&!is_404()){$parts['title']=($state['scope']==='guides'?'Hướng dẫn và sửa lỗi':'Tài nguyên').($state['s']!==''?' — '.$state['s']:'');}return $parts;});
 add_action('wp_enqueue_scripts',function(){
-    if(vibelab_find_current()){wp_enqueue_script('vibelab-discovery',get_theme_file_uri('/assets/discovery.js'),array(),wp_get_theme()->get('Version'),true);}
+
 });

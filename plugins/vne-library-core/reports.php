@@ -29,7 +29,7 @@ function vne_report_receipt($post){
 }
 function vne_report_lock($key){
     $name='vne_report_lock_'.$key;$value=wp_generate_uuid4();
-    return add_option($name,$value,'','no')?array('name'=>$name,'value'=>$value):false;
+    return vne_library_lock_insert($name,$value)?array('name'=>$name,'value'=>$value):false;
 }
 function vne_report_unlock($lock){
     global $wpdb;

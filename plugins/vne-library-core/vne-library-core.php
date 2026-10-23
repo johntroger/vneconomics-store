@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Vneconomics Library Core
  * Description: Nhập tay tài nguyên, hướng dẫn và nguồn có kiểm tra dữ liệu/quyền.
- * Version: 0.4.0
+ * Version: 0.4.2
  * Requires PHP: 8.1
  * Text Domain: vne-library-core
  */
 if (!defined('ABSPATH')) { exit; }
-define('VNE_LIBRARY_VERSION', '0.4.0');
+define('VNE_LIBRARY_VERSION', '0.4.2');
 require_once __DIR__ . '/model.php';
 require_once __DIR__ . '/state.php';
 require_once __DIR__ . '/state-admin.php';

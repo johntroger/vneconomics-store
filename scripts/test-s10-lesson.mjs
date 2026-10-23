@@ -8,7 +8,7 @@ import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 const {chromium}=await import(pathToFileURL(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs')).href);
 const browserEnv={...process.env};const {startSite}=await import('./local-runtime.mjs');
-const evidence=resolve(process.argv.includes('--s11')?'docs/acceptance/S11/S10-regression':'docs/acceptance/S10');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});
+const evidence=resolve(process.argv.includes('--s13')?'docs/acceptance/S13/S10-regression':process.argv.includes('--s11')?'docs/acceptance/S11/S10-regression':'docs/acceptance/S10');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});
 const fixture=mkdtempSync(resolve('tmp/tests/s10-')),walk=join(fixture,'walkthrough');mkdirSync(walk);
 const protectedFiles=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-config.php'];
 const hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex'),hashes=()=>protectedFiles.map(hash),before=hashes();
@@ -156,6 +156,6 @@ try{
  assert.deepEqual(errors,[]);assert.deepEqual(badHTTP,[]);check(true,'no JS errors or unexpected internal HTTP failures');
  assert.deepEqual(hashes(),before);check(true,'protected local DB/config unchanged');
  await ctx.close();await browser.close();browser=null;await app[Symbol.asyncDispose]();app=null;
- writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-22',testedPluginHashes:process.argv.includes('--s11')?pluginEvidence(fixture):undefined,testedThemeHashes:themeEvidence(fixture),checks,walkResults,contentSHA256:hash('docs/content-samples/S10-moc-studio-lesson.html'),errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Fresh directory replay of Codex-authored output and exact lesson commands; not fresh Windows installation/authentication or new AI generation','QA dependency/evidence fixture explicitly synthetic; not external repo certification','No paid API calls, hosting deployment, human novice trial, cross-browser/load certification']},null,2)+'\n');
+ writeFileSync(join(evidence,'test-results.json'),JSON.stringify({date:'2026-10-22',testedPluginHashes:(process.argv.includes('--s13')||process.argv.includes('--s11'))?pluginEvidence(fixture):undefined,testedThemeHashes:themeEvidence(fixture),checks,walkResults,contentSHA256:hash('docs/content-samples/S10-moc-studio-lesson.html'),errors,badHTTP,protectedHashes:before,liveFilesUnchanged:true,limits:['Fresh directory replay of Codex-authored output and exact lesson commands; not fresh Windows installation/authentication or new AI generation','QA dependency/evidence fixture explicitly synthetic; not external repo certification','No paid API calls, hosting deployment, human novice trial, cross-browser/load certification']},null,2)+'\n');
  console.log('PASS S10 '+checks.length+' checks and two shell walkthroughs');
 }finally{if(browser)await browser.close();if(app)await app[Symbol.asyncDispose]();clearTimeout(deadline);assert.deepEqual(hashes(),before);}

@@ -1,0 +1,9 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: home desktop language/title/main/h1\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:16:28)\n    at audit (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:29:2)\n    at async file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:42:26",
+  "checks": [
+    "six approved resources and five-piece lesson cluster",
+    "seed rerun retains ids and does not duplicate/overwrite"
+  ],
+  "performance": [],
+  "audits": []
+}

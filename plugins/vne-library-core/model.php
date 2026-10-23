@@ -126,10 +126,11 @@ function vne_library_write_item($payload,$id=0) {
 function vne_library_item($id,$edit=false) {
     $post=get_post($id);if(!$post||!isset(vne_library_types()[$post->post_type])){return vne_library_error('Không tìm thấy.',404);}
     if($edit){if(!vne_library_can_edit($id)){return vne_library_error('Không có quyền xem bản sửa.',403);}}elseif($post->post_status!=='publish'){return vne_library_error('Không tìm thấy.',404);}
-    $result=array('id'=>(int)$id,'post_type'=>$post->post_type,'title'=>$post->post_title,'content'=>$post->post_content,'excerpt'=>$post->post_excerpt,'status'=>$post->post_status,'primary_category'=>(int)get_post_meta($id,'_vne_primary_category',true),'categories'=>wp_get_object_terms($id,'vne_category',array('fields'=>'ids')),'needs'=>wp_get_object_terms($id,'vne_need',array('fields'=>'ids')),'tools'=>wp_get_object_terms($id,'vne_tool',array('fields'=>'ids')));
+    $approved=get_post_meta($id,'_vne_approved_content',true);
+    // Public snapshots already contain approved taxonomy IDs; avoid raw term queries that are overwritten below.
+    $result=array('id'=>(int)$id,'post_type'=>$post->post_type,'title'=>$post->post_title,'content'=>$post->post_content,'excerpt'=>$post->post_excerpt,'status'=>$post->post_status,'primary_category'=>(int)get_post_meta($id,'_vne_primary_category',true),'categories'=>(!$edit&&is_array($approved['payload']??null)&&array_key_exists('categories',$approved['payload'])?$approved['payload']['categories']:wp_get_object_terms($id,'vne_category',array('fields'=>'ids'))),'needs'=>(!$edit&&is_array($approved['payload']??null)&&array_key_exists('needs',$approved['payload'])?$approved['payload']['needs']:wp_get_object_terms($id,'vne_need',array('fields'=>'ids'))),'tools'=>(!$edit&&is_array($approved['payload']??null)&&array_key_exists('tools',$approved['payload'])?$approved['payload']['tools']:wp_get_object_terms($id,'vne_tool',array('fields'=>'ids'))));
     if($post->post_type==='vne_resource'){$result['data']=get_post_meta($id,'_vne_resource',true);}else{$result['document_source']=get_post_meta($id,'_vne_document_source',true);}
     if($edit){$result['editorial_note']=get_post_meta($id,'_vne_editorial_note',true);}
-    $approved=get_post_meta($id,'_vne_approved_content',true);
     if(!$edit&&is_array($approved)&&isset($approved['payload'])){
         foreach(array('title','content','excerpt','primary_category','categories','needs','tools','data','document_source') as $field){if(array_key_exists($field,$approved['payload'])){$result[$field]=$approved['payload'][$field];}}
     }

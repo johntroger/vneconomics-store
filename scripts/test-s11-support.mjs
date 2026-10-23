@@ -7,7 +7,7 @@ import {pathToFileURL} from 'node:url';
 import {createHash,randomBytes} from 'node:crypto';
 const {chromium}=await import(pathToFileURL(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs')).href);
 const browserEnv={...process.env};const {startSite}=await import('./local-runtime.mjs');
-const evidence=resolve(process.argv.includes('--s12')?'docs/acceptance/S12/S11-regression':'docs/acceptance/S11');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s11-'));
+const evidence=resolve(process.argv.includes('--s13')?'docs/acceptance/S13/S11-regression':process.argv.includes('--s12')?'docs/acceptance/S12/S11-regression':'docs/acceptance/S11');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s11-'));
 const files=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-config.php'],hash=p=>createHash('sha256').update(readFileSync(p)).digest('hex'),hashes=()=>files.map(hash),before=hashes();
 const checks=[],errors=[],badHTTP=[],externalPublic=[];const check=(v,n)=>{assert.ok(v,n);checks.push(n);};
 const base='http://127.0.0.1:19411',password=randomBytes(24).toString('hex');let app,browser;
@@ -58,6 +58,9 @@ try{
  await page.locator('#report-description').fill(validDescription);await page.locator('#report-kind').selectOption('link');await page.locator('#report-consent').check();
  const payload=await values(page),initial=await count();
  const race=await Promise.all([ctx.request.post(page.url(),{form:payload,maxRedirects:0}),ctx.request.post(page.url(),{form:payload,maxRedirects:0})]);
+
+ const afterRace=await count();const raceObservation={statuses:race.map(r=>r.status()),initial,after:afterRace,delta:afterRace-initial,payloadFields:Object.keys(payload),nonSuccess:await Promise.all(race.map(async r=>r.status()===303?'':(await r.text()).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').slice(0,500)))};
+ writeFileSync(join(evidence,'race-observation-'+Date.now()+'.json'),JSON.stringify(raceObservation,null,2)+'\n');console.log('S11 race',JSON.stringify({statuses:raceObservation.statuses,initial,after:afterRace}));
  check(race.some(r=>r.status()===303)&&race.every(r=>[303,409,429].includes(r.status()))&&(await count())===initial+1,'simultaneous same-ticket submission stores one row');
  const accepted=race.find(r=>r.status()===303);await go(page,new URL(accepted.headers().location,base).href);
  check(await page.getByRole('heading',{name:'Đã lưu báo cáo',exact:true}).count()===1&&(await count())===initial+1,'native submit persists exactly once and confirms');

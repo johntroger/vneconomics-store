@@ -13,7 +13,7 @@ const hashes=()=>liveFiles.map(p=>createHash('sha256').update(readFileSync(p)).d
 const before=hashes(),checks=[];
 function check(value,label){assert.ok(value,label);checks.push(label);}
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s06-'));
-const evidence=resolve(process.argv.includes('--s11')?'docs/acceptance/S11/S06-regression':process.argv.includes('--s10')?'docs/acceptance/S10/S06-regression':process.argv.includes('--s09')?'docs/acceptance/S09/S06-regression':process.argv.includes('--s08')?'docs/acceptance/S08/S06-regression':process.argv.includes('--s07')?'docs/acceptance/S07/S06-regression':'docs/acceptance/S06');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s13')?'docs/acceptance/S13/S06-regression':process.argv.includes('--s11')?'docs/acceptance/S11/S06-regression':process.argv.includes('--s10')?'docs/acceptance/S10/S06-regression':process.argv.includes('--s09')?'docs/acceptance/S09/S06-regression':process.argv.includes('--s08')?'docs/acceptance/S08/S06-regression':process.argv.includes('--s07')?'docs/acceptance/S07/S06-regression':'docs/acceptance/S06');mkdirSync(evidence,{recursive:true});
 const base='http://127.0.0.1:19406';let app,browser;
 const deadline=setTimeout(()=>{console.error('FAIL S06 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 async function php(code){
@@ -110,7 +110,7 @@ try{
  check(await nojs.page.getByRole('navigation',{name:'Điều hướng chính'}).isVisible(),'no-JS mobile navigation visible');
  await capture(nojs.page,{path:join(evidence,'home-no-js.png'),fullPage:true});await nojs.context.close();
  const blocked=await openPage({viewport:{width:390,height:844}});
- await blocked.context.route('**/menu.js*',route=>route.abort());
+ await blocked.context.route(base+'/**',async route=>{if(route.request().resourceType()!=='document')return route.fallback();const response=await route.fetch();return route.fulfill({response,headers:{...response.headers(),'content-security-policy':"script-src 'none'"}});});
  await blocked.page.goto(base);await blocked.page.waitForLoadState('networkidle');
  check(await blocked.page.getByRole('navigation',{name:'Điều hướng chính'}).isVisible(),'failed menu script retains usable navigation');await blocked.context.close();
  // Canonical getter must win even when raw post columns contain unapproved values.

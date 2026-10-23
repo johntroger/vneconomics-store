@@ -46,7 +46,7 @@ tab order. IP trực tiếp từ REMOTE_ADDR được băm HMAC cùng bucket th�
 tin X-Forwarded-For. Trong mỗi bucket15 phút: tối đa3 bản lưu, tối đa10 lần thử lưu
 hợp lệ. Đây là giới hạn theo kết nối; proxy/NAT có thể gộp người dùng.
 
-Khóa ticket và khóa rate dùng add_option duy nhất; mỗi chủ sở hữu có UUID,
+Cập nhật S13: khóa ticket/rate dùng INSERT IGNORE nguyên tử qua vne_library_lock_insert; add_option có nhánh upsert nên không dùng làm mutex. Mỗi chủ sở hữu có UUID,
 finally giải phóng bằng SQL điều kiện đúng name/value. Không giành khóa theo TTL
 khi một tiến trình có thể còn hoạt động. Nếu tiến trình chết, yêu cầu liên quan
 có thể bị chặn; mở form mới/thử bucket sau hoặc quản trị rà khóa. Cần kiểm tra

@@ -1,0 +1,1028 @@
+{
+  "date": "2026-10-22",
+  "status": "FAIL_PERFORMANCE",
+  "functionalStatus": "PASS",
+  "checks": [
+    "six approved resources and five-piece lesson cluster",
+    "seed rerun retains ids and does not duplicate/overwrite",
+    "home desktop language/title/main/h1",
+    "home desktop visible controls named and image alt present",
+    "home desktop no horizontal page overflow",
+    "home desktop one canonical and description",
+    "home contains six catalog cards",
+    "repo action distinct from internal detail",
+    "repo CTA opens correct URL in new tab (intercepted, no upstream request)",
+    "repo target has no opener",
+    "internal card opens exact resource detail",
+    "resource desktop language/title/main/h1",
+    "resource desktop visible controls named and image alt present",
+    "resource desktop no horizontal page overflow",
+    "resource desktop one canonical and description",
+    "resource exposes original repo",
+    "catalog desktop language/title/main/h1",
+    "catalog desktop visible controls named and image alt present",
+    "catalog desktop no horizontal page overflow",
+    "catalog desktop one canonical and description",
+    "catalog has navigable category",
+    "category desktop language/title/main/h1",
+    "category desktop visible controls named and image alt present",
+    "category desktop no horizontal page overflow",
+    "category desktop one canonical and description",
+    "category title describes exact category",
+    "search results noindex",
+    "accentless CSS query returns catalog result",
+    "search does not claim unrelated canonical",
+    "lesson desktop language/title/main/h1",
+    "lesson desktop visible controls named and image alt present",
+    "lesson desktop no horizontal page overflow",
+    "lesson desktop one canonical and description",
+    "lesson commands visible only with scoped historical validation",
+    "lesson checklist survives reload",
+    "lesson progress reset works",
+    "supporting lesson 11 language/title/main/h1",
+    "supporting lesson 11 visible controls named and image alt present",
+    "supporting lesson 11 no horizontal page overflow",
+    "supporting lesson 11 one canonical and description",
+    "supporting lesson 12 language/title/main/h1",
+    "supporting lesson 12 visible controls named and image alt present",
+    "supporting lesson 12 no horizontal page overflow",
+    "supporting lesson 12 one canonical and description",
+    "supporting lesson 13 language/title/main/h1",
+    "supporting lesson 13 visible controls named and image alt present",
+    "supporting lesson 13 no horizontal page overflow",
+    "supporting lesson 13 one canonical and description",
+    "supporting lesson 14 language/title/main/h1",
+    "supporting lesson 14 visible controls named and image alt present",
+    "supporting lesson 14 no horizontal page overflow",
+    "supporting lesson 14 one canonical and description",
+    "support language/title/main/h1",
+    "support visible controls named and image alt present",
+    "support no horizontal page overflow",
+    "support one canonical and description",
+    "support title contains brand without fake pagination",
+    "home mobile 360 language/title/main/h1",
+    "home mobile 360 visible controls named and image alt present",
+    "home mobile 360 no horizontal page overflow",
+    "home mobile 360 one canonical and description",
+    "catalog mobile 360 language/title/main/h1",
+    "catalog mobile 360 visible controls named and image alt present",
+    "catalog mobile 360 no horizontal page overflow",
+    "catalog mobile 360 one canonical and description",
+    "resource mobile 360 language/title/main/h1",
+    "resource mobile 360 visible controls named and image alt present",
+    "resource mobile 360 no horizontal page overflow",
+    "resource mobile 360 one canonical and description",
+    "lesson mobile 360 language/title/main/h1",
+    "lesson mobile 360 visible controls named and image alt present",
+    "lesson mobile 360 no horizontal page overflow",
+    "lesson mobile 360 one canonical and description",
+    "home mobile 390 language/title/main/h1",
+    "home mobile 390 visible controls named and image alt present",
+    "home mobile 390 no horizontal page overflow",
+    "home mobile 390 one canonical and description",
+    "catalog mobile 390 language/title/main/h1",
+    "catalog mobile 390 visible controls named and image alt present",
+    "catalog mobile 390 no horizontal page overflow",
+    "catalog mobile 390 one canonical and description",
+    "resource mobile 390 language/title/main/h1",
+    "resource mobile 390 visible controls named and image alt present",
+    "resource mobile 390 no horizontal page overflow",
+    "resource mobile 390 one canonical and description",
+    "lesson mobile 390 language/title/main/h1",
+    "lesson mobile 390 visible controls named and image alt present",
+    "lesson mobile 390 no horizontal page overflow",
+    "lesson mobile 390 one canonical and description",
+    "first Tab reaches skip link",
+    "skip link focuses main",
+    "lesson instructions readable without JavaScript",
+    "sitemap vne_resource status",
+    "raw network XML rather than browser XSL presentation vne_resource",
+    "sitemap exact approved public count vne_resource",
+    "sitemap includes approved URL 4",
+    "sitemap includes approved URL 5",
+    "sitemap includes approved URL 6",
+    "sitemap includes approved URL 7",
+    "sitemap includes approved URL 8",
+    "sitemap includes approved URL 9",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_resource",
+    "sitemap vne_guide status",
+    "raw network XML rather than browser XSL presentation vne_guide",
+    "sitemap exact approved public count vne_guide",
+    "sitemap includes approved URL 10",
+    "sitemap includes approved URL 11",
+    "sitemap includes approved URL 12",
+    "sitemap includes approved URL 13",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_guide",
+    "sitemap vne_practice status",
+    "raw network XML rather than browser XSL presentation vne_practice",
+    "sitemap exact approved public count vne_practice",
+    "sitemap includes approved URL 14",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_practice",
+    "index sitemap only library content",
+    "exactly one source navigation intercepted without external service call",
+    "no blocking JavaScript errors",
+    "no external requests in public local flows"
+  ],
+  "audits": [
+    {
+      "label": "home desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "category desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Mẫu dự án – VibeLab Việt",
+      "description": "Tài nguyên trong danh mục Mẫu dự án. Đọc yêu cầu, nguồn và tình trạng kiểm chứng trước khi chọn.",
+      "canonical": [
+        "http://127.0.0.1:19413/danh-muc/mau-du-an/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 11",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Trước bài đầu: chuẩn bị công cụ và quyền truy cập – VibeLab Việt",
+      "description": "Kiểm tra điều kiện trước khi làm bài; dừng ở bước cần tài khoản hoặc chi phí chưa rõ.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/truoc-bai-dau-chuan-bi-cong-cu-va-quyen-truy-cap/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 12",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Sửa lỗi bài đầu: ghi lại điều đang xảy ra – VibeLab Việt",
+      "description": "Mô tả lỗi rõ ràng trước khi nhờ trợ giúp, không chia sẻ thông tin bí mật.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/sua-loi-bai-dau-ghi-lai-dieu-dang-xay-ra/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 13",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Sau bài đầu: hiểu HTML và CSS vừa tạo – VibeLab Việt",
+      "description": "Đọc cấu trúc trang rồi thay đổi từng phần nhỏ và kiểm tra lại.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/sau-bai-dau-hieu-html-va-css-vua-tao/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 14",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Bộ thực hành landing page cho dịch vụ chụp ảnh – VibeLab Việt",
+      "description": "Một nhiệm vụ nhỏ: chuẩn bị, tạo trang Mộc Studio, kiểm tra, sửa một chi tiết và khôi phục.",
+      "canonical": [
+        "http://127.0.0.1:19413/bo-thuc-hanh/bo-thuc-hanh-landing-page-cho-dich-vu-chup-anh/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "support",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Trợ giúp và liên hệ – VibeLab Việt",
+      "description": "Bạn có thể đọc bài, tìm tài nguyên và mở repo mà không đăng ký tài khoản website hoặc nhập API key. Nếu gặp lỗi, hãy phân biệt lỗi nội dung với lỗi tài khoản hoặc công cụ ngoài.Báo…",
+      "canonical": [
+        "http://127.0.0.1:19413/?vne_support=ho-tro"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "home mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "home mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    }
+  ],
+  "performance": [
+    {
+      "page": "home",
+      "run": 1,
+      "lcp": 5628,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "ttfb": 3434.5999999996275,
+      "transfer": 27953,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3644.2000000001863,
+          "end": 3901.5999999996275,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 5616.5,
+          "end": 5684.0999999996275,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 5619.9000000003725,
+          "end": 5685.799999999814,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 5884,
+          "end": 5905.5,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "home",
+      "run": 2,
+      "lcp": 5468,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "ttfb": 3180,
+      "transfer": 27953,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3279.899999999441,
+          "end": 3455.7000000001863,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 5461,
+          "end": 5537.399999999441,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 5465.700000000186,
+          "end": 5541.0999999996275,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 6418.299999999814,
+          "end": 6421.5,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "home",
+      "run": 3,
+      "lcp": 6188,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "ttfb": 3742,
+      "transfer": 27953,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 4055.2999999998137,
+          "end": 4315.5999999996275,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 6177.799999999814,
+          "end": 6249,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 6178,
+          "end": 6250.200000000186,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 7278.5,
+          "end": 7282.0999999996275,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 1,
+      "lcp": 5292,
+      "cls": 0.0989436458545708,
+      "shifts": [
+        {
+          "time": 5768.200000000186,
+          "value": 0.0989436458545708,
+          "sources": [
+            {
+              "tag": "SECTION",
+              "previous": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "current": {
+                "x": 16,
+                "y": 643.421875,
+                "width": 358,
+                "height": 140.796875,
+                "top": 643.421875,
+                "right": 374,
+                "bottom": 784.21875,
+                "left": 16
+              }
+            }
+          ]
+        }
+      ],
+      "lcpElement": "H1:Tài nguyên để khám phá",
+      "ttfb": 4097.4000000003725,
+      "transfer": 29365,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 4208.200000000186,
+          "end": 4420.5,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 6224.5,
+          "end": 6306.9000000003725,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 6231.200000000186,
+          "end": 6307.5,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 6237.100000000559,
+          "end": 6310.799999999814,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 6646.200000000186,
+          "end": 6648.4000000003725,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 2,
+      "lcp": 6816,
+      "cls": 0.0989436458545708,
+      "shifts": [
+        {
+          "time": 6913.200000000186,
+          "value": 0.0989436458545708,
+          "sources": [
+            {
+              "tag": "SECTION",
+              "previous": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "current": {
+                "x": 16,
+                "y": 643.421875,
+                "width": 358,
+                "height": 140.796875,
+                "top": 643.421875,
+                "right": 374,
+                "bottom": 784.21875,
+                "left": 16
+              }
+            }
+          ]
+        }
+      ],
+      "lcpElement": "H1:Tài nguyên để khám phá",
+      "ttfb": 5144.299999999814,
+      "transfer": 29365,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 5353.200000000186,
+          "end": 5620.4000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 8120.799999999814,
+          "end": 8209.299999999814,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 8132.4000000003725,
+          "end": 8208.799999999814,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 8136.299999999814,
+          "end": 8222.799999999814,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 8694,
+          "end": 8700,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 3,
+      "lcp": 3768,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Tài nguyên để khám phá",
+      "ttfb": 2996,
+      "transfer": 29365,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3089,
+          "end": 3308.9000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 4127.800000000745,
+          "end": 4215.200000000186,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 4129.700000000186,
+          "end": 4216.700000000186,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 4130.700000000186,
+          "end": 4217,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 4398.800000000745,
+          "end": 4400.300000000745,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 1,
+      "lcp": 5564,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "IMG:",
+      "ttfb": 3004.7999999998137,
+      "transfer": 26547,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3105.0999999996275,
+          "end": 3297.7000000001863,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 3119.7000000001863,
+          "end": 3176.5999999996275,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 5772.0999999996275,
+          "end": 5777.799999999814,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 2,
+      "lcp": 6528,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "IMG:",
+      "ttfb": 3755.5999999996275,
+      "transfer": 26547,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3891.5,
+          "end": 4140.899999999441,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 3904.2000000001863,
+          "end": 4039.899999999441,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 7286.399999999441,
+          "end": 7289,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 3,
+      "lcp": 4352,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "IMG:",
+      "ttfb": 3031.9000000003725,
+      "transfer": 26547,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3143.9000000003725,
+          "end": 3362.9000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 3155.2000000001863,
+          "end": 3250.2999999998137,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 4513,
+          "end": 4515.299999999814,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 1,
+      "lcp": 4272,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Làm landing page Mộc Studio với Codex trên Windows",
+      "ttfb": 3123.399999999441,
+      "transfer": 32342,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3253.5,
+          "end": 3518.7000000001863,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 3261.0999999996275,
+          "end": 3424,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 3453.2000000001863,
+          "end": 3536.7999999998137,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 5383.700000000186,
+          "end": 5386.799999999814,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 2,
+      "lcp": 5428,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Làm landing page Mộc Studio với Codex trên Windows",
+      "ttfb": 3028.0999999996275,
+      "transfer": 32342,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3243.7000000001863,
+          "end": 3493.7000000001863,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 3253.5999999996275,
+          "end": 3408.899999999441,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 3441.5,
+          "end": 3528.0999999996275,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 5924.5,
+          "end": 5942.299999999814,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 3,
+      "lcp": 4824,
+      "cls": 0,
+      "shifts": [],
+      "lcpElement": "H1:Làm landing page Mộc Studio với Codex trên Windows",
+      "ttfb": 3122.7000000001863,
+      "transfer": 32342,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 3262,
+          "end": 3491.7999999998137,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 3270.2000000001863,
+          "end": 3352.7999999998137,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19413/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 3324.7999999998137,
+          "end": 3428.5,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19413/favicon.ico",
+          "start": 5255.5,
+          "end": 5260.799999999814,
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "budget": [
+    {
+      "page": "home",
+      "run": 1,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "home",
+      "run": 2,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "home",
+      "run": 3,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "catalog",
+      "run": 1,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "catalog",
+      "run": 2,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "catalog",
+      "run": 3,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "resource",
+      "run": 1,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "resource",
+      "run": 2,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "resource",
+      "run": 3,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "lesson",
+      "run": 1,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "lesson",
+      "run": 2,
+      "lcpPass": false,
+      "clsPass": true
+    },
+    {
+      "page": "lesson",
+      "run": 3,
+      "lcpPass": false,
+      "clsPass": true
+    }
+  ],
+  "profile": {
+    "browser": "Edge headless",
+    "viewport": "390x844",
+    "cpu": 4,
+    "rttMs": 40,
+    "downloadMbps": 1.6,
+    "uploadKbps": 750,
+    "coldCache": true,
+    "observationWindow": "navigation load +1500ms, no user interaction",
+    "runsPerPage": 3,
+    "network": "synthetic local loopback; not field data"
+  },
+  "errors": [],
+  "external": [],
+  "repoTargets": [
+    "https://github.com/microsoft/Web-Dev-For-Beginners"
+  ],
+  "testedThemeHashes": {
+    "archive-vne_resource.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "assets/cover-astro.svg": "630b950d4af6d0731f0bf0cc22e1b18d38f0013af021ffc46840c21cdf842001",
+    "assets/cover-default.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-mdn.svg": "d779f88b87b213693ed56de56e0b616f456fc2438f3fb05f14fc2d50c8829493",
+    "assets/cover-pico.svg": "47771b773d17fee8cd5e4e35b270c45753ef6b1e4a13f131554fec1a2e82d5f5",
+    "assets/cover-react.svg": "8f96b1d8ce5d49339ec399e2750797665a85376e8338f7011bdaf1e0d29b07d8",
+    "assets/cover-web-basics.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-web-design.svg": "33eacd1dc728eece4a5759b1fbda4bfe6dda19dc74aecbf284a6fbff91ef4ca8",
+    "assets/discovery.js": "cdd2fc6e074eaa210494a6801a79ad66f200cfc50f5e1f652c339d57fa6a908f",
+    "assets/lesson.css": "a6c13865485ad492d896db308c22e45b12e2a63ca098571370cd353b65d8e5d5",
+    "assets/lesson.js": "9ba49f0fb47a4d01dce9551e8462f1173925fc72e710ace8f1c4bff105e30c73",
+    "assets/menu.js": "acb2ff5b5b8395f7e649c51c73846f5001d0ccd72873045faae6dbec43471283",
+    "assets/moc-studio/index.html": "add426737a36ac24f868f5e2f97009378ffd3ba3e53a23865642b48649f72b03",
+    "assets/moc-studio/style.css": "e49c59b342708f293f8ab75c463db27fb2b15004541e7dfadea5499c52572514",
+    "assets/support.css": "5f5994ce2f64d91c7f7e1b9f2cbf55a8052fb4fd7e0257baae50835dabbee658",
+    "assets/support.js": "c2c0eacab17133bd7f3a5a9b84852f7f59cb5708be5ba93434df7488954633d3",
+    "catalog-template.php": "a2bcf5c89152a6f33424f4bd3f0149c3eeefef3b19cffc2b074278403a37a066",
+    "catalog.php": "f9740ce2cb1de7a603ebd718531d29e39732f1abdf25c099f157e097c4274a5a",
+    "detail.php": "b425d547aa7a1500389f9de113e791f304fa488f32e7e12cd4e41f33c12347c3",
+    "discovery-template.php": "429176937fd77f3a2ac31bf78ff2f533eacb8802329343ad1650b0d81fc0a0f2",
+    "discovery.php": "0076e766b0c28d86747c25ed9949d3aec9aa188c357dbca4999e4a8431816f92",
+    "footer.php": "5740254af91f81096c63ef4d31e7856a35ee9eed9272f2f419745763bb76fc11",
+    "front-page.php": "ca7ed2b60f46d3bd840674195c716140cf375aca2b918465ba70b75c2d1ff9bf",
+    "functions.php": "a10cabc04d82a70e58c1eeb14ba50ef2ec3af13b26470bf08feb87036208c484",
+    "header.php": "7033753fe9d7ce5f0b40f49ec947fcc13b1bcb28f65ccad50c69cdd0348d1c22",
+    "index.php": "a15678648fed9067a7efd27ee1ccb2aa25f5928e71c3adc642280396e7822ec1",
+    "lesson-template.php": "c15bb57a6cef0b559527452ef213e3176c5a41a8e709174d2a73acf2abb3d772",
+    "lesson.php": "af98d06bfd9faa46491dceeb91905f54ed0c43ab80b55299b15aba9f1a052e88",
+    "seo.php": "a7d4eaff4c62622f0bac1f007095e1ea754d2e1de75cd1fe40417e2d9e4211f5",
+    "single-vne_resource.php": "f9482d863ba713bebee2baba5002d932c711bae725ce10ba75f114211cb8adc7",
+    "style.css": "2ec39bde9b452cc286cb590d35ec69fcbaeffabd577a35f6a502d739cfa0ecae",
+    "support-template.php": "493ab6ab7b3ff45da58c54828e92eb7c05c79ad648803d95dd5babcd2490fe71",
+    "support.php": "18745edcaa8639e768b432930309a14f6a88f2322544593c32b3be040cacba19",
+    "taxonomy-vne_category.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_need.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_tool.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+  },
+  "testedPluginHashes": {
+    "admin.php": "e8af77d55c732cd7ecf41c3eb7993161ebea991d5ea1e91aad18eca7c75b902a",
+    "api.php": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890",
+    "cache.php": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6",
+    "model.php": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a",
+    "reports.php": "df68e3320981760a0e09a82d2fc768f41c1cf0c7cc75578786fae0913ef2b30a",
+    "revision-admin.php": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8",
+    "revisions.php": "7f2943beec516a843812f02fe8f341779432a7582e5d6546d1f85c16d1a2a911",
+    "state-admin.php": "b201063a4762c719dec107cb88d32a99dd15aedebf8a4f64e41db8f7f1e45318",
+    "state.php": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c",
+    "vne-library-core.php": "0403516d73d6f72823863d861ba36b62a7dd5faf5a891ca4ee31e54cb07e6516"
+  },
+  "protectedHashes": [
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8"
+  ],
+  "ownerReview": "pending; owner replaced mandatory beginner recruitment on 2026-10-22",
+  "limits": [
+    "Basic automated accessibility checks only; no WCAG certification",
+    "No real beginner, fresh Windows install, external repo verification, hosting/MySQL/CDN or field INP test",
+    "No paid API, mail or deployment"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: {\"error\":\"The plugin does not have a valid header.\",\"loaded\":false,\"plugin_dir\":\"C:\\\\Users\\\\trant\\\\CodexProjects\\\\VneconomicsStore\\\\tmp\\\\tests\\\\s13-native-0mW3Db/wp-content/plugins\"}\n+ actual - expected\n\n+ 'The plugin does not have a valid header.'\n- null\n\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-native-performance.mjs:40:9",
+  "checks": [
+    "native PHP extensions available"
+  ],
+  "metrics": [],
+  "logs": "",
+  "phpLog": "[23-Oct-2026 02:10:25 UTC] PHP Notice:  _wp_register_default_icons(): Core icon collection manifest is missing or unreadable. in C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\s13-native-0mW3Db\\wp-includes\\functions.php on line 6260\r\n[23-Oct-2026 02:10:31 UTC] PHP Notice:  _wp_register_default_icons(): Core icon collection manifest is missing or unreadable. in C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\s13-native-0mW3Db\\wp-includes\\functions.php on line 6260\r\n"
+}

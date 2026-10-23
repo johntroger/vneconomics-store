@@ -54,3 +54,5 @@ Header đã thử ở local không thay nghiệm thu cache/proxy hosting trong S
 Thứ tự khóa object JSON không phải thay đổi nội dung; taxonomy IDs được chuẩn hóa
 trước so sánh. Lần cập nhật giữ author/date và slug của core post. Hồ sơ biên tập
 thiếu quyền approve không phải một WordPress role mới; chỉ là cấu hình capability.
+
+Cập nhật S13 (22/10/2026): primitive khóa đổi sang INSERT IGNORE nguyên tử, chỉ thành công khi thêm mới đúng một hàng. add_option có upsert nên không bảo đảm độc quyền khi hai tiến trình cùng qua kiểm tra tồn tại. Giữ xóa có điều kiện đúng token, fail closed và không tự phá khóa theo TTL. Bằng chứng tái hiện trước/sau nằm trong acceptance/S13/lock-race-*.json; MySQL hosting vẫn chờ S15.

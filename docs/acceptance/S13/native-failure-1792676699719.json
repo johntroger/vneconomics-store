@@ -1,0 +1,445 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: native PHP no warning/fatal/notice/deprecated\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-native-performance.mjs:18:32)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-native-performance.mjs:85:2",
+  "checks": [
+    "native PHP extensions available",
+    "same integrated content set native",
+    "both lock families admit exactly one simultaneous contender without replacing owner",
+    "native loopback server ready",
+    "home native HTML200 without PHP errors",
+    "home native no-store unchanged",
+    "home native Vietnamese heading",
+    "catalog native HTML200 without PHP errors",
+    "catalog native no-store unchanged",
+    "catalog native Vietnamese heading",
+    "resource native HTML200 without PHP errors",
+    "resource native no-store unchanged",
+    "resource native Vietnamese heading",
+    "lesson native HTML200 without PHP errors",
+    "lesson native no-store unchanged",
+    "lesson native Vietnamese heading",
+    "native public flows no JS/HTTP/external request errors"
+  ],
+  "metrics": [
+    {
+      "page": "home",
+      "run": 1,
+      "lcp": 1264,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 348.8999999985099,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 443.69999999925494,
+          "end": 639.5999999996275,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1230.2999999988824,
+          "end": 1304.8999999985099,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1231.8999999985099,
+          "end": 1305.5999999996275,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1447.5999999996275,
+          "end": 1449.5,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "home",
+      "run": 2,
+      "lcp": 1452,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 652.4000000003725,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 731.6000000014901,
+          "end": 946.5,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1443.4000000003725,
+          "end": 1505.6000000014901,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1443.800000000745,
+          "end": 1506,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1474.7000000011176,
+          "end": 1483.6000000014901,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "home",
+      "run": 3,
+      "lcp": 1496,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 458.19999999925494,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 548.0999999996275,
+          "end": 744.7999999988824,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1486.8999999985099,
+          "end": 1596.8999999985099,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1490.5999999996275,
+          "end": 1598.5,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1567.0999999996275,
+          "end": 1602.0999999996275,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 1,
+      "lcp": 1456,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 880.8000000007451,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 975,
+          "end": 1181.6000000014901,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1653.7000000011176,
+          "end": 1732.5,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1654.7000000011176,
+          "end": 1733.800000000745,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 1655.300000000745,
+          "end": 1741.7000000011176,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1702.9000000003725,
+          "end": 1734,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 2,
+      "lcp": 1876,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 992.9000000003725,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 1073.2000000011176,
+          "end": 1293.300000000745,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1866.9000000003725,
+          "end": 1979.7000000011176,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1867.300000000745,
+          "end": 1980.9000000003725,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 1867.300000000745,
+          "end": 1983.800000000745,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1957.5999999996275,
+          "end": 1999,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "catalog",
+      "run": 3,
+      "lcp": 1768,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 1106.5,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 1224.800000000745,
+          "end": 1418.4000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-astro.svg",
+          "start": 1758.300000000745,
+          "end": 1831.800000000745,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-mdn.svg",
+          "start": 1758.300000000745,
+          "end": 1838.300000000745,
+          "bytes": 1414
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-pico.svg",
+          "start": 1758.300000000745,
+          "end": 1842.5999999996275,
+          "bytes": 1412
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1786.300000000745,
+          "end": 1818.300000000745,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 1,
+      "lcp": 1292,
+      "cls": 0,
+      "shifts": [],
+      "element": "IMG",
+      "ttfb": 591.7999999988824,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 678.3999999985099,
+          "end": 865.7999999988824,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 692.1999999992549,
+          "end": 746.8999999985099,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1310,
+          "end": 1336.199999999255,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 2,
+      "lcp": 1292,
+      "cls": 0,
+      "shifts": [],
+      "element": "IMG",
+      "ttfb": 545.9000000003725,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 627.5,
+          "end": 813.7999999988824,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 649,
+          "end": 706.7999999988824,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1306.699999999255,
+          "end": 1335.5999999996275,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "resource",
+      "run": 3,
+      "lcp": 1492,
+      "cls": 0,
+      "shifts": [],
+      "element": "IMG",
+      "ttfb": 817.5,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 907.3000000007451,
+          "end": 1089.800000000745,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/cover-web-basics.svg",
+          "start": 914.7000000011176,
+          "end": 973.7000000011176,
+          "bytes": 1420
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1509.6000000014901,
+          "end": 1529.9000000003725,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 1,
+      "lcp": 1460,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 606.9000000003725,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 703.5999999996275,
+          "end": 979.4000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 708.9000000003725,
+          "end": 821.1999999992549,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 880.9000000003725,
+          "end": 978.9000000003725,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1488.0999999996275,
+          "end": 1520.5,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 2,
+      "lcp": 1896,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 982.9000000003725,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 1072,
+          "end": 1360.5,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 1073.9000000003725,
+          "end": 1205.5,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 1250.5999999996275,
+          "end": 1359.5,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1940.4000000003725,
+          "end": 1963.2999999988824,
+          "bytes": 0
+        }
+      ]
+    },
+    {
+      "page": "lesson",
+      "run": 3,
+      "lcp": 1452,
+      "cls": 0,
+      "shifts": [],
+      "element": "H1",
+      "ttfb": 630,
+      "resources": [
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/style.css?ver=0.7.0",
+          "start": 732.9000000003725,
+          "end": 990.9000000003725,
+          "bytes": 25127
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0",
+          "start": 741.9000000003725,
+          "end": 871.8000000007451,
+          "bytes": 3930
+        },
+        {
+          "name": "http://127.0.0.1:19414/wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0",
+          "start": 870.5999999996275,
+          "end": 958.4000000003725,
+          "bytes": 3285
+        },
+        {
+          "name": "http://127.0.0.1:19414/favicon.ico",
+          "start": 1506.0999999996275,
+          "end": 1532.7000000011176,
+          "bytes": 0
+        }
+      ]
+    }
+  ],
+  "logs": "[Thu Oct 22 20:44:15 2026] PHP 8.3.36 Development Server (http://127.0.0.1:19414) started\n[Thu Oct 22 20:44:15 2026] 127.0.0.1:49180 Accepted\n[Thu Oct 22 20:44:16 2026] 127.0.0.1:49180 Closing\n[Thu Oct 22 20:44:16 2026] 127.0.0.1:57020 Accepted\n[Thu Oct 22 20:44:16 2026] 127.0.0.1:57020 Closing\n[Thu Oct 22 20:44:17 2026] 127.0.0.1:63358 Accepted\n[Thu Oct 22 20:44:17 2026] 127.0.0.1:63358 Closing\n[Thu Oct 22 20:44:17 2026] 127.0.0.1:51390 Accepted\n[Thu Oct 22 20:44:17 2026] 127.0.0.1:51390 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:17 2026] 127.0.0.1:51390 Closing\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:63839 Accepted\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:63839 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:60721 Accepted\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:60721 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:63839 Closing\n[Thu Oct 22 20:44:18 2026] 127.0.0.1:60721 Closing\n[Thu Oct 22 20:44:20 2026] 127.0.0.1:51867 Accepted\n[Thu Oct 22 20:44:20 2026] 127.0.0.1:51867 Closing\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:63705 Accepted\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:63705 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:63705 Closing\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:64517 Accepted\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:53492 Accepted\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:64517 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:53492 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:64517 Closing\n[Thu Oct 22 20:44:21 2026] 127.0.0.1:53492 Closing\n[Thu Oct 22 20:44:23 2026] 127.0.0.1:50948 Accepted\n[Thu Oct 22 20:44:23 2026] 127.0.0.1:50948 Closing\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55261 Accepted\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55261 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55261 Closing\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55814 Accepted\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55814 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:57427 Accepted\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:57427 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:55814 Closing\n[Thu Oct 22 20:44:24 2026] 127.0.0.1:57427 Closing\n[Thu Oct 22 20:44:26 2026] 127.0.0.1:65065 Accepted\n[Thu Oct 22 20:44:27 2026] 127.0.0.1:65065 Closing\n[Thu Oct 22 20:44:27 2026] 127.0.0.1:57306 Accepted\n[Thu Oct 22 20:44:28 2026] 127.0.0.1:57306 Closing\n[Thu Oct 22 20:44:28 2026] 127.0.0.1:64476 Accepted\n[Thu Oct 22 20:44:28 2026] 127.0.0.1:64476 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:28 2026] 127.0.0.1:64476 Closing\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:52085 Accepted\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:52085 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:52085 Closing\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:59176 Accepted\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:59176 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:55656 Accepted\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:55656 [200]: GET /wp-content/themes/vibelab/assets/cover-pico.svg\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:59176 Closing\n[Thu Oct 22 20:44:29 2026] 127.0.0.1:55656 Closing\n[Thu Oct 22 20:44:31 2026] 127.0.0.1:60131 Accepted\n[Thu Oct 22 20:44:32 2026] 127.0.0.1:60131 Closing\n[Thu Oct 22 20:44:32 2026] 127.0.0.1:62078 Accepted\n[Thu Oct 22 20:44:32 2026] 127.0.0.1:62078 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:32 2026] 127.0.0.1:62078 Closing\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:58434 Accepted\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:58434 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:50625 Accepted\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:51867 Accepted\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:50625 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:51867 [200]: GET /wp-content/themes/vibelab/assets/cover-pico.svg\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:58434 Closing\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:50625 Closing\n[Thu Oct 22 20:44:33 2026] 127.0.0.1:51867 Closing\n[Thu Oct 22 20:44:35 2026] 127.0.0.1:56015 Accepted\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:56015 Closing\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:56121 Accepted\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:56121 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:56121 Closing\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:54478 Accepted\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:64346 Accepted\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:54478 [200]: GET /wp-content/themes/vibelab/assets/cover-astro.svg\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:64346 [200]: GET /wp-content/themes/vibelab/assets/cover-mdn.svg\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:50097 Accepted\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:50097 [200]: GET /wp-content/themes/vibelab/assets/cover-pico.svg\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:54478 Closing\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:64346 Closing\n[Thu Oct 22 20:44:36 2026] 127.0.0.1:50097 Closing\n[Thu Oct 22 20:44:38 2026] 127.0.0.1:60859 Accepted\n[Thu Oct 22 20:44:38 2026] 127.0.0.1:60859 Closing\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:59849 Accepted\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:59849 Closing\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55475 Accepted\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55475 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55475 Closing\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55508 Accepted\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55508 [200]: GET /wp-content/themes/vibelab/assets/cover-web-basics.svg\n[Thu Oct 22 20:44:39 2026] 127.0.0.1:55508 Closing\n[Thu Oct 22 20:44:42 2026] 127.0.0.1:51867 Accepted\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:51867 Closing\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:55090 Accepted\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:55090 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:55090 Closing\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:51326 Accepted\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:51326 [200]: GET /wp-content/themes/vibelab/assets/cover-web-basics.svg\n[Thu Oct 22 20:44:43 2026] 127.0.0.1:51326 Closing\n[Thu Oct 22 20:44:45 2026] 127.0.0.1:55459 Accepted\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:55459 Closing\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:63974 Accepted\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:63974 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:63974 Closing\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:58496 Accepted\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:58496 [200]: GET /wp-content/themes/vibelab/assets/cover-web-basics.svg\n[Thu Oct 22 20:44:46 2026] 127.0.0.1:58496 Closing\n[Thu Oct 22 20:44:48 2026] 127.0.0.1:63365 Accepted\n[Thu Oct 22 20:44:49 2026] 127.0.0.1:63365 Closing\n[Thu Oct 22 20:44:49 2026] 127.0.0.1:62743 Accepted\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:62743 Closing\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:61921 Accepted\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:61921 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:53820 Accepted\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:53820 [200]: GET /wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:61921 Closing\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:53820 Closing\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:63891 Accepted\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:63891 [200]: GET /wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0\n[Thu Oct 22 20:44:50 2026] 127.0.0.1:63891 Closing\n[Thu Oct 22 20:44:52 2026] 127.0.0.1:60855 Accepted\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:60855 Closing\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:50768 Accepted\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:50768 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:62922 Accepted\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:62922 [200]: GET /wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:50768 Closing\n[Thu Oct 22 20:44:53 2026] 127.0.0.1:62922 Closing\n[Thu Oct 22 20:44:54 2026] 127.0.0.1:50800 Accepted\n[Thu Oct 22 20:44:54 2026] 127.0.0.1:50800 [200]: GET /wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0\n[Thu Oct 22 20:44:54 2026] 127.0.0.1:50800 Closing\n[Thu Oct 22 20:44:56 2026] 127.0.0.1:57835 Accepted\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:57835 Closing\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51109 Accepted\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51109 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.0\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51109 Closing\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:56255 Accepted\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:56255 [200]: GET /wp-content/themes/vibelab/assets/lesson.css?ver=0.7.0\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:56255 Closing\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51944 Accepted\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51944 [200]: GET /wp-content/themes/vibelab/assets/lesson.js?ver=0.7.0\n[Thu Oct 22 20:44:57 2026] 127.0.0.1:51944 Closing\n"
+}

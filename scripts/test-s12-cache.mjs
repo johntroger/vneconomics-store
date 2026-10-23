@@ -8,7 +8,7 @@ import {themeEvidence,pluginEvidence} from './theme-evidence.mjs';
 const {chromium,request}=await import(pathToFileURL(join(homedir(),'.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs')).href);
 const browserEnv={...process.env};
 const {startSite}=await import('./local-runtime.mjs');
-const evidence=resolve('docs/acceptance/S12');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});
+const evidence=resolve(process.argv.includes('--s13')?'docs/acceptance/S13/S12-regression':'docs/acceptance/S12');mkdirSync(evidence,{recursive:true});mkdirSync('tmp/tests',{recursive:true});
 const fixture=mkdtempSync(resolve('tmp/tests/s12-')),base='http://127.0.0.1:19412';
 const protectedFiles=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-config.php'];
 const hashes=()=>protectedFiles.map(p=>createHash('sha256').update(readFileSync(p)).digest('hex'));

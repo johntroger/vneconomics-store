@@ -1,0 +1,9 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: both lock families admit exactly one simultaneous contender without replacing owner\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-native-performance.mjs:18:32)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-native-performance.mjs:57:2\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "checks": [
+    "native PHP extensions available",
+    "same integrated content set native"
+  ],
+  "metrics": [],
+  "logs": ""
+}

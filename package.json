@@ -35,7 +35,19 @@
     "test:support-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09 --s10 --s11",
     "test:cache": "node scripts/run-clean.mjs script scripts/test-s12-cache.mjs",
     "test:cache-revisions-regression": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs --s11 --s12",
-    "test:cache-support-regression": "node scripts/run-clean.mjs script scripts/test-s11-support.mjs --s12"
+    "test:cache-support-regression": "node scripts/run-clean.mjs script scripts/test-s11-support.mjs --s12",
+    "test:acceptance": "node scripts/run-clean.mjs script scripts/test-s13-integrated.mjs",
+    "dev:s13": "node scripts/run-clean.mjs script scripts/dev-s13.mjs",
+    "test:acceptance-revisions-regression": "node scripts/run-clean.mjs script scripts/test-s05-revisions.mjs --s13 --s11",
+    "test:acceptance-search-regression": "node scripts/run-clean.mjs script scripts/test-s09-search.mjs --s13 --s10",
+    "test:acceptance-lesson-regression": "node scripts/run-clean.mjs script scripts/test-s10-lesson.mjs --s13 ",
+    "test:acceptance-support-regression": "node scripts/run-clean.mjs script scripts/test-s11-support.mjs --s13 ",
+    "test:acceptance-cache-regression": "node scripts/run-clean.mjs script scripts/test-s12-cache.mjs --s13 ",
+    "test:acceptance-home-regression": "node scripts/run-clean.mjs script scripts/test-s06-theme.mjs --s09 --s10 --s11 --s13",
+    "test:acceptance-postflight": "node scripts/run-clean.mjs script scripts/postflight-s13.mjs",
+    "test:acceptance-native-performance": "node scripts/run-clean.mjs script scripts/test-s13-native-performance.mjs",
+    "test:acceptance-lock-race": "node scripts/run-clean.mjs script scripts/test-s13-native-performance.mjs --lock-probe-only",
+    "test:acceptance-functional": "node scripts/run-clean.mjs script scripts/test-s13-integrated.mjs --functional-only"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

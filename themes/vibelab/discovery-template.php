@@ -44,6 +44,7 @@ foreach($rows as $row){$category=$row['term'];$url=!$state['finder']&&!$guideSco
 <button class="button filter-open" type="button" hidden>Bộ lọc<?php echo $filterCount?' ('.$filterCount.')':''; ?></button>
 <form class="discovery-sort" method="get" action="<?php echo esc_url(home_url('/')); ?>"><?php vibelab_find_hidden($state,array('sort')); ?><label for="discovery-sort">Sắp xếp</label><select id="discovery-sort" name="sort">
 <?php $sorts=array('name'=>'Tên A–Z','name_desc'=>'Tên Z–A','observed'=>'Đối chiếu nguồn gần nhất');if($state['s']!==''){$sorts=array('relevance'=>'Phù hợp từ khóa')+$sorts;}foreach($sorts as $value=>$name){ ?><option value="<?php echo esc_attr($value); ?>" <?php selected($state['sort'],$value); ?>><?php echo esc_html($name); ?></option><?php } ?></select><button type="submit">Sắp xếp</button></form></div>
+<?php vibelab_inline_enhancement('discovery'); ?>
 <div class="discovery-chips" aria-label="Tiêu chí đang áp dụng">
 <?php if($state['s']!==''){ ?><a href="<?php echo esc_url(vibelab_find_url($state,array('s'=>''))); ?>" aria-label="<?php echo esc_attr('Bỏ từ khóa '.$state['s']); ?>">Từ khóa: <?php echo esc_html($state['s']); ?> <span aria-hidden="true">×</span></a><?php } ?>
 <?php if($state['category']!==''&&$term instanceof WP_Term){ ?><a href="<?php echo esc_url(vibelab_find_url($state,array('category'=>''))); ?>" aria-label="<?php echo esc_attr('Bỏ danh mục '.$term->name); ?>"><?php echo esc_html($term->name); ?> <span aria-hidden="true">×</span></a><?php } ?>

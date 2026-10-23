@@ -2,7 +2,7 @@
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
-Trạng thái: S12 PASS kỹ thuật local ngày 22/10/2026; chờ chủ dự án duyệt S13. S13 trở đi chưa được phép bắt đầu; cache hosting chờ S15.
+Trạng thái: S13 đang thực hiện theo phê duyệt của chủ dự án ngày 22/10/2026. Chưa nghiệm thu đủ S13; chủ dự án sẽ trực tiếp thử website. S14 trở đi chưa được phép bắt đầu; hosting chờ S15.
 Dự án: VneconomicsStore, không sửa dự án Facebook đang dùng chung phiên làm việc.
 
 ## 1. Nguyên tắc bắt buộc
@@ -103,7 +103,7 @@ nhỏ và xin duyệt phạm vi mới trước khi làm thêm.
 | S10. Hướng dẫn thực hành | Template bước/checklist, OS/version, copy lệnh, điều kiện, lỗi/khôi phục và bài liên quan | Bài mẫu từ môi trường mới; lệnh đúng OS/revision, dấu hiệu thành công; cảnh báo dependency; không trộn nhiều OS | Một luồng thực hành đạt checklist; không khẳng định tác vụ đã xong chỉ từ click/copy |
 | S11. Báo lỗi và trang hỗ trợ | Form theo resource, chống spam tối thiểu, trạng thái gửi, chính sách/giới thiệu/tiêu chí/FAQ có nội dung thật | Input không hợp lệ, giới hạn/spam, output escape, không yêu cầu bí mật; form thành công/thất bại bằng lưu cục bộ/mock | Luồng nhận báo lỗi được chọn rõ; không tự gửi email/dịch vụ ngoài chỉ để thử |
 | S12. Cache và tính nhất quán | Cơ chế làm mới view/plugin ở local; checklist purge cho tầng hosting được xác định; bảo vệ preview/BYOK | Làm nóng cache rồi đổi/thu hồi/cảnh báo, thử lỗi purge và phục hồi; thẻ/detail/API/guide thống nhất | Cơ chế local đạt; phần cache hosting ghi chờ S15, không báo đã kiểm tra server thật |
-| S13. Nghiệm thu tích hợp local A | Seed nội dung đã duyệt trong scope; kiểm tra end-to-end, hiệu năng, accessibility/SEO tối thiểu | Hai nhánh vào chi tiết/mở repo, search/filter/guide/report; quyền/revision/state/cache regression; mobile/bàn phím; lab LCP/CLS theo plan | Báo cáo local A, thử người mới trên bản đã xây và bằng chứng sửa lỗi; còn chờ hosting S15 |
+| S13. Nghiệm thu tích hợp local A | Seed nội dung đã duyệt trong scope; kiểm tra end-to-end, hiệu năng, accessibility/SEO tối thiểu | Hai nhánh vào chi tiết/mở repo, search/filter/guide/report; quyền/revision/state/cache regression; mobile/bàn phím; lab LCP/CLS theo plan | Báo cáo local A, chủ dự án thử trên bản đã xây theo quyết định 22/10/2026 và bằng chứng sửa lỗi; còn chờ hosting S15 |
 | S14. Gói phát hành và dry-run | Build theme/plugin từ commit, manifest/cặp phiên bản, kiểm tra CI phù hợp và allowlist file | Gói tái tạo từ ref; không DB/uploads/config/key/tooling; diễn tập lỗi một gói bằng fixture/dry-run, chưa push nhánh deploy live | Artifact và checklist phát hành/rollback để duyệt, không đổi Plesk target |
 | S15. Staging PHP/MySQL thật | Khi có quyền và bạn duyệt riêng bước này: backup staging, deploy plugin rồi xác nhận, sau đó theme; activation/migration | Version/health từng gói, smoke và ca tích hợp quan trọng; cache thật; plugin chậm/lỗi/theme lỗi; backup/restore có bằng chứng | Nghiệm thu staging, bằng chứng tương thích và gói khôi phục; không đổi production |
 | S16. Phát hành production | Chỉ khi bạn duyệt cụ thể ref, payload, đích và thời điểm: backup production, phát hành theo cổng 13.1 | Backup/khôi phục sẵn sàng, plugin version/health đạt mới theme; đọc/CTA/form/cache smoke không phá dữ liệu; lỗi thì dừng/rollback theo kế hoạch | Kết quả live, ref/manifest và bằng chứng; dừng chờ duyệt mọi công việc tiếp theo |
@@ -113,11 +113,7 @@ bằng chứng vẫn giữ nhãn; không phát minh demo hay test-run cho kịp 
 cài công cụ/gọi API trả phí để làm bài mẫu, phạm vi/chi phí cần được cho phép riêng
 trước thao tác đó. Thương hiệu dài hạn không bắt buộc chốt để làm prototype có nhãn.
 
-S13 còn yêu cầu người mới hoàn toàn thử trên bản đã xây (không chỉ prototype S02):
-tìm/chọn tài nguyên và chuẩn bị/thực hành tới checklist, ghi trợ giúp và sửa/thử lại
-lỗi phát hiện. Nếu chưa có người thử, phần này CHƯA KIỂM CHỨNG và chưa nghiệm thu đủ
-S13 để sang phát hành. Tuyển/mời người thử do chủ dự án điều phối hoặc cho phép riêng;
-không tự nhắn tin cho người khác. Kết quả máy tự động không thay thế việc này.
+Cập nhật theo quyết định của chủ dự án ngày 22/10/2026: S13 không bắt buộc tuyển người mới; chủ dự án sẽ trực tiếp thử website đã xây và báo lỗi để sửa. Kiểm thử máy không thay cho việc chủ dự án xem/thử; chưa có phản hồi không phải phê duyệt hoặc cho phép S14. Kết quả này không được gọi là nghiên cứu usability với người mới hoàn toàn.
 
 S15/S16 là thao tác ngoài local, cần quyền thực tế và sự đồng ý cho đúng bước.
 Nếu chưa có staging hoặc không khảo sát được hosting, các bước đó BLOCKED; không
@@ -163,7 +159,8 @@ B04; tài liệu hiện tại không tạo automation.
 - S09: PASS kỹ thuật local ngày 21/10/2026;74 kiểm tra +28 fixture,20 truy vấn; hồi quy S07 46/23, S08 55/19, S06 59 PASS. [Báo cáo](acceptance/S09-search-and-filters.vi.md), [hợp đồng](S09-search-contract.vi.md). Chủ dự án đã duyệt S10 ngày 22/10/2026.
 - S10: PASS kỹ thuật local ngày 22/10/2026; 55 kiểm tra + hai luồng PowerShell; hồi quy S09 74/28, S08 55/19, S07 46/23, S06 59 PASS; 31 file runtime khớp source, dữ liệu gốc/cleanup/ports đạt. [Báo cáo](acceptance/S10-guided-practice.vi.md), [hợp đồng](S10-lesson-contract.vi.md). Chưa thử cài/đăng nhập Windows sạch hoặc phiên AI mới; chủ dự án đã duyệt S11 ngày 22/10/2026.
 - S11: PASS kỹ thuật local ngày 22/10/2026; 61 UI/HTTP +37 backend; hồi quy S05 gồm S03/S04, S08 55/19, S10 55 +hai shell, S06 59 PASS. 35 file theme/9 file PHP plugin khớp source; hash gốc/cleanup/cổng test đạt. [Báo cáo](acceptance/S11-reports-and-support.vi.md), [hợp đồng](S11-reports-support-contract.vi.md). Chưa gửi thư/deploy; chủ dự án đã duyệt S12 ngày 22/10/2026.
-- S12: PASS kỹ thuật local ngày 22/10/2026; 225 kiểm tra; hồi quy S05 (69 model/265 state, ma trận 54, 50 revision + UI/race/restart) và S11 (61 UI/37 backend) PASS. 35 file theme/10 PHP plugin khớp source; dữ liệu gốc, bằng chứng cũ, cleanup/cổng test đạt. [Báo cáo](acceptance/S12-cache-and-consistency.vi.md), [hợp đồng](S12-cache-contract.vi.md). Bypass/503 và phục hồi có quyền/nonce; hosting chờ S15, BYOK chưa xây. Dừng trước S13.
-- S13–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
+- S12: PASS kỹ thuật local ngày 22/10/2026; 225 kiểm tra; hồi quy S05 (69 model/265 state, ma trận 54, 50 revision + UI/race/restart) và S11 (61 UI/37 backend) PASS. 35 file theme/10 PHP plugin khớp source; dữ liệu gốc, bằng chứng cũ, cleanup/cổng test đạt. [Báo cáo](acceptance/S12-cache-and-consistency.vi.md), [hợp đồng](S12-cache-contract.vi.md). Bypass/503 và phục hồi có quyền/nonce; hosting chờ S15, BYOK chưa xây. Chủ dự án đã cho phép S13.
+- S13: đã chuẩn bị nội dung bản nghiệm thu riêng; tích hợp/SEO/mobile/bàn phím và hồi quy S05/S06/S09/S10/S11 đạt trên plugin 0.4.2. Hồi quy S12 đạt 225 kiểm tra; hậu kiểm hash/bảo toàn/cleanup đạt; lần đo lại native ngày 23/10 đạt LCP/CLS 12/12 (LCP1200–2308ms), giữ lượt thất bại LCP3016ms để truy vết; chưa nghiệm thu toàn bộ, chờ chủ dự án thử. [Kịch bản](S13-owner-review.vi.md). Theo quyết định ngày 22/10/2026, chủ dự án trực tiếp thử và báo lỗi; không cần tuyển người mới. Chờ phản hồi, không tự chuyển S14.
+- S14–S16, B01–B04, U01–U04: CHƯA BẮT ĐẦU, chưa được phép triển khai.
 - S02 chỉ thêm prototype tĩnh/runner UI/nội dung mẫu; chưa tạo backend theme/plugin, automation hoặc nhánh deploy.
-- Đã hoàn tất kiểm thử kỹ thuật local S12; dừng chờ chủ dự án duyệt S13. Chưa deploy.
+- Đang thực hiện S13. Chưa deploy; không thay nhánh main/release, hosting hoặc dịch vụ AI trả phí.

@@ -25,11 +25,21 @@ function vne_library_canonical_value($value) {
 function vne_library_approved_revision($id) {
     return hash('sha256',wp_json_encode(vne_library_canonical_value(array('generation'=>(int)get_post_meta($id,'_vne_content_generation',true),'slug'=>get_post_field('post_name',$id),'payload'=>vne_library_editorial_snapshot($id))),JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES));
 }
+
+// add_option() can UPSERT after a concurrent existence check. A lock must never replace its owner.
+function vne_library_lock_insert($name,$token) {
+    global $wpdb;
+    $created=$wpdb->query($wpdb->prepare("INSERT IGNORE INTO `{$wpdb->options}` (`option_name`,`option_value`,`autoload`) VALUES (%s,%s,'no')",$name,$token));
+    wp_cache_delete($name,'options');
+    wp_cache_delete('notoptions','options');
+    return $created===1;
+}
+
 function vne_library_content_lock_key($id) { return 'vne_content_lock_'.(int)$id; }
 function vne_library_content_transaction($id,$callback) {
     global $wpdb;
     $key=vne_library_content_lock_key($id);$token=wp_generate_uuid4();
-    if (!add_option($key,$token,'',false)) { return vne_library_error('Nội dung đang được xử lý; tải lại rồi đối chiếu phiên bản.',409); }
+    if (!vne_library_lock_insert($key,$token)) { return vne_library_error('Nội dung đang được xử lý; tải lại rồi đối chiếu phiên bản.',409); }
     $started=false;
     try {
         clean_post_cache($id);

@@ -11,7 +11,7 @@ const liveFiles=['.local/site/wp-content/database/.ht.sqlite','.local/site/wp-co
 const hashes=()=>liveFiles.map(p=>createHash('sha256').update(readFileSync(p)).digest('hex'));
 const before=hashes(),password=randomBytes(24).toString('hex');
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/s05-'));
-const evidence=resolve(process.argv.includes('--s12')?'docs/acceptance/S12/S05-regression':process.argv.includes('--s11')?'docs/acceptance/S11/S05-regression':'docs/acceptance/S05');mkdirSync(evidence,{recursive:true});
+const evidence=resolve(process.argv.includes('--s13')?'docs/acceptance/S13/S05-regression':process.argv.includes('--s12')?'docs/acceptance/S12/S05-regression':process.argv.includes('--s11')?'docs/acceptance/S11/S05-regression':'docs/acceptance/S05');mkdirSync(evidence,{recursive:true});
 const deadline=setTimeout(()=>{console.error('FAIL S05 exceeded 1200 seconds');process.exit(1);},1200000);deadline.unref();
 let app,browser;const base='http://127.0.0.1:19405';
 async function php(code){let r;try{r=await app.playground.run({code});}catch(e){throw new Error(e.response?new TextDecoder().decode(Uint8Array.from(Object.values(e.response.bytes))):e.message);}assert.equal(r.errors,'');assert.equal(r.exitCode,0,r.text);return r.text;}

@@ -1,0 +1,47 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: resource desktop language/title/main/h1\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:16:28)\n    at audit (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:30:2)\n    at async file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:57:184",
+  "checks": [
+    "six approved resources and five-piece lesson cluster",
+    "seed rerun retains ids and does not duplicate/overwrite",
+    "home desktop language/title/main/h1",
+    "home desktop visible controls named and image alt present",
+    "home desktop no horizontal page overflow",
+    "home desktop one canonical and description",
+    "home contains six catalog cards",
+    "repo action distinct from internal detail",
+    "repo CTA opens correct URL in new tab (intercepted, no upstream request)",
+    "repo target has no opener",
+    "internal card opens exact resource detail"
+  ],
+  "performance": [],
+  "audits": [
+    {
+      "label": "home desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource desktop",
+      "lang": "vi",
+      "h1": 0,
+      "main": 0,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    }
+  ]
+}
