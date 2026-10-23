@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày 23/10/2026. **CHỜ THÔNG TIN/TRUY CẬP — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày 23/10/2026. **Đã có staging và thông báo hoàn tất restore từ Plesk; DNS/hậu kiểm/deploy còn chờ — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 ## Đã kiểm tra
 
@@ -12,14 +12,67 @@ Ngày 23/10/2026. **CHỜ THÔNG TIN/TRUY CẬP — chưa nghiệm thu S15.** Ch
 
 ## Chưa chạy
 
-Khảo sát PHP/MySQL/extensions/quota/cache thật; backup/restore; tạo hoặc xác minh staging; deploy/kích hoạt/migration plugin/theme; smoke/tích hợp/quyền/khóa/trạng thái/cache trên hosting; lỗi/timeout/restore từng gói. Tất cả **CHƯA KIỂM THỬ**, không ghi PASS từ bằng chứng local.
+Khảo sát extensions/quota/cache thật và hành vi plugin trên MariaDB; hậu kiểm nội dung/file/website sau restore; deploy/kích hoạt/migration plugin/theme; smoke/tích hợp/quyền/khóa/trạng thái/cache trên hosting; lỗi/timeout/restore từng gói S14. Các phần này **CHƯA KIỂM THỬ**, không ghi PASS từ bằng chứng local hoặc chỉ từ thông báo restore thành công.
 
 ## Đầu vào đang chờ
 
-Đã hỏi chủ dự án URL quản trị Plesk và URL staging nếu có; nếu chưa có, xác nhận “chưa tạo”. Không yêu cầu mật khẩu/API key qua chat. Sau khi có đích và cách truy cập, tiếp tục chính S15 đã được phép, xác định tách biệt production và backup trước thay đổi.
+Chủ dự án đã cung cấp URL `https://s88d13.cloudnetwork.vn:8443/smb/web/view`. Đã mở bằng trình duyệt trong ứng dụng; Plesk chuyển tới trang đăng nhập, chưa có phiên xác thực. Tab được giữ để chủ dự án tự đăng nhập; không yêu cầu mật khẩu/API key qua chat. Sau khi đăng nhập, tiếp tục chính S15 đã được phép để xác định staging, sự tách biệt production và backup trước thay đổi. Chưa xác định URL/document root/database staging.
+
+### Cập nhật sau khi chủ dự án tạo clone
+
+Chủ dự án dùng đăng nhập tự động từ nhà cung cấp trong Microsoft Edge; inventory và thử kết nối không cho agent truy cập phiên Edge. Đang hỗ trợ bằng ảnh và thao tác của chủ dự án, không yêu cầu chuyển cookie/token.
+
+Ảnh Clone hiển thị source `store.vneconomics.com`, đích tạo subdomain mới và database tên tự sinh. Đã hướng dẫn chọn `staging-store.vneconomics.com`, để clone path trống; chủ dự án báo “đã xong”. Đây là xác nhận thao tác từ chủ dự án, chưa phải kiểm chứng file/database đích hoặc backup/restore.
+
+Kiểm tra truy cập công khai: trình duyệt trả `ERR_NAME_NOT_RESOLVED`. DNS NS của `vneconomics.com` là `ns1.matbao.com`/`ns2.matbao.com`; truy vấn A cho `staging-store.vneconomics.com` qua resolver máy và trực tiếp `ns1.matbao.com` đều trả tên không tồn tại. `store.vneconomics.com` hiện có A `103.138.88.13`. Cần thêm bản ghi DNS cho staging ở nơi quản lý DNS Mắt Bão và xác minh lại. Chủ dự án báo chưa sửa được DNS; chưa cài gói S14 hoặc đổi production.
+
+### Bằng chứng staging, backup và restore do chủ dự án thao tác
+
+- Thẻ Plesk xác nhận domain `staging-store.vneconomics.com`, WordPress 7.1.3/PHP 8.3.36; Search engine indexing ở trạng thái tắt trước backup. Giao diện ghi No certificate. Đây là thông tin từ ảnh, chưa chứng minh HTTPS/noindex qua HTTP hoặc MySQL thực tế.
+- Đã tạo backup tên `staging-store.vneconomics.com__2026-10-23T11_02_11+0700.zip` lúc 11:02:11 ngày 23/10/2026; WP Toolkit hiển thị 77 MB, File Manager hiển thị 77.5 MB. Chưa có hash archive hoặc xác nhận tải bản sao xuống máy.
+- Hộp thoại restore hiển thị bản 11:02:11 và tùy chọn Delete existing data before restoring. Đã giải thích tác động thay dữ liệu staging; chủ dự án thực hiện.
+- [Ảnh kết quả](S15/plesk-staging-restore-completed.png), do chủ dự án cung cấp lúc 11:13:30, có thông báo xanh: site đã được restored về trạng thái 2026-10-23 11:02:11. Tên hiển thị WordPress vẫn là `store.vneconomics` do clone giữ tên; domain staging đã được xác định ở thẻ trước đó, tên archive cũng là staging.
+- Kết luận giới hạn: **Plesk báo thao tác restore hoàn tất**. Chưa kiểm tra nội dung/database/file sau phục hồi; không coi đây là backup/restore được nghiệm thu đầy đủ hoặc S15 PASS.
+
+### Hậu kiểm read-only qua WP-CLI của staging
+
+Ảnh chủ dự án cung cấp sau restore xác nhận:
+
+- `option get home`: `https://staging-store.vneconomics.com`, exit code 0.
+- `option get blog_public`: `0`, exit code 0; xác nhận cấu hình backend tắt lập chỉ mục, chưa thay kiểm tra robots/noindex trên HTTP.
+- `db query "SELECT VERSION() AS db_version;"`: exit code 1 do hosting vô hiệu hóa `proc_open`/`proc_close`. Không thay cấu hình hoặc yêu cầu bật các hàm này.
+- Dùng kết nối WordPress hiện có: `eval 'global $wpdb; echo $wpdb->get_var("SELECT VERSION() AS db_version"), PHP_EOL;'`: kết quả `10.6.22-MariaDB-cll-lve`, exit code 0. Xác nhận đọc được MariaDB thật sau restore; không chứng minh truy vấn nghiệp vụ, mutex, transaction hoặc migration của plugin S14 đã đạt.
+
+Bằng chứng: [URL/noindex và giới hạn subprocess](S15/plesk-staging-cli-options.png), [MariaDB VERSION qua wpdb](S15/plesk-staging-cli-mariadb.png). Chưa có đối chiếu nội dung/file với archive backup; không nâng kết quả thành nghiệm thu toàn bộ restore/S15.
+
+### Nội dung và cặp phiên bản nền sau restore
+
+Chủ dự án dán đầu ra ba lệnh read-only trên WP-CLI staging, cả ba exit code 0:
+
+- `post list --post_type=post,page --post_status=publish --fields=ID,post_type,post_title --format=table`: 14 mục công khai gồm 3 bài (95, 92, 1) và 11 trang (87, 84, 81, 78, 71, 67, 7, 8, 9, 10, 2). Bài tin tài chính/crypto, trang About/Home/Shop/Cart/Checkout/My account và các trang tiếng Việt là dữ liệu clone. Đã đọc được nội dung từ DB sau restore; chưa so với archive và chưa có seed nội dung S13/S14.
+- `plugin list --fields=name,status,version --format=table`: active `ai-provider-for-anthropic` 1.0.3, `visa-acceptance-solutions` 2.1.0, `woocommerce` 10.5.1; inactive `akismet` 5.6 và `hello` 1.7.2; must-use `wp-toolkit` 6.11.6-10889; dropin `maintenance.php` không có version. Chưa có `vne-library-core`. Không yêu cầu thử dịch vụ AI/thanh toán hoặc bật hàm subprocess để khảo sát.
+- `theme list --fields=name,status,version --format=table`: active `astra` 4.12.0; inactive `coba-theme` 1.0, `twentytwentyfive` 1.4, `twentytwentyfour` 1.4, `twentytwentythree` 1.6. Chưa có `vibelab`.
+
+Cặp trung gian thực tế cần kiểm chứng là plugin VNE 0.4.2 + Astra 4.12.0, khác cặp theme VibeLab 0.6.0 đã thử ở S14 local. Không tự coi cặp này đã tương thích. DNS authoritative `ns1.matbao.com` được đọc lại sau danh sách theme vẫn trả tên staging không tồn tại; tiếp tục chuẩn bị read-only qua Plesk, chưa deploy gói hoặc mở cổng theme.
+
+### Đường dẫn và môi trường PHP qua CLI
+
+Chủ dự án gửi kết quả `eval` chỉ đọc, exit code 0:
+
+- ABSPATH: `/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/`.
+- Database: `vne35060_wp_udx1z`. Chưa có đối chiếu DB_NAME của source để chứng nhận độc lập database chỉ từ tên này.
+- PHP CLI 8.3.36; `mysqli`, `curl`, `ZipArchive`: true.
+- `WP_CACHE`: false; `wp_using_ext_object_cache()`: null. Đây là kết quả CLI, chưa đủ loại trừ cache proxy/CDN/OPcache hoặc drop-in ở luồng HTTP.
+
+[Ảnh File Manager lúc 11:58:58](S15/plesk-staging-wp-content.png) xác nhận breadcrumb `Home directory > staging-store.vneconomics.com > wp-content`, có `plugins`, `themes`, `mu-plugins`, `uploads`, `maintenance.php` và các thư mục WordPress khác. Đích thành phần đã xác định:
+
+- Plugin: `/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/wp-content/plugins/vne-library-core/`.
+- Theme: `/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/wp-content/themes/vibelab/`.
+
+Đọc lại DNS authoritative sau ảnh 11:58:58 vẫn trả tên staging không tồn tại. Hai ZIP S14 còn nguyên tại thư mục artifact; chưa upload/giải nén/kích hoạt. Không yêu cầu thêm ảnh thư mục con chỉ để lặp việc xác định đích. Triển khai và smoke HTTP/HTTPS vẫn chờ DNS/chứng chỉ, rồi mở cổng plugin trước theme theo S15.
 
 ## Bảo toàn và cleanup
 
-Lượt chuẩn bị chỉ đọc hồ sơ/inventory/hash và viết tài liệu này, chưa tạo fixture/cache kiểm thử, chưa sửa file/database hosting, chưa upload hoặc gọi API có phí. Giữ nguyên ZIP/manifest, database local, nguồn và bằng chứng S13/S14. Preview S13 đang chạy được giữ; cache của tiến trình đang hoạt động sẽ dọn khi dừng. Không có deploy hoặc thay production.
+Agent chỉ đọc hồ sơ/inventory/hash và lưu tài liệu/ảnh bằng chứng; các thao tác clone/backup/restore staging được chủ dự án thực hiện trong Edge. Chưa tạo fixture/cache kiểm thử mới, chưa upload gói S14 hoặc gọi API có phí. Giữ nguyên backup thật trên hosting, ảnh gốc, ZIP/manifest, database local, nguồn và bằng chứng S13/S14. Preview S13 đang chạy được giữ; cache của tiến trình đang hoạt động sẽ dọn khi dừng. Chưa có deploy gói S14 hoặc thay production.
 
 Không chuyển S16. Kết quả S15 vẫn chờ quyền thực tế/đích staging theo kế hoạch gated; không coi phần chuẩn bị là hoàn thành S15.
