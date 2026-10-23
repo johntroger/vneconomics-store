@@ -1,6 +1,8 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày 23/10/2026. **Đã có staging và thông báo hoàn tất restore từ Plesk; DNS/hậu kiểm/deploy còn chờ — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày 23/10/2026. **Plugin 0.4.2/schema 3 đã cài và kích hoạt trên staging; 22 kiểm tra backend MariaDB đạt, cleanup đạt. DNS/HTTPS, HTTP/cache và cổng theme còn chờ — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+
+Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
 ## Đã kiểm tra
 
@@ -76,3 +78,33 @@ Chủ dự án gửi kết quả `eval` chỉ đọc, exit code 0:
 Agent chỉ đọc hồ sơ/inventory/hash và lưu tài liệu/ảnh bằng chứng; các thao tác clone/backup/restore staging được chủ dự án thực hiện trong Edge. Chưa tạo fixture/cache kiểm thử mới, chưa upload gói S14 hoặc gọi API có phí. Giữ nguyên backup thật trên hosting, ảnh gốc, ZIP/manifest, database local, nguồn và bằng chứng S13/S14. Preview S13 đang chạy được giữ; cache của tiến trình đang hoạt động sẽ dọn khi dừng. Chưa có deploy gói S14 hoặc thay production.
 
 Không chuyển S16. Kết quả S15 vẫn chờ quyền thực tế/đích staging theo kế hoạch gated; không coi phần chuẩn bị là hoàn thành S15.
+
+## Chuẩn bị kiểm tra backend chủ động khi chờ DNS
+
+Chủ dự án cho phép chủ động tiếp tục S15 và chỉ hỏi việc quan trọng; đồng thời đã cung cấp cổng Mắt Bão. Đã mở đúng trang dịch vụ trong trình duyệt ứng dụng, chuyển tới trang đăng nhập Mắt Bão chính thức. Phiên Edge chưa truy cập được; đang chờ chủ dự án tự đăng nhập trong tab ứng dụng. Không yêu cầu mật khẩu/OTP/token trong chat, không sao chép cookie.
+
+Đã tạo bộ audit read-only và plugin ZIP S14 thành một gói tooling ngoài web root để giảm chép lệnh tay. Tham chiếu phần công cụ của [hợp đồng S15](../S15-staging-contract.vi.md). Không thêm gói theme hoặc thay mã plugin/theme.
+
+- `npm run test:staging-tools`: **24 PASS local**; target root/database/home/siteurl/noindex, manifest/ZIP bị sửa, file plugin thiếu/thừa/thay đổi, path traversal, chặn chạy trực tiếp không có WP-CLI; hai build giống byte và giải ZIP bằng PowerShell độc lập; lint/guard fixture backend; hash database/config local giữ nguyên. [Bằng chứng](S15/audit-tool-local-tests.json).
+- `npm run build:staging-tools`: giữ gói `artifacts/staging/594ccd9a7de812a49f2c0d8260d20cbfced71752/s15-plugin-preflight.zip`, SHA256 `e70b9c4fba2faf3957a5d38995affc42ac82e754df7de9d1d5b9fe0c85092cd0`. Plugin bên trong vẫn SHA256 S14 `2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5`.
+- Cả hai lệnh qua run-clean; fixture/cache mới đã dọn sau exit. Đây là kiểm thử guard/hash của công cụ, **không phải** WordPress/MariaDB integration hoặc S15 hosting PASS.
+- Tại thời điểm chuẩn bị công cụ chưa upload/chạy trên hosting; kết quả thực hiện sau đăng nhập ở mục sau.
+
+## Kết quả thực hiện trực tiếp trên hosting sau đăng nhập
+
+Chủ dự án đã đăng nhập Mắt Bão trong trình duyệt ứng dụng; phiên tự đăng nhập Plesk dùng được. Xác minh domain staging ID 319, root `/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/`, DB `vne35060_wp_udx1z`; danh sách Plesk ánh xạ source store tới DB riêng `vne35060_wp_kmqnf`. Không đổi source/production.
+
+- Upload và giải nén tooling vào Home `/s15-release`, ngoài các document root; không ghi đè file có sẵn. Audit xác minh manifest và ZIP pin đúng SHA256 trước cài đặt.
+- Cài plugin từ ZIP S14, audit `INSTALLED_NOT_ACTIVE` kiểm đủ 10 file; kích hoạt thành công. Audit tiếp theo `ACTIVE_PLUGIN_OBSERVED`: version 0.4.2, schema 3, không thiếu/thừa/thay file. Astra 4.12.0 giữ nguyên. Chưa upload/kích hoạt VibeLab.
+- REST dispatch nội bộ PHP: anonymous đọc danh mục 200, context edit 403, ghi 401. Header qua `rest_post_dispatch` có `private, no-store, no-cache, must-revalidate, max-age=0` và `VNE-Cache-Policy: bypass`. Đây không phải lượt HTTP thật hoặc chứng nhận cache proxy/CDN.
+- Probe SQL với option có UUID: 6 kết quả true gồm insert đầu, từ chối insert thứ hai, bảo toàn chủ khóa, rollback, commit, cleanup. Hai insert chạy tuần tự, chưa chứng minh cạnh tranh từ hai tiến trình.
+- Fixture `scripts/fixtures/s15-backend-probe.php`, SHA256 `b80b44cad063b7faf29350784a6257b79970381008649d2865ca28c5553abae3`, chạy trên MariaDB thật: **22 kiểm tra PASS**, failure null. Gồm InnoDB posts/postmeta/options; quyền admin/anonymous; tạo và sửa một draft; revision thay đổi; stale base 409 giữ dữ liệu; payload sai không đổi revision; trạng thái suspended không nâng validation; theme và bài/trang cũ giữ nguyên; xóa fixture/meta/khóa. Chặn HTTP và mail trong riêng tiến trình kiểm thử; không gọi AI/thanh toán, không seed hoặc xuất bản.
+- Hậu kiểm độc lập: `fixturePostsAndRevisionsRemaining = 0`, `probeOptionsRemaining = 0`, theme `astra`, schema 3; exit code 0. Các lệnh kiểm thử đóng xong, fixture đã dọn. Giữ backup thật và tooling phục vụ S15.
+
+Bằng chứng: [nhật ký WP-CLI](S15/hosting-cli-plugin-log.txt), [JSON trích từ nhật ký](S15/hosting-backend-results.json), [ảnh hậu kiểm](S15/hosting-backend-cleanup.jpg). Tooling local đã kiểm thử qua run-clean; fixture/cache của các lượt đó được dọn. Preview local đã dừng và cache đúng lượt preview đã dọn, database local giữ nguyên.
+
+## Phần còn mở và quyết định DNS
+
+Form Mắt Bão đã chuẩn bị **một** bản ghi A `staging-store` → `103.138.88.13`, TTL mặc định; 10 bản ghi hiện có được giữ nguyên. [Ảnh đề xuất](S15/dns-staging-proposal.jpg). Chưa bấm Thêm bản ghi: câu trả lời “tôi chưa sửa được DNS” chưa phải đồng ý rõ ràng cho thay đổi này, đã hỏi xác nhận cụ thể để agent thao tác giúp.
+
+S15 còn thiếu DNS/chứng chỉ và kiểm thử HTTP/HTTPS; khảo sát quota/cache và purge thật; cạnh tranh đồng thời; health/cặp Astra đầy đủ trước mở cổng theme; triển khai VibeLab và smoke UI; các ca lỗi/chậm/timeout/khôi phục từng gói và hậu kiểm restore đầy đủ. Không suy kết quả backend thành S15 PASS. Không bắt đầu S16.

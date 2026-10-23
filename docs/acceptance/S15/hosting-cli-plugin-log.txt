@@ -1,0 +1,258 @@
+WP-CLIWP-CLI commands executed here will directly affect your WordPress site, bypassing WP Toolkit GUI. To see these changes in WP Toolkit GUI, click Refresh in the top right corner of the site card or wait until the installation cache is refreshed automatically.Learn more about running WP-CLI in WP ToolkitCommandwpEnvironment variablesEnvironment variables  Add one more# wp eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php
+{
+    "status": "READY_FOR_PLUGIN_INSTALL",
+    "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+    },
+    "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+    "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+    },
+    "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+    },
+    "plugin": {
+        "active": false,
+        "runtimeVersion": null,
+        "schema": null,
+        "files": {
+            "present": false,
+            "hashesMatch": false,
+            "missing": [],
+            "unexpected": [],
+            "changed": []
+        }
+    },
+    "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+    },
+    "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+    ]
+}
+
+
+< exit code: 0 >
+# wp plugin install /var/www/vhosts/vneconomics.com/s15-release/plugin.zip
+Unpacking the package...
+Installing the plugin...
+Plugin installed successfully.
+Success: Installed 1 of 1 plugins.
+
+
+< exit code: 0 >
+# wp eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php
+{
+    "status": "INSTALLED_NOT_ACTIVE",
+    "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+    },
+    "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+    "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+    },
+    "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+    },
+    "plugin": {
+        "active": false,
+        "runtimeVersion": null,
+        "schema": null,
+        "files": {
+            "present": true,
+            "hashesMatch": true,
+            "missing": [],
+            "unexpected": [],
+            "changed": []
+        }
+    },
+    "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+    },
+    "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+    ]
+}
+
+
+< exit code: 0 >
+# wp plugin activate vne-library-core
+Plugin 'vne-library-core' activated.
+Success: Activated 1 of 1 plugins.
+
+
+< exit code: 0 >
+# wp eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php
+{
+    "status": "ACTIVE_PLUGIN_OBSERVED",
+    "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+    },
+    "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+    "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+    },
+    "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+    },
+    "plugin": {
+        "active": true,
+        "runtimeVersion": "0.4.2",
+        "schema": "3",
+        "files": {
+            "present": true,
+            "hashesMatch": true,
+            "missing": [],
+            "unexpected": [],
+            "changed": []
+        }
+    },
+    "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+    },
+    "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+    ]
+}
+
+
+< exit code: 0 >
+# wp eval $actor=get_current_user_id(); wp_set_current_user(0); $out=array(); foreach(array("public"=>array("GET",false),"private_edit"=>array("GET",true),"anonymous_write"=>array("POST",false)) as $label=>$case){$r=new WP_REST_Request($case[0],"/vne-library/v1/items"); if($case[1])$r->set_param("context","edit"); $response=rest_do_request($r); $response=apply_filters("rest_post_dispatch",$response,rest_get_server(),$r); $out[$label]=array("status"=>$response->get_status(),"headers"=>$response->get_headers());} wp_set_current_user($actor); echo wp_json_encode($out,JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES),PHP_EOL;
+{
+    "public": {
+        "status": 200,
+        "headers": {
+            "Allow": "GET",
+            "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+            "VNE-Cache-Policy": "bypass"
+        }
+    },
+    "private_edit": {
+        "status": 403,
+        "headers": {
+            "Allow": "GET",
+            "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+            "VNE-Cache-Policy": "bypass"
+        }
+    },
+    "anonymous_write": {
+        "status": 401,
+        "headers": {
+            "Allow": "GET",
+            "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+            "VNE-Cache-Policy": "bypass"
+        }
+    }
+}
+
+
+< exit code: 0 >
+# wp eval global $wpdb; if(get_option("home")!=="https://staging-store.vneconomics.com" || DB_NAME!=="vne35060_wp_udx1z"){WP_CLI::error("Wrong staging target");} $key="vne_s15_probe_".wp_generate_uuid4(); $owned=false; $transaction=false; $out=array(); try{$owned=vne_library_lock_insert($key,"s15-owner-a"); if(!$owned)throw new Exception("Probe lock unavailable"); $out["firstInsert"]=true; $out["secondInsertRejected"]=!vne_library_lock_insert($key,"s15-owner-b"); $read=function()use($wpdb,$key){return $wpdb->get_var($wpdb->prepare("SELECT option_value FROM {$wpdb->options} WHERE option_name=%s",$key));}; $out["ownerPreserved"]=$read()==="s15-owner-a"; $transaction=$wpdb->query("START TRANSACTION")!==false; if(!$transaction)throw new Exception("Transaction unavailable"); $wpdb->query($wpdb->prepare("UPDATE {$wpdb->options} SET option_value=%s WHERE option_name=%s","s15-rollback",$key)); $wpdb->query("ROLLBACK"); $transaction=false; $out["rollbackRestoresValue"]=$read()==="s15-owner-a"; $transaction=$wpdb->query("START TRANSACTION")!==false; if(!$transaction)throw new Exception("Transaction unavailable"); $wpdb->query($wpdb->prepare("UPDATE {$wpdb->options} SET option_value=%s WHERE option_name=%s","s15-commit",$key)); $wpdb->query("COMMIT"); $transaction=false; $out["commitPersistsValue"]=$read()==="s15-commit";}finally{if($transaction)$wpdb->query("ROLLBACK"); if($owned){$wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name=%s AND option_value IN (%s,%s,%s)",$key,"s15-owner-a","s15-rollback","s15-commit")); $out["cleanup"]=!$wpdb->get_var($wpdb->prepare("SELECT option_name FROM {$wpdb->options} WHERE option_name=%s",$key));}} echo wp_json_encode($out,JSON_PRETTY_PRINT),PHP_EOL; if(in_array(false,$out,true))WP_CLI::error("Probe failed");
+{
+    "firstInsert": true,
+    "secondInsertRejected": true,
+    "ownerPreserved": true,
+    "rollbackRestoresValue": true,
+    "commitPersistsValue": true,
+    "cleanup": true
+}
+
+
+< exit code: 0 >
+# wp eval echo hash_file("sha256","/var/www/vhosts/vneconomics.com/s15-release/s15-backend-probe.php"),PHP_EOL;
+b80b44cad063b7faf29350784a6257b79970381008649d2865ca28c5553abae3
+
+
+< exit code: 0 >
+# wp eval-file /var/www/vhosts/vneconomics.com/s15-release/s15-backend-probe.php
+{
+    "status": "PASS_STAGING_BACKEND_DRAFT",
+    "plugin": "0.4.2",
+    "schema": 3,
+    "theme": "astra",
+    "checks": [
+        "InnoDB table: ujycnUe_posts",
+        "InnoDB table: ujycnUe_postmeta",
+        "InnoDB table: ujycnUe_options",
+        "existing administrator available",
+        "administrator plugin capabilities",
+        "draft saved through plugin on MariaDB",
+        "approved revision generated",
+        "anonymous cannot read draft",
+        "anonymous cannot change draft",
+        "approved-base update persisted",
+        "revision changes after update",
+        "stale base rejected with 409",
+        "stale write leaves approved data unchanged",
+        "invalid payload rolls back without revision change",
+        "state saved and read back",
+        "state does not promote validation",
+        "active theme preserved",
+        "fixture post and core revisions deleted",
+        "fixture postmeta removed",
+        "fixture content lock released",
+        "existing posts/pages unchanged",
+        "theme unchanged after cleanup"
+    ],
+    "failure": null,
+    "limits": [
+        "One draft only, no publication or seed",
+        "No parallel contender, HTTP/HTTPS, proxy cache or theme certification"
+    ]
+}
+
+
+< exit code: 0 >
+# wp eval global $wpdb; $posts=$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_title LIKE %s",$wpdb->esc_like("S15 disposable draft ")."%")); $options=$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name LIKE %s",$wpdb->esc_like("vne_s15_probe_")."%")); echo wp_json_encode(array("fixturePostsAndRevisionsRemaining"=>(int)$posts,"probeOptionsRemaining"=>(int)$options,"theme"=>get_stylesheet(),"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL;
+{
+    "fixturePostsAndRevisionsRemaining": 0,
+    "probeOptionsRemaining": 0,
+    "theme": "astra",
+    "schema": 3
+}
+
+
+< exit code: 0 >
+# Clear

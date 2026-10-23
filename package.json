@@ -51,7 +51,9 @@
     "build:release": "node scripts/run-clean.mjs script scripts/build-s14-release.mjs",
     "test:release": "node scripts/run-clean.mjs script scripts/test-s14-release.mjs",
     "test:release-runtime": "node scripts/run-clean.mjs script scripts/test-s14-runtime.mjs",
-    "test:release-postflight": "node scripts/run-clean.mjs script scripts/postflight-s14.mjs"
+    "test:release-postflight": "node scripts/run-clean.mjs script scripts/postflight-s14.mjs",
+    "build:staging-tools": "node scripts/run-clean.mjs script scripts/build-s15-bundle.mjs",
+    "test:staging-tools": "node scripts/run-clean.mjs script scripts/test-s15-bundle.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

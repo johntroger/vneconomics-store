@@ -1,0 +1,23 @@
+{
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "file": "s15-plugin-preflight.zip",
+  "sha256": "e70b9c4fba2faf3957a5d38995affc42ac82e754df7de9d1d5b9fe0c85092cd0",
+  "bytes": 124624,
+  "files": [
+    {
+      "path": "s15-release/audit.php",
+      "sha256": "97c4895f2e02f9c08eca9459b201a9be7ee1b1280686866a7d5c681e415c8c21"
+    },
+    {
+      "path": "s15-release/manifest.json",
+      "sha256": "985b5286324e301925abc0369ef0bc47ff8a2ea3c8252c6f569508da74b08a0c"
+    },
+    {
+      "path": "s15-release/plugin.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5"
+    }
+  ],
+  "purpose": "Private staging tooling; not part of theme/plugin payload; never production or web root",
+  "command": "eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php",
+  "hostingRun": "not yet run"
+}

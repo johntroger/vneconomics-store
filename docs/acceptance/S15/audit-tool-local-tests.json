@@ -1,0 +1,33 @@
+{
+  "status": "PASS_LOCAL_AUDIT_TOOL_ONLY",
+  "date": "2026-10-23T05:28:05.115Z",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "checks": [
+    "bundle rebuild identical",
+    "PHP syntax valid",
+    "extracted bytes s15-release/audit.php",
+    "extracted bytes s15-release/manifest.json",
+    "extracted bytes s15-release/plugin.zip",
+    "expected staging accepted",
+    "wrong target rejected: root",
+    "wrong target rejected: database",
+    "wrong target rejected: home",
+    "wrong target rejected: siteurl",
+    "indexable target rejected",
+    "release manifest and plugin hashes verified",
+    "truncated package rejected",
+    "changed manifest rejected",
+    "missing plugin observed without installation",
+    "installed bytes verified",
+    "changed installed file rejected",
+    "extra installed file rejected",
+    "missing installed file rejected",
+    "manifest traversal rejected",
+    "direct invocation without WP-CLI denied",
+    "backend fixture PHP syntax valid",
+    "backend fixture denied outside bootstrapped WP-CLI",
+    "original database/config unchanged"
+  ],
+  "bundleSha256": "e70b9c4fba2faf3957a5d38995affc42ac82e754df7de9d1d5b9fe0c85092cd0",
+  "limit": "Standalone PHP guard/hash checks and independent ZIP extraction, not WordPress/MariaDB integration or staging acceptance; cleanup by wrapper after exit"
+}

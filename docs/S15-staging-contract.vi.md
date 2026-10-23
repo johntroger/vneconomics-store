@@ -36,3 +36,17 @@ Thiếu các thông tin này thì dừng thao tác phụ thuộc, không thay b�
 - Dọn fixture/cache mới sau khi tiến trình/database đóng, giữ backup thật, gói phục hồi và bằng chứng. Không xóa toàn bộ tmp hoặc dựa vào tuổi file.
 
 Tham chiếu [checklist S14](S14-release-checklist.vi.md), [cache S12](S12-cache-contract.vi.md) và mục 13.1 của kế hoạch website. Báo cáo phải phân biệt đã chạy/PASS/FAIL/CHƯA KIỂM THỬ và dừng chờ duyệt bước kế tiếp sau S15.
+
+## Thực hiện chủ động và công cụ không phụ thuộc DNS
+
+Chủ dự án yêu cầu “làm đi, cái gì quan trọng hãy hỏi ý kiến”. Trong S15 đã duyệt, tiếp tục các thao tác chuẩn bị/kiểm tra và sửa lỗi thông thường mà không xin lại từng thao tác. Quyền này không mở S16, production, chi phí hoặc mở rộng quyền truy cập bảo mật. Hỏi khi thực sự thiếu dữ kiện/quyền hoặc có quyết định quan trọng ảnh hưởng ngoài phạm vi.
+
+DNS chưa hoạt động chỉ chặn kiểm tra qua tên miền/HTTPS; có thể chuẩn bị và kiểm tra backend qua WP-CLI, vẫn giữ cổng plugin trước theme và không suy kiểm tra CLI thành HTTP/cache PASS.
+
+Đã bổ sung tooling riêng: `scripts/fixtures/s15-audit.php`, `scripts/s15-bundle.mjs`, `scripts/build-s15-bundle.mjs`, `scripts/test-s15-bundle.mjs`. Gói nằm ở `artifacts/staging/<source_sha>/s15-plugin-preflight.zip`, chứa `s15-release/audit.php`, manifest S14 và `plugin.zip`. Gói này phải giải nén tại Home directory ngoài mọi web root, không ghép vào payload theme/plugin hoặc production. Chỉ có plugin ZIP, chưa có theme để tránh vượt cổng.
+
+Audit chạy bằng `eval-file /var/www/vhosts/vneconomics.com/s15-release/audit.php` trong WP-CLI staging: chặn sai root/database/home/siteurl hoặc indexing bật; xác minh SHA256 manifest/ZIP được pin; đối chiếu từng file plugin nếu đã cài; đọc version/schema/theme và metadata môi trường. Không tự cài, kích hoạt, ghi nội dung, purge, đổi quyền, chạy subprocess, mail hoặc gọi mạng. Kết quả `ACTIVE_PLUGIN_OBSERVED` chỉ là quan sát version/schema/hash, không mở cổng theme hoặc chứng nhận tương thích Astra.
+
+`npm run test:staging-tools` và `npm run build:staging-tools` qua run-clean, tuần tự. Kiểm thử helper là standalone PHP/ZIP trên local, không thay kiểm thử MariaDB/WordPress hosting. Bằng chứng local và artifact được giữ; fixture/cache mới được dọn sau exit.
+
+Fixture backend `scripts/fixtures/s15-backend-probe.php` chạy qua `eval-file` sau khi xác minh hash trên đúng staging và plugin/schema. Guard root/database/home/noindex; chỉ tạo một draft có marker UUID, dùng admin hiện có trong tiến trình, chặn HTTP/mail và khôi phục actor/filter khi thoát. Finally chỉ dọn draft do lượt chạy tạo, revision/meta/khóa tương ứng; đối chiếu bài/trang và theme trước/sau. Không seed, publish hoặc tạo user; không thay kiểm thử HTTP, cache thật, chạy đồng thời hay nghiệm thu theme.
