@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP ban đầu và 178 điểm hậu phục hồi đạt; cache 503/phục hồi và cleanup đạt. Responsive hosting đạt 12 bố cục và menu/search/bộ lọc. Diễn tập restore file/DB từ backup mới đã đạt, giữ cả 3 backup thật. Còn LCP/CLS, diễn tập lỗi/chậm/timeout/rollback thành phần và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. Tổng 556 điểm HTTP/102 request của runner đạt, gồm hồi quy lặp; cache 503/phục hồi, lỗi/timeout theo request và cleanup đạt. Responsive đạt 12 bố cục; 12 phép đo Lighthouse mobile thành công đạt LCP/CLS, giữ cả hai lần PageSpeed chưa trả metric. Restore file/DB thật và diễn tập file rollback riêng đã đạt, giữ 3 backup. Còn rollback theme đang active, lỗi activation của gói thật và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
@@ -236,3 +236,38 @@ Hậu kiểm độc lập:
 - Reload giao diện anonymous:trang chủ đúngVibeLab,6thẻ,consoleerror0. [UI](S15/restore-ui-results.json), [ảnhtrangchủ](S15/restored-home.jpg). Bộ kiểm tra UI đầu dùng optionlevel chưa hỗ trợ khiến selector không duy nhất; sửa sang h1 DOM, không sửa website.
 
 Tổng cộng các lượt HTTP thành công được giữ hiện **532điểm/93request**, gồm các lượt trước và178điểm hồi quy lặp saurestore; không phải532ca khác nhau.3backup thật,tooling ngoàiwebroot,artifact,nội dung/journal được giữ. Không đổi production/DNS/SSL/quyền truy cập. Diễn tập phục hồi ứng viên24/10 đạt trong môi trườngstaging đã duyệt; chưa khẳng định tương thích mọi tình huống lỗi/chậm/timeout/rollbacktừngthànhphần hoặc LCP/CLS. S15 vẫn đang thực hiện, chưa chuyểnS16; phản hồi trải nghiệm chủ dự án còn chờ.
+
+## Hiệu năng Lighthouse trên staging thật, ngày 24/10/2026
+
+Đo qua giao diện PageSpeed Insights, không dùng API trả phí hoặc tài khoản mới. Google Lighthouse 13.5.0, Moto G Power giả lập, Slow 4G, initial page load, HeadlessChromium 153.0.8010.36. Đây là profile riêng được báo cáo công khai trong từng kết quả; không tuyên bố cùng cấu hình Edge/390x844/RTT40ms của S13 local. Không có field data/INP hoặc kiểm chứng điện thoại vật lý.
+
+| Trang | LCP từng lượt thành công (ms) | CLS | Performance từng lượt |
+|---|---|---|---|
+| Home | 1442; 1398; 1410 | 0; 0; 0 | 100; 93; 100 |
+| Catalog | 1384; 1385; 1399 | 0; 0; 0 | 99; 99; 97 |
+| Astro detail | 1401; 1404; 1377 | 0; 0; 0 | 99; 99; 94 |
+| Mộc Studio lesson | 1400; 1393; 1444 | 0; 0; 0 | 99; 99; 94 |
+
+**12 báo cáo khác nhau có metric đều đạt LCP <=2500ms và CLS <=0.1.** Giữ từng lượt, không dùng trung bình che kết quả. [JSON tổng hợp và liên kết báo cáo](S15/pagespeed-results.json), [ảnh metric lượt home cuối](S15/pagespeed-home-final-metrics.jpg). Ảnh/text từng lượt giữ trong S15 với tên pagespeed-{page}-{run}.
+
+Home lượt 2 PageSpeed báo unable-to-resolve; lượt thử lại 3 vẫn ở lỗi, không có metric mới. Giữ [lỗi lượt2](S15/pagespeed-home-2-failed.txt), [ảnh](S15/pagespeed-home-2-failed.jpg) và [lượt3](S15/pagespeed-home-3-failed.txt), không tính thành phép đo đạt. Tab mới sau đó có kết quả home lượt4 và5. Không kết luận hai lỗi này là outage của staging hoặc đã chẩn đoán DNS toàn hệ thống; các trang cùng origin vẫn có báo cáo và HTTP runner hoạt động. Tổng có 12 báo cáo metric hợp lệ sau các lần thử, không gọi là 12 lần thử liên tiếp đều thành công.
+
+Speed Index thay đổi **1996–6679ms**, điểm performance93–100; giữ cả các lượt hoàn thiện hình ảnh chậm. Không suy LCP/CLS đạt thành mọi yếu tố tải trang đều nhanh. Accessibility/Best Practices của Lighthouse đạt100 trong 12 báo cáo, chỉ là kiểm tra tự động; không thay nghiệm thu thủ công. SEO66–69 có audit blocked from indexing đúng noindex của staging; không gỡ noindex để nâng điểm. Một lần đọc tab lesson timeout đã đọc lại được cùng báo cáo, không tạo hoặc tính thêm phép đo.
+
+## Diễn tập file và lỗi/timeout HTTP theo request
+
+Đã bổ sung [cổng triển khai thủ công](../S15-deployment-gate.vi.md): xác nhận bằng UI + runtime/schema/hash + smoke; hạn chờ cài từng thành phần được chọn300giây, thiếu/lỗi/quá hạn thì dừng bước sau. Đây chưa phải watchdog Plesk được chứng nhận hoặc tự động hóa triển khai.
+
+Helper `s15-file-rollback.php` qua77kiểm tra local với gói S14 thật, guard path/ownership, bảo toàn DB/config, cleanup đạt. Hash helper `d1e3fef8dd47fc283f72274d0cf0acff39b011104f4094549a5892e5840db40f` được đối chiếu trước khi chạy hosting. Lấy46file từ backup thật đã diễn tập; mọi file hỏng/thừa nằm trong thư mục UUID mới ngoàiwebroot. Hosting đạt15kiểm tra parser/hash/gate/khôi phục toàn cây; có delay thực120.204ms vượt ngân sách diễn tập50ms. File thừa biến mất sau restore,46file live và hash nội dung/meta/journal không đổi; thư mục thử còn0. [Local](S15/file-rollback-local-tests.json), [hosting](S15/file-rollback-hosting-results.json), [hậu kiểm](S15/file-rollback-postflight.json), [cleanup](S15/file-rollback-cleanup.json). Không dùng kết quả này thay lỗi theme active hoặc timeoutHTTP.
+
+Đã bổ sung fixture HTTP có phạm vi hẹp, chỉ request mang dấu ngẫu nhiên đúng đường dẫn GET API mới bị tác động. Template đã qua12kiểm tra local và pin SHA256 `dc63ca30f6870c546df67482e1c85baa6b3d97592e94877c69b5ccaae567fd7b`; root/DB/noindex/CLI/method/path/token/expiry đều có guard. Lượt local đầu harness nối thừa PHP open tag, thất bại trước logic fixture; sửa thành include file riêng để return có đúng phạm vi, chạy lại đạt/cleanup đạt. [Tool local](S15/http-fault-tool-local-tests.json).
+
+Fixture UUID `8a859a46-8d93-45f7-bb2e-c565d0a107d3` có thời hạn10phút, cài qua WP-CLI với ownership/exclusive files, không đổi active_plugins trongDB. Trong riêng request thử, chặn mail/HTTP ngoài; token không lưu trong Git hoặc báo cáo. Ba chế độ: bỏ VNE khỏi active_plugins của riêng request; exception tại plugins_loaded; và delay2giây. **12 kiểm tra/6 request thật đạt**: ordinary200, token sai200, thiếuplugin404, lỗi500, client timeout772ms với deadline750ms; sau đó ordinary200/no-store/bypass. Không thực hiện cập nhật theme khi nhận lỗi/mất xác nhận; runner không phải một hệ deploy có quyền cập nhậttheme nên không chứng nhận cổng tự động. [HTTP](S15/http-fault-results.json).
+
+Client timeout không hủy server. Log shutdown riêng đã ghi đủ ba request kết thúc; ca missing chưa nạp VNE, ca error/slow đã nạp. Chỉ sau khi có đủ event mới dọn đúng MU file/log/registry. Config phiên local cũng đã xóa; không còn option chứa UUID, recovery key, MU fixture hoặc log tạm. Active plugins/theme/schema,46file phát hành và hash nội dung/meta/journal giữ nguyên; không có cacheincident. [Shutdown](S15/http-fault-observation.json), [cleanup](S15/http-fault-cleanup.json), [hậu kiểm](S15/http-fault-postflight.json), [residue](S15/http-fault-residue.json).
+
+Hồi quy sau gỡ fixture: home/API/hỗ trợ **12 kiểm tra/3 request đạt**, đều200/no-store/bypass kể cả conditionalheaders. [Kết quả riêng](S15/after-fault-http-results.json), [ảnh home](S15/after-fault-home.jpg). Các lượt chạy tuần tự qua run-clean,exit0,cleanup đạt. Source helper/template ngoàiwebroot được giữ như tooling, không phải fixture runtime; không đổi payload plugin/theme S14.
+
+Tổng runnerHTTP thành công hiện **556 điểm/102 request**, gồm hồi quy lặp (532+12+12). Không tính traffic nội bộ Lighthouse vào số request này. Ba backup thật, dữ liệu đã duyệt, artifact và bằng chứng được giữ. Không sửa production/DNS/SSL/ref triển khai, không bật automation hoặc gọi API trả phí.
+
+**S15 chưa nghiệm thu toàn bước:** đã có metric staging và ca plugin-load failure/client timeout thực trong phạm vi request; còn lỗi activation của chính gói phát hành và rollback theme đang active. Muốn cố ý gây gián đoạn staging cần chuẩn bị/công bố phạm vi và xin quyết định quan trọng theo yêu cầu chủ dự án; không tự làm từ một fixture fail. Đã gửi yêu cầu chủ dự án thử tìm tài nguyên/chi tiết/bài Mộc Studio; chưa có phản hồi không phải phê duyệt trải nghiệm. Không chuyểnS16.

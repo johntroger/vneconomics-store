@@ -56,7 +56,10 @@
     "test:staging-tools": "node scripts/run-clean.mjs script scripts/test-s15-bundle.mjs",
     "test:staging-public": "node scripts/run-clean.mjs script scripts/test-s15-public-http.mjs",
     "build:staging-content": "node scripts/run-clean.mjs script scripts/build-s15-content.mjs",
-    "test:staging-content": "node scripts/run-clean.mjs script scripts/test-s15-content-http.mjs"
+    "test:staging-content": "node scripts/run-clean.mjs script scripts/test-s15-content-http.mjs",
+    "test:staging-rollback-tools": "node scripts/run-clean.mjs script scripts/test-s15-file-rollback.mjs",
+    "test:staging-http-fault-tools": "node scripts/run-clean.mjs script scripts/test-s15-http-fault-tools.mjs",
+    "test:staging-http-fault": "node scripts/run-clean.mjs script scripts/test-s15-http-fault.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

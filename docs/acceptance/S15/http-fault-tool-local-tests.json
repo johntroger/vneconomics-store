@@ -1,0 +1,21 @@
+{
+  "status": "PASS_LOCAL_HTTP_FAULT_TOOL",
+  "observedAt": "2026-10-24T03:41:47.323Z",
+  "templateSha256": "dc63ca30f6870c546df67482e1c85baa6b3d97592e94877c69b5ccaae567fd7b",
+  "checks": [
+    "missing scoped behavior and shutdown ownership",
+    "error scoped behavior and shutdown ownership",
+    "slow scoped behavior and shutdown ownership",
+    "unsigned scoped behavior and shutdown ownership",
+    "wrong-token scoped behavior and shutdown ownership",
+    "expired scoped behavior and shutdown ownership",
+    "wrong-path scoped behavior and shutdown ownership",
+    "wrong-root scoped behavior and shutdown ownership",
+    "wrong-db scoped behavior and shutdown ownership",
+    "indexable scoped behavior and shutdown ownership",
+    "cli scoped behavior and shutdown ownership",
+    "wrong-method scoped behavior and shutdown ownership"
+  ],
+  "initialHarnessFailure": "First local harness concatenated an extra PHP open tag. It failed before executing fixture logic; run-clean passed. Fixed by requiring a separate fixture file so guard returns are scoped correctly.",
+  "limit": "Stubbed WordPress hook contract only; actual HTTP behavior must be observed on staging"
+}

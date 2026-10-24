@@ -1,0 +1,65 @@
+{
+  "status": "PASS_SCOPED_STAGING_HTTP_FAULTS",
+  "observedAt": "2026-10-24T03:43:53.164Z",
+  "checks": [
+    "ordinary API stays healthy with fixture installed",
+    "ordinary API returns items",
+    "invalid probe token cannot trigger failure",
+    "request-scoped missing plugin removes its REST route",
+    "missing plugin does not leak a fatal trace",
+    "injected plugin-load error gives HTTP failure",
+    "injected exception detail not public",
+    "client deadline expires before slow request acknowledgement",
+    "ordinary API healthy after failed and timed-out probes",
+    "recovered API no-store",
+    "recovered API bypass",
+    "fixture state absent from public items"
+  ],
+  "requests": [
+    {
+      "mode": "ordinary",
+      "status": 200,
+      "ms": 3046,
+      "body": "[{\"id\":113,\"post_type\":\"vne_resource\",\"title\":\"Pico CSS\",\"content\":\"<h2>T\\u00e0i nguy\\u00ean n\\u00e0y gi\\u00fap g\\u00ec?<\\/h2><p>Tham kh\\u1ea3o CSS t\\u1ed1i gi\\u1ea3n; \\u0111\\u1ecdc t\\u00ecnh tr\\u1ea1ng duy tr\\u00ec tr\\u01b0\\u1edbc khi d\\u00f9ng.<\\/p><h2>Tr\\u01b0\\u1edbc khi d\\u00f9ng<\\/h2><p>\\u0110\\u00e2y l\\u00e0 gi\\u1edbi thi\\u1ec7u bi\\u00ean t\\u1eadp t\\u1eeb ngu\\u1ed3n \\u0111\\u00e3 quan s\\u00e1t ng\\u00e0y 19\\/10\\/2026. Ch\\u01b0a c\\u00e0i, ch\\u1ea1y th\\u1eed ho\\u1eb7c ki\\u1ec3m tra l\\u1ea1i ngu\\u1ed3n trong S13. Nh\\u1eefng y\\u00eau c\\u1ea7u, chi ph\\u00ed, gi\\u1ea5y ph\\u00e9p v\\u00e0 m\\u1ee9c t\\u01b0\\u01a1ng th\\u00edch ch\\u01b0a \\u0111\\u01b0\\u1ee3c x\\u00e1c minh v\\u1eabn \\u0111\\u01b0\\u1ee3c ghi l\\u00e0 ch\\u01b0a r\\u00f5.<\\/p><h2>C\\u00e1ch ti\\u1ebfp c\\u1eadn cho ng\\u01b0\\u1eddi m\\u1edbi<\\/h2><p>\\u0110\\u1ecdc README v\\u00e0 y\\u00eau c\\u1ea7u t\\u1ea1i repo tr\\u01b0\\u1edbc khi t\\u1ea3i hay ch\\u1ea1y l\\u1ec7nh. V\\u1edbi b\\u00e0i \\u0111\\u1ea7u, d\\u00f9ng b\\u00e0i landing page M\\u1ed9c Studio"
+    },
+    {
+      "mode": "error",
+      "status": 200,
+      "ms": 564,
+      "body": "[{\"id\":113,\"post_type\":\"vne_resource\",\"title\":\"Pico CSS\",\"content\":\"<h2>T\\u00e0i nguy\\u00ean n\\u00e0y gi\\u00fap g\\u00ec?<\\/h2><p>Tham kh\\u1ea3o CSS t\\u1ed1i gi\\u1ea3n; \\u0111\\u1ecdc t\\u00ecnh tr\\u1ea1ng duy tr\\u00ec tr\\u01b0\\u1edbc khi d\\u00f9ng.<\\/p><h2>Tr\\u01b0\\u1edbc khi d\\u00f9ng<\\/h2><p>\\u0110\\u00e2y l\\u00e0 gi\\u1edbi thi\\u1ec7u bi\\u00ean t\\u1eadp t\\u1eeb ngu\\u1ed3n \\u0111\\u00e3 quan s\\u00e1t ng\\u00e0y 19\\/10\\/2026. Ch\\u01b0a c\\u00e0i, ch\\u1ea1y th\\u1eed ho\\u1eb7c ki\\u1ec3m tra l\\u1ea1i ngu\\u1ed3n trong S13. Nh\\u1eefng y\\u00eau c\\u1ea7u, chi ph\\u00ed, gi\\u1ea5y ph\\u00e9p v\\u00e0 m\\u1ee9c t\\u01b0\\u01a1ng th\\u00edch ch\\u01b0a \\u0111\\u01b0\\u1ee3c x\\u00e1c minh v\\u1eabn \\u0111\\u01b0\\u1ee3c ghi l\\u00e0 ch\\u01b0a r\\u00f5.<\\/p><h2>C\\u00e1ch ti\\u1ebfp c\\u1eadn cho ng\\u01b0\\u1eddi m\\u1edbi<\\/h2><p>\\u0110\\u1ecdc README v\\u00e0 y\\u00eau c\\u1ea7u t\\u1ea1i repo tr\\u01b0\\u1edbc khi t\\u1ea3i hay ch\\u1ea1y l\\u1ec7nh. V\\u1edbi b\\u00e0i \\u0111\\u1ea7u, d\\u00f9ng b\\u00e0i landing page M\\u1ed9c Studio"
+    },
+    {
+      "mode": "missing",
+      "status": 404,
+      "ms": 586,
+      "body": "{\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
+    },
+    {
+      "mode": "error",
+      "status": 500,
+      "ms": 168,
+      "body": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<meta name='robots' content='noindex, nofollow' />\n\t<title>WordPress &rsaquo; Error</title>\n\t<style>\n\t\thtml {\n\t\t\tbackground: #f1f1f1;\n\t\t}\n\t\tbody {\n\t\t\tbackground: #fff;\n\t\t\tborder: 1px solid #ccd0d4;\n\t\t\tcolor: #444;\n\t\t\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;\n\t\t\tmargin: 2em auto;\n\t\t\tpadding: 1em 2em;\n\t\t\tmax-width: 700px;\n\t\t\t-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .04);\n\t\t\tbox-shadow: 0 1px 1px rgba(0, 0, 0, .04);\n\t\t}\n\t\th1 {\n\t\t\tborder-bottom: 1px solid #dadada;\n\t\t\tclear: both;\n\t\t\tcolor: #666;\n\t\t\tfont-size: 24px;\n\t\t\tmargin: 30px 0 0 0;\n\t\t\tpadding: 0;\n\t\t\tpadding-bottom: 7px;\n\t\t}\n\t\t#error-page {\n\t\t\tmargin-top: 50px;\n\t\t}\n\t\t#error-page p,\n\t\t#error-page .wp-die-message {\n\t\t\tfont-size: 14px;\n\t\t\tline-height: 1.5;\n\t\t\tmarg"
+    },
+    {
+      "mode": "slow",
+      "status": null,
+      "ms": 772,
+      "error": "TimeoutError"
+    },
+    {
+      "mode": "ordinary",
+      "status": 200,
+      "ms": 469,
+      "body": "[{\"id\":113,\"post_type\":\"vne_resource\",\"title\":\"Pico CSS\",\"content\":\"<h2>T\\u00e0i nguy\\u00ean n\\u00e0y gi\\u00fap g\\u00ec?<\\/h2><p>Tham kh\\u1ea3o CSS t\\u1ed1i gi\\u1ea3n; \\u0111\\u1ecdc t\\u00ecnh tr\\u1ea1ng duy tr\\u00ec tr\\u01b0\\u1edbc khi d\\u00f9ng.<\\/p><h2>Tr\\u01b0\\u1edbc khi d\\u00f9ng<\\/h2><p>\\u0110\\u00e2y l\\u00e0 gi\\u1edbi thi\\u1ec7u bi\\u00ean t\\u1eadp t\\u1eeb ngu\\u1ed3n \\u0111\\u00e3 quan s\\u00e1t ng\\u00e0y 19\\/10\\/2026. Ch\\u01b0a c\\u00e0i, ch\\u1ea1y th\\u1eed ho\\u1eb7c ki\\u1ec3m tra l\\u1ea1i ngu\\u1ed3n trong S13. Nh\\u1eefng y\\u00eau c\\u1ea7u, chi ph\\u00ed, gi\\u1ea5y ph\\u00e9p v\\u00e0 m\\u1ee9c t\\u01b0\\u01a1ng th\\u00edch ch\\u01b0a \\u0111\\u01b0\\u1ee3c x\\u00e1c minh v\\u1eabn \\u0111\\u01b0\\u1ee3c ghi l\\u00e0 ch\\u01b0a r\\u00f5.<\\/p><h2>C\\u00e1ch ti\\u1ebfp c\\u1eadn cho ng\\u01b0\\u1eddi m\\u1edbi<\\/h2><p>\\u0110\\u1ecdc README v\\u00e0 y\\u00eau c\\u1ea7u t\\u1ea1i repo tr\\u01b0\\u1edbc khi t\\u1ea3i hay ch\\u1ea1y l\\u1ec7nh. V\\u1edbi b\\u00e0i \\u0111\\u1ea7u, d\\u00f9ng b\\u00e0i landing page M\\u1ed9c Studio"
+    }
+  ],
+  "failure": null,
+  "themeAttempted": false,
+  "localSessionConfigRemoved": true,
+  "limits": [
+    "Temporary MU fixture targets only the exact API path and a random probe header",
+    "Exception is injected in plugins_loaded; candidate plugin files were not corrupted",
+    "Client timeout does not cancel or certify completion of the server request",
+    "Server shutdown log and cleanup verified separately; no production or theme update"
+  ]
+}

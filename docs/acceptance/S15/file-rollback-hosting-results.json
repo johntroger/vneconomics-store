@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "isolated candidate matches verified source",
+    "timely confirmation accepted",
+    "failed plugin confirmation blocks theme",
+    "missing acknowledgement blocks theme",
+    "truncated plugin raises PHP parser error",
+    "damaged plugin bytes block theme",
+    "theme unchanged while plugin gate blocked",
+    "real delayed acknowledgement exceeds 50ms rehearsal budget",
+    "expired unconfirmed observation fails closed",
+    "candidate restored after plugin corruption",
+    "truncated theme raises PHP parser error",
+    "partial theme transfer detected",
+    "whole-tree restore removes obsolete candidate file",
+    "whole-tree restore recovers every candidate hash",
+    "plugin remains in recovered candidate pair"
+  ],
+  "sourceFiles": 46,
+  "delayedAckMs": 120.204,
+  "cleanup": true,
+  "limits": [
+    "Isolated filesystem and PHP parser rehearsal, not a live plugin/theme outage",
+    "50ms budget and 120ms delay are rehearsal values; no hosting process or HTTP request was killed",
+    "Gate observations are injected; not a Plesk deployment watchdog certification"
+  ],
+  "liveReleaseFilesUnchanged": 46,
+  "databaseWrites": false,
+  "status": "PASS_ISOLATED_HOSTING_FILE_REHEARSAL"
+}

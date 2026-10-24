@@ -1,0 +1,15 @@
+{
+  "fixtureId": "8a859a46-8d93-45f7-bb2e-c565d0a107d3",
+  "completedModes": [
+    "error",
+    "missing",
+    "slow"
+  ],
+  "muRemoved": true,
+  "shutdownLogRemoved": true,
+  "registryRemoved": true,
+  "activePluginsUnchanged": true,
+  "theme": "vibelab",
+  "schema": "3",
+  "cacheIncident": false
+}
