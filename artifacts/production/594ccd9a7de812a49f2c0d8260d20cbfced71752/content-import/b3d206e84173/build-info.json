@@ -1,0 +1,24 @@
+{
+  "status": "PASS_PRODUCTION_IMPORT_TOOL_GUARDS",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "artifactDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\production\\594ccd9a7de812a49f2c0d8260d20cbfced71752\\content-import\\b3d206e84173",
+  "payloadSha256": "d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934",
+  "importerSha256": "b3d206e84173f41ccd956a668046a6bb2af5462a77c7d3feb093c0ceab2ba70d",
+  "zipSha256": "e4e113396b4b0bec2e98c34e0e91e5ad40b7b4687dd8045cbd64e8ff4df9394a",
+  "assertions": 14,
+  "checks": [
+    "approved payload bytes unchanged",
+    "pinned derived importer",
+    "production-only target/indexing guard",
+    "reject every wrong target field and staging",
+    "payload hash and recursive production links",
+    "unknown link refused",
+    "original post/page baseline guard",
+    "PHP syntax and direct entry denied"
+  ],
+  "limits": [
+    "No runtime WordPress mutation in builder",
+    "Production dry-run and readback required",
+    "CLI tooling only; no application payload changes"
+  ]
+}

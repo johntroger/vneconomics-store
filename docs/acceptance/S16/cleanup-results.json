@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-10-24T11:46:58.959Z",
+  "ownedLocalFixtureDirectories": [],
+  "runLockAbsent": true,
+  "stagingUploadPackage120Absent": true,
+  "productionTestPostsCreated": 0,
+  "approvedContentItemsKept": 11,
+  "importJournalKept": "vne_s16_content_import",
+  "realBackupsKept": {
+    "production": 2,
+    "staging": 3
+  },
+  "privateDeploymentToolingAndThemeConfigSnapshotsKept": true,
+  "siteHealthTextSecretQueryRedactions": 0,
+  "productionTheme": "vibelab0.7.1",
+  "stagingTheme": "vibelab0.7.1",
+  "releaseComplete": true,
+  "productionUploadPackage112Absent": true,
+  "productionRecoveryKeys": 0,
+  "releaseScope": "Functional/data/cache deployment verified; unresolved SiteHealth performance warning retained"
+}

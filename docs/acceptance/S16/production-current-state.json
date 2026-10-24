@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-10-24T11:44:32.879Z",
+  "status": "RELEASED_FUNCTIONAL_SMOKE_PASSED_WITH_PERFORMANCE_WARNING",
+  "sourceSha": "18a91ca0d5445479acd110e7886067e8fe5ab083",
+  "root": "/var/www/vhosts/vneconomics.com/store.vneconomics.com/",
+  "database": "vne35060_wp_kmqnf",
+  "theme": "vibelab",
+  "themeVersion": "0.7.1",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "pluginFiles": 10,
+  "pluginMismatches": [],
+  "originalRowsCount": 17,
+  "originalRowsHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+  "originalMetaHash": "b2c41ff0b1d420969c212540ed6f0cb21f6c6b8561804b84ec6c79a17a5eb9b2",
+  "activePlugins": [
+    "ai-provider-for-anthropic/plugin.php",
+    "visa-acceptance-solutions/visa-acceptance-solutions.php",
+    "vne-library-core/vne-library-core.php",
+    "woocommerce/woocommerce.php"
+  ],
+  "libraryCount": 11,
+  "menu16Items": 10,
+  "vibelabNavLocations": [],
+  "hposOrders": 0,
+  "uploadedPackage112Absent": true,
+  "indexing": "1",
+  "recoveryKeys": 0,
+  "themeAggregate": "b98707b50b78b4cfa7fea57f82d98da010466ee5dac63ada4965af7e20bcd5a5",
+  "themeFiles": 36,
+  "contentRowsHash": "d8507571df09e7c52b5636c78de7685525cb7ad90ccf52de51528995fb6e5d74",
+  "contentMetaHash": "5aacbe74b52871a062ae589acfcd5a0f7d9ce903fa3544ecafa1df8654c373f6",
+  "contentAndMetaUnchangedSinceBeforeActivation": true,
+  "consoleErrors": 0,
+  "siteHealth": {
+    "criticalPerformanceWarning": true,
+    "medianServerResponseMs": 994,
+    "pageCacheNotDetected": true
+  },
+  "releaseCompleteWithinApprovedFunctionalScope": true
+}

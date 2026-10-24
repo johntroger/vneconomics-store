@@ -1,0 +1,26 @@
+{
+  "status": "PASS_PINNED_LEGACY_FIX_PACKAGE",
+  "sourceSha": "18a91ca0d5445479acd110e7886067e8fe5ab083",
+  "baseSourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "artifactDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\production\\18a91ca0d5445479acd110e7886067e8fe5ab083\\release",
+  "changed": [
+    "vibelab/index.php",
+    "vibelab/style.css"
+  ],
+  "pluginSha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5",
+  "themeSha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215",
+  "manifestSha256": "7592d1b3229df217fbe00b9b1857c17fdd8c7e3b80a7f2ea0c431fb80c568008",
+  "themeFiles": 36,
+  "pluginFiles": 10,
+  "checks": [
+    "Git source allowlist",
+    "Only two theme files changed",
+    "Plugin ZIP identical to approved0.4.2",
+    "Version0.7.1",
+    "Existing output immutable"
+  ],
+  "limits": [
+    "Package hashes only; native runtime tested separately",
+    "Production0.7.1 not authorized by this builder"
+  ]
+}

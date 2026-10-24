@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Saigon",
+  "ownerStatement": "Đồng ý phát hành 0.7.1 ngay",
+  "sourceSha": "18a91ca0d5445479acd110e7886067e8fe5ab083",
+  "target": "https://store.vneconomics.com/",
+  "payload": "Only VibeLab0.7.1 theme",
+  "pluginRetained": "0.4.2",
+  "schemaRetained": 3,
+  "contentRetained": 11,
+  "backup": "store.vneconomics.com__2026-10-24T18_28_20+0700.zip",
+  "rollback": "Astra on failure, no DB copy or content reimport"
+}

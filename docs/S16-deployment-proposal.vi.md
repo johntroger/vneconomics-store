@@ -1,6 +1,8 @@
 # S16 — Phương án phát hành production để chốt
 
-Ngày24/10/2026. Chủ dự án yêu cầu “S16 — phát hành production” sau khi nghiệm thu S15 và đã duyệt đưa cả11mục nội dung lên production. Đã khảo sát và tạo backup production; **chưa cài/kích hoạt plugin/theme, nhập nội dung hoặc đổi cấu hình production**. Cổng còn lại là xác nhận cụ thể ref/payload/đích/thời điểm theo AGENTS.md và kế hoạch từng bước.
+Phương án lịch sử ngày24/10/2026. Chủ dự án yêu cầu “S16 — phát hành production” sau khi nghiệm thu S15 và duyệt đưa cả11mục nội dung lên production. Tài liệu giữ lại cả đề xuất ban đầu và đề xuất sửa lỗi để đối chiếu quyền; [báo cáo thực hiện](acceptance/S16-production.vi.md) là trạng thái hiện tại.
+
+**Cập nhật sau thực hiện:** phương án0.7.0 bên dưới đã được chủ dự án xác nhận “phát hành ngay”. Plugin/11mục đã đưa lên production; theme0.7.0 gặp lỗi hiển thị bài/trang cũ và đã quay về Astra. S16 chưa hoàn tất. [Báo cáo thực hiện](acceptance/S16-production.vi.md). Phương án mới0.7.1 chờ duyệt ở cuối tài liệu; không coi phần đề xuất lịch sử là trạng thái hiện tại.
 
 ## Ref, payload, đích và thời điểm đề xuất
 
@@ -38,3 +40,18 @@ CRC/structure không chứng minh restore production. Quy trình restore WPToolk
 6. Lỗi thì dừng/fix trong S16 và kiểm lại; kiểm thử/cleanup chưa đạt thì chưa nghiệm thu. Khi đạt, báo cáo kết quả live và dừng trước mọi bước mới. CIremote chưa chạy không được ghi GitHubActionsPASS; không bật automation/collector/BYOK từ phê duyệt phát hành này.
 
 Phương án được chuẩn bị để chủ dự án quyết định cụ thể; không phải xác nhận đã phát hành.
+
+## Phương án phát hành lại sau sửa lỗi legacy — chờ duyệt
+
+- Ref mới: **`18a91ca0d5445479acd110e7886067e8fe5ab083`**.
+- Payload thay đổi: **chỉ theme VibeLab0.7.1**,36file, cùng allowlist; chỉ `index.php` và số version trong `style.css` khác0.7.0. Bài/trang WordPress thường dùng loop/the_content/wp_link_pages; nhánh VNE không đổi.
+- ZIP: `artifacts/production/18a91ca0d5445479acd110e7886067e8fe5ab083/release/vibelab-0.7.1.zip`, SHA256 **`26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215`**. Manifest SHA256 **`7592d1b3229df217fbe00b9b1857c17fdd8c7e3b80a7f2ea0c431fb80c568008`**.
+- Giữ plugin0.4.2/schema3 đã xác nhận và11 mục đã nhập; không cài lại plugin, nhập lại nội dung hoặc chép DB.
+- Đích vẫn **https://store.vneconomics.com/**, root/DB như trên. Thời điểm đề xuất: **ngay trong phiên sau khi chủ dự án duyệt phương án0.7.1**, kiểm lại baseline trước thao tác.
+- Backup mới của trạng thái Astra/plugin/11mục lúc **24/10 18:28:20**, SHA256 `541a8e7eaba271c979ab38cd05780dacdf123d2f746d12f24974de2aa7087325`;14.408file đã streamCRC,0lỗi/0unsafe. Giữ backup16:43:31 và3backup staging.
+- Bằng chứng trước duyệt: local25kiểm tra/10request; staging đúng ZIP/36hash/runtime đạt,134kiểm tra/20request VNE và14/14URL cũ đạt; nội dung/metadata staging không đổi. Không giả định các kết quả này đã chứng nhận production0.7.1.
+- Sau cập nhật theme: xác nhận UI/runtime0.7.1/36hash, dữ liệu cũ và11mục, smoke cả VNE lẫn14URL cũ, cache/indexing và UI. Lỗi thì dừng/khôi phục Astra, không hạ schema hoặc phục hồi đèDB. Giữ cảnh báo hiệu năng thực tế trong báo cáo, không tự bật pagecache/đổi PHP để nâng điểm.
+
+Lý do cần duyệt lại payload: ref/theme đã thay đổi so với xác nhận phát hành0.7.0. Đây là cổng ref/payload/đích/thời điểm cụ thể của S16, không phải xin lại toàn bộ quyền S16.
+
+**Kết quả cập nhật:** chủ dự án đã trả lời “Đồng ý phát hành 0.7.1 ngay”. Đã thực hiện đúng phương án mới: chỉ theme0.7.1/ref18a91ca được cập nhật, plugin/schema/11mục giữ nguyên;135kiểm tra VNE/20request và14/14URL cũ đạt, data/hash/cleanup đạt. Còn cảnh báo SiteHealth median994ms/pagecache; không ghi hiệu năng PASS. Không còn chờ quyền phát hành0.7.1; dừng chờ công việc tiếp theo.

@@ -61,7 +61,12 @@
     "test:staging-http-fault-tools": "node scripts/run-clean.mjs script scripts/test-s15-http-fault-tools.mjs",
     "test:staging-http-fault": "node scripts/run-clean.mjs script scripts/test-s15-http-fault.mjs",
     "test:staging-live-tools": "node scripts/run-clean.mjs script scripts/test-s15-live-rehearsal.mjs",
-    "test:staging-live-http": "node scripts/run-clean.mjs script scripts/test-s15-live-http.mjs"
+    "test:staging-live-http": "node scripts/run-clean.mjs script scripts/test-s15-live-http.mjs",
+    "build:production-content": "node scripts/run-clean.mjs script scripts/build-s16-content.mjs",
+    "test:production-public": "node scripts/run-clean.mjs script scripts/test-s16-public-http.mjs",
+    "test:production-legacy": "node scripts/run-clean.mjs script scripts/test-s16-legacy-http.mjs",
+    "test:production-legacy-runtime": "node scripts/run-clean.mjs script scripts/test-s16-legacy-runtime.mjs",
+    "build:production-legacy-fix": "node scripts/run-clean.mjs script scripts/build-s16-legacy-fix.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"
