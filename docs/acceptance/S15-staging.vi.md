@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP đạt trong các lượt thành công; cache 503/phục hồi và cleanup đạt; đã tạo backup ứng viên. Responsive hosting đạt 12 bố cục và menu/search/bộ lọc. Còn LCP/CLS, diễn tập lỗi/rollback/restore và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP ban đầu và 178 điểm hậu phục hồi đạt; cache 503/phục hồi và cleanup đạt. Responsive hosting đạt 12 bố cục và menu/search/bộ lọc. Diễn tập restore file/DB từ backup mới đã đạt, giữ cả 3 backup thật. Còn LCP/CLS, diễn tập lỗi/chậm/timeout/rollback thành phần và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
@@ -213,3 +213,26 @@ Assertion lượt đầu nhầm clientWidth với viewport, bỏ qua 15px thanh 
 Đã reset override viewport về mặc định; không tạo report, fixture hoặc thay dữ liệu staging. Ảnh/JSON là bằng chứng nghiệm thu cần giữ. Không giả lập CPU/network hoặc điện thoại vật lý; chưa đo LCP/CLS hosting.
 
 Phiên Mắt Bão và Plesk đều hết hạn khi tiếp tục ngày24/10. Đã mở lại đúng cổng dịch vụ và yêu cầu chủ dự án đăng nhập trực tiếp, không xin mật khẩu/OTP. Vì chưa có phiên mới nên chưa kiểm tra CRC/diễn tập restore ứng viên hoặc fault/rollback trong lượt này. Hai backup thật và toàn bộ nội dung đã duyệt được giữ. S15 chưa PASS, không sang S16.
+
+## Diễn tập phục hồi thực tế ngày24/10/2026 — đạt trong phạm vi đã duyệt
+
+Chủ dự án đã đăng nhập lại Mắt Bão; dùng đúng nút Bảng điều khiển để vào Plesk. Không tạo/đổi mật khẩu hoặc cấp thêm quyền. Đọc lại root/domain319/DB staging,home,noindex,plugin0.4.2/schema3/theme0.7.0 và6/4/1 mục mẫu: đúng đích. [Preflight](S15/restore-preflight.json).
+
+Backup23/10 lúc14:49:28 khớp hash đã pin; kiểm tra ZipArchive CHECKCONS và đọc14.408file/235.416.873byte sau giải nén:0 lỗiCRC/kích thước,0 đường dẫn bất thường. [Kết quả](S15/backup-crc-results.json). Lệnh đầu bị WP Toolkit xử lý escape dấu gạch chéo làm PHP parse error trước khi chạy; đổi kiểm tra ký tự sang chr(92) rồi chạy đạt, giữ [log lỗi đầu](S15/backup-crc-initial-cli-log.txt) và [log chạy lại](S15/backup-crc-cli-log.txt). Không sửa cấu hình PHP để vượt hạn chế hosting.
+
+Tạo thêm backup hiện trạng bằng WP Toolkit, Plesk xác nhận lúc **24/10/2026 09:59:46**. Tệp `staging-store.vneconomics.com__2026-10-24T09_59_46+0700.zip`,81.541.424byte,SHA256 `f25d308309091275deb1d9036b40507af91a1443640b8a5fa0c7b28accdbfce7`;16.719entry,14.408file/235.477.909byte sau giải nén.0 lỗiCRC/kích thước,0 đường dẫn bất thường,cóSQL/plugin/theme. [Kết quả](S15/pre-restore-backup-results.json), [ảnh3backup](S15/pre-restore-backup-created.jpg). Không hủy tác vụ khi UI còn0%; chờ xác nhận hoàn tất rồi mới chọn snapshot.
+
+Hợp đồng ban đầu yêu cầu vùng phục hồi tách biệt. Cổng nhà cung cấp hiển thị5/5website đang dùng; không kết luận mọi phương án cô lập đều bất khả thi. Đã trình cụ thể phương án dùng staging hiện tại và rủi ro ghi đè/gián đoạn. Chủ dự án trả lời **“Đồng ý phục hồi staging hiện tại”** trước thao tác. [Phương án và quyền cụ thể](../S15-restore-rehearsal-proposal.vi.md), [màn hình xác nhận](S15/restore-confirmation-prepared.jpg). Không suy thành quyền production hoặc cho lần restore khác.
+
+Sau backup, tạo đúng1option và1file có UUID `eae3cbeb-9ada-4648-9791-913b38ca52ff`, xác minh cả hai hiện hữu; guard hashbackup/target/noindex. [Bằng chứng trước](S15/restore-probes-created.json). Sau đó chọn đúng backup09:59:46, giữ tùy chọn xóa dữ liệu hiện có trước phục hồi và bấm Restore theo phê duyệt. Plesk báo restored đúng thời điểm; không dùng toast này làm tiêu chí duy nhất. [Ảnh hoàn tất](S15/restore-completed.jpg).
+
+Hậu kiểm độc lập:
+
+- **Hai markeroption/file đều không còn**, chứng minh cảDB và câyfile đã được khôi phục; không cần xóa marker thủ công. Không còn fixture mới của lượt diễn tập.
+- Đối chiếu14.406file thuộc câyWordPress trong archive:0thiếu; chỉ1filekhác làwp-config.php.46/46filephát hành (10plugin,36theme) khớp SHA256 manifestS14. Plugin0.4.2/schema3,VibeLab0.7.0,noindex vẫn đúng; không có cacheincident. [Audit](S15/restore-audit.json).
+- wp-config.php chỉ khác `WP_TOOLKIT_API_TOKEN`; sau khi loại riêng token này, toàn bộ tokenPHP chuẩn hóa còn lại giống nhau. Database runtime vẫn đúngstaging. Không in giá trị token/credential hoặc ghi chúng vào bằng chứng; không chép cấu hình cũ đè token mới của Toolkit. [Phân loại](S15/restore-config-difference.json).
+- Hash toàn bộ28hàng nội dung,80meta và journalnhập giống trước/sau.17hàngpost/page mọi trạng thái gồm14mụcpublic gốc; hashgốc `2a66c50e9447f5850e62a513f1069698e4ed302a387ab961c61dbd89d1123d00` vẫn khớp.11mụcVNE được duyệt giữ nguyên. [So sánh](S15/restore-content-comparison.json).
+- `npm run test:staging-content`: **122điểm/17request đạt**. `npm run test:staging-public -- --theme-only`: **56điểm/8request đạt**. Tổng **178điểm/25request hậu phục hồi**, qua run-clean tuần tự,exit0,cleanupcache/testdata đạt. Giữ kết quả cũ tại đường dẫn cũ; lưu riêng [content sau restore](S15/restore-content-http-results.json), [theme sau restore](S15/restore-theme-http-results.json). Không gửi report mới hoặc mail/APIcóphí trong lượt hồi quy này.
+- Reload giao diện anonymous:trang chủ đúngVibeLab,6thẻ,consoleerror0. [UI](S15/restore-ui-results.json), [ảnhtrangchủ](S15/restored-home.jpg). Bộ kiểm tra UI đầu dùng optionlevel chưa hỗ trợ khiến selector không duy nhất; sửa sang h1 DOM, không sửa website.
+
+Tổng cộng các lượt HTTP thành công được giữ hiện **532điểm/93request**, gồm các lượt trước và178điểm hồi quy lặp saurestore; không phải532ca khác nhau.3backup thật,tooling ngoàiwebroot,artifact,nội dung/journal được giữ. Không đổi production/DNS/SSL/quyền truy cập. Diễn tập phục hồi ứng viên24/10 đạt trong môi trườngstaging đã duyệt; chưa khẳng định tương thích mọi tình huống lỗi/chậm/timeout/rollbacktừngthànhphần hoặc LCP/CLS. S15 vẫn đang thực hiện, chưa chuyểnS16; phản hồi trải nghiệm chủ dự án còn chờ.

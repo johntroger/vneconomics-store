@@ -1,0 +1,22 @@
+{
+  "byteIdentical": false,
+  "normalizedTokensIdentical": false,
+  "changedDefineNames": [
+    "WP_TOOLKIT_API_TOKEN"
+  ],
+  "beforeBytes": 4547,
+  "afterBytes": 4547,
+  "valuesNotDisclosed": true,
+  "runtimeDatabaseCorrect": true,
+  "normalizedFollowup": {
+    "byteIdentical": false,
+    "normalizedExceptToolkitTokenIdentical": true,
+    "changedDefineNames": [
+      "WP_TOOLKIT_API_TOKEN"
+    ],
+    "beforeBytes": 4547,
+    "afterBytes": 4547,
+    "valuesNotDisclosed": true,
+    "runtimeDatabaseCorrect": true
+  }
+}

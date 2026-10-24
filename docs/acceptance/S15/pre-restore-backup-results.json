@@ -1,0 +1,16 @@
+{
+  "archive": "staging-store.vneconomics.com__2026-10-24T09_59_46+0700.zip",
+  "sha256": "f25d308309091275deb1d9036b40507af91a1443640b8a5fa0c7b28accdbfce7",
+  "archiveBytes": 81541424,
+  "entries": 16719,
+  "filesRead": 14408,
+  "uncompressedBytesRead": 235477909,
+  "crcOrSizeErrors": 0,
+  "unsafePaths": 0,
+  "hasSqlDump": true,
+  "hasPlugin": true,
+  "hasTheme": true,
+  "seconds": 1.861,
+  "readOnly": true,
+  "pass": true
+}

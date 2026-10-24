@@ -1,0 +1,14 @@
+{
+  "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+  "database": "vne35060_wp_udx1z",
+  "home": "https://staging-store.vneconomics.com",
+  "theme": "vibelab",
+  "themeVersion": "0.7.0",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "noindex": true,
+  "importComplete": "complete",
+  "resources": "6",
+  "guides": "4",
+  "practices": "1"
+}

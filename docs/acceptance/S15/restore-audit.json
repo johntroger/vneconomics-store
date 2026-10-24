@@ -1,0 +1,30 @@
+{
+  "backupFilesChecked": 14406,
+  "missingCount": 0,
+  "changedCount": 1,
+  "missing": [],
+  "changed": [
+    "wp-config.php"
+  ],
+  "release": {
+    "plugin": {
+      "matched": 10,
+      "expected": 10,
+      "mismatches": []
+    },
+    "theme": {
+      "matched": 36,
+      "expected": 36,
+      "mismatches": []
+    }
+  },
+  "probeFileAbsent": true,
+  "probeOptionAbsent": true,
+  "noindex": true,
+  "theme": "vibelab",
+  "themeVersion": "0.7.0",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "cacheIncident": false,
+  "readOnly": true
+}
