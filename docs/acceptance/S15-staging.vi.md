@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. Tổng 692 điểm HTTP/127 request của runner đạt, gồm hồi quy lặp. Đã bổ sung lỗi tại activation hook của plugin thật trong transaction MariaDB và phục hồi toàn cây theme active sau lỗi theo request; cleanup/hậu kiểm đạt. Responsive đạt 12 bố cục; 12 báo cáo Lighthouse mobile có metric đạt LCP/CLS. Restore file/DB thật đạt, giữ 3 backup. Còn phản hồi trải nghiệm chủ dự án; chưa nghiệm thu toàn S15 hoặc mở S16.** Giới hạn các phép thử được ghi tại mục cuối. Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. Tổng 692 điểm HTTP/127 request của runner đạt, gồm hồi quy lặp. Đã bổ sung lỗi tại activation hook của plugin thật trong transaction MariaDB và phục hồi toàn cây theme active sau lỗi theo request; cleanup/hậu kiểm đạt. Responsive đạt 12 bố cục; 12 báo cáo Lighthouse mobile có metric đạt LCP/CLS. Restore file/DB thật đạt, giữ 3 backup. Chủ dự án xác nhận “đã thử, ổn” ngày24/10/2026: S15 được nghiệm thu trong phạm vi và giới hạn đã ghi; S16 chưa được phép.** Giới hạn các phép thử được ghi tại mục cuối. Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
@@ -295,3 +295,9 @@ Hậu kiểm HTTP thêm **7 điểm/4 request đạt**, dấu cũ trả200; conf
 Hồi quy chỉ đọc sau đó **122 điểm/17 request đạt**, không gửi form/bài/email; giữ kết quả cũ và [kết quả mới riêng](S15/after-live-rollback-content-http-results.json). Reload UI đúng6thẻ, không có console error; [ảnh](S15/after-live-theme-rollback-home.jpg). Tổng runnerHTTP **692 điểm/127 request** =556+7+7+122 điểm;102+4+4+17request, gồm hồi quy lặp, không tính Lighthouse/local HTTP. Các lượt chạy tuần tự qua run-clean, cleanup đạt.
 
 Giới hạn còn giữ: lỗi theme chỉ theo request, không diễn tập outage toàn site/kill worker; có khoảng giữa hai rename thư mục, không tuyên bố swap directory nguyên tử. Không chứng nhận watchdog Plesk300giây, rollback schema, profile điện thoại vật lý hay field INP. Các kịch bản kỹ thuật đã chọn ở S15 có bằng chứng; **còn chủ dự án thử và phản hồi trải nghiệm** trước nghiệm thu toàn bước. Không chuyển S16/production.
+
+## Chốt nghiệm thu S15 — 24/10/2026
+
+Chủ dự án trả lời trực tiếp **“đã thử, ổn”** sau yêu cầu thử staging: tìm tài nguyên, mở chi tiết và đọc bài Mộc Studio. Ghi nhận xác nhận trải nghiệm cho bản staging hiện tại. Kết hợp bằng chứng kỹ thuật/cleanup đã lưu, **S15 PASS trong phạm vi các kịch bản đã kiểm tra và các giới hạn đã công bố**. Không mở rộng xác nhận này thành thử mọi trang, điện thoại vật lý, field INP, lỗi migration thật, outage toàn site hoặc watchdog tự động.
+
+Không có thay đổi mã nguồn, dữ liệu hoặc hosting trong lượt chốt; không chạy lại các phép thử đã đạt chỉ để cập nhật hồ sơ. Giữ692điểm HTTP/127request (gồm hồi quy lặp),46file phát hành khớp,3backup và gói phục hồi/bằng chứng. Hồ sơ xác nhận tại [owner-acceptance.json](S15/owner-acceptance.json). Dừng ở S15; **S16/production cần được chủ dự án duyệt cụ thể ref, payload, đích và thời điểm** theo cổng kế hoạch.
