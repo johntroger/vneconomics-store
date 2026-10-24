@@ -1,0 +1,7 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: {\"error\":\"The plugin does not have a valid header.\",\"active\":[],\"pluginDir\":\"C:\\\\Users\\\\trant\\\\CodexProjects\\\\VneconomicsStore\\\\tmp\\\\tests\\\\s15-active-xsVr9s/wp-content/plugins\"}\n+ actual - expected\n\n+ 'The plugin does not have a valid header.'\n- null\n\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s15-live-rehearsal.mjs:30:9\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "checks": [],
+  "visits": [],
+  "logs": "",
+  "phpLog": "[24-Oct-2026 04:10:45 UTC] PHP Warning:  Constant ABSPATH already defined in C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\s15-active-xsVr9s\\wp-config.php on line 1\r\n[24-Oct-2026 04:11:23 UTC] PHP Warning:  Constant ABSPATH already defined in C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\s15-active-xsVr9s\\wp-config.php on line 1\r\n"
+}

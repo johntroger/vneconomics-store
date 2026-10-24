@@ -1,0 +1,17 @@
+{
+  "observedAt": "2026-10-24T04:24:46.583Z",
+  "status": "PASS_ACTUAL_ACTIVATION_HOOK_TRANSACTION",
+  "expectedActivationFailureCaught": true,
+  "failedPluginInactiveInsideTransaction": true,
+  "otherConnectionSawOriginalActivePlugins": true,
+  "themeAttempted": false,
+  "schemaUnchanged": true,
+  "activePluginsRestored": true,
+  "transactionRolledBack": true,
+  "themeFilesUnchanged": true,
+  "limits": [
+    "Injected exception at earliest target activation hook before migration, on actual installed plugin",
+    "Existing active_plugins committed value remains visible on independent MariaDB connection",
+    "Not a corrupted candidate package or global plugin outage"
+  ]
+}

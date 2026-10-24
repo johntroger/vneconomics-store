@@ -1,0 +1,10 @@
+{
+  "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+  "database": "vne35060_wp_udx1z",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "theme": "vibelab",
+  "themeFunctionsSkipped": true,
+  "externalObjectCache": false,
+  "noindex": true
+}

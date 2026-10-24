@@ -46,3 +46,11 @@ Client timeout không có nghĩa server bị hủy. Trước khi xóa fixture, l
 Bằng chứng: [tool local](acceptance/S15/http-fault-tool-local-tests.json), [HTTP](acceptance/S15/http-fault-results.json), [shutdown](acceptance/S15/http-fault-observation.json), [cleanup](acceptance/S15/http-fault-cleanup.json), [hậu kiểm](acceptance/S15/http-fault-postflight.json), [residue](acceptance/S15/http-fault-residue.json), [HTTP sau cleanup](acceptance/S15/after-fault-http-results.json).
 
 Không gửi email hoặc dùng API có phí; không bật automation, sửa ref triển khai hoặc production. Còn ca rollback theme đang active và lỗi activation của chính gói phát hành; không thay bằng kết quả filesystem hoặc lỗi hook tiêm.
+
+## Bổ sung activation và theme active
+
+Đã chạy `s15-live-rehearsal.php` (SHA256 `8b839ea72eff2fa5add37e29507b9d2e2b2d0d849a32c7d8bac8574cc3dcda07`), sau19kiểm tra native local và đối chiếu upload. Activation dùng core WordPress trên plugin thật trong transaction InnoDB, tiêm exception tại hook đích trước migration. Observer MariaDB độc lập thấy active_plugins cũ xuyên suốt; rollback khôi phục plugin, không triển khai theme/hạ schema. Đây vẫn là lỗi hook được tiêm; không báo ZIP thật bị lỗi hoặc watchdog tự động đạt.
+
+Theme đang active có lỗi chỉ ở GET homepage với header ngẫu nhiên, hạn10phút; ordinary và header sai200, đúngheader500. Cây phục hồi36file lấy từ backup pin hash trước đó. Sau probe, chuyển cả thư mục lỗi ra ngoài webroot, đưa cây khỏe về vị trí active, đối chiếu từngfile và loại file thừa. Hai rename liên tiếp có khoảng giữa, không tuyên bố directory swap nguyên tử. Cây lỗi được archive/kiểm hash rồi dọn; giữ ZIP/receipt thật. Plugin/schema/theme mods và nội dung giữ nguyên, registry/fixture/config tạm không còn. Dấu cũ sau restore200. Không gây outage chủ động toàn site hoặc thử kill worker.
+
+14điểm/8request lỗi/phục hồi và122điểm/17request hồi quy chỉ đọc đạt. [Báo cáo chi tiết và giới hạn](acceptance/S15-staging.vi.md#activation-hook-thật-và-phục-hồi-theme-active-24102026), [activation](acceptance/S15/live-activation-results.json), [restore](acceptance/S15/live-theme-restore-results.json), [hậu kiểm](acceptance/S15/live-rehearsal-postflight.json). Cổng vẫn thủ công, không mở production từ PASS kỹ thuật hoặc thiếu phản hồi trải nghiệm chủ dự án.
