@@ -1,0 +1,113 @@
+{
+  "note": "Initial harness incorrectly equated layout width with viewport width, ignoring classic scrollbar gutter.",
+  "results": [
+    {
+      "page": "home",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 305,
+      "title": "Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "width": 305,
+      "pass": false
+    },
+    {
+      "page": "catalog",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 305,
+      "title": "Tài nguyên để khám phá",
+      "width": 305,
+      "pass": false
+    },
+    {
+      "page": "resource",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 305,
+      "title": "Astro Basics",
+      "width": 305,
+      "pass": false
+    },
+    {
+      "page": "lesson",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 305,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows",
+      "width": 305,
+      "pass": false
+    },
+    {
+      "page": "home",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 375,
+      "title": "Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "width": 375,
+      "pass": false
+    },
+    {
+      "page": "catalog",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 375,
+      "title": "Tài nguyên để khám phá",
+      "width": 375,
+      "pass": false
+    },
+    {
+      "page": "resource",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 375,
+      "title": "Astro Basics",
+      "width": 375,
+      "pass": false
+    },
+    {
+      "page": "lesson",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 375,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows",
+      "width": 375,
+      "pass": false
+    },
+    {
+      "page": "home",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 753,
+      "title": "Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "width": 753,
+      "pass": false
+    },
+    {
+      "page": "catalog",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 753,
+      "title": "Tài nguyên để khám phá",
+      "width": 753,
+      "pass": false
+    },
+    {
+      "page": "resource",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 753,
+      "title": "Astro Basics",
+      "width": 753,
+      "pass": false
+    },
+    {
+      "page": "lesson",
+      "h1": 1,
+      "overflow": [],
+      "scrollWidth": 753,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows",
+      "width": 753,
+      "pass": false
+    }
+  ]
+}

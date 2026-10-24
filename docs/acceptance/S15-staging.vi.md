@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày 23/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP đạt trong các lượt thành công; cache 503/phục hồi và cleanup đạt; đã tạo backup ứng viên. Còn mobile/LCP/CLS, diễn tập lỗi/rollback/restore và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày cập nhật 24/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP đạt trong các lượt thành công; cache 503/phục hồi và cleanup đạt; đã tạo backup ứng viên. Responsive hosting đạt 12 bố cục và menu/search/bộ lọc. Còn LCP/CLS, diễn tập lỗi/rollback/restore và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
@@ -203,3 +203,13 @@ Site Health chạy lại không còn heading critical issue; 6 khuyến nghị, 
 - Đã tạo **backup ứng viên mới lúc14:49:28 ngày23/10/2026** qua WP Toolkit của đúng staging; giữ cả bản gốc. Tên `staging-store.vneconomics.com__2026-10-23T14_49_28+0700.zip`, 81,537,595 byte, SHA256 `50f5044df962a7c72412a8169bc9423d00aac9954a486712fc59054e351fafdd`, 16,719 entry. Có dumpDB, plugin và theme hiện tại; runtime/import journal đúng ứng viên. [Ảnh hai backup](S15/candidate-backup-created.jpg), [kết quả](S15/candidate-backup-results.json). Chưa diễn tập restore ứng viên; không coi việc tạo/index ZIP là restore PASS.
 
 Nội dung đã duyệt, registry nhập, tooling ngoài webroot, gói S14 và hai backup thật được giữ. Mọi fixture/report/rate/incident thử đã dọn; các runner đã thoát và dọn cache local. Còn kiểm thử mobile/LCP/CLS hosting, lỗi/chậm/timeout/rollback theme/plugin và restore ứng viên có hậu kiểm đầy đủ. Chủ dự án có thể xem staging có nội dung; việc xem/thử của chủ dự án không thay bằng kết quả máy. **Chưa nghiệm thu toàn S15, không chuyển production/S16.**
+
+## Responsive staging ngày 24/10/2026
+
+Đã có capability viewport của trình duyệt CUA, nên kiểm tra được phần từng bị giới hạn ở lượt trước. Truy cập anonymous HTTPS thật, bốn trang home/catalog/Astro detail/Mộc Studio lesson ở viewport 320, 390 và 768px: **12/12 bố cục đạt**, không tràn ngang trang hoặc control trong main, mỗi trang đúng một h1. Menu mở/đóng đúng aria-expanded; tìm Astro hiển thị một tài nguyên; dialog bộ lọc mở và đóng được. Console error thu được: 0. [Kết quả](S15/mobile-results.json), [home](S15/mobile-home-390.jpg), [bài hướng dẫn](S15/mobile-lesson-390.jpg), [bộ lọc](S15/mobile-filter-390.jpg).
+
+Assertion lượt đầu nhầm clientWidth với viewport, bỏ qua 15px thanh cuộn dọc; lưu [kết quả đầu](S15/mobile-initial-results.json), sửa phép đo bằng innerWidth cho viewport và scrollWidth/clientWidth cho tràn ngang, rồi chạy lại đạt. Đây là lỗi bộ kiểm tra, không sửa mã website. Không tính 12 bố cục vào tổng 354 điểm HTTP của runner trước.
+
+Đã reset override viewport về mặc định; không tạo report, fixture hoặc thay dữ liệu staging. Ảnh/JSON là bằng chứng nghiệm thu cần giữ. Không giả lập CPU/network hoặc điện thoại vật lý; chưa đo LCP/CLS hosting.
+
+Phiên Mắt Bão và Plesk đều hết hạn khi tiếp tục ngày24/10. Đã mở lại đúng cổng dịch vụ và yêu cầu chủ dự án đăng nhập trực tiếp, không xin mật khẩu/OTP. Vì chưa có phiên mới nên chưa kiểm tra CRC/diễn tập restore ứng viên hoặc fault/rollback trong lượt này. Hai backup thật và toàn bộ nội dung đã duyệt được giữ. S15 chưa PASS, không sang S16.
