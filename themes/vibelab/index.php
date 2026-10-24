@@ -2,7 +2,14 @@
 if(!defined('ABSPATH')){exit;}
 get_header(); ?>
 <div class="container simple-page">
-<?php if(is_singular()&&vibelab_ready()){
+<?php if(is_singular(array('post','page'))){
+    while(have_posts()){the_post(); ?>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('legacy-content'); ?>>
+        <h1><?php echo esc_html(get_the_title()); ?></h1>
+        <div class="reading"><?php the_content(); wp_link_pages(array('before'=>'<nav class="pager" aria-label="Các phần của bài viết">','after'=>'</nav>')); ?></div>
+    </article>
+    <?php }
+}elseif(is_singular()&&vibelab_ready()){
     $item=vne_library_item(get_queried_object_id());
     if(!is_wp_error($item)){ ?>
     <a href="<?php echo esc_url(home_url('/#tai-nguyen')); ?>">Về trang chủ</a><h1><?php echo esc_html($item['title']); ?></h1><p><?php echo esc_html($item['excerpt']); ?></p><div class="reading"><?php echo wp_kses_post($item['content']); ?></div>
