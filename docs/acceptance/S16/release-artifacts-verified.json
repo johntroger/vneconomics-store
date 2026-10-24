@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-24T09:46:30.639Z",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "files": {
+    "vne-library-core-0.4.2.zip": {
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5",
+      "size": 108507
+    },
+    "vibelab-0.7.0.zip": {
+      "sha256": "f6124d7693e8c8af7e8dcd7668012b8c0ed986d338c2a9e864e0f77afa3f0778",
+      "size": 158966
+    },
+    "manifest.json": {
+      "sha256": "985b5286324e301925abc0369ef0bc47ff8a2ea3c8252c6f569508da74b08a0c",
+      "size": 9949
+    }
+  },
+  "status": "MATCH_PINNED_S14_ARTIFACTS",
+  "notANewRuntimeTest": true
+}
