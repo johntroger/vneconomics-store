@@ -1,0 +1,97 @@
+{
+  "status": "PASS_STAGING_CONTENT_HTTP",
+  "observedAt": "2026-10-23T07:43:51.095Z",
+  "checks": [
+    "cache recovered status /",
+    "cache / no-store",
+    "cache / bypass",
+    "cache / no validators",
+    "cache recovered status /wp-json/vne-library/v1/items",
+    "cache /wp-json/vne-library/v1/items no-store",
+    "cache /wp-json/vne-library/v1/items bypass",
+    "cache /wp-json/vne-library/v1/items no validators",
+    "cache recovered status /?vne_support=ho-tro",
+    "cache /?vne_support=ho-tro no-store",
+    "cache /?vne_support=ho-tro bypass",
+    "cache /?vne_support=ho-tro no validators"
+  ],
+  "requests": [
+    {
+      "path": "/",
+      "method": "GET",
+      "status": 200,
+      "ms": 849,
+      "headers": {
+        "alt-svc": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\"",
+        "cache-control": "private, no-store, no-cache, must-revalidate, max-age=0",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:44:14 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-powered-by": "PHP/8.3.36, PleskLin"
+      },
+      "body": "<!doctype html>\n<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>store.vneconomics &#8211; Công nghệ &amp; Tài sản số</title>\n<meta name='robots' content='noindex, nofollow' />\n<link rel=\"canonical\" href=\"https://staging-store.vneconomics.com/\">\n<meta name=\"description\" content=\"Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.\">\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<style id=\"wp-block-library-inline-css\">\n:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dp"
+    },
+    {
+      "path": "/wp-json/vne-library/v1/items",
+      "method": "GET",
+      "status": 200,
+      "ms": 704,
+      "headers": {
+        "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+        "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+        "allow": "GET",
+        "cache-control": "private, no-store, no-cache, must-revalidate, max-age=0",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "application/json; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:44:15 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Origin,Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-content-type-options": "nosniff",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex"
+      },
+      "body": "[{\"id\":113,\"post_type\":\"vne_resource\",\"title\":\"Pico CSS\",\"content\":\"<h2>T\\u00e0i nguy\\u00ean n\\u00e0y gi\\u00fap g\\u00ec?<\\/h2><p>Tham kh\\u1ea3o CSS t\\u1ed1i gi\\u1ea3n; \\u0111\\u1ecdc t\\u00ecnh tr\\u1ea1ng duy tr\\u00ec tr\\u01b0\\u1edbc khi d\\u00f9ng.<\\/p><h2>Tr\\u01b0\\u1edbc khi d\\u00f9ng<\\/h2><p>\\u0110\\u00e2y l\\u00e0 gi\\u1edbi thi\\u1ec7u bi\\u00ean t\\u1eadp t\\u1eeb ngu\\u1ed3n \\u0111\\u00e3 quan s\\u00e1t ng\\u00e0y 19\\/10\\/2026. Ch\\u01b0a c\\u00e0i, ch\\u1ea1y th\\u1eed ho\\u1eb7c ki\\u1ec3m tra l\\u1ea1i ngu\\u1ed3n trong S13. Nh\\u1eefng y\\u00eau c\\u1ea7u, chi ph\\u00ed, gi\\u1ea5y ph\\u00e9p v\\u00e0 m\\u1ee9c t\\u01b0\\u01a1ng th\\u00edch ch\\u01b0a \\u0111\\u01b0\\u1ee3c x\\u00e1c minh v\\u1eabn \\u0111\\u01b0\\u1ee3c ghi l\\u00e0 ch\\u01b0a r\\u00f5.<\\/p><h2>C\\u00e1ch ti\\u1ebfp c\\u1eadn cho ng\\u01b0\\u1eddi m\\u1edbi<\\/h2><p>\\u0110\\u1ecdc README v\\u00e0 y\\u00eau c\\u1ea7u t\\u1ea1i repo tr\\u01b0\\u1edbc khi t\\u1ea3i hay ch\\u1ea1y l\\u1ec7nh. V\\u1edbi b\\u00e0i \\u0111\\u1ea7u, d\\u00f9ng b\\u00e0i landing page M\\u1ed9c Studio trong m\\u1ee5c H\\u01b0\\u1edbng d\\u1eabn; c\\u00e1c repo n\\u00e0y l\\u00e0 t\\u00e0i li\\u1ec7u tham kh\\u1ea3o, kh\\u00f4ng ph\\u1ea3i \\u0111i\\u1ec1u ki\\u1ec7n b\\u1eaft bu\\u1ed9c \\u0111\\u1ec3 l\\u00e0m b\\u00"
+    },
+    {
+      "path": "/?vne_support=ho-tro",
+      "method": "GET",
+      "status": 200,
+      "ms": 495,
+      "headers": {
+        "cache-control": "private, no-store, no-cache, must-revalidate, max-age=0",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:44:16 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-powered-by": "PHP/8.3.36, PleskLin"
+      },
+      "body": "<!doctype html>\n<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Trợ giúp và liên hệ &#8211; Công nghệ &amp; Tài sản số &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<link rel=\"canonical\" href=\"https://staging-store.vneconomics.com/?vne_support=ho-tro\">\n<meta name=\"description\" content=\"Bạn có thể đọc bài, tìm tài nguyên và mở repo mà không đăng ký tài khoản website hoặc nhập API key. Nếu gặp lỗi, hãy phân biệt lỗi nội dung với lỗi tài khoản hoặc công cụ ngoài.Báo…\">\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<style id=\"wp-block-library-inline-css\">\n:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-colo"
+    }
+  ],
+  "failure": null,
+  "limits": [
+    "TLS verified; anonymous HTTP only",
+    "No repository/tool execution or new resource validation claims",
+    "HTTP report test creates one disposable private report; server cleanup is separately verified"
+  ]
+}

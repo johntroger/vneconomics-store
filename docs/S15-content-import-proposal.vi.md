@@ -1,6 +1,6 @@
 # Đề xuất đưa nội dung mẫu S13 lên staging
 
-Chưa thực hiện. Đích duy nhất: `https://staging-store.vneconomics.com/`, DB `vne35060_wp_udx1z`, đang noindex. Đây là nội dung giữ lại để chủ dự án thử website, khác các fixture vừa được xóa.
+Chủ dự án đã duyệt “Đồng ý nhập bộ mẫu lên staging” ngày 23/10/2026. Đã nhập và hậu kiểm 6 tài nguyên, 4 hướng dẫn, 1 bộ thực hành. Đích duy nhất: `https://staging-store.vneconomics.com/`, DB `vne35060_wp_udx1z`, đang noindex. Đây là nội dung giữ lại để chủ dự án thử website, khác các fixture đã được xóa. Kết quả tại [báo cáo S15](acceptance/S15-staging.vi.md).
 
 ## Nội dung cụ thể
 

@@ -1,0 +1,15 @@
+{
+  "archive": "staging-store.vneconomics.com__2026-10-23T14_49_28+0700.zip",
+  "bytes": 81537595,
+  "sha256": "50f5044df962a7c72412a8169bc9423d00aac9954a486712fc59054e351fafdd",
+  "entries": 16719,
+  "containsDatabaseDump": true,
+  "containsPlugin": true,
+  "containsTheme": true,
+  "theme": "vibelab",
+  "themeVersion": "0.7.0",
+  "plugin": "0.4.2",
+  "schema": 3,
+  "importComplete": true,
+  "limit": "Backup created and indexed, not restored in this test"
+}

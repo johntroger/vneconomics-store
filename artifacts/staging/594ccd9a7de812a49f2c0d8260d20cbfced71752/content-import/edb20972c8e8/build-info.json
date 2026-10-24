@@ -1,0 +1,45 @@
+{
+  "status": "PASS_CONTENT_BUILD_LOCAL_ONLY",
+  "artifactDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\staging\\594ccd9a7de812a49f2c0d8260d20cbfced71752\\content-import\\edb20972c8e8",
+  "sourceFiles": {
+    "seed": {
+      "path": "scripts/fixtures/s13-integrated-seed.php",
+      "sha256": "32758a4aea1c74973ed97a4710b92c970f1036f7921a3b2c3f9899ab86d8c353"
+    },
+    "lesson": {
+      "path": "docs/content-samples/S10-moc-studio-lesson.html",
+      "sha256": "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+    },
+    "observations": {
+      "path": "docs/acceptance/S02/source-observations.json",
+      "sha256": "572cfd9212ae60fb0ffd700d4ce43bb66a5c28df9c1ff390f7339394034b4702"
+    },
+    "model": {
+      "path": "plugins/vne-library-core/model.php",
+      "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
+    },
+    "state": {
+      "path": "plugins/vne-library-core/state.php",
+      "sha256": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c"
+    }
+  },
+  "payloadSha256": "d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934",
+  "importerSha256": "edb20972c8e86cd4643540c281daac55a0ef335542d00b4f1ef5c92de71ad0c3",
+  "zipSha256": "aad1499e7b1485a4c7c21f3e53e5d0d7b819bd15b6f8818c4d69a93543236d18",
+  "counts": {
+    "resources": 6,
+    "guides": 4,
+    "practice": 1,
+    "categories": 3
+  },
+  "checks": [
+    "deterministic capture",
+    "forbidden local bootstrap/settings writes removed",
+    "no validation records imported",
+    "historical source dates retained",
+    "PHP syntax",
+    "direct entry denied",
+    "13 guard/hash/link assertions"
+  ],
+  "limits": "No local WordPress mutation or remote import performed by builder; remote dry-run required"
+}

@@ -1,0 +1,98 @@
+{
+  "status": "FAIL",
+  "observedAt": "2026-10-23T07:39:00.414Z",
+  "checks": [
+    "report form 200",
+    "report form no-store",
+    "report form bypass",
+    "report form no validators",
+    "form hidden field nonce",
+    "form hidden field resource_id",
+    "form hidden field revision",
+    "form hidden field issued",
+    "form hidden field random",
+    "form hidden field signature",
+    "short report rejected"
+  ],
+  "requests": [
+    {
+      "path": "/?vne_support=bao-loi&resource=108",
+      "method": "GET",
+      "status": 200,
+      "ms": 2474,
+      "headers": {
+        "alt-svc": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\"",
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:39:22 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "referrer-policy": "no-referrer",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex, nofollow"
+      },
+      "body": "<!doctype html>\n<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Báo lỗi nội dung &#8211; Công nghệ &amp; Tài sản số &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<style id=\"wp-block-library-inline-css\">\n:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root ."
+    },
+    {
+      "path": "/?vne_support=bao-loi&resource=108",
+      "method": "POST",
+      "status": 400,
+      "ms": 1310,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:39:23 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "referrer-policy": "no-referrer",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex, nofollow"
+      },
+      "body": "<!doctype html>\n<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Báo lỗi nội dung &#8211; Công nghệ &amp; Tài sản số &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<style id=\"wp-block-library-inline-css\">\n:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root ."
+    },
+    {
+      "path": "/?vne_support=bao-loi&resource=108",
+      "method": "POST",
+      "status": 400,
+      "ms": 1451,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:39:25 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "referrer-policy": "no-referrer",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex, nofollow"
+      },
+      "body": "<!doctype html>\n<html lang=\"vi\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Báo lỗi nội dung &#8211; Công nghệ &amp; Tài sản số &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<style id=\"wp-block-library-inline-css\">\n:root{--wp-block-synced-color:#7a00df;--wp-block-synced-color--rgb:122,0,223;--wp-bound-block-color:var(--wp-block-synced-color);--wp-editor-canvas-background:#ddd;--wp-admin-theme-color:#007cba;--wp-admin-theme-color--rgb:0,124,186;--wp-admin-theme-color-darker-10:#006ba1;--wp-admin-theme-color-darker-10--rgb:0,107,160.5;--wp-admin-theme-color-darker-20:#005a87;--wp-admin-theme-color-darker-20--rgb:0,90,135;--wp-admin-border-width-focus:2px}@media (min-resolution:192dpi){:root{--wp-admin-border-width-focus:1.5px}}.wp-element-button{cursor:pointer}:root .has-very-light-gray-background-color{background-color:#eee}:root .has-very-dark-gray-background-color{background-color:#313131}:root ."
+    }
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: report submit redirects 303\n    at ok (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s15-content-http.mjs:8:29)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s15-content-http.mjs:28:63\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "limits": [
+    "TLS verified; anonymous HTTP only",
+    "No repository/tool execution or new resource validation claims",
+    "HTTP report test creates one disposable private report; server cleanup is separately verified"
+  ]
+}

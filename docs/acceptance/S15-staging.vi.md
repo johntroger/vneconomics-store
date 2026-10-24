@@ -1,6 +1,6 @@
 # S15 — Chuẩn bị và quyền truy cập staging
 
-Ngày 23/10/2026. **Plugin 0.4.2/schema 3 đã cài và kích hoạt trên staging; 22 kiểm tra backend MariaDB đạt, cleanup đạt. DNS/HTTPS, HTTP/cache và cổng theme còn chờ — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
+Ngày 23/10/2026. **Staging đang chạy plugin 0.4.2/schema 3 + VibeLab 0.7.0, có DNS/SSL/noindex và 11 mục mẫu được chủ dự án duyệt. 354 điểm HTTP đạt trong các lượt thành công; cache 503/phục hồi và cleanup đạt; đã tạo backup ứng viên. Còn mobile/LCP/CLS, diễn tập lỗi/rollback/restore và phản hồi chủ dự án — chưa nghiệm thu S15.** Chủ dự án đã cho phép bằng yêu cầu “bắt đầu S15”; không chờ duyệt lại bước này. Phạm vi tại [hợp đồng S15](../S15-staging-contract.vi.md).
 
 Các mục bên dưới ghi tiến trình theo thời điểm; trạng thái hiện tại và bằng chứng mới nhất ở mục cuối báo cáo.
 
@@ -172,3 +172,34 @@ Hậu kiểm plugin vẫn 0.4.2/schema 3, 10 file hash khớp; theme runtime vib
 - Chưa có bộ nội dung VNE trên staging để kiểm thử card/detail/guide/CTA và form hoàn chỉnh; chỉ có các fixture đã xóa. Đã chuẩn bị [đề xuất nhập 6 tài nguyên, 4 hướng dẫn, 1 bộ thực hành](../S15-content-import-proposal.vi.md), chờ chủ dự án chọn trước khi giữ nội dung công khai lâu dài.
 - Chưa kiểm chứng UI mobile trên hosting (công cụ trình duyệt hiện không có chỉnh viewport), LCP/CLS hosting, tình huống cache fail/503/recover thật, lỗi/chậm/timeout/theme rollback và hậu kiểm restore đầy đủ. Không ghi PASS từ local để thay các mục này.
 - S15 **đang thực hiện, chưa nghiệm thu**. Không đổi production, không chuyển S16; lưu nhánh staging và bằng chứng để tiếp tục.
+
+## Nhập nội dung mẫu được duyệt và kiểm thử website có dữ liệu
+
+Chủ dự án xác nhận “Đồng ý nhập bộ mẫu lên staging”. Bộ nhập riêng gồm `scripts/build-s15-content.mjs`, `scripts/fixtures/s15-content-import.php`; không chạy trực tiếp seed S13. Trích payload bằng PHP offline với stub, loại bootstrap/config writes/ẩn bài mặc định và toàn bộ ghi validation. Giữ ngày/nguồn quan sát lịch sử; không nhận đã chạy lại repo/công cụ. Bộ build kiểm tra determinism, counts, PHP lint/direct-entry guard và 13 assertion target/hash/link; các lượt qua run-clean đã dọn fixture/cache.
+
+Một lượt compile local đầu dừng vì stub trùng hàm save_state; đã sửa capture và chạy đạt. Build cũ chưa upload được dọn theo đúng bốn file/hash của lượt tạo; artifact triển khai giữ tại `artifacts/staging/594ccd9a7de812a49f2c0d8260d20cbfced71752/content-import/edb20972c8e8/`. Payload SHA256 `d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934`; importer `edb20972c8e86cd4643540c281daac55a0ef335542d00b4f1ef5c92de71ad0c3`; ZIP `aad1499e7b1485a4c7c21f3e53e5d0d7b819bd15b6f8818c4d69a93543236d18`.
+
+Upload/giải nén Home `/s15-content`, ngoài webroot. Hosting xác minh cả ba SHA; dry-run đúng staging/root/DB/noindex/plugin/theme, 11 tiêu đề và 3 danh mục. Importer dùng journal atomically bằng INSERT IGNORE; từ chối nội dung trùng hoặc target sai; rollback chỉ các ID do lần nhập tạo nếu lỗi. Apply thành công, chạy apply lần hai trả ALREADY_IMPORTED không tạo bản trùng. Không đổi blogname/language/permalink theo seed local, không chép DB/config/user; chặn mail/network và tắt pingback/comment mặc định trong riêng tiến trình nhập.
+
+Sản phẩm giữ lại: resource IDs 108–113, guide IDs 114–117, practice 118; categories 20–22. [Journal/URL](S15/content-import-results.json), [log](S15/content-import-cli-log.txt), [hậu kiểm](S15/content-postflight.json). Đủ 6/4/1, không còn URL placeholder, tất cả not_tested, comments/pings closed, không có pending pingback; hash 14 bài/trang cũ khớp trước/sau. Registry `vne_s15_content_import` là cấu hình truy vết sản phẩm cần giữ, không phải fixture cần xóa.
+
+`test:staging-content`: **122 điểm/17 request PASS** với API counts/quyền riêng, 11 trang, hai CTA thẻ, liên kết vào bài Mộc Studio, môi trường/revision và mục lục bài, search, noindex và bypass. [Kết quả](S15/content-http-results.json), [trang chủ](S15/vibelab-home-content.jpg). Lượt đầu dừng ở assertion tên class mục lục không khớp HTML hiện có, không phải lỗi website; sửa kiểm tra theo aria-label thực tế và chạy lại. Giữ [lượt đầu](S15/content-http-initial-results.json).
+
+Form báo lỗi anonymous thực qua HTTP: **25 điểm/6 request PASS**; GET form, từ chối mô tả ngắn, POST thành công 303, receipt xác nhận đã lưu, không lộ mô tả, gửi lặp cùng code, danh sách private 404. [Kết quả](S15/http-report-results.json). Lượt đầu bộ gửi lấy nhầm input ẩn của form tìm kiếm nên server trả 400, chưa lưu report; đã cô lập đúng report form và chạy lại, giữ [lượt đầu](S15/http-report-initial-results.json). Không gửi email. Report #119 đã xóa; chỉ một report cho hai POST hợp lệ; meta/locks 0; rate-limit mới và registry đã dọn, resource revision không đổi. [Cleanup](S15/http-report-cleanup.json), [log](S15/content-and-report-cli-log.txt).
+
+## Fail-closed cache và phục hồi trên HTTPS thật
+
+Guard chỉ staging + VibeLab, dừng nếu có incident thật đang mở. Lưu metadata cache trước test trong registry riêng; filter purge_result=false chỉ trong tiến trình CLI tạo incident thử. Home, API items và trang hỗ trợ đều trả **503/no-store/bypass**, không trả conditional 304: **15 điểm/3 request PASS**. [Kết quả](S15/cache-failed-http-results.json). Lượt đầu parser không giải mã Unicode JSON nên assertion thông báo dừng dù HTTP đã đúng503; sửa parser và chạy lại, giữ [lượt đầu](S15/cache-failed-initial-results.json).
+
+Khôi phục bằng nút quản trị “Thử làm mới và xác nhận phục hồi” có capability/nonce, không xóa incident tùy tiện. Cảnh báo admin biến mất; ba endpoint trả200/no-store/bypass kể cả conditional headers: **12 điểm/3 request PASS**. [Kết quả](S15/cache-recovered-http-results.json), [admin trước](S15/cache-incident-admin.jpg), [admin sau](S15/cache-recovered-admin.jpg). Xác minh retry purge thành công, incident hết; khôi phục metadata last_attempt trước test và xóa registry thử. [Cleanup](S15/cache-recovery-cleanup.json), [log](S15/cache-and-content-cli-log.txt). Đây là WP cache safety switch/bypass thật trên hosting; không có adapter purge CDN được chứng nhận hoặc kết luận mọi upstream cache đều không tồn tại.
+
+Tổng các lượt HTTP thành công hiện **354 điểm/68 request** (180 +122 +25 +15 +12). Các lượt harness thất bại được giữ riêng, không tính vào tổng PASS, không xóa để che lỗi.
+
+## Sức khỏe và backup sau nhập
+
+Site Health chạy lại không còn heading critical issue; 6 khuyến nghị, page cache chưa phát hiện nhưng response time OK: trung vị **421ms**, dưới ngưỡng600ms mà chính WordPress hiển thị. [Chi tiết mới](S15/site-health-after-content.txt), [ảnh](S15/site-health-after-content.jpg). Giữ báo cáo2222ms cũ để truy vết; không suy phép đo này thành LCP/CLS hoặc cam kết hiệu năng tải thật trên điện thoại.
+
+- Backup gốc 11:02:11 vẫn có: 81,243,339 byte, SHA256 `51c9f67ffd01ade61d22ba9b32fdb53b5750804639dead984c109098966917f3`, 16,669 entry, có sqldump.sql; không có đường dẫn tương đối không an toàn trong index. [Quan sát archive](S15/backup-archive-observation.json). Chưa CRC toàn bộ data/khôi phục lại trong lượt này.
+- Đã tạo **backup ứng viên mới lúc14:49:28 ngày23/10/2026** qua WP Toolkit của đúng staging; giữ cả bản gốc. Tên `staging-store.vneconomics.com__2026-10-23T14_49_28+0700.zip`, 81,537,595 byte, SHA256 `50f5044df962a7c72412a8169bc9423d00aac9954a486712fc59054e351fafdd`, 16,719 entry. Có dumpDB, plugin và theme hiện tại; runtime/import journal đúng ứng viên. [Ảnh hai backup](S15/candidate-backup-created.jpg), [kết quả](S15/candidate-backup-results.json). Chưa diễn tập restore ứng viên; không coi việc tạo/index ZIP là restore PASS.
+
+Nội dung đã duyệt, registry nhập, tooling ngoài webroot, gói S14 và hai backup thật được giữ. Mọi fixture/report/rate/incident thử đã dọn; các runner đã thoát và dọn cache local. Còn kiểm thử mobile/LCP/CLS hosting, lỗi/chậm/timeout/rollback theme/plugin và restore ứng viên có hậu kiểm đầy đủ. Chủ dự án có thể xem staging có nội dung; việc xem/thử của chủ dự án không thay bằng kết quả máy. **Chưa nghiệm thu toàn S15, không chuyển production/S16.**
