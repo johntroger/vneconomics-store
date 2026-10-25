@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 10,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 91,
+      "batch": 10,
+      "slug": "localsend",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "LocalSend: khám phá công cụ gửi file giữa thiết bị trong mạng cục bộ",
+        "excerpt": "Khám phá công cụ gửi file giữa thiết bị trong mạng cục bộ. Kiểm tra đúng thiết bị nhận và mạng; không thử bằng tài liệu riêng.",
+        "content": "<p>Khám phá công cụ gửi file giữa thiết bị trong mạng cục bộ. LocalSend chia sẻ file và tin nhắn giữa thiết bị gần nhau qua mạng cục bộ. README có phần Download, Setup và How It Works; người mới cần phân biệt mạng local và dịch vụ gửi file qua server trên internet.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một file văn bản mẫu gửi giữa hai thiết bị được phép. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần các thiết bị được phép và mạng phù hợp, chọn bản ứng dụng chính thức cho từng thiết bị; đọc Setup nếu không tìm thấy nhau.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chuẩn bị file văn bản hư cấu, đặt tên để người nhận dễ nhận biết.</li><li>Đọc Download/Setup và xác nhận đúng hai thiết bị, chưa thay cấu hình mạng diện rộng chỉ để thử.</li><li>Nếu thử được phép, kiểm tra file đến đúng nơi và mở được rồi mới cân nhắc nội dung khác.</li></ol><h2>Giới hạn cần biết</h2><p>Kiểm tra đúng thiết bị nhận và mạng; không thử bằng tài liệu riêng. Thiết bị có tên quen không tự chứng minh đúng người nhận; không gửi tài liệu riêng khi chưa xác nhận phía nhận.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>localsend</strong> có <strong>95.462 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/localsend/localsend/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/localsend/localsend\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 91. Chưa cài/chạy thử; không tạo validation. Snapshot sao 95462; repo_id 578822531; README SHA256 eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/localsend/localsend",
+          "repo_id": "578822531",
+          "source_path": "",
+          "source_revision": "README-SHA256:eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần các thiết bị được phép và mạng phù hợp, chọn bản ứng dụng chính thức cho từng thiết bị; đọc Setup nếu không tìm thấy nhau.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/localsend/localsend/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thiết bị có tên quen không tự chứng minh đúng người nhận; không gửi tài liệu riêng khi chưa xác nhận phía nhận.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/localsend/localsend/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "localsend/localsend",
+        "stars": 95462,
+        "observedAt": "2026-10-25T03:43:07.958Z",
+        "readmeUrl": "https://raw.githubusercontent.com/localsend/localsend/main/README.md",
+        "readmeSha256": "eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "7dacbd124cdc0fda9c13c198409813f159602dcd3fee94d3f06ae644dc5cf8d0"
+    },
+    {
+      "key": 92,
+      "batch": 10,
+      "slug": "syncthing",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Syncthing: phân biệt đồng bộ thư mục với sao lưu dữ liệu",
+        "excerpt": "Phân biệt đồng bộ thư mục với sao lưu dữ liệu. Đồng bộ có thể truyền cả xóa/sửa; không thay thế bản sao lưu độc lập.",
+        "content": "<p>Phân biệt đồng bộ thư mục với sao lưu dữ liệu. Syncthing đồng bộ file liên tục giữa hai hoặc nhiều máy. README mô tả mục tiêu và đường Getting Started; cần hiểu đây là đồng bộ trạng thái, không phải tự có một lịch sử backup độc lập cho mọi tình huống.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Hai thư mục mẫu để đọc ý nghĩa thay đổi được truyền sang thiết bị khác. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần thiết bị/thư mục được phép chia sẻ và cấu hình theo Getting Started; đọc tài liệu về thay đổi/xóa và versioning nếu dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ hai thư mục mẫu A/B, ghi thay đổi nào bạn muốn được truyền sang.</li><li>Đọc Getting Started và Documentation, hiểu cơ chế nhận thiết bị/chọn thư mục trước kết nối.</li><li>Chỉ dùng dữ liệu giả khi thử, kiểm tra cả sửa/xóa và bản sao độc lập trước dùng file thật.</li></ol><h2>Giới hạn cần biết</h2><p>Đồng bộ có thể truyền cả xóa/sửa; không thay thế bản sao lưu độc lập. Sai sót trên một bên có thể lan sang bên đồng bộ; đừng đặt kho ghi chú duy nhất vào thử nghiệm đầu tiên.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>syncthing</strong> có <strong>89.709 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MPL-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/syncthing/syncthing/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/syncthing/syncthing\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 92. Chưa cài/chạy thử; không tạo validation. Snapshot sao 89709; repo_id 14712850; README SHA256 42b3725bed4bbefe15dc3284f3246333a721818722752fe69f61478b3b8eba15.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/syncthing/syncthing",
+          "repo_id": "14712850",
+          "source_path": "",
+          "source_revision": "README-SHA256:42b3725bed4bbefe15dc3284f3246333a721818722752fe69f61478b3b8eba15",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần thiết bị/thư mục được phép chia sẻ và cấu hình theo Getting Started; đọc tài liệu về thay đổi/xóa và versioning nếu dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/syncthing/syncthing/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Sai sót trên một bên có thể lan sang bên đồng bộ; đừng đặt kho ghi chú duy nhất vào thử nghiệm đầu tiên.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/syncthing/syncthing/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "syncthing/syncthing",
+        "stars": 89709,
+        "observedAt": "2026-10-25T03:43:08.322Z",
+        "readmeUrl": "https://raw.githubusercontent.com/syncthing/syncthing/main/README.md",
+        "readmeSha256": "42b3725bed4bbefe15dc3284f3246333a721818722752fe69f61478b3b8eba15",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "44fe3495811c910fee21a282282153596bda062072e42dc313885cb8d4335e8e"
+    },
+    {
+      "key": 93,
+      "batch": 10,
+      "slug": "rclone",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "rclone: tìm hiểu công cụ làm việc với nhiều nguồn lưu trữ",
+        "excerpt": "Tìm hiểu công cụ làm việc với nhiều nguồn lưu trữ. Lệnh đồng bộ có thể thay đổi hoặc xóa dữ liệu; chưa chạy trên tài khoản thật.",
+        "content": "<p>Tìm hiểu công cụ làm việc với nhiều nguồn lưu trữ. rclone là công cụ dòng lệnh làm việc với file/thư mục ở nhiều nhà cung cấp lưu trữ. README liệt kê backend và chức năng; quyền, quota và tác dụng của thao tác copy/sync/move không giống nhau nên phải đọc đúng tác vụ.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc một ví dụ sao chép file mẫu và đối chiếu nguồn/đích. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần bản rclone cho môi trường phù hợp và quyền backend nếu kết nối dịch vụ; xem documentation trước cấu hình credential.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Ghi rõ nguồn, đích và mục đích của một thao tác trên thư mục giả.</li><li>Đọc tài liệu đúng backend và phân biệt sao chép với đồng bộ trước xem ví dụ lệnh.</li><li>Chưa nhập credential hoặc dùng đường dẫn thật cho tới khi có phương án kiểm tra/khôi phục.</li></ol><h2>Giới hạn cần biết</h2><p>Lệnh đồng bộ có thể thay đổi hoặc xóa dữ liệu; chưa chạy trên tài khoản thật. Không biến ví dụ sync thành lệnh dùng ngay với dữ liệu quan trọng; thay đổi và xóa có thể ảnh hưởng nơi đích.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>rclone</strong> có <strong>60.518 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/rclone/rclone/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/rclone/rclone\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 93. Chưa cài/chạy thử; không tạo validation. Snapshot sao 60518; repo_id 17803236; README SHA256 3a9ce92728959025cdf862be0792acea5756f218815833949be8cb0d5fb1e36a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/rclone/rclone",
+          "repo_id": "17803236",
+          "source_path": "",
+          "source_revision": "README-SHA256:3a9ce92728959025cdf862be0792acea5756f218815833949be8cb0d5fb1e36a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần bản rclone cho môi trường phù hợp và quyền backend nếu kết nối dịch vụ; xem documentation trước cấu hình credential.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/rclone/rclone/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không biến ví dụ sync thành lệnh dùng ngay với dữ liệu quan trọng; thay đổi và xóa có thể ảnh hưởng nơi đích.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/rclone/rclone/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "rclone/rclone",
+        "stars": 60518,
+        "observedAt": "2026-10-25T03:43:08.672Z",
+        "readmeUrl": "https://raw.githubusercontent.com/rclone/rclone/master/README.md",
+        "readmeSha256": "3a9ce92728959025cdf862be0792acea5756f218815833949be8cb0d5fb1e36a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "a4300edb38d0fbefce8c99e3b5b6f6bc236cb88f46b5012b4f13919c0dd7f3e2"
+    },
+    {
+      "key": 94,
+      "batch": 10,
+      "slug": "restic",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "restic: khám phá quy trình sao lưu và thử phục hồi",
+        "excerpt": "Khám phá quy trình sao lưu và thử phục hồi. Cần quản lý khóa và nơi lưu; có backup chưa chứng minh khôi phục được.",
+        "content": "<p>Khám phá quy trình sao lưu và thử phục hồi. restic tạo kho backup và snapshot có cơ chế truy cập bằng mật khẩu được README mô tả. Quick start nhấn mạnh mất mật khẩu có thể không khôi phục được; nhiệm vụ sao lưu phải bao gồm cách giữ quyền truy cập và thử phục hồi.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một thư mục giả có hai file để hiểu snapshot và khôi phục. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản cài và backend phù hợp, xác định nơi giữ mật khẩu/khóa cùng dung lượng lưu; chỉ dùng dữ liệu giả trong bước làm quen.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng hai file hư cấu và mô tả trạng thái cần khôi phục trước khi tạo kế hoạch backup.</li><li>Đọc Quick start/Backends để hiểu kho, snapshot và thông tin truy cập.</li><li>Khi thử được phép, phục hồi ra thư mục khác rồi so nội dung; không chỉ nhìn thông báo backup xong.</li></ol><h2>Giới hạn cần biết</h2><p>Cần quản lý khóa và nơi lưu; có backup chưa chứng minh khôi phục được. Không dùng mật khẩu ví dụ cho kho thật và không mất khóa; bản backup không đọc lại được không giải quyết nhu cầu phục hồi.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>restic</strong> có <strong>36.788 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép BSD-2-Clause tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/restic/restic/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/restic/restic\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 94. Chưa cài/chạy thử; không tạo validation. Snapshot sao 36788; repo_id 19205896; README SHA256 4684f85db668903f6b0e66c3c677efa62fb291e9fe56f2e909b57e84d5740587.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/restic/restic",
+          "repo_id": "19205896",
+          "source_path": "",
+          "source_revision": "README-SHA256:4684f85db668903f6b0e66c3c677efa62fb291e9fe56f2e909b57e84d5740587",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản cài và backend phù hợp, xác định nơi giữ mật khẩu/khóa cùng dung lượng lưu; chỉ dùng dữ liệu giả trong bước làm quen.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/restic/restic/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dùng mật khẩu ví dụ cho kho thật và không mất khóa; bản backup không đọc lại được không giải quyết nhu cầu phục hồi.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/restic/restic/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "restic/restic",
+        "stars": 36788,
+        "observedAt": "2026-10-25T03:43:09.022Z",
+        "readmeUrl": "https://raw.githubusercontent.com/restic/restic/master/README.md",
+        "readmeSha256": "4684f85db668903f6b0e66c3c677efa62fb291e9fe56f2e909b57e84d5740587",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9f1265ede40270f2bb534d0f98983f72d6d04f84f0790aa0fb01fbd2416123da"
+    },
+    {
+      "key": 95,
+      "batch": 10,
+      "slug": "nextcloud-server",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Nextcloud Server: tìm hiểu không gian lưu và chia sẻ file tự quản lý",
+        "excerpt": "Tìm hiểu không gian lưu và chia sẻ file tự quản lý. Tự host cần vận hành, cập nhật và kiểm tra quyền; không tự động riêng tư tuyệt đối.",
+        "content": "<p>Tìm hiểu không gian lưu và chia sẻ file tự quản lý. Nextcloud Server là nền tảng lưu, đồng bộ và chia sẻ dữ liệu trên máy chủ được lựa chọn, có hệ sinh thái ứng dụng. README tách dùng Nextcloud với phát triển mã nguồn; tự vận hành cần công chăm sóc hạ tầng và quyền tài khoản.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Vẽ sơ đồ người dùng, máy chủ và thư mục chia sẻ mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn đường Get your Nextcloud phù hợp; nếu self-host cần server, cấu hình và cập nhật theo tài liệu người quản trị.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ sơ đồ máy chủ, người dùng và thư mục chia sẻ bằng dữ liệu minh họa.</li><li>Đọc tính năng cần dùng, chưa cài nhiều app mở rộng cùng lúc.</li><li>Lập quyền xem/sửa và kế hoạch sao lưu trước nhập file thật hoặc mời người khác.</li></ol><h2>Giới hạn cần biết</h2><p>Tự host cần vận hành, cập nhật và kiểm tra quyền; không tự động riêng tư tuyệt đối. Tự host không tự bảo đảm riêng tư/an toàn; link chia sẻ, tài khoản và cập nhật vẫn cần quản lý.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>nextcloud</strong> có <strong>37.282 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/nextcloud/server/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/nextcloud/server\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 95. Chưa cài/chạy thử; không tạo validation. Snapshot sao 37282; repo_id 60243197; README SHA256 694e8653a25b8f50d3bc772bd84b088e72ac56b2477f38134996189f8ab26a2c.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/nextcloud/server",
+          "repo_id": "60243197",
+          "source_path": "",
+          "source_revision": "README-SHA256:694e8653a25b8f50d3bc772bd84b088e72ac56b2477f38134996189f8ab26a2c",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn đường Get your Nextcloud phù hợp; nếu self-host cần server, cấu hình và cập nhật theo tài liệu người quản trị.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/nextcloud/server/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Tự host không tự bảo đảm riêng tư/an toàn; link chia sẻ, tài khoản và cập nhật vẫn cần quản lý.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/nextcloud/server/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "nextcloud/server",
+        "stars": 37282,
+        "observedAt": "2026-10-25T03:43:09.404Z",
+        "readmeUrl": "https://raw.githubusercontent.com/nextcloud/server/master/README.md",
+        "readmeSha256": "694e8653a25b8f50d3bc772bd84b088e72ac56b2477f38134996189f8ab26a2c",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "a57aaa86c237bffd4bab36cb37f7b4a25f3c05a1e4c4e755f942ddd63dbc9f21"
+    },
+    {
+      "key": 96,
+      "batch": 10,
+      "slug": "immich",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Immich: khám phá quản lý thư viện ảnh tự triển khai",
+        "excerpt": "Khám phá quản lý thư viện ảnh tự triển khai. Cần đọc yêu cầu server, backup và phiên bản trước nhập kho ảnh gia đình.",
+        "content": "<p>Khám phá quản lý thư viện ảnh tự triển khai. Immich quản lý ảnh/video tự triển khai và README đặt cảnh báo sao lưu nổi bật ở đầu. Các mục Installation, Demo và Features giúp khảo sát sản phẩm, nhưng demo công khai không phải nơi đưa ảnh cá nhân lên thử.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một nhóm ảnh minh họa có quyền để hiểu tổ chức album. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Installation requirements theo môi trường server và thiết bị; cần kế hoạch backup độc lập trước nhập kho ảnh thật.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn vài ảnh minh họa có quyền và mô tả cách bạn muốn tổ chức album.</li><li>Đọc cảnh báo backup, yêu cầu cài và tính năng hỗ trợ cho web/mobile.</li><li>Nếu dùng môi trường thử được phép, kiểm tra file gốc, metadata và khả năng phục hồi trước nhập số lượng lớn.</li></ol><h2>Giới hạn cần biết</h2><p>Cần đọc yêu cầu server, backup và phiên bản trước nhập kho ảnh gia đình. Không coi ứng dụng quản lý ảnh là bản sao lưu duy nhất; không tải ảnh gia đình lên demo của người khác.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>immich-app</strong> có <strong>117.127 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/immich-app/immich/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/immich-app/immich\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 96. Chưa cài/chạy thử; không tạo validation. Snapshot sao 117127; repo_id 455229168; README SHA256 27b511ae6ee3be2295c4c1e0674dd0ac5b0c6023d9fdd9187869b1605ff56fad.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/immich-app/immich",
+          "repo_id": "455229168",
+          "source_path": "",
+          "source_revision": "README-SHA256:27b511ae6ee3be2295c4c1e0674dd0ac5b0c6023d9fdd9187869b1605ff56fad",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Installation requirements theo môi trường server và thiết bị; cần kế hoạch backup độc lập trước nhập kho ảnh thật.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/immich-app/immich/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không coi ứng dụng quản lý ảnh là bản sao lưu duy nhất; không tải ảnh gia đình lên demo của người khác.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/immich-app/immich/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "immich-app/immich",
+        "stars": 117127,
+        "observedAt": "2026-10-25T03:43:09.780Z",
+        "readmeUrl": "https://raw.githubusercontent.com/immich-app/immich/main/README.md",
+        "readmeSha256": "27b511ae6ee3be2295c4c1e0674dd0ac5b0c6023d9fdd9187869b1605ff56fad",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "194a8e99b61433417ffba1eba294bf7ded74d76612834f388a561ddb4af282da"
+    },
+    {
+      "key": 97,
+      "batch": 10,
+      "slug": "photoprism",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "PhotoPrism: tìm hiểu cách tổ chức và tìm ảnh trong thư viện cá nhân",
+        "excerpt": "Tìm hiểu cách tổ chức và tìm ảnh trong thư viện cá nhân. Nhận dạng và phân loại có thể sai; lưu ảnh và quyền truy cập cần kiểm tra riêng.",
+        "content": "<p>Tìm hiểu cách tổ chức và tìm ảnh trong thư viện cá nhân. PhotoPrism hỗ trợ duyệt, tổ chức và chia sẻ ảnh/video với khả năng tìm kiếm gắn AI được README mô tả. Có đường self-host/cloud và demo công khai; tài liệu còn nhắc không upload ảnh riêng vào demo.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một album ảnh sản phẩm hư cấu có metadata tối thiểu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Getting Started và yêu cầu triển khai, nơi lưu originals/database và điều kiện tính năng của cách dùng định chọn.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng album sản phẩm hư cấu có metadata tối thiểu để xác định nhu cầu tìm kiếm.</li><li>Đọc Feature Overview và Getting Started, phân biệt ảnh gốc với dữ liệu chỉ mục.</li><li>Kiểm tra backup và quyền chia sẻ trước nhập thật; nếu khảo sát demo chỉ xem dữ liệu đã có.</li></ol><h2>Giới hạn cần biết</h2><p>Nhận dạng và phân loại có thể sai; lưu ảnh và quyền truy cập cần kiểm tra riêng. Nhận dạng/gắn nhãn có thể sai; không lấy nhãn AI làm bằng chứng xác định người hoặc sự kiện.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>photoprism</strong> có <strong>40.355 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/photoprism/photoprism/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/photoprism/photoprism\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 97. Chưa cài/chạy thử; không tạo validation. Snapshot sao 40355; repo_id 119160553; README SHA256 e97ed79e2fa7797160ad6bb29eeb487b79eb0e39be65b7049040d9042d99c228.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/photoprism/photoprism",
+          "repo_id": "119160553",
+          "source_path": "",
+          "source_revision": "README-SHA256:e97ed79e2fa7797160ad6bb29eeb487b79eb0e39be65b7049040d9042d99c228",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Getting Started và yêu cầu triển khai, nơi lưu originals/database và điều kiện tính năng của cách dùng định chọn.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/photoprism/photoprism/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Nhận dạng/gắn nhãn có thể sai; không lấy nhãn AI làm bằng chứng xác định người hoặc sự kiện.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/photoprism/photoprism/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "photoprism/photoprism",
+        "stars": 40355,
+        "observedAt": "2026-10-25T03:43:10.130Z",
+        "readmeUrl": "https://raw.githubusercontent.com/photoprism/photoprism/develop/README.md",
+        "readmeSha256": "e97ed79e2fa7797160ad6bb29eeb487b79eb0e39be65b7049040d9042d99c228",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "32ddbc097ae5e01137da2ca3b94b0db16a2c8b4a207be22ac5a5d7327dec35c9"
+    },
+    {
+      "key": 98,
+      "batch": 10,
+      "slug": "memos",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Memos: khám phá ghi chú ngắn và cách lưu ý tưởng công việc",
+        "excerpt": "Khám phá ghi chú ngắn và cách lưu ý tưởng công việc. Phải phân biệt ghi chú riêng với chế độ công khai; không mặc định tất cả đều riêng tư.",
+        "content": "<p>Khám phá ghi chú ngắn và cách lưu ý tưởng công việc. Memos là ứng dụng ghi chú tự host theo timeline, có tags và chế độ giữ riêng/chia sẻ được README mô tả. Khả năng xuất bản ghi chú lên web là lựa chọn của người dùng, không nên mặc định mọi memo đều riêng hoặc đều công khai.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Mười ghi chú mẫu có nhãn để xem lại một tuần học. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Quick start, cần môi trường server nếu tự host; đọc quyền chia sẻ và cách nâng cấp/sao lưu trước dùng dài hạn.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết mười ghi chú mẫu cho một tuần học, gắn vài tag để tìm lại.</li><li>Đọc About Memos để phân biệt timeline, tag và shared spaces.</li><li>Trước dùng nội dung thật, kiểm tra chế độ xem/chia sẻ từng loại ghi chú và bản sao dữ liệu.</li></ol><h2>Giới hạn cần biết</h2><p>Phải phân biệt ghi chú riêng với chế độ công khai; không mặc định tất cả đều riêng tư. Một ghi chú ngắn vẫn có thể chứa thông tin nhạy cảm; đừng công khai chỉ vì định dạng trông như dòng trạng thái.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>usememos</strong> có <strong>64.043 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/usememos/memos/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/usememos/memos\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 98. Chưa cài/chạy thử; không tạo validation. Snapshot sao 64043; repo_id 436297812; README SHA256 441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/usememos/memos",
+          "repo_id": "436297812",
+          "source_path": "",
+          "source_revision": "README-SHA256:441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Quick start, cần môi trường server nếu tự host; đọc quyền chia sẻ và cách nâng cấp/sao lưu trước dùng dài hạn.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/usememos/memos/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một ghi chú ngắn vẫn có thể chứa thông tin nhạy cảm; đừng công khai chỉ vì định dạng trông như dòng trạng thái.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/usememos/memos/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "usememos/memos",
+        "stars": 64043,
+        "observedAt": "2026-10-25T03:43:10.457Z",
+        "readmeUrl": "https://raw.githubusercontent.com/usememos/memos/main/README.md",
+        "readmeSha256": "441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "11d7fcedc79ab5ad6c31b1443f70dba203fc66ac7c0ae0da0211f0b6d7784400"
+    },
+    {
+      "key": 99,
+      "batch": 10,
+      "slug": "planka",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Planka: tìm hiểu quản lý nhiệm vụ theo bảng Kanban",
+        "excerpt": "Tìm hiểu quản lý nhiệm vụ theo bảng Kanban. Tính năng cộng tác và quyền nhóm cần xem theo bản đang dùng.",
+        "content": "<p>Tìm hiểu quản lý nhiệm vụ theo bảng Kanban. Planka tổ chức công việc bằng board, list và card, với bảng phân biệt Community/Pro trong README. Một số kiểu hiển thị và tính năng cộng tác thuộc điều kiện khác; người mới nên chọn nhu cầu tối thiểu trước so sánh gói.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một dự án hư cấu gồm ba việc có hạn và tiêu chí xong. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản Community/Pro và hướng Deploy phù hợp; self-host cần database/backup, cloud có điều kiện tài khoản riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác ba cột cần làm, đang làm và xong cho dự án hư cấu.</li><li>Đọc bảng edition để biết các chức năng mong muốn có thuộc bản đang chọn.</li><li>Định nghĩa tiêu chí xong trên mỗi card, kiểm tra quyền thành viên và thông báo trước dùng cho nhóm thật.</li></ol><h2>Giới hạn cần biết</h2><p>Tính năng cộng tác và quyền nhóm cần xem theo bản đang dùng. Không bật webhook hoặc thông báo gửi ra dịch vụ ngoài chỉ để làm bảng mẫu; quyền và dữ liệu đính kèm cần quản lý.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>plankanban</strong> có <strong>12.639 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/plankanban/planka/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/plankanban/planka\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 99. Chưa cài/chạy thử; không tạo validation. Snapshot sao 12639; repo_id 205453332; README SHA256 b28c061b21698b9016c846257308e151be31a2444fc0846d6b231c41b8e30df6.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/plankanban/planka",
+          "repo_id": "205453332",
+          "source_path": "",
+          "source_revision": "README-SHA256:b28c061b21698b9016c846257308e151be31a2444fc0846d6b231c41b8e30df6",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản Community/Pro và hướng Deploy phù hợp; self-host cần database/backup, cloud có điều kiện tài khoản riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/plankanban/planka/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không bật webhook hoặc thông báo gửi ra dịch vụ ngoài chỉ để làm bảng mẫu; quyền và dữ liệu đính kèm cần quản lý.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/plankanban/planka/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "plankanban/planka",
+        "stars": 12639,
+        "observedAt": "2026-10-25T03:43:10.740Z",
+        "readmeUrl": "https://raw.githubusercontent.com/plankanban/planka/master/README.md",
+        "readmeSha256": "b28c061b21698b9016c846257308e151be31a2444fc0846d6b231c41b8e30df6",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "dd4372313c7fcdab3372eb18f752b332d04c1496ec69807cc7af94ebfe466197"
+    },
+    {
+      "key": 100,
+      "batch": 10,
+      "slug": "uptime-kuma",
+      "category": "Lưu trữ và công cụ cá nhân",
+      "need": "Quản lý tệp và ứng dụng",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Uptime Kuma: khám phá việc theo dõi website có phản hồi hay không",
+        "excerpt": "Khám phá việc theo dõi website có phản hồi hay không. HTTP 200 không chứng minh nội dung hay mọi chức năng đúng; không bật thông báo thật chỉ để thử.",
+        "content": "<p>Khám phá việc theo dõi website có phản hồi hay không. Uptime Kuma theo dõi nhiều dạng endpoint và có thông báo/status page theo README. Uptime là một tín hiệu vận hành, khác với kiểm tra nội dung bài hoặc toàn bộ chức năng website; cần chọn loại kiểm tra phù hợp câu hỏi.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một URL được phép để hiểu trạng thái, khoảng kiểm tra và cảnh báo. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn How to Install và cấu hình lưu dữ liệu/mạng; chỉ theo dõi URL được phép, thông báo cần tài khoản/kênh riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết rõ bạn muốn biết server có phản hồi hay một từ khóa/nội dung có xuất hiện.</li><li>Đọc Features và chọn một loại monitor, chưa bật nhiều kênh thông báo cùng lúc.</li><li>Nếu thử được phép, dùng endpoint kiểm thử và đối chiếu tình huống khỏe/lỗi; giữ quyền status page rõ ràng.</li></ol><h2>Giới hạn cần biết</h2><p>HTTP 200 không chứng minh nội dung hay mọi chức năng đúng; không bật thông báo thật chỉ để thử. HTTP 200 có thể vẫn là trang sai nội dung; không lấy trạng thái xanh làm bằng chứng mọi tính năng đều đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>louislam</strong> có <strong>92.872 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/louislam/uptime-kuma/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/louislam/uptime-kuma\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 10, key 100. Chưa cài/chạy thử; không tạo validation. Snapshot sao 92872; repo_id 382496361; README SHA256 00ba16e6df299b20daec2a627fd72175ee52a65554c705d63a7b9eeb9d234a9a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/louislam/uptime-kuma",
+          "repo_id": "382496361",
+          "source_path": "",
+          "source_revision": "README-SHA256:00ba16e6df299b20daec2a627fd72175ee52a65554c705d63a7b9eeb9d234a9a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn How to Install và cấu hình lưu dữ liệu/mạng; chỉ theo dõi URL được phép, thông báo cần tài khoản/kênh riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/louislam/uptime-kuma/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "HTTP 200 có thể vẫn là trang sai nội dung; không lấy trạng thái xanh làm bằng chứng mọi tính năng đều đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/louislam/uptime-kuma/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "louislam/uptime-kuma",
+        "stars": 92872,
+        "observedAt": "2026-10-25T03:43:11.097Z",
+        "readmeUrl": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/README.md",
+        "readmeSha256": "00ba16e6df299b20daec2a627fd72175ee52a65554c705d63a7b9eeb9d234a9a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "6e5c19a7da14e26edaae24ffe279be345498b48c2d43b30828f02d1993cb045f"
+    }
+  ]
+}

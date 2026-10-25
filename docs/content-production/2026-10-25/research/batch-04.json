@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:16:45.238Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 31,
+      "repo": "ollama/ollama",
+      "stars": 184669,
+      "archived": false,
+      "readmeBytes": 19347,
+      "source": "https://raw.githubusercontent.com/ollama/ollama/main/README.md",
+      "sha256": "9e5a7d406950fdd2742084065ab38a3ea09b5aab5e2f13ef7d64147229ae0d8b"
+    },
+    {
+      "key": 32,
+      "repo": "open-webui/open-webui",
+      "stars": 156664,
+      "archived": false,
+      "readmeBytes": 18194,
+      "source": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "sha256": "da3d46f4d7e6c158e13ed91e5e46250d22d278b972d8d1b028f5e0bb62be612b"
+    },
+    {
+      "key": 33,
+      "repo": "Mintplex-Labs/anything-llm",
+      "stars": 67521,
+      "archived": false,
+      "readmeBytes": 27176,
+      "source": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "sha256": "54fa19d813e8bb7bbed9346771e17ad29a9d5753effa19427bea4c38de6c7a2c"
+    },
+    {
+      "key": 34,
+      "repo": "infiniflow/ragflow",
+      "stars": 92814,
+      "archived": false,
+      "readmeBytes": 17265,
+      "source": "https://raw.githubusercontent.com/infiniflow/ragflow/main/README.md",
+      "sha256": "22bcc2881978416c6eac909be53d69869c3001424227440758ee8fc309362f3c"
+    },
+    {
+      "key": 35,
+      "repo": "langflow-ai/langflow",
+      "stars": 155993,
+      "archived": false,
+      "readmeBytes": 5609,
+      "source": "https://raw.githubusercontent.com/langflow-ai/langflow/main/README.md",
+      "sha256": "0c91b63e58aeac3846fad7d1e6ec7729fc23975fdb0d59def51e97627fdb5e36"
+    },
+    {
+      "key": 36,
+      "repo": "janhq/jan",
+      "stars": 45067,
+      "archived": false,
+      "readmeBytes": 7190,
+      "source": "https://raw.githubusercontent.com/janhq/jan/main/README.md",
+      "sha256": "297a156f1747488b907a98fb9182027ba3c535386b6827195528925abba80998"
+    },
+    {
+      "key": 37,
+      "repo": "nomic-ai/gpt4all",
+      "stars": 77359,
+      "archived": false,
+      "readmeBytes": 5925,
+      "source": "https://raw.githubusercontent.com/nomic-ai/gpt4all/main/README.md",
+      "sha256": "7d4c9cbb1d20ffb1becbdef7b50ec47a3e45568fee76d5ff9da490018d685d04"
+    },
+    {
+      "key": 38,
+      "repo": "CherryHQ/cherry-studio",
+      "stars": 52956,
+      "archived": false,
+      "readmeBytes": 15388,
+      "source": "https://raw.githubusercontent.com/CherryHQ/cherry-studio/main/README.md",
+      "sha256": "cbdd7003c8a2ac2d5b387ebb8f359d0f90c31df389f6a5593e32754a52adf170"
+    },
+    {
+      "key": 39,
+      "repo": "LibreChat-AI/LibreChat",
+      "stars": 46265,
+      "archived": false,
+      "readmeBytes": 16255,
+      "source": "https://raw.githubusercontent.com/LibreChat-AI/LibreChat/main/README.md",
+      "sha256": "84a943a2e911f9a3566e9c959d6a5b0a7ceb69481d67d9d66817f4ea2bc95412"
+    },
+    {
+      "key": 40,
+      "repo": "BerriAI/litellm",
+      "stars": 61983,
+      "archived": false,
+      "readmeBytes": 38865,
+      "source": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+      "sha256": "01ef7dec07f73086784fe42e1af86422aaeb9230f5d05626df8f9f6b9562f4bb"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/ollama/ollama/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/infiniflow/ragflow/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/langflow-ai/langflow/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/janhq/jan/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nomic-ai/gpt4all/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/CherryHQ/cherry-studio/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LibreChat-AI/LibreChat/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 3,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 21,
+      "batch": 3,
+      "slug": "n8n",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "n8n: hiểu workflow trực quan và cách nối các bước xử lý công việc",
+        "excerpt": "Hiểu workflow trực quan và cách nối các bước xử lý công việc. Không nối email, CRM hoặc tài khoản thật trong bài khởi đầu.",
+        "content": "<p>Hiểu workflow trực quan và cách nối các bước xử lý công việc. n8n kết hợp canvas workflow với các bước xử lý và tích hợp dịch vụ. README nêu lựa chọn self-host/cloud và giấy phép fair-code; bài khởi đầu nên tập trung cách dữ liệu đi qua các bước trước khi nối tài khoản thật.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một chuỗi chuẩn hóa ba dòng dữ liệu giả rồi xem kết quả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đường tự triển khai trong Quick Start dùng Docker; dùng cloud cần xem điều kiện dịch vụ và tài khoản riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết rõ dữ liệu vào và kết quả ra của một tác vụ nhỏ, không bắt đầu bằng workflow nhiều dịch vụ.</li><li>Đọc Quick Start và Key Capabilities, phân biệt việc chạy n8n với quyền của từng tích hợp.</li><li>Dùng ba dòng dữ liệu giả để phác bước chuẩn hóa và kiểm tra đầu ra trước thêm trigger/credential.</li></ol><h2>Giới hạn cần biết</h2><p>Không nối email, CRM hoặc tài khoản thật trong bài khởi đầu. Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>n8n-io</strong> có <strong>208.508 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/n8n-io/n8n/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/n8n-io/n8n\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 21. Chưa cài/chạy thử; không tạo validation. Snapshot sao 208508; repo_id 193215554; README SHA256 1b2642bc182969047627fc3568c785bad291fb9a2c7d655b19813608bf69ce27.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/n8n-io/n8n",
+          "repo_id": "193215554",
+          "source_path": "",
+          "source_revision": "README-SHA256:1b2642bc182969047627fc3568c785bad291fb9a2c7d655b19813608bf69ce27",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đường tự triển khai trong Quick Start dùng Docker; dùng cloud cần xem điều kiện dịch vụ và tài khoản riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/n8n-io/n8n/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/n8n-io/n8n/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "n8n-io/n8n",
+        "stars": 208508,
+        "observedAt": "2026-10-25T03:15:07.548Z",
+        "readmeUrl": "https://raw.githubusercontent.com/n8n-io/n8n/master/README.md",
+        "readmeSha256": "1b2642bc182969047627fc3568c785bad291fb9a2c7d655b19813608bf69ce27",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "d3b4d358f025bdbc78c184a47f7cb863c5740de1b0ba5bbd90a3c22217ae6f88"
+    },
+    {
+      "key": 22,
+      "batch": 3,
+      "slug": "activepieces",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Activepieces: khám phá workflow theo bước với các kết nối công cụ",
+        "excerpt": "Khám phá workflow theo bước với các kết nối công cụ. Kết nối dịch vụ có thể cấp quyền và phát sinh phí; phải kiểm tra từng tích hợp.",
+        "content": "<p>Khám phá workflow theo bước với các kết nối công cụ. Activepieces tổ chức tự động hóa bằng các pieces có thể mở rộng. README giới thiệu giao diện dựng luồng và liên hệ với hệ sinh thái MCP; khả năng của một kết nối không đại diện cho mọi kết nối khác.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một quy trình minh họa nhận dữ liệu mẫu rồi chuyển đổi trường. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn đường Deploy hoặc dịch vụ từ tài liệu; một piece có thể cần credential và điều kiện riêng của nhà cung cấp.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một thao tác mẫu như đổi tên trường dữ liệu thay vì gửi thư hoặc cập nhật CRM.</li><li>Đọc mô tả piece liên quan để xác định đầu vào, đầu ra và quyền.</li><li>Phác luồng với dữ liệu giả, đánh dấu bước nào mới là xử lý local và bước nào gọi dịch vụ.</li></ol><h2>Giới hạn cần biết</h2><p>Kết nối dịch vụ có thể cấp quyền và phát sinh phí; phải kiểm tra từng tích hợp. Không bật tất cả pieces hoặc MCP chỉ để khám phá; thêm kết nối có thể mở rộng quyền truy cập.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>activepieces</strong> có <strong>25.207 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/activepieces/activepieces/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/activepieces/activepieces\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 22. Chưa cài/chạy thử; không tạo validation. Snapshot sao 25207; repo_id 573661753; README SHA256 b159d84d19ea2505143a1d369416b8f5ef63540e9530bd2f20f8bd0e3e0c70bf.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/activepieces/activepieces",
+          "repo_id": "573661753",
+          "source_path": "",
+          "source_revision": "README-SHA256:b159d84d19ea2505143a1d369416b8f5ef63540e9530bd2f20f8bd0e3e0c70bf",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn đường Deploy hoặc dịch vụ từ tài liệu; một piece có thể cần credential và điều kiện riêng của nhà cung cấp.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/activepieces/activepieces/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không bật tất cả pieces hoặc MCP chỉ để khám phá; thêm kết nối có thể mở rộng quyền truy cập.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/activepieces/activepieces/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "activepieces/activepieces",
+        "stars": 25207,
+        "observedAt": "2026-10-25T03:15:07.952Z",
+        "readmeUrl": "https://raw.githubusercontent.com/activepieces/activepieces/main/README.md",
+        "readmeSha256": "b159d84d19ea2505143a1d369416b8f5ef63540e9530bd2f20f8bd0e3e0c70bf",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "db80e4d1e98642fc883e6819ea4e7c3e9f0aeed7e3952214bac7f55b25ed6014"
+    },
+    {
+      "key": 23,
+      "batch": 3,
+      "slug": "windmill",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Windmill: tìm hiểu cách ghép script thành luồng công việc có giao diện",
+        "excerpt": "Tìm hiểu cách ghép script thành luồng công việc có giao diện. Phù hợp sau khi đã hiểu script; không chạy mã mẫu trên môi trường production.",
+        "content": "<p>Tìm hiểu cách ghép script thành luồng công việc có giao diện. Windmill là nền tảng cho script, API, job nền, workflow và giao diện công cụ nội bộ. README mô tả việc ghép script thành flow và tạo giao diện; đây là hướng phù hợp khi đã biết một chút về mã và dữ liệu đầu vào.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bước xử lý chuỗi văn bản mẫu với đầu vào và đầu ra rõ ràng. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Main Concepts trước, rồi chọn How to self-host hoặc môi trường được tài liệu hỗ trợ; script cần runtime phù hợp.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Bắt đầu bằng một script biến đổi văn bản hư cấu có đầu vào/đầu ra xác định.</li><li>Đọc Main Concepts để phân biệt script, flow, job và giao diện gọi chúng.</li><li>Trước khi thêm lịch chạy hoặc secret, xác định tác dụng phụ và cách xem kết quả từng bước.</li></ol><h2>Giới hạn cần biết</h2><p>Phù hợp sau khi đã hiểu script; không chạy mã mẫu trên môi trường production. Một giao diện tự sinh không biến script bất kỳ thành thao tác an toàn; cần hiểu mã được chạy bằng quyền nào.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>windmill-labs</strong> có <strong>18.261 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/windmill-labs/windmill/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/windmill-labs/windmill\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 23. Chưa cài/chạy thử; không tạo validation. Snapshot sao 18261; repo_id 488804911; README SHA256 adac15101cf276346bfb03e4c86828a7d3953af5b060f8883fb709efa6c3c57b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/windmill-labs/windmill",
+          "repo_id": "488804911",
+          "source_path": "",
+          "source_revision": "README-SHA256:adac15101cf276346bfb03e4c86828a7d3953af5b060f8883fb709efa6c3c57b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Main Concepts trước, rồi chọn How to self-host hoặc môi trường được tài liệu hỗ trợ; script cần runtime phù hợp.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/windmill-labs/windmill/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một giao diện tự sinh không biến script bất kỳ thành thao tác an toàn; cần hiểu mã được chạy bằng quyền nào.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/windmill-labs/windmill/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "windmill-labs/windmill",
+        "stars": 18261,
+        "observedAt": "2026-10-25T03:15:08.310Z",
+        "readmeUrl": "https://raw.githubusercontent.com/windmill-labs/windmill/main/README.md",
+        "readmeSha256": "adac15101cf276346bfb03e4c86828a7d3953af5b060f8883fb709efa6c3c57b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "49e3ad78ee72c3539c3bc33ba8f6bb94784976816f922f2ea07a1ee30600c647"
+    },
+    {
+      "key": 24,
+      "batch": 3,
+      "slug": "flowise",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Flowise: khám phá việc ghép các thành phần AI bằng sơ đồ trực quan",
+        "excerpt": "Khám phá việc ghép các thành phần AI bằng sơ đồ trực quan. Model, key và dịch vụ triển khai có chi phí và điều kiện riêng.",
+        "content": "<p>Khám phá việc ghép các thành phần AI bằng sơ đồ trực quan. Flowise từng tập trung dựng ứng dụng/agent AI bằng giao diện trực quan. README hiện tuyên bố repo đã archived và dẫn tới thảo luận Future of Flowise; đây là thông tin phải đọc trước các phần Quick Start còn lưu lại.</p><p><strong>Repo đã archived tại lần quan sát.</strong> Bài giữ để giải thích công dụng và giới hạn, không đề xuất bắt đầu dự án mới từ repo này.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Phác một luồng hỏi đáp trên tài liệu mẫu trước khi kết nối model. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chỉ đọc tham khảo lịch sử và cấu trúc; không coi hướng cài còn trong README là khuyến nghị hiện hành cho dự án mới.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc thông báo archived ở đầu README và đường dẫn Future of Flowise.</li><li>Quan sát cách tác giả biểu diễn node/luồng để hiểu khái niệm agent trực quan.</li><li>Nếu cần giải pháp mới, lập yêu cầu rồi đánh giá dự án còn phù hợp, không cài theo một bài cũ chỉ vì nhiều sao.</li></ol><h2>Giới hạn cần biết</h2><p>Model, key và dịch vụ triển khai có chi phí và điều kiện riêng. Bài giữ để giải thích và giúp tránh nhầm tình trạng; không đưa Flowise thành công cụ bắt buộc cho người mới.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>FlowiseAI</strong> có <strong>55.527 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/FlowiseAI/Flowise/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/FlowiseAI/Flowise\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 24. Chưa cài/chạy thử; không tạo validation. Snapshot sao 55527; repo_id 621803253; README SHA256 21b4384ec2e295295dee10992fd9ee7ef4b0a0c9cb77a493bca39174a1c09a51.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/FlowiseAI/Flowise",
+          "repo_id": "621803253",
+          "source_path": "",
+          "source_revision": "README-SHA256:21b4384ec2e295295dee10992fd9ee7ef4b0a0c9cb77a493bca39174a1c09a51",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chỉ đọc tham khảo lịch sử và cấu trúc; không coi hướng cài còn trong README là khuyến nghị hiện hành cho dự án mới.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/FlowiseAI/Flowise/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Bài giữ để giải thích và giúp tránh nhầm tình trạng; không đưa Flowise thành công cụ bắt buộc cho người mới.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/FlowiseAI/Flowise/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "archived",
+          "source_url": "https://github.com/FlowiseAI/Flowise",
+          "observed_at": "2026-10-25",
+          "note": "GitHub metadata ghi archived=true."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "Giữ bài giới thiệu tham khảo, không đề xuất repo archived cho dự án mới."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "FlowiseAI/Flowise",
+        "stars": 55527,
+        "observedAt": "2026-10-25T03:15:08.686Z",
+        "readmeUrl": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/README.md",
+        "readmeSha256": "21b4384ec2e295295dee10992fd9ee7ef4b0a0c9cb77a493bca39174a1c09a51",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "db5b815dfc549f9c24a9263f6603699879770477ea1680191830270b6015ad0e"
+    },
+    {
+      "key": 25,
+      "batch": 3,
+      "slug": "dify",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Dify: hiểu nền tảng xây app và workflow AI từ góc nhìn người mới",
+        "excerpt": "Hiểu nền tảng xây app và workflow AI từ góc nhìn người mới. Không đưa tài liệu riêng lên dịch vụ hoặc sử dụng key trả phí để thử tùy ý.",
+        "content": "<p>Hiểu nền tảng xây app và workflow AI từ góc nhìn người mới. Dify gom các thành phần workflow AI, hỏi đáp trên tài liệu, agent và quản lý model trong một nền tảng. README phân biệt quick start server với phát triển từ mã nguồn; giao diện là một phần, còn tài khoản model và dữ liệu cần quyết định riêng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ trợ lý trả lời trên nội dung hư cấu có đầu ra mong đợi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Quick Start nêu máy tối thiểu 2 CPU core, RAM 4 GiB và Docker Compose theo bản yêu cầu; chưa chứng nhận đủ cho mọi workload.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác trợ lý trên một đoạn nội dung giả có ba câu hỏi và đáp án đối chiếu.</li><li>Đọc Quick Start và Key features để biết cần server, model và nguồn dữ liệu nào.</li><li>Chưa nhập key hoặc upload tài liệu thật cho tới khi rõ chi phí, quyền và nơi xử lý.</li></ol><h2>Giới hạn cần biết</h2><p>Không đưa tài liệu riêng lên dịch vụ hoặc sử dụng key trả phí để thử tùy ý. Có pipeline RAG không có nghĩa câu trả lời luôn bám đúng tài liệu; vẫn cần bộ câu hỏi và cách kiểm tra.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>langgenius</strong> có <strong>159.444 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/langgenius/dify/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/langgenius/dify\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 25. Chưa cài/chạy thử; không tạo validation. Snapshot sao 159444; repo_id 626805178; README SHA256 3c7fe487f1e89e6faec52f5421c71e749c1cecc3486725be3e03fb3fbb62e484.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/langgenius/dify",
+          "repo_id": "626805178",
+          "source_path": "",
+          "source_revision": "README-SHA256:3c7fe487f1e89e6faec52f5421c71e749c1cecc3486725be3e03fb3fbb62e484",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Quick Start nêu máy tối thiểu 2 CPU core, RAM 4 GiB và Docker Compose theo bản yêu cầu; chưa chứng nhận đủ cho mọi workload.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/langgenius/dify/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Có pipeline RAG không có nghĩa câu trả lời luôn bám đúng tài liệu; vẫn cần bộ câu hỏi và cách kiểm tra.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/langgenius/dify/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "langgenius/dify",
+        "stars": 159444,
+        "observedAt": "2026-10-25T03:15:08.969Z",
+        "readmeUrl": "https://raw.githubusercontent.com/langgenius/dify/main/README.md",
+        "readmeSha256": "3c7fe487f1e89e6faec52f5421c71e749c1cecc3486725be3e03fb3fbb62e484",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ce8cb16f778128014f224aedcda1ff63e1cb6c5553b11717cf13fcc94abba219"
+    },
+    {
+      "key": 26,
+      "batch": 3,
+      "slug": "appsmith",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Appsmith: tìm hiểu cách ghép giao diện ứng dụng nội bộ với nguồn dữ liệu",
+        "excerpt": "Tìm hiểu cách ghép giao diện ứng dụng nội bộ với nguồn dữ liệu. Quyền đọc/ghi dữ liệu và xác thực phải thiết kế trước khi dùng thật.",
+        "content": "<p>Tìm hiểu cách ghép giao diện ứng dụng nội bộ với nguồn dữ liệu. Appsmith là nền tảng low-code cho công cụ nội bộ như dashboard và bảng quản trị. README cung cấp lựa chọn Appsmith Cloud và cài trên máy; cần tách việc dựng giao diện khỏi quyền truy cập nguồn dữ liệu phía sau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bảng quản lý tài nguyên trên dữ liệu giả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn một hướng trong Installation; cloud cần tài khoản, tự host cần môi trường theo tài liệu cài.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác một bảng danh mục hư cấu với thao tác chỉ đọc và bộ lọc rõ ràng.</li><li>Đọc Installation và Learning Resources, chọn đúng đường dùng trước khi xem Development.</li><li>Với mỗi thao tác sửa/lưu dự kiến, ghi dữ liệu nào sẽ thay đổi và ai được phép làm.</li></ol><h2>Giới hạn cần biết</h2><p>Quyền đọc/ghi dữ liệu và xác thực phải thiết kế trước khi dùng thật. Không nối database production hoặc dùng tài khoản quyền cao chỉ vì giao diện thử đã hiển thị đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>appsmithorg</strong> có <strong>41.116 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/appsmithorg/appsmith/blob/release/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/appsmithorg/appsmith\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 26. Chưa cài/chạy thử; không tạo validation. Snapshot sao 41116; repo_id 275993885; README SHA256 72cc207105ff9cd86cbaba208369c5a325612b667bb0a73fd50a537a3d16635e.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/appsmithorg/appsmith",
+          "repo_id": "275993885",
+          "source_path": "",
+          "source_revision": "README-SHA256:72cc207105ff9cd86cbaba208369c5a325612b667bb0a73fd50a537a3d16635e",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn một hướng trong Installation; cloud cần tài khoản, tự host cần môi trường theo tài liệu cài.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/appsmithorg/appsmith/blob/release/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không nối database production hoặc dùng tài khoản quyền cao chỉ vì giao diện thử đã hiển thị đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/appsmithorg/appsmith/blob/release/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "appsmithorg/appsmith",
+        "stars": 41116,
+        "observedAt": "2026-10-25T03:15:09.341Z",
+        "readmeUrl": "https://raw.githubusercontent.com/appsmithorg/appsmith/release/README.md",
+        "readmeSha256": "72cc207105ff9cd86cbaba208369c5a325612b667bb0a73fd50a537a3d16635e",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "fc49b7ce850808960cd87df2c6a13ebaa3456069b6d35a263c52fa1942358b4c"
+    },
+    {
+      "key": 27,
+      "batch": 3,
+      "slug": "tooljet",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "ToolJet: khám phá cách tạo công cụ nội bộ bằng các thành phần giao diện",
+        "excerpt": "Khám phá cách tạo công cụ nội bộ bằng các thành phần giao diện. Không kết nối database thật khi chưa hiểu quyền và cơ chế lưu credential.",
+        "content": "<p>Khám phá cách tạo công cụ nội bộ bằng các thành phần giao diện. ToolJet hướng tới công cụ nội bộ với giao diện, truy vấn và kết nối database/API/SaaS. README hiện có đường xây app bằng coding agent/MCP và phần tính năng theo edition; không nên suy mọi phần AI có cùng điều kiện với lõi.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một trang tra cứu danh sách công việc mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn cloud hoặc self-host trong Quickstart và đọc bảng Community/Enterprise theo tính năng định dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định một trang tra cứu dữ liệu giả trước, chưa thêm nút ghi/xóa.</li><li>Đọc Quickstart và Features để biết phần nào thuộc edition nào.</li><li>Nếu dùng agent/MCP sau này, kiểm tra hợp đồng dữ liệu và quyền trước cấp kết nối.</li></ol><h2>Giới hạn cần biết</h2><p>Không kết nối database thật khi chưa hiểu quyền và cơ chế lưu credential. Một app do prompt tạo vẫn cần đối chiếu truy vấn, quyền và môi trường, không chỉ kiểm tra vẻ ngoài.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ToolJet</strong> có <strong>41.126 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ToolJet/ToolJet/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ToolJet/ToolJet\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 27. Chưa cài/chạy thử; không tạo validation. Snapshot sao 41126; repo_id 352933140; README SHA256 e722578bd63123d716ca745c457335d2aa1f5cb34015de89d5a850a3957ec797.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/ToolJet/ToolJet",
+          "repo_id": "352933140",
+          "source_path": "",
+          "source_revision": "README-SHA256:e722578bd63123d716ca745c457335d2aa1f5cb34015de89d5a850a3957ec797",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn cloud hoặc self-host trong Quickstart và đọc bảng Community/Enterprise theo tính năng định dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ToolJet/ToolJet/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một app do prompt tạo vẫn cần đối chiếu truy vấn, quyền và môi trường, không chỉ kiểm tra vẻ ngoài.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ToolJet/ToolJet/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ToolJet/ToolJet",
+        "stars": 41126,
+        "observedAt": "2026-10-25T03:15:09.633Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ToolJet/ToolJet/main/README.md",
+        "readmeSha256": "e722578bd63123d716ca745c457335d2aa1f5cb34015de89d5a850a3957ec797",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "517fc85f51e04bf604c7f4f60e9a1ac4390a7bccb08a5b855b7122e7b9e9f7cc"
+    },
+    {
+      "key": 28,
+      "batch": 3,
+      "slug": "budibase",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Budibase: tìm hiểu ứng dụng nghiệp vụ nhỏ có bảng và biểu mẫu",
+        "excerpt": "Tìm hiểu ứng dụng nghiệp vụ nhỏ có bảng và biểu mẫu. Tài khoản, quyền và bản triển khai cần đánh giá riêng với chức năng dựng giao diện.",
+        "content": "<p>Tìm hiểu ứng dụng nghiệp vụ nhỏ có bảng và biểu mẫu. Budibase giới thiệu nền tảng cho app, workflow và agent xử lý công việc vận hành. README nói các tác vụ có thể tạo record, định tuyến phê duyệt và thông báo; vì thế thử bằng dữ liệu giả là bước quan trọng trước nối hệ thống doanh nghiệp.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một form yêu cầu thiết bị hư cấu không gửi đi đâu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn đường Get started cloud hoặc self-host; từng nguồn dữ liệu/model có yêu cầu tài khoản và quyền riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Mô tả một yêu cầu thiết bị hư cấu, trạng thái và người phụ trách giả.</li><li>Đọc Features để phân biệt giao diện nhận yêu cầu với hành động tự động phía sau.</li><li>Liệt kê bước nào chỉ hiển thị và bước nào ghi dữ liệu/gửi thông báo trước khi chọn tích hợp.</li></ol><h2>Giới hạn cần biết</h2><p>Tài khoản, quyền và bản triển khai cần đánh giá riêng với chức năng dựng giao diện. Không cho agent tự phê duyệt yêu cầu thật hoặc gửi thông báo chỉ để kiểm tra demo.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Budibase</strong> có <strong>28.350 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Budibase/budibase/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Budibase/budibase\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 28. Chưa cài/chạy thử; không tạo validation. Snapshot sao 28350; repo_id 190729906; README SHA256 56407be8a21012659c220a107e8a99b5c91ce7b163f6b3739be2aef2655af98b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Budibase/budibase",
+          "repo_id": "190729906",
+          "source_path": "",
+          "source_revision": "README-SHA256:56407be8a21012659c220a107e8a99b5c91ce7b163f6b3739be2aef2655af98b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn đường Get started cloud hoặc self-host; từng nguồn dữ liệu/model có yêu cầu tài khoản và quyền riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Budibase/budibase/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không cho agent tự phê duyệt yêu cầu thật hoặc gửi thông báo chỉ để kiểm tra demo.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Budibase/budibase/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Budibase/budibase",
+        "stars": 28350,
+        "observedAt": "2026-10-25T03:15:10.006Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Budibase/budibase/master/README.md",
+        "readmeSha256": "56407be8a21012659c220a107e8a99b5c91ce7b163f6b3739be2aef2655af98b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "7a5985773fe1e9fbbee72f3fb14f40e877cf08c0c6feb5e0f331acb534b28bf2"
+    },
+    {
+      "key": 29,
+      "batch": 3,
+      "slug": "nocodb",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "NocoDB: khám phá giao diện làm việc với dữ liệu dạng bảng",
+        "excerpt": "Khám phá giao diện làm việc với dữ liệu dạng bảng. Không coi giao diện bảng là giấy phép cho phép công khai dữ liệu nguồn.",
+        "content": "<p>Khám phá giao diện làm việc với dữ liệu dạng bảng. NocoDB cung cấp giao diện dữ liệu dạng bảng cùng truy cập lập trình và lựa chọn triển khai. README có hướng Docker với SQLite/PostgreSQL; người mới cần biết dữ liệu được lưu ở đâu và thao tác bảng tác động đến nguồn nào.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bảng theo dõi mười bài viết, trạng thái và ngày cập nhật. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Installation theo backend chọn dùng; server, volume dữ liệu và cấu hình xác thực cần được giữ rõ.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dựng mô hình danh mục bài viết hư cấu với tiêu đề, trạng thái và ngày rà soát.</li><li>Đọc Rich Spreadsheet Interface và Installation để tách giao diện khỏi backend lưu dữ liệu.</li><li>Trước nhập thật, xác định ai được xem/sửa và cách xuất hoặc khôi phục bản mẫu.</li></ol><h2>Giới hạn cần biết</h2><p>Không coi giao diện bảng là giấy phép cho phép công khai dữ liệu nguồn. Không sao chép credential ví dụ từ README sang cấu hình thật; không mở bảng riêng bằng link công khai tùy ý.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>nocodb</strong> có <strong>65.350 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/nocodb/nocodb/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/nocodb/nocodb\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 29. Chưa cài/chạy thử; không tạo validation. Snapshot sao 65350; repo_id 108761645; README SHA256 f640d4b8b293cd9bc8741204be02bbb475d91ce66e9452eecf0fc7f715853445.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/nocodb/nocodb",
+          "repo_id": "108761645",
+          "source_path": "",
+          "source_revision": "README-SHA256:f640d4b8b293cd9bc8741204be02bbb475d91ce66e9452eecf0fc7f715853445",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Installation theo backend chọn dùng; server, volume dữ liệu và cấu hình xác thực cần được giữ rõ.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/nocodb/nocodb/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không sao chép credential ví dụ từ README sang cấu hình thật; không mở bảng riêng bằng link công khai tùy ý.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/nocodb/nocodb/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "nocodb/nocodb",
+        "stars": 65350,
+        "observedAt": "2026-10-25T03:15:10.377Z",
+        "readmeUrl": "https://raw.githubusercontent.com/nocodb/nocodb/develop/README.md",
+        "readmeSha256": "f640d4b8b293cd9bc8741204be02bbb475d91ce66e9452eecf0fc7f715853445",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "44e5b1029a2bbac0eca8bf26590c2f50324658806f0b523e3a35de05115b255e"
+    },
+    {
+      "key": 30,
+      "batch": 3,
+      "slug": "baserow",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Baserow: tìm hiểu bảng dữ liệu dùng để phối hợp công việc",
+        "excerpt": "Tìm hiểu bảng dữ liệu dùng để phối hợp công việc. Kiểm tra giới hạn gói, đồng bộ và phân quyền trước khi dùng cho nhóm thật.",
+        "content": "<p>Tìm hiểu bảng dữ liệu dùng để phối hợp công việc. Baserow kết hợp bảng dữ liệu với ứng dụng và workflow. README nêu mô hình open-core và thông báo chuyển repository từ GitLab sang GitHub; sao GitHub không nên được dùng như toàn bộ lịch sử phát triển của dự án.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một danh mục tài liệu có nhãn chủ đề và người phụ trách mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn cloud hoặc một hướng Installation chính thức; đọc điều kiện premium/enterprise nếu cần chức năng ngoài lõi.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Tạo bản thiết kế bảng tài liệu mẫu với trường, kiểu dữ liệu và nhãn trạng thái.</li><li>Đọc Repository Migration Notice để dùng đúng nguồn hiện hành.</li><li>Xem Installation và Official documentation, rồi kiểm tra quyền chia sẻ và khả năng xuất trước dùng cho nhóm.</li></ol><h2>Giới hạn cần biết</h2><p>Kiểm tra giới hạn gói, đồng bộ và phân quyền trước khi dùng cho nhóm thật. Không lấy số sao ít hơn một dự án khác làm bằng chứng sản phẩm kém phổ biến hoặc còn mới khi đã có lịch sử ở nền tảng khác.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>baserow</strong> có <strong>6.211 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/baserow/baserow/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/baserow/baserow\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 3, key 30. Chưa cài/chạy thử; không tạo validation. Snapshot sao 6211; repo_id 281073868; README SHA256 c92e38aee6fe1bddd55dfa44a199d5478344d2329823faefb58434f34b64ea6c.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/baserow/baserow",
+          "repo_id": "281073868",
+          "source_path": "",
+          "source_revision": "README-SHA256:c92e38aee6fe1bddd55dfa44a199d5478344d2329823faefb58434f34b64ea6c",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn cloud hoặc một hướng Installation chính thức; đọc điều kiện premium/enterprise nếu cần chức năng ngoài lõi.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/baserow/baserow/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không lấy số sao ít hơn một dự án khác làm bằng chứng sản phẩm kém phổ biến hoặc còn mới khi đã có lịch sử ở nền tảng khác.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/baserow/baserow/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "baserow/baserow",
+        "stars": 6211,
+        "observedAt": "2026-10-25T03:15:10.700Z",
+        "readmeUrl": "https://raw.githubusercontent.com/baserow/baserow/develop/README.md",
+        "readmeSha256": "c92e38aee6fe1bddd55dfa44a199d5478344d2329823faefb58434f34b64ea6c",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "10e45401cdffc79b261cd2580135359a18b72998b9bf45541fde41f192fb4338"
+    }
+  ]
+}

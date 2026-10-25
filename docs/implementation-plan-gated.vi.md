@@ -146,6 +146,8 @@ B04; tài liệu hiện tại không tạo automation.
 
 ## 7. Mốc hiện tại và hành động chờ duyệt
 
+- Đợt nội dung C100 ngày 25/10/2026 đã hoàn tất theo quyền riêng “Xuất bản production theo từng lô đạt kiểm tra”: 100 bài mới / 10 lô, đủ journal verified; 2.380 kiểm tra HTTP theo lô, 205 kiểm tra cuối và 47 kiểm tra WordPress riêng đạt. 28 mục cũ cùng metadata giữ nguyên; không đổi theme/plugin hoặc bật tự đồng bộ sao. [Nghiệm thu và giới hạn](acceptance/C100-content-production.vi.md), [mục lục 100 bài](content-production/2026-10-25/README.vi.md). Kết thúc vòng lặp đã duyệt, không tự mở bước ứng dụng/automation mới.
+
 - S00: đã có [brief](S00-implementation-brief.vi.md) và [báo cáo](acceptance/S00-brief-and-conditions.vi.md); chủ dự án đã cho phép tiếp S01.
 - Đã chốt trong S00: landing page sản phẩm/dịch vụ; Codex trên Windows; giờ/tuần chưa xác định.
 - S01: smoke hai boot và cleanup PASS; [báo cáo](acceptance/S01-local-baseline.vi.md); chủ dự án đã cho phép S02.

@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 5,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 41,
+      "batch": 5,
+      "slug": "codex-cli",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Codex CLI: tìm hiểu coding agent trong terminal và phân biệt với ứng dụng desktop",
+        "excerpt": "Tìm hiểu coding agent trong terminal và phân biệt với ứng dụng desktop. Tài khoản, hạn mức và quyền đọc/ghi cần kiểm tra; không dùng website production làm bài tập.",
+        "content": "<p>Tìm hiểu coding agent trong terminal và phân biệt với ứng dụng desktop. Repo Codex phân biệt coding agent CLI với trải nghiệm IDE, desktop và web. README có quickstart và cách dùng với tài khoản ChatGPT; không nên lấy lệnh của CLI rồi coi đó là hướng dẫn chung cho mọi giao diện.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một nhiệm vụ sửa tiêu đề trên dự án hư cấu để đọc thay đổi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn đúng Codex CLI, hệ điều hành và cách xác thực trong tài liệu chính thức; kiểm tra quyền tài khoản/hạn mức trước tác vụ.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác nhận bạn muốn dùng terminal hay desktop; mở đúng tài liệu cho giao diện đó.</li><li>Viết một yêu cầu chỉ đọc cấu trúc thư mục bài tập trước, chưa cho sửa nhiều file.</li><li>Khi thử sửa sau này, xem diff và checklist trên bản mẫu, giữ checkpoint để có thể quay lại.</li></ol><h2>Giới hạn cần biết</h2><p>Tài khoản, hạn mức và quyền đọc/ghi cần kiểm tra; không dùng website production làm bài tập. Codex CLI và OpenAI CLI là hai công cụ khác mục đích; không dùng hướng dẫn gọi API thay cho hướng dùng coding agent.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>openai</strong> có <strong>130.820 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/openai/codex/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/openai/codex\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 41. Chưa cài/chạy thử; không tạo validation. Snapshot sao 130820; repo_id 965415649; README SHA256 ba4e1f69ff48386e72a9c5e1edaf76aad64a475c2d51af79ccba6d1128261ba7.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/openai/codex",
+          "repo_id": "965415649",
+          "source_path": "",
+          "source_revision": "README-SHA256:ba4e1f69ff48386e72a9c5e1edaf76aad64a475c2d51af79ccba6d1128261ba7",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn đúng Codex CLI, hệ điều hành và cách xác thực trong tài liệu chính thức; kiểm tra quyền tài khoản/hạn mức trước tác vụ.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/openai/codex/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Codex CLI và OpenAI CLI là hai công cụ khác mục đích; không dùng hướng dẫn gọi API thay cho hướng dùng coding agent.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/openai/codex/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "openai/codex",
+        "stars": 130820,
+        "observedAt": "2026-10-25T03:25:22.356Z",
+        "readmeUrl": "https://raw.githubusercontent.com/openai/codex/main/README.md",
+        "readmeSha256": "ba4e1f69ff48386e72a9c5e1edaf76aad64a475c2d51af79ccba6d1128261ba7",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ed97e8525a112903d9ab86395f699d0ba549001f7e54a75e64c2a791069c4400"
+    },
+    {
+      "key": 42,
+      "batch": 5,
+      "slug": "claude-code",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Claude Code: hiểu agent làm việc cùng mã nguồn và các bước giao nhiệm vụ nhỏ",
+        "excerpt": "Hiểu agent làm việc cùng mã nguồn và các bước giao nhiệm vụ nhỏ. Repo công khai không đồng nghĩa quyền sử dụng công cụ luôn miễn phí.",
+        "content": "<p>Hiểu agent làm việc cùng mã nguồn và các bước giao nhiệm vụ nhỏ. Claude Code là công cụ agent làm việc với codebase qua terminal và các giao diện tích hợp. README hiện ghi đường cài npm đã deprecated và dẫn tới setup documentation, nên bài cài cũ cần được đối chiếu thay vì sao chép nguyên.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một yêu cầu giải thích cấu trúc thư mục mẫu trước khi sửa. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Get started/setup đúng hệ điều hành, kiểm tra tài khoản và quyền thư mục; không mặc định npm là cách cài hiện hành.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Mở official documentation từ README, phân biệt quyền dùng sản phẩm với việc repo có thể đọc công khai.</li><li>Chọn thư mục hư cấu và yêu cầu giải thích cấu trúc trước khi cho phép thay đổi.</li><li>Đọc thao tác được đề xuất, xem thay đổi và thử khôi phục trên bản mẫu trước dùng dự án thật.</li></ol><h2>Giới hạn cần biết</h2><p>Repo công khai không đồng nghĩa quyền sử dụng công cụ luôn miễn phí. Agent có thể gọi công cụ và thực hiện workflow Git; cần đọc quyền, dữ liệu và lưu giữ được tài liệu nêu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>anthropics</strong> có <strong>153.300 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/anthropics/claude-code/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/anthropics/claude-code\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 42. Chưa cài/chạy thử; không tạo validation. Snapshot sao 153300; repo_id 937253475; README SHA256 aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/anthropics/claude-code",
+          "repo_id": "937253475",
+          "source_path": "",
+          "source_revision": "README-SHA256:aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Get started/setup đúng hệ điều hành, kiểm tra tài khoản và quyền thư mục; không mặc định npm là cách cài hiện hành.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/anthropics/claude-code/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Agent có thể gọi công cụ và thực hiện workflow Git; cần đọc quyền, dữ liệu và lưu giữ được tài liệu nêu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/anthropics/claude-code/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "anthropics/claude-code",
+        "stars": 153300,
+        "observedAt": "2026-10-25T03:25:22.614Z",
+        "readmeUrl": "https://raw.githubusercontent.com/anthropics/claude-code/main/README.md",
+        "readmeSha256": "aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "4120810a36a4c507cd7e1fceac00cdff6e6472183d888de910222ce253761278"
+    },
+    {
+      "key": 43,
+      "batch": 5,
+      "slug": "gemini-cli",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Gemini CLI: khám phá agent AI trong terminal và điều kiện để bắt đầu",
+        "excerpt": "Khám phá agent AI trong terminal và điều kiện để bắt đầu. Không dán API key vào bài viết hoặc coi mọi cách đăng nhập có cùng quota.",
+        "content": "<p>Khám phá agent AI trong terminal và điều kiện để bắt đầu. README Gemini CLI hiện có thông báo chuyển nhóm unpaid/Google One sang Antigravity CLI và lưu ý không tối ưu cho một số model mới. Do đó đây là bài giúp hiểu repo và thay đổi hiện hành, không phải mặc định khuyên người mới cài Gemini CLI.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc quy trình đăng nhập và giới hạn trước khi chọn thư mục bài tập. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc thông báo đầu README và tài liệu đường sản phẩm áp dụng cho loại tài khoản trước khi chọn hướng cài.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc hai thông báo đầu trang trước Installation, xác định loại tài khoản của mình.</li><li>Theo liên kết cập nhật chính thức để biết sản phẩm nào đang phù hợp; không chọn theo số sao riêng.</li><li>Nếu vẫn cần tìm hiểu repo, phân biệt stable, preview và nightly; chưa gửi yêu cầu AI hay nhập key để thử tùy ý.</li></ol><h2>Giới hạn cần biết</h2><p>Không dán API key vào bài viết hoặc coi mọi cách đăng nhập có cùng quota. Không dùng hướng dẫn cũ để hứa quota miễn phí hoặc hỗ trợ model mới; điều kiện đã thay đổi cần kiểm tra trực tiếp.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>google-gemini</strong> có <strong>108.110 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/google-gemini/gemini-cli/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/google-gemini/gemini-cli\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 43. Chưa cài/chạy thử; không tạo validation. Snapshot sao 108110; repo_id 968197216; README SHA256 7235196f55461732c246c20ce9996cc56ba2e52641f183ccf4e6493bd93c1c94.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/google-gemini/gemini-cli",
+          "repo_id": "968197216",
+          "source_path": "",
+          "source_revision": "README-SHA256:7235196f55461732c246c20ce9996cc56ba2e52641f183ccf4e6493bd93c1c94",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc thông báo đầu README và tài liệu đường sản phẩm áp dụng cho loại tài khoản trước khi chọn hướng cài.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dùng hướng dẫn cũ để hứa quota miễn phí hoặc hỗ trợ model mới; điều kiện đã thay đổi cần kiểm tra trực tiếp.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/google-gemini/gemini-cli/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "google-gemini/gemini-cli",
+        "stars": 108110,
+        "observedAt": "2026-10-25T03:25:22.955Z",
+        "readmeUrl": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/README.md",
+        "readmeSha256": "7235196f55461732c246c20ce9996cc56ba2e52641f183ccf4e6493bd93c1c94",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9c10e3bb9673cb518180c14b1ccbebfce413b6fd7e38e8b80a06317bcfea74df"
+    },
+    {
+      "key": 44,
+      "batch": 5,
+      "slug": "opencode",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "OpenCode: tìm hiểu agent coding trong terminal và lựa chọn model",
+        "excerpt": "Tìm hiểu agent coding trong terminal và lựa chọn model. Provider và mô hình quyền cần đối chiếu theo phiên bản đang dùng.",
+        "content": "<p>Tìm hiểu agent coding trong terminal và lựa chọn model. OpenCode giới thiệu agent coding với đường terminal và desktop beta. README có các cách cài và phần Agents/Documentation; người mới cần chọn một đường dùng rõ ràng, không ghép các lệnh từ nhiều package manager.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một brief nhỏ yêu cầu giải thích trước khi chỉnh file. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Installation/Documentation theo hệ điều hành và sản phẩm; model/provider và trạng thái desktop beta cần xem riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn CLI hoặc desktop rồi đọc đúng tài liệu, không cài cả hai chỉ để làm một việc.</li><li>Viết đề bài nhỏ có giới hạn file và điều kiện đạt trong thư mục mẫu.</li><li>Trước dùng provider, xác định đăng nhập, quota và quyền của agent; kiểm tra diff sau tác vụ.</li></ol><h2>Giới hạn cần biết</h2><p>Provider và mô hình quyền cần đối chiếu theo phiên bản đang dùng. Một dòng cài nhanh không thay thế việc hiểu nguồn tải và quyền thực thi trên máy.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>anomalyco</strong> có <strong>221.118 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/anomalyco/opencode/blob/dev/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/anomalyco/opencode\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 44. Chưa cài/chạy thử; không tạo validation. Snapshot sao 221118; repo_id 975734319; README SHA256 9d93c425fc5f9f8b93c4fc3d40fc82ef10450403116371736feafce57c875635.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/anomalyco/opencode",
+          "repo_id": "975734319",
+          "source_path": "",
+          "source_revision": "README-SHA256:9d93c425fc5f9f8b93c4fc3d40fc82ef10450403116371736feafce57c875635",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Installation/Documentation theo hệ điều hành và sản phẩm; model/provider và trạng thái desktop beta cần xem riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/anomalyco/opencode/blob/dev/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một dòng cài nhanh không thay thế việc hiểu nguồn tải và quyền thực thi trên máy.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/anomalyco/opencode/blob/dev/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "anomalyco/opencode",
+        "stars": 221118,
+        "observedAt": "2026-10-25T03:25:23.261Z",
+        "readmeUrl": "https://raw.githubusercontent.com/anomalyco/opencode/dev/README.md",
+        "readmeSha256": "9d93c425fc5f9f8b93c4fc3d40fc82ef10450403116371736feafce57c875635",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "f5744bc13100ee400105cdf20300fa561a94d678bc1e211f965e5975a46cc03c"
+    },
+    {
+      "key": 45,
+      "batch": 5,
+      "slug": "aider",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Aider: khám phá cách làm việc với AI trong một kho mã nhỏ",
+        "excerpt": "Khám phá cách làm việc với AI trong một kho mã nhỏ. Cần hiểu Git cơ bản và chi phí model trước khi thử trên dữ liệu quan trọng.",
+        "content": "<p>Khám phá cách làm việc với AI trong một kho mã nhỏ. Aider là cách pair programming với model trong terminal; README mô tả bản đồ codebase và tích hợp Git, gồm tự commit thay đổi. Các ví dụ model được nêu trong README là thông tin nguồn, không tự trở thành khuyến nghị model hiện hành cho mọi người.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một thay đổi có phạm vi rõ và xem lại diff trước khi giữ. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần môi trường terminal, hiểu Git tối thiểu và một đường model có quyền sử dụng; đọc tài liệu cài/LLM theo bản hiện tại.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Tạo repo bài tập nhỏ, lưu mốc trước khi giao tác vụ cho AI.</li><li>Đọc Git integration để biết công cụ có thể commit thay đổi như thế nào.</li><li>Chọn một sửa đổi có thể nhìn thấy và đối chiếu diff; không đưa toàn dự án thật vào chỉ để thử.</li></ol><h2>Giới hạn cần biết</h2><p>Cần hiểu Git cơ bản và chi phí model trước khi thử trên dữ liệu quan trọng. Chi phí model và tác động Git là hai thứ cần kiểm soát riêng; commit tự động không chứng minh thay đổi đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Aider-AI</strong> có <strong>49.742 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Aider-AI/aider/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Aider-AI/aider\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 45. Chưa cài/chạy thử; không tạo validation. Snapshot sao 49742; repo_id 638629097; README SHA256 e40e05367ceacf7138a2605484bf7d1cb5a262d2dba03f52a5327c023b3cd0dc.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Aider-AI/aider",
+          "repo_id": "638629097",
+          "source_path": "",
+          "source_revision": "README-SHA256:e40e05367ceacf7138a2605484bf7d1cb5a262d2dba03f52a5327c023b3cd0dc",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần môi trường terminal, hiểu Git tối thiểu và một đường model có quyền sử dụng; đọc tài liệu cài/LLM theo bản hiện tại.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Aider-AI/aider/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chi phí model và tác động Git là hai thứ cần kiểm soát riêng; commit tự động không chứng minh thay đổi đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Aider-AI/aider/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Aider-AI/aider",
+        "stars": 49742,
+        "observedAt": "2026-10-25T03:25:23.330Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+        "readmeSha256": "e40e05367ceacf7138a2605484bf7d1cb5a262d2dba03f52a5327c023b3cd0dc",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "cf0e89186b096a40c22e2bbf697921c753bd7fe6b20446fa47da48aa1fddee61"
+    },
+    {
+      "key": 46,
+      "batch": 5,
+      "slug": "continue",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Continue: tìm hiểu trợ lý coding và cách tích hợp vào môi trường làm việc",
+        "excerpt": "Tìm hiểu trợ lý coding và cách tích hợp vào môi trường làm việc. Kiểm tra đúng sản phẩm/phiên bản; không mặc định mọi tính năng chạy hoàn toàn trên máy.",
+        "content": "<p>Tìm hiểu trợ lý coding và cách tích hợp vào môi trường làm việc. README Continue hiện nói repository không còn được duy trì tích cực và ở chế độ read-only cho người dùng, đồng thời giới thiệu bản phát hành cuối 2.0.0. Thông báo README này cần được nói rõ dù cờ archived trong snapshot GitHub chưa bật.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Xác định công cụ, model và một tác vụ giải thích mã. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc What is Continue và Final 2.0.0 Release trước khi cân nhắc bản CLI/extension; không coi repo còn truy cập là đang phát triển.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc thông báo tình trạng hiện hành thay vì bắt đầu từ link cài extension.</li><li>Tìm hiểu các đường CLI, VS Code, JetBrains như thông tin tham khảo của dự án.</li><li>Với nhu cầu mới, lập tiêu chí rồi đối chiếu giải pháp còn phù hợp; chưa cài chỉ theo một bài review cũ.</li></ol><h2>Giới hạn cần biết</h2><p>Kiểm tra đúng sản phẩm/phiên bản; không mặc định mọi tính năng chạy hoàn toàn trên máy. Giữ bài để giải thích tình trạng và tránh nhầm; không đề xuất làm lựa chọn mới mặc định.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>continuedev</strong> có <strong>36.314 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/continuedev/continue/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/continuedev/continue\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 46. Chưa cài/chạy thử; không tạo validation. Snapshot sao 36314; repo_id 644686905; README SHA256 054b77f9573011fa4ebf89d960300aabd1ebecc37d8f6f261341ba7d27d885e7.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/continuedev/continue",
+          "repo_id": "644686905",
+          "source_path": "",
+          "source_revision": "README-SHA256:054b77f9573011fa4ebf89d960300aabd1ebecc37d8f6f261341ba7d27d885e7",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc What is Continue và Final 2.0.0 Release trước khi cân nhắc bản CLI/extension; không coi repo còn truy cập là đang phát triển.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/continuedev/continue/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Giữ bài để giải thích tình trạng và tránh nhầm; không đề xuất làm lựa chọn mới mặc định.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/continuedev/continue/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "README tuyên bố không còn duy trì tích cực và read-only; metadata archived=false không phủ nhận thông báo này."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "README tuyên bố không còn duy trì tích cực và read-only; metadata archived=false không phủ nhận thông báo này."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "continuedev/continue",
+        "stars": 36314,
+        "observedAt": "2026-10-25T03:25:23.626Z",
+        "readmeUrl": "https://raw.githubusercontent.com/continuedev/continue/main/README.md",
+        "readmeSha256": "054b77f9573011fa4ebf89d960300aabd1ebecc37d8f6f261341ba7d27d885e7",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "03df2874a3d4e7796a20288c9ad24adba211bb2a00f598d835b0066ba9b4db9a"
+    },
+    {
+      "key": 47,
+      "batch": 5,
+      "slug": "cline",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Cline: khám phá coding agent và cơ chế duyệt thao tác",
+        "excerpt": "Khám phá coding agent và cơ chế duyệt thao tác. Chỉ cấp quyền cần thiết; agent có thể dùng model/API phát sinh phí.",
+        "content": "<p>Khám phá coding agent và cơ chế duyệt thao tác. Cline có đường CLI, desktop, IDE extension và SDK trong README hiện tại. Tính năng tạo file, chạy lệnh, duyệt web cùng cơ chế phê duyệt cần được hiểu theo giao diện cụ thể; SDK không phải bước bắt buộc cho người mới.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một yêu cầu đọc và tóm tắt thư mục bài tập trước khi cho phép sửa. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn một sản phẩm từ Index và tài liệu tương ứng, kiểm tra provider/model và quyền môi trường đang dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định bạn dùng IDE hay ứng dụng desktop, rồi mở đúng đường Docs.</li><li>Bắt đầu bằng tác vụ giải thích dự án mẫu hoặc lập kế hoạch trước khi cho chỉnh file.</li><li>Đọc từng yêu cầu quyền chạy lệnh/truy cập web; kiểm tra kết quả và giữ bản mốc.</li></ol><h2>Giới hạn cần biết</h2><p>Chỉ cấp quyền cần thiết; agent có thể dùng model/API phát sinh phí. Khả năng headless và routine không phải lý do để bật tự động khi chưa kiểm tra tác dụng của tác vụ nhỏ.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>cline</strong> có <strong>70.831 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/cline/cline/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/cline/cline\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 47. Chưa cài/chạy thử; không tạo validation. Snapshot sao 70831; repo_id 824874689; README SHA256 6640ce1ef463f641e05b9b6b3361fa20da3cbb4fe5d613950bf2623218c89b6e.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/cline/cline",
+          "repo_id": "824874689",
+          "source_path": "",
+          "source_revision": "README-SHA256:6640ce1ef463f641e05b9b6b3361fa20da3cbb4fe5d613950bf2623218c89b6e",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn một sản phẩm từ Index và tài liệu tương ứng, kiểm tra provider/model và quyền môi trường đang dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/cline/cline/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Khả năng headless và routine không phải lý do để bật tự động khi chưa kiểm tra tác dụng của tác vụ nhỏ.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/cline/cline/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "cline/cline",
+        "stars": 70831,
+        "observedAt": "2026-10-25T03:25:23.908Z",
+        "readmeUrl": "https://raw.githubusercontent.com/cline/cline/main/README.md",
+        "readmeSha256": "6640ce1ef463f641e05b9b6b3361fa20da3cbb4fe5d613950bf2623218c89b6e",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "50f533dc0b799ec4ebb7d0a7a8e21c898cad1fe132315314938bc4b15efd0337"
+    },
+    {
+      "key": 48,
+      "batch": 5,
+      "slug": "roo-code",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Roo Code: tìm hiểu môi trường agent hỗ trợ quy trình làm phần mềm",
+        "excerpt": "Tìm hiểu môi trường agent hỗ trợ quy trình làm phần mềm. Đọc tình trạng dự án hiện tại trước khi cài; không đánh đồng mọi agent có cùng quyền.",
+        "content": "<p>Tìm hiểu môi trường agent hỗ trợ quy trình làm phần mềm. Roo Code mô tả các mode như Code, Architect, Ask và Debug để phân vai công việc với codebase. GitHub hiện đánh dấu repo archived; các phần giới thiệu mode vẫn giúp hiểu phương pháp nhưng không đủ để khuyên bắt đầu một hệ thống mới.</p><p><strong>Repo đã archived tại lần quan sát.</strong> Bài giữ để giải thích công dụng và giới hạn, không đề xuất bắt đầu dự án mới từ repo này.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Viết phạm vi một thay đổi nhỏ và tiêu chí kiểm tra. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc trạng thái archived và Resources trước; nội dung giữ ở mức giới thiệu tham khảo, không hướng cài như lựa chọn đang duy trì.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc cảnh báo tình trạng dự án và xác định mục tiêu là học khái niệm hay chọn công cụ mới.</li><li>So sánh nhiệm vụ hỏi/giải thích với nhiệm vụ sửa mã qua các mode được README mô tả.</li><li>Nếu cần dùng cho dự án thật, đánh giá giải pháp còn hỗ trợ và quyền tương ứng trước khi quyết định.</li></ol><h2>Giới hạn cần biết</h2><p>Đọc tình trạng dự án hiện tại trước khi cài; không đánh đồng mọi agent có cùng quyền. Nhiều mode và nhiều sao không chứng minh tương thích hiện hành, đặc biệt với repository archived.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>RooCodeInc</strong> có <strong>24.263 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/RooCodeInc/Roo-Code/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/RooCodeInc/Roo-Code\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 48. Chưa cài/chạy thử; không tạo validation. Snapshot sao 24263; repo_id 881506708; README SHA256 bcabc1221142dc7d7161d089dcd945bb50ff8d7498d7c6b8774b10a8cd5c164f.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "repo_id": "881506708",
+          "source_path": "",
+          "source_revision": "README-SHA256:bcabc1221142dc7d7161d089dcd945bb50ff8d7498d7c6b8774b10a8cd5c164f",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc trạng thái archived và Resources trước; nội dung giữ ở mức giới thiệu tham khảo, không hướng cài như lựa chọn đang duy trì.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/RooCodeInc/Roo-Code/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Nhiều mode và nhiều sao không chứng minh tương thích hiện hành, đặc biệt với repository archived.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "archived",
+          "source_url": "https://github.com/RooCodeInc/Roo-Code",
+          "observed_at": "2026-10-25",
+          "note": "GitHub metadata ghi archived=true."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "Giữ bài giới thiệu tham khảo, không đề xuất repo archived cho dự án mới."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "RooCodeInc/Roo-Code",
+        "stars": 24263,
+        "observedAt": "2026-10-25T03:25:24.209Z",
+        "readmeUrl": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/README.md",
+        "readmeSha256": "bcabc1221142dc7d7161d089dcd945bb50ff8d7498d7c6b8774b10a8cd5c164f",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "b3b732b2214d6c949758d9d1403f2c34676b83fb7583d672798c2e8d3a744559"
+    },
+    {
+      "key": 49,
+      "batch": 5,
+      "slug": "openhands",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "OpenHands: khám phá môi trường agent hỗ trợ phát triển phần mềm",
+        "excerpt": "Khám phá môi trường agent hỗ trợ phát triển phần mềm. Yêu cầu hệ thống có thể cao; phù hợp bước sau, không coi là ứng dụng một nút cho mọi máy.",
+        "content": "<p>Khám phá môi trường agent hỗ trợ phát triển phần mềm. OpenHands README hiện giới thiệu Agent Canvas như trung tâm điều phối coding agent qua nhiều backend. Có lựa chọn local, Docker và hạ tầng ngoài; không nên giản lược thành một chatbot tự viết mọi phần mềm.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ môi trường chạy, model và repo mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Quickstart và Architecture, chọn backend/môi trường chạy; từng agent/provider có điều kiện tài khoản và quyền riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ sơ đồ repo mẫu, môi trường chạy và agent để biết phần nào có quyền tác động.</li><li>Đọc các lựa chọn Quickstart, phân biệt có sandbox và không sandbox.</li><li>Giới hạn đầu tiên ở tác vụ đọc hoặc giải thích; chưa bật tự động gửi báo cáo hay xử lý issue thật.</li></ol><h2>Giới hạn cần biết</h2><p>Yêu cầu hệ thống có thể cao; phù hợp bước sau, không coi là ứng dụng một nút cho mọi máy. Một control center hỗ trợ nhiều agent không tự cấp quyền thực hiện hành động thay chủ dự án.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>OpenHands</strong> có <strong>91.761 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/OpenHands/OpenHands/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/OpenHands/OpenHands\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 49. Chưa cài/chạy thử; không tạo validation. Snapshot sao 91761; repo_id 771302083; README SHA256 3211341a775a6ac63b47cd3d8ba7704aecd15a3ed5aa2891a2ed74448de7a66f.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/OpenHands/OpenHands",
+          "repo_id": "771302083",
+          "source_path": "",
+          "source_revision": "README-SHA256:3211341a775a6ac63b47cd3d8ba7704aecd15a3ed5aa2891a2ed74448de7a66f",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Quickstart và Architecture, chọn backend/môi trường chạy; từng agent/provider có điều kiện tài khoản và quyền riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một control center hỗ trợ nhiều agent không tự cấp quyền thực hiện hành động thay chủ dự án.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/OpenHands/OpenHands/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "OpenHands/OpenHands",
+        "stars": 91761,
+        "observedAt": "2026-10-25T03:25:24.566Z",
+        "readmeUrl": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+        "readmeSha256": "3211341a775a6ac63b47cd3d8ba7704aecd15a3ed5aa2891a2ed74448de7a66f",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9764e3649964b65077e168d8bceddec5b960d6cdacb184e384a1ce837dc6180c"
+    },
+    {
+      "key": 50,
+      "batch": 5,
+      "slug": "goose",
+      "category": "Coding agent và cách làm dự án",
+      "need": "Làm việc với coding agent",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Goose: tìm hiểu agent và các phần mở rộng cho công việc trên máy",
+        "excerpt": "Tìm hiểu agent và các phần mở rộng cho công việc trên máy. Mỗi extension có phạm vi riêng; không bật kết nối tài khoản thật chỉ để thử.",
+        "content": "<p>Tìm hiểu agent và các phần mở rộng cho công việc trên máy. Goose hiện ở repo canonical aaif-goose/goose, cung cấp desktop, CLI và API cho công việc với agent. README mô tả provider và extensions qua MCP; các kết nối mở rộng cần được kiểm tra riêng với việc cài ứng dụng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Chọn một tác vụ mẫu rồi đọc quyền của phần mở rộng liên quan. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Get started đúng thiết bị/giao diện, đọc provider phù hợp với tài khoản và quyền extension định dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng tên repo hiện hành rồi mở Quickstart từ phần Quick links.</li><li>Chọn một việc mẫu nhỏ và một provider; chưa thêm nhiều extension cùng lúc.</li><li>Với extension cần thiết, ghi dữ liệu nó đọc/ghi và hành động có thể làm trước cấp kết nối.</li></ol><h2>Giới hạn cần biết</h2><p>Mỗi extension có phạm vi riêng; không bật kết nối tài khoản thật chỉ để thử. Không suy quyền dùng nhiều provider có nghĩa mọi subscription hoặc API đều được dùng không giới hạn.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>aaif-goose</strong> có <strong>55.658 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/aaif-goose/goose/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/aaif-goose/goose\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 5, key 50. Chưa cài/chạy thử; không tạo validation. Snapshot sao 55658; repo_id 846698999; README SHA256 0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/aaif-goose/goose",
+          "repo_id": "846698999",
+          "source_path": "",
+          "source_revision": "README-SHA256:0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Get started đúng thiết bị/giao diện, đọc provider phù hợp với tài khoản và quyền extension định dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/aaif-goose/goose/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không suy quyền dùng nhiều provider có nghĩa mọi subscription hoặc API đều được dùng không giới hạn.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/aaif-goose/goose/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "aaif-goose/goose",
+        "stars": 55658,
+        "observedAt": "2026-10-25T03:25:24.921Z",
+        "readmeUrl": "https://raw.githubusercontent.com/aaif-goose/goose/main/README.md",
+        "readmeSha256": "0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "16d243cb7bc59a16b1e9a89e473359a59cfe29887e7c0148e17a684a0f3eaac5"
+    }
+  ]
+}

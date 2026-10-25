@@ -2,3 +2,5 @@
 *.mjs text eol=lf
 *.json text eol=lf
 *.md text eol=lf
+/scripts/content-100-import.php text eol=lf
+/docs/content-production/2026-10-25/batch-*/articles/*.html text eol=lf

@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:02:58.749Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 1,
+      "repo": "microsoft/markitdown",
+      "stars": 191989,
+      "archived": false,
+      "readmeBytes": 21078,
+      "source": "https://raw.githubusercontent.com/microsoft/markitdown/main/README.md",
+      "sha256": "cd5ba48d320fedd4f5f2845a97968491b557d39d8afe264eb423d5c6906adf09"
+    },
+    {
+      "key": 2,
+      "repo": "jgm/pandoc",
+      "stars": 46684,
+      "archived": false,
+      "readmeBytes": 13806,
+      "source": "https://raw.githubusercontent.com/jgm/pandoc/main/README.md",
+      "sha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d"
+    },
+    {
+      "key": 3,
+      "repo": "Stirling-Tools/Stirling-PDF",
+      "stars": 94907,
+      "archived": false,
+      "readmeBytes": 3197,
+      "source": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+      "sha256": "0539da44759af7d1c3da8d76b00b892d9ebda4c82f9e161f01658f188a66ed86"
+    },
+    {
+      "key": 4,
+      "repo": "ocrmypdf/OCRmyPDF",
+      "stars": 35141,
+      "archived": false,
+      "readmeBytes": 9993,
+      "source": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/main/README.md",
+      "sha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0"
+    },
+    {
+      "key": 5,
+      "repo": "tesseract-ocr/tesseract",
+      "stars": 77153,
+      "archived": false,
+      "readmeBytes": 8159,
+      "source": "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/README.md",
+      "sha256": "1a14c7cd54039ffb79e05aff12841f48d4d4da50f231ee98e7e9bb6138d03e7a"
+    },
+    {
+      "key": 6,
+      "repo": "tabulapdf/tabula",
+      "stars": 7489,
+      "archived": false,
+      "readmeBytes": 18362,
+      "source": "https://raw.githubusercontent.com/tabulapdf/tabula/master/README.md",
+      "sha256": "8a558fb5ca141217b00544897bb6e1376f026cdefefc9bff0f1e375fe12ba05d"
+    },
+    {
+      "key": 7,
+      "repo": "f/prompts.chat",
+      "stars": 174415,
+      "archived": false,
+      "readmeBytes": 11382,
+      "source": "https://raw.githubusercontent.com/f/prompts.chat/main/README.md",
+      "sha256": "99759a80c13e55d1d5376f4e110998f2923bc616837f22a5de83839016cf4472"
+    },
+    {
+      "key": 8,
+      "repo": "drawdb-io/drawdb",
+      "stars": 40121,
+      "archived": false,
+      "readmeBytes": 2239,
+      "source": "https://raw.githubusercontent.com/drawdb-io/drawdb/main/README.md",
+      "sha256": "bdcaa50bfdd827ca9cf0e935476018e377acaa9c771dff5073dc51c343a759e7"
+    },
+    {
+      "key": 9,
+      "repo": "hoppscotch/hoppscotch",
+      "stars": 80681,
+      "archived": false,
+      "readmeBytes": 11653,
+      "source": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+      "sha256": "f943825e526b79841882127fbf6a3c043359efd1ca6f47794c851f827a6373b4"
+    },
+    {
+      "key": 10,
+      "repo": "gchq/CyberChef",
+      "stars": 36201,
+      "archived": false,
+      "readmeBytes": 15229,
+      "source": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+      "sha256": "d486615fa34e2cf2a901c44203b019d1a27293c7d7d6384cf73170a16632b2cc"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/markitdown/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jgm/pandoc/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tabulapdf/tabula/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/f/prompts.chat/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/drawdb-io/drawdb/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

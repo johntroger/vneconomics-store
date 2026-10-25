@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:43:11.099Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 91,
+      "repo": "localsend/localsend",
+      "stars": 95462,
+      "archived": false,
+      "readmeBytes": 14775,
+      "source": "https://raw.githubusercontent.com/localsend/localsend/main/README.md",
+      "sha256": "eb42bdce9fab2d64797b3e42ed8b5256cfc6538e7cfbc22d6eba887495da47ed"
+    },
+    {
+      "key": 92,
+      "repo": "syncthing/syncthing",
+      "stars": 89709,
+      "archived": false,
+      "readmeBytes": 3999,
+      "source": "https://raw.githubusercontent.com/syncthing/syncthing/main/README.md",
+      "sha256": "42b3725bed4bbefe15dc3284f3246333a721818722752fe69f61478b3b8eba15"
+    },
+    {
+      "key": 93,
+      "repo": "rclone/rclone",
+      "stars": 60518,
+      "archived": false,
+      "readmeBytes": 11939,
+      "source": "https://raw.githubusercontent.com/rclone/rclone/master/README.md",
+      "sha256": "3a9ce92728959025cdf862be0792acea5756f218815833949be8cb0d5fb1e36a"
+    },
+    {
+      "key": 94,
+      "repo": "restic/restic",
+      "stars": 36788,
+      "archived": false,
+      "readmeBytes": 5670,
+      "source": "https://raw.githubusercontent.com/restic/restic/master/README.md",
+      "sha256": "4684f85db668903f6b0e66c3c677efa62fb291e9fe56f2e909b57e84d5740587"
+    },
+    {
+      "key": 95,
+      "repo": "nextcloud/server",
+      "stars": 37282,
+      "archived": false,
+      "readmeBytes": 6546,
+      "source": "https://raw.githubusercontent.com/nextcloud/server/master/README.md",
+      "sha256": "694e8653a25b8f50d3bc772bd84b088e72ac56b2477f38134996189f8ab26a2c"
+    },
+    {
+      "key": 96,
+      "repo": "immich-app/immich",
+      "stars": 117127,
+      "archived": false,
+      "readmeBytes": 5543,
+      "source": "https://raw.githubusercontent.com/immich-app/immich/main/README.md",
+      "sha256": "27b511ae6ee3be2295c4c1e0674dd0ac5b0c6023d9fdd9187869b1605ff56fad"
+    },
+    {
+      "key": 97,
+      "repo": "photoprism/photoprism",
+      "stars": 40355,
+      "archived": false,
+      "readmeBytes": 14305,
+      "source": "https://raw.githubusercontent.com/photoprism/photoprism/develop/README.md",
+      "sha256": "e97ed79e2fa7797160ad6bb29eeb487b79eb0e39be65b7049040d9042d99c228"
+    },
+    {
+      "key": 98,
+      "repo": "usememos/memos",
+      "stars": 64043,
+      "archived": false,
+      "readmeBytes": 6421,
+      "source": "https://raw.githubusercontent.com/usememos/memos/main/README.md",
+      "sha256": "441f879a482850273554612eb656bc10d25e85d565bb8b34fc1d4349cae56811"
+    },
+    {
+      "key": 99,
+      "repo": "plankanban/planka",
+      "stars": 12639,
+      "archived": false,
+      "readmeBytes": 6562,
+      "source": "https://raw.githubusercontent.com/plankanban/planka/master/README.md",
+      "sha256": "b28c061b21698b9016c846257308e151be31a2444fc0846d6b231c41b8e30df6"
+    },
+    {
+      "key": 100,
+      "repo": "louislam/uptime-kuma",
+      "stars": 92872,
+      "archived": false,
+      "readmeBytes": 8246,
+      "source": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/README.md",
+      "sha256": "00ba16e6df299b20daec2a627fd72175ee52a65554c705d63a7b9eeb9d234a9a"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/localsend/localsend/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/syncthing/syncthing/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/rclone/rclone/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/restic/restic/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nextcloud/server/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/immich-app/immich/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/photoprism/photoprism/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/usememos/memos/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/plankanban/planka/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/louislam/uptime-kuma/master/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

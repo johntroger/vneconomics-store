@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:33:10.555Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 51,
+      "repo": "anthropics/skills",
+      "stars": 183535,
+      "archived": false,
+      "readmeBytes": 5552,
+      "source": "https://raw.githubusercontent.com/anthropics/skills/main/README.md",
+      "sha256": "2fb9c4cc026366ea6e21c60cb23c908a4d27c62071819cc06beffaac102d0694"
+    },
+    {
+      "key": 52,
+      "repo": "obra/superpowers",
+      "stars": 304664,
+      "archived": false,
+      "readmeBytes": 14847,
+      "source": "https://raw.githubusercontent.com/obra/superpowers/main/README.md",
+      "sha256": "79f29f50c735862d2e304ea547b4c9aa67d9db6909ff6fb7b5ea922d7bcbc3e7"
+    },
+    {
+      "key": 53,
+      "repo": "github/spec-kit",
+      "stars": 142744,
+      "archived": false,
+      "readmeBytes": 13539,
+      "source": "https://raw.githubusercontent.com/github/spec-kit/main/README.md",
+      "sha256": "3baa99368443f26244b3a021b40eaf6f167ee591f5759c91315ad50d0a204592"
+    },
+    {
+      "key": 54,
+      "repo": "ComposioHQ/awesome-claude-skills",
+      "stars": 77851,
+      "archived": false,
+      "readmeBytes": 40668,
+      "source": "https://raw.githubusercontent.com/ComposioHQ/awesome-claude-skills/master/README.md",
+      "sha256": "e693f2701840f26fb04c3058d55215f2c6575fff7f1c197ada5b64e2f7ee0c12"
+    },
+    {
+      "key": 55,
+      "repo": "addyosmani/agent-skills",
+      "stars": 110235,
+      "archived": false,
+      "readmeBytes": 25930,
+      "source": "https://raw.githubusercontent.com/addyosmani/agent-skills/main/README.md",
+      "sha256": "b74ab722eeee706ff1c5c3ee55f5f2328368ec28c6368900bc80b857b5bc6b72"
+    },
+    {
+      "key": 56,
+      "repo": "anthropics/courses",
+      "stars": 22932,
+      "archived": true,
+      "readmeBytes": 1434,
+      "source": "https://raw.githubusercontent.com/anthropics/courses/master/README.md",
+      "sha256": "398e7dd903abec2156704ed251934c821b2a4db154053ca5687d839bd0358b8e"
+    },
+    {
+      "key": 57,
+      "repo": "anthropics/prompt-eng-interactive-tutorial",
+      "stars": 38727,
+      "archived": false,
+      "readmeBytes": 2689,
+      "source": "https://raw.githubusercontent.com/anthropics/prompt-eng-interactive-tutorial/master/README.md",
+      "sha256": "89092e56106f260b11aa779e48cd6388c0616b5516a61161b76efcadc3e4cfed"
+    },
+    {
+      "key": 58,
+      "repo": "microsoft/AI-For-Beginners",
+      "stars": 70205,
+      "archived": false,
+      "readmeBytes": 29097,
+      "source": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/README.md",
+      "sha256": "40fbad0f74adf8b43ca581a5921921673c8cf215705af01fb4a7142527698c3f"
+    },
+    {
+      "key": 59,
+      "repo": "microsoft/generative-ai-for-beginners",
+      "stars": 122107,
+      "archived": false,
+      "readmeBytes": 24618,
+      "source": "https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/main/README.md",
+      "sha256": "a57045087a78daa833312fe2f4f404427985d89457d86eabeb69722df010d109"
+    },
+    {
+      "key": 60,
+      "repo": "tt-a1i/archify",
+      "stars": 88783,
+      "archived": false,
+      "readmeBytes": 36520,
+      "source": "https://raw.githubusercontent.com/tt-a1i/archify/main/README.md",
+      "sha256": "62b553d14d666243f01d6b5da7c48e7f00ba5b7141550190f1dd2bb83e86d39b"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/skills/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/obra/superpowers/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/github/spec-kit/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ComposioHQ/awesome-claude-skills/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/addyosmani/agent-skills/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/courses/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/prompt-eng-interactive-tutorial/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tt-a1i/archify/main/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

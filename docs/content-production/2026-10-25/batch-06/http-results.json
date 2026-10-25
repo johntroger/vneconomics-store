@@ -1,0 +1,516 @@
+{
+  "status": "PASS_PRODUCTION_BATCH_HTTP",
+  "batch": 6,
+  "observedAt": "2026-10-25T04:01:46.130Z",
+  "checks": [
+    "latest public resource API HTTP200",
+    "latest public resource API no PHP failure",
+    "API list shape",
+    "source item present 51",
+    "exact approved title 51",
+    "exact approved body 51",
+    "source ID 51",
+    "no fabricated runtime badge 51",
+    "source observation 51",
+    "need filter assigned 51",
+    "category assigned 51",
+    "canonical resolution 51",
+    "safe article URL 51",
+    "article 51 HTTP200",
+    "article 51 no PHP failure",
+    "article heading 51",
+    "source CTA 51",
+    "observed stars visible 51",
+    "editorial limitation visible 51",
+    "report context 51",
+    "no-store retained 51",
+    "canonical visible 51",
+    "source item present 52",
+    "exact approved title 52",
+    "exact approved body 52",
+    "source ID 52",
+    "no fabricated runtime badge 52",
+    "source observation 52",
+    "need filter assigned 52",
+    "category assigned 52",
+    "canonical resolution 52",
+    "safe article URL 52",
+    "article 52 HTTP200",
+    "article 52 no PHP failure",
+    "article heading 52",
+    "source CTA 52",
+    "observed stars visible 52",
+    "editorial limitation visible 52",
+    "report context 52",
+    "no-store retained 52",
+    "canonical visible 52",
+    "source item present 53",
+    "exact approved title 53",
+    "exact approved body 53",
+    "source ID 53",
+    "no fabricated runtime badge 53",
+    "source observation 53",
+    "need filter assigned 53",
+    "category assigned 53",
+    "canonical resolution 53",
+    "safe article URL 53",
+    "article 53 HTTP200",
+    "article 53 no PHP failure",
+    "article heading 53",
+    "source CTA 53",
+    "observed stars visible 53",
+    "editorial limitation visible 53",
+    "report context 53",
+    "no-store retained 53",
+    "canonical visible 53",
+    "source item present 54",
+    "exact approved title 54",
+    "exact approved body 54",
+    "source ID 54",
+    "no fabricated runtime badge 54",
+    "source observation 54",
+    "need filter assigned 54",
+    "category assigned 54",
+    "canonical resolution 54",
+    "safe article URL 54",
+    "article 54 HTTP200",
+    "article 54 no PHP failure",
+    "article heading 54",
+    "source CTA 54",
+    "observed stars visible 54",
+    "editorial limitation visible 54",
+    "report context 54",
+    "no-store retained 54",
+    "canonical visible 54",
+    "source item present 55",
+    "exact approved title 55",
+    "exact approved body 55",
+    "source ID 55",
+    "no fabricated runtime badge 55",
+    "source observation 55",
+    "need filter assigned 55",
+    "category assigned 55",
+    "canonical resolution 55",
+    "safe article URL 55",
+    "article 55 HTTP200",
+    "article 55 no PHP failure",
+    "article heading 55",
+    "source CTA 55",
+    "observed stars visible 55",
+    "editorial limitation visible 55",
+    "report context 55",
+    "no-store retained 55",
+    "canonical visible 55",
+    "source item present 56",
+    "exact approved title 56",
+    "exact approved body 56",
+    "source ID 56",
+    "no fabricated runtime badge 56",
+    "source observation 56",
+    "need filter assigned 56",
+    "category assigned 56",
+    "canonical resolution 56",
+    "safe article URL 56",
+    "article 56 HTTP200",
+    "article 56 no PHP failure",
+    "article heading 56",
+    "source CTA 56",
+    "observed stars visible 56",
+    "editorial limitation visible 56",
+    "report context 56",
+    "no-store retained 56",
+    "canonical visible 56",
+    "source item present 57",
+    "exact approved title 57",
+    "exact approved body 57",
+    "source ID 57",
+    "no fabricated runtime badge 57",
+    "source observation 57",
+    "need filter assigned 57",
+    "category assigned 57",
+    "canonical resolution 57",
+    "safe article URL 57",
+    "article 57 HTTP200",
+    "article 57 no PHP failure",
+    "article heading 57",
+    "source CTA 57",
+    "observed stars visible 57",
+    "editorial limitation visible 57",
+    "report context 57",
+    "no-store retained 57",
+    "canonical visible 57",
+    "source item present 58",
+    "exact approved title 58",
+    "exact approved body 58",
+    "source ID 58",
+    "no fabricated runtime badge 58",
+    "source observation 58",
+    "need filter assigned 58",
+    "category assigned 58",
+    "canonical resolution 58",
+    "safe article URL 58",
+    "article 58 HTTP200",
+    "article 58 no PHP failure",
+    "article heading 58",
+    "source CTA 58",
+    "observed stars visible 58",
+    "editorial limitation visible 58",
+    "report context 58",
+    "no-store retained 58",
+    "canonical visible 58",
+    "source item present 59",
+    "exact approved title 59",
+    "exact approved body 59",
+    "source ID 59",
+    "no fabricated runtime badge 59",
+    "source observation 59",
+    "need filter assigned 59",
+    "category assigned 59",
+    "canonical resolution 59",
+    "safe article URL 59",
+    "article 59 HTTP200",
+    "article 59 no PHP failure",
+    "article heading 59",
+    "source CTA 59",
+    "observed stars visible 59",
+    "editorial limitation visible 59",
+    "report context 59",
+    "no-store retained 59",
+    "canonical visible 59",
+    "source item present 60",
+    "exact approved title 60",
+    "exact approved body 60",
+    "source ID 60",
+    "no fabricated runtime badge 60",
+    "source observation 60",
+    "need filter assigned 60",
+    "category assigned 60",
+    "canonical resolution 60",
+    "safe article URL 60",
+    "article 60 HTTP200",
+    "article 60 no PHP failure",
+    "article heading 60",
+    "source CTA 60",
+    "observed stars visible 60",
+    "editorial limitation visible 60",
+    "report context 60",
+    "no-store retained 60",
+    "canonical visible 60",
+    "home HTTP200",
+    "home no PHP failure",
+    "novice entry remains original lesson",
+    "catalog HTTP200",
+    "catalog no PHP failure",
+    "last catalog page HTTP200",
+    "last catalog page no PHP failure",
+    "pagination reaches new scale",
+    "guides HTTP200",
+    "guides no PHP failure",
+    "support HTTP200",
+    "support no PHP failure",
+    "old main lesson HTTP200",
+    "old main lesson no PHP failure",
+    "search HTTP200",
+    "search no PHP failure",
+    "search finds batch representative",
+    "legacy route 1",
+    "legacy renderer 1",
+    "legacy route 2",
+    "legacy renderer 2",
+    "legacy route 7",
+    "legacy renderer 7",
+    "legacy route 8",
+    "legacy renderer 8",
+    "legacy route 9",
+    "legacy renderer 9",
+    "legacy route 10",
+    "legacy renderer 10",
+    "legacy route 67",
+    "legacy renderer 67",
+    "legacy route 71",
+    "legacy renderer 71",
+    "legacy route 78",
+    "legacy renderer 78",
+    "legacy route 81",
+    "legacy renderer 81",
+    "legacy route 84",
+    "legacy renderer 84",
+    "legacy route 87",
+    "legacy renderer 87",
+    "legacy route 92",
+    "legacy renderer 92",
+    "legacy route 95",
+    "legacy renderer 95"
+  ],
+  "requests": [
+    {
+      "url": "https://store.vneconomics.com/wp-json/vne-library/v1/items",
+      "status": 200,
+      "ms": 1620
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=163",
+      "status": 301,
+      "ms": 999
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/anthropic-skills-kham-pha-collection-skills-theo-cong-viec-can-lam/",
+      "status": 200,
+      "ms": 1273
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=164",
+      "status": 301,
+      "ms": 1174
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/superpowers-tim-hieu-bo-quy-trinh-giup-agent-di-tu-de-bai-den-kiem-tra/",
+      "status": 200,
+      "ms": 1152
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=165",
+      "status": 301,
+      "ms": 1026
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/spec-kit-kham-pha-cach-mo-ta-yeu-cau-va-ke-hoach-truoc-khi-viet-ma/",
+      "status": 200,
+      "ms": 1064
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=166",
+      "status": 301,
+      "ms": 1077
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/awesome-claude-skills-doc-mot-danh-sach-tuyen-chon-de-tim-dung-nguon-skill/",
+      "status": 200,
+      "ms": 1178
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=167",
+      "status": 301,
+      "ms": 949
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/agent-skills-cua-addy-osmani-kham-pha-bo-skills-ho-tro-cong-viec-ky-thuat/",
+      "status": 200,
+      "ms": 1087
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=168",
+      "status": 301,
+      "ms": 909
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/anthropic-courses-tim-hieu-kho-bai-hoc-ky-thuat-ve-cong-cu-va-model/",
+      "status": 200,
+      "ms": 1076
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=169",
+      "status": 301,
+      "ms": 1007
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/prompt-engineering-interactive-tutorial-kham-pha-bai-tap-thiet-ke-yeu-cau-va-doc-phan-hoi-ai/",
+      "status": 200,
+      "ms": 1186
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=170",
+      "status": 301,
+      "ms": 908
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/ai-for-beginners-tim-hieu-lo-trinh-nen-tang-ai-thay-vi-chi-suu-tam-cong-cu/",
+      "status": 200,
+      "ms": 1206
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=171",
+      "status": 301,
+      "ms": 1047
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/generative-ai-for-beginners-kham-pha-bai-hoc-xay-dung-ung-dung-ai-tao-sinh/",
+      "status": 200,
+      "ms": 1247
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=172",
+      "status": 301,
+      "ms": 1048
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/archify-tim-hieu-cach-trinh-bay-y-tuong-va-he-thong-bang-so-do/",
+      "status": 200,
+      "ms": 1210
+    },
+    {
+      "url": "https://store.vneconomics.com/",
+      "status": 200,
+      "ms": 1039
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/",
+      "status": 200,
+      "ms": 1153
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/page/8/",
+      "status": 200,
+      "ms": 1280
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/",
+      "status": 200,
+      "ms": 1245
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_support=ho-tro",
+      "status": 200,
+      "ms": 963
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200,
+      "ms": 1156
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_find=1&scope=resources&s=Anthropic%20Skills",
+      "status": 200,
+      "ms": 1120
+    },
+    {
+      "url": "https://store.vneconomics.com/hello-world/",
+      "status": 200,
+      "ms": 1001
+    },
+    {
+      "url": "https://store.vneconomics.com/sample-page/",
+      "status": 200,
+      "ms": 1156
+    },
+    {
+      "url": "https://store.vneconomics.com/shop/",
+      "status": 200,
+      "ms": 1165
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 1335
+    },
+    {
+      "url": "https://store.vneconomics.com/checkout/",
+      "status": 302,
+      "ms": 902
+    },
+    {
+      "url": "https://store.vneconomics.com/my-account/",
+      "status": 200,
+      "ms": 1139
+    },
+    {
+      "url": "https://store.vneconomics.com/home/",
+      "status": 200,
+      "ms": 1479
+    },
+    {
+      "url": "https://store.vneconomics.com/about/",
+      "status": 200,
+      "ms": 1912
+    },
+    {
+      "url": "https://store.vneconomics.com/gioi-thieu/",
+      "status": 200,
+      "ms": 1525
+    },
+    {
+      "url": "https://store.vneconomics.com/san-pham/",
+      "status": 200,
+      "ms": 1373
+    },
+    {
+      "url": "https://store.vneconomics.com/tin-tuc/",
+      "status": 200,
+      "ms": 1206
+    },
+    {
+      "url": "https://store.vneconomics.com/lien-he/",
+      "status": 200,
+      "ms": 1023
+    },
+    {
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "ms": 1158
+    },
+    {
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "ms": 1061
+    }
+  ],
+  "map": {
+    "51": {
+      "id": 163,
+      "url": "https://store.vneconomics.com/tai-nguyen/anthropic-skills-kham-pha-collection-skills-theo-cong-viec-can-lam/",
+      "title": "Anthropic Skills: khám phá collection skills theo công việc cần làm"
+    },
+    "52": {
+      "id": 164,
+      "url": "https://store.vneconomics.com/tai-nguyen/superpowers-tim-hieu-bo-quy-trinh-giup-agent-di-tu-de-bai-den-kiem-tra/",
+      "title": "Superpowers: tìm hiểu bộ quy trình giúp agent đi từ đề bài đến kiểm tra"
+    },
+    "53": {
+      "id": 165,
+      "url": "https://store.vneconomics.com/tai-nguyen/spec-kit-kham-pha-cach-mo-ta-yeu-cau-va-ke-hoach-truoc-khi-viet-ma/",
+      "title": "Spec Kit: khám phá cách mô tả yêu cầu và kế hoạch trước khi viết mã"
+    },
+    "54": {
+      "id": 166,
+      "url": "https://store.vneconomics.com/tai-nguyen/awesome-claude-skills-doc-mot-danh-sach-tuyen-chon-de-tim-dung-nguon-skill/",
+      "title": "Awesome Claude Skills: đọc một danh sách tuyển chọn để tìm đúng nguồn skill"
+    },
+    "55": {
+      "id": 167,
+      "url": "https://store.vneconomics.com/tai-nguyen/agent-skills-cua-addy-osmani-kham-pha-bo-skills-ho-tro-cong-viec-ky-thuat/",
+      "title": "Agent Skills của Addy Osmani: khám phá bộ skills hỗ trợ công việc kỹ thuật"
+    },
+    "56": {
+      "id": 168,
+      "url": "https://store.vneconomics.com/tai-nguyen/anthropic-courses-tim-hieu-kho-bai-hoc-ky-thuat-ve-cong-cu-va-model/",
+      "title": "Anthropic Courses: tìm hiểu kho bài học kỹ thuật về công cụ và model"
+    },
+    "57": {
+      "id": 169,
+      "url": "https://store.vneconomics.com/tai-nguyen/prompt-engineering-interactive-tutorial-kham-pha-bai-tap-thiet-ke-yeu-cau-va-doc-phan-hoi-ai/",
+      "title": "Prompt Engineering Interactive Tutorial: khám phá bài tập thiết kế yêu cầu và đọc phản hồi AI"
+    },
+    "58": {
+      "id": 170,
+      "url": "https://store.vneconomics.com/tai-nguyen/ai-for-beginners-tim-hieu-lo-trinh-nen-tang-ai-thay-vi-chi-suu-tam-cong-cu/",
+      "title": "AI for Beginners: tìm hiểu lộ trình nền tảng AI thay vì chỉ sưu tầm công cụ"
+    },
+    "59": {
+      "id": 171,
+      "url": "https://store.vneconomics.com/tai-nguyen/generative-ai-for-beginners-kham-pha-bai-hoc-xay-dung-ung-dung-ai-tao-sinh/",
+      "title": "Generative AI for Beginners: khám phá bài học xây dựng ứng dụng AI tạo sinh"
+    },
+    "60": {
+      "id": 172,
+      "url": "https://store.vneconomics.com/tai-nguyen/archify-tim-hieu-cach-trinh-bay-y-tuong-va-he-thong-bang-so-do/",
+      "title": "Archify: tìm hiểu cách trình bày ý tưởng và hệ thống bằng sơ đồ"
+    }
+  },
+  "failure": null,
+  "limits": [
+    "Anonymous GET only; no runtime execution of introduced tools",
+    "API list is intentionally capped at50; checks use the latest batch, not an incorrect total expectation",
+    "Original content preservation is checked by importer row/meta hashes separately",
+    "No email, payments or form submissions"
+  ]
+}

@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 6,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 51,
+      "batch": 6,
+      "slug": "anthropic-skills",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Anthropic Skills: khám phá collection skills theo công việc cần làm",
+        "excerpt": "Khám phá collection skills theo công việc cần làm. Sao thuộc collection; không tự gán tương thích hoặc giấy phép giống nhau cho mọi skill.",
+        "content": "<p>Khám phá collection skills theo công việc cần làm. Anthropic Skills là collection gồm thư mục chỉ dẫn, script và tài nguyên cho các nhiệm vụ cụ thể. README nói đây là cách triển khai skills cho Claude và dẫn tiêu chuẩn Agent Skills riêng; không nên đánh đồng collection này với mọi kho mang tên skill.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc một SKILL.md rồi ghi đầu vào, đầu ra và quyền cần dùng. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn đúng skill và công cụ hỗ trợ từ tài liệu; kiểm tra SKILL.md, các script/resource và license của phần định dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Tìm một việc cụ thể như xử lý tài liệu rồi mở thư mục skill tương ứng, chưa cài cả collection.</li><li>Đọc đầu vào, đầu ra và công cụ mà skill yêu cầu; ghi script nào có thể chạy.</li><li>Đối chiếu đường sử dụng theo giao diện/công cụ của bạn, chỉ thử dữ liệu giả trong phạm vi được phép.</li></ol><h2>Giới hạn cần biết</h2><p>Sao thuộc collection; không tự gán tương thích hoặc giấy phép giống nhau cho mọi skill. Sao thuộc repo tổng hợp; không dùng số sao này như đánh giá riêng từng skill hoặc chứng nhận tương thích mọi agent.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>anthropics</strong> có <strong>183.535 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/anthropics/skills/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/anthropics/skills\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 51. Chưa cài/chạy thử; không tạo validation. Snapshot sao 183535; repo_id 1061953414; README SHA256 2fb9c4cc026366ea6e21c60cb23c908a4d27c62071819cc06beffaac102d0694.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/anthropics/skills",
+          "repo_id": "1061953414",
+          "source_path": "",
+          "source_revision": "README-SHA256:2fb9c4cc026366ea6e21c60cb23c908a4d27c62071819cc06beffaac102d0694",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn đúng skill và công cụ hỗ trợ từ tài liệu; kiểm tra SKILL.md, các script/resource và license của phần định dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/anthropics/skills/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Sao thuộc repo tổng hợp; không dùng số sao này như đánh giá riêng từng skill hoặc chứng nhận tương thích mọi agent.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/anthropics/skills/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "anthropics/skills",
+        "stars": 183535,
+        "observedAt": "2026-10-25T03:33:07.715Z",
+        "readmeUrl": "https://raw.githubusercontent.com/anthropics/skills/main/README.md",
+        "readmeSha256": "2fb9c4cc026366ea6e21c60cb23c908a4d27c62071819cc06beffaac102d0694",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "33f05818079f592a9bde65ede272fb86984c4be7816a8798c71f53f3703edcfa"
+    },
+    {
+      "key": 52,
+      "batch": 6,
+      "slug": "superpowers",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Superpowers: tìm hiểu bộ quy trình giúp agent đi từ đề bài đến kiểm tra",
+        "excerpt": "Tìm hiểu bộ quy trình giúp agent đi từ đề bài đến kiểm tra. Không coi quy trình là bảo đảm mã đúng; kiểm tra khả năng tích hợp theo công cụ.",
+        "content": "<p>Tìm hiểu bộ quy trình giúp agent đi từ đề bài đến kiểm tra. Superpowers là phương pháp làm phần mềm cho coding agent được đóng gói thành skills và chỉ dẫn. README có các đường tích hợp theo công cụ, từ xác định nhu cầu đến kiểm tra; cần chọn đúng môi trường thay vì áp dụng một lệnh chung.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đề bài nhỏ có bước phân tích và tiêu chí xong. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần coding agent được hỗ trợ và đường Installation đúng giao diện; các bước workflow còn phụ thuộc quyền dự án.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc How it works để hiểu vì sao có bước hỏi rõ đề bài trước khi viết mã.</li><li>Tìm đúng công cụ trong Installation, không trộn phần Codex App với CLI hoặc agent khác.</li><li>Thử lập một kế hoạch nhỏ cùng tiêu chí xong; xem dữ liệu/việc gì workflow có thể yêu cầu thêm.</li></ol><h2>Giới hạn cần biết</h2><p>Không coi quy trình là bảo đảm mã đúng; kiểm tra khả năng tích hợp theo công cụ. Bộ phương pháp giúp tổ chức công việc nhưng không thay bằng chứng kiểm thử; đọc cả phần cập nhật và telemetry nếu dùng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>obra</strong> có <strong>304.664 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/obra/superpowers/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/obra/superpowers\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 52. Chưa cài/chạy thử; không tạo validation. Snapshot sao 304664; repo_id 1073224795; README SHA256 79f29f50c735862d2e304ea547b4c9aa67d9db6909ff6fb7b5ea922d7bcbc3e7.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/obra/superpowers",
+          "repo_id": "1073224795",
+          "source_path": "",
+          "source_revision": "README-SHA256:79f29f50c735862d2e304ea547b4c9aa67d9db6909ff6fb7b5ea922d7bcbc3e7",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần coding agent được hỗ trợ và đường Installation đúng giao diện; các bước workflow còn phụ thuộc quyền dự án.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/obra/superpowers/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Bộ phương pháp giúp tổ chức công việc nhưng không thay bằng chứng kiểm thử; đọc cả phần cập nhật và telemetry nếu dùng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/obra/superpowers/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "obra/superpowers",
+        "stars": 304664,
+        "observedAt": "2026-10-25T03:33:07.991Z",
+        "readmeUrl": "https://raw.githubusercontent.com/obra/superpowers/main/README.md",
+        "readmeSha256": "79f29f50c735862d2e304ea547b4c9aa67d9db6909ff6fb7b5ea922d7bcbc3e7",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "aa12e857c6d6e0ab682b5a4b8780c0e7fcf8ebf2fbc5645fad883086a2f4d011"
+    },
+    {
+      "key": 53,
+      "batch": 6,
+      "slug": "spec-kit",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Spec Kit: khám phá cách mô tả yêu cầu và kế hoạch trước khi viết mã",
+        "excerpt": "Khám phá cách mô tả yêu cầu và kế hoạch trước khi viết mã. Cần biết công cụ đang dùng; không nhập quy trình lớn cho một sửa đổi rất nhỏ.",
+        "content": "<p>Khám phá cách mô tả yêu cầu và kế hoạch trước khi viết mã. Spec Kit hiện cung cấp các quy trình cho xây tính năng, sửa lỗi và đánh giá ý tưởng. README nêu đây là các lối vào độc lập, không phải ba giai đoạn bắt buộc; chọn theo việc giúp người mới tránh dựng quy trình quá lớn.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một brief trang giới thiệu gồm mục tiêu, phạm vi và cách nghiệm thu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Get started và phần tích hợp agent; chỉ dùng process/extension phù hợp với nhiệm vụ đang làm.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định việc của bạn là xây mới, sửa lỗi hay đánh giá ý tưởng trước khi chọn process.</li><li>Viết một mục tiêu, giới hạn phạm vi và điều kiện nghiệm thu cho ví dụ hư cấu.</li><li>Đọc kết quả tài liệu mà process tạo ra, kiểm tra giả định trước cho phép triển khai.</li></ol><h2>Giới hạn cần biết</h2><p>Cần biết công cụ đang dùng; không nhập quy trình lớn cho một sửa đổi rất nhỏ. Một spec viết rõ vẫn có thể chứa giả định sai; không coi template hoặc nhiều tài liệu là bằng chứng dự án đã hoạt động.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>github</strong> có <strong>142.744 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/github/spec-kit/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/github/spec-kit\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 53. Chưa cài/chạy thử; không tạo validation. Snapshot sao 142744; repo_id 1042367133; README SHA256 3baa99368443f26244b3a021b40eaf6f167ee591f5759c91315ad50d0a204592.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/github/spec-kit",
+          "repo_id": "1042367133",
+          "source_path": "",
+          "source_revision": "README-SHA256:3baa99368443f26244b3a021b40eaf6f167ee591f5759c91315ad50d0a204592",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Get started và phần tích hợp agent; chỉ dùng process/extension phù hợp với nhiệm vụ đang làm.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/github/spec-kit/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một spec viết rõ vẫn có thể chứa giả định sai; không coi template hoặc nhiều tài liệu là bằng chứng dự án đã hoạt động.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/github/spec-kit/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "github/spec-kit",
+        "stars": 142744,
+        "observedAt": "2026-10-25T03:33:08.294Z",
+        "readmeUrl": "https://raw.githubusercontent.com/github/spec-kit/main/README.md",
+        "readmeSha256": "3baa99368443f26244b3a021b40eaf6f167ee591f5759c91315ad50d0a204592",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "3de42121925ed73a538b0d11ac4a47f5f2cfdb48c25634b25df59411a48a6cdb"
+    },
+    {
+      "key": 54,
+      "batch": 6,
+      "slug": "awesome-claude-skills",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Awesome Claude Skills: đọc một danh sách tuyển chọn để tìm đúng nguồn skill",
+        "excerpt": "Đọc một danh sách tuyển chọn để tìm đúng nguồn skill. Danh sách tổng hợp không chứng nhận từng skill an toàn hoặc còn tương thích.",
+        "content": "<p>Đọc một danh sách tuyển chọn để tìm đúng nguồn skill. Awesome Claude Skills là danh sách tuyển chọn có nhiều nguồn skill/plugin và cả hướng kết nối ứng dụng qua Composio. Cần phân biệt link tham khảo với plugin có thể gửi email, tạo issue hoặc tác động dịch vụ ngoài.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Chọn một ứng viên rồi đi tới tác giả gốc và tài liệu quyền. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn một skill rồi đọc nguồn gốc, yêu cầu công cụ và quyền; plugin kết nối app có bước xác thực và điều kiện riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Duyệt danh mục theo công việc, chọn một nguồn và mở repo/thư mục tác giả.</li><li>Đọc skill trước, tách chỉ dẫn tạo nội dung khỏi chỉ dẫn gọi công cụ ngoài.</li><li>Nếu chỉ muốn học cấu trúc, chưa cần kết nối app hoặc gửi một email thử; ghi quyền dự kiến vào checklist.</li></ol><h2>Giới hạn cần biết</h2><p>Danh sách tổng hợp không chứng nhận từng skill an toàn hoặc còn tương thích. Danh sách tổng hợp không chứng minh từng thành phần đã được website thử hoặc đủ an toàn cho tài khoản của bạn.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ComposioHQ</strong> có <strong>77.851 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ComposioHQ/awesome-claude-skills/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ComposioHQ/awesome-claude-skills\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 54. Chưa cài/chạy thử; không tạo validation. Snapshot sao 77851; repo_id 1078079172; README SHA256 e693f2701840f26fb04c3058d55215f2c6575fff7f1c197ada5b64e2f7ee0c12.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/ComposioHQ/awesome-claude-skills",
+          "repo_id": "1078079172",
+          "source_path": "",
+          "source_revision": "README-SHA256:e693f2701840f26fb04c3058d55215f2c6575fff7f1c197ada5b64e2f7ee0c12",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn một skill rồi đọc nguồn gốc, yêu cầu công cụ và quyền; plugin kết nối app có bước xác thực và điều kiện riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Danh sách tổng hợp không chứng minh từng thành phần đã được website thử hoặc đủ an toàn cho tài khoản của bạn.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ComposioHQ/awesome-claude-skills/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ComposioHQ/awesome-claude-skills",
+        "stars": 77851,
+        "observedAt": "2026-10-25T03:33:08.562Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ComposioHQ/awesome-claude-skills/master/README.md",
+        "readmeSha256": "e693f2701840f26fb04c3058d55215f2c6575fff7f1c197ada5b64e2f7ee0c12",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "6ab0c372dd4388fbd78881305833a1aaa1edb5e9429864db3256d69ddde03a94"
+    },
+    {
+      "key": 55,
+      "batch": 6,
+      "slug": "agent-skills-cua-addy-osmani",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Agent Skills của Addy Osmani: khám phá bộ skills hỗ trợ công việc kỹ thuật",
+        "excerpt": "Khám phá bộ skills hỗ trợ công việc kỹ thuật. Đọc mức nền cần có; không cài cả collection chỉ vì nhiều sao.",
+        "content": "<p>Khám phá bộ skills hỗ trợ công việc kỹ thuật. Agent Skills của Addy Osmani tổ chức skills theo vòng đời làm phần mềm, với các command như đặc tả, kế hoạch, xây dựng, kiểm tra và review. README nhấn mạnh quy trình kỹ thuật; không phải bộ thao tác dùng chung cho mọi việc văn phòng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Chọn một bài toán rà soát dự án rồi đối chiếu mô tả skill. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần hiểu dự án mã nguồn ở mức cơ bản và chọn đường Quick Start đúng agent; đọc command/skill định dùng trước.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một nhu cầu như viết tiêu chí trước làm hoặc review thay đổi, thay vì bật mọi command.</li><li>Đọc mô tả skill và giới hạn công cụ mà nó sử dụng.</li><li>Dùng thư mục mẫu để xem đầu ra, rồi so sánh với yêu cầu ban đầu và cách kiểm chứng bạn đã định.</li></ol><h2>Giới hạn cần biết</h2><p>Đọc mức nền cần có; không cài cả collection chỉ vì nhiều sao. Tên gọi production-grade trong README là mô tả của tác giả, không phải kết quả website tự chứng nhận.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>addyosmani</strong> có <strong>110.235 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/addyosmani/agent-skills/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/addyosmani/agent-skills\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 55. Chưa cài/chạy thử; không tạo validation. Snapshot sao 110235; repo_id 1158722119; README SHA256 b74ab722eeee706ff1c5c3ee55f5f2328368ec28c6368900bc80b857b5bc6b72.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/addyosmani/agent-skills",
+          "repo_id": "1158722119",
+          "source_path": "",
+          "source_revision": "README-SHA256:b74ab722eeee706ff1c5c3ee55f5f2328368ec28c6368900bc80b857b5bc6b72",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần hiểu dự án mã nguồn ở mức cơ bản và chọn đường Quick Start đúng agent; đọc command/skill định dùng trước.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/addyosmani/agent-skills/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Tên gọi production-grade trong README là mô tả của tác giả, không phải kết quả website tự chứng nhận.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/addyosmani/agent-skills/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "addyosmani/agent-skills",
+        "stars": 110235,
+        "observedAt": "2026-10-25T03:33:08.858Z",
+        "readmeUrl": "https://raw.githubusercontent.com/addyosmani/agent-skills/main/README.md",
+        "readmeSha256": "b74ab722eeee706ff1c5c3ee55f5f2328368ec28c6368900bc80b857b5bc6b72",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "e5acbecd90984e8163c9ac8d77fb97fe575aa3cf3208157f194555030a993390"
+    },
+    {
+      "key": 56,
+      "batch": 6,
+      "slug": "anthropic-courses",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Anthropic Courses: tìm hiểu kho bài học kỹ thuật về công cụ và model",
+        "excerpt": "Tìm hiểu kho bài học kỹ thuật về công cụ và model. Notebook có thể cần tài khoản/API; không chạy toàn bộ để xem thử khi chưa rõ chi phí.",
+        "content": "<p>Tìm hiểu kho bài học kỹ thuật về công cụ và model. Anthropic Courses tập hợp các bài về API, prompting, evaluation và tool use. Snapshot GitHub ghi repo archived; README còn nêu model cũ và các bài chạy API, vì vậy cần đọc như tư liệu học có mốc lịch sử, không dùng làm bảng tính năng/giá hiện tại.</p><p><strong>Repo đã archived tại lần quan sát.</strong> Bài giữ để giải thích công dụng và giới hạn, không đề xuất bắt đầu dự án mới từ repo này.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc cấu trúc một khóa để biết kiến thức nền và cách thực hành. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Phần notebook/API cần môi trường lập trình và quyền tài khoản; nội dung giữ tham khảo, phải đối chiếu tài liệu hiện hành trước chạy.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc danh sách khóa để phân biệt kiến thức khái niệm với bài cần gọi dịch vụ.</li><li>Chọn một bài và ghi thuật ngữ/mục tiêu muốn học, chưa chạy toàn notebook.</li><li>Đối chiếu tên model, SDK và chi phí bằng nguồn hiện hành trước thử trên môi trường được phép.</li></ol><h2>Giới hạn cần biết</h2><p>Notebook có thể cần tài khoản/API; không chạy toàn bộ để xem thử khi chưa rõ chi phí. Không coi model được đề xuất trong khóa archived là model rẻ nhất hoặc phù hợp nhất hiện tại.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>anthropics</strong> có <strong>22.932 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/anthropics/courses/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/anthropics/courses\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 56. Chưa cài/chạy thử; không tạo validation. Snapshot sao 22932; repo_id 808207942; README SHA256 398e7dd903abec2156704ed251934c821b2a4db154053ca5687d839bd0358b8e.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/anthropics/courses",
+          "repo_id": "808207942",
+          "source_path": "",
+          "source_revision": "README-SHA256:398e7dd903abec2156704ed251934c821b2a4db154053ca5687d839bd0358b8e",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Phần notebook/API cần môi trường lập trình và quyền tài khoản; nội dung giữ tham khảo, phải đối chiếu tài liệu hiện hành trước chạy.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/anthropics/courses/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không coi model được đề xuất trong khóa archived là model rẻ nhất hoặc phù hợp nhất hiện tại.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/anthropics/courses/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "archived",
+          "source_url": "https://github.com/anthropics/courses",
+          "observed_at": "2026-10-25",
+          "note": "GitHub metadata ghi archived=true."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "Giữ bài giới thiệu tham khảo, không đề xuất repo archived cho dự án mới."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "anthropics/courses",
+        "stars": 22932,
+        "observedAt": "2026-10-25T03:33:09.265Z",
+        "readmeUrl": "https://raw.githubusercontent.com/anthropics/courses/master/README.md",
+        "readmeSha256": "398e7dd903abec2156704ed251934c821b2a4db154053ca5687d839bd0358b8e",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "d76ac8ef5c5a24ef7afc39f2ceab2c94a321fec7a46564cf233f3176210e1e25"
+    },
+    {
+      "key": 57,
+      "batch": 6,
+      "slug": "prompt-engineering-interactive-tutorial",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Prompt Engineering Interactive Tutorial: khám phá bài tập thiết kế yêu cầu và đọc phản hồi AI",
+        "excerpt": "Khám phá bài tập thiết kế yêu cầu và đọc phản hồi AI. Ví dụ phụ thuộc model/phiên bản; không hứa cùng prompt luôn cho một kết quả.",
+        "content": "<p>Khám phá bài tập thiết kế yêu cầu và đọc phản hồi AI. Prompt Engineering Interactive Tutorial có chương và bài tập thiết kế prompt theo trình tự, kèm khu vực thử ví dụ. README nêu các model thế hệ cũ; giá trị nên khai thác là cách đặt mục tiêu và tự kiểm tra, không sao chép kết luận model/giá như hiện hành.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một yêu cầu có mục tiêu, ngữ cảnh và đầu ra có thể tự đối chiếu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần công cụ/tài khoản phù hợp nếu chạy bài; xem định dạng tutorial, phiên bản model và điều kiện gọi dịch vụ trước.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một bài đầu và đọc mục tiêu trước phần ví dụ.</li><li>Viết prompt bằng tiếng Việt với đầu vào giả và đầu ra mong đợi có thể đối chiếu.</li><li>Ghi phản hồi thực sự quan sát nếu thử trong môi trường được phép; chưa thử thì giữ ở mức bài đọc.</li></ol><h2>Giới hạn cần biết</h2><p>Ví dụ phụ thuộc model/phiên bản; không hứa cùng prompt luôn cho một kết quả. Không mô tả đáp án ví dụ là kết quả chắc chắn của mọi phiên AI hoặc chứng nhận người học đã thành thạo.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>anthropics</strong> có <strong>38.727 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/anthropics/prompt-eng-interactive-tutorial/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/anthropics/prompt-eng-interactive-tutorial\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 57. Chưa cài/chạy thử; không tạo validation. Snapshot sao 38727; repo_id 781022269; README SHA256 89092e56106f260b11aa779e48cd6388c0616b5516a61161b76efcadc3e4cfed.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+          "repo_id": "781022269",
+          "source_path": "",
+          "source_revision": "README-SHA256:89092e56106f260b11aa779e48cd6388c0616b5516a61161b76efcadc3e4cfed",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần công cụ/tài khoản phù hợp nếu chạy bài; xem định dạng tutorial, phiên bản model và điều kiện gọi dịch vụ trước.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không mô tả đáp án ví dụ là kết quả chắc chắn của mọi phiên AI hoặc chứng nhận người học đã thành thạo.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/anthropics/prompt-eng-interactive-tutorial/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "anthropics/prompt-eng-interactive-tutorial",
+        "stars": 38727,
+        "observedAt": "2026-10-25T03:33:09.543Z",
+        "readmeUrl": "https://raw.githubusercontent.com/anthropics/prompt-eng-interactive-tutorial/master/README.md",
+        "readmeSha256": "89092e56106f260b11aa779e48cd6388c0616b5516a61161b76efcadc3e4cfed",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "b3e3040ba94b2c5489612fdf714a29cbf21ca10694b177e7e4ddded17e92a6e8"
+    },
+    {
+      "key": 58,
+      "batch": 6,
+      "slug": "ai-for-beginners",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "AI for Beginners: tìm hiểu lộ trình nền tảng AI thay vì chỉ sưu tầm công cụ",
+        "excerpt": "Tìm hiểu lộ trình nền tảng AI thay vì chỉ sưu tầm công cụ. Đây là tài liệu học nền tảng, không phải một ứng dụng AI dùng ngay.",
+        "content": "<p>Tìm hiểu lộ trình nền tảng AI thay vì chỉ sưu tầm công cụ. AI for Beginners của Microsoft là giáo trình nền tảng với bài học, quiz và lab, gồm cả khái niệm và công cụ kỹ thuật. README chia đường cho người mới và thiết lập đầy đủ; đọc giáo trình khác với chọn một app dùng ngay.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Chọn một chủ đề nhập môn và ghi thuật ngữ cần hiểu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Getting Started theo nền tảng đang có; lab có thể cần môi trường và kiến thức lập trình được từng bài nêu.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn đường New to AI nếu chưa biết thuật ngữ thay vì cài toàn bộ môi trường khóa học.</li><li>Đọc một mục tiêu bài, ghi ba khái niệm cần giải thích bằng ví dụ tiếng Việt.</li><li>Sau phần đọc, kiểm tra bài có yêu cầu chạy code hay dịch vụ ngoài trước thực hiện lab.</li></ol><h2>Giới hạn cần biết</h2><p>Đây là tài liệu học nền tảng, không phải một ứng dụng AI dùng ngay. Thời lượng/độ dễ được tác giả mô tả không bảo đảm mọi người hoàn thành cùng tốc độ; không chạy toàn khóa chỉ để duyệt bài.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>microsoft</strong> có <strong>70.205 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/microsoft/AI-For-Beginners/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/microsoft/AI-For-Beginners\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 58. Chưa cài/chạy thử; không tạo validation. Snapshot sao 70205; repo_id 344190478; README SHA256 40fbad0f74adf8b43ca581a5921921673c8cf215705af01fb4a7142527698c3f.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/microsoft/AI-For-Beginners",
+          "repo_id": "344190478",
+          "source_path": "",
+          "source_revision": "README-SHA256:40fbad0f74adf8b43ca581a5921921673c8cf215705af01fb4a7142527698c3f",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Getting Started theo nền tảng đang có; lab có thể cần môi trường và kiến thức lập trình được từng bài nêu.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/microsoft/AI-For-Beginners/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thời lượng/độ dễ được tác giả mô tả không bảo đảm mọi người hoàn thành cùng tốc độ; không chạy toàn khóa chỉ để duyệt bài.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/microsoft/AI-For-Beginners/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "microsoft/AI-For-Beginners",
+        "stars": 70205,
+        "observedAt": "2026-10-25T03:33:09.926Z",
+        "readmeUrl": "https://raw.githubusercontent.com/microsoft/AI-For-Beginners/main/README.md",
+        "readmeSha256": "40fbad0f74adf8b43ca581a5921921673c8cf215705af01fb4a7142527698c3f",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "7cd2322be68f79592eb341a41f9e0765d5272f30ddbfe4682585e422d1648ced"
+    },
+    {
+      "key": 59,
+      "batch": 6,
+      "slug": "generative-ai-for-beginners",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Generative AI for Beginners: khám phá bài học xây dựng ứng dụng AI tạo sinh",
+        "excerpt": "Khám phá bài học xây dựng ứng dụng AI tạo sinh. Ví dụ dịch vụ và API có điều kiện tài khoản; cần kiểm tra trước khi chạy.",
+        "content": "<p>Khám phá bài học xây dựng ứng dụng AI tạo sinh. Generative AI for Beginners là khóa học về xây ứng dụng AI tạo sinh, có bài và điều kiện thực hành được README tách riêng. Các lựa chọn dịch vụ/công cụ trong bài cần đọc theo môi trường, không suy từ chữ beginners rằng không cần tài khoản hoặc nền kỹ thuật.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc mục tiêu một bài rồi phân biệt khái niệm với phần code. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Getting Started và What You Need; phần code có yêu cầu môi trường/provider được từng bài quy định.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định mục tiêu học là hiểu khái niệm hay tự xây một chức năng nhỏ.</li><li>Chọn một bài, đọc yêu cầu và phần kết quả mong đợi trước khi mở code.</li><li>Kiểm tra dữ liệu, credential và chi phí; chỉ thử bài nhỏ được phép, đối chiếu kết quả với nguồn.</li></ol><h2>Giới hạn cần biết</h2><p>Ví dụ dịch vụ và API có điều kiện tài khoản; cần kiểm tra trước khi chạy. Không dùng nguồn học như danh sách model/API luôn cập nhật hoặc hứa mọi tài nguyên của khóa đều không mất phí.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>microsoft</strong> có <strong>122.107 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/microsoft/generative-ai-for-beginners/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/microsoft/generative-ai-for-beginners\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 59. Chưa cài/chạy thử; không tạo validation. Snapshot sao 122107; repo_id 655806940; README SHA256 a57045087a78daa833312fe2f4f404427985d89457d86eabeb69722df010d109.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/microsoft/generative-ai-for-beginners",
+          "repo_id": "655806940",
+          "source_path": "",
+          "source_revision": "README-SHA256:a57045087a78daa833312fe2f4f404427985d89457d86eabeb69722df010d109",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Getting Started và What You Need; phần code có yêu cầu môi trường/provider được từng bài quy định.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/microsoft/generative-ai-for-beginners/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dùng nguồn học như danh sách model/API luôn cập nhật hoặc hứa mọi tài nguyên của khóa đều không mất phí.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/microsoft/generative-ai-for-beginners/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "microsoft/generative-ai-for-beginners",
+        "stars": 122107,
+        "observedAt": "2026-10-25T03:33:10.244Z",
+        "readmeUrl": "https://raw.githubusercontent.com/microsoft/generative-ai-for-beginners/main/README.md",
+        "readmeSha256": "a57045087a78daa833312fe2f4f404427985d89457d86eabeb69722df010d109",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "e8373a2264b351dc5ab75c5efdd2479d24b2aba50d5444569c5b82bde18b12e1"
+    },
+    {
+      "key": 60,
+      "batch": 6,
+      "slug": "archify",
+      "category": "Skills và phương pháp làm việc",
+      "need": "Chọn skills và quy trình",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Archify: tìm hiểu cách trình bày ý tưởng và hệ thống bằng sơ đồ",
+        "excerpt": "Tìm hiểu cách trình bày ý tưởng và hệ thống bằng sơ đồ. Cần đối chiếu công cụ hỗ trợ và nơi xử lý mô tả trước khi dùng mã nguồn riêng.",
+        "content": "<p>Tìm hiểu cách trình bày ý tưởng và hệ thống bằng sơ đồ. Archify tạo đầu ra trực quan tương tác từ mô tả cho AI agent, bao gồm sơ đồ repo và nhiều tình huống khác. README phân biệt dự án với các dịch vụ online bên thứ ba; cần xác định công cụ nào thực sự xử lý nội dung của bạn.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một hệ thống hư cấu gồm ba thành phần và đường đi dữ liệu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Get started và đường tích hợp cho agent đang dùng; nguồn mô tả/code có thể được đưa vào phiên AI theo quyền của công cụ đó.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Mô tả một hệ thống hư cấu có ba thành phần và đường đi dữ liệu.</li><li>Đọc ví dụ và cách tích hợp, kiểm tra quyền cần dùng trước cài skill.</li><li>Khi có đầu ra thử trong môi trường được phép, đọc từng nhãn/liên kết và so với mô tả gốc thay vì chỉ đánh giá vẻ đẹp.</li></ol><h2>Giới hạn cần biết</h2><p>Cần đối chiếu công cụ hỗ trợ và nơi xử lý mô tả trước khi dùng mã nguồn riêng. Sơ đồ đẹp có thể diễn giải sai hệ thống; không gửi codebase riêng hoặc cấu hình thật chỉ để tạo ảnh minh họa.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>tt-a1i</strong> có <strong>88.783 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/tt-a1i/archify/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/tt-a1i/archify\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 6, key 60. Chưa cài/chạy thử; không tạo validation. Snapshot sao 88783; repo_id 1211139949; README SHA256 62b553d14d666243f01d6b5da7c48e7f00ba5b7141550190f1dd2bb83e86d39b.",
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/tt-a1i/archify",
+          "repo_id": "1211139949",
+          "source_path": "",
+          "source_revision": "README-SHA256:62b553d14d666243f01d6b5da7c48e7f00ba5b7141550190f1dd2bb83e86d39b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Get started và đường tích hợp cho agent đang dùng; nguồn mô tả/code có thể được đưa vào phiên AI theo quyền của công cụ đó.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/tt-a1i/archify/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Sơ đồ đẹp có thể diễn giải sai hệ thống; không gửi codebase riêng hoặc cấu hình thật chỉ để tạo ảnh minh họa.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/tt-a1i/archify/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "tt-a1i/archify",
+        "stars": 88783,
+        "observedAt": "2026-10-25T03:33:10.552Z",
+        "readmeUrl": "https://raw.githubusercontent.com/tt-a1i/archify/main/README.md",
+        "readmeSha256": "62b553d14d666243f01d6b5da7c48e7f00ba5b7141550190f1dd2bb83e86d39b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "c93c0c29412831c8b0b23718e313a39f27045c5f5ba3d1b5dc2a285f6935f1d7"
+    }
+  ]
+}

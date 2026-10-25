@@ -1,0 +1,516 @@
+{
+  "status": "PASS_PRODUCTION_BATCH_HTTP",
+  "batch": 7,
+  "observedAt": "2026-10-25T04:05:54.369Z",
+  "checks": [
+    "latest public resource API HTTP200",
+    "latest public resource API no PHP failure",
+    "API list shape",
+    "source item present 61",
+    "exact approved title 61",
+    "exact approved body 61",
+    "source ID 61",
+    "no fabricated runtime badge 61",
+    "source observation 61",
+    "need filter assigned 61",
+    "category assigned 61",
+    "canonical resolution 61",
+    "safe article URL 61",
+    "article 61 HTTP200",
+    "article 61 no PHP failure",
+    "article heading 61",
+    "source CTA 61",
+    "observed stars visible 61",
+    "editorial limitation visible 61",
+    "report context 61",
+    "no-store retained 61",
+    "canonical visible 61",
+    "source item present 62",
+    "exact approved title 62",
+    "exact approved body 62",
+    "source ID 62",
+    "no fabricated runtime badge 62",
+    "source observation 62",
+    "need filter assigned 62",
+    "category assigned 62",
+    "canonical resolution 62",
+    "safe article URL 62",
+    "article 62 HTTP200",
+    "article 62 no PHP failure",
+    "article heading 62",
+    "source CTA 62",
+    "observed stars visible 62",
+    "editorial limitation visible 62",
+    "report context 62",
+    "no-store retained 62",
+    "canonical visible 62",
+    "source item present 63",
+    "exact approved title 63",
+    "exact approved body 63",
+    "source ID 63",
+    "no fabricated runtime badge 63",
+    "source observation 63",
+    "need filter assigned 63",
+    "category assigned 63",
+    "canonical resolution 63",
+    "safe article URL 63",
+    "article 63 HTTP200",
+    "article 63 no PHP failure",
+    "article heading 63",
+    "source CTA 63",
+    "observed stars visible 63",
+    "editorial limitation visible 63",
+    "report context 63",
+    "no-store retained 63",
+    "canonical visible 63",
+    "source item present 64",
+    "exact approved title 64",
+    "exact approved body 64",
+    "source ID 64",
+    "no fabricated runtime badge 64",
+    "source observation 64",
+    "need filter assigned 64",
+    "category assigned 64",
+    "canonical resolution 64",
+    "safe article URL 64",
+    "article 64 HTTP200",
+    "article 64 no PHP failure",
+    "article heading 64",
+    "source CTA 64",
+    "observed stars visible 64",
+    "editorial limitation visible 64",
+    "report context 64",
+    "no-store retained 64",
+    "canonical visible 64",
+    "source item present 65",
+    "exact approved title 65",
+    "exact approved body 65",
+    "source ID 65",
+    "no fabricated runtime badge 65",
+    "source observation 65",
+    "need filter assigned 65",
+    "category assigned 65",
+    "canonical resolution 65",
+    "safe article URL 65",
+    "article 65 HTTP200",
+    "article 65 no PHP failure",
+    "article heading 65",
+    "source CTA 65",
+    "observed stars visible 65",
+    "editorial limitation visible 65",
+    "report context 65",
+    "no-store retained 65",
+    "canonical visible 65",
+    "source item present 66",
+    "exact approved title 66",
+    "exact approved body 66",
+    "source ID 66",
+    "no fabricated runtime badge 66",
+    "source observation 66",
+    "need filter assigned 66",
+    "category assigned 66",
+    "canonical resolution 66",
+    "safe article URL 66",
+    "article 66 HTTP200",
+    "article 66 no PHP failure",
+    "article heading 66",
+    "source CTA 66",
+    "observed stars visible 66",
+    "editorial limitation visible 66",
+    "report context 66",
+    "no-store retained 66",
+    "canonical visible 66",
+    "source item present 67",
+    "exact approved title 67",
+    "exact approved body 67",
+    "source ID 67",
+    "no fabricated runtime badge 67",
+    "source observation 67",
+    "need filter assigned 67",
+    "category assigned 67",
+    "canonical resolution 67",
+    "safe article URL 67",
+    "article 67 HTTP200",
+    "article 67 no PHP failure",
+    "article heading 67",
+    "source CTA 67",
+    "observed stars visible 67",
+    "editorial limitation visible 67",
+    "report context 67",
+    "no-store retained 67",
+    "canonical visible 67",
+    "source item present 68",
+    "exact approved title 68",
+    "exact approved body 68",
+    "source ID 68",
+    "no fabricated runtime badge 68",
+    "source observation 68",
+    "need filter assigned 68",
+    "category assigned 68",
+    "canonical resolution 68",
+    "safe article URL 68",
+    "article 68 HTTP200",
+    "article 68 no PHP failure",
+    "article heading 68",
+    "source CTA 68",
+    "observed stars visible 68",
+    "editorial limitation visible 68",
+    "report context 68",
+    "no-store retained 68",
+    "canonical visible 68",
+    "source item present 69",
+    "exact approved title 69",
+    "exact approved body 69",
+    "source ID 69",
+    "no fabricated runtime badge 69",
+    "source observation 69",
+    "need filter assigned 69",
+    "category assigned 69",
+    "canonical resolution 69",
+    "safe article URL 69",
+    "article 69 HTTP200",
+    "article 69 no PHP failure",
+    "article heading 69",
+    "source CTA 69",
+    "observed stars visible 69",
+    "editorial limitation visible 69",
+    "report context 69",
+    "no-store retained 69",
+    "canonical visible 69",
+    "source item present 70",
+    "exact approved title 70",
+    "exact approved body 70",
+    "source ID 70",
+    "no fabricated runtime badge 70",
+    "source observation 70",
+    "need filter assigned 70",
+    "category assigned 70",
+    "canonical resolution 70",
+    "safe article URL 70",
+    "article 70 HTTP200",
+    "article 70 no PHP failure",
+    "article heading 70",
+    "source CTA 70",
+    "observed stars visible 70",
+    "editorial limitation visible 70",
+    "report context 70",
+    "no-store retained 70",
+    "canonical visible 70",
+    "home HTTP200",
+    "home no PHP failure",
+    "novice entry remains original lesson",
+    "catalog HTTP200",
+    "catalog no PHP failure",
+    "last catalog page HTTP200",
+    "last catalog page no PHP failure",
+    "pagination reaches new scale",
+    "guides HTTP200",
+    "guides no PHP failure",
+    "support HTTP200",
+    "support no PHP failure",
+    "old main lesson HTTP200",
+    "old main lesson no PHP failure",
+    "search HTTP200",
+    "search no PHP failure",
+    "search finds batch representative",
+    "legacy route 1",
+    "legacy renderer 1",
+    "legacy route 2",
+    "legacy renderer 2",
+    "legacy route 7",
+    "legacy renderer 7",
+    "legacy route 8",
+    "legacy renderer 8",
+    "legacy route 9",
+    "legacy renderer 9",
+    "legacy route 10",
+    "legacy renderer 10",
+    "legacy route 67",
+    "legacy renderer 67",
+    "legacy route 71",
+    "legacy renderer 71",
+    "legacy route 78",
+    "legacy renderer 78",
+    "legacy route 81",
+    "legacy renderer 81",
+    "legacy route 84",
+    "legacy renderer 84",
+    "legacy route 87",
+    "legacy renderer 87",
+    "legacy route 92",
+    "legacy renderer 92",
+    "legacy route 95",
+    "legacy renderer 95"
+  ],
+  "requests": [
+    {
+      "url": "https://store.vneconomics.com/wp-json/vne-library/v1/items",
+      "status": 200,
+      "ms": 1505
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=173",
+      "status": 301,
+      "ms": 952
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/excalidraw-phac-thao-so-do-va-brief-bang-hinh-de-dien-dat-y-tuong/",
+      "status": 200,
+      "ms": 1324
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=174",
+      "status": 301,
+      "ms": 1049
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/draw-io-desktop-tim-hieu-ung-dung-desktop-de-ve-so-do-cong-viec/",
+      "status": 200,
+      "ms": 992
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=175",
+      "status": 301,
+      "ms": 1017
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/mermaid-hieu-cach-mo-ta-so-do-bang-van-ban/",
+      "status": 200,
+      "ms": 1042
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=176",
+      "status": 301,
+      "ms": 941
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/tldraw-kham-pha-ma-nguon-va-cong-cu-cho-trai-nghiem-bang-ve/",
+      "status": 200,
+      "ms": 1076
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=177",
+      "status": 301,
+      "ms": 833
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/penpot-tim-hieu-cong-cu-thiet-ke-giao-dien-va-cong-tac/",
+      "status": 200,
+      "ms": 967
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=178",
+      "status": 301,
+      "ms": 875
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/upscayl-kham-pha-cong-cu-tang-kich-thuoc-anh-dung-ai/",
+      "status": 200,
+      "ms": 1017
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=179",
+      "status": 301,
+      "ms": 823
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/krita-ai-diffusion-tim-hieu-tich-hop-ai-cho-quy-trinh-lam-anh-trong-krita/",
+      "status": 200,
+      "ms": 1016
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=180",
+      "status": 301,
+      "ms": 851
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/iopaint-kham-pha-cong-cu-chinh-sua-vung-anh-dua-tren-model/",
+      "status": 200,
+      "ms": 1123
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=181",
+      "status": 301,
+      "ms": 853
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/invokeai-tim-hieu-moi-truong-lam-viec-voi-model-tao-anh/",
+      "status": 200,
+      "ms": 976
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=182",
+      "status": 301,
+      "ms": 928
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/comfyui-hieu-workflow-dang-node-cho-cong-viec-tao-va-xu-ly-hinh-anh/",
+      "status": 200,
+      "ms": 1071
+    },
+    {
+      "url": "https://store.vneconomics.com/",
+      "status": 200,
+      "ms": 1133
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/",
+      "status": 200,
+      "ms": 1117
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/page/9/",
+      "status": 200,
+      "ms": 1335
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/",
+      "status": 200,
+      "ms": 1174
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_support=ho-tro",
+      "status": 200,
+      "ms": 1361
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200,
+      "ms": 1563
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_find=1&scope=resources&s=Excalidraw",
+      "status": 200,
+      "ms": 1169
+    },
+    {
+      "url": "https://store.vneconomics.com/hello-world/",
+      "status": 200,
+      "ms": 952
+    },
+    {
+      "url": "https://store.vneconomics.com/sample-page/",
+      "status": 200,
+      "ms": 1160
+    },
+    {
+      "url": "https://store.vneconomics.com/shop/",
+      "status": 200,
+      "ms": 917
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 953
+    },
+    {
+      "url": "https://store.vneconomics.com/checkout/",
+      "status": 302,
+      "ms": 952
+    },
+    {
+      "url": "https://store.vneconomics.com/my-account/",
+      "status": 200,
+      "ms": 1090
+    },
+    {
+      "url": "https://store.vneconomics.com/home/",
+      "status": 200,
+      "ms": 957
+    },
+    {
+      "url": "https://store.vneconomics.com/about/",
+      "status": 200,
+      "ms": 862
+    },
+    {
+      "url": "https://store.vneconomics.com/gioi-thieu/",
+      "status": 200,
+      "ms": 945
+    },
+    {
+      "url": "https://store.vneconomics.com/san-pham/",
+      "status": 200,
+      "ms": 1147
+    },
+    {
+      "url": "https://store.vneconomics.com/tin-tuc/",
+      "status": 200,
+      "ms": 1002
+    },
+    {
+      "url": "https://store.vneconomics.com/lien-he/",
+      "status": 200,
+      "ms": 1023
+    },
+    {
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "ms": 953
+    },
+    {
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "ms": 860
+    }
+  ],
+  "map": {
+    "61": {
+      "id": 173,
+      "url": "https://store.vneconomics.com/tai-nguyen/excalidraw-phac-thao-so-do-va-brief-bang-hinh-de-dien-dat-y-tuong/",
+      "title": "Excalidraw: phác thảo sơ đồ và brief bằng hình để diễn đạt ý tưởng"
+    },
+    "62": {
+      "id": 174,
+      "url": "https://store.vneconomics.com/tai-nguyen/draw-io-desktop-tim-hieu-ung-dung-desktop-de-ve-so-do-cong-viec/",
+      "title": "draw.io Desktop: tìm hiểu ứng dụng desktop để vẽ sơ đồ công việc"
+    },
+    "63": {
+      "id": 175,
+      "url": "https://store.vneconomics.com/tai-nguyen/mermaid-hieu-cach-mo-ta-so-do-bang-van-ban/",
+      "title": "Mermaid: hiểu cách mô tả sơ đồ bằng văn bản"
+    },
+    "64": {
+      "id": 176,
+      "url": "https://store.vneconomics.com/tai-nguyen/tldraw-kham-pha-ma-nguon-va-cong-cu-cho-trai-nghiem-bang-ve/",
+      "title": "tldraw: khám phá mã nguồn và công cụ cho trải nghiệm bảng vẽ"
+    },
+    "65": {
+      "id": 177,
+      "url": "https://store.vneconomics.com/tai-nguyen/penpot-tim-hieu-cong-cu-thiet-ke-giao-dien-va-cong-tac/",
+      "title": "Penpot: tìm hiểu công cụ thiết kế giao diện và cộng tác"
+    },
+    "66": {
+      "id": 178,
+      "url": "https://store.vneconomics.com/tai-nguyen/upscayl-kham-pha-cong-cu-tang-kich-thuoc-anh-dung-ai/",
+      "title": "Upscayl: khám phá công cụ tăng kích thước ảnh dùng AI"
+    },
+    "67": {
+      "id": 179,
+      "url": "https://store.vneconomics.com/tai-nguyen/krita-ai-diffusion-tim-hieu-tich-hop-ai-cho-quy-trinh-lam-anh-trong-krita/",
+      "title": "Krita AI Diffusion: tìm hiểu tích hợp AI cho quy trình làm ảnh trong Krita"
+    },
+    "68": {
+      "id": 180,
+      "url": "https://store.vneconomics.com/tai-nguyen/iopaint-kham-pha-cong-cu-chinh-sua-vung-anh-dua-tren-model/",
+      "title": "IOPaint: khám phá công cụ chỉnh sửa vùng ảnh dựa trên model"
+    },
+    "69": {
+      "id": 181,
+      "url": "https://store.vneconomics.com/tai-nguyen/invokeai-tim-hieu-moi-truong-lam-viec-voi-model-tao-anh/",
+      "title": "InvokeAI: tìm hiểu môi trường làm việc với model tạo ảnh"
+    },
+    "70": {
+      "id": 182,
+      "url": "https://store.vneconomics.com/tai-nguyen/comfyui-hieu-workflow-dang-node-cho-cong-viec-tao-va-xu-ly-hinh-anh/",
+      "title": "ComfyUI: hiểu workflow dạng node cho công việc tạo và xử lý hình ảnh"
+    }
+  },
+  "failure": null,
+  "limits": [
+    "Anonymous GET only; no runtime execution of introduced tools",
+    "API list is intentionally capped at50; checks use the latest batch, not an incorrect total expectation",
+    "Original content preservation is checked by importer row/meta hashes separately",
+    "No email, payments or form submissions"
+  ]
+}

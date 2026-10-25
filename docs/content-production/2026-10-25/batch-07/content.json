@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 7,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 61,
+      "batch": 7,
+      "slug": "excalidraw",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Excalidraw: phác thảo sơ đồ và brief bằng hình để diễn đạt ý tưởng",
+        "excerpt": "Phác thảo sơ đồ và brief bằng hình để diễn đạt ý tưởng. Phân biệt ứng dụng web với mã nguồn tự triển khai; kiểm tra cách chia sẻ.",
+        "content": "<p>Phác thảo sơ đồ và brief bằng hình để diễn đạt ý tưởng. Excalidraw cung cấp bảng vẽ theo phong cách phác tay; README phân biệt thư viện editor với ứng dụng Excalidraw.com. Có định dạng lưu bản vẽ để chỉnh tiếp và các dạng xuất ảnh; đây là hai mục đích khác nhau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ năm nút có nhãn tiếng Việt và xuất bản mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn dùng editor có sẵn hay tích hợp vào ứng dụng; tích hợp bằng package cần môi trường lập trình riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác năm nút cho một ý tưởng hư cấu và nối chúng bằng mũi tên có nhãn.</li><li>Đọc Features và Excalidraw.com để biết cách lưu bản có thể sửa và cách xuất ảnh.</li><li>Mở lại bản lưu mẫu, kiểm tra nhãn tiếng Việt và cách chia sẻ trước dùng với nội dung nhóm.</li></ol><h2>Giới hạn cần biết</h2><p>Phân biệt ứng dụng web với mã nguồn tự triển khai; kiểm tra cách chia sẻ. Ảnh PNG/SVG xuất ra không thay thế bản nguồn chỉnh sửa; cần kiểm tra quyền chia sẻ khi cộng tác.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>excalidraw</strong> có <strong>134.501 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/excalidraw/excalidraw/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/excalidraw/excalidraw\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 61. Chưa cài/chạy thử; không tạo validation. Snapshot sao 134501; repo_id 231283452; README SHA256 011eea74cbbf38fd263ec93a221f379466c557dc7587acfe93797201193a7e7a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/excalidraw/excalidraw",
+          "repo_id": "231283452",
+          "source_path": "",
+          "source_revision": "README-SHA256:011eea74cbbf38fd263ec93a221f379466c557dc7587acfe93797201193a7e7a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn dùng editor có sẵn hay tích hợp vào ứng dụng; tích hợp bằng package cần môi trường lập trình riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/excalidraw/excalidraw/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Ảnh PNG/SVG xuất ra không thay thế bản nguồn chỉnh sửa; cần kiểm tra quyền chia sẻ khi cộng tác.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/excalidraw/excalidraw/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "excalidraw/excalidraw",
+        "stars": 134501,
+        "observedAt": "2026-10-25T03:35:20.363Z",
+        "readmeUrl": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/README.md",
+        "readmeSha256": "011eea74cbbf38fd263ec93a221f379466c557dc7587acfe93797201193a7e7a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "28fd7cb0ea1ddb9ddc3c8a3437124ccf04d5f31a4977714254a7d0c3940c7bec"
+    },
+    {
+      "key": 62,
+      "batch": 7,
+      "slug": "draw-io-desktop",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "draw.io Desktop: tìm hiểu ứng dụng desktop để vẽ sơ đồ công việc",
+        "excerpt": "Tìm hiểu ứng dụng desktop để vẽ sơ đồ công việc. Kiểm tra định dạng và vị trí lưu; ảnh xuất không thay thế file nguồn chỉnh sửa.",
+        "content": "<p>Tìm hiểu ứng dụng desktop để vẽ sơ đồ công việc. draw.io Desktop đóng gói trình biên tập sơ đồ thành ứng dụng desktop. README mô tả các kiểu bản Windows khác nhau, trong đó quyền admin và việc đăng ký định dạng file không giống nhau; nên chọn theo máy và quyền thực tế.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ luồng ba bước được lưu thành file có thể mở lại. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản tải chính thức cho OS/kiến trúc; đọc mục Windows installation nếu dùng máy Windows có giới hạn quyền.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ luồng ba bước với một nhánh điều kiện bằng nội dung minh họa.</li><li>Đọc Releases và phần lựa chọn bản cài, tránh tự xin quyền admin nếu có phương án phù hợp được tài liệu nêu.</li><li>Giữ file nguồn, xuất một ảnh rồi mở lại cả hai để phân biệt tài liệu chỉnh sửa với bản chia sẻ.</li></ol><h2>Giới hạn cần biết</h2><p>Kiểm tra định dạng và vị trí lưu; ảnh xuất không thay thế file nguồn chỉnh sửa. Trình biên tập sơ đồ không tự xác minh quy trình nghiệp vụ; người viết vẫn phải đối chiếu ý nghĩa từng nhánh.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>jgraph</strong> có <strong>63.639 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép GPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/jgraph/drawio-desktop/blob/dev/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/jgraph/drawio-desktop\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 62. Chưa cài/chạy thử; không tạo validation. Snapshot sao 63639; repo_id 92443980; README SHA256 bd5abacd56d9b8e0810dd6e3bde1890cda8a605da89cc62032735f7f29e6b566.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/jgraph/drawio-desktop",
+          "repo_id": "92443980",
+          "source_path": "",
+          "source_revision": "README-SHA256:bd5abacd56d9b8e0810dd6e3bde1890cda8a605da89cc62032735f7f29e6b566",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản tải chính thức cho OS/kiến trúc; đọc mục Windows installation nếu dùng máy Windows có giới hạn quyền.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Trình biên tập sơ đồ không tự xác minh quy trình nghiệp vụ; người viết vẫn phải đối chiếu ý nghĩa từng nhánh.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/jgraph/drawio-desktop/blob/dev/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "jgraph/drawio-desktop",
+        "stars": 63639,
+        "observedAt": "2026-10-25T03:35:20.660Z",
+        "readmeUrl": "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/README.md",
+        "readmeSha256": "bd5abacd56d9b8e0810dd6e3bde1890cda8a605da89cc62032735f7f29e6b566",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "8afb76504402eda62d7fbfe9c0d838a308d98f7191c20652c006ce93e07b13ae"
+    },
+    {
+      "key": 63,
+      "batch": 7,
+      "slug": "mermaid",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Mermaid: hiểu cách mô tả sơ đồ bằng văn bản",
+        "excerpt": "Hiểu cách mô tả sơ đồ bằng văn bản. Cú pháp và khả năng hiển thị tùy môi trường; không gọi mọi Markdown đều hỗ trợ.",
+        "content": "<p>Hiểu cách mô tả sơ đồ bằng văn bản. Mermaid tạo sơ đồ từ mô tả văn bản với cú pháp gần cách làm việc cùng Markdown. README có nhiều loại sơ đồ và Live Editor; bản thân thư viện cần môi trường hỗ trợ để hiển thị, không phải mọi ô nhập Markdown đều hiểu cú pháp đó.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một luồng xử lý đơn giản với nhãn tiếng Việt. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Live Editor hoặc môi trường đã hỗ trợ Mermaid; nhúng thư viện vào web là bước cho người có nền lập trình.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một flowchart nhỏ thay vì bắt đầu với sơ đồ nhiều thành phần.</li><li>Đọc ví dụ cùng loại trong README, viết nhãn rõ và kiểm tra hướng mũi tên.</li><li>Xem cách render/xuất ở môi trường định dùng, đối chiếu sơ đồ với mô tả gốc trước chia sẻ.</li></ol><h2>Giới hạn cần biết</h2><p>Cú pháp và khả năng hiển thị tùy môi trường; không gọi mọi Markdown đều hỗ trợ. Sơ đồ do AI viết vẫn có thể sai logic hoặc cú pháp; không coi việc render được là quy trình đã đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>mermaid-js</strong> có <strong>90.841 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/mermaid-js/mermaid/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/mermaid-js/mermaid\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 63. Chưa cài/chạy thử; không tạo validation. Snapshot sao 90841; repo_id 26066727; README SHA256 eae450a8a65100cb0f5a4b29b8ebfe9a1b7c57e771887e1471d6726c02cc3dd5.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/mermaid-js/mermaid",
+          "repo_id": "26066727",
+          "source_path": "",
+          "source_revision": "README-SHA256:eae450a8a65100cb0f5a4b29b8ebfe9a1b7c57e771887e1471d6726c02cc3dd5",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Live Editor hoặc môi trường đã hỗ trợ Mermaid; nhúng thư viện vào web là bước cho người có nền lập trình.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/mermaid-js/mermaid/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Sơ đồ do AI viết vẫn có thể sai logic hoặc cú pháp; không coi việc render được là quy trình đã đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/mermaid-js/mermaid/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "mermaid-js/mermaid",
+        "stars": 90841,
+        "observedAt": "2026-10-25T03:35:20.962Z",
+        "readmeUrl": "https://raw.githubusercontent.com/mermaid-js/mermaid/develop/README.md",
+        "readmeSha256": "eae450a8a65100cb0f5a4b29b8ebfe9a1b7c57e771887e1471d6726c02cc3dd5",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9cacf6b4c2f36279306973051a0bb67fc97a7e2b8cbab0b0ea9eeb32d9b64116"
+    },
+    {
+      "key": 64,
+      "batch": 7,
+      "slug": "tldraw",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "tldraw: khám phá mã nguồn và công cụ cho trải nghiệm bảng vẽ",
+        "excerpt": "Khám phá mã nguồn và công cụ cho trải nghiệm bảng vẽ. Điều kiện license và nhúng sản phẩm cần đọc riêng trước sử dụng thương mại.",
+        "content": "<p>Khám phá mã nguồn và công cụ cho trải nghiệm bảng vẽ. Repo tldraw tập trung SDK để xây ứng dụng canvas trong React, với khả năng mở rộng shapes, tools và tương tác. Vì vậy cần phân biệt dùng một bảng vẽ có sẵn với dùng thư viện làm nền cho sản phẩm riêng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bảng ý tưởng mẫu để phân biệt giao diện dùng sẵn với tích hợp vào app. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Tích hợp SDK cần React/môi trường phát triển phù hợp; đọc License và Trademarks trước nhúng vào sản phẩm.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định bạn chỉ cần phác ý tưởng hay muốn xây một ứng dụng canvas riêng.</li><li>Nếu tìm hiểu SDK, đọc Feature highlights và Examples để chọn một tương tác nhỏ.</li><li>Đọc điều kiện license cùng cách lưu/sync dữ liệu trước chọn nền tảng cho sản phẩm.</li></ol><h2>Giới hạn cần biết</h2><p>Điều kiện license và nhúng sản phẩm cần đọc riêng trước sử dụng thương mại. Không lấy việc mã nguồn hiển thị công khai làm kết luận mọi cách nhúng hoặc thương mại hóa đều miễn phí.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>tldraw</strong> có <strong>51.073 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/tldraw/tldraw/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/tldraw/tldraw\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 64. Chưa cài/chạy thử; không tạo validation. Snapshot sao 51073; repo_id 365739812; README SHA256 1e35efa97844b08409feb26294c4eac533207057d7595e8e7d3b80cf1a333d5b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/tldraw/tldraw",
+          "repo_id": "365739812",
+          "source_path": "",
+          "source_revision": "README-SHA256:1e35efa97844b08409feb26294c4eac533207057d7595e8e7d3b80cf1a333d5b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Tích hợp SDK cần React/môi trường phát triển phù hợp; đọc License và Trademarks trước nhúng vào sản phẩm.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/tldraw/tldraw/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không lấy việc mã nguồn hiển thị công khai làm kết luận mọi cách nhúng hoặc thương mại hóa đều miễn phí.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/tldraw/tldraw/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "tldraw/tldraw",
+        "stars": 51073,
+        "observedAt": "2026-10-25T03:35:21.254Z",
+        "readmeUrl": "https://raw.githubusercontent.com/tldraw/tldraw/main/README.md",
+        "readmeSha256": "1e35efa97844b08409feb26294c4eac533207057d7595e8e7d3b80cf1a333d5b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "f8b2441f4f7d355ad3d08c322cd854624fe8a4e365d7623e7e70cbf7a13ccc35"
+    },
+    {
+      "key": 65,
+      "batch": 7,
+      "slug": "penpot",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Penpot: tìm hiểu công cụ thiết kế giao diện và cộng tác",
+        "excerpt": "Tìm hiểu công cụ thiết kế giao diện và cộng tác. Wireframe không tự trở thành website hoạt động; có điều kiện tài khoản/hosting.",
+        "content": "<p>Tìm hiểu công cụ thiết kế giao diện và cộng tác. Penpot là nền tảng thiết kế sản phẩm có cộng tác và lựa chọn self-host. README nhấn mạnh các chuẩn web và mối liên hệ thiết kế–phát triển; một bản thiết kế vẫn cần được triển khai và kiểm tra mới trở thành website hoạt động.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một wireframe trang giới thiệu có vùng nội dung và CTA. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn dùng trong trình duyệt hoặc hướng self-host từ Getting started; tài khoản và hạ tầng cần xem theo cách dùng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác wireframe một trang giới thiệu gồm tiêu đề, lợi ích và CTA.</li><li>Đọc User Guide, thử diễn đạt bố cục và kiểu thành phần trước thêm chi tiết trang trí.</li><li>Khi chuyển cho người làm web, ghi cả nội dung và hành vi, không chỉ đưa một ảnh thiết kế.</li></ol><h2>Giới hạn cần biết</h2><p>Wireframe không tự trở thành website hoạt động; có điều kiện tài khoản/hosting. Design tokens hoặc inspect không tự bảo đảm giao diện đã responsive, truy cập được hay có backend.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>penpot</strong> có <strong>61.624 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MPL-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/penpot/penpot/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/penpot/penpot\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 65. Chưa cài/chạy thử; không tạo validation. Snapshot sao 61624; repo_id 48769241; README SHA256 8c79712fea5fb2d98462817e65f5eba37ef66f652611da23bc64275ac008ad53.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/penpot/penpot",
+          "repo_id": "48769241",
+          "source_path": "",
+          "source_revision": "README-SHA256:8c79712fea5fb2d98462817e65f5eba37ef66f652611da23bc64275ac008ad53",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn dùng trong trình duyệt hoặc hướng self-host từ Getting started; tài khoản và hạ tầng cần xem theo cách dùng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/penpot/penpot/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Design tokens hoặc inspect không tự bảo đảm giao diện đã responsive, truy cập được hay có backend.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/penpot/penpot/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "penpot/penpot",
+        "stars": 61624,
+        "observedAt": "2026-10-25T03:35:21.542Z",
+        "readmeUrl": "https://raw.githubusercontent.com/penpot/penpot/develop/README.md",
+        "readmeSha256": "8c79712fea5fb2d98462817e65f5eba37ef66f652611da23bc64275ac008ad53",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ffa09c016736c6d938d03de0c11e9c8dcf59c320abeecc71c57421fe83e74c12"
+    },
+    {
+      "key": 66,
+      "batch": 7,
+      "slug": "upscayl",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Upscayl: khám phá công cụ tăng kích thước ảnh dùng AI",
+        "excerpt": "Khám phá công cụ tăng kích thước ảnh dùng AI. Không phục hồi chính xác chi tiết chưa tồn tại; phần cứng và model có yêu cầu riêng.",
+        "content": "<p>Khám phá công cụ tăng kích thước ảnh dùng AI. Upscayl dùng model để tăng kích thước/độ rõ cảm nhận của ảnh. README có cảnh báo cần GPU tương thích Vulkan và nhiều GPU tích hợp không hoạt động; đây là điều kiện nên đọc trước chọn ứng dụng chỉ từ ảnh demo.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một ảnh minh họa có quyền, so sánh vùng chi tiết trước và sau. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README yêu cầu GPU tương thích Vulkan; chọn Installation đúng OS và kiểm tra tài liệu trước tải hoặc thử xử lý ảnh.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Giữ một ảnh minh họa có quyền cùng bản gốc để so sánh.</li><li>Đọc cảnh báo GPU và hướng cài theo hệ điều hành, chưa hứa máy nào cũng chạy.</li><li>Khi có thử thực tế được phép, so sánh vùng chữ/biên/vật thể và kích thước file, không chỉ nhìn toàn ảnh.</li></ol><h2>Giới hạn cần biết</h2><p>Không phục hồi chính xác chi tiết chưa tồn tại; phần cứng và model có yêu cầu riêng. Chi tiết AI bổ sung có thể không đúng với vật thể thật; không dùng ảnh nâng cấp làm bằng chứng xác thực.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>upscayl</strong> có <strong>50.961 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/upscayl/upscayl/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/upscayl/upscayl\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 66. Chưa cài/chạy thử; không tạo validation. Snapshot sao 50961; repo_id 519577891; README SHA256 4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/upscayl/upscayl",
+          "repo_id": "519577891",
+          "source_path": "",
+          "source_revision": "README-SHA256:4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README yêu cầu GPU tương thích Vulkan; chọn Installation đúng OS và kiểm tra tài liệu trước tải hoặc thử xử lý ảnh.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/upscayl/upscayl/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chi tiết AI bổ sung có thể không đúng với vật thể thật; không dùng ảnh nâng cấp làm bằng chứng xác thực.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/upscayl/upscayl/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "upscayl/upscayl",
+        "stars": 50961,
+        "observedAt": "2026-10-25T03:35:21.835Z",
+        "readmeUrl": "https://raw.githubusercontent.com/upscayl/upscayl/main/README.md",
+        "readmeSha256": "4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "cf25db93acca4a478a0867a8e5f103573c315ab752b740597ca850921e66a453"
+    },
+    {
+      "key": 67,
+      "batch": 7,
+      "slug": "krita-ai-diffusion",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Krita AI Diffusion: tìm hiểu tích hợp AI cho quy trình làm ảnh trong Krita",
+        "excerpt": "Tìm hiểu tích hợp AI cho quy trình làm ảnh trong Krita. Cần kiểm tra plugin, model, GPU và license; không dùng ảnh riêng của người khác để thử.",
+        "content": "<p>Tìm hiểu tích hợp AI cho quy trình làm ảnh trong Krita. Krita AI Diffusion là plugin đưa tạo/chỉnh ảnh bằng AI vào workflow của Krita. README mô tả dùng vùng chọn, ảnh tham chiếu và backend; plugin, ứng dụng vẽ và model là các thành phần cần kiểm tra cùng nhau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một hình minh họa hư cấu để đọc sơ đồ công cụ và backend. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần Krita và đường cài plugin/backend theo Getting Started; cấu hình local hoặc dịch vụ có yêu cầu riêng về phần cứng và model.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một hình vẽ hư cấu do bạn có quyền dùng, chỉ xác định một vùng muốn sửa.</li><li>Đọc Getting Started và User Guide để biết phần nào xử lý trong Krita, phần nào ở backend.</li><li>Đối chiếu yêu cầu model/GPU và cách giữ layer/bản gốc trước thực hiện một thay đổi thử.</li></ol><h2>Giới hạn cần biết</h2><p>Cần kiểm tra plugin, model, GPU và license; không dùng ảnh riêng của người khác để thử. Không coi kết quả tạo từ ảnh tham chiếu là đương nhiên có quyền sử dụng; kiểm tra nguồn ảnh và điều kiện model.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Acly</strong> có <strong>10.778 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép GPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Acly/krita-ai-diffusion/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Acly/krita-ai-diffusion\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 67. Chưa cài/chạy thử; không tạo validation. Snapshot sao 10778; repo_id 686161611; README SHA256 abf4e65d970a420c192f20a01b6254cd6e8cc27b7d2dbe20647bb3330984d788.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Acly/krita-ai-diffusion",
+          "repo_id": "686161611",
+          "source_path": "",
+          "source_revision": "README-SHA256:abf4e65d970a420c192f20a01b6254cd6e8cc27b7d2dbe20647bb3330984d788",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần Krita và đường cài plugin/backend theo Getting Started; cấu hình local hoặc dịch vụ có yêu cầu riêng về phần cứng và model.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Acly/krita-ai-diffusion/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không coi kết quả tạo từ ảnh tham chiếu là đương nhiên có quyền sử dụng; kiểm tra nguồn ảnh và điều kiện model.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Acly/krita-ai-diffusion/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Acly/krita-ai-diffusion",
+        "stars": 10778,
+        "observedAt": "2026-10-25T03:35:22.192Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Acly/krita-ai-diffusion/main/README.md",
+        "readmeSha256": "abf4e65d970a420c192f20a01b6254cd6e8cc27b7d2dbe20647bb3330984d788",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "13efa05d8e25f8007c9f87ef0df2ffe8184fa666c8366d190bc4a28b75b627c7"
+    },
+    {
+      "key": 68,
+      "batch": 7,
+      "slug": "iopaint",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "IOPaint: khám phá công cụ chỉnh sửa vùng ảnh dựa trên model",
+        "excerpt": "Khám phá công cụ chỉnh sửa vùng ảnh dựa trên model. Kết quả có thể tạo chi tiết sai; không dùng như bằng chứng sự kiện thật.",
+        "content": "<p>Khám phá công cụ chỉnh sửa vùng ảnh dựa trên model. IOPaint giới thiệu các thao tác inpainting/outpainting và nhiều model cho chỉnh sửa vùng ảnh. Snapshot GitHub đánh dấu repo archived; những ví dụ còn trong README chỉ là tư liệu tham khảo, không phải khuyến nghị cài mới hiện hành.</p><p><strong>Repo đã archived tại lần quan sát.</strong> Bài giữ để giải thích công dụng và giới hạn, không đề xuất bắt đầu dự án mới từ repo này.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một ảnh mẫu có quyền để hiểu thao tác chọn vùng và kết quả mong đợi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc trạng thái archived trước; nếu nghiên cứu lịch sử công cụ, phân biệt model/CPU/GPU và các hướng cài cũ.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định mục tiêu là hiểu chỉnh vùng ảnh, không phải chọn một giải pháp mới chỉ từ số sao.</li><li>Đọc Features để phân biệt xóa vùng, thay vật thể và mở rộng ảnh.</li><li>Giữ ảnh gốc có quyền và ghi tiêu chí so sánh; chưa chạy lệnh hoặc tải model từ hướng dẫn cũ khi chưa đối chiếu.</li></ol><h2>Giới hạn cần biết</h2><p>Kết quả có thể tạo chi tiết sai; không dùng như bằng chứng sự kiện thật. Chỉnh sửa có thể tạo nội dung không có thật; không dùng để làm sai lệch bằng chứng hoặc xóa dấu quyền tác giả.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Sanster</strong> có <strong>23.298 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Sanster/IOPaint/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Sanster/IOPaint\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 68. Chưa cài/chạy thử; không tạo validation. Snapshot sao 23298; repo_id 428292281; README SHA256 dfeef9bdd08e58f2331daa3ed9675cfa27879b51e34bf7f6e98bb0466d494fdd.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Sanster/IOPaint",
+          "repo_id": "428292281",
+          "source_path": "",
+          "source_revision": "README-SHA256:dfeef9bdd08e58f2331daa3ed9675cfa27879b51e34bf7f6e98bb0466d494fdd",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc trạng thái archived trước; nếu nghiên cứu lịch sử công cụ, phân biệt model/CPU/GPU và các hướng cài cũ.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Sanster/IOPaint/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chỉnh sửa có thể tạo nội dung không có thật; không dùng để làm sai lệch bằng chứng hoặc xóa dấu quyền tác giả.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Sanster/IOPaint/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "archived",
+          "source_url": "https://github.com/Sanster/IOPaint",
+          "observed_at": "2026-10-25",
+          "note": "GitHub metadata ghi archived=true."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "Giữ bài giới thiệu tham khảo, không đề xuất repo archived cho dự án mới."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Sanster/IOPaint",
+        "stars": 23298,
+        "observedAt": "2026-10-25T03:35:22.480Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Sanster/IOPaint/main/README.md",
+        "readmeSha256": "dfeef9bdd08e58f2331daa3ed9675cfa27879b51e34bf7f6e98bb0466d494fdd",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "0e299d759d82f6f135e33a25bfd094f1670e39912deb9c8bb76522811150f20b"
+    },
+    {
+      "key": 69,
+      "batch": 7,
+      "slug": "invokeai",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "InvokeAI: tìm hiểu môi trường làm việc với model tạo ảnh",
+        "excerpt": "Tìm hiểu môi trường làm việc với model tạo ảnh. Tài nguyên máy, model và quyền ảnh cần kiểm tra trước khi cài hoặc tải.",
+        "content": "<p>Tìm hiểu môi trường làm việc với model tạo ảnh. InvokeAI cung cấp môi trường làm việc với hình ảnh, canvas và workflow, với tài liệu installation và model riêng. README nói đây cũng là nền cho các sản phẩm thương mại; repo và dịch vụ trả phí không phải một khái niệm.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một brief hình minh họa cho bài viết và tiêu chí đầu ra. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Installation and Updates để kiểm tra phần cứng, phiên bản và cách quản lý model; model tải về có điều kiện sử dụng riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết brief một hình minh họa hư cấu kèm kích thước và tiêu chí rõ.</li><li>Đọc Features để chọn workflow nhỏ phù hợp thay vì chỉnh mọi tham số.</li><li>Xác định model, quyền ảnh và nơi lưu đầu ra trước cài/tải; giữ bản gốc nếu dùng ảnh đầu vào.</li></ol><h2>Giới hạn cần biết</h2><p>Tài nguyên máy, model và quyền ảnh cần kiểm tra trước khi cài hoặc tải. Không suy giấy phép phần mềm áp dụng luôn cho mọi model hoặc ảnh đầu vào; kết quả vẫn cần rà nội dung.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>invoke-ai</strong> có <strong>28.853 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/invoke-ai/InvokeAI/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/invoke-ai/InvokeAI\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 69. Chưa cài/chạy thử; không tạo validation. Snapshot sao 28853; repo_id 525592995; README SHA256 87f933b43279c7a7955cf8d2af850f5558ff8f2b6a1c4f84019d5db55bbed273.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/invoke-ai/InvokeAI",
+          "repo_id": "525592995",
+          "source_path": "",
+          "source_revision": "README-SHA256:87f933b43279c7a7955cf8d2af850f5558ff8f2b6a1c4f84019d5db55bbed273",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Installation and Updates để kiểm tra phần cứng, phiên bản và cách quản lý model; model tải về có điều kiện sử dụng riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/invoke-ai/InvokeAI/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không suy giấy phép phần mềm áp dụng luôn cho mọi model hoặc ảnh đầu vào; kết quả vẫn cần rà nội dung.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/invoke-ai/InvokeAI/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "invoke-ai/InvokeAI",
+        "stars": 28853,
+        "observedAt": "2026-10-25T03:35:22.833Z",
+        "readmeUrl": "https://raw.githubusercontent.com/invoke-ai/InvokeAI/main/README.md",
+        "readmeSha256": "87f933b43279c7a7955cf8d2af850f5558ff8f2b6a1c4f84019d5db55bbed273",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "cc08fa210b73babac8ef0d655da429dcec7154349e7fa11c37baccb77b42e963"
+    },
+    {
+      "key": 70,
+      "batch": 7,
+      "slug": "comfyui",
+      "category": "Thiết kế và hình ảnh",
+      "need": "Thiết kế nội dung trực quan",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "ComfyUI: hiểu workflow dạng node cho công việc tạo và xử lý hình ảnh",
+        "excerpt": "Hiểu workflow dạng node cho công việc tạo và xử lý hình ảnh. Custom node có thể chạy mã; không nhập workflow lạ rồi bật toàn bộ quyền.",
+        "content": "<p>Hiểu workflow dạng node cho công việc tạo và xử lý hình ảnh. ComfyUI biểu diễn quá trình xử lý nội dung bằng graph/node và có các đường local/cloud trong README. Graph giúp thấy các thành phần nhưng người mới vẫn cần hiểu model, input và output của từng node trước nhập workflow.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc một sơ đồ workflow để xác định input, model và output. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Get Started/Installing đúng môi trường, kiểm tra tài nguyên và model; custom node có thể bổ sung dependency và mã thực thi.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc một workflow mẫu nhỏ, tìm đầu vào, bước model và nơi ghi kết quả.</li><li>Đối chiếu mỗi thành phần với tài liệu, chưa thêm custom node từ nguồn không rõ.</li><li>Trước chạy được phép, kiểm tra quyền tài nguyên, dung lượng tải và cách giữ đầu ra tách khỏi file gốc.</li></ol><h2>Giới hạn cần biết</h2><p>Custom node có thể chạy mã; không nhập workflow lạ rồi bật toàn bộ quyền. Không nhập workflow lạ rồi tự cho phép cài mọi thành phần; hình thức node không thay thế việc đọc tác dụng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Comfy-Org</strong> có <strong>142.655 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép GPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Comfy-Org/ComfyUI/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Comfy-Org/ComfyUI\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 7, key 70. Chưa cài/chạy thử; không tạo validation. Snapshot sao 142655; repo_id 589831718; README SHA256 d812a66af88fe0a08d25d19c2dba3b6ce604ce364f88b1e315c13587d6f7a2eb.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI",
+          "repo_id": "589831718",
+          "source_path": "",
+          "source_revision": "README-SHA256:d812a66af88fe0a08d25d19c2dba3b6ce604ce364f88b1e315c13587d6f7a2eb",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Get Started/Installing đúng môi trường, kiểm tra tài nguyên và model; custom node có thể bổ sung dependency và mã thực thi.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Comfy-Org/ComfyUI/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không nhập workflow lạ rồi tự cho phép cài mọi thành phần; hình thức node không thay thế việc đọc tác dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Comfy-Org/ComfyUI/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Comfy-Org/ComfyUI",
+        "stars": 142655,
+        "observedAt": "2026-10-25T03:35:23.157Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/README.md",
+        "readmeSha256": "d812a66af88fe0a08d25d19c2dba3b6ce604ce364f88b1e315c13587d6f7a2eb",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "d832b7dc477384f9a48808b99d7fb3fd53de61d6a5211fe8af3a9400bf13b4c8"
+    }
+  ]
+}

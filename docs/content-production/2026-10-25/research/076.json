@@ -1,0 +1,21 @@
+{
+  "key": 76,
+  "repo": "mltframework/shotcut",
+  "repoId": "4118776",
+  "url": "https://github.com/mltframework/shotcut",
+  "stars": 15492,
+  "archived": false,
+  "disabled": false,
+  "branch": "master",
+  "pushedAt": "2026-10-24T17:18:49Z",
+  "license": "GPL-3.0",
+  "description": "cross-platform (Qt), open-source (GPLv3) video editor",
+  "homepage": "https://www.shotcut.org",
+  "observedAt": "2026-10-25T03:38:17.273Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/mltframework/shotcut/master/README.md",
+    "path": "README.md",
+    "text": "[![build-shotcut-linux](https://github.com/mltframework/shotcut/workflows/build-shotcut-linux/badge.svg)](https://github.com/mltframework/shotcut/actions?query=workflow%3Abuild-shotcut-linux+is%3Acompleted+branch%3Amaster)\n[![build-shotcut-macos](https://github.com/mltframework/shotcut/workflows/build-shotcut-macos/badge.svg)](https://github.com/mltframework/shotcut/actions?query=workflow%3Abuild-shotcut-macos+is%3Acompleted+branch%3Amaster)\n[![build-shotcut-windows](https://github.com/mltframework/shotcut/workflows/build-shotcut-windows/badge.svg)](https://github.com/mltframework/shotcut/actions?query=workflow%3Abuild-shotcut-windows+is%3Acompleted+branch%3Amaster)\n\n\n# Shotcut - a free, open source, cross-platform **video editor**\n\n<div align=\"center\">\n\n<img src=\"https://www.shotcut.org/assets/img/screenshots/Shotcut-18.11.18.png\" alt=\"screenshot\" />\n\n</div>\n\n- Features: https://www.shotcut.org/features/\n- Roadmap: https://www.shotcut.org/roadmap/\n\n## Install\n\nBinaries are regularly built and are available at https://www.shotcut.org/download/.\n\n## Contributors\n\n- Dan Dennedy <<http://www.dennedy.org>> : main author\n- Brian Matherly <<code@brianmatherly.com>> : contributor\n\n## Dependencies\n\nShotcut's direct (linked or hard runtime) dependencies are:\n\n- [MLT](https://www.mltframework.org/): multimedia authoring framework\n- [Qt 6 (6.4 minimum)](https://www.qt.io/): application and UI framework\n- [FFTW](https://fftw.org/)\n- [FFmpeg](https://www.ffmpeg.org/): multimedia format and codec libraries\n- [Frei0r](https://www.dyne.org/software/frei0r/): video plugins\n- [SDL](http://www.libsdl.org/): cross-platform audio playback\n\nSee https://shotcut.org/credits/ for a more complete list including indirect\nand bundled dependencies.\n\n## License\n\nGPLv3. See [COPYING](COPYING).\n\n## How to build\n\n**Warning**: building Shotcut should only be reserved to beta testers or contributors who know what they are doing.\n\n### Qt Creator\n\nThe fastest way to build and try Shotcut development version is through [Qt Creator](https://www.qt.io/download#qt-creator).\n\n### From command line\n\nFirst, check dependencies are satisfied and various paths are correctly set to find different libraries and include files (Qt, MLT, frei0r and so forth).\n\n#### Configure\n\nIn a new directory in which to make the build (separate from the source):\n\n```\ncmake -DCMAKE_INSTALL_PREFIX=/usr/local/ /path/to/shotcut\n```\n\nWe recommend using the Ninja generator by adding `-GNinja` to the above command line.\n\n#### Build\n\n```\ncmake --build .\n```\n\n#### Install\n\nIf you do not install, Shotcut may fail when you run it because it cannot locate its QML\nfiles that it reads at run-time.\n\n```\ncmake --install .\n```\n\n## Translation\n\nIf you want to translate Shotcut to another language, please use [Transifex](https://explore.transifex.com/ddennedy/shotcut/).\n",
+    "sha256": "2a38840fc2fafa928b9b8cfa4082581b1a1a699b920e5b9168a23c62bd6a9df8"
+  }
+}

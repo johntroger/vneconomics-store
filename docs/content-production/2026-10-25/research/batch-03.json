@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:15:10.701Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 21,
+      "repo": "n8n-io/n8n",
+      "stars": 208508,
+      "archived": false,
+      "readmeBytes": 3998,
+      "source": "https://raw.githubusercontent.com/n8n-io/n8n/master/README.md",
+      "sha256": "1b2642bc182969047627fc3568c785bad291fb9a2c7d655b19813608bf69ce27"
+    },
+    {
+      "key": 22,
+      "repo": "activepieces/activepieces",
+      "stars": 25207,
+      "archived": false,
+      "readmeBytes": 92212,
+      "source": "https://raw.githubusercontent.com/activepieces/activepieces/main/README.md",
+      "sha256": "b159d84d19ea2505143a1d369416b8f5ef63540e9530bd2f20f8bd0e3e0c70bf"
+    },
+    {
+      "key": 23,
+      "repo": "windmill-labs/windmill",
+      "stars": 18261,
+      "archived": false,
+      "readmeBytes": 28176,
+      "source": "https://raw.githubusercontent.com/windmill-labs/windmill/main/README.md",
+      "sha256": "adac15101cf276346bfb03e4c86828a7d3953af5b060f8883fb709efa6c3c57b"
+    },
+    {
+      "key": 24,
+      "repo": "FlowiseAI/Flowise",
+      "stars": 55527,
+      "archived": true,
+      "readmeBytes": 7850,
+      "source": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/README.md",
+      "sha256": "21b4384ec2e295295dee10992fd9ee7ef4b0a0c9cb77a493bca39174a1c09a51"
+    },
+    {
+      "key": 25,
+      "repo": "langgenius/dify",
+      "stars": 159444,
+      "archived": false,
+      "readmeBytes": 12132,
+      "source": "https://raw.githubusercontent.com/langgenius/dify/main/README.md",
+      "sha256": "3c7fe487f1e89e6faec52f5421c71e749c1cecc3486725be3e03fb3fbb62e484"
+    },
+    {
+      "key": 26,
+      "repo": "appsmithorg/appsmith",
+      "stars": 41116,
+      "archived": false,
+      "readmeBytes": 54357,
+      "source": "https://raw.githubusercontent.com/appsmithorg/appsmith/release/README.md",
+      "sha256": "72cc207105ff9cd86cbaba208369c5a325612b667bb0a73fd50a537a3d16635e"
+    },
+    {
+      "key": 27,
+      "repo": "ToolJet/ToolJet",
+      "stars": 41126,
+      "archived": false,
+      "readmeBytes": 9813,
+      "source": "https://raw.githubusercontent.com/ToolJet/ToolJet/main/README.md",
+      "sha256": "e722578bd63123d716ca745c457335d2aa1f5cb34015de89d5a850a3957ec797"
+    },
+    {
+      "key": 28,
+      "repo": "Budibase/budibase",
+      "stars": 28350,
+      "archived": false,
+      "readmeBytes": 8426,
+      "source": "https://raw.githubusercontent.com/Budibase/budibase/master/README.md",
+      "sha256": "56407be8a21012659c220a107e8a99b5c91ce7b163f6b3739be2aef2655af98b"
+    },
+    {
+      "key": 29,
+      "repo": "nocodb/nocodb",
+      "stars": 65350,
+      "archived": false,
+      "readmeBytes": 11723,
+      "source": "https://raw.githubusercontent.com/nocodb/nocodb/develop/README.md",
+      "sha256": "f640d4b8b293cd9bc8741204be02bbb475d91ce66e9452eecf0fc7f715853445"
+    },
+    {
+      "key": 30,
+      "repo": "baserow/baserow",
+      "stars": 6211,
+      "archived": false,
+      "readmeBytes": 5446,
+      "source": "https://raw.githubusercontent.com/baserow/baserow/develop/README.md",
+      "sha256": "c92e38aee6fe1bddd55dfa44a199d5478344d2329823faefb58434f34b64ea6c"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/n8n-io/n8n/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/activepieces/activepieces/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/windmill-labs/windmill/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/langgenius/dify/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/appsmithorg/appsmith/release/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ToolJet/ToolJet/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Budibase/budibase/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/nocodb/nocodb/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/baserow/baserow/develop/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

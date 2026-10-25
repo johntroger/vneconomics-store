@@ -1,0 +1,516 @@
+{
+  "status": "PASS_PRODUCTION_BATCH_HTTP",
+  "batch": 1,
+  "observedAt": "2026-10-25T03:29:07.062Z",
+  "checks": [
+    "latest public resource API HTTP200",
+    "latest public resource API no PHP failure",
+    "API list shape",
+    "source item present 1",
+    "exact approved title 1",
+    "exact approved body 1",
+    "source ID 1",
+    "no fabricated runtime badge 1",
+    "source observation 1",
+    "need filter assigned 1",
+    "category assigned 1",
+    "canonical resolution 1",
+    "safe article URL 1",
+    "article 1 HTTP200",
+    "article 1 no PHP failure",
+    "article heading 1",
+    "source CTA 1",
+    "observed stars visible 1",
+    "editorial limitation visible 1",
+    "report context 1",
+    "no-store retained 1",
+    "canonical visible 1",
+    "source item present 2",
+    "exact approved title 2",
+    "exact approved body 2",
+    "source ID 2",
+    "no fabricated runtime badge 2",
+    "source observation 2",
+    "need filter assigned 2",
+    "category assigned 2",
+    "canonical resolution 2",
+    "safe article URL 2",
+    "article 2 HTTP200",
+    "article 2 no PHP failure",
+    "article heading 2",
+    "source CTA 2",
+    "observed stars visible 2",
+    "editorial limitation visible 2",
+    "report context 2",
+    "no-store retained 2",
+    "canonical visible 2",
+    "source item present 3",
+    "exact approved title 3",
+    "exact approved body 3",
+    "source ID 3",
+    "no fabricated runtime badge 3",
+    "source observation 3",
+    "need filter assigned 3",
+    "category assigned 3",
+    "canonical resolution 3",
+    "safe article URL 3",
+    "article 3 HTTP200",
+    "article 3 no PHP failure",
+    "article heading 3",
+    "source CTA 3",
+    "observed stars visible 3",
+    "editorial limitation visible 3",
+    "report context 3",
+    "no-store retained 3",
+    "canonical visible 3",
+    "source item present 4",
+    "exact approved title 4",
+    "exact approved body 4",
+    "source ID 4",
+    "no fabricated runtime badge 4",
+    "source observation 4",
+    "need filter assigned 4",
+    "category assigned 4",
+    "canonical resolution 4",
+    "safe article URL 4",
+    "article 4 HTTP200",
+    "article 4 no PHP failure",
+    "article heading 4",
+    "source CTA 4",
+    "observed stars visible 4",
+    "editorial limitation visible 4",
+    "report context 4",
+    "no-store retained 4",
+    "canonical visible 4",
+    "source item present 5",
+    "exact approved title 5",
+    "exact approved body 5",
+    "source ID 5",
+    "no fabricated runtime badge 5",
+    "source observation 5",
+    "need filter assigned 5",
+    "category assigned 5",
+    "canonical resolution 5",
+    "safe article URL 5",
+    "article 5 HTTP200",
+    "article 5 no PHP failure",
+    "article heading 5",
+    "source CTA 5",
+    "observed stars visible 5",
+    "editorial limitation visible 5",
+    "report context 5",
+    "no-store retained 5",
+    "canonical visible 5",
+    "source item present 6",
+    "exact approved title 6",
+    "exact approved body 6",
+    "source ID 6",
+    "no fabricated runtime badge 6",
+    "source observation 6",
+    "need filter assigned 6",
+    "category assigned 6",
+    "canonical resolution 6",
+    "safe article URL 6",
+    "article 6 HTTP200",
+    "article 6 no PHP failure",
+    "article heading 6",
+    "source CTA 6",
+    "observed stars visible 6",
+    "editorial limitation visible 6",
+    "report context 6",
+    "no-store retained 6",
+    "canonical visible 6",
+    "source item present 7",
+    "exact approved title 7",
+    "exact approved body 7",
+    "source ID 7",
+    "no fabricated runtime badge 7",
+    "source observation 7",
+    "need filter assigned 7",
+    "category assigned 7",
+    "canonical resolution 7",
+    "safe article URL 7",
+    "article 7 HTTP200",
+    "article 7 no PHP failure",
+    "article heading 7",
+    "source CTA 7",
+    "observed stars visible 7",
+    "editorial limitation visible 7",
+    "report context 7",
+    "no-store retained 7",
+    "canonical visible 7",
+    "source item present 8",
+    "exact approved title 8",
+    "exact approved body 8",
+    "source ID 8",
+    "no fabricated runtime badge 8",
+    "source observation 8",
+    "need filter assigned 8",
+    "category assigned 8",
+    "canonical resolution 8",
+    "safe article URL 8",
+    "article 8 HTTP200",
+    "article 8 no PHP failure",
+    "article heading 8",
+    "source CTA 8",
+    "observed stars visible 8",
+    "editorial limitation visible 8",
+    "report context 8",
+    "no-store retained 8",
+    "canonical visible 8",
+    "source item present 9",
+    "exact approved title 9",
+    "exact approved body 9",
+    "source ID 9",
+    "no fabricated runtime badge 9",
+    "source observation 9",
+    "need filter assigned 9",
+    "category assigned 9",
+    "canonical resolution 9",
+    "safe article URL 9",
+    "article 9 HTTP200",
+    "article 9 no PHP failure",
+    "article heading 9",
+    "source CTA 9",
+    "observed stars visible 9",
+    "editorial limitation visible 9",
+    "report context 9",
+    "no-store retained 9",
+    "canonical visible 9",
+    "source item present 10",
+    "exact approved title 10",
+    "exact approved body 10",
+    "source ID 10",
+    "no fabricated runtime badge 10",
+    "source observation 10",
+    "need filter assigned 10",
+    "category assigned 10",
+    "canonical resolution 10",
+    "safe article URL 10",
+    "article 10 HTTP200",
+    "article 10 no PHP failure",
+    "article heading 10",
+    "source CTA 10",
+    "observed stars visible 10",
+    "editorial limitation visible 10",
+    "report context 10",
+    "no-store retained 10",
+    "canonical visible 10",
+    "home HTTP200",
+    "home no PHP failure",
+    "novice entry remains original lesson",
+    "catalog HTTP200",
+    "catalog no PHP failure",
+    "last catalog page HTTP200",
+    "last catalog page no PHP failure",
+    "pagination reaches new scale",
+    "guides HTTP200",
+    "guides no PHP failure",
+    "support HTTP200",
+    "support no PHP failure",
+    "old main lesson HTTP200",
+    "old main lesson no PHP failure",
+    "search HTTP200",
+    "search no PHP failure",
+    "search finds batch representative",
+    "legacy route 1",
+    "legacy renderer 1",
+    "legacy route 2",
+    "legacy renderer 2",
+    "legacy route 7",
+    "legacy renderer 7",
+    "legacy route 8",
+    "legacy renderer 8",
+    "legacy route 9",
+    "legacy renderer 9",
+    "legacy route 10",
+    "legacy renderer 10",
+    "legacy route 67",
+    "legacy renderer 67",
+    "legacy route 71",
+    "legacy renderer 71",
+    "legacy route 78",
+    "legacy renderer 78",
+    "legacy route 81",
+    "legacy renderer 81",
+    "legacy route 84",
+    "legacy renderer 84",
+    "legacy route 87",
+    "legacy renderer 87",
+    "legacy route 92",
+    "legacy renderer 92",
+    "legacy route 95",
+    "legacy renderer 95"
+  ],
+  "requests": [
+    {
+      "url": "https://store.vneconomics.com/wp-json/vne-library/v1/items",
+      "status": 200,
+      "ms": 1577
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=113",
+      "status": 301,
+      "ms": 874
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/markitdown-chuyen-tai-lieu-thanh-markdown-de-chuan-bi-dau-vao-cho-cong-viec-voi-ai/",
+      "status": 200,
+      "ms": 1016
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=114",
+      "status": 301,
+      "ms": 931
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/pandoc-hieu-cach-chuyen-doi-giua-cac-dinh-dang-tai-lieu-bang-mot-cong-cu-chuyen-dung/",
+      "status": 200,
+      "ms": 1028
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=115",
+      "status": 301,
+      "ms": 863
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/stirling-pdf-tim-hieu-bo-cong-cu-xu-ly-pdf-thay-vi-tai-tai-lieu-len-nhieu-website-khac-nhau/",
+      "status": 200,
+      "ms": 963
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=116",
+      "status": 301,
+      "ms": 956
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/ocrmypdf-tim-hieu-viec-bo-sung-lop-van-ban-tim-kiem-cho-pdf-scan/",
+      "status": 200,
+      "ms": 994
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=117",
+      "status": 301,
+      "ms": 931
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/tesseract-ocr-hieu-cong-cu-nhan-dang-chu-tu-anh-va-nhu-cau-du-lieu-ngon-ngu/",
+      "status": 200,
+      "ms": 1104
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=118",
+      "status": 301,
+      "ms": 1161
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/tabula-tim-hieu-cach-lay-bang-tu-pdf-de-tiep-tuc-xu-ly-du-lieu/",
+      "status": 200,
+      "ms": 986
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=119",
+      "status": 301,
+      "ms": 950
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/prompts-chat-kham-pha-thu-vien-prompt-roi-dieu-chinh-cho-nhiem-vu-cu-the-bang-tieng-viet/",
+      "status": 200,
+      "ms": 949
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=120",
+      "status": 301,
+      "ms": 919
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/drawdb-phac-thao-cau-truc-du-lieu-truoc-khi-nho-agent-lam-ung-dung/",
+      "status": 200,
+      "ms": 970
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=121",
+      "status": 301,
+      "ms": 887
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/hoppscotch-lam-quen-khai-niem-gui-yeu-cau-api-bang-giao-dien-truc-quan/",
+      "status": 200,
+      "ms": 1021
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=122",
+      "status": 301,
+      "ms": 928
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/cyberchef-tim-hieu-cac-buoc-bien-doi-van-ban-va-du-lieu-bang-cong-thuc-truc-quan/",
+      "status": 200,
+      "ms": 934
+    },
+    {
+      "url": "https://store.vneconomics.com/",
+      "status": 200,
+      "ms": 939
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/",
+      "status": 200,
+      "ms": 981
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/page/2/",
+      "status": 200,
+      "ms": 920
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/",
+      "status": 200,
+      "ms": 981
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_support=ho-tro",
+      "status": 200,
+      "ms": 884
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200,
+      "ms": 994
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_find=1&scope=resources&s=MarkItDown",
+      "status": 200,
+      "ms": 1019
+    },
+    {
+      "url": "https://store.vneconomics.com/hello-world/",
+      "status": 200,
+      "ms": 977
+    },
+    {
+      "url": "https://store.vneconomics.com/sample-page/",
+      "status": 200,
+      "ms": 947
+    },
+    {
+      "url": "https://store.vneconomics.com/shop/",
+      "status": 200,
+      "ms": 1200
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 955
+    },
+    {
+      "url": "https://store.vneconomics.com/checkout/",
+      "status": 302,
+      "ms": 942
+    },
+    {
+      "url": "https://store.vneconomics.com/my-account/",
+      "status": 200,
+      "ms": 1085
+    },
+    {
+      "url": "https://store.vneconomics.com/home/",
+      "status": 200,
+      "ms": 939
+    },
+    {
+      "url": "https://store.vneconomics.com/about/",
+      "status": 200,
+      "ms": 1039
+    },
+    {
+      "url": "https://store.vneconomics.com/gioi-thieu/",
+      "status": 200,
+      "ms": 917
+    },
+    {
+      "url": "https://store.vneconomics.com/san-pham/",
+      "status": 200,
+      "ms": 912
+    },
+    {
+      "url": "https://store.vneconomics.com/tin-tuc/",
+      "status": 200,
+      "ms": 950
+    },
+    {
+      "url": "https://store.vneconomics.com/lien-he/",
+      "status": 200,
+      "ms": 911
+    },
+    {
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "ms": 903
+    },
+    {
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "ms": 939
+    }
+  ],
+  "map": {
+    "1": {
+      "id": 113,
+      "url": "https://store.vneconomics.com/tai-nguyen/markitdown-chuyen-tai-lieu-thanh-markdown-de-chuan-bi-dau-vao-cho-cong-viec-voi-ai/",
+      "title": "MarkItDown: chuyển tài liệu thành Markdown để chuẩn bị đầu vào cho công việc với AI"
+    },
+    "2": {
+      "id": 114,
+      "url": "https://store.vneconomics.com/tai-nguyen/pandoc-hieu-cach-chuyen-doi-giua-cac-dinh-dang-tai-lieu-bang-mot-cong-cu-chuyen-dung/",
+      "title": "Pandoc: hiểu cách chuyển đổi giữa các định dạng tài liệu bằng một công cụ chuyên dụng"
+    },
+    "3": {
+      "id": 115,
+      "url": "https://store.vneconomics.com/tai-nguyen/stirling-pdf-tim-hieu-bo-cong-cu-xu-ly-pdf-thay-vi-tai-tai-lieu-len-nhieu-website-khac-nhau/",
+      "title": "Stirling-PDF: tìm hiểu bộ công cụ xử lý PDF thay vì tải tài liệu lên nhiều website khác nhau"
+    },
+    "4": {
+      "id": 116,
+      "url": "https://store.vneconomics.com/tai-nguyen/ocrmypdf-tim-hieu-viec-bo-sung-lop-van-ban-tim-kiem-cho-pdf-scan/",
+      "title": "OCRmyPDF: tìm hiểu việc bổ sung lớp văn bản tìm kiếm cho PDF scan"
+    },
+    "5": {
+      "id": 117,
+      "url": "https://store.vneconomics.com/tai-nguyen/tesseract-ocr-hieu-cong-cu-nhan-dang-chu-tu-anh-va-nhu-cau-du-lieu-ngon-ngu/",
+      "title": "Tesseract OCR: hiểu công cụ nhận dạng chữ từ ảnh và nhu cầu dữ liệu ngôn ngữ"
+    },
+    "6": {
+      "id": 118,
+      "url": "https://store.vneconomics.com/tai-nguyen/tabula-tim-hieu-cach-lay-bang-tu-pdf-de-tiep-tuc-xu-ly-du-lieu/",
+      "title": "Tabula: tìm hiểu cách lấy bảng từ PDF để tiếp tục xử lý dữ liệu"
+    },
+    "7": {
+      "id": 119,
+      "url": "https://store.vneconomics.com/tai-nguyen/prompts-chat-kham-pha-thu-vien-prompt-roi-dieu-chinh-cho-nhiem-vu-cu-the-bang-tieng-viet/",
+      "title": "prompts.chat: khám phá thư viện prompt rồi điều chỉnh cho nhiệm vụ cụ thể bằng tiếng Việt"
+    },
+    "8": {
+      "id": 120,
+      "url": "https://store.vneconomics.com/tai-nguyen/drawdb-phac-thao-cau-truc-du-lieu-truoc-khi-nho-agent-lam-ung-dung/",
+      "title": "drawDB: phác thảo cấu trúc dữ liệu trước khi nhờ agent làm ứng dụng"
+    },
+    "9": {
+      "id": 121,
+      "url": "https://store.vneconomics.com/tai-nguyen/hoppscotch-lam-quen-khai-niem-gui-yeu-cau-api-bang-giao-dien-truc-quan/",
+      "title": "Hoppscotch: làm quen khái niệm gửi yêu cầu API bằng giao diện trực quan"
+    },
+    "10": {
+      "id": 122,
+      "url": "https://store.vneconomics.com/tai-nguyen/cyberchef-tim-hieu-cac-buoc-bien-doi-van-ban-va-du-lieu-bang-cong-thuc-truc-quan/",
+      "title": "CyberChef: tìm hiểu các bước biến đổi văn bản và dữ liệu bằng công thức trực quan"
+    }
+  },
+  "failure": null,
+  "limits": [
+    "Anonymous GET only; no runtime execution of introduced tools",
+    "API list is intentionally capped at50; checks use the latest batch, not an incorrect total expectation",
+    "Original content preservation is checked by importer row/meta hashes separately",
+    "No email, payments or form submissions"
+  ]
+}

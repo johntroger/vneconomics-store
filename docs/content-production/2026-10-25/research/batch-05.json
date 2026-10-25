@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:25:24.922Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 41,
+      "repo": "openai/codex",
+      "stars": 130820,
+      "archived": false,
+      "readmeBytes": 3334,
+      "source": "https://raw.githubusercontent.com/openai/codex/main/README.md",
+      "sha256": "ba4e1f69ff48386e72a9c5e1edaf76aad64a475c2d51af79ccba6d1128261ba7"
+    },
+    {
+      "key": 42,
+      "repo": "anthropics/claude-code",
+      "stars": 153300,
+      "archived": false,
+      "readmeBytes": 2873,
+      "source": "https://raw.githubusercontent.com/anthropics/claude-code/main/README.md",
+      "sha256": "aa0d8b80ac083e1591be0789273f447058cc9187b4331634a5614155da27778d"
+    },
+    {
+      "key": 43,
+      "repo": "google-gemini/gemini-cli",
+      "stars": 108110,
+      "archived": false,
+      "readmeBytes": 12107,
+      "source": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/README.md",
+      "sha256": "7235196f55461732c246c20ce9996cc56ba2e52641f183ccf4e6493bd93c1c94"
+    },
+    {
+      "key": 44,
+      "repo": "anomalyco/opencode",
+      "stars": 221118,
+      "archived": false,
+      "readmeBytes": 4668,
+      "source": "https://raw.githubusercontent.com/anomalyco/opencode/dev/README.md",
+      "sha256": "9d93c425fc5f9f8b93c4fc3d40fc82ef10450403116371736feafce57c875635"
+    },
+    {
+      "key": 45,
+      "repo": "Aider-AI/aider",
+      "stars": 49742,
+      "archived": false,
+      "readmeBytes": 12406,
+      "source": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+      "sha256": "e40e05367ceacf7138a2605484bf7d1cb5a262d2dba03f52a5327c023b3cd0dc"
+    },
+    {
+      "key": 46,
+      "repo": "continuedev/continue",
+      "stars": 36314,
+      "archived": false,
+      "readmeBytes": 2791,
+      "source": "https://raw.githubusercontent.com/continuedev/continue/main/README.md",
+      "sha256": "054b77f9573011fa4ebf89d960300aabd1ebecc37d8f6f261341ba7d27d885e7"
+    },
+    {
+      "key": 47,
+      "repo": "cline/cline",
+      "stars": 70831,
+      "archived": false,
+      "readmeBytes": 9244,
+      "source": "https://raw.githubusercontent.com/cline/cline/main/README.md",
+      "sha256": "6640ce1ef463f641e05b9b6b3361fa20da3cbb4fe5d613950bf2623218c89b6e"
+    },
+    {
+      "key": 48,
+      "repo": "RooCodeInc/Roo-Code",
+      "stars": 24263,
+      "archived": true,
+      "readmeBytes": 3387,
+      "source": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/README.md",
+      "sha256": "bcabc1221142dc7d7161d089dcd945bb50ff8d7498d7c6b8774b10a8cd5c164f"
+    },
+    {
+      "key": 49,
+      "repo": "OpenHands/OpenHands",
+      "stars": 91761,
+      "archived": false,
+      "readmeBytes": 13268,
+      "source": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "sha256": "3211341a775a6ac63b47cd3d8ba7704aecd15a3ed5aa2891a2ed74448de7a66f"
+    },
+    {
+      "key": 50,
+      "repo": "aaif-goose/goose",
+      "stars": 55658,
+      "archived": false,
+      "readmeBytes": 3449,
+      "source": "https://raw.githubusercontent.com/aaif-goose/goose/main/README.md",
+      "sha256": "0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/openai/codex/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anomalyco/opencode/dev/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Aider-AI/aider/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/continuedev/continue/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/cline/cline/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/OpenHands/OpenHands/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/aaif-goose/goose/main/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

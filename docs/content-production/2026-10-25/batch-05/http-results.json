@@ -1,0 +1,516 @@
+{
+  "status": "PASS_PRODUCTION_BATCH_HTTP",
+  "batch": 5,
+  "observedAt": "2026-10-25T03:53:17.133Z",
+  "checks": [
+    "latest public resource API HTTP200",
+    "latest public resource API no PHP failure",
+    "API list shape",
+    "source item present 41",
+    "exact approved title 41",
+    "exact approved body 41",
+    "source ID 41",
+    "no fabricated runtime badge 41",
+    "source observation 41",
+    "need filter assigned 41",
+    "category assigned 41",
+    "canonical resolution 41",
+    "safe article URL 41",
+    "article 41 HTTP200",
+    "article 41 no PHP failure",
+    "article heading 41",
+    "source CTA 41",
+    "observed stars visible 41",
+    "editorial limitation visible 41",
+    "report context 41",
+    "no-store retained 41",
+    "canonical visible 41",
+    "source item present 42",
+    "exact approved title 42",
+    "exact approved body 42",
+    "source ID 42",
+    "no fabricated runtime badge 42",
+    "source observation 42",
+    "need filter assigned 42",
+    "category assigned 42",
+    "canonical resolution 42",
+    "safe article URL 42",
+    "article 42 HTTP200",
+    "article 42 no PHP failure",
+    "article heading 42",
+    "source CTA 42",
+    "observed stars visible 42",
+    "editorial limitation visible 42",
+    "report context 42",
+    "no-store retained 42",
+    "canonical visible 42",
+    "source item present 43",
+    "exact approved title 43",
+    "exact approved body 43",
+    "source ID 43",
+    "no fabricated runtime badge 43",
+    "source observation 43",
+    "need filter assigned 43",
+    "category assigned 43",
+    "canonical resolution 43",
+    "safe article URL 43",
+    "article 43 HTTP200",
+    "article 43 no PHP failure",
+    "article heading 43",
+    "source CTA 43",
+    "observed stars visible 43",
+    "editorial limitation visible 43",
+    "report context 43",
+    "no-store retained 43",
+    "canonical visible 43",
+    "source item present 44",
+    "exact approved title 44",
+    "exact approved body 44",
+    "source ID 44",
+    "no fabricated runtime badge 44",
+    "source observation 44",
+    "need filter assigned 44",
+    "category assigned 44",
+    "canonical resolution 44",
+    "safe article URL 44",
+    "article 44 HTTP200",
+    "article 44 no PHP failure",
+    "article heading 44",
+    "source CTA 44",
+    "observed stars visible 44",
+    "editorial limitation visible 44",
+    "report context 44",
+    "no-store retained 44",
+    "canonical visible 44",
+    "source item present 45",
+    "exact approved title 45",
+    "exact approved body 45",
+    "source ID 45",
+    "no fabricated runtime badge 45",
+    "source observation 45",
+    "need filter assigned 45",
+    "category assigned 45",
+    "canonical resolution 45",
+    "safe article URL 45",
+    "article 45 HTTP200",
+    "article 45 no PHP failure",
+    "article heading 45",
+    "source CTA 45",
+    "observed stars visible 45",
+    "editorial limitation visible 45",
+    "report context 45",
+    "no-store retained 45",
+    "canonical visible 45",
+    "source item present 46",
+    "exact approved title 46",
+    "exact approved body 46",
+    "source ID 46",
+    "no fabricated runtime badge 46",
+    "source observation 46",
+    "need filter assigned 46",
+    "category assigned 46",
+    "canonical resolution 46",
+    "safe article URL 46",
+    "article 46 HTTP200",
+    "article 46 no PHP failure",
+    "article heading 46",
+    "source CTA 46",
+    "observed stars visible 46",
+    "editorial limitation visible 46",
+    "report context 46",
+    "no-store retained 46",
+    "canonical visible 46",
+    "source item present 47",
+    "exact approved title 47",
+    "exact approved body 47",
+    "source ID 47",
+    "no fabricated runtime badge 47",
+    "source observation 47",
+    "need filter assigned 47",
+    "category assigned 47",
+    "canonical resolution 47",
+    "safe article URL 47",
+    "article 47 HTTP200",
+    "article 47 no PHP failure",
+    "article heading 47",
+    "source CTA 47",
+    "observed stars visible 47",
+    "editorial limitation visible 47",
+    "report context 47",
+    "no-store retained 47",
+    "canonical visible 47",
+    "source item present 48",
+    "exact approved title 48",
+    "exact approved body 48",
+    "source ID 48",
+    "no fabricated runtime badge 48",
+    "source observation 48",
+    "need filter assigned 48",
+    "category assigned 48",
+    "canonical resolution 48",
+    "safe article URL 48",
+    "article 48 HTTP200",
+    "article 48 no PHP failure",
+    "article heading 48",
+    "source CTA 48",
+    "observed stars visible 48",
+    "editorial limitation visible 48",
+    "report context 48",
+    "no-store retained 48",
+    "canonical visible 48",
+    "source item present 49",
+    "exact approved title 49",
+    "exact approved body 49",
+    "source ID 49",
+    "no fabricated runtime badge 49",
+    "source observation 49",
+    "need filter assigned 49",
+    "category assigned 49",
+    "canonical resolution 49",
+    "safe article URL 49",
+    "article 49 HTTP200",
+    "article 49 no PHP failure",
+    "article heading 49",
+    "source CTA 49",
+    "observed stars visible 49",
+    "editorial limitation visible 49",
+    "report context 49",
+    "no-store retained 49",
+    "canonical visible 49",
+    "source item present 50",
+    "exact approved title 50",
+    "exact approved body 50",
+    "source ID 50",
+    "no fabricated runtime badge 50",
+    "source observation 50",
+    "need filter assigned 50",
+    "category assigned 50",
+    "canonical resolution 50",
+    "safe article URL 50",
+    "article 50 HTTP200",
+    "article 50 no PHP failure",
+    "article heading 50",
+    "source CTA 50",
+    "observed stars visible 50",
+    "editorial limitation visible 50",
+    "report context 50",
+    "no-store retained 50",
+    "canonical visible 50",
+    "home HTTP200",
+    "home no PHP failure",
+    "novice entry remains original lesson",
+    "catalog HTTP200",
+    "catalog no PHP failure",
+    "last catalog page HTTP200",
+    "last catalog page no PHP failure",
+    "pagination reaches new scale",
+    "guides HTTP200",
+    "guides no PHP failure",
+    "support HTTP200",
+    "support no PHP failure",
+    "old main lesson HTTP200",
+    "old main lesson no PHP failure",
+    "search HTTP200",
+    "search no PHP failure",
+    "search finds batch representative",
+    "legacy route 1",
+    "legacy renderer 1",
+    "legacy route 2",
+    "legacy renderer 2",
+    "legacy route 7",
+    "legacy renderer 7",
+    "legacy route 8",
+    "legacy renderer 8",
+    "legacy route 9",
+    "legacy renderer 9",
+    "legacy route 10",
+    "legacy renderer 10",
+    "legacy route 67",
+    "legacy renderer 67",
+    "legacy route 71",
+    "legacy renderer 71",
+    "legacy route 78",
+    "legacy renderer 78",
+    "legacy route 81",
+    "legacy renderer 81",
+    "legacy route 84",
+    "legacy renderer 84",
+    "legacy route 87",
+    "legacy renderer 87",
+    "legacy route 92",
+    "legacy renderer 92",
+    "legacy route 95",
+    "legacy renderer 95"
+  ],
+  "requests": [
+    {
+      "url": "https://store.vneconomics.com/wp-json/vne-library/v1/items",
+      "status": 200,
+      "ms": 727
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=153",
+      "status": 301,
+      "ms": 293
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/codex-cli-tim-hieu-coding-agent-trong-terminal-va-phan-biet-voi-ung-dung-desktop/",
+      "status": 200,
+      "ms": 448
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=154",
+      "status": 301,
+      "ms": 380
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/claude-code-hieu-agent-lam-viec-cung-ma-nguon-va-cac-buoc-giao-nhiem-vu-nho/",
+      "status": 200,
+      "ms": 490
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=155",
+      "status": 301,
+      "ms": 350
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/gemini-cli-kham-pha-agent-ai-trong-terminal-va-dieu-kien-de-bat-dau/",
+      "status": 200,
+      "ms": 479
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=156",
+      "status": 301,
+      "ms": 379
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/opencode-tim-hieu-agent-coding-trong-terminal-va-lua-chon-model/",
+      "status": 200,
+      "ms": 491
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=157",
+      "status": 301,
+      "ms": 386
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/aider-kham-pha-cach-lam-viec-voi-ai-trong-mot-kho-ma-nho/",
+      "status": 200,
+      "ms": 508
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=158",
+      "status": 301,
+      "ms": 354
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/continue-tim-hieu-tro-ly-coding-va-cach-tich-hop-vao-moi-truong-lam-viec/",
+      "status": 200,
+      "ms": 490
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=159",
+      "status": 301,
+      "ms": 314
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/cline-kham-pha-coding-agent-va-co-che-duyet-thao-tac/",
+      "status": 200,
+      "ms": 462
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=160",
+      "status": 301,
+      "ms": 400
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/roo-code-tim-hieu-moi-truong-agent-ho-tro-quy-trinh-lam-phan-mem/",
+      "status": 200,
+      "ms": 390
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=161",
+      "status": 301,
+      "ms": 407
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/openhands-kham-pha-moi-truong-agent-ho-tro-phat-trien-phan-mem/",
+      "status": 200,
+      "ms": 418
+    },
+    {
+      "url": "https://store.vneconomics.com/?p=162",
+      "status": 301,
+      "ms": 317
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/goose-tim-hieu-agent-va-cac-phan-mo-rong-cho-cong-viec-tren-may/",
+      "status": 200,
+      "ms": 450
+    },
+    {
+      "url": "https://store.vneconomics.com/",
+      "status": 200,
+      "ms": 382
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/",
+      "status": 200,
+      "ms": 510
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/page/7/",
+      "status": 200,
+      "ms": 414
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/",
+      "status": 200,
+      "ms": 348
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_support=ho-tro",
+      "status": 200,
+      "ms": 317
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200,
+      "ms": 367
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_find=1&scope=resources&s=Codex%20CLI",
+      "status": 200,
+      "ms": 438
+    },
+    {
+      "url": "https://store.vneconomics.com/hello-world/",
+      "status": 200,
+      "ms": 356
+    },
+    {
+      "url": "https://store.vneconomics.com/sample-page/",
+      "status": 200,
+      "ms": 356
+    },
+    {
+      "url": "https://store.vneconomics.com/shop/",
+      "status": 200,
+      "ms": 342
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 410
+    },
+    {
+      "url": "https://store.vneconomics.com/checkout/",
+      "status": 302,
+      "ms": 341
+    },
+    {
+      "url": "https://store.vneconomics.com/my-account/",
+      "status": 200,
+      "ms": 385
+    },
+    {
+      "url": "https://store.vneconomics.com/home/",
+      "status": 200,
+      "ms": 382
+    },
+    {
+      "url": "https://store.vneconomics.com/about/",
+      "status": 200,
+      "ms": 341
+    },
+    {
+      "url": "https://store.vneconomics.com/gioi-thieu/",
+      "status": 200,
+      "ms": 421
+    },
+    {
+      "url": "https://store.vneconomics.com/san-pham/",
+      "status": 200,
+      "ms": 384
+    },
+    {
+      "url": "https://store.vneconomics.com/tin-tuc/",
+      "status": 200,
+      "ms": 390
+    },
+    {
+      "url": "https://store.vneconomics.com/lien-he/",
+      "status": 200,
+      "ms": 367
+    },
+    {
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "ms": 352
+    },
+    {
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "ms": 351
+    }
+  ],
+  "map": {
+    "41": {
+      "id": 153,
+      "url": "https://store.vneconomics.com/tai-nguyen/codex-cli-tim-hieu-coding-agent-trong-terminal-va-phan-biet-voi-ung-dung-desktop/",
+      "title": "Codex CLI: tìm hiểu coding agent trong terminal và phân biệt với ứng dụng desktop"
+    },
+    "42": {
+      "id": 154,
+      "url": "https://store.vneconomics.com/tai-nguyen/claude-code-hieu-agent-lam-viec-cung-ma-nguon-va-cac-buoc-giao-nhiem-vu-nho/",
+      "title": "Claude Code: hiểu agent làm việc cùng mã nguồn và các bước giao nhiệm vụ nhỏ"
+    },
+    "43": {
+      "id": 155,
+      "url": "https://store.vneconomics.com/tai-nguyen/gemini-cli-kham-pha-agent-ai-trong-terminal-va-dieu-kien-de-bat-dau/",
+      "title": "Gemini CLI: khám phá agent AI trong terminal và điều kiện để bắt đầu"
+    },
+    "44": {
+      "id": 156,
+      "url": "https://store.vneconomics.com/tai-nguyen/opencode-tim-hieu-agent-coding-trong-terminal-va-lua-chon-model/",
+      "title": "OpenCode: tìm hiểu agent coding trong terminal và lựa chọn model"
+    },
+    "45": {
+      "id": 157,
+      "url": "https://store.vneconomics.com/tai-nguyen/aider-kham-pha-cach-lam-viec-voi-ai-trong-mot-kho-ma-nho/",
+      "title": "Aider: khám phá cách làm việc với AI trong một kho mã nhỏ"
+    },
+    "46": {
+      "id": 158,
+      "url": "https://store.vneconomics.com/tai-nguyen/continue-tim-hieu-tro-ly-coding-va-cach-tich-hop-vao-moi-truong-lam-viec/",
+      "title": "Continue: tìm hiểu trợ lý coding và cách tích hợp vào môi trường làm việc"
+    },
+    "47": {
+      "id": 159,
+      "url": "https://store.vneconomics.com/tai-nguyen/cline-kham-pha-coding-agent-va-co-che-duyet-thao-tac/",
+      "title": "Cline: khám phá coding agent và cơ chế duyệt thao tác"
+    },
+    "48": {
+      "id": 160,
+      "url": "https://store.vneconomics.com/tai-nguyen/roo-code-tim-hieu-moi-truong-agent-ho-tro-quy-trinh-lam-phan-mem/",
+      "title": "Roo Code: tìm hiểu môi trường agent hỗ trợ quy trình làm phần mềm"
+    },
+    "49": {
+      "id": 161,
+      "url": "https://store.vneconomics.com/tai-nguyen/openhands-kham-pha-moi-truong-agent-ho-tro-phat-trien-phan-mem/",
+      "title": "OpenHands: khám phá môi trường agent hỗ trợ phát triển phần mềm"
+    },
+    "50": {
+      "id": 162,
+      "url": "https://store.vneconomics.com/tai-nguyen/goose-tim-hieu-agent-va-cac-phan-mo-rong-cho-cong-viec-tren-may/",
+      "title": "Goose: tìm hiểu agent và các phần mở rộng cho công việc trên máy"
+    }
+  },
+  "failure": null,
+  "limits": [
+    "Anonymous GET only; no runtime execution of introduced tools",
+    "API list is intentionally capped at50; checks use the latest batch, not an incorrect total expectation",
+    "Original content preservation is checked by importer row/meta hashes separately",
+    "No email, payments or form submissions"
+  ]
+}

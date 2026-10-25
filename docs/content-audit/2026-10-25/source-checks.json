@@ -1,0 +1,164 @@
+{
+  "observedAt": "2026-10-25T02:29:27.875Z",
+  "scope": "Anonymous GET to current official source endpoints only; no install, code execution or provider account calls",
+  "repos": {
+    "picocss/pico": {
+      "status": 200,
+      "html_url": "https://github.com/picocss/pico",
+      "archived": true,
+      "disabled": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-04T04:00:49Z",
+      "license": {
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "description": "Minimal CSS Framework for semantic HTML"
+    },
+    "vercel-labs/agent-skills": {
+      "status": 200,
+      "html_url": "https://github.com/vercel-labs/agent-skills",
+      "archived": false,
+      "disabled": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-14T17:58:45Z",
+      "license": null,
+      "description": "Vercel's official collection of agent skills"
+    },
+    "withastro/astro": {
+      "status": 200,
+      "html_url": "https://github.com/withastro/astro",
+      "archived": false,
+      "disabled": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-24T14:05:47Z",
+      "license": {
+        "spdx_id": "NOASSERTION",
+        "url": null
+      },
+      "description": "The web framework for content-driven websites."
+    },
+    "mdn/learning-area": {
+      "status": 200,
+      "html_url": "https://github.com/mdn/learning-area",
+      "archived": false,
+      "disabled": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-20T11:04:14Z",
+      "license": {
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0"
+      },
+      "description": "GitHub repo for the MDN Learning Area. "
+    },
+    "microsoft/Web-Dev-For-Beginners": {
+      "status": 200,
+      "html_url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+      "archived": false,
+      "disabled": false,
+      "default_branch": "main",
+      "pushed_at": "2026-10-20T21:43:35Z",
+      "license": {
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "description": "24 Lessons, 12 Weeks, Get Started as a Web Developer"
+    }
+  },
+  "paths": {
+    "103": {
+      "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+      "status": 200,
+      "exists": true
+    },
+    "104": {
+      "url": "https://github.com/withastro/astro/tree/main/examples/basics",
+      "status": 200,
+      "exists": true
+    },
+    "105": {
+      "url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
+      "status": 200,
+      "exists": true
+    }
+  },
+  "docs": {
+    "https://learn.chatgpt.com/docs/windows/windows-app": {
+      "status": 200,
+      "location": null,
+      "title": "\n  ChatGPT desktop app for Windows | ChatGPT Learn\n"
+    },
+    "https://learn.chatgpt.com/docs/quickstart": {
+      "status": 200,
+      "location": null,
+      "title": "\n  Quickstart | ChatGPT Learn\n"
+    },
+    "https://learn.chatgpt.com/docs/windows/windows-sandbox": {
+      "status": 200,
+      "location": null,
+      "title": "\n  Windows sandbox | ChatGPT Learn\n"
+    }
+  },
+  "requests": [
+    {
+      "url": "https://api.github.com/repos/picocss/pico",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/vercel-labs/agent-skills",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/vercel-labs/agent-skills/contents/skills/react-best-practices",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/withastro/astro",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/withastro/astro/contents/examples/basics",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/vercel-labs/agent-skills/contents/skills/web-design-guidelines",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/mdn/learning-area",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://api.github.com/repos/microsoft/Web-Dev-For-Beginners",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/windows/windows-app",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/quickstart",
+      "status": 200,
+      "location": null
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/windows/windows-sandbox",
+      "status": 200,
+      "location": null
+    }
+  ],
+  "limits": [
+    "HTTP availability and declared repository metadata do not establish runtime compatibility, cost or safety",
+    "License API result is a lead for review, not a legal determination",
+    "Live source observations do not update website metadata or confer validation"
+  ]
+}

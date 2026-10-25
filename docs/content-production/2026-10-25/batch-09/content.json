@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 9,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 81,
+      "batch": 9,
+      "slug": "duckdb",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "DuckDB: tìm hiểu xử lý dữ liệu phân tích trên file bằng công cụ SQL",
+        "excerpt": "Tìm hiểu xử lý dữ liệu phân tích trên file bằng công cụ SQL. Cần học SQL tối thiểu; không coi truy vấn chạy được là dữ liệu đã chính xác.",
+        "content": "<p>Tìm hiểu xử lý dữ liệu phân tích trên file bằng công cụ SQL. DuckDB là hệ quản trị phân tích chạy trong tiến trình ứng dụng, có CLI và client cho nhiều ngôn ngữ. README nêu khả năng đọc file và kết nối nguồn khác; cách dùng tối thiểu không cần dựng server riêng nhưng truy cập nguồn ngoài vẫn có quyền riêng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một CSV mười dòng để hiểu lọc, nhóm và kiểm tra kết quả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn client/CLI đúng môi trường trong Installation; cần hiểu SQL tối thiểu và định dạng dữ liệu định đọc.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng CSV mười dòng với cột và kiểu dữ liệu rõ, đặt một câu hỏi có thể tính tay.</li><li>Đọc đường CLI hoặc client phù hợp, chưa thêm extension/kết nối ngoài không cần thiết.</li><li>Khi thử được phép, đối chiếu số dòng, giá trị thiếu và kết quả nhóm với bảng gốc.</li></ol><h2>Giới hạn cần biết</h2><p>Cần học SQL tối thiểu; không coi truy vấn chạy được là dữ liệu đã chính xác. Truy vấn không báo lỗi không chứng minh kiểu dữ liệu, điều kiện lọc hoặc kết quả phân tích đã đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>duckdb</strong> có <strong>42.503 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/duckdb/duckdb/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/duckdb/duckdb\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 81. Chưa cài/chạy thử; không tạo validation. Snapshot sao 42503; repo_id 138754790; README SHA256 d9c2afdbd78821e5cd28731bdefa22760374c7670ef2100cd4c44e2d8ced8a8a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/duckdb/duckdb",
+          "repo_id": "138754790",
+          "source_path": "",
+          "source_revision": "README-SHA256:d9c2afdbd78821e5cd28731bdefa22760374c7670ef2100cd4c44e2d8ced8a8a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn client/CLI đúng môi trường trong Installation; cần hiểu SQL tối thiểu và định dạng dữ liệu định đọc.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/duckdb/duckdb/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Truy vấn không báo lỗi không chứng minh kiểu dữ liệu, điều kiện lọc hoặc kết quả phân tích đã đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/duckdb/duckdb/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "duckdb/duckdb",
+        "stars": 42503,
+        "observedAt": "2026-10-25T03:41:20.506Z",
+        "readmeUrl": "https://raw.githubusercontent.com/duckdb/duckdb/main/README.md",
+        "readmeSha256": "d9c2afdbd78821e5cd28731bdefa22760374c7670ef2100cd4c44e2d8ced8a8a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "93f9d215676cf484952dfe84dad278d822a815f7d3f73105fb8049c3ed8a1957"
+    },
+    {
+      "key": 82,
+      "batch": 9,
+      "slug": "metabase",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Metabase: khám phá dashboard và câu hỏi dữ liệu cho nhóm",
+        "excerpt": "Khám phá dashboard và câu hỏi dữ liệu cho nhóm. Kết nối và quyền database phải cấu hình; không mở dữ liệu thật công khai.",
+        "content": "<p>Khám phá dashboard và câu hỏi dữ liệu cho nhóm. Metabase giúp đặt câu hỏi và làm dashboard từ dữ liệu; README tách dịch vụ Cloud với self-host và có cả cách dùng không viết SQL lẫn SQL editor. Để chọn đúng, cần hiểu nguồn dữ liệu và câu hỏi hơn là chỉ xem ảnh dashboard.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bảng doanh số hoàn toàn hư cấu để đặt câu hỏi rõ nghĩa. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Get started cloud hoặc Installation self-host, đối chiếu database được hỗ trợ và quyền đọc nguồn.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết định nghĩa ba chỉ số trên bảng doanh số hư cấu, kèm kỳ đo và đơn vị.</li><li>Đọc Supported databases và Documentation để chọn cách kết nối phù hợp.</li><li>Xác định ai được xem dữ liệu/giao diện trước chia sẻ, chưa dùng database production trong bài đầu.</li></ol><h2>Giới hạn cần biết</h2><p>Kết nối và quyền database phải cấu hình; không mở dữ liệu thật công khai. Không lặp lời hứa thiết lập vài phút như cam kết cho mọi hệ thống; quyền và chất lượng dữ liệu có thể cần nhiều bước hơn.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>metabase</strong> có <strong>49.833 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/metabase/metabase/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/metabase/metabase\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 82. Chưa cài/chạy thử; không tạo validation. Snapshot sao 49833; repo_id 30203935; README SHA256 5bd7a1f76e8abe34a862686250b172b24d80c6797b0b2c997ddb0bd93351a921.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/metabase/metabase",
+          "repo_id": "30203935",
+          "source_path": "",
+          "source_revision": "README-SHA256:5bd7a1f76e8abe34a862686250b172b24d80c6797b0b2c997ddb0bd93351a921",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Get started cloud hoặc Installation self-host, đối chiếu database được hỗ trợ và quyền đọc nguồn.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/metabase/metabase/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không lặp lời hứa thiết lập vài phút như cam kết cho mọi hệ thống; quyền và chất lượng dữ liệu có thể cần nhiều bước hơn.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/metabase/metabase/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "metabase/metabase",
+        "stars": 49833,
+        "observedAt": "2026-10-25T03:41:20.827Z",
+        "readmeUrl": "https://raw.githubusercontent.com/metabase/metabase/master/README.md",
+        "readmeSha256": "5bd7a1f76e8abe34a862686250b172b24d80c6797b0b2c997ddb0bd93351a921",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "e23130c004dea0ea3ab35fcf2e41eb02a3128873f1bf3b4a263be135b7b8edbe"
+    },
+    {
+      "key": 83,
+      "batch": 9,
+      "slug": "apache-superset",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Apache Superset: tìm hiểu môi trường khám phá và trực quan hóa dữ liệu",
+        "excerpt": "Tìm hiểu môi trường khám phá và trực quan hóa dữ liệu. Triển khai cần nền kỹ thuật; không đặt làm công cụ đầu tiên nếu chưa có người vận hành.",
+        "content": "<p>Tìm hiểu môi trường khám phá và trực quan hóa dữ liệu. Apache Superset là ứng dụng business intelligence có tài liệu riêng cho người phân tích, quản trị và lập trình viên. Tách đúng vai trò giúp người mới tránh bắt đầu bằng phần vận hành server khi mục tiêu chỉ là hiểu biểu đồ/dashboard.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Phác dashboard với ba chỉ số và nguồn dữ liệu giả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Người dùng chọn User Guide; người tự host cần Administrator Guide, database driver và cấu hình theo môi trường.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác một dashboard mẫu với ba câu hỏi và bảng dữ liệu giả.</li><li>Mở User Guide để đọc cách tạo chart/dashboard, tách khỏi hướng cài của quản trị viên.</li><li>Trước triển khai, yêu cầu người vận hành xác định kết nối, quyền và giới hạn truy vấn.</li></ol><h2>Giới hạn cần biết</h2><p>Triển khai cần nền kỹ thuật; không đặt làm công cụ đầu tiên nếu chưa có người vận hành. Dashboard đẹp không thay việc định nghĩa chỉ số hoặc kiểm tra quyền; chưa dùng như công cụ đầu tiên nếu không có môi trường phù hợp.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>apache</strong> có <strong>75.295 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/apache/superset/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/apache/superset\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 83. Chưa cài/chạy thử; không tạo validation. Snapshot sao 75295; repo_id 39464018; README SHA256 0f9fecb2c68733121efe9aaa968a935c0b81b281935e6b24c4455887860fe3c4.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/apache/superset",
+          "repo_id": "39464018",
+          "source_path": "",
+          "source_revision": "README-SHA256:0f9fecb2c68733121efe9aaa968a935c0b81b281935e6b24c4455887860fe3c4",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Người dùng chọn User Guide; người tự host cần Administrator Guide, database driver và cấu hình theo môi trường.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/superset/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Dashboard đẹp không thay việc định nghĩa chỉ số hoặc kiểm tra quyền; chưa dùng như công cụ đầu tiên nếu không có môi trường phù hợp.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/apache/superset/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "apache/superset",
+        "stars": 75295,
+        "observedAt": "2026-10-25T03:41:21.204Z",
+        "readmeUrl": "https://raw.githubusercontent.com/apache/superset/master/README.md",
+        "readmeSha256": "0f9fecb2c68733121efe9aaa968a935c0b81b281935e6b24c4455887860fe3c4",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "4b7a26bd667ee8ae62bb643e3b0765aaecc1f47e8b1462826ea3c6ddc6f50631"
+    },
+    {
+      "key": 84,
+      "batch": 9,
+      "slug": "posthog",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "PostHog: tìm hiểu phân tích hành vi sản phẩm và đặt câu hỏi đo lường",
+        "excerpt": "Tìm hiểu phân tích hành vi sản phẩm và đặt câu hỏi đo lường. Theo dõi người dùng cần cấu hình dữ liệu và quyền riêng tư; không bật analytics trên website thật để thử.",
+        "content": "<p>Tìm hiểu phân tích hành vi sản phẩm và đặt câu hỏi đo lường. PostHog tập hợp các công cụ phân tích sản phẩm, sự kiện và nhiều loại dữ liệu được README mô tả. Các chức năng analytics/session replay liên quan dữ liệu người dùng; bài giới thiệu chỉ nên bắt đầu bằng sơ đồ sự kiện giả, chưa bật theo dõi website thật.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ sự kiện hư cấu cho việc tìm và đọc bài. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Getting started theo Cloud hoặc self-host nâng cao; phải xác định dữ liệu thu thập và cách cấu hình quyền riêng tư trước tích hợp.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một câu hỏi như người đọc có tìm được bài, rồi mô tả sự kiện bằng dữ liệu hư cấu.</li><li>Đọc phạm vi từng chức năng để phân biệt thống kê tổng hợp với ghi lại phiên.</li><li>Lập danh sách trường cần/không cần thu trước cân nhắc SDK hoặc dashboard.</li></ol><h2>Giới hạn cần biết</h2><p>Theo dõi người dùng cần cấu hình dữ liệu và quyền riêng tư; không bật analytics trên website thật để thử. Không cài tracking chỉ để kiểm tra bài; không coi một sản phẩm hỗ trợ analytics là mặc nhiên phù hợp mọi chính sách dữ liệu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>PostHog</strong> có <strong>40.420 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/PostHog/posthog/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/PostHog/posthog\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 84. Chưa cài/chạy thử; không tạo validation. Snapshot sao 40420; repo_id 235901813; README SHA256 738e40fc476ba820d91c17965b54141f9c243006b077b0607d885349ae85fd51.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/PostHog/posthog",
+          "repo_id": "235901813",
+          "source_path": "",
+          "source_revision": "README-SHA256:738e40fc476ba820d91c17965b54141f9c243006b077b0607d885349ae85fd51",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Getting started theo Cloud hoặc self-host nâng cao; phải xác định dữ liệu thu thập và cách cấu hình quyền riêng tư trước tích hợp.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/PostHog/posthog/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không cài tracking chỉ để kiểm tra bài; không coi một sản phẩm hỗ trợ analytics là mặc nhiên phù hợp mọi chính sách dữ liệu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/PostHog/posthog/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "PostHog/posthog",
+        "stars": 40420,
+        "observedAt": "2026-10-25T03:41:21.523Z",
+        "readmeUrl": "https://raw.githubusercontent.com/PostHog/posthog/master/README.md",
+        "readmeSha256": "738e40fc476ba820d91c17965b54141f9c243006b077b0607d885349ae85fd51",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "81e5bf3c2822343d9a2cc8a0b007249e7d31193510e9a7be4da8a10e6901b9ad"
+    },
+    {
+      "key": 85,
+      "batch": 9,
+      "slug": "apache-echarts",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Apache ECharts: tìm hiểu thư viện biểu đồ cho website và ứng dụng",
+        "excerpt": "Tìm hiểu thư viện biểu đồ cho website và ứng dụng. Đây là thư viện lập trình; không phải ứng dụng thay Excel một nút.",
+        "content": "<p>Tìm hiểu thư viện biểu đồ cho website và ứng dụng. Apache ECharts là thư viện JavaScript để làm biểu đồ tương tác cho sản phẩm web. README dẫn Get Started, API, Option Manual và Examples; ví dụ biểu đồ là điểm học, không phải ứng dụng hoàn chỉnh tự thay công cụ bảng tính.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một biểu đồ cột từ dữ liệu giả kèm giải thích trục. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần môi trường web/JavaScript hoặc công cụ tích hợp đã hỗ trợ; chọn một cách dùng trong Get Apache ECharts.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chuẩn bị ba nhóm và ba giá trị giả có đơn vị rõ, chọn biểu đồ cột.</li><li>Đọc ví dụ cùng loại và ý nghĩa trục/nhãn trước tùy biến màu.</li><li>Nếu thử được phép, kiểm tra nhãn tiếng Việt, dữ liệu rỗng và kích thước hiển thị.</li></ol><h2>Giới hạn cần biết</h2><p>Đây là thư viện lập trình; không phải ứng dụng thay Excel một nút. Khả năng tương tác không ngăn biểu đồ gây hiểu nhầm; trục, đơn vị và nguồn dữ liệu vẫn cần được giải thích.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>apache</strong> có <strong>67.588 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/apache/echarts/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/apache/echarts\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 85. Chưa cài/chạy thử; không tạo validation. Snapshot sao 67588; repo_id 9185792; README SHA256 8cc8864325843d975f082cba0fd4cf208093feffb03568f48f164725dab8ebf9.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/apache/echarts",
+          "repo_id": "9185792",
+          "source_path": "",
+          "source_revision": "README-SHA256:8cc8864325843d975f082cba0fd4cf208093feffb03568f48f164725dab8ebf9",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần môi trường web/JavaScript hoặc công cụ tích hợp đã hỗ trợ; chọn một cách dùng trong Get Apache ECharts.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/echarts/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Khả năng tương tác không ngăn biểu đồ gây hiểu nhầm; trục, đơn vị và nguồn dữ liệu vẫn cần được giải thích.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/apache/echarts/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "apache/echarts",
+        "stars": 67588,
+        "observedAt": "2026-10-25T03:41:21.857Z",
+        "readmeUrl": "https://raw.githubusercontent.com/apache/echarts/master/README.md",
+        "readmeSha256": "8cc8864325843d975f082cba0fd4cf208093feffb03568f48f164725dab8ebf9",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "06f526b6000625ed6f43a08b9162f7d1019d7b0841bb43319cedd666c73aa9f2"
+    },
+    {
+      "key": 86,
+      "batch": 9,
+      "slug": "grafana",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Grafana: hiểu dashboard theo dõi dữ liệu và nguồn chỉ số",
+        "excerpt": "Hiểu dashboard theo dõi dữ liệu và nguồn chỉ số. Đọc đúng license và cấu hình truy cập; dashboard không tự tạo dữ liệu đo.",
+        "content": "<p>Hiểu dashboard theo dõi dữ liệu và nguồn chỉ số. Grafana cho phép truy vấn, trực quan hóa và cảnh báo trên các nguồn chỉ số/log. README nêu dashboard, explore và alerting; cần phân biệt giao diện theo dõi với hệ thống tạo/lưu dữ liệu phía sau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ nguồn đo, chỉ số và dashboard mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Get started và datasource phù hợp; cần endpoint dữ liệu có quyền truy cập, cấu hình người dùng và phạm vi cảnh báo.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ sơ đồ nguồn đo → chỉ số → dashboard bằng tên giả.</li><li>Chọn một chỉ số, ghi đơn vị, khoảng thời gian và điều kiện bất thường.</li><li>Đọc datasource và quyền chia sẻ trước thêm alert hay gửi thông báo tới kênh thật.</li></ol><h2>Giới hạn cần biết</h2><p>Đọc đúng license và cấu hình truy cập; dashboard không tự tạo dữ liệu đo. Một dashboard không có dữ liệu hoặc trả 200 không chứng minh hệ thống khỏe; cảnh báo phải được kiểm tra theo ngữ nghĩa chỉ số.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>grafana</strong> có <strong>77.486 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/grafana/grafana/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/grafana/grafana\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 86. Chưa cài/chạy thử; không tạo validation. Snapshot sao 77486; repo_id 15111821; README SHA256 fc8a867bf09f319b9288746ab0148faff2e92ed39cd702252ce59161e576c019.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/grafana/grafana",
+          "repo_id": "15111821",
+          "source_path": "",
+          "source_revision": "README-SHA256:fc8a867bf09f319b9288746ab0148faff2e92ed39cd702252ce59161e576c019",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Get started và datasource phù hợp; cần endpoint dữ liệu có quyền truy cập, cấu hình người dùng và phạm vi cảnh báo.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/grafana/grafana/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một dashboard không có dữ liệu hoặc trả 200 không chứng minh hệ thống khỏe; cảnh báo phải được kiểm tra theo ngữ nghĩa chỉ số.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/grafana/grafana/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "grafana/grafana",
+        "stars": 77486,
+        "observedAt": "2026-10-25T03:41:22.217Z",
+        "readmeUrl": "https://raw.githubusercontent.com/grafana/grafana/main/README.md",
+        "readmeSha256": "fc8a867bf09f319b9288746ab0148faff2e92ed39cd702252ce59161e576c019",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "28f496004159d701bf71d27bd9bd3b384f8f6177379def4442cc76e68b88768e"
+    },
+    {
+      "key": 87,
+      "batch": 9,
+      "slug": "plotly-py",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Plotly.py: khám phá biểu đồ tương tác từ dữ liệu bằng Python",
+        "excerpt": "Khám phá biểu đồ tương tác từ dữ liệu bằng Python. Cần Python và dữ liệu sạch; xuất/chia sẻ phải kiểm tra nơi lưu thông tin.",
+        "content": "<p>Khám phá biểu đồ tương tác từ dữ liệu bằng Python. Plotly.py là thư viện Python tạo biểu đồ tương tác, có đường Graph Objects và Plotly Express trong README. Việc xem trong notebook, xuất ảnh và chia sẻ HTML có yêu cầu khác; nên chọn đầu ra cần dùng trước cài thêm thành phần.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bảng nhỏ được biểu diễn bằng biểu đồ có nhãn tiếng Việt. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần Python; Plotly Express còn cần thư viện dataframe được hỗ trợ, còn xuất ảnh tĩnh có tài liệu riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn bảng nhỏ và biểu đồ đơn giản với mục tiêu giải thích rõ bằng tiếng Việt.</li><li>Đọc Quickstart cho Graph Objects hoặc Express, không trộn hai lối khi chưa hiểu.</li><li>Xác định đầu ra cần là notebook, HTML hay ảnh, rồi xem hướng Installation tương ứng trước thử.</li></ol><h2>Giới hạn cần biết</h2><p>Cần Python và dữ liệu sạch; xuất/chia sẻ phải kiểm tra nơi lưu thông tin. File HTML chia sẻ có thể chứa dữ liệu biểu đồ; cần xem dữ liệu đi kèm, không chỉ nội dung nhìn thấy trên ảnh.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>plotly</strong> có <strong>18.853 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/plotly/plotly.py/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/plotly/plotly.py\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 87. Chưa cài/chạy thử; không tạo validation. Snapshot sao 18853; repo_id 14579099; README SHA256 a8e38d3c57002a0a31164d078c4f1750cca7a0ca87e30a4676b158156dc19c87.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/plotly/plotly.py",
+          "repo_id": "14579099",
+          "source_path": "",
+          "source_revision": "README-SHA256:a8e38d3c57002a0a31164d078c4f1750cca7a0ca87e30a4676b158156dc19c87",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần Python; Plotly Express còn cần thư viện dataframe được hỗ trợ, còn xuất ảnh tĩnh có tài liệu riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/plotly/plotly.py/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "File HTML chia sẻ có thể chứa dữ liệu biểu đồ; cần xem dữ liệu đi kèm, không chỉ nội dung nhìn thấy trên ảnh.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/plotly/plotly.py/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "plotly/plotly.py",
+        "stars": 18853,
+        "observedAt": "2026-10-25T03:41:22.573Z",
+        "readmeUrl": "https://raw.githubusercontent.com/plotly/plotly.py/main/README.md",
+        "readmeSha256": "a8e38d3c57002a0a31164d078c4f1750cca7a0ca87e30a4676b158156dc19c87",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9274f7c218b0375986843ce70e4904aec3a94605c3455de76f3b22d4e0263290"
+    },
+    {
+      "key": 88,
+      "batch": 9,
+      "slug": "streamlit",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Streamlit: tìm hiểu cách trình bày một công cụ dữ liệu bằng giao diện web",
+        "excerpt": "Tìm hiểu cách trình bày một công cụ dữ liệu bằng giao diện web. Ứng dụng cần được chạy và cấp quyền phù hợp; repo công khai không tự cấp hosting.",
+        "content": "<p>Tìm hiểu cách trình bày một công cụ dữ liệu bằng giao diện web. Streamlit biến script Python thành ứng dụng web tương tác và có nền tảng cloud để triển khai. README tách phần cài/chạy app khỏi chia sẻ; dựng giao diện trên máy chưa đồng nghĩa người khác có thể dùng an toàn qua mạng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bộ lọc bảng dữ liệu giả và cách đọc kết quả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần Python và môi trường dự án; dùng Community Cloud có điều kiện tài khoản/triển khai riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một bảng hư cấu và một bộ lọc có kết quả mong đợi rõ ràng.</li><li>Đọc What is Streamlit và Quickstart để hiểu script được trình bày thành app thế nào.</li><li>Giữ dữ liệu/secret tách khỏi mã, kiểm tra phạm vi truy cập trước cân nhắc chia sẻ app.</li></ol><h2>Giới hạn cần biết</h2><p>Ứng dụng cần được chạy và cấp quyền phù hợp; repo công khai không tự cấp hosting. Không commit key vào repo hoặc triển khai dataset riêng như một ví dụ; giao diện chạy được không thay kiểm tra dữ liệu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>streamlit</strong> có <strong>46.102 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/streamlit/streamlit/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/streamlit/streamlit\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 88. Chưa cài/chạy thử; không tạo validation. Snapshot sao 46102; repo_id 204086862; README SHA256 45b271be0490145de6b0c245e2dc0ee5518b38f07eab5bc2419dd2c3923cd87e.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/streamlit/streamlit",
+          "repo_id": "204086862",
+          "source_path": "",
+          "source_revision": "README-SHA256:45b271be0490145de6b0c245e2dc0ee5518b38f07eab5bc2419dd2c3923cd87e",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần Python và môi trường dự án; dùng Community Cloud có điều kiện tài khoản/triển khai riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/streamlit/streamlit/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không commit key vào repo hoặc triển khai dataset riêng như một ví dụ; giao diện chạy được không thay kiểm tra dữ liệu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/streamlit/streamlit/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "streamlit/streamlit",
+        "stars": 46102,
+        "observedAt": "2026-10-25T03:41:22.614Z",
+        "readmeUrl": "https://raw.githubusercontent.com/streamlit/streamlit/develop/README.md",
+        "readmeSha256": "45b271be0490145de6b0c245e2dc0ee5518b38f07eab5bc2419dd2c3923cd87e",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9b33fccd9991544cf171ca168df9891989472cfcf1f0805cf46ce912059d2df7"
+    },
+    {
+      "key": 89,
+      "batch": 9,
+      "slug": "gradio",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Gradio: khám phá giao diện demo cho một hàm hoặc mô hình",
+        "excerpt": "Khám phá giao diện demo cho một hàm hoặc mô hình. Link chia sẻ có thể công khai; không mở dữ liệu hoặc model riêng khi chưa hiểu.",
+        "content": "<p>Khám phá giao diện demo cho một hàm hoặc mô hình. Gradio tạo giao diện cho model, API hoặc hàm Python và có tính năng chia sẻ demo. README nêu phiên bản Python tối thiểu và các đường building/sharing; việc làm demo local khác với mở một link cho người khác truy cập.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một hàm xử lý văn bản mẫu với ô nhập và phần kết quả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README yêu cầu Python 3.10 trở lên, khuyến nghị môi trường ảo; model/API phía sau có điều kiện riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn hàm xử lý chuỗi giả với đầu vào/đầu ra có thể kiểm tra bằng mắt.</li><li>Đọc Building Your First Demo để xác định component và hàm cần gọi.</li><li>Trước Sharing Your Demo, xác định ai có thể truy cập và dữ liệu nào có thể bị gửi vào/hiển thị.</li></ol><h2>Giới hạn cần biết</h2><p>Link chia sẻ có thể công khai; không mở dữ liệu hoặc model riêng khi chưa hiểu. Không mở link chia sẻ cho hàm có quyền đọc file riêng hoặc gọi dịch vụ trả phí khi chưa có kiểm soát.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>gradio-app</strong> có <strong>43.873 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/gradio-app/gradio/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/gradio-app/gradio\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 89. Chưa cài/chạy thử; không tạo validation. Snapshot sao 43873; repo_id 162405963; README SHA256 1c10a6a19ae8736e3ce0a1d7e3e64c3208240c3c27a1d50ec90a2cc00112fa38.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/gradio-app/gradio",
+          "repo_id": "162405963",
+          "source_path": "",
+          "source_revision": "README-SHA256:1c10a6a19ae8736e3ce0a1d7e3e64c3208240c3c27a1d50ec90a2cc00112fa38",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README yêu cầu Python 3.10 trở lên, khuyến nghị môi trường ảo; model/API phía sau có điều kiện riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/gradio-app/gradio/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không mở link chia sẻ cho hàm có quyền đọc file riêng hoặc gọi dịch vụ trả phí khi chưa có kiểm soát.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/gradio-app/gradio/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "gradio-app/gradio",
+        "stars": 43873,
+        "observedAt": "2026-10-25T03:41:22.927Z",
+        "readmeUrl": "https://raw.githubusercontent.com/gradio-app/gradio/main/README.md",
+        "readmeSha256": "1c10a6a19ae8736e3ce0a1d7e3e64c3208240c3c27a1d50ec90a2cc00112fa38",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ebe81643d13d7783b448e61ad329b92b4d6c9c44dc6675c66d40d6d4856f86dd"
+    },
+    {
+      "key": 90,
+      "batch": 9,
+      "slug": "reflex",
+      "category": "Dữ liệu và giao diện ứng dụng",
+      "need": "Trình bày dữ liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Reflex: tìm hiểu cách xây giao diện ứng dụng bằng Python",
+        "excerpt": "Tìm hiểu cách xây giao diện ứng dụng bằng Python. Cần môi trường lập trình; không suy giao diện mẫu đã là sản phẩm bảo mật hoàn chỉnh.",
+        "content": "<p>Tìm hiểu cách xây giao diện ứng dụng bằng Python. Reflex là thư viện xây ứng dụng web bằng Python cho cả phần giao diện và xử lý. README cũng nêu AI Builder, agent toolkit và hosting như các đường sản phẩm; thư viện, công cụ AI và dịch vụ triển khai có điều kiện riêng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một trang danh sách hư cấu với thao tác lọc đơn giản. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần môi trường Python, khuyến nghị virtual environment; đọc Installation và Create your first app trước chọn cách vận hành.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Phác trang danh sách giả và một thao tác lọc, ghi trạng thái trước/sau.</li><li>Đọc Introduction và Example App để hiểu cấu trúc mã, chưa dùng AI Builder như yêu cầu bắt buộc.</li><li>Kiểm tra cách lưu dữ liệu và cấu hình môi trường trước cân nhắc deploy hoặc tích hợp agent.</li></ol><h2>Giới hạn cần biết</h2><p>Cần môi trường lập trình; không suy giao diện mẫu đã là sản phẩm bảo mật hoàn chỉnh. Dùng một ngôn ngữ cho frontend/backend không làm mất yêu cầu kiểm tra xác thực, dữ liệu và lỗi.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>reflex-dev</strong> có <strong>28.977 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/reflex-dev/reflex/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/reflex-dev/reflex\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 9, key 90. Chưa cài/chạy thử; không tạo validation. Snapshot sao 28977; repo_id 557075997; README SHA256 cc61e948b2f482cb7166906eb5374da20d5dbcde607339ec56b81247da39f8d5.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/reflex-dev/reflex",
+          "repo_id": "557075997",
+          "source_path": "",
+          "source_revision": "README-SHA256:cc61e948b2f482cb7166906eb5374da20d5dbcde607339ec56b81247da39f8d5",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần môi trường Python, khuyến nghị virtual environment; đọc Installation và Create your first app trước chọn cách vận hành.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/reflex-dev/reflex/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Dùng một ngôn ngữ cho frontend/backend không làm mất yêu cầu kiểm tra xác thực, dữ liệu và lỗi.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/reflex-dev/reflex/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "reflex-dev/reflex",
+        "stars": 28977,
+        "observedAt": "2026-10-25T03:41:23.229Z",
+        "readmeUrl": "https://raw.githubusercontent.com/reflex-dev/reflex/main/README.md",
+        "readmeSha256": "cc61e948b2f482cb7166906eb5374da20d5dbcde607339ec56b81247da39f8d5",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "94051b2ee354c705993d00d599960d4b5ad956254aeec57e25ecda2f5460773b"
+    }
+  ]
+}

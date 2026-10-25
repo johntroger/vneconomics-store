@@ -1,0 +1,21 @@
+{
+  "key": 50,
+  "repo": "aaif-goose/goose",
+  "repoId": "846698999",
+  "url": "https://github.com/aaif-goose/goose",
+  "stars": 55658,
+  "archived": false,
+  "disabled": false,
+  "branch": "main",
+  "pushedAt": "2026-10-25T01:02:55Z",
+  "license": "Apache-2.0",
+  "description": "an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and test with any LLM",
+  "homepage": "https://goose-docs.ai/",
+  "observedAt": "2026-10-25T03:25:24.921Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/aaif-goose/goose/main/README.md",
+    "path": "README.md",
+    "text": "<div align=\"center\">\n\n# goose\n\n_your native open source AI agent — desktop app, CLI, and API — for code, workflows, and everything in between_\n\n<p align=\"center\">\n  <a href=\"https://opensource.org/licenses/Apache-2.0\"\n    ><img src=\"https://img.shields.io/badge/License-Apache_2.0-blue.svg\"></a>\n  <a href=\"https://discord.gg/n8R5VaWDAn\"\n    ><img src=\"https://img.shields.io/discord/1287729918100246654?logo=discord&logoColor=white&label=Join+Us&color=blueviolet\" alt=\"Discord\"></a>\n  <a href=\"https://github.com/aaif-goose/goose/actions/workflows/ci.yml\"\n     ><img src=\"https://img.shields.io/github/actions/workflow/status/aaif-goose/goose/ci.yml?branch=main\" alt=\"CI\"></a>\n  <a href=\"https://insights.linuxfoundation.org/project/goose\"><img src=\"https://insights.linuxfoundation.org/api/badge/health-score?project=goose\"></a>\n  <a href=\"https://repology.org/project/goose-cli/versions\"><img src=\"https://repology.org/badge/tiny-repos/goose-cli.svg\" alt=\"Packaging status\"></a>\n</p>\n\n<a href=\"https://trendshift.io/repositories/25298?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-25298\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://trendshift.io/api/badge/repositories/25298\" alt=\"aaif-goose%2Fgoose | Trendshift\" width=\"250\" height=\"55\"/></a>\n\n</div>\n\n\ngoose is a general-purpose AI agent that runs on your machine. Not just for code — use it for research, writing, automation, data analysis, or anything you need to get done.\n\nA native desktop app for macOS, Linux, and Windows. A full CLI for terminal workflows. An API to embed it anywhere. Built in Rust for performance and portability.\n\ngoose works with 15+ providers — Anthropic, OpenAI, Google, Ollama, OpenRouter, Azure, Bedrock, and more. Use API keys or your existing Claude, ChatGPT, or Gemini subscriptions via [ACP](https://goose-docs.ai/docs/guides/acp-providers). Connect to 70+ extensions via the [Model Context Protocol](https://modelcontextprotocol.io/) open standard.\n\ngoose is part of the [Agentic AI Foundation (AAIF)](https://aaif.io/) at the Linux Foundation.\n\n# Get started\n\n**[Download the desktop app](https://goose-docs.ai/docs/getting-started/installation)** for macOS, Linux, and Windows.\n\nOr install the CLI:\n\n```bash\ncurl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash\n```\n\n# Quick links\n- [Quickstart](https://goose-docs.ai/docs/quickstart)\n- [Installation](https://goose-docs.ai/docs/getting-started/installation)\n- [Tutorials](https://goose-docs.ai/docs/category/tutorials)\n- [Documentation](https://goose-docs.ai/docs/category/getting-started)\n- [Governance](https://github.com/aaif-goose/goose/blob/main/GOVERNANCE.md)\n- [Custom Distributions](https://github.com/aaif-goose/goose/blob/main/CUSTOM_DISTROS.md) — build your own goose distro with preconfigured providers, extensions, and branding\n\n## Need help?\n- [Diagnostics & Reporting](https://goose-docs.ai/docs/troubleshooting/diagnostics-and-reporting)\n- [Known Issues](https://goose-docs.ai/docs/troubleshooting/known-issues)\n\n# a little goose humor 🪿\n\n> Why did the developer choose goose as their AI agent?\n> \n> Because it always helps them \"migrate\" their code to production! 🚀\n\n# goose around with us\n- [Discord](https://discord.gg/n8R5VaWDAn)\n- [YouTube](https://www.youtube.com/@goose-oss)\n- [LinkedIn](https://www.linkedin.com/company/goose-oss)\n- [Twitter/X](https://x.com/goose_oss)\n",
+    "sha256": "0f1df85a0c457caf1f3c4e1c0370f2da3887fffa588d207862cfc298c1d39755"
+  }
+}

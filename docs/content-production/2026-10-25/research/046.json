@@ -1,0 +1,21 @@
+{
+  "key": 46,
+  "repo": "continuedev/continue",
+  "repoId": "644686905",
+  "url": "https://github.com/continuedev/continue",
+  "stars": 36314,
+  "archived": false,
+  "disabled": false,
+  "branch": "main",
+  "pushedAt": "2026-10-24T15:39:26Z",
+  "license": "Apache-2.0",
+  "description": "open-source coding agent",
+  "homepage": "https://continue.dev",
+  "observedAt": "2026-10-25T03:25:23.626Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/continuedev/continue/main/README.md",
+    "path": "README.md",
+    "text": "<h1 align=\"center\">Continue</h1>\n\n<p align=\"center\">Pioneering open-source coding agent</p>\n\n<div align=\"center\">\n\n<a href=\"https://opensource.org/licenses/Apache-2.0\"><img src=\"https://img.shields.io/badge/License-Apache_2.0-blue.svg\" /></a>\n<a href=\"https://docs.continue.dev\"><img src=\"https://img.shields.io/badge/Docs-docs.continue.dev-blue\" /></a>\n<a href=\"https://github.com/continuedev/continue/releases\"><img src=\"https://img.shields.io/badge/Changelog-GitHub_Releases-blue\" /></a>\n\n</div>\n\n<p align=\"center\">\n  <img src=\"media/github-readme.png\" alt=\"Banner\" />\n</p>\n\n## What is Continue?\n\n> _Note: The `continuedev/continue` repository is no longer actively maintained and is read-only for all users._\n\nContinue is a coding agent available as a [CLI](#cli), [VS Code extension](#vs-code), and [JetBrains plugin](#jetbrains).\n\n## Documentation\n\nTo learn how to configure Continue, how it works, and how to customize it, check out the [Continue Docs](https://docs.continue.dev).\n\n## Final 2.0.0 Release\n\nWe polished Continue and did a final 2.0.0 release of the VS Code extension, CLI, and JetBrains plugin.\n\nThis included removing anonymous telemetry, pulling out authentication, squashing bugs, and more.\n\n### VS Code\n\n[![VS Code Marketplace](https://img.shields.io/badge/VS_Code_Marketplace-007ACC?logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=Continue.continue) [![OpenVSX Registry](https://img.shields.io/badge/OpenVSX_Registry-C160EF?logo=eclipseide&logoColor=white)](https://open-vsx.org/extension/Continue/continue) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/vscode)\n\n### CLI\n\n[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/@continuedev/cli) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/cli)\n\n### JetBrains\n\n> _Note: We recommend using the Continue CLI instead of the JetBrains plugin._\n\n[![GitHub Releases](https://img.shields.io/badge/GitHub_Releases-181717?logo=github&logoColor=white)](https://github.com/continuedev/continue/releases) [![View source](https://img.shields.io/badge/View_source-181717?logo=github&logoColor=white)](extensions/intellij)\n\n## Contributors\n\nThank you to the entire Continue community for helping us create a pioneering coding agent.\n\nWhat we built together pushed the boundaries of what AI developer tooling could be.\n\nWe hope this codebase continues to serve as a foundation for others.\n\n## Code friends\n\n<a href=\"https://github.com/continuedev/continue/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=continuedev/continue&max=500\" />\n</a>\n\n## License\n\nApache 2.0 © 2023-2026 Continue Dev, Inc.\n",
+    "sha256": "054b77f9573011fa4ebf89d960300aabd1ebecc37d8f6f261341ba7d27d885e7"
+  }
+}
