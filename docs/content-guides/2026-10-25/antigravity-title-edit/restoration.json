@@ -1,0 +1,44 @@
+{
+  "status": "PASS_REAL_OUTPUT_RESTORATION",
+  "observedAt": "2026-10-25T12:21:03.329Z",
+  "checks": [
+    "edited browser gate passed",
+    "ordinary file inside exact trial folder index.html",
+    "ordinary file inside exact trial folder style.css",
+    "ordinary file inside exact trial folder checkpoint-v1/index.html",
+    "ordinary file inside exact trial folder checkpoint-v1/style.css",
+    "original HTML checkpoint retained",
+    "fixed CSS checkpoint retained",
+    "only expected title changed byte for byte",
+    "CSS unchanged during title edit",
+    "browser-tested bytes still current",
+    "edited original preserved as evidence before restore",
+    "exact lesson restoration command selected",
+    "exact lesson restore block ran on Windows PowerShell",
+    "both current files restored to exact checkpoint bytes",
+    "checkpoint unchanged after restoration"
+  ],
+  "editedHashes": {
+    "html": "d078bee4644e11ddfa7681c2f0844b0348cf3b215888aefba6b401e84468fa0e",
+    "css": "79afec6c9077ca953782462a78fc22f0a8c8c73c6e9e2b414f74fe21179d6c27"
+  },
+  "restoredHashes": {
+    "html": "8710f16f520a22d3daf7aebacb8c25042dc13588359b8c42d24f36f23c7709a6",
+    "css": "79afec6c9077ca953782462a78fc22f0a8c8c73c6e9e2b414f74fe21179d6c27"
+  },
+  "ownerPerformed": [
+    "Antigravity initial generation",
+    "Antigravity anchor fix",
+    "Antigravity title edit"
+  ],
+  "assistantPerformed": [
+    "Readback and browser checks",
+    "Checkpoint creation",
+    "Exact PowerShell lesson restoration"
+  ],
+  "limits": [
+    "Model and review mode not recorded",
+    "No fresh installation/sign-in tested",
+    "Production and Claude Code untouched"
+  ]
+}

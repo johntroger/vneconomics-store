@@ -108,6 +108,7 @@ require_once __DIR__.'/detail.php';
 require_once __DIR__.'/discovery.php';
 
 require_once __DIR__.'/lesson.php';
+require_once __DIR__.'/guides.php';
 
 require_once __DIR__.'/support.php';
 

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_REAL_OUTPUT_RESTORATION",
+  "tool": "claude",
+  "observedAt": "2026-10-25T12:33:54.890Z",
+  "checks": [
+    "edited browser gate passed",
+    "ordinary file inside exact trial folder index.html",
+    "ordinary file inside exact trial folder style.css",
+    "ordinary file inside exact trial folder checkpoint-v1/index.html",
+    "ordinary file inside exact trial folder checkpoint-v1/style.css",
+    "original HTML checkpoint retained",
+    "CSS checkpoint retained",
+    "only expected title changed byte for byte",
+    "CSS unchanged during title edit",
+    "browser-tested bytes still current",
+    "edited original preserved as evidence before restore",
+    "exact lesson restoration command selected",
+    "exact lesson restore block ran on Windows PowerShell",
+    "both current files restored to exact checkpoint bytes",
+    "checkpoint unchanged after restoration"
+  ],
+  "editedHashes": {
+    "html": "ee02071159c98a30400a0d560ceced11ac6323171aea794db9048780295d6df1",
+    "css": "359e49a176a2105c6a0d93fdb39934841e4fcd4e27e9a45ee56f8fa1cb265b0c"
+  },
+  "restoredHashes": {
+    "html": "9a1b6fa9f47d052ba7ee39fb135c89ad66863a04bccc7db0faece0c4232b62ee",
+    "css": "359e49a176a2105c6a0d93fdb39934841e4fcd4e27e9a45ee56f8fa1cb265b0c"
+  },
+  "ownerPerformed": [
+    "Claude Code title edit reported by owner; initial output found in assigned folder"
+  ],
+  "assistantPerformed": [
+    "Readback and browser checks",
+    "Checkpoint creation",
+    "Exact PowerShell lesson restoration"
+  ],
+  "limits": [
+    "Model and review mode not recorded",
+    "No fresh installation/sign-in tested",
+    "Production and other tool folder untouched"
+  ]
+}

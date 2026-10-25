@@ -4,3 +4,22 @@
 *.md text eol=lf
 /scripts/content-100-import.php text eol=lf
 /docs/content-production/2026-10-25/batch-*/articles/*.html text eol=lf
+# Preserve the exact bytes pinned by G03 trial and release evidence.
+[attr]g03 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/themes/vibelab/guides.php g03
+/themes/vibelab/archive-vne_guide.php g03
+/themes/vibelab/front-page.php g03
+/themes/vibelab/header.php g03
+/themes/vibelab/functions.php g03
+/themes/vibelab/style.css g03
+/docs/content-guides/** g03
+/docs/acceptance/G03/** g03
+/examples/moc-studio-claude/** g03
+/examples/moc-studio-antigravity/** g03
+# Original AI outputs include whitespace-only lines; retain them as trial inputs.
+[attr]g03-original -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/content-guides/**/original-source/** g03-original
+/docs/content-guides/**/edited-source/** g03-original
+/examples/moc-studio-claude/** g03-original
+/examples/moc-studio-antigravity/** g03-original
+/scripts/fixtures/g03-guides-seed.php text eol=lf

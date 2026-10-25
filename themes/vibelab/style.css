@@ -1,7 +1,7 @@
 /*
 Theme Name: VibeLab Việt
 Description: Theme cửa hàng tài nguyên tiếng Việt. Dữ liệu do VNE Library Core quản lý.
-Version: 0.7.1
+Version: 0.7.2
 Requires at least: 6.6
 Requires PHP: 8.3
 Text Domain: vibelab
@@ -35,3 +35,4 @@ License: GPL-2.0-or-later
 body:has(.filter-dialog[open]){overflow:hidden}
 
 .report-link{margin-top:32px;font-size:14px;padding:18px;border:1px solid var(--border);border-radius:8px;background:white}
+.beginner-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.beginner-card{display:flex;flex-direction:column;align-items:flex-start;padding:26px;background:white;border:1px solid var(--border);border-radius:10px;overflow-wrap:anywhere}.beginner-card h3{font-size:25px;margin:10px 0}.beginner-card p{font-size:15px;color:var(--muted)}.beginner-card .beginner-state{font-size:13px;margin-top:auto;padding-top:12px}.beginner-card .button{margin-top:12px;max-width:100%}.guide-hub{padding-block:28px 56px}.guide-hub-heading{max-width:76ch;margin-bottom:36px}.guide-hub h1{font-size:clamp(30px,4vw,44px);line-height:1.2}.guide-hub-heading p{color:var(--muted)}.guide-support{margin-top:42px;max-width:76ch}.guide-support h3{font-size:22px;margin:0 0 8px}.guide-support .simple-list p{margin:0}.beginner-home{scroll-margin-top:24px}@media(max-width:760px){.beginner-grid{grid-template-columns:1fr}.beginner-card{padding:22px}.guide-hub{padding-block:24px 36px}}

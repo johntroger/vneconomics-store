@@ -146,6 +146,10 @@ B04; tài liệu hiện tại không tạo automation.
 
 ## 7. Mốc hiện tại và hành động chờ duyệt
 
+- G03 tích hợp local ngày 25/10/2026: nhận “đồng ý” cho bước WordPress local. Theme ứng viên 0.7.2 có ba bài chính và tài liệu bổ trợ riêng; 205 kiểm tra native WordPress/PHP/SQLite/Edge đạt, cleanup đạt, DB/config thật và nguồn Codex giữ nguyên. Fixture dùng validation QA rõ nhãn; chưa nhập chứng nhận hoặc bài lên hosting. [Nghiệm thu và giới hạn](acceptance/G03-local-wordpress.vi.md). Chờ duyệt bước chuẩn bị gói/phương án staging; không tự deploy từ quyền local.
+
+- G03 ngày 25/10/2026: hoàn tất hai bản thảo Claude Code/Antigravity và preview bộ ba với Codex đã có; thử chức năng có chủ hỗ trợ, giữ bản sửa/bản mốc, khôi phục và hậu kiểm đạt. Runner local 43 điểm đạt sau cập nhật nội dung; chưa tích hợp/phát hành WordPress. [Nghiệm thu và phạm vi](acceptance/G03-beginner-guide-drafts.vi.md). Chờ duyệt bước local tích hợp ba bài chính/tài liệu bổ trợ trước khi code bước đó; không tự dùng quyền C100 cho phát hành mới.
+
 - Đợt nội dung C100 ngày 25/10/2026 đã hoàn tất theo quyền riêng “Xuất bản production theo từng lô đạt kiểm tra”: 100 bài mới / 10 lô, đủ journal verified; 2.380 kiểm tra HTTP theo lô, 205 kiểm tra cuối và 47 kiểm tra WordPress riêng đạt. 28 mục cũ cùng metadata giữ nguyên; không đổi theme/plugin hoặc bật tự đồng bộ sao. [Nghiệm thu và giới hạn](acceptance/C100-content-production.vi.md), [mục lục 100 bài](content-production/2026-10-25/README.vi.md). Kết thúc vòng lặp đã duyệt, không tự mở bước ứng dụng/automation mới.
 
 - S00: đã có [brief](S00-implementation-brief.vi.md) và [báo cáo](acceptance/S00-brief-and-conditions.vi.md); chủ dự án đã cho phép tiếp S01.

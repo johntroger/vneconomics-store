@@ -1,0 +1,547 @@
+/* ==========================================================================
+   Mộc Studio - Landing Page Stylesheet (HTML & CSS Thuần)
+   Phong cách: Mộc mạc, tối giản, màu sắc trung tính ấm áp
+   ========================================================================== */
+
+/* 1. Thiết lập biến màu sắc và font chữ hệ thống */
+:root {
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Bảng màu trung tính ấm (Earth & Wood tones) */
+  --color-bg-page: #fbf9f5;
+  --color-bg-card: #ffffff;
+  --color-bg-alt: #f3efe6;
+  --color-bg-muted: #e7dfd1;
+
+  --color-text-main: #2b2622;
+  --color-text-muted: #6e655f;
+  --color-text-light: #8e847c;
+
+  --color-primary: #8c5332;       /* Nâu đất nung ấm */
+  --color-primary-hover: #734024;
+  --color-accent: #b87b52;
+  --color-border: #e3dbce;
+  --color-border-subtle: #eee7db;
+
+  --color-notice-bg: #fff8eb;
+  --color-notice-border: #f0c38f;
+  --color-notice-text: #7a4613;
+
+  --container-max-width: 1040px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 2px 6px rgba(43, 38, 34, 0.05);
+  --shadow-md: 0 6px 18px rgba(43, 38, 34, 0.07);
+
+  /* Khoảng bù cuộn khi bấm liên kết neo để tránh bị sticky header che */
+  --scroll-offset: 76px;
+}
+
+/* 2. Reset căn bản */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Bố cục khung chứa chung */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 4. Header & Điều hướng */
+.site-header {
+  background-color: rgba(251, 249, 245, 0.95);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.badge-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-muted);
+  border-radius: 999px;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover {
+  color: var(--color-primary);
+}
+
+.site-nav a.nav-cta {
+  padding: 6px 14px;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.site-nav a.nav-cta:hover {
+  border-color: var(--color-primary);
+}
+
+/* 5. Hero Section */
+.hero-section {
+  padding: 72px 0 64px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  background: radial-gradient(circle at top center, #ffffff 0%, var(--color-bg-page) 75%);
+}
+
+.hero-container {
+  max-width: 780px;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: 1.12rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* 6. Nút bấm (Buttons) */
+.btn {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 10px rgba(140, 83, 50, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* 7. Định dạng Section chung */
+.section {
+  padding: 68px 0;
+}
+
+/* Khoảng bù cuộn khi bấm liên kết neo để tránh bị sticky header che */
+.section[id],
+section[id] {
+  scroll-margin-top: var(--scroll-offset);
+}
+
+.section-alt {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px auto;
+}
+
+.section-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-text-main);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* 8. Lưới chia cột & Thẻ nội dung (Cards) */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Lợi ích */
+.benefit-card .card-icon {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  background-color: var(--color-bg-alt);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border: 1px solid var(--color-border);
+}
+
+.benefit-card .card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+}
+
+.benefit-card .card-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Card Dịch vụ */
+.service-card {
+  border-top: 4px solid var(--color-primary);
+}
+
+.service-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+
+.service-card .card-title {
+  font-size: 1.28rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--color-text-main);
+}
+
+.service-card .card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+
+.feature-list {
+  list-style: none;
+  border-top: 1px dashed var(--color-border);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.feature-list li {
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.feature-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* 9. Quy trình 3 bước (Process List) */
+.process-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.process-step {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.step-number {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.step-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 10px;
+}
+
+.step-desc {
+  font-size: 0.93rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* 10. Vùng liên hệ minh họa */
+.contact-box {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.disclaimer-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.contact-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 18px;
+}
+
+.alert-box {
+  background-color: var(--color-notice-bg);
+  border: 1px solid var(--color-notice-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.alert-text {
+  font-size: 0.95rem;
+  color: var(--color-notice-text);
+  line-height: 1.6;
+}
+
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-item {
+  background-color: var(--color-bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+  text-align: center;
+}
+
+.contact-item-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.contact-item-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  line-height: 1.5;
+}
+
+.contact-note {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+/* 11. Footer */
+.site-footer {
+  background-color: var(--color-text-main);
+  color: #d1c8c0;
+  padding: 32px 0;
+  font-size: 0.88rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-text {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.footer-subtext {
+  font-size: 0.8rem;
+  color: #9f968f;
+}
+
+/* 12. Tương thích màn hình thiết bị di động (Responsive) */
+@media (max-width: 860px) {
+  :root {
+    --scroll-offset: 125px;
+  }
+
+  .grid-3,
+  .process-list,
+  .contact-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+  }
+
+  .header-container {
+    flex-direction: column;
+    height: auto;
+    padding: 14px 20px;
+    gap: 10px;
+  }
+
+  .contact-box {
+    padding: 24px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --scroll-offset: 150px;
+  }
+}

@@ -1,7 +1,7 @@
 // Deliberately enumerate deployable files. New files require review of this list.
 export const policy = Object.freeze({
   theme: {source:'themes/vibelab', slug:'vibelab', header:'style.css', files:[
-    'archive-vne_resource.php','catalog-template.php','catalog.php','detail.php',
+    'archive-vne_resource.php','archive-vne_guide.php','guides.php','catalog-template.php','catalog.php','detail.php',
     'discovery-template.php','discovery.php','footer.php','front-page.php','functions.php',
     'header.php','index.php','lesson-template.php','lesson.php','seo.php',
     'single-vne_resource.php','style.css','support-template.php','support.php',

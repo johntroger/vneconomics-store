@@ -1,0 +1,58 @@
+{
+  "status": "FAIL",
+  "error": "AssertionError [ERR_ASSERTION]: hub exactly three main choices 1280\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-g03-wordpress.mjs:17:114)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-g03-wordpress.mjs:60:118",
+  "checks": [
+    "PHP syntax archive-vne_guide.php",
+    "PHP syntax archive-vne_resource.php",
+    "PHP syntax catalog-template.php",
+    "PHP syntax catalog.php",
+    "PHP syntax detail.php",
+    "PHP syntax discovery-template.php",
+    "PHP syntax discovery.php",
+    "PHP syntax footer.php",
+    "PHP syntax front-page.php",
+    "PHP syntax functions.php",
+    "PHP syntax guides.php",
+    "PHP syntax header.php",
+    "PHP syntax index.php",
+    "PHP syntax lesson-template.php",
+    "PHP syntax lesson.php",
+    "PHP syntax seo.php",
+    "PHP syntax single-vne_resource.php",
+    "PHP syntax support-template.php",
+    "PHP syntax support.php",
+    "PHP syntax taxonomy-vne_category.php",
+    "PHP syntax taxonomy-vne_need.php",
+    "PHP syntax taxonomy-vne_tool.php",
+    "candidate theme0.7.2 plugin0.4.2",
+    "stable new lesson slugs",
+    "all11 original library rows and metadata unchanged after inserting guides",
+    "healthy /",
+    "native WordPress HTTP ready",
+    "healthy http://127.0.0.1:19423/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+    "unvalidated guide hides copy",
+    "unvalidated prompt bytes absent",
+    "healthy http://127.0.0.1:19423/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+    "unvalidated guide hides copy",
+    "unvalidated prompt bytes absent",
+    "QA-only validation enables controls 17",
+    "QA-only validation enables controls 18",
+    "browser HTTP200 /huong-dan/"
+  ],
+  "visits": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "status": 200
+    },
+    {
+      "path": "/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "status": 200
+    }
+  ],
+  "logs": "[Sun Oct 25 20:01:35 2026] PHP 8.3.36 Development Server (http://127.0.0.1:19423) started\n[Sun Oct 25 20:01:35 2026] 127.0.0.1:59837 Accepted\n[Sun Oct 25 20:01:35 2026] 127.0.0.1:59837 Closing\n[Sun Oct 25 20:01:35 2026] 127.0.0.1:52104 Accepted\n[Sun Oct 25 20:01:35 2026] 127.0.0.1:52104 Closing\n[Sun Oct 25 20:01:35 2026] 127.0.0.1:52105 Accepted\n[Sun Oct 25 20:01:36 2026] 127.0.0.1:52105 Closing\n[Sun Oct 25 20:01:38 2026] 127.0.0.1:58456 Accepted\n[Sun Oct 25 20:01:39 2026] 127.0.0.1:58456 Closing\n[Sun Oct 25 20:01:39 2026] 127.0.0.1:50234 Accepted\n[Sun Oct 25 20:01:39 2026] 127.0.0.1:50234 [200]: GET /wp-content/themes/vibelab/style.css?ver=0.7.2\n[Sun Oct 25 20:01:39 2026] 127.0.0.1:50234 Closing\n",
+  "errors": []
+}
