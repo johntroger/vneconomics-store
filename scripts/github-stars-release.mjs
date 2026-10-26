@@ -9,7 +9,7 @@ export function prepareStarsRelease(ref){
  const sourceSha=resolveRef(ref),files=[],components={},previous={};
  for(const [label,sha,versions,target]of [['current',sourceSha,starsProfile,components],['previous',baseline,{theme:'0.7.2',plugin:'0.4.2'},previous]]){
   for(const kind of ['theme','plugin']){
-   const members=sourceFiles(sha,kind),header=members.find(f=>f.name.endsWith(kind==='theme'?'/style.css':'/vne-library-core.php')).data.toString();assert.match(header,new RegExp('Version:\\s*'+versions[kind].replaceAll('.','\\.')+'\\s*[\\r\\n]'));
+   const members=sourceFiles(sha,kind),header=members.find(f=>f.name===(kind==='theme'?'vibelab/style.css':'vne-library-core/vne-library-core.php')).data.toString();assert.match(header,new RegExp('Version:\\s*'+versions[kind].replaceAll('.','\\.')+'\\s*[\\r\\n]'));
    const archive=(label==='current'?'':'previous-')+kind+'.zip',data=makeZip(members);files.push({name:archive,data});target[kind]={version:versions[kind],archive,sha256:sha256(data),files:members.map(f=>({path:f.name,sha256:sha256(f.data),bytes:f.data.length}))};
   }
  }
