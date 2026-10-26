@@ -1,0 +1,34 @@
+payload	Verify deterministic source-derived payload and rejection gates	﻿2026-10-26T03:59:05.1196156Z ##[group]Run npm run test:pipeline-packages -- $env:SOURCE_SHA
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:05.1196963Z ^[[36;1mnpm run test:pipeline-packages -- $env:SOURCE_SHA^[[0m
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:05.1823422Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:05.1824064Z env:
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:05.1824587Z   SOURCE_SHA: d0334dfc54b160a0cc5873152ea35927f21a10c7
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:05.1826547Z ##[endgroup]
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.3264711Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.3273748Z > vneconomics-store@0.1.0 test:pipeline-packages
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.3274819Z > node scripts/run-clean.mjs script scripts/test-pipeline-packages.mjs d0334dfc54b160a0cc5873152ea35927f21a10c7
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.3275244Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5712124Z node:internal/modules/run_main:123
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5712894Z     triggerUncaughtException(
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5714306Z     ^
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5731997Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5733280Z AssertionError [ERR_ASSERTION]: Git read failed
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5739011Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5739968Z 1 !== 0
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5744568Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5745486Z     at git (file:///D:/a/vneconomics-store/vneconomics-store/scripts/release-lib.mjs:11:9)
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5758785Z     at file:///D:/a/vneconomics-store/vneconomics-store/scripts/test-pipeline-packages.mjs:9:58
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5765734Z     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5766915Z     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5768725Z     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5775026Z   generatedMessage: false,
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5775774Z   code: 'ERR_ASSERTION',
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5776346Z   actual: 1,
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5777299Z   expected: 0,
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5777820Z   operator: 'strictEqual',
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5778380Z   diff: 'simple'
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5778864Z }
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5779286Z 
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5779556Z Node.js v22.23.4
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.5855628Z Temporary test data and run cache cleaned; existing data and deliverables kept.
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T03:59:06.7176433Z ##[error]Process completed with exit code 1.
