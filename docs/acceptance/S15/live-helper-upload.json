@@ -1,0 +1,7 @@
+{
+  "sha256": "8b839ea72eff2fa5add37e29507b9d2e2b2d0d849a32c7d8bac8574cc3dcda07",
+  "path": "/var/www/vhosts/vneconomics.com/s15-live-rehearsal.php",
+  "outsideWebroot": true,
+  "verifiedThrough": "Plesk WP-CLI hash_file",
+  "observedAt": "2026-10-24T04:24:29.560Z"
+}

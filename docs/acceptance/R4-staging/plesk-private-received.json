@@ -1,0 +1,19 @@
+{
+  "payloadSha": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
+  "sourceSha": "ebc6deb69f86364c4064de4c6eac2192f16906c8",
+  "manifestSha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437",
+  "hashMismatches": [],
+  "files": [
+    "content.json",
+    "environments.json",
+    "evidence/antigravity.html",
+    "evidence/claude-code.html",
+    "evidence/codex.html",
+    "manifest.json",
+    "plugin.zip",
+    "receiver.php",
+    "rollback.zip",
+    "theme.zip"
+  ],
+  "permissions": "0700"
+}

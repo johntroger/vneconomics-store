@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 4,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 31,
+      "batch": 4,
+      "slug": "ollama",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Ollama: hiểu cách phục vụ model AI trên máy và chọn model phù hợp",
+        "excerpt": "Hiểu cách phục vụ model AI trên máy và chọn model phù hợp. Không khẳng định máy nào cũng chạy nhanh; model có giấy phép và dung lượng riêng.",
+        "content": "<p>Hiểu cách phục vụ model AI trên máy và chọn model phù hợp. Ollama hiện mô tả lựa chọn model local và cloud, có các đường cài cho macOS, Windows, Linux và Docker. Cần phân biệt phần mềm phục vụ model với bản model cụ thể và với dịch vụ chạy trên hạ tầng ngoài.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đối chiếu cấu hình máy với một model trước khi cân nhắc tải. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Download đúng hệ điều hành và yêu cầu của model định chọn; dung lượng/RAM cần đối chiếu trước tải.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Ghi cấu hình máy và mục tiêu tác vụ, chưa chọn model chỉ từ tên đang được nhắc tới.</li><li>Đọc Download và Get started, phân biệt chạy model trên máy với kết nối cloud.</li><li>Trước thử, xác định file/model nào sẽ tải và cách dừng; chỉ dùng câu hỏi không có dữ liệu riêng.</li></ol><h2>Giới hạn cần biết</h2><p>Không khẳng định máy nào cũng chạy nhanh; model có giấy phép và dung lượng riêng. Một ứng dụng hỗ trợ local vẫn có thể được cấu hình gọi dịch vụ ngoài; phải xem chế độ thực sự đang dùng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ollama</strong> có <strong>184.669 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ollama/ollama/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ollama/ollama\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 31. Chưa cài/chạy thử; không tạo validation. Snapshot sao 184669; repo_id 658928958; README SHA256 9e5a7d406950fdd2742084065ab38a3ea09b5aab5e2f13ef7d64147229ae0d8b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/ollama/ollama",
+          "repo_id": "658928958",
+          "source_path": "",
+          "source_revision": "README-SHA256:9e5a7d406950fdd2742084065ab38a3ea09b5aab5e2f13ef7d64147229ae0d8b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Download đúng hệ điều hành và yêu cầu của model định chọn; dung lượng/RAM cần đối chiếu trước tải.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ollama/ollama/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một ứng dụng hỗ trợ local vẫn có thể được cấu hình gọi dịch vụ ngoài; phải xem chế độ thực sự đang dùng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ollama/ollama/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ollama/ollama",
+        "stars": 184669,
+        "observedAt": "2026-10-25T03:16:42.691Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ollama/ollama/main/README.md",
+        "readmeSha256": "9e5a7d406950fdd2742084065ab38a3ea09b5aab5e2f13ef7d64147229ae0d8b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "150fd9173a3b0cd7872b96aca3832181d399c220878fe44ede5b7f89c88a3148"
+    },
+    {
+      "key": 32,
+      "batch": 4,
+      "slug": "open-webui",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Open WebUI: phân biệt giao diện trò chuyện AI với model chạy phía sau",
+        "excerpt": "Phân biệt giao diện trò chuyện AI với model chạy phía sau. Tự triển khai cần xác thực và quản lý truy cập; không mở public mặc định.",
+        "content": "<p>Phân biệt giao diện trò chuyện AI với model chạy phía sau. Open WebUI là nền tảng giao diện AI tự triển khai, README nêu kết nối Ollama và các API tương thích. Phần giao diện, model và hệ thống người dùng là những lớp riêng; có giao diện chat không nghĩa đã có model sẵn.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Vẽ sơ đồ trình duyệt, giao diện và backend để biết dữ liệu đi đâu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn hướng How to Install, xác định backend model và cấu hình người dùng; bản Docker/Python có yêu cầu môi trường riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ ba khối trình duyệt, Open WebUI và model/API để biết luồng dữ liệu.</li><li>Đọc phần cài theo backend định dùng, không trộn cấu hình local và cloud.</li><li>Kiểm tra quyền nhóm/tài khoản và nơi lưu hội thoại trước chia sẻ instance cho người khác.</li></ol><h2>Giới hạn cần biết</h2><p>Tự triển khai cần xác thực và quản lý truy cập; không mở public mặc định. Các plugin, tools và kết nối mở rộng có thể thêm hành động; không bật hàng loạt khi mới làm quen.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>open-webui</strong> có <strong>156.664 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/open-webui/open-webui/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/open-webui/open-webui\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 32. Chưa cài/chạy thử; không tạo validation. Snapshot sao 156664; repo_id 701547123; README SHA256 da3d46f4d7e6c158e13ed91e5e46250d22d278b972d8d1b028f5e0bb62be612b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/open-webui/open-webui",
+          "repo_id": "701547123",
+          "source_path": "",
+          "source_revision": "README-SHA256:da3d46f4d7e6c158e13ed91e5e46250d22d278b972d8d1b028f5e0bb62be612b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn hướng How to Install, xác định backend model và cấu hình người dùng; bản Docker/Python có yêu cầu môi trường riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/open-webui/open-webui/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Các plugin, tools và kết nối mở rộng có thể thêm hành động; không bật hàng loạt khi mới làm quen.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/open-webui/open-webui/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "open-webui/open-webui",
+        "stars": 156664,
+        "observedAt": "2026-10-25T03:16:43.041Z",
+        "readmeUrl": "https://raw.githubusercontent.com/open-webui/open-webui/main/README.md",
+        "readmeSha256": "da3d46f4d7e6c158e13ed91e5e46250d22d278b972d8d1b028f5e0bb62be612b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "a450e1e4e5214ff13db01d7fc5cd85bf496ef7b62def6bc0e2c3b22153c345da"
+    },
+    {
+      "key": 33,
+      "batch": 4,
+      "slug": "anythingllm",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "AnythingLLM: khám phá workspace AI gắn với tài liệu và model",
+        "excerpt": "Khám phá workspace AI gắn với tài liệu và model. Trả lời có dẫn tài liệu vẫn cần kiểm tra; đọc rõ nơi lưu và nơi xử lý dữ liệu.",
+        "content": "<p>Khám phá workspace AI gắn với tài liệu và model. AnythingLLM có đường desktop, hosted và self-host, ghép tài liệu với model local hoặc cloud trong workspace. README còn có phần Telemetry &amp; Privacy và outbound connections, nên cần đọc cùng tính năng chat với tài liệu.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một bộ tài liệu hư cấu để đặt ba câu hỏi có đáp án đối chiếu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn desktop hoặc self-host từ tài liệu, xác định model/embedding và nơi dữ liệu workspace được lưu.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chỉ dùng bộ nội dung hư cấu có ba câu hỏi và đáp án biết trước.</li><li>Đọc Product Overview, Self-Hosting và Telemetry &amp; Privacy trước chọn cách chạy.</li><li>Khi đánh giá, đối chiếu câu trả lời với đoạn nguồn chứ không chỉ xem ứng dụng có phản hồi.</li></ol><h2>Giới hạn cần biết</h2><p>Trả lời có dẫn tài liệu vẫn cần kiểm tra; đọc rõ nơi lưu và nơi xử lý dữ liệu. Không lặp lại lời hứa riêng tư tuyệt đối từ mô tả quảng bá; kết nối model và cấu hình cụ thể mới quyết định đường dữ liệu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Mintplex-Labs</strong> có <strong>67.521 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Mintplex-Labs/anything-llm/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Mintplex-Labs/anything-llm\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 33. Chưa cài/chạy thử; không tạo validation. Snapshot sao 67521; repo_id 649170660; README SHA256 54fa19d813e8bb7bbed9346771e17ad29a9d5753effa19427bea4c38de6c7a2c.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Mintplex-Labs/anything-llm",
+          "repo_id": "649170660",
+          "source_path": "",
+          "source_revision": "README-SHA256:54fa19d813e8bb7bbed9346771e17ad29a9d5753effa19427bea4c38de6c7a2c",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn desktop hoặc self-host từ tài liệu, xác định model/embedding và nơi dữ liệu workspace được lưu.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không lặp lại lời hứa riêng tư tuyệt đối từ mô tả quảng bá; kết nối model và cấu hình cụ thể mới quyết định đường dữ liệu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Mintplex-Labs/anything-llm/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Mintplex-Labs/anything-llm",
+        "stars": 67521,
+        "observedAt": "2026-10-25T03:16:43.318Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/README.md",
+        "readmeSha256": "54fa19d813e8bb7bbed9346771e17ad29a9d5753effa19427bea4c38de6c7a2c",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "22919e40388db077275f1ea73a0f0903e8a2aed9eb669ed66feb01bca96fb265"
+    },
+    {
+      "key": 34,
+      "batch": 4,
+      "slug": "ragflow",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "RAGFlow: tìm hiểu quy trình hỏi đáp dựa trên tài liệu và trích xuất nội dung",
+        "excerpt": "Tìm hiểu quy trình hỏi đáp dựa trên tài liệu và trích xuất nội dung. Có thể đòi hỏi nhiều tài nguyên; không đặt làm bài cài đầu tiên cho người mới.",
+        "content": "<p>Tìm hiểu quy trình hỏi đáp dựa trên tài liệu và trích xuất nội dung. RAGFlow là nền tảng RAG kết hợp khả năng agent và xử lý tài liệu. README hiện phân biệt dịch vụ cloud, local deployment và các cách tổ chức tri thức; người mới nên hiểu dữ liệu được chia/tìm lại thế nào trước khi cài hệ thống.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một tài liệu mẫu có bảng và đoạn văn để khảo sát đầu vào. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Xem Local Deployment để đối chiếu tài nguyên và phụ thuộc; không mặc định máy văn phòng đủ chạy toàn bộ cấu hình.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn một tài liệu mẫu có đoạn văn và bảng, ghi những câu hỏi cần trả lời.</li><li>Đọc What is RAGFlow và System Architecture để hiểu các thành phần.</li><li>Đối chiếu yêu cầu triển khai và cách quản lý dữ liệu/model rồi mới quyết định thử một hệ thống.</li></ol><h2>Giới hạn cần biết</h2><p>Có thể đòi hỏi nhiều tài nguyên; không đặt làm bài cài đầu tiên cho người mới. Trích dẫn và truy xuất làm rõ nguồn nhưng không bảo đảm câu trả lời chính xác; cần bộ câu hỏi đối chiếu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>infiniflow</strong> có <strong>92.814 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/infiniflow/ragflow/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/infiniflow/ragflow\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 34. Chưa cài/chạy thử; không tạo validation. Snapshot sao 92814; repo_id 730534580; README SHA256 22bcc2881978416c6eac909be53d69869c3001424227440758ee8fc309362f3c.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/infiniflow/ragflow",
+          "repo_id": "730534580",
+          "source_path": "",
+          "source_revision": "README-SHA256:22bcc2881978416c6eac909be53d69869c3001424227440758ee8fc309362f3c",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Xem Local Deployment để đối chiếu tài nguyên và phụ thuộc; không mặc định máy văn phòng đủ chạy toàn bộ cấu hình.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/infiniflow/ragflow/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Trích dẫn và truy xuất làm rõ nguồn nhưng không bảo đảm câu trả lời chính xác; cần bộ câu hỏi đối chiếu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "infiniflow/ragflow",
+        "stars": 92814,
+        "observedAt": "2026-10-25T03:16:43.639Z",
+        "readmeUrl": "https://raw.githubusercontent.com/infiniflow/ragflow/main/README.md",
+        "readmeSha256": "22bcc2881978416c6eac909be53d69869c3001424227440758ee8fc309362f3c",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "fdc03fba8356b54126e259c9167dc598cb6c166d079f4ba6e848d2b6ca2feaab"
+    },
+    {
+      "key": 35,
+      "batch": 4,
+      "slug": "langflow",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Langflow: khám phá cấu trúc luồng ứng dụng AI bằng giao diện",
+        "excerpt": "Khám phá cấu trúc luồng ứng dụng AI bằng giao diện. Thành phần trong luồng có điều kiện khác nhau; kiểm tra model và quyền truy cập.",
+        "content": "<p>Khám phá cấu trúc luồng ứng dụng AI bằng giao diện. Langflow cung cấp giao diện tạo flow AI, có khả năng đưa workflow ra API/MCP theo README. Repo cũng dẫn bản desktop với phụ thuộc đóng gói sẵn; dùng ứng dụng và phát triển bằng Python là các đường khác nhau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ đầu vào, xử lý và đầu ra trước khi gắn API. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Langflow Desktop hoặc hướng Quickstart/Other install options đúng môi trường; model và tích hợp có điều kiện riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ một flow gồm ô nhập, bước xử lý và đầu ra có tiêu chí kiểm tra.</li><li>Đọc Highlight features để biết phần nào chạy model, truy xuất hoặc gọi công cụ.</li><li>Chưa xuất flow ra API/MCP công khai trước khi rõ xác thực, quyền và nội dung đầu vào.</li></ol><h2>Giới hạn cần biết</h2><p>Thành phần trong luồng có điều kiện khác nhau; kiểm tra model và quyền truy cập. Một node có thể gọi dịch vụ hoặc chạy mã; hình thức kéo-thả không làm mất yêu cầu kiểm tra tác động.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>langflow-ai</strong> có <strong>155.993 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/langflow-ai/langflow/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/langflow-ai/langflow\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 35. Chưa cài/chạy thử; không tạo validation. Snapshot sao 155993; repo_id 599320067; README SHA256 0c91b63e58aeac3846fad7d1e6ec7729fc23975fdb0d59def51e97627fdb5e36.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/langflow-ai/langflow",
+          "repo_id": "599320067",
+          "source_path": "",
+          "source_revision": "README-SHA256:0c91b63e58aeac3846fad7d1e6ec7729fc23975fdb0d59def51e97627fdb5e36",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Langflow Desktop hoặc hướng Quickstart/Other install options đúng môi trường; model và tích hợp có điều kiện riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/langflow-ai/langflow/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Một node có thể gọi dịch vụ hoặc chạy mã; hình thức kéo-thả không làm mất yêu cầu kiểm tra tác động.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/langflow-ai/langflow/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "langflow-ai/langflow",
+        "stars": 155993,
+        "observedAt": "2026-10-25T03:16:43.897Z",
+        "readmeUrl": "https://raw.githubusercontent.com/langflow-ai/langflow/main/README.md",
+        "readmeSha256": "0c91b63e58aeac3846fad7d1e6ec7729fc23975fdb0d59def51e97627fdb5e36",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "37b69cfa56f54e92aee0bca151a69087e1e05f52a67167e82aac002d2e58a965"
+    },
+    {
+      "key": 36,
+      "batch": 4,
+      "slug": "jan",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Jan: tìm hiểu ứng dụng AI trên máy và các lựa chọn model",
+        "excerpt": "Tìm hiểu ứng dụng AI trên máy và các lựa chọn model. Phân biệt xử lý local với kết nối dịch vụ ngoài; không suy offline cho mọi chế độ.",
+        "content": "<p>Tìm hiểu ứng dụng AI trên máy và các lựa chọn model. Jan hiện có repo canonical janhq/jan, với bản cài cho nhiều hệ điều hành và kết nối model local/cloud. README tách Installation khỏi Build from Source; người chỉ muốn thử ứng dụng không cần tự xây toàn bộ mã.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Kiểm tra yêu cầu thiết bị rồi đọc cách quản lý model. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản cài chính thức và đọc System Requirements; model local cần RAM/dung lượng, provider ngoài cần quyền tài khoản.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng tên repo hiện hành để mở Installation, tránh hướng dẫn trỏ chủ sở hữu cũ mà chưa đối chiếu.</li><li>Phân biệt lựa chọn Local AI Models và Cloud Integration trong Features.</li><li>Trước chat, xác nhận model nào dùng, nơi xử lý và cách giữ hoặc xóa hội thoại mẫu.</li></ol><h2>Giới hạn cần biết</h2><p>Phân biệt xử lý local với kết nối dịch vụ ngoài; không suy offline cho mọi chế độ. Các tính năng API local/MCP mở thêm khả năng tích hợp; không bật như một yêu cầu bắt buộc khi chỉ muốn đọc thử.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>janhq</strong> có <strong>45.067 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/janhq/jan/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/janhq/jan\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 36. Chưa cài/chạy thử; không tạo validation. Snapshot sao 45067; repo_id 679506386; README SHA256 297a156f1747488b907a98fb9182027ba3c535386b6827195528925abba80998.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/janhq/jan",
+          "repo_id": "679506386",
+          "source_path": "",
+          "source_revision": "README-SHA256:297a156f1747488b907a98fb9182027ba3c535386b6827195528925abba80998",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản cài chính thức và đọc System Requirements; model local cần RAM/dung lượng, provider ngoài cần quyền tài khoản.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/janhq/jan/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Các tính năng API local/MCP mở thêm khả năng tích hợp; không bật như một yêu cầu bắt buộc khi chỉ muốn đọc thử.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/janhq/jan/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "janhq/jan",
+        "stars": 45067,
+        "observedAt": "2026-10-25T03:16:44.207Z",
+        "readmeUrl": "https://raw.githubusercontent.com/janhq/jan/main/README.md",
+        "readmeSha256": "297a156f1747488b907a98fb9182027ba3c535386b6827195528925abba80998",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "f31345cd4e4e4fe82d84b6e3dbe4c67b3081eb95043d426e9cf4b2a715044878"
+    },
+    {
+      "key": 37,
+      "batch": 4,
+      "slug": "gpt4all",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "GPT4All: khám phá hệ sinh thái chạy model phục vụ trò chuyện trên máy",
+        "excerpt": "Khám phá hệ sinh thái chạy model phục vụ trò chuyện trên máy. Chất lượng trả lời, cấu hình và giấy phép model cần xem riêng.",
+        "content": "<p>Khám phá hệ sinh thái chạy model phục vụ trò chuyện trên máy. GPT4All có ứng dụng desktop và gói Python, được README trình bày thành hai đường dùng riêng. Bản desktop hướng tới model trên máy; danh sách nền tảng/cấu hình cho từng bản có khác nhau và cần đọc trước tải.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một câu hỏi mẫu không có dữ liệu riêng để đối chiếu với nguồn. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đối chiếu Download Links và System Requirements theo CPU, hệ điều hành và kiến trúc; model có yêu cầu lưu trữ riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chọn đường ứng dụng desktop nếu mục tiêu là tìm hiểu trò chuyện trên máy, chưa cần gói Python.</li><li>Đọc giới hạn nền tảng của đúng bản tải, đặc biệt khác biệt ARM/x86.</li><li>Chọn dữ liệu câu hỏi mẫu và cách đối chiếu, không coi phản hồi trôi chảy là thông tin đã đúng.</li></ol><h2>Giới hạn cần biết</h2><p>Chất lượng trả lời, cấu hình và giấy phép model cần xem riêng. Không tự suy mô hình nào cũng chạy được với cùng tốc độ hoặc có cùng điều kiện giấy phép.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>nomic-ai</strong> có <strong>77.359 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/nomic-ai/gpt4all/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/nomic-ai/gpt4all\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 37. Chưa cài/chạy thử; không tạo validation. Snapshot sao 77359; repo_id 619959033; README SHA256 7d4c9cbb1d20ffb1becbdef7b50ec47a3e45568fee76d5ff9da490018d685d04.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/nomic-ai/gpt4all",
+          "repo_id": "619959033",
+          "source_path": "",
+          "source_revision": "README-SHA256:7d4c9cbb1d20ffb1becbdef7b50ec47a3e45568fee76d5ff9da490018d685d04",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đối chiếu Download Links và System Requirements theo CPU, hệ điều hành và kiến trúc; model có yêu cầu lưu trữ riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/nomic-ai/gpt4all/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không tự suy mô hình nào cũng chạy được với cùng tốc độ hoặc có cùng điều kiện giấy phép.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/nomic-ai/gpt4all/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "nomic-ai/gpt4all",
+        "stars": 77359,
+        "observedAt": "2026-10-25T03:16:44.596Z",
+        "readmeUrl": "https://raw.githubusercontent.com/nomic-ai/gpt4all/main/README.md",
+        "readmeSha256": "7d4c9cbb1d20ffb1becbdef7b50ec47a3e45568fee76d5ff9da490018d685d04",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "0fb035b08c1f7aea5849b25ba8823e5ac20e06c1cdf601a4db439b6bfa353543"
+    },
+    {
+      "key": 38,
+      "batch": 4,
+      "slug": "cherry-studio",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Cherry Studio: tìm hiểu ứng dụng tổ chức nhiều lựa chọn model và nhà cung cấp",
+        "excerpt": "Tìm hiểu ứng dụng tổ chức nhiều lựa chọn model và nhà cung cấp. Ứng dụng khách không tự cung cấp quota AI miễn phí cho mọi model.",
+        "content": "<p>Tìm hiểu ứng dụng tổ chức nhiều lựa chọn model và nhà cung cấp. Cherry Studio là ứng dụng tổ chức model, hội thoại, agent và kho tài liệu; README có mục provider để cấu hình dịch vụ/API. Việc có nhiều lựa chọn trong một ứng dụng không thay thế tài khoản hoặc quota của từng nhà cung cấp.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Lập bảng nhu cầu và điều kiện tài khoản trước khi thêm provider. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn Download Desktop/Getting Started đúng hệ điều hành; cấu hình provider cần thông tin và quyền phù hợp.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Ghi một tác vụ nhỏ và chọn duy nhất một đường model để hiểu trước.</li><li>Đọc phần provider và phân biệt model local với tài khoản dịch vụ bên ngoài.</li><li>Chỉ dùng ví dụ hư cấu, xem cách lưu hội thoại và dữ liệu knowledge base trước khi thêm nguồn thật.</li></ol><h2>Giới hạn cần biết</h2><p>Ứng dụng khách không tự cung cấp quota AI miễn phí cho mọi model. Không dán key vào ảnh hướng dẫn hoặc dùng app như bằng chứng mọi model được cung cấp miễn phí.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>CherryHQ</strong> có <strong>52.956 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/CherryHQ/cherry-studio/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/CherryHQ/cherry-studio\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 38. Chưa cài/chạy thử; không tạo validation. Snapshot sao 52956; repo_id 805155266; README SHA256 cbdd7003c8a2ac2d5b387ebb8f359d0f90c31df389f6a5593e32754a52adf170.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/CherryHQ/cherry-studio",
+          "repo_id": "805155266",
+          "source_path": "",
+          "source_revision": "README-SHA256:cbdd7003c8a2ac2d5b387ebb8f359d0f90c31df389f6a5593e32754a52adf170",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn Download Desktop/Getting Started đúng hệ điều hành; cấu hình provider cần thông tin và quyền phù hợp.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/CherryHQ/cherry-studio/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dán key vào ảnh hướng dẫn hoặc dùng app như bằng chứng mọi model được cung cấp miễn phí.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/CherryHQ/cherry-studio/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "CherryHQ/cherry-studio",
+        "stars": 52956,
+        "observedAt": "2026-10-25T03:16:44.880Z",
+        "readmeUrl": "https://raw.githubusercontent.com/CherryHQ/cherry-studio/main/README.md",
+        "readmeSha256": "cbdd7003c8a2ac2d5b387ebb8f359d0f90c31df389f6a5593e32754a52adf170",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "1dc57347a45515e7dc929281cdbe06d9d29c440eb3549d893b3913d9ce5ac5ff"
+    },
+    {
+      "key": 39,
+      "batch": 4,
+      "slug": "librechat",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "LibreChat: khám phá giao diện trò chuyện và quản lý kết nối model",
+        "excerpt": "Khám phá giao diện trò chuyện và quản lý kết nối model. Cần xác định quyền sử dụng, dữ liệu và chi phí trước khi triển khai cho nhóm.",
+        "content": "<p>Khám phá giao diện trò chuyện và quản lý kết nối model. LibreChat hiện ở repo canonical LibreChat-AI/LibreChat, có giao diện hội thoại và tính năng agent/workspace được README mô tả theo mức thử nghiệm. Những quyền đọc file, sửa file và chạy lệnh cần được xem riêng với việc chat thông thường.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một sơ đồ tài khoản, provider và nơi lưu hội thoại. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn tài liệu Resources cho triển khai và provider; tính năng agent/workspace cần cấu hình quyền theo môi trường.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc Features trước, chỉ chọn nhu cầu hội thoại nếu chưa cần agent có quyền làm việc với file.</li><li>Xác định provider, nơi lưu hội thoại và quyền người dùng của instance.</li><li>Khi khảo sát workspace, ghi rõ thao tác nào yêu cầu Ask/Allow/Deny; không dùng full access mặc định.</li></ol><h2>Giới hạn cần biết</h2><p>Cần xác định quyền sử dụng, dữ liệu và chi phí trước khi triển khai cho nhóm. Tính năng được đánh dấu thử nghiệm không nên dùng ngay với dữ liệu duy nhất hoặc mã production.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>LibreChat-AI</strong> có <strong>46.265 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/LibreChat-AI/LibreChat/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/LibreChat-AI/LibreChat\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 39. Chưa cài/chạy thử; không tạo validation. Snapshot sao 46265; repo_id 600596928; README SHA256 84a943a2e911f9a3566e9c959d6a5b0a7ceb69481d67d9d66817f4ea2bc95412.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/LibreChat-AI/LibreChat",
+          "repo_id": "600596928",
+          "source_path": "",
+          "source_revision": "README-SHA256:84a943a2e911f9a3566e9c959d6a5b0a7ceb69481d67d9d66817f4ea2bc95412",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn tài liệu Resources cho triển khai và provider; tính năng agent/workspace cần cấu hình quyền theo môi trường.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/LibreChat-AI/LibreChat/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Tính năng được đánh dấu thử nghiệm không nên dùng ngay với dữ liệu duy nhất hoặc mã production.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/LibreChat-AI/LibreChat/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "LibreChat-AI/LibreChat",
+        "stars": 46265,
+        "observedAt": "2026-10-25T03:16:45.179Z",
+        "readmeUrl": "https://raw.githubusercontent.com/LibreChat-AI/LibreChat/main/README.md",
+        "readmeSha256": "84a943a2e911f9a3566e9c959d6a5b0a7ceb69481d67d9d66817f4ea2bc95412",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "2458b2567872fe97b3b68be4b178a567e745578d5ed44d919aa11c0d1cded95a"
+    },
+    {
+      "key": 40,
+      "batch": 4,
+      "slug": "litellm",
+      "category": "AI trên máy và không gian trò chuyện",
+      "need": "Chọn môi trường AI",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "LiteLLM: hiểu lớp kết nối giữa ứng dụng và các nhà cung cấp model",
+        "excerpt": "Hiểu lớp kết nối giữa ứng dụng và các nhà cung cấp model. Đây là lớp kỹ thuật nâng cao; proxy không thay thế quyền tài khoản hoặc quota provider.",
+        "content": "<p>Hiểu lớp kết nối giữa ứng dụng và các nhà cung cấp model. LiteLLM là lớp gateway/SDK kết nối ứng dụng với nhiều nhà cung cấp model qua giao diện thống nhất. README phân biệt Python SDK với proxy server; đây là thành phần kỹ thuật cho tích hợp, không phải một model hay nguồn quota AI.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Vẽ đường đi một yêu cầu AI, không gửi yêu cầu thật. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần kiến thức API và provider có quyền sử dụng; chọn SDK hoặc gateway, đọc tài liệu cấu hình trước triển khai.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Vẽ đường đi ứng dụng → gateway → provider và xác định nơi đặt credential.</li><li>Đọc What is LiteLLM để chọn đúng nhu cầu tích hợp thay vì cài cả proxy cho một lần chat.</li><li>Lập tiêu chí kiểm soát truy cập, chi phí và log trước thực hiện bất kỳ yêu cầu thật nào.</li></ol><h2>Giới hạn cần biết</h2><p>Đây là lớp kỹ thuật nâng cao; proxy không thay thế quyền tài khoản hoặc quota provider. Số nhà cung cấp hỗ trợ không chứng nhận mọi endpoint/model đều có cùng tính năng hoặc giá.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>BerriAI</strong> có <strong>61.983 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/BerriAI/litellm/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/BerriAI/litellm\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 4, key 40. Chưa cài/chạy thử; không tạo validation. Snapshot sao 61983; repo_id 671269505; README SHA256 01ef7dec07f73086784fe42e1af86422aaeb9230f5d05626df8f9f6b9562f4bb.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/BerriAI/litellm",
+          "repo_id": "671269505",
+          "source_path": "",
+          "source_revision": "README-SHA256:01ef7dec07f73086784fe42e1af86422aaeb9230f5d05626df8f9f6b9562f4bb",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần kiến thức API và provider có quyền sử dụng; chọn SDK hoặc gateway, đọc tài liệu cấu hình trước triển khai.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/BerriAI/litellm/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Số nhà cung cấp hỗ trợ không chứng nhận mọi endpoint/model đều có cùng tính năng hoặc giá.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/BerriAI/litellm/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "BerriAI/litellm",
+        "stars": 61983,
+        "observedAt": "2026-10-25T03:16:45.236Z",
+        "readmeUrl": "https://raw.githubusercontent.com/BerriAI/litellm/main/README.md",
+        "readmeSha256": "01ef7dec07f73086784fe42e1af86422aaeb9230f5d05626df8f9f6b9562f4bb",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ed630f9c554dc4d9acf1dfecbfb23d53eb7e4ad4542467d1695427c3a41eb792"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "temporaryDirectories": {
+    "upgrade": [],
+    "upgrade-temp-backup": []
+  },
+  "pipelineLocks": [],
+  "backupRetained": true,
+  "backupSha256": "4b6725f57f383ece92b1c7003cbdb09d494fc9f17e2b61fee3b76c1f5d531066"
+}

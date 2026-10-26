@@ -1,0 +1,21 @@
+{
+  "key": 18,
+  "repo": "docmost/docmost",
+  "repoId": "674295265",
+  "url": "https://github.com/docmost/docmost",
+  "stars": 22086,
+  "archived": false,
+  "disabled": false,
+  "branch": "main",
+  "pushedAt": "2026-10-24T12:46:28Z",
+  "license": "AGPL-3.0",
+  "description": "Docmost is an open-source collaborative wiki and documentation software. It is an open-source alternative to Confluence and Notion.",
+  "homepage": "https://docmost.com",
+  "observedAt": "2026-10-25T03:12:08.404Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/docmost/docmost/main/README.md",
+    "path": "README.md",
+    "text": "<div align=\"center\">\n    <h1><b>Docmost</b></h1>\n    <p>\n        Open-source collaborative wiki and documentation software.\n        <br />\n        <a href=\"https://docmost.com\"><strong>Website</strong></a> | \n        <a href=\"https://docmost.com/docs\"><strong>Documentation</strong></a> |\n        <a href=\"https://twitter.com/DocmostHQ\"><strong>Twitter / X</strong></a>\n    </p>\n</div>\n<br />\n\n## Getting started\n\nTo get started with Docmost, please refer to our [documentation](https://docmost.com/docs) or try our [cloud version](https://docmost.com/pricing) .\n\n## Features\n\n- Real-time collaboration\n- Diagrams (Draw.io, Excalidraw and Mermaid)\n- Spaces\n- Permissions management\n- Groups\n- Comments\n- Page history\n- Search\n- File attachments\n- Embeds (Airtable, Loom, Miro and more)\n- Translations (10+ languages)\n\n### Screenshots\n\n<p align=\"center\">\n<img alt=\"home\" src=\"https://docmost.com/screenshots/home.png\" width=\"70%\">\n<img alt=\"editor\" src=\"https://docmost.com/screenshots/editor.png\" width=\"70%\">\n</p>\n\n### License\nDocmost core is licensed under the open-source AGPL 3.0 license.  \nEnterprise features are available under an enterprise license (Enterprise Edition).  \n\nAll files in the following directories are licensed under the Docmost Enterprise license defined in `packages/ee/License`.\n  - apps/server/src/ee\n  - apps/client/src/ee\n  - packages/ee\n\n### Contributing\n\nSee the [development documentation](https://docmost.com/docs/self-hosting/development)\n\n## Thanks\nSpecial thanks to;\n\n<img width=\"100\" alt=\"Crowdin\" src=\"https://github.com/user-attachments/assets/a6c3d352-e41b-448d-b6cd-3fbca3109f07\" />\n\n[Crowdin](https://crowdin.com/) for providing access to their localization platform.\n\n\n<img width=\"48\" alt=\"Algolia-mark-square-white\" src=\"https://github.com/user-attachments/assets/6ccad04a-9589-4965-b6a1-d5cb1f4f9e94\" />\n\n[Algolia](https://www.algolia.com/) for providing full-text search to the docs.\n\n",
+    "sha256": "dd05f459978695449638d22d53315dfd4cde1f481b3bb48ec50a6f6523f54828"
+  }
+}

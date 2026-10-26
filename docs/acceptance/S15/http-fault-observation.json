@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "mode": "missing",
+      "finishedAt": 1792813454,
+      "libraryLoaded": false
+    },
+    {
+      "mode": "error",
+      "finishedAt": 1792813454,
+      "libraryLoaded": true
+    },
+    {
+      "mode": "slow",
+      "finishedAt": 1792813457,
+      "libraryLoaded": true
+    }
+  ],
+  "muHashMatches": true,
+  "activePluginsUnchanged": true,
+  "themeUnchanged": true,
+  "schemaUnchanged": true,
+  "cacheIncident": false
+}

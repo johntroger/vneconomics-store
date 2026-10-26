@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-21",
+  "runtime": "WordPress 7.1.3 / PHP 8.3 / SQLite; Edge headless; Playwright Node 1.62.1",
+  "checks": [
+    "six approved resource fixtures, source revisions from S02",
+    "one homepage h1",
+    "homepage renders plugin resources",
+    "approved title / image-detail / exact source-path / resolver badge: Web Dev for Beginners",
+    "approved title / image-detail / exact source-path / resolver badge: MDN Learning Area",
+    "approved title / image-detail / exact source-path / resolver badge: Web Design Guidelines",
+    "approved title / image-detail / exact source-path / resolver badge: Astro Basics",
+    "approved title / image-detail / exact source-path / resolver badge: React Best Practices",
+    "approved title / image-detail / exact source-path / resolver badge: Pico CSS",
+    "draft/private/proposal/internal fields absent from homepage",
+    "no horizontal overflow desktop",
+    "local illustrations load desktop",
+    "no horizontal overflow tablet",
+    "local illustrations load tablet",
+    "no horizontal overflow mobile",
+    "local illustrations load mobile",
+    "no horizontal overflow small-mobile",
+    "local illustrations load small-mobile",
+    "mobile menu button visible",
+    "enhanced mobile menu initially collapsed",
+    "Enter opens mobile menu",
+    "Tab reaches menu links",
+    "Escape closes menu and returns focus",
+    "mobile anchor closes menu and focuses destination",
+    "desktop nav remains visible after breakpoint change",
+    "first Tab reaches skip link",
+    "skip link focuses main",
+    "every home link resolves locally; anchors exist",
+    "core search finds approved resource",
+    "baseline detail reads approved content and exposes state explanation",
+    "404 has usable recovery",
+    "all resources readable without JS",
+    "no-JS mobile navigation visible",
+    "failed menu script retains usable navigation",
+    "approved snapshot wins over raw post data",
+    "detail document title and head use approved snapshot",
+    "home category strip uses approved category IDs",
+    "resolver badge unknown",
+    "source CTA / explanation destination unknown",
+    "resolver badge unavailable",
+    "blocked source CTA absent on detail unavailable",
+    "source CTA / explanation destination unavailable",
+    "resolver badge suspended",
+    "blocked source CTA absent on detail suspended",
+    "source CTA / explanation destination suspended",
+    "resolver badge review-needed",
+    "source CTA / explanation destination review-needed",
+    "resolver badge not-tested",
+    "source CTA / explanation destination not-tested",
+    "unknown source uses local fallback cover",
+    "long title does not overflow 320px",
+    "fallback image actually loads after scrolling",
+    "assigned two-level WordPress menu renders",
+    "assigned menu no overflow",
+    "empty library is explicit, no placeholder products",
+    "missing guide creates no fabricated lesson link",
+    "plugin absent handled without fatal error",
+    "no browser JS errors or failed internal HTTP requests",
+    "live local DB and configuration unchanged"
+  ],
+  "views": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "label": "tablet",
+      "width": 820,
+      "height": 1180
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "errors": [],
+  "failedInternal": [],
+  "liveFilesUnchanged": true,
+  "protectedHashes": [
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8"
+  ],
+  "externalRequests": "Browser blocks non-loopback; WordPress HTTP external disabled; no paid API or deployment",
+  "limits": [
+    "Fixture source observations are cached S02, not refreshed S06",
+    "No hosting MySQL/cache validation",
+    "Core search and simple read/list fallback, not S07-S10 implementation",
+    "System font; Be Vietnam Pro not packaged"
+  ]
+}

@@ -1,0 +1,39 @@
+Help
+Site Health
+Good
+Status
+Info
+Site Health Status
+
+The site health check shows information about your WordPress configuration and items that may need your attention.
+
+6 recommended improvements
+
+Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue. They may include improvements in areas such as security, performance, and user experience.
+
+You should remove inactive plugins
+Security
+You should remove inactive themes
+Security
+Outdated SQL server
+Performance
+Search engines are discouraged from indexing this site.
+Privacy
+Opcode cache is not enabled
+Performance
+Page cache is not detected but the server response time is OK
+Performance
+
+Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits.
+
+Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:
+
+cache-control, expires, age, last-modified, etag, via, x-cache-enabled, x-cache-disabled, cf-cache-status, x-cache, x-litespeed-cache, x-srcache-store-status, x-srcache-fetch-status, x-cache-status, x-proxy-cache, x-varnish.
+ Median server response time was 421 milliseconds. This is less than the recommended 600 milliseconds threshold.
+ No client caching response headers were detected.
+ A page cache plugin was not detected.
+
+Learn more about page cache
+(opens in a new tab)
+
+Passed tests

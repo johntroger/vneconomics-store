@@ -1,0 +1,46 @@
+{
+  "testPortsListening": [],
+  "date": "2026-10-21",
+  "themeRuntimeFiles": 25,
+  "suites": {
+    "S07": {
+      "result": "PASS",
+      "file": "docs/acceptance/S09/S07-regression/test-results.json",
+      "checks": 46,
+      "fixtureChecks": 23,
+      "runtimeThemeMatches": true
+    },
+    "S06": {
+      "result": "PASS",
+      "file": "docs/acceptance/S09/S06-regression/test-results.json",
+      "checks": 59,
+      "fixtureChecks": 0,
+      "runtimeThemeMatches": true
+    },
+    "S08": {
+      "result": "PASS",
+      "file": "docs/acceptance/S09/S08-regression/test-results.json",
+      "checks": 55,
+      "fixtureChecks": 19,
+      "runtimeThemeMatches": true
+    },
+    "S09": {
+      "result": "PASS",
+      "file": "docs/acceptance/S09/test-results.json",
+      "checks": 74,
+      "fixtureChecks": 28,
+      "runtimeThemeMatches": true
+    }
+  },
+  "cleanupLockPresent": false,
+  "allSuitesMatchCurrentTheme": true,
+  "branch": "codex/s09-search-filters",
+  "deploymentPerformed": false,
+  "historicalEvidenceAndPluginUnchanged": true,
+  "originalHashesMatch": true,
+  "temporaryFixtures": 0,
+  "protectedHashes": {
+    ".local/site/wp-content/database/.ht.sqlite": "F2A35E44C395FB790E6EA5524B21F2525D49F75D19FF129E8E3894FA08721FD8",
+    ".local/site/wp-config.php": "B2B3F3FE6DBF560B38DB952A868DF3120FFF14BB39BA96EA34E2F26B5C2892F8"
+  }
+}

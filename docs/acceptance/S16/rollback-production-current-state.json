@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-10-24T11:35:24.863Z",
+  "theme": "astra",
+  "themeVersion": "4.12.0",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "oldRowsHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+  "oldMetaHash": "b2c41ff0b1d420969c212540ed6f0cb21f6c6b8561804b84ec6c79a17a5eb9b2",
+  "libraryCount": 11,
+  "hposOrders": 0,
+  "indexing": "1",
+  "releaseComplete": false
+}

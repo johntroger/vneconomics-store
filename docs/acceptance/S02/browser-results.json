@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-19",
+  "browser": "Microsoft Edge headless through Playwright",
+  "playwright": "1.62.1",
+  "viewportChecks": 4,
+  "pages": 10,
+  "results": [
+    "PASS desktop: 10 pages, no overflow/broken images/duplicate IDs",
+    "PASS tablet: 10 pages, no overflow/broken images/duplicate IDs",
+    "PASS mobile: 10 pages, no overflow/broken images/duplicate IDs",
+    "PASS small-mobile: 10 pages, no overflow/broken images/duplicate IDs",
+    "PASS journeys: home -> detail -> guide -> sample -> contact -> guide",
+    "PASS static filters: type, accentless query, empty state, URL, Back, reset",
+    "PASS source/status truthfulness, checklist, clipboard, mobile menu and Escape focus",
+    "PASS internal targets and anchors: 10 pages linked"
+  ],
+  "issues": [],
+  "remoteRequests": [],
+  "screenshots": "index/category/resource-web-basics/guide/sample at desktop and mobile",
+  "scope": "static S02 only; not WordPress or human novice acceptance"
+}

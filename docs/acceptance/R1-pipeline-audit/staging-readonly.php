@@ -1,0 +1,12 @@
+<?php
+// Read-only environment and component inventory; never invokes an importer.
+if(!defined('WP_CLI')||!WP_CLI||ABSPATH!=='/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/'||DB_NAME!=='vne35060_wp_udx1z'){throw new RuntimeException('Wrong staging audit target');}
+global $wpdb;$home=dirname(ABSPATH);$file=$home.'/g03-production/manifest.json';
+if(hash_file('sha256',$file)!=='f0de4e7ecbfdc7c60f915fa466952978d3138e13d5c6e17f3ee9efb0018e332a'){throw new RuntimeException('Unexpected comparison manifest');}
+$m=json_decode(file_get_contents($file),true,512,JSON_THROW_ON_ERROR);$out=array('observedAt'=>gmdate('c'),'root'=>ABSPATH,'database'=>DB_NAME,'home'=>get_option('home'),'php'=>PHP_VERSION,'wordpress'=>get_bloginfo('version'),'theme'=>wp_get_theme()->get('Version'),'stylesheet'=>get_stylesheet(),'plugin'=>defined('VNE_LIBRARY_VERSION')?VNE_LIBRARY_VERSION:null,'schema'=>get_option('vne_library_schema_version'),'indexing'=>get_option('blog_public'),'counts'=>array(),'components'=>array(),'guides'=>array(),'g03JournalPresent'=>(bool)get_option('vne_g03_production'),'c100JournalsPresent'=>0);
+foreach(array('vne_resource','vne_guide','vne_practice') as $type){$out['counts'][$type]=(int)wp_count_posts($type)->publish;}
+$out['typedContentRows']=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type IN (%s,%s,%s,%s,%s)",array('post','page','vne_resource','vne_guide','vne_practice')));
+foreach(array('theme'=>array('themes','previousTheme'),'plugin'=>array('plugins','plugin')) as $name=>$spec){$bad=array();foreach($m[$spec[1]]['files'] as $f){$path=ABSPATH.'wp-content/'.$spec[0].'/'.$f['path'];if(!is_file($path)||is_link($path)||hash_file('sha256',$path)!==$f['sha256']){$bad[]=$f['path'];}}$out['components'][$name]=array('comparedWith'=>$name==='theme'?'0.7.1':'0.4.2','expected'=>count($m[$spec[1]]['files']),'mismatch'=>$bad);}
+foreach(array('lam-landing-page-moc-studio-voi-codex-tren-windows','lam-landing-page-moc-studio-voi-claude-code-tren-windows','lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows') as $slug){$p=get_page_by_path($slug,OBJECT,'vne_guide');$out['guides'][]=array('slug'=>$slug,'id'=>$p?(int)$p->ID:null,'status'=>$p?$p->post_status:null);}
+for($b=1;$b<=10;$b++){if(get_option('vne_c100_20261025_b'.sprintf('%02d',$b))){$out['c100JournalsPresent']++;}}
+echo 'R1_STAGING='.wp_json_encode($out,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES).PHP_EOL;

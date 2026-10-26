@@ -1,0 +1,9 @@
+{
+  "branch": "release-staging",
+  "mode": "Manual",
+  "directory": "/deploy-inbox/staging",
+  "payload": "602d9f55793d53d29f0654ae01e5daf5841e9f9c",
+  "source": "f587eea20526f32294a8826949d7407337040ec6",
+  "postDeployActionsAtCreation": false,
+  "postDeployActionsChangedInR4": false
+}

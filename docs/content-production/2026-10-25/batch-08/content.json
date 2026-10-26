@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 8,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 71,
+      "batch": 8,
+      "slug": "whisper",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Whisper: tìm hiểu công cụ nhận dạng lời nói thành văn bản",
+        "excerpt": "Tìm hiểu công cụ nhận dạng lời nói thành văn bản. Không giả định phiên âm đúng hoàn toàn; người nói và nội dung ghi âm cần có quyền sử dụng.",
+        "content": "<p>Tìm hiểu công cụ nhận dạng lời nói thành văn bản. Whisper là model nhận dạng lời nói với mã nguồn cho các tác vụ tiếng nói. README có Setup, lựa chọn model/ngôn ngữ và cách gọi; phần mềm trong repo khác với một dịch vụ phiên âm hosted mà người dùng trả phí theo API.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đoạn ghi âm tiếng Việt tự tạo để đối chiếu bản chép lời. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Setup để đối chiếu Python, PyTorch và phụ thuộc xử lý âm thanh; chọn model theo tài nguyên thực tế, không tự tải nhiều bản.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chuẩn bị một đoạn tự ghi ngắn có quyền sử dụng và một bản chép tay để đối chiếu.</li><li>Đọc Available models and languages, xem chi phí tài nguyên trước khi chọn model.</li><li>Nếu thử trong môi trường được phép, kiểm tra tên riêng, số và dấu tiếng Việt thay vì chỉ xem có văn bản xuất ra.</li></ol><h2>Giới hạn cần biết</h2><p>Không giả định phiên âm đúng hoàn toàn; người nói và nội dung ghi âm cần có quyền sử dụng. Nhận dạng có thể sai hoặc tạo văn bản không có trong âm thanh; luôn nghe lại phần quan trọng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>openai</strong> có <strong>111.210 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/openai/whisper/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/openai/whisper\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 71. Chưa cài/chạy thử; không tạo validation. Snapshot sao 111210; repo_id 537603333; README SHA256 38c180c2a8d8ba628a3e131ad42bf06c8a51bb681efb30fbe28d5a0f4b65f288.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/openai/whisper",
+          "repo_id": "537603333",
+          "source_path": "",
+          "source_revision": "README-SHA256:38c180c2a8d8ba628a3e131ad42bf06c8a51bb681efb30fbe28d5a0f4b65f288",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Setup để đối chiếu Python, PyTorch và phụ thuộc xử lý âm thanh; chọn model theo tài nguyên thực tế, không tự tải nhiều bản.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/openai/whisper/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Nhận dạng có thể sai hoặc tạo văn bản không có trong âm thanh; luôn nghe lại phần quan trọng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/openai/whisper/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "openai/whisper",
+        "stars": 111210,
+        "observedAt": "2026-10-25T03:38:15.258Z",
+        "readmeUrl": "https://raw.githubusercontent.com/openai/whisper/main/README.md",
+        "readmeSha256": "38c180c2a8d8ba628a3e131ad42bf06c8a51bb681efb30fbe28d5a0f4b65f288",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "e3b0021f209e2624005c45c721a9b4238470a376e0f8bba28f01b4ce5b5da3d7"
+    },
+    {
+      "key": 72,
+      "batch": 8,
+      "slug": "faster-whisper",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "faster-whisper: khám phá một cách triển khai phục vụ nhận dạng lời nói",
+        "excerpt": "Khám phá một cách triển khai phục vụ nhận dạng lời nói. Không khẳng định nhanh hơn trên mọi máy khi chưa đo cùng dữ liệu và cấu hình.",
+        "content": "<p>Khám phá một cách triển khai phục vụ nhận dạng lời nói. faster-whisper triển khai Whisper bằng CTranslate2. README có benchmark theo model, precision, beam size và cấu hình; các con số đó chỉ có ý nghĩa trong điều kiện đo đã nêu, không chứng minh nhanh hơn trên mọi máy.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>So sánh yêu cầu môi trường với nhu cầu chép một đoạn âm thanh mẫu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Requirements cho CPU/GPU và các phiên bản thư viện liên quan; model và precision cần chọn theo tài nguyên.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Ghi rõ mục tiêu là chép lời hay đo hiệu năng trước xem bảng benchmark.</li><li>Đọc cấu hình benchmark và Requirements, không so sánh hai máy/model khác nhau rồi kết luận.</li><li>Dùng cùng một đoạn âm thanh mẫu nếu thử được phép, ghi thời gian cùng lỗi phiên âm và bộ nhớ.</li></ol><h2>Giới hạn cần biết</h2><p>Không khẳng định nhanh hơn trên mọi máy khi chưa đo cùng dữ liệu và cấu hình. Tên faster không thay thế phép đo công bằng; tốc độ không chứng minh văn bản chính xác.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>SYSTRAN</strong> có <strong>26.115 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/SYSTRAN/faster-whisper/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/SYSTRAN/faster-whisper\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 72. Chưa cài/chạy thử; không tạo validation. Snapshot sao 26115; repo_id 600368121; README SHA256 43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/SYSTRAN/faster-whisper",
+          "repo_id": "600368121",
+          "source_path": "",
+          "source_revision": "README-SHA256:43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Requirements cho CPU/GPU và các phiên bản thư viện liên quan; model và precision cần chọn theo tài nguyên.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/SYSTRAN/faster-whisper/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Tên faster không thay thế phép đo công bằng; tốc độ không chứng minh văn bản chính xác.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/SYSTRAN/faster-whisper/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "SYSTRAN/faster-whisper",
+        "stars": 26115,
+        "observedAt": "2026-10-25T03:38:15.505Z",
+        "readmeUrl": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/README.md",
+        "readmeSha256": "43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "b4bb78bbec58d0be0da5ac3ea502084f94790c9414c38c2147e0879ba8f4b442"
+    },
+    {
+      "key": 73,
+      "batch": 8,
+      "slug": "whisper-cpp",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "whisper.cpp: tìm hiểu cách triển khai nhận dạng lời nói trên nhiều môi trường",
+        "excerpt": "Tìm hiểu cách triển khai nhận dạng lời nói trên nhiều môi trường. Hiệu năng phụ thuộc thiết bị/model; không tự tải model lớn hoặc bật micro.",
+        "content": "<p>Tìm hiểu cách triển khai nhận dạng lời nói trên nhiều môi trường. whisper.cpp là một triển khai suy luận Whisper bằng C/C++, có nhiều backend/nền tảng trong README. Mục Quick start, Memory usage và các phần tăng tốc cần được đọc theo thiết bị; hỗ trợ nhiều nền tảng không nghĩa cùng một cấu hình cho tất cả.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc bảng hỗ trợ nền tảng trước khi chọn hướng chạy trên thiết bị. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Quick start và phần nền tảng/backend tương ứng; tự build, model và audio đầu vào có yêu cầu riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định OS, CPU/GPU và mục tiêu chép một đoạn mẫu trước.</li><li>Đọc Memory usage và lựa chọn model để biết cần dung lượng/tài nguyên gì.</li><li>Chỉ chọn một đường chạy phù hợp; giữ âm thanh gốc và bản đối chiếu khi thử được phép.</li></ol><h2>Giới hạn cần biết</h2><p>Hiệu năng phụ thuộc thiết bị/model; không tự tải model lớn hoặc bật micro. Không tự cấp micro hoặc tải nhiều model để xem thử; quyền ghi âm và nội dung phải được người tham gia cho phép.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ggml-org</strong> có <strong>54.636 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ggml-org/whisper.cpp/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ggml-org/whisper.cpp\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 73. Chưa cài/chạy thử; không tạo validation. Snapshot sao 54636; repo_id 541269386; README SHA256 43451813ec96b5ea286c6d676f467bdffb053224c110c257ce3d67d911e774e7.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/ggml-org/whisper.cpp",
+          "repo_id": "541269386",
+          "source_path": "",
+          "source_revision": "README-SHA256:43451813ec96b5ea286c6d676f467bdffb053224c110c257ce3d67d911e774e7",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Quick start và phần nền tảng/backend tương ứng; tự build, model và audio đầu vào có yêu cầu riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ggml-org/whisper.cpp/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không tự cấp micro hoặc tải nhiều model để xem thử; quyền ghi âm và nội dung phải được người tham gia cho phép.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ggml-org/whisper.cpp/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ggml-org/whisper.cpp",
+        "stars": 54636,
+        "observedAt": "2026-10-25T03:38:15.786Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ggml-org/whisper.cpp/master/README.md",
+        "readmeSha256": "43451813ec96b5ea286c6d676f467bdffb053224c110c257ce3d67d911e774e7",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "1f9ce2e8990ef17c8c09fe10c841c4f71f8315ee4b2a0539cfbaa701d519d847"
+    },
+    {
+      "key": 74,
+      "batch": 8,
+      "slug": "subtitle-edit",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Subtitle Edit: khám phá công việc tạo và chỉnh phụ đề cho video",
+        "excerpt": "Khám phá công việc tạo và chỉnh phụ đề cho video. Chức năng dịch/AI ngoài có điều kiện riêng; không đưa video riêng tư lên dịch vụ tùy ý.",
+        "content": "<p>Khám phá công việc tạo và chỉnh phụ đề cho video. Subtitle Edit cung cấp công cụ biên tập phụ đề và tài liệu/FAQ riêng. README hiện nêu yêu cầu Windows, macOS và Linux theo bản dựng; hướng dẫn cài cũ có thể khác, nhất là runtime và cách đóng gói.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đoạn video tự tạo có ba câu để hiểu thời gian và nội dung phụ đề. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc System Requirements đúng OS và bản phát hành; các chức năng AI/dịch nếu dùng cần xem cấu hình dịch vụ riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng một đoạn video tự tạo có ba câu và bản chép đúng.</li><li>Đọc Documentation &amp; FAQ để phân biệt sửa nội dung phụ đề với chỉnh thời gian hiển thị.</li><li>Giữ file phụ đề nguồn rồi xem thử cùng video, kiểm tra dấu tiếng Việt và mốc vào/ra.</li></ol><h2>Giới hạn cần biết</h2><p>Chức năng dịch/AI ngoài có điều kiện riêng; không đưa video riêng tư lên dịch vụ tùy ý. Tự động phiên âm hoặc dịch không thay phần đọc soát; không đưa video riêng lên dịch vụ ngoài khi chưa xác định đường dữ liệu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>SubtitleEdit</strong> có <strong>14.707 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/SubtitleEdit/subtitleedit/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/SubtitleEdit/subtitleedit\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 74. Chưa cài/chạy thử; không tạo validation. Snapshot sao 14707; repo_id 16473585; README SHA256 c401520f5fbfba09979485e4df9b6415b0b7f367d037dbb74e9b9bae52e4b0d4.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/SubtitleEdit/subtitleedit",
+          "repo_id": "16473585",
+          "source_path": "",
+          "source_revision": "README-SHA256:c401520f5fbfba09979485e4df9b6415b0b7f367d037dbb74e9b9bae52e4b0d4",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc System Requirements đúng OS và bản phát hành; các chức năng AI/dịch nếu dùng cần xem cấu hình dịch vụ riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/SubtitleEdit/subtitleedit/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Tự động phiên âm hoặc dịch không thay phần đọc soát; không đưa video riêng lên dịch vụ ngoài khi chưa xác định đường dữ liệu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/SubtitleEdit/subtitleedit/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "SubtitleEdit/subtitleedit",
+        "stars": 14707,
+        "observedAt": "2026-10-25T03:38:16.139Z",
+        "readmeUrl": "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/README.md",
+        "readmeSha256": "c401520f5fbfba09979485e4df9b6415b0b7f367d037dbb74e9b9bae52e4b0d4",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "1a362fea17889b71b6596fec5757a4248fee422dd3de57004b73e47dc9d3e1ff"
+    },
+    {
+      "key": 75,
+      "batch": 8,
+      "slug": "audacity",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Audacity: làm quen công cụ biên tập âm thanh và quy trình giữ bản gốc",
+        "excerpt": "Làm quen công cụ biên tập âm thanh và quy trình giữ bản gốc. Không ghi đè bản gốc; plugin và hiệu ứng cần kiểm tra riêng.",
+        "content": "<p>Làm quen công cụ biên tập âm thanh và quy trình giữ bản gốc. Audacity là trình biên tập/ghi âm nhiều track. README hiện cảnh báo repository đang chuyển cấu trúc lớn cho Audacity 4 và phân biệt nhánh phát triển với 3.x; người dùng cuối nên đi theo bản cài chính thức thay vì tự build nhánh master.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đoạn ghi âm tự tạo được cắt phần im lặng và lưu bản mới. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản ứng dụng phù hợp thiết bị từ website chính thức; build từ nguồn có yêu cầu khác và không cần cho bài dùng cơ bản.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Giữ đoạn ghi âm gốc, tạo bản làm việc riêng trước sửa.</li><li>Đọc mô tả phiên bản, chọn một thao tác nhỏ như cắt vùng im lặng.</li><li>Khi thử được phép, nghe lại bản xuất từ đầu đến cuối và giữ dự án có thể chỉnh tiếp.</li></ol><h2>Giới hạn cần biết</h2><p>Không ghi đè bản gốc; plugin và hiệu ứng cần kiểm tra riêng. Không ghi đè file gốc hoặc đánh giá âm thanh chỉ qua waveform; plugin/hiệu ứng có điều kiện riêng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>audacity</strong> có <strong>18.822 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/audacity/audacity/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/audacity/audacity\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 75. Chưa cài/chạy thử; không tạo validation. Snapshot sao 18822; repo_id 32921736; README SHA256 c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/audacity/audacity",
+          "repo_id": "32921736",
+          "source_path": "",
+          "source_revision": "README-SHA256:c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản ứng dụng phù hợp thiết bị từ website chính thức; build từ nguồn có yêu cầu khác và không cần cho bài dùng cơ bản.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/audacity/audacity/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không ghi đè file gốc hoặc đánh giá âm thanh chỉ qua waveform; plugin/hiệu ứng có điều kiện riêng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/audacity/audacity/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "audacity/audacity",
+        "stars": 18822,
+        "observedAt": "2026-10-25T03:38:16.444Z",
+        "readmeUrl": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+        "readmeSha256": "c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "3793b3d8e772438504ce5504f0be057eb41903f2d4e26647f714c34b4ccc5c0d"
+    },
+    {
+      "key": 76,
+      "batch": 8,
+      "slug": "shotcut",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Shotcut: tìm hiểu dựng video theo timeline từ các đoạn mẫu",
+        "excerpt": "Tìm hiểu dựng video theo timeline từ các đoạn mẫu. Xuất video cần kiểm tra codec, độ phân giải và máy; không suy nhiều sao là dễ dùng.",
+        "content": "<p>Tìm hiểu dựng video theo timeline từ các đoạn mẫu. Shotcut là trình dựng video desktop nhiều nền tảng. README hướng người dùng tới bản binary và nói tự build dành cho người thử beta/người đóng góp có kinh nghiệm; người mới không cần cài chuỗi dependency của mã nguồn.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ghép hai clip có quyền và thêm tiêu đề tiếng Việt. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản cài ở trang Download chính thức và xem hệ điều hành/cấu hình phù hợp; không dùng How to build như hướng người dùng cuối.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Chuẩn bị hai clip hư cấu có quyền và đặt mục tiêu ghép thành đoạn ngắn.</li><li>Đọc đường Features/Download trong README, chọn một thao tác timeline cơ bản.</li><li>Giữ file dự án và thư mục media, kiểm tra cả hình lẫn âm thanh sau xuất thử.</li></ol><h2>Giới hạn cần biết</h2><p>Xuất video cần kiểm tra codec, độ phân giải và máy; không suy nhiều sao là dễ dùng. Video xuất có thể khác preview về codec/kích thước; cần mở bản xuất bằng trình phát độc lập để đối chiếu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>mltframework</strong> có <strong>15.492 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép GPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/mltframework/shotcut/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/mltframework/shotcut\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 76. Chưa cài/chạy thử; không tạo validation. Snapshot sao 15492; repo_id 4118776; README SHA256 2a38840fc2fafa928b9b8cfa4082581b1a1a699b920e5b9168a23c62bd6a9df8.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/mltframework/shotcut",
+          "repo_id": "4118776",
+          "source_path": "",
+          "source_revision": "README-SHA256:2a38840fc2fafa928b9b8cfa4082581b1a1a699b920e5b9168a23c62bd6a9df8",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản cài ở trang Download chính thức và xem hệ điều hành/cấu hình phù hợp; không dùng How to build như hướng người dùng cuối.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/mltframework/shotcut/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Video xuất có thể khác preview về codec/kích thước; cần mở bản xuất bằng trình phát độc lập để đối chiếu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/mltframework/shotcut/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "mltframework/shotcut",
+        "stars": 15492,
+        "observedAt": "2026-10-25T03:38:17.273Z",
+        "readmeUrl": "https://raw.githubusercontent.com/mltframework/shotcut/master/README.md",
+        "readmeSha256": "2a38840fc2fafa928b9b8cfa4082581b1a1a699b920e5b9168a23c62bd6a9df8",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "a97a1dabc9b430de77b4a08041e32b2328aafacadb5a6481d31fc6a1064d47e5"
+    },
+    {
+      "key": 77,
+      "batch": 8,
+      "slug": "openshot",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "OpenShot: khám phá công cụ dựng video cho dự án nhỏ",
+        "excerpt": "Khám phá công cụ dựng video cho dự án nhỏ. Tài nguyên ảnh/nhạc phải hợp lệ, giữ file dự án và kiểm tra bản xuất.",
+        "content": "<p>Khám phá công cụ dựng video cho dự án nhỏ. OpenShot là trình dựng video hỗ trợ timeline, track và nhiều thao tác hình/âm thanh được README mô tả. Có đường Getting Started, Tutorial và Developers riêng; người chỉ dựng một clip nhỏ không cần tự phát triển thư viện.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một video giới thiệu hư cấu từ hai ảnh và một tiêu đề. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Đọc Getting Started/Tutorial đúng nền tảng, kiểm tra định dạng đầu vào và điều kiện máy trước chọn bản cài.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Bắt đầu với hai ảnh có quyền và một tiêu đề tiếng Việt, chưa dùng nhiều hiệu ứng.</li><li>Tách mục tiêu bố cục timeline khỏi mục tiêu xuất video để kiểm tra từng bước.</li><li>Giữ tài nguyên gốc và dự án, xem bản xuất trọn đoạn trước chia sẻ.</li></ol><h2>Giới hạn cần biết</h2><p>Tài nguyên ảnh/nhạc phải hợp lệ, giữ file dự án và kiểm tra bản xuất. Không suy hỗ trợ nhiều định dạng là mọi file đều mở/chạy mượt trên máy; thử mẫu nhỏ trước dự án dài.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>OpenShot</strong> có <strong>6.690 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/OpenShot/openshot-qt/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/OpenShot/openshot-qt\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 77. Chưa cài/chạy thử; không tạo validation. Snapshot sao 6690; repo_id 36648301; README SHA256 007fa904476da233e2df182677908c1378fb76e44dc20c748a7ff8e6c170ba8a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/OpenShot/openshot-qt",
+          "repo_id": "36648301",
+          "source_path": "",
+          "source_revision": "README-SHA256:007fa904476da233e2df182677908c1378fb76e44dc20c748a7ff8e6c170ba8a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Đọc Getting Started/Tutorial đúng nền tảng, kiểm tra định dạng đầu vào và điều kiện máy trước chọn bản cài.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/OpenShot/openshot-qt/blob/develop/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không suy hỗ trợ nhiều định dạng là mọi file đều mở/chạy mượt trên máy; thử mẫu nhỏ trước dự án dài.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/OpenShot/openshot-qt/blob/develop/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "OpenShot/openshot-qt",
+        "stars": 6690,
+        "observedAt": "2026-10-25T03:38:17.578Z",
+        "readmeUrl": "https://raw.githubusercontent.com/OpenShot/openshot-qt/develop/README.md",
+        "readmeSha256": "007fa904476da233e2df182677908c1378fb76e44dc20c748a7ff8e6c170ba8a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "e20473d4b92963420d9c5429c5a1b2ac8f0c4e08b5f6639b5a50da5da7cd7fb9"
+    },
+    {
+      "key": 78,
+      "batch": 8,
+      "slug": "yt-dlp",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "yt-dlp: tìm hiểu công cụ lấy nội dung media từ nguồn được phép",
+        "excerpt": "Tìm hiểu công cụ lấy nội dung media từ nguồn được phép. Chỉ tải nội dung có quyền và tuân điều kiện dịch vụ; không dùng để vượt giới hạn truy cập.",
+        "content": "<p>Tìm hiểu công cụ lấy nội dung media từ nguồn được phép. yt-dlp là công cụ dòng lệnh tải nội dung âm thanh/video với nhiều tùy chọn và định dạng. README tách release files, dependency và các nhóm tùy chọn; việc công cụ hỗ trợ một website không tự cấp quyền tải hoặc vượt kiểm soát truy cập của website đó.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Đọc tùy chọn metadata của một video do chính bạn sở hữu. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản phát hành phù hợp và đọc Dependencies cho tác vụ cần dùng; chỉ dùng nguồn bạn có quyền và điều kiện dịch vụ cho phép.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định quyền với một video do chính bạn sở hữu trước khi xem cách dùng.</li><li>Đọc Installation và nhóm tùy chọn metadata/simulation để hiểu thông tin mà chưa cần tải nội dung.</li><li>Khi có nhu cầu hợp lệ, xác định tên file, thư mục đích và dung lượng; chưa dùng cookie/tài khoản người khác.</li></ol><h2>Giới hạn cần biết</h2><p>Chỉ tải nội dung có quyền và tuân điều kiện dịch vụ; không dùng để vượt giới hạn truy cập. Không hướng dẫn vượt paywall, DRM hoặc giới hạn truy cập; chức năng tải không thay thế quyền nội dung.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>yt-dlp</strong> có <strong>201.586 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Unlicense tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/yt-dlp/yt-dlp/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/yt-dlp/yt-dlp\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 78. Chưa cài/chạy thử; không tạo validation. Snapshot sao 201586; repo_id 307260205; README SHA256 6adba80a892aee34940550ee8d7085041afca6140b7ac56d6414f1e6eb484bfe.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/yt-dlp/yt-dlp",
+          "repo_id": "307260205",
+          "source_path": "",
+          "source_revision": "README-SHA256:6adba80a892aee34940550ee8d7085041afca6140b7ac56d6414f1e6eb484bfe",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản phát hành phù hợp và đọc Dependencies cho tác vụ cần dùng; chỉ dùng nguồn bạn có quyền và điều kiện dịch vụ cho phép.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/yt-dlp/yt-dlp/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không hướng dẫn vượt paywall, DRM hoặc giới hạn truy cập; chức năng tải không thay thế quyền nội dung.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/yt-dlp/yt-dlp/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "yt-dlp/yt-dlp",
+        "stars": 201586,
+        "observedAt": "2026-10-25T03:38:17.904Z",
+        "readmeUrl": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/master/README.md",
+        "readmeSha256": "6adba80a892aee34940550ee8d7085041afca6140b7ac56d6414f1e6eb484bfe",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "a76fb078b469143f9fba06c7ae413632ccf66186d2c7f3e5c70f0a1977fc0f5f"
+    },
+    {
+      "key": 79,
+      "batch": 8,
+      "slug": "blender",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Blender: khám phá công cụ đồ họa 3D và chọn việc đầu tiên đủ nhỏ",
+        "excerpt": "Khám phá công cụ đồ họa 3D và chọn việc đầu tiên đủ nhỏ. Không hứa làm 3D ngay sau một prompt; cần học giao diện và yêu cầu phần cứng.",
+        "content": "<p>Khám phá công cụ đồ họa 3D và chọn việc đầu tiên đủ nhỏ. Blender là bộ công cụ 3D bao gồm nhiều giai đoạn từ dựng hình tới render và compositing. README dẫn Reference Manual và trang phát triển riêng; người mới nên dùng tài liệu người dùng, không bắt đầu bằng build instructions.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một cảnh hư cấu đơn giản để hiểu đối tượng, camera và đầu ra. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn bản ứng dụng chính thức và xem yêu cầu phần cứng từ tài liệu; build mã nguồn không cần cho việc làm quen giao diện.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đặt mục tiêu một cảnh hư cấu thật nhỏ với đối tượng, camera và đầu ra.</li><li>Mở Reference Manual từ Project Pages, học thao tác cơ bản trước yêu cầu AI viết script.</li><li>Giữ file dự án rồi đối chiếu khung hình/ánh sáng với mục tiêu khi thử trên máy phù hợp.</li></ol><h2>Giới hạn cần biết</h2><p>Không hứa làm 3D ngay sau một prompt; cần học giao diện và yêu cầu phần cứng. Không coi prompt có thể thay toàn bộ kiến thức về cảnh 3D; render và lưu dự án là các phần cần kiểm tra riêng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>blender</strong> có <strong>21.225 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/blender/blender/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/blender/blender\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 79. Chưa cài/chạy thử; không tạo validation. Snapshot sao 21225; repo_id 213916896; README SHA256 1bbb333e5196ba3d5cdc42830e5f1db6b77c311da96d4ff4d9a6f8143d9821e1.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/blender/blender",
+          "repo_id": "213916896",
+          "source_path": "",
+          "source_revision": "README-SHA256:1bbb333e5196ba3d5cdc42830e5f1db6b77c311da96d4ff4d9a6f8143d9821e1",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn bản ứng dụng chính thức và xem yêu cầu phần cứng từ tài liệu; build mã nguồn không cần cho việc làm quen giao diện.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/blender/blender/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không coi prompt có thể thay toàn bộ kiến thức về cảnh 3D; render và lưu dự án là các phần cần kiểm tra riêng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/blender/blender/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "blender/blender",
+        "stars": 21225,
+        "observedAt": "2026-10-25T03:38:18.266Z",
+        "readmeUrl": "https://raw.githubusercontent.com/blender/blender/main/README.md",
+        "readmeSha256": "1bbb333e5196ba3d5cdc42830e5f1db6b77c311da96d4ff4d9a6f8143d9821e1",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ef2bdbf250c719a15130128dd59451809cffc250961fe8e0111c17df32a647f4"
+    },
+    {
+      "key": 80,
+      "batch": 8,
+      "slug": "manim",
+      "category": "Âm thanh và video",
+      "need": "Xử lý nội dung đa phương tiện",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Manim: tìm hiểu cách làm hoạt hình giải thích bằng mã",
+        "excerpt": "Tìm hiểu cách làm hoạt hình giải thích bằng mã. Cần kiến thức Python và môi trường dựng; phù hợp sau bước nhập môn công cụ.",
+        "content": "<p>Tìm hiểu cách làm hoạt hình giải thích bằng mã. Manim Community là engine tạo hoạt hình giải thích bằng mã. README phân biệt bản community với repo gốc của Grant Sanderson và cảnh báo trộn hướng cài giữa các bản sẽ gây vấn đề; chọn đúng phiên bản trước xem ví dụ.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một hình đơn giản có nhãn thay đổi theo thời gian. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần môi trường Python và dependency theo Installation của Manim Community; không dùng lệnh cài của repo Manim khác.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác nhận đang đọc Manim Community trước khi mở Installation hoặc Usage.</li><li>Chọn hoạt hình một hình/nhãn đơn giản với kết quả có thể mô tả bằng lời.</li><li>Đọc cách render và lưu đầu ra, kiểm tra dấu tiếng Việt/phông khi thử trong môi trường được phép.</li></ol><h2>Giới hạn cần biết</h2><p>Cần kiến thức Python và môi trường dựng; phù hợp sau bước nhập môn công cụ. Video ví dụ không chứng minh code trên máy đã chạy; cần giữ source và đối chiếu bản render thật.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ManimCommunity</strong> có <strong>41.840 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ManimCommunity/manim/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ManimCommunity/manim\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 8, key 80. Chưa cài/chạy thử; không tạo validation. Snapshot sao 41840; repo_id 265122478; README SHA256 41cac8aeb33a726c1b0a70d10233ee06d9cd73c6df0bace8145637d75c5fc283.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/ManimCommunity/manim",
+          "repo_id": "265122478",
+          "source_path": "",
+          "source_revision": "README-SHA256:41cac8aeb33a726c1b0a70d10233ee06d9cd73c6df0bace8145637d75c5fc283",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần môi trường Python và dependency theo Installation của Manim Community; không dùng lệnh cài của repo Manim khác.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ManimCommunity/manim/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Video ví dụ không chứng minh code trên máy đã chạy; cần giữ source và đối chiếu bản render thật.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ManimCommunity/manim/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ManimCommunity/manim",
+        "stars": 41840,
+        "observedAt": "2026-10-25T03:38:18.585Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ManimCommunity/manim/main/README.md",
+        "readmeSha256": "41cac8aeb33a726c1b0a70d10233ee06d9cd73c6df0bace8145637d75c5fc283",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "f1222857eecaf89052870d761963ed5ad0f5c2933e3edc5b7dc9adc67d0472c1"
+    }
+  ]
+}

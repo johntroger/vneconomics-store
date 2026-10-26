@@ -1,0 +1,877 @@
+{
+  "status": "PASS_ARCHIVE_PATH_INVENTORY",
+  "sourceSha": "d12ba4849acfbad1ed34dc2ac0eb8d10a5d7a683",
+  "archives": [
+    {
+      "path": "artifacts/production/18a91ca0d5445479acd110e7886067e8fe5ab083/release/vibelab-0.7.1.zip",
+      "sha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215",
+      "bytes": 159391,
+      "entries": [
+        {
+          "path": "vibelab/archive-vne_resource.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/assets/cover-astro.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-default.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-mdn.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/cover-pico.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-react.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-web-basics.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-web-design.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/discovery.js",
+          "bytes": 4405
+        },
+        {
+          "path": "vibelab/assets/lesson.css",
+          "bytes": 3630
+        },
+        {
+          "path": "vibelab/assets/lesson.js",
+          "bytes": 2985
+        },
+        {
+          "path": "vibelab/assets/menu.js",
+          "bytes": 1403
+        },
+        {
+          "path": "vibelab/assets/moc-studio/index.html",
+          "bytes": 2418
+        },
+        {
+          "path": "vibelab/assets/moc-studio/style.css",
+          "bytes": 2373
+        },
+        {
+          "path": "vibelab/assets/support.css",
+          "bytes": 3126
+        },
+        {
+          "path": "vibelab/assets/support.js",
+          "bytes": 512
+        },
+        {
+          "path": "vibelab/catalog-template.php",
+          "bytes": 2920
+        },
+        {
+          "path": "vibelab/catalog.php",
+          "bytes": 4953
+        },
+        {
+          "path": "vibelab/detail.php",
+          "bytes": 6177
+        },
+        {
+          "path": "vibelab/discovery-template.php",
+          "bytes": 10283
+        },
+        {
+          "path": "vibelab/discovery.php",
+          "bytes": 12842
+        },
+        {
+          "path": "vibelab/footer.php",
+          "bytes": 1378
+        },
+        {
+          "path": "vibelab/front-page.php",
+          "bytes": 4921
+        },
+        {
+          "path": "vibelab/functions.php",
+          "bytes": 7438
+        },
+        {
+          "path": "vibelab/header.php",
+          "bytes": 2358
+        },
+        {
+          "path": "vibelab/index.php",
+          "bytes": 2651
+        },
+        {
+          "path": "vibelab/lesson-template.php",
+          "bytes": 5365
+        },
+        {
+          "path": "vibelab/lesson.php",
+          "bytes": 3177
+        },
+        {
+          "path": "vibelab/seo.php",
+          "bytes": 4218
+        },
+        {
+          "path": "vibelab/single-vne_resource.php",
+          "bytes": 9504
+        },
+        {
+          "path": "vibelab/style.css",
+          "bytes": 24824
+        },
+        {
+          "path": "vibelab/support-template.php",
+          "bytes": 5976
+        },
+        {
+          "path": "vibelab/support.php",
+          "bytes": 16770
+        },
+        {
+          "path": "vibelab/taxonomy-vne_category.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_need.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_tool.php",
+          "bytes": 91
+        }
+      ]
+    },
+    {
+      "path": "artifacts/production/18a91ca0d5445479acd110e7886067e8fe5ab083/release/vne-library-core-0.4.2.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5",
+      "bytes": 108507,
+      "entries": [
+        {
+          "path": "vne-library-core/admin.php",
+          "bytes": 11523
+        },
+        {
+          "path": "vne-library-core/api.php",
+          "bytes": 2771
+        },
+        {
+          "path": "vne-library-core/cache.php",
+          "bytes": 8150
+        },
+        {
+          "path": "vne-library-core/model.php",
+          "bytes": 19014
+        },
+        {
+          "path": "vne-library-core/reports.php",
+          "bytes": 17364
+        },
+        {
+          "path": "vne-library-core/revision-admin.php",
+          "bytes": 5512
+        },
+        {
+          "path": "vne-library-core/revisions.php",
+          "bytes": 15448
+        },
+        {
+          "path": "vne-library-core/state-admin.php",
+          "bytes": 6840
+        },
+        {
+          "path": "vne-library-core/state.php",
+          "bytes": 18959
+        },
+        {
+          "path": "vne-library-core/vne-library-core.php",
+          "bytes": 1564
+        }
+      ]
+    },
+    {
+      "path": "artifacts/production/594ccd9a7de812a49f2c0d8260d20cbfced71752/content-import/b3d206e84173/s16-content-import.zip",
+      "sha256": "e4e113396b4b0bec2e98c34e0e91e5ad40b7b4687dd8045cbd64e8ff4df9394a",
+      "bytes": 48640,
+      "entries": [
+        {
+          "path": "s16-content/content.json",
+          "bytes": 39222
+        },
+        {
+          "path": "s16-content/import.php",
+          "bytes": 9152
+        }
+      ]
+    },
+    {
+      "path": "artifacts/production/g03-0499402e4708/bundle.zip",
+      "sha256": "5e4b9d0f11d145bc9a1b5fa07273f4414182665c4f7de9c40a8a21b02a37104b",
+      "bytes": 241890,
+      "entries": [
+        {
+          "path": "g03-production/content.json",
+          "bytes": 33806
+        },
+        {
+          "path": "g03-production/evidence/antigravity.html",
+          "bytes": 3121
+        },
+        {
+          "path": "g03-production/evidence/claude-code.html",
+          "bytes": 2928
+        },
+        {
+          "path": "g03-production/evidence/codex.html",
+          "bytes": 2554
+        },
+        {
+          "path": "g03-production/import.php",
+          "bytes": 13107
+        },
+        {
+          "path": "g03-production/manifest.json",
+          "bytes": 20574
+        },
+        {
+          "path": "g03-production/theme.zip",
+          "bytes": 164810
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/archive-vne_guide.php",
+          "bytes": 1952
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/archive-vne_resource.php",
+          "bytes": 91
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-astro.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-default.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-mdn.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-pico.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-react.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-web-basics.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/cover-web-design.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/discovery.js",
+          "bytes": 4405
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/lesson.css",
+          "bytes": 3630
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/lesson.js",
+          "bytes": 2985
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/menu.js",
+          "bytes": 1403
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/moc-studio/index.html",
+          "bytes": 2418
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/moc-studio/style.css",
+          "bytes": 2373
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/support.css",
+          "bytes": 3126
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/assets/support.js",
+          "bytes": 512
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/catalog-template.php",
+          "bytes": 2920
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/catalog.php",
+          "bytes": 4953
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/detail.php",
+          "bytes": 6177
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/discovery-template.php",
+          "bytes": 10283
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/discovery.php",
+          "bytes": 12842
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/footer.php",
+          "bytes": 1378
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/front-page.php",
+          "bytes": 4545
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/functions.php",
+          "bytes": 7479
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/guides.php",
+          "bytes": 2630
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/header.php",
+          "bytes": 2301
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/index.php",
+          "bytes": 2651
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/lesson-template.php",
+          "bytes": 5365
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/lesson.php",
+          "bytes": 3177
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/seo.php",
+          "bytes": 4218
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/single-vne_resource.php",
+          "bytes": 9504
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/style.css",
+          "bytes": 25807
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/support-template.php",
+          "bytes": 5976
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/support.php",
+          "bytes": 16770
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/taxonomy-vne_category.php",
+          "bytes": 91
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/taxonomy-vne_need.php",
+          "bytes": 91
+        },
+        {
+          "path": "g03-production/theme.zip!/vibelab/taxonomy-vne_tool.php",
+          "bytes": 91
+        }
+      ]
+    },
+    {
+      "path": "artifacts/production/g03-0499402e4708/theme.zip",
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab",
+      "bytes": 164810,
+      "entries": [
+        {
+          "path": "vibelab/archive-vne_guide.php",
+          "bytes": 1952
+        },
+        {
+          "path": "vibelab/archive-vne_resource.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/assets/cover-astro.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-default.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-mdn.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/cover-pico.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-react.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-web-basics.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-web-design.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/discovery.js",
+          "bytes": 4405
+        },
+        {
+          "path": "vibelab/assets/lesson.css",
+          "bytes": 3630
+        },
+        {
+          "path": "vibelab/assets/lesson.js",
+          "bytes": 2985
+        },
+        {
+          "path": "vibelab/assets/menu.js",
+          "bytes": 1403
+        },
+        {
+          "path": "vibelab/assets/moc-studio/index.html",
+          "bytes": 2418
+        },
+        {
+          "path": "vibelab/assets/moc-studio/style.css",
+          "bytes": 2373
+        },
+        {
+          "path": "vibelab/assets/support.css",
+          "bytes": 3126
+        },
+        {
+          "path": "vibelab/assets/support.js",
+          "bytes": 512
+        },
+        {
+          "path": "vibelab/catalog-template.php",
+          "bytes": 2920
+        },
+        {
+          "path": "vibelab/catalog.php",
+          "bytes": 4953
+        },
+        {
+          "path": "vibelab/detail.php",
+          "bytes": 6177
+        },
+        {
+          "path": "vibelab/discovery-template.php",
+          "bytes": 10283
+        },
+        {
+          "path": "vibelab/discovery.php",
+          "bytes": 12842
+        },
+        {
+          "path": "vibelab/footer.php",
+          "bytes": 1378
+        },
+        {
+          "path": "vibelab/front-page.php",
+          "bytes": 4545
+        },
+        {
+          "path": "vibelab/functions.php",
+          "bytes": 7479
+        },
+        {
+          "path": "vibelab/guides.php",
+          "bytes": 2630
+        },
+        {
+          "path": "vibelab/header.php",
+          "bytes": 2301
+        },
+        {
+          "path": "vibelab/index.php",
+          "bytes": 2651
+        },
+        {
+          "path": "vibelab/lesson-template.php",
+          "bytes": 5365
+        },
+        {
+          "path": "vibelab/lesson.php",
+          "bytes": 3177
+        },
+        {
+          "path": "vibelab/seo.php",
+          "bytes": 4218
+        },
+        {
+          "path": "vibelab/single-vne_resource.php",
+          "bytes": 9504
+        },
+        {
+          "path": "vibelab/style.css",
+          "bytes": 25807
+        },
+        {
+          "path": "vibelab/support-template.php",
+          "bytes": 5976
+        },
+        {
+          "path": "vibelab/support.php",
+          "bytes": 16770
+        },
+        {
+          "path": "vibelab/taxonomy-vne_category.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_need.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_tool.php",
+          "bytes": 91
+        }
+      ]
+    },
+    {
+      "path": "artifacts/releases/594ccd9a7de812a49f2c0d8260d20cbfced71752/vibelab-0.7.0.zip",
+      "sha256": "f6124d7693e8c8af7e8dcd7668012b8c0ed986d338c2a9e864e0f77afa3f0778",
+      "bytes": 158966,
+      "entries": [
+        {
+          "path": "vibelab/archive-vne_resource.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/assets/cover-astro.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-default.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-mdn.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/cover-pico.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-react.svg",
+          "bytes": 1112
+        },
+        {
+          "path": "vibelab/assets/cover-web-basics.svg",
+          "bytes": 1120
+        },
+        {
+          "path": "vibelab/assets/cover-web-design.svg",
+          "bytes": 1114
+        },
+        {
+          "path": "vibelab/assets/discovery.js",
+          "bytes": 4405
+        },
+        {
+          "path": "vibelab/assets/lesson.css",
+          "bytes": 3630
+        },
+        {
+          "path": "vibelab/assets/lesson.js",
+          "bytes": 2985
+        },
+        {
+          "path": "vibelab/assets/menu.js",
+          "bytes": 1403
+        },
+        {
+          "path": "vibelab/assets/moc-studio/index.html",
+          "bytes": 2418
+        },
+        {
+          "path": "vibelab/assets/moc-studio/style.css",
+          "bytes": 2373
+        },
+        {
+          "path": "vibelab/assets/support.css",
+          "bytes": 3126
+        },
+        {
+          "path": "vibelab/assets/support.js",
+          "bytes": 512
+        },
+        {
+          "path": "vibelab/catalog-template.php",
+          "bytes": 2920
+        },
+        {
+          "path": "vibelab/catalog.php",
+          "bytes": 4953
+        },
+        {
+          "path": "vibelab/detail.php",
+          "bytes": 6177
+        },
+        {
+          "path": "vibelab/discovery-template.php",
+          "bytes": 10283
+        },
+        {
+          "path": "vibelab/discovery.php",
+          "bytes": 12842
+        },
+        {
+          "path": "vibelab/footer.php",
+          "bytes": 1378
+        },
+        {
+          "path": "vibelab/front-page.php",
+          "bytes": 4921
+        },
+        {
+          "path": "vibelab/functions.php",
+          "bytes": 7438
+        },
+        {
+          "path": "vibelab/header.php",
+          "bytes": 2358
+        },
+        {
+          "path": "vibelab/index.php",
+          "bytes": 2226
+        },
+        {
+          "path": "vibelab/lesson-template.php",
+          "bytes": 5365
+        },
+        {
+          "path": "vibelab/lesson.php",
+          "bytes": 3177
+        },
+        {
+          "path": "vibelab/seo.php",
+          "bytes": 4218
+        },
+        {
+          "path": "vibelab/single-vne_resource.php",
+          "bytes": 9504
+        },
+        {
+          "path": "vibelab/style.css",
+          "bytes": 24824
+        },
+        {
+          "path": "vibelab/support-template.php",
+          "bytes": 5976
+        },
+        {
+          "path": "vibelab/support.php",
+          "bytes": 16770
+        },
+        {
+          "path": "vibelab/taxonomy-vne_category.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_need.php",
+          "bytes": 91
+        },
+        {
+          "path": "vibelab/taxonomy-vne_tool.php",
+          "bytes": 91
+        }
+      ]
+    },
+    {
+      "path": "artifacts/staging/594ccd9a7de812a49f2c0d8260d20cbfced71752/content-import/edb20972c8e8/s15-content-import.zip",
+      "sha256": "aad1499e7b1485a4c7c21f3e53e5d0d7b819bd15b6f8818c4d69a93543236d18",
+      "bytes": 48286,
+      "entries": [
+        {
+          "path": "s15-content/content.json",
+          "bytes": 39222
+        },
+        {
+          "path": "s15-content/import.php",
+          "bytes": 8798
+        }
+      ]
+    },
+    {
+      "path": "artifacts/staging/594ccd9a7de812a49f2c0d8260d20cbfced71752/s15-plugin-preflight.zip",
+      "sha256": "e70b9c4fba2faf3957a5d38995affc42ac82e754df7de9d1d5b9fe0c85092cd0",
+      "bytes": 124624,
+      "entries": [
+        {
+          "path": "s15-release/audit.php",
+          "bytes": 5782
+        },
+        {
+          "path": "s15-release/manifest.json",
+          "bytes": 9949
+        },
+        {
+          "path": "s15-release/plugin.zip",
+          "bytes": 108507
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/admin.php",
+          "bytes": 11523
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/api.php",
+          "bytes": 2771
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/cache.php",
+          "bytes": 8150
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/model.php",
+          "bytes": 19014
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/reports.php",
+          "bytes": 17364
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/revision-admin.php",
+          "bytes": 5512
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/revisions.php",
+          "bytes": 15448
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/state-admin.php",
+          "bytes": 6840
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/state.php",
+          "bytes": 18959
+        },
+        {
+          "path": "s15-release/plugin.zip!/vne-library-core/vne-library-core.php",
+          "bytes": 1564
+        }
+      ]
+    },
+    {
+      "path": "docs/content-production/2026-10-25/packages/content-100-100-b6fab929073c.zip",
+      "sha256": "b6fab929073c15d0467c720c31214397c08fe712ecb1e55e1f0e5413fadb8617",
+      "bytes": 765830,
+      "entries": [
+        {
+          "path": "content-100-20261025/batch-01/content.json",
+          "bytes": 75912
+        },
+        {
+          "path": "content-100-20261025/batch-02/content.json",
+          "bytes": 74657
+        },
+        {
+          "path": "content-100-20261025/batch-03/content.json",
+          "bytes": 74618
+        },
+        {
+          "path": "content-100-20261025/batch-04/content.json",
+          "bytes": 74792
+        },
+        {
+          "path": "content-100-20261025/batch-05/content.json",
+          "bytes": 75576
+        },
+        {
+          "path": "content-100-20261025/batch-06/content.json",
+          "bytes": 76310
+        },
+        {
+          "path": "content-100-20261025/batch-07/content.json",
+          "bytes": 75184
+        },
+        {
+          "path": "content-100-20261025/batch-08/content.json",
+          "bytes": 74916
+        },
+        {
+          "path": "content-100-20261025/batch-09/content.json",
+          "bytes": 74876
+        },
+        {
+          "path": "content-100-20261025/batch-10/content.json",
+          "bytes": 74932
+        },
+        {
+          "path": "content-100-20261025/import.php",
+          "bytes": 10720
+        },
+        {
+          "path": "content-100-20261025/manifest.json",
+          "bytes": 1433
+        }
+      ]
+    },
+    {
+      "path": "docs/content-production/2026-10-25/packages/content-100-30-77c40b5d594a.zip",
+      "sha256": "77c40b5d594a4e5e8b516b79cde128fe5acf348062276486a2dc40028ffca3f4",
+      "bytes": 237282,
+      "entries": [
+        {
+          "path": "content-100-20261025/batch-01/content.json",
+          "bytes": 75912
+        },
+        {
+          "path": "content-100-20261025/batch-02/content.json",
+          "bytes": 74657
+        },
+        {
+          "path": "content-100-20261025/batch-03/content.json",
+          "bytes": 74618
+        },
+        {
+          "path": "content-100-20261025/import.php",
+          "bytes": 10720
+        },
+        {
+          "path": "content-100-20261025/manifest.json",
+          "bytes": 591
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "ZIP paths checked recursively in memory, including nested plugin ZIP; no extraction",
+    "Images are project website/trial evidence, separately inventoried; no claim of automated visual secret detection",
+    "Pattern/path checks do not prove absence of every sensitive value"
+  ]
+}

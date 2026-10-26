@@ -1,0 +1,21 @@
+{
+  "status": "S15_ACCEPTED_WITH_DOCUMENTED_SCOPE_AND_LIMITS",
+  "ownerStatement": "đã thử, ổn",
+  "userFacingDate": "2026-10-24",
+  "timezone": "Asia/Saigon",
+  "source": "Direct user reply in this project chat after requested staging experience review",
+  "requestedReview": [
+    "Find a resource on staging",
+    "Open resource detail",
+    "Read the Moc Studio lesson"
+  ],
+  "target": "https://staging-store.vneconomics.com/",
+  "pluginVersion": "0.4.2",
+  "schema": 3,
+  "themeVersion": "0.7.0",
+  "technicalEvidence": "docs/acceptance/S15-staging.vi.md",
+  "newTestsRun": false,
+  "hostingChanged": false,
+  "productionAuthorized": false,
+  "nextGate": "S16 requires specific approval of ref, payload, target and timing; do not infer it from this acceptance"
+}

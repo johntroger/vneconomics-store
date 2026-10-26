@@ -1,0 +1,740 @@
+{
+  "status": "INSPECTED_READ_ONLY",
+  "sourceSha": "f587eea20526f32294a8826949d7407337040ec6",
+  "manifestSha256": "374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c",
+  "baselineSha256": "85d0113fb4db5d18264d9967a61d020603e30f24ce2c955546d1f96099cd1a62",
+  "components": {
+    "theme": "MATCH",
+    "plugin": "MATCH"
+  },
+  "transportConfigured": false,
+  "entries": [
+    {
+      "key": "codex",
+      "id": 107,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-001",
+      "id": 113,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-002",
+      "id": 114,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-003",
+      "id": 115,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-004",
+      "id": 116,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-005",
+      "id": 117,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-006",
+      "id": 118,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-007",
+      "id": 119,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-008",
+      "id": 120,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-009",
+      "id": 121,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-010",
+      "id": 122,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-011",
+      "id": 123,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-012",
+      "id": 124,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-013",
+      "id": 125,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-014",
+      "id": 126,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-015",
+      "id": 127,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-016",
+      "id": 128,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-017",
+      "id": 129,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-018",
+      "id": 130,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-019",
+      "id": 131,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-020",
+      "id": 132,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-021",
+      "id": 133,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-022",
+      "id": 134,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-023",
+      "id": 135,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-024",
+      "id": 136,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-025",
+      "id": 137,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-026",
+      "id": 138,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-027",
+      "id": 139,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-028",
+      "id": 140,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-029",
+      "id": 141,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-030",
+      "id": 142,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-031",
+      "id": 143,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-032",
+      "id": 144,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-033",
+      "id": 145,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-034",
+      "id": 146,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-035",
+      "id": 147,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-036",
+      "id": 148,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-037",
+      "id": 149,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-038",
+      "id": 150,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-039",
+      "id": 151,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-040",
+      "id": 152,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-041",
+      "id": 153,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-042",
+      "id": 154,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-043",
+      "id": 155,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-044",
+      "id": 156,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-045",
+      "id": 157,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-046",
+      "id": 158,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-047",
+      "id": 159,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-048",
+      "id": 160,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-049",
+      "id": 161,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-050",
+      "id": 162,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-051",
+      "id": 163,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-052",
+      "id": 164,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-053",
+      "id": 165,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-054",
+      "id": 166,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-055",
+      "id": 167,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-056",
+      "id": 168,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-057",
+      "id": 169,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-058",
+      "id": 170,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-059",
+      "id": 171,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-060",
+      "id": 172,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-061",
+      "id": 173,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-062",
+      "id": 174,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-063",
+      "id": 175,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-064",
+      "id": 176,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-065",
+      "id": 177,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-066",
+      "id": 178,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-067",
+      "id": 179,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-068",
+      "id": 180,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-069",
+      "id": 181,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-070",
+      "id": 182,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-071",
+      "id": 183,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-072",
+      "id": 184,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-073",
+      "id": 185,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-074",
+      "id": 186,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-075",
+      "id": 187,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-076",
+      "id": 188,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-077",
+      "id": 189,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-078",
+      "id": 190,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-079",
+      "id": 191,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-080",
+      "id": 192,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-081",
+      "id": 193,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-082",
+      "id": 194,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-083",
+      "id": 195,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-084",
+      "id": 196,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-085",
+      "id": 197,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-086",
+      "id": 198,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-087",
+      "id": 199,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-088",
+      "id": 200,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-089",
+      "id": 201,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-090",
+      "id": 202,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-091",
+      "id": 203,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-092",
+      "id": 204,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-093",
+      "id": 205,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-094",
+      "id": 206,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-095",
+      "id": 207,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-096",
+      "id": 208,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-097",
+      "id": 209,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-098",
+      "id": 210,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-099",
+      "id": 211,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "c100-100",
+      "id": 212,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "claude-code",
+      "id": 213,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    },
+    {
+      "key": "antigravity",
+      "id": 215,
+      "owned": false,
+      "status": "publish",
+      "validationReady": true
+    }
+  ],
+  "evidence": {
+    "codex": true,
+    "claude-code": true,
+    "antigravity": true
+  },
+  "journalStatus": null
+}

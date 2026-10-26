@@ -1,0 +1,50 @@
+{
+  "observedAt": "2026-10-26T02:20:50+00:00",
+  "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+  "database": "vne35060_wp_udx1z",
+  "home": "https://staging-store.vneconomics.com",
+  "php": "8.3.36",
+  "wordpress": "7.1.3",
+  "theme": "0.7.1",
+  "stylesheet": "vibelab",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "indexing": "0",
+  "counts": {
+    "vne_resource": 6,
+    "vne_guide": 4,
+    "vne_practice": 1
+  },
+  "components": {
+    "theme": {
+      "comparedWith": "0.7.1",
+      "expected": 36,
+      "mismatch": []
+    },
+    "plugin": {
+      "comparedWith": "0.4.2",
+      "expected": 10,
+      "mismatch": []
+    }
+  },
+  "guides": [
+    {
+      "slug": "lam-landing-page-moc-studio-voi-codex-tren-windows",
+      "id": 114,
+      "status": "publish"
+    },
+    {
+      "slug": "lam-landing-page-moc-studio-voi-claude-code-tren-windows",
+      "id": null,
+      "status": null
+    },
+    {
+      "slug": "lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows",
+      "id": null,
+      "status": null
+    }
+  ],
+  "g03JournalPresent": false,
+  "c100JournalsPresent": 0,
+  "typedContentRows": 28
+}

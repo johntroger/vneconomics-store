@@ -1,0 +1,532 @@
+{
+  "format": 1,
+  "sourceFiles": {
+    "seed": {
+      "path": "scripts/fixtures/s13-integrated-seed.php",
+      "sha256": "32758a4aea1c74973ed97a4710b92c970f1036f7921a3b2c3f9899ab86d8c353"
+    },
+    "lesson": {
+      "path": "docs/content-samples/S10-moc-studio-lesson.html",
+      "sha256": "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+    },
+    "observations": {
+      "path": "docs/acceptance/S02/source-observations.json",
+      "sha256": "572cfd9212ae60fb0ffd700d4ce43bb66a5c28df9c1ff390f7339394034b4702"
+    },
+    "model": {
+      "path": "plugins/vne-library-core/model.php",
+      "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
+    },
+    "state": {
+      "path": "plugins/vne-library-core/state.php",
+      "sha256": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c"
+    }
+  },
+  "categories": [
+    "Nền tảng web",
+    "Mẫu dự án",
+    "Skills cho AI agent"
+  ],
+  "items": [
+    {
+      "key": 1,
+      "payload": {
+        "title": "Web Dev for Beginners",
+        "excerpt": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 1,
+        "data": {
+          "resource_type": "learn",
+          "source_url": "https://github.com/microsoft/Web-Dev-For-Beginners",
+          "repo_id": null,
+          "source_path": "",
+          "source_revision": "78085398be0dea7abaaf5eda914817f46f6ddbbc",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      }
+    },
+    {
+      "key": 2,
+      "payload": {
+        "title": "MDN Learning Area",
+        "excerpt": "Xem các ví dụ nhỏ để hiểu cấu trúc, bố cục và cách trình duyệt hiển thị.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Xem các ví dụ nhỏ để hiểu cấu trúc, bố cục và cách trình duyệt hiển thị.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 2,
+        "data": {
+          "resource_type": "starter",
+          "source_url": "https://github.com/mdn/learning-area",
+          "repo_id": null,
+          "source_path": "",
+          "source_revision": "d55e1c2e3ff401519811b64e5b2a7d3643b43d0f",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      }
+    },
+    {
+      "key": 3,
+      "payload": {
+        "title": "Web Design Guidelines",
+        "excerpt": "Một nguồn tham khảo để rà soát giao diện theo các quy tắc web.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Một nguồn tham khảo để rà soát giao diện theo các quy tắc web.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 3,
+        "data": {
+          "resource_type": "skill",
+          "source_url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines",
+          "repo_id": null,
+          "source_path": "skills/web-design-guidelines",
+          "source_revision": "063bee94c3f4df8453406c830b0a7df0f2860278",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      }
+    },
+    {
+      "key": 4,
+      "payload": {
+        "title": "Astro Basics",
+        "excerpt": "Tham khảo cấu trúc dự án Astro khi đã sẵn sàng dùng framework.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Tham khảo cấu trúc dự án Astro khi đã sẵn sàng dùng framework.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 2,
+        "data": {
+          "resource_type": "starter",
+          "source_url": "https://github.com/withastro/astro/tree/main/examples/basics",
+          "repo_id": null,
+          "source_path": "examples/basics",
+          "source_revision": "70834bbea43695c563358ea055d32ecb5e0a78dd",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      }
+    },
+    {
+      "key": 5,
+      "payload": {
+        "title": "React Best Practices",
+        "excerpt": "Tham khảo hướng dẫn tối ưu React khi đã có dự án dùng công nghệ này.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Tham khảo hướng dẫn tối ưu React khi đã có dự án dùng công nghệ này.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 3,
+        "data": {
+          "resource_type": "skill",
+          "source_url": "https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices",
+          "repo_id": null,
+          "source_path": "skills/react-best-practices",
+          "source_revision": "063bee94c3f4df8453406c830b0a7df0f2860278",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      }
+    },
+    {
+      "key": 6,
+      "payload": {
+        "title": "Pico CSS",
+        "excerpt": "Tham khảo CSS tối giản; đọc tình trạng duy trì trước khi dùng.",
+        "content": "<h2>Tài nguyên này giúp gì?</h2><p>Tham khảo CSS tối giản; đọc tình trạng duy trì trước khi dùng.</p><h2>Trước khi dùng</h2><p>Đây là giới thiệu biên tập từ nguồn đã quan sát ngày 19/10/2026. Chưa cài, chạy thử hoặc kiểm tra lại nguồn trong S13. Những yêu cầu, chi phí, giấy phép và mức tương thích chưa được xác minh vẫn được ghi là chưa rõ.</p><h2>Cách tiếp cận cho người mới</h2><p>Đọc README và yêu cầu tại repo trước khi tải hay chạy lệnh. Với bài đầu, dùng bài landing page Mộc Studio trong mục Hướng dẫn; các repo này là tài liệu tham khảo, không phải điều kiện bắt buộc để làm bài.</p>",
+        "status": "publish",
+        "primary_category": 2,
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/picocss/pico",
+          "repo_id": null,
+          "source_path": "",
+          "source_revision": "a07563ddc856e6ed31a740e33b0397814227d469",
+          "source_verified": true,
+          "observed_at": "2026-10-19",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác định; cần kiểm tra nguồn trước khi sử dụng.",
+              "conflict_sources": []
+            }
+          }
+        },
+        "post_type": "vne_resource"
+      },
+      "state": {
+        "source_access": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Chưa xác minh tình trạng hiện tại."
+        },
+        "maintenance": {
+          "status": "archived",
+          "source_url": "https://github.com/picocss/pico",
+          "observed_at": "2026-10-19",
+          "note": "Quan sát S02, chưa kiểm tra lại trong S13."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "Giữ để tham khảo; không đề xuất cho bài đầu."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      }
+    },
+    {
+      "key": 7,
+      "payload": {
+        "post_type": "vne_guide",
+        "status": "publish",
+        "primary_category": 1,
+        "document_source": {
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "MOC-WIN-1, tài liệu chính thức đã đọc trong S10. Bài mẫu đã replay từ thư mục mới trên máy có công cụ; chưa thử Windows sạch, đăng nhập mới hoặc phiên AI mới."
+        },
+        "title": "Làm landing page Mộc Studio với Codex trên Windows",
+        "excerpt": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+        "content": "<p>Mộc Studio là dịch vụ chụp ảnh sản phẩm hư cấu. Bạn sẽ làm một trang HTML/CSS chạy trên máy, sửa một tiêu đề rồi thử khôi phục. Mẫu không thu thập dữ liệu, không nhận đặt lịch và không tự đưa lên mạng.</p>\n<p class=\"lesson-example\">Xem đầu ra Mộc Studio minh họa. Đây là mẫu, không phải bằng chứng cho mã trên máy bạn.</p>\n<h2>Trước khi bắt đầu</h2>\n<dl class=\"lesson-environment\"><dt>Nhánh hướng dẫn</dt><dd>Windows native · PowerShell · Codex trong ứng dụng desktop. Không dùng lệnh Bash/WSL của bài khác.</dd><dt>Bản nội dung</dt><dd>MOC-WIN-1 · 22/10/2026. Nguồn ứng dụng đã đọc ngày 22/10/2026; vị trí nút có thể đổi theo bản cài.</dd><dt>Cần có</dt><dd>Windows có quyền chạy ứng dụng, trình duyệt, thư mục mới có quyền ghi và tài khoản đủ điều kiện dùng Codex.</dd><dt>Tài khoản / chi phí</dt><dd>Website miễn phí. Kiểm tra quyền sử dụng, hạn mức và chi phí tại tài khoản nhà cung cấp trước khi gửi yêu cầu. Không cần Gemini API cho bài này; không dán khóa API lên website.</dd><dt>Quyền và kết nối</dt><dd>Codex cần đọc/ghi thư mục bài tập và kết nối dịch vụ AI để trả lời. Chỉ chọn thư mục mới, không cấp cả ổ đĩa. Mã trang mẫu chạy local không cần dịch vụ ngoài.</dd><dt>Không cần cho trang mẫu</dt><dd>Node, npm, Python, framework, database, WordPress hay tài khoản GitHub. Nếu agent đề nghị cài thêm, dừng và hỏi lý do.</dd></dl>\n<p>Phạm vi đã thử nằm ở cuối bài. Chạy từ thư mục mới không chứng minh đã thử cài ứng dụng trên một máy Windows sạch. Kết quả AI có thể khác mẫu; dùng checklist để đánh giá.</p>\n<h2>1. Cài và kiểm tra Codex</h2>\n<p>Mở <a href=\"https://learn.chatgpt.com/docs/windows/windows-app\">hướng dẫn Windows chính thức</a> và dùng liên kết tải tại đó. Sau khi cài, mở ứng dụng, đăng nhập tài khoản của bạn và chọn Codex. Xem <a href=\"https://learn.chatgpt.com/docs/quickstart\">quickstart chính thức</a> nếu giao diện khác.</p>\n<p>Chọn môi trường Windows native và PowerShell. Giữ quyền hạn trong thư mục bài tập; nếu sandbox yêu cầu thiết lập, làm theo <a href=\"https://learn.chatgpt.com/docs/windows/windows-sandbox\">hướng dẫn sandbox</a>. Không bỏ giới hạn quyền để né lỗi chưa hiểu.</p>\n<p><strong>Đạt khi:</strong> vào được Codex, thấy nơi chọn dự án local; tài khoản sẵn sàng gửi yêu cầu. Nếu không đủ quyền/hạn mức, dừng tại đây, vẫn có thể đọc bài. Không có thao tác nào trên website tự đăng nhập thay bạn.</p>\n<h2>2. Tạo thư mục bài tập</h2>\n<p>Tạo một thư mục trống bằng File Explorer, mở thư mục đó, gõ <code>powershell</code> vào thanh địa chỉ rồi Enter. Terminal là cửa sổ nhận lệnh văn bản. Dán ba dòng sau vào PowerShell; không nhập chữ PS hoặc ký hiệu &gt; của dòng nhắc.</p>\n<pre class=\"language-powershell\"><code>New-Item -ItemType Directory -Name moc-studio -ErrorAction Stop\nSet-Location -LiteralPath .\\moc-studio\nGet-Location</code></pre>\n<p><strong>Đạt khi:</strong> dòng đường dẫn kết thúc bằng <code>moc-studio</code>. Nếu báo đã tồn tại, không ghi đè: mở thư mục trống khác rồi thử lại. Trong Codex, mở/chọn chính thư mục <code>moc-studio</code> đó làm dự án local. Không chọn thư mục chứa website đang dùng.</p>\n<h2>3. Duyệt đề bài rồi tạo trang</h2>\n<p>Gửi nội dung dưới đây vào ô chat Codex, không dán vào PowerShell. Đọc phương án trước khi đồng ý tạo file.</p>\n<pre class=\"lesson-prompt\"><code>Tôi mới học, đang dùng Windows native và PowerShell trong thư mục moc-studio trống.\nHãy đề xuất ngắn gọn cấu trúc landing page cho Mộc Studio, dịch vụ chụp ảnh sản phẩm HƯ CẤU; chờ tôi đồng ý mới viết mã.\nChỉ dùng index.html và style.css, mở trực tiếp bằng trình duyệt, UTF-8, lang=vi, responsive.\nCó hero, lợi ích, 3 dịch vụ, quy trình 3 bước và vùng liên hệ minh họa.\nTiêu đề chính: \"Ảnh đẹp để sản phẩm lên tiếng\". CTA \"Xem cách liên hệ\" dẫn #lien-he.\nGhi rõ thông tin minh họa, chưa nhận đặt lịch. Không bịa khách hàng, giá, đánh giá hoặc cam kết.\nKhông ảnh/font ngoài, thư viện, JavaScript, form, API, analytics, cài package hoặc triển khai.\nChỉ đọc/ghi thư mục bài tập. Sau khi tôi duyệt và bạn tạo mã, giải thích cách mở file và cách tự kiểm tra. Không báo đã thử nếu chưa chạy.</code></pre>\n<p>Nếu phương án đúng, gửi câu: “Đồng ý, hãy tạo hai file theo phương án vừa duyệt.” Chờ agent hoàn tất, xem lại thay đổi. Trong PowerShell đang ở <code>moc-studio</code>, kiểm tra:</p>\n<pre class=\"language-powershell\"><code>Get-Item -LiteralPath .\\index.html, .\\style.css</code></pre>\n<p><strong>Đạt khi:</strong> có đủ hai file, không có package hay file khóa bí mật được thêm. Nếu chỉ thấy tin nhắn chứa mã mà chưa có file, yêu cầu agent lưu đúng thư mục rồi chạy kiểm tra lại.</p>\n<h2>4. Mở và tự kiểm tra kết quả</h2>\n<p>Trong File Explorer mở <code>moc-studio</code>, nhấp đúp <code>index.html</code>. Địa chỉ trình duyệt bắt đầu bằng <code>file:///</code>. Trang mẫu này không cần server; nếu mở nhầm trình soạn thảo, chọn Open with và trình duyệt.</p>\n<p>Đọc tiêu đề, bấm điều hướng và “Xem cách liên hệ”; vùng thông tin minh họa phải xuất hiện. Thu nhỏ cửa sổ khoảng 390px rồi 320px; chữ vẫn đọc được, không kéo ngang. Phóng to chữ để kiểm tra.</p>\n<p><strong>Đạt khi:</strong> trang có các phần đã yêu cầu, CSS có hiệu lực, tất cả liên kết trong trang tới đúng vùng, không có nút nhận đặt lịch giả. Ảnh minh họa hoặc trang mẫu đẹp không phải bằng chứng phiên bản AI của bạn đã chạy đúng.</p>\n<h2>5. Lưu mốc trước khi sửa</h2>\n<p>Trong PowerShell ở <code>moc-studio</code>, sao lưu hai file. Không đổi tên mốc cũ để ghi đè:</p>\n<pre class=\"language-powershell\"><code>New-Item -ItemType Directory -Name checkpoint-v1 -ErrorAction Stop\nCopy-Item -LiteralPath .\\index.html, .\\style.css -Destination .\\checkpoint-v1\\ -ErrorAction Stop\nGet-ChildItem -LiteralPath .\\checkpoint-v1</code></pre>\n<p><strong>Đạt khi:</strong> thư mục <code>checkpoint-v1</code> chứa cả hai file. Nếu tên đã tồn tại, dừng và kiểm tra bản đang giữ trước khi chọn tên mới. Bản sao trong cùng máy chỉ giúp quay lại bài tập, không thay thế sao lưu dữ liệu quan trọng.</p>\n<h2>6. Sửa một chi tiết rồi kiểm tra lại</h2>\n<p>Gửi vào chat Codex:</p>\n<pre class=\"lesson-prompt\"><code>Chỉ đổi tiêu đề h1 thành \"Hình ảnh chỉn chu cho sản phẩm của bạn\" trong index.html. Giữ nguyên CSS, liên kết, các phần khác và checkpoint-v1. Không cài thêm, không triển khai. Nêu đúng file đã đổi và cách tôi kiểm tra.</code></pre>\n<p>Tải lại trang bằng Ctrl+R. Kiểm tra tiêu đề mới, thử lại CTA và màn hình nhỏ. So sánh <code>style.css</code> với bản mốc: file này không được đổi.</p>\n<p><strong>Đạt khi:</strong> thấy tiêu đề mới và các chức năng trước vẫn đúng. “Agent nói xong” chưa đủ; bạn cần quan sát trang sau sửa.</p>\n<h2>7. Thử quay lại bản mốc</h2>\n<p>Chỉ làm nếu muốn trở về bản trước bước 6. Hai lệnh đầu sẽ thay nội dung hai file hiện tại bằng bản mốc; giữ bản sửa ở nơi khác trước nếu muốn lưu cả hai. Không xóa cả thư mục.</p>\n<pre class=\"language-powershell\"><code>Copy-Item -LiteralPath .\\checkpoint-v1\\index.html -Destination .\\index.html -Force -ErrorAction Stop\nCopy-Item -LiteralPath .\\checkpoint-v1\\style.css -Destination .\\style.css -Force -ErrorAction Stop\nGet-Item -LiteralPath .\\index.html, .\\style.css</code></pre>\n<p><strong>Đạt khi:</strong> tải lại trang thấy “Ảnh đẹp để sản phẩm lên tiếng”; CTA vẫn tới vùng liên hệ. Không cần Git reset, cài lại Codex hay thay đổi hosting.</p>\n<h2>Khi gặp lỗi</h2>\n<details><summary>Không tạo được thư mục hoặc báo Access denied</summary><p>Kiểm tra đúng thư mục mới và quyền ghi. Chọn nơi bạn được phép lưu; với máy do tổ chức quản lý, nhờ quản trị viên hỗ trợ. Không tự chạy toàn bộ ứng dụng bằng quyền quản trị để bỏ qua lỗi.</p></details>\n<details><summary>Không tìm thấy file hoặc trang không có định dạng</summary><p>Đối chiếu đường dẫn bằng Get-Location; kiểm tra hai tên file chính xác, không phải index.html.txt. CSS phải ở cùng thư mục và thẻ link trong HTML trỏ tới style.css. Gửi agent tên file, thông báo lỗi đã che thông tin riêng; không gửi khóa API.</p></details>\n<details><summary>Codex hết hạn mức hoặc không phản hồi</summary><p>Kiểm tra đăng nhập, kết nối và điều kiện tài khoản ở nhà cung cấp. Giữ file và bản mốc đã có; dừng yêu cầu AI. Không cần mua API khác hoặc dán khóa vào website để tiếp tục đọc.</p></details>\n<details><summary>Đã sửa nhưng trang vẫn hiển thị bản cũ</summary><p>Lưu file, kiểm tra đúng tab file:/// trong thư mục bài tập rồi Ctrl+R. Nếu lỗi xuất hiện sau sửa, đối chiếu bản mốc và chỉ khôi phục hai file theo bước 7.</p></details>\n<h2>Checklist kết quả của bạn</h2>\n<p>Chỉ tích sau khi thực sự đối chiếu. Website không đọc máy của bạn, không chạy code và không chứng nhận các dấu này. Phiên bản bài thay đổi sẽ bỏ áp dụng dấu cũ.</p>\n<ul class=\"lesson-checklist\"><li>Mở đúng index.html và nhìn thấy nội dung, CSS hoạt động.</li><li>Hero, dịch vụ, quy trình và thông tin minh họa có đủ; CTA và điều hướng tới đúng mục.</li><li>Ở 390px và 320px không tràn ngang; chữ, liên kết dùng được.</li><li>Đã sửa tiêu đề, tải lại và thử lại CTA; style.css không đổi.</li><li>Đã lưu hai file mốc, khôi phục thử và thấy tiêu đề gốc trở lại.</li><li>Không có khóa bí mật, form gửi dữ liệu, dịch vụ ngoài hoặc thao tác publish.</li></ul>\n<p>Nếu còn mục chưa đạt, quay về bước tương ứng và mô tả điều bạn quan sát được cho Codex. Tiếp theo, đọc tài nguyên nền tảng HTML/CSS trong danh mục để hiểu phần mã vừa tạo trước khi thêm framework hoặc skill.</p>\n"
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "Tài liệu chính thức đã đọc trong S10, không phải chứng nhận cài mới."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Chưa xác minh tình trạng hiện tại."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      }
+    },
+    {
+      "key": 8,
+      "payload": {
+        "post_type": "vne_guide",
+        "status": "publish",
+        "primary_category": 1,
+        "document_source": {
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "MOC-WIN-1, tài liệu chính thức đã đọc trong S10. Bài mẫu đã replay từ thư mục mới trên máy có công cụ; chưa thử Windows sạch, đăng nhập mới hoặc phiên AI mới."
+        },
+        "title": "Trước bài đầu: chuẩn bị công cụ và quyền truy cập",
+        "excerpt": "Kiểm tra điều kiện trước khi làm bài; dừng ở bước cần tài khoản hoặc chi phí chưa rõ.",
+        "content": "<h2>Chuẩn bị trước khi thực hành</h2><p>Bài đầu dành cho Codex trên Windows. Bạn cần máy Windows, trình duyệt, quyền tạo thư mục và tài khoản có quyền dùng Codex. Website đọc miễn phí; quyền dùng công cụ bên ngoài tùy tài khoản của bạn. Không cần kết nối API vào website để đọc hoặc làm bài.</p><h2>Điểm cần tự kiểm tra</h2><ul class=\"lesson-checklist\"><li>Tôi biết thư mục nào sẽ dùng cho bài mới, không chứa dữ liệu quan trọng.</li><li>Tôi đã đọc điều kiện truy cập công cụ; sẽ dừng nếu có yêu cầu trả phí chưa hiểu.</li><li>Tôi biết không gửi API key, mật khẩu hoặc tài liệu riêng vào báo lỗi.</li></ul><p>Việc tích checklist chỉ lưu trên trình duyệt, không chứng nhận đã cài công cụ. Mở <a href=\"https://staging-store.vneconomics.com/__S15_ITEM_7__/\">bài Mộc Studio</a> để xem hướng dẫn và giới hạn kiểm chứng.</p>"
+      }
+    },
+    {
+      "key": 9,
+      "payload": {
+        "post_type": "vne_guide",
+        "status": "publish",
+        "primary_category": 1,
+        "document_source": {
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "MOC-WIN-1, tài liệu chính thức đã đọc trong S10. Bài mẫu đã replay từ thư mục mới trên máy có công cụ; chưa thử Windows sạch, đăng nhập mới hoặc phiên AI mới."
+        },
+        "title": "Sửa lỗi bài đầu: ghi lại điều đang xảy ra",
+        "excerpt": "Mô tả lỗi rõ ràng trước khi nhờ trợ giúp, không chia sẻ thông tin bí mật.",
+        "content": "<h2>Khi kết quả không giống bài</h2><p>Dừng thao tác, ghi bước đang làm, kết quả mong muốn và thông báo thực tế. Kiểm tra hai file nằm cùng thư mục, tên file đúng và trang đã tải lại. Không chạy lệnh lạ chỉ để thử may.</p><h2>Nhờ trợ giúp</h2><p>Dùng mục Báo lỗi trên bài, ghi rõ Windows, công cụ, bước và thông báo; bỏ mật khẩu/API key/đường dẫn riêng. Biểu mẫu chỉ lưu yêu cầu local trong bản thử, không gửi email và chưa hứa thời gian trả lời.</p><p>Quay lại <a href=\"https://staging-store.vneconomics.com/__S15_ITEM_7__/\">bài Mộc Studio</a> để xem bước khôi phục từ bản mốc.</p>"
+      }
+    },
+    {
+      "key": 10,
+      "payload": {
+        "post_type": "vne_guide",
+        "status": "publish",
+        "primary_category": 1,
+        "document_source": {
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "MOC-WIN-1, tài liệu chính thức đã đọc trong S10. Bài mẫu đã replay từ thư mục mới trên máy có công cụ; chưa thử Windows sạch, đăng nhập mới hoặc phiên AI mới."
+        },
+        "title": "Sau bài đầu: hiểu HTML và CSS vừa tạo",
+        "excerpt": "Đọc cấu trúc trang rồi thay đổi từng phần nhỏ và kiểm tra lại.",
+        "content": "<h2>Đọc hai file đầu tiên</h2><p>HTML tổ chức nội dung và liên kết. CSS quy định màu, khoảng cách, cỡ chữ và bố cục. Mỗi lần chỉ yêu cầu AI đổi một điều có thể nhìn và kiểm tra.</p><h2>Thử một thay đổi nhỏ</h2><p>Trong <a href=\"https://staging-store.vneconomics.com/__S15_ITEM_7__/\">bài Mộc Studio</a>, đổi tiêu đề rồi kiểm tra liên kết và bố cục trên màn hình hẹp. So sánh với bản mốc; quay lại khi kết quả chưa đúng. Không cần thêm framework để hoàn thành bài đầu.</p>"
+      }
+    },
+    {
+      "key": 11,
+      "payload": {
+        "post_type": "vne_practice",
+        "status": "publish",
+        "primary_category": 1,
+        "document_source": {
+          "source_url": "https://learn.chatgpt.com/docs/windows/windows-app",
+          "observed_at": "2026-10-22",
+          "note": "MOC-WIN-1, tài liệu chính thức đã đọc trong S10. Bài mẫu đã replay từ thư mục mới trên máy có công cụ; chưa thử Windows sạch, đăng nhập mới hoặc phiên AI mới."
+        },
+        "title": "Bộ thực hành landing page cho dịch vụ chụp ảnh",
+        "excerpt": "Một nhiệm vụ nhỏ: chuẩn bị, tạo trang Mộc Studio, kiểm tra, sửa một chi tiết và khôi phục.",
+        "content": "<h2>Kết quả cần tạo</h2><p>Một trang HTML/CSS cho dịch vụ chụp ảnh hư cấu Mộc Studio. Không thu thập dữ liệu, không thanh toán và không triển khai website thật trong bài.</p><h2>Trình tự thực hành</h2><ol><li>Đọc điều kiện và giới hạn kiểm chứng trong bài chính.</li><li>Tạo trang theo brief, kiểm tra đầu ra.</li><li>Giữ bản mốc, sửa một chi tiết rồi kiểm tra và khôi phục.</li></ol><p><a href=\"https://staging-store.vneconomics.com/__S15_ITEM_7__/\">Mở bài thực hành từng bước</a>. Checklist là công cụ tự ghi nhận, không phải chứng nhận hoàn thành.</p>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "authorization": "User approved R4 staging; no production authorization",
+  "reviewer": 1,
+  "payloadSha": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
+  "sourceSha": "ebc6deb69f86364c4064de4c6eac2192f16906c8",
+  "manifestSha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437",
+  "baselineSha256": "abd4a3e6090a66e37807f519ded7a6ae9974ba7f784ce5027510042f74afd4cd"
+}

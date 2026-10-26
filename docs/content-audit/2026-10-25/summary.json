@@ -1,0 +1,41 @@
+{
+  "observedAt": "2026-10-25T02:27:57.713Z",
+  "scope": "Anonymous public GET only; no login, mutation, form submission or paid calls",
+  "publicContent": {
+    "resources": 6,
+    "guides": 4,
+    "practice": 1,
+    "legacyPosts": 3,
+    "legacyPages": 11,
+    "products": 0
+  },
+  "crawl": {
+    "requests": 53,
+    "pages": 40,
+    "status200": 39,
+    "status302": 1,
+    "errors": []
+  },
+  "quality": {
+    "resourcesUnknownClaims": 6,
+    "notTested": 11,
+    "emptyNeeds": 11,
+    "emptyTools": 11,
+    "noReviewDue": 11,
+    "emptyLegacyPages": 6
+  },
+  "sourceRequests": 11,
+  "remoteWrites": 0,
+  "githubDiscovery": {
+    "queries": 3,
+    "requests": 18,
+    "uniqueCandidates": 45,
+    "observedAt": "2026-10-25T02:34:19.916Z"
+  },
+  "cleanup": {
+    "managedBy": "scripts/run-clean.mjs",
+    "transientFixturesCreated": false,
+    "deliverablesRetained": true,
+    "note": "Runner removes its run directory/cache and lock after this process exits; confirmed in runner output."
+  }
+}

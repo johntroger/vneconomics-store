@@ -1,0 +1,11 @@
+{
+  "status": "PASS_REJECTED_MISSING_STAGING_ADOPTION",
+  "sourceSha": "4266b71990702d87969a847e95d9c39933cb05a4",
+  "candidateRun": 40288437763,
+  "target": "production",
+  "requestedMode": "publish",
+  "exitCode": 1,
+  "observedError": "ENOENT staging-adoption.json at publish-r5-payload.mjs:21:95",
+  "boundary": "Source CI passed and staging publication existed, but missing staging adoption stopped production before ref mutation",
+  "cleanup": "Temporary test data and run cache cleaned; existing data and deliverables kept."
+}

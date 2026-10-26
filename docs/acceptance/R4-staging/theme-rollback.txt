@@ -1,0 +1,15 @@
+# wp --path=/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com --user=1 theme install /var/www/vhosts/vneconomics.com/deploy-inbox/staging/rollback.zip --force
+Unpacking the package...
+Installing the theme...
+Removing the old version of the theme...
+Theme updated successfully.
+Success: Installed 1 of 1 themes.
+
+
+< exit code: 0 >
+# 
+					187 button Clear
+		198 container Run command, ID: :r11:
+			199 text Run command
+
+The focused UI element is 196 button

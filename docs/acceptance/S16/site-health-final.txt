@@ -1,0 +1,95 @@
+
+  - button "Help"
+  - heading "Site Health" [level=1]
+  - generic: Should be improved
+  - navigation "Secondary menu":
+    - link "Status":
+      - /url: https://store.vneconomics.com/wp-admin/site-health.php?tab
+    - link "Info":
+      - /url: https://store.vneconomics.com/wp-admin/site-health.php?tab=debug
+  - text: 
+  - heading "Site Health Status" [level=2]
+  - paragraph: The site health check shows information about your WordPress configuration and items that may need your attention.
+  - heading "1 critical issue" [level=3]
+  - paragraph: Critical issues are items that may have a high impact on your site’s performance or security. Resolving these issues should be prioritized.
+  - heading "Page cache is not detected and the server response time is slow Performance" [level=4]:
+    - button "Page cache is not detected and the server response time is slow Performance" [expanded] [active]:
+      - generic: Page cache is not detected and the server response time is slow
+      - generic: Performance
+  - paragraph: Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits.
+  - paragraph: "Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:"
+  - code: cache-control
+  - text: ","
+  - code: expires
+  - text: ","
+  - code: age
+  - text: ","
+  - code: last-modified
+  - text: ","
+  - code: etag
+  - text: ","
+  - code: via
+  - text: ","
+  - code: x-cache-enabled
+  - text: ","
+  - code: x-cache-disabled
+  - text: ","
+  - code: cf-cache-status
+  - text: ","
+  - code: x-cache
+  - text: ","
+  - code: x-litespeed-cache
+  - text: ","
+  - code: x-srcache-store-status
+  - text: ","
+  - code: x-srcache-fetch-status
+  - text: ","
+  - code: x-cache-status
+  - text: ","
+  - code: x-proxy-cache
+  - text: ","
+  - code: x-varnish.
+  - list:
+    - generic: 
+    - text: Median server response time was 994 milliseconds. It should be less than the recommended 600 milliseconds threshold.
+    - generic: 
+    - text: No client caching response headers were detected.
+    - generic: 
+    - text: A page cache plugin was not detected.
+  - paragraph:
+    - link "Learn more about page cache (opens in a new tab)":
+      - /url: https://developer.wordpress.org/advanced-administration/performance/optimization/#caching
+      - text: Learn more about page cache
+      - generic: (opens in a new tab)
+      - generic: 
+  - heading "4 recommended improvements" [level=3]
+  - paragraph: Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue. They may include improvements in areas such as security, performance, and user experience.
+  - heading "You should remove inactive plugins Security" [level=4]:
+    - button "You should remove inactive plugins Security":
+      - generic: You should remove inactive plugins
+      - generic: Security
+  - heading "You should remove inactive themes Security" [level=4]:
+    - button "You should remove inactive themes Security":
+      - generic: You should remove inactive themes
+      - generic: Security
+  - heading "Outdated SQL server Performance" [level=4]:
+    - button "Outdated SQL server Performance":
+      - generic: Outdated SQL server
+      - generic: Performance
+  - text: 
+  - heading "Opcode cache is not enabled Performance" [level=4]:
+    - button "Opcode cache is not enabled Performance":
+      - generic: Opcode cache is not enabled
+      - generic: Performance
+  - text: 
+  - button "Passed tests": Passed tests
+  - text:     
+- contentinfo:
+  - paragraph:
+    - text: Thank you for creating with
+    - link "WordPress":
+      - /url: https://wordpress.org/
+    - text: .
+  - paragraph: Version 7.1.3
+- paragraph: Notifications
+- generic: All site health tests have finished running. There are items that should be addressed.

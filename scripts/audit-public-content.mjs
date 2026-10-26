@@ -1,0 +1,26 @@
+import {mkdirSync,writeFileSync} from 'node:fs';
+const origin='https://store.vneconomics.com',out='docs/content-audit/2026-10-25';
+mkdirSync(out,{recursive:true});
+const requests=[],errors=[],pages=[],api={};
+const decode=s=>s.replace(/&#(x[0-9a-f]+|\d+);/gi,(_,n)=>String.fromCodePoint(n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):+n)).replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#039;|&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+const plain=s=>decode(s.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi,' ').replace(/<[^>]+>/g,' ')).replace(/\s+/g,' ').trim();
+const attr=(s,n)=>decode((s.match(new RegExp('\\b'+n+'\\s*=\\s*["\x27]([^"\x27]*)["\x27]','i'))??[])[1]??'');
+async function get(url){const started=Date.now();try{const r=await fetch(url,{redirect:'manual',signal:AbortSignal.timeout(30000),headers:{'User-Agent':'Vneconomics-Owner-Content-Audit/1.0'}});const body=await r.text();requests.push({url,status:r.status,ms:Date.now()-started,location:r.headers.get('location'),total:r.headers.get('x-wp-total'),totalPages:r.headers.get('x-wp-totalpages')});return {status:r.status,body,headers:r.headers};}catch(e){errors.push({url,error:String(e)});return {status:0,body:'',headers:new Headers()};}}
+async function collection(name,path){let entries=[];for(let p=1;p<=20;p++){const r=await get(origin+path+(path.includes('?')?'&':'?')+'per_page=100&page='+p);if(r.status!==200){api[name]={status:r.status,body:r.body};return [];}const rows=JSON.parse(r.body);if(!Array.isArray(rows))throw Error('Expected array '+name);entries.push(...rows);if(p>=Number(r.headers.get('x-wp-totalpages')??1))break;}api[name]=entries;return entries;}
+const queue=new Set([origin+'/']);
+const enqueue=url=>{try{const u=new URL(url,origin);u.hash='';if(u.origin!==origin||/\/(?:wp-admin|wp-json|wp-login\.php|feed)(?:\/|$)/.test(u.pathname)||/\.(?:png|jpg|jpeg|svg|css|js|zip|pdf|xml)$/i.test(u.pathname))return;if([...u.searchParams.keys()].some(k=>k!=='vne_support'))return;queue.add(u.href);}catch{}};
+try{
+ for(const [name,path] of [['posts','/wp-json/wp/v2/posts'],['pages','/wp-json/wp/v2/pages'],['categories','/wp-json/wp/v2/categories'],['tags','/wp-json/wp/v2/tags'],['products','/wp-json/wc/store/v1/products']]){const rows=await collection(name,path);if(name==='posts'||name==='pages')rows.forEach(x=>enqueue(x.link));}
+ for(const type of ['vne_resource','vne_guide','vne_practice']){const r=await get(origin+'/wp-json/vne-library/v1/items?post_type='+type);api[type]=r.status===200?JSON.parse(r.body):{status:r.status,body:r.body};if(Array.isArray(api[type]))for(const row of api[type]){for(const k of ['url','permalink'])if(row[k])enqueue(row[k]);}}
+ const sm=await get(origin+'/wp-sitemap.xml');api.sitemapIndex=sm.body;
+ for(const loc of [...sm.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>decode(x[1]))){if(new URL(loc).origin!==origin)continue;const r=await get(loc);api[loc]=r.body;for(const m of r.body.matchAll(/<loc>([^<]+)<\/loc>/g))enqueue(decode(m[1]));}
+ // Public import URLs supplement custom types whose API intentionally has no permalink field.
+ const {readFileSync}=await import('node:fs');const imported=JSON.parse(readFileSync('docs/acceptance/S16/content-import-results.json','utf8'));Object.values(imported.journal.map).forEach(x=>enqueue(x.url));
+ for(const url of queue){if(pages.length>=100){errors.push({error:'100 page crawl cap reached'});break;}const r=await get(url);const html=r.body,main=(html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)??[])[1]??html;const links=[...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)].map(m=>({href:attr(m[1],'href'),text:plain(m[2])}));for(const l of links)if(l.href)enqueue(l.href);if(r.headers.get('location'))enqueue(new URL(r.headers.get('location'),url).href);
+ const heads=[...main.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)].map(m=>({level:+m[1],text:plain(m[2])}));const metas=[...html.matchAll(/<meta\b([^>]+)>/gi)].map(m=>({name:attr(m[1],'name')||attr(m[1],'property'),content:attr(m[1],'content')})).filter(x=>x.name);
+ const canonical=[...html.matchAll(/<link\b([^>]+)>/gi)].filter(m=>attr(m[1],'rel')==='canonical').map(m=>attr(m[1],'href'));
+ pages.push({url,status:r.status,location:r.headers.get('location'),title:plain((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)??[])[1]??''),canonical,metas,headings:heads,text:plain(main),wordUnits:plain(main).split(/\s+/).filter(Boolean).length,links,images:[...main.matchAll(/<img\b([^>]+)>/gi)].map(m=>({src:attr(m[1],'src'),alt:attr(m[1],'alt')})),unexpandedShortcodes:[...main.matchAll(/\[(?:woocommerce_[a-z_]+|contact-form[^\]]*)\]/g)].map(x=>x[0]),hasMain:/<main\b/i.test(html)});
+ console.log(r.status+' '+url);
+ }
+}catch(e){errors.push({error:String(e.stack??e)});process.exitCode=1;}
+finally{const data={observedAt:new Date().toISOString(),origin,scope:'Anonymous public GET only; no login, mutation, form submission or paid calls',limits:['No private drafts/admin inventory','Custom list endpoint capped at 50 per type; compare sitemap','Word units use whitespace, not linguistic Vietnamese word segmentation','Regex HTML extraction, full main text retained for manual review'],api,pages,requests,errors};writeFileSync(out+'/public-snapshot.json',JSON.stringify(data,null,2)+'\n');console.log(JSON.stringify({pages:pages.length,requests:requests.length,errors}));}

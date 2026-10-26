@@ -1,0 +1,477 @@
+{
+  "status": "PASS_EDITED_OUTPUT",
+  "stage": "antigravity-title-edit",
+  "observedAt": "2026-10-25T12:19:17.906Z",
+  "expectedTitle": "Hình ảnh chỉn chu cho sản phẩm của bạn",
+  "sourceHashes": {
+    "index.html": "d078bee4644e11ddfa7681c2f0844b0348cf3b215888aefba6b401e84468fa0e",
+    "style.css": "79afec6c9077ca953782462a78fc22f0a8c8c73c6e9e2b414f74fe21179d6c27"
+  },
+  "checks": [
+    {
+      "name": "two output files and expected checkpoint only",
+      "ok": true
+    },
+    {
+      "name": "single expected h1 1280",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 1280",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 1280",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 1280",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 1280",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 1280",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 1280",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 1280",
+      "ok": true,
+      "details": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 1280 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #loi-ich",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #loi-ich",
+      "ok": true,
+      "details": {
+        "headingTop": 177.734375,
+        "headerBottom": 69
+      }
+    },
+    {
+      "name": "internal link 1280 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #dich-vu",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #dich-vu",
+      "ok": true,
+      "details": {
+        "headingTop": 176.765625,
+        "headerBottom": 69
+      }
+    },
+    {
+      "name": "internal link 1280 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #quy-trinh",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #quy-trinh",
+      "ok": true,
+      "details": {
+        "headingTop": 177.484375,
+        "headerBottom": 69
+      }
+    },
+    {
+      "name": "internal link 1280 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 325.109375,
+        "headerBottom": 69
+      }
+    },
+    {
+      "name": "internal link 1280 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 325.109375,
+        "headerBottom": 69
+      }
+    },
+    {
+      "name": "single expected h1 390",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 390",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 390",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 390",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 390",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 390",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 390",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 390",
+      "ok": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 390 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #loi-ich",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #loi-ich",
+      "ok": true,
+      "details": {
+        "headingTop": 226.546875,
+        "headerBottom": 112.90625
+      }
+    },
+    {
+      "name": "internal link 390 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #dich-vu",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #dich-vu",
+      "ok": true,
+      "details": {
+        "headingTop": 225.328125,
+        "headerBottom": 112.90625
+      }
+    },
+    {
+      "name": "internal link 390 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #quy-trinh",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #quy-trinh",
+      "ok": true,
+      "details": {
+        "headingTop": 226.78125,
+        "headerBottom": 112.90625
+      }
+    },
+    {
+      "name": "internal link 390 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 258.46875,
+        "headerBottom": 112.90625
+      }
+    },
+    {
+      "name": "internal link 390 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 258.46875,
+        "headerBottom": 112.90625
+      }
+    },
+    {
+      "name": "single expected h1 320",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 320",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 320",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 320",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 320",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 320",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 320",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 320",
+      "ok": true,
+      "details": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 320 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #loi-ich",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Lợi ích",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #loi-ich",
+      "ok": true,
+      "details": {
+        "headingTop": 251.140625,
+        "headerBottom": 137.1875
+      }
+    },
+    {
+      "name": "internal link 320 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #dich-vu",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Dịch vụ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #dich-vu",
+      "ok": true,
+      "details": {
+        "headingTop": 250.171875,
+        "headerBottom": 137.1875
+      }
+    },
+    {
+      "name": "internal link 320 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #quy-trinh",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Quy trình",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #quy-trinh",
+      "ok": true,
+      "details": {
+        "headingTop": 251.40625,
+        "headerBottom": 137.1875
+      }
+    },
+    {
+      "name": "internal link 320 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 283.15625,
+        "headerBottom": 137.1875
+      }
+    },
+    {
+      "name": "internal link 320 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 283.15625,
+        "headerBottom": 137.1875
+      }
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "ok": true,
+      "details": []
+    },
+    {
+      "name": "no external or unexpected file requests",
+      "ok": true,
+      "details": []
+    },
+    {
+      "name": "original output bytes unchanged",
+      "ok": true
+    }
+  ],
+  "passed": 88,
+  "failed": [],
+  "views": [
+    {
+      "width": 1280,
+      "layout": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      }
+    },
+    {
+      "width": 390,
+      "layout": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      }
+    },
+    {
+      "width": 320,
+      "layout": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "overflow": []
+      }
+    }
+  ],
+  "errors": [],
+  "outsideRequests": [],
+  "originalUnchanged": true,
+  "limitations": [
+    "User reports output and title edit created with Antigravity; model not recorded",
+    "This script checks the named output stage without changing it; restoration has a separate guarded runner",
+    "Not a production publication or certificate of installation/sign-in or whole tutorial"
+  ]
+}

@@ -2,3 +2,33 @@
 *.mjs text eol=lf
 *.json text eol=lf
 *.md text eol=lf
+/scripts/content-100-import.php text eol=lf
+/docs/content-production/2026-10-25/batch-*/articles/*.html text eol=lf
+# Preserve the exact bytes pinned by G03 trial and release evidence.
+[attr]g03 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/themes/vibelab/guides.php g03
+/themes/vibelab/archive-vne_guide.php g03
+/themes/vibelab/front-page.php g03
+/themes/vibelab/header.php g03
+/themes/vibelab/functions.php g03
+/themes/vibelab/style.css g03
+/docs/content-guides/** g03
+/docs/acceptance/G03/** g03
+/examples/moc-studio-claude/** g03
+/examples/moc-studio-antigravity/** g03
+# Original AI outputs include whitespace-only lines; retain them as trial inputs.
+[attr]g03-original -text whitespace=-blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/docs/content-guides/**/original-source/** g03-original
+/docs/content-guides/**/edited-source/** g03-original
+/examples/moc-studio-claude/** g03-original
+/examples/moc-studio-antigravity/** g03-original
+/scripts/fixtures/g03-guides-seed.php text eol=lf
+/deploy/*.php text eol=lf
+/deploy/evidence/** g03
+/scripts/g03-production.php g03
+/artifacts/production/g03-0499402e4708/** g03
+# Preserve native CLI acceptance logs verbatim, including timestamp-only lines.
+/docs/acceptance/R4-staging/*.txt -text whitespace=-blank-at-eol,-blank-at-eof
+# Archive R5 evidence exactly as inventoried; native UI snapshots retain spacing.
+/docs/acceptance/R5-production/** -text
+/docs/acceptance/R5-production/*.txt whitespace=-blank-at-eol,-blank-at-eof

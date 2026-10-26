@@ -1,0 +1,39 @@
+{
+  "status": "PASS_PLUGIN_GATE_WITH_ASTRA",
+  "installStartedAt": "2026-10-24T10:52:15.009Z",
+  "observedAt": "2026-10-24T10:55:54.196Z",
+  "runtime": {
+    "plugin": "0.4.2",
+    "schema": "3",
+    "theme": "astra",
+    "themeVersion": "4.12.0",
+    "pluginFiles": 10,
+    "mismatches": [],
+    "postsPagesHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+    "postsPagesUnchanged": true,
+    "indexing": "1",
+    "activePlugins": [
+      "ai-provider-for-anthropic/plugin.php",
+      "visa-acceptance-solutions/visa-acceptance-solutions.php",
+      "vne-library-core/vne-library-core.php",
+      "woocommerce/woocommerce.php"
+    ],
+    "postTypes": [
+      true,
+      true,
+      true
+    ],
+    "adminCapabilities": {
+      "vne_edit_library": false,
+      "vne_approve_library": true,
+      "vne_manage_library": true
+    },
+    "externalObjectCache": false,
+    "time": "2026-10-24T10:54:29+00:00"
+  },
+  "httpEvidence": "plugin-http-results.json",
+  "limits": [
+    "vne_edit_library is not a declared capability; it is recorded only, actual vne_manage_library/vne_approve_library are required",
+    "No destructive or fault-injection production probes"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PREPARED",
+  "journal": {
+    "status": "prepared",
+    "manifestHash": "f0de4e7ecbfdc7c60f915fa466952978d3138e13d5c6e17f3ee9efb0018e332a",
+    "previousThemeSha256": "02e640e2e5ac7471e8cff8e32eeec3be99e96972bc345146e5bea075ab4fab23",
+    "map": [],
+    "startedAt": "2026-10-25T14:10:49+00:00",
+    "baseline": {
+      "count": 128,
+      "rowHash": "96a612478b8a15c282923a849252956fe5c7a6a07d599a45dfc0d79a9cc70335",
+      "metaExceptCodexValidationHash": "79a1e270254a27d80cabd5263ac62f680023d8aeec410cc53473d46244d53860"
+    }
+  },
+  "recoveryArchive": "/var/www/vhosts/vneconomics.com/g03-production/previous-theme.zip"
+}

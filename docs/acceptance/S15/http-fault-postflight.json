@@ -1,0 +1,13 @@
+{
+  "matchedReleaseFiles": 46,
+  "changed": [],
+  "remainingMuFixtures": 0,
+  "remainingPrivateLogs": 0,
+  "registryAbsent": true,
+  "noindex": true,
+  "theme": "vibelab",
+  "themeVersion": "0.7.0",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "contentUnchanged": true
+}

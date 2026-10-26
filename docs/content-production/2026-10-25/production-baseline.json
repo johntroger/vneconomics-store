@@ -1,0 +1,20 @@
+{
+  "observedDate": "2026-10-25",
+  "root": "/var/www/vhosts/vneconomics.com/store.vneconomics.com/",
+  "database": "vne35060_wp_kmqnf",
+  "home": "https://store.vneconomics.com",
+  "theme": "0.7.1",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "indexing": "1",
+  "rowCount": 28,
+  "rowHash": "d8507571df09e7c52b5636c78de7685525cb7ad90ccf52de51528995fb6e5d74",
+  "metaHash": "5aacbe74b52871a062ae589acfcd5a0f7d9ce903fa3544ecafa1df8654c373f6",
+  "backup": "store.vneconomics.com__2026-10-25T10_05_23+0700.zip",
+  "backupSize": 81540483,
+  "backupSha256": "5631842c2ca6271a4fe4ca5e8a948aff2148ee911944732be4d8d2d6758fe8cf",
+  "backupEntries": 16719,
+  "backupFiles": 14408,
+  "crcErrors": 0,
+  "remoteContentWritesSoFar": 0
+}

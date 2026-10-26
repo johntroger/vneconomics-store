@@ -1,0 +1,7 @@
+{
+  "observedAt": "2026-10-24T11:09:40.645Z",
+  "status": "AUDIT_SCRIPT_ERROR",
+  "error": "ITEM_READ: requested editor representation under CLI actor0",
+  "effect": "Read-only CLI audit aborted; no production content/theme mutation",
+  "correction": "Read public representation and validation metadata directly; no permission or user changes"
+}

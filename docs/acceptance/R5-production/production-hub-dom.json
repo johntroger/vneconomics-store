@@ -1,0 +1,19 @@
+{
+  "canonical": "https://store.vneconomics.com/huong-dan/",
+  "robots": "max-image-preview:large",
+  "title": "Thực hành với Codex, Claude Code và Antigravity – store.vneconomics",
+  "tools": [
+    {
+      "key": "codex",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+    },
+    {
+      "key": "claude-code",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/"
+    },
+    {
+      "key": "antigravity",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:41:23.232Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 81,
+      "repo": "duckdb/duckdb",
+      "stars": 42503,
+      "archived": false,
+      "readmeBytes": 5808,
+      "source": "https://raw.githubusercontent.com/duckdb/duckdb/main/README.md",
+      "sha256": "d9c2afdbd78821e5cd28731bdefa22760374c7670ef2100cd4c44e2d8ced8a8a"
+    },
+    {
+      "key": 82,
+      "repo": "metabase/metabase",
+      "stars": 49833,
+      "archived": false,
+      "readmeBytes": 5927,
+      "source": "https://raw.githubusercontent.com/metabase/metabase/master/README.md",
+      "sha256": "5bd7a1f76e8abe34a862686250b172b24d80c6797b0b2c997ddb0bd93351a921"
+    },
+    {
+      "key": 83,
+      "repo": "apache/superset",
+      "stars": 75295,
+      "archived": false,
+      "readmeBytes": 24052,
+      "source": "https://raw.githubusercontent.com/apache/superset/master/README.md",
+      "sha256": "0f9fecb2c68733121efe9aaa968a935c0b81b281935e6b24c4455887860fe3c4"
+    },
+    {
+      "key": 84,
+      "repo": "PostHog/posthog",
+      "stars": 40420,
+      "archived": false,
+      "readmeBytes": 13735,
+      "source": "https://raw.githubusercontent.com/PostHog/posthog/master/README.md",
+      "sha256": "738e40fc476ba820d91c17965b54141f9c243006b077b0607d885349ae85fd51"
+    },
+    {
+      "key": 85,
+      "repo": "apache/echarts",
+      "stars": 67588,
+      "archived": false,
+      "readmeBytes": 4194,
+      "source": "https://raw.githubusercontent.com/apache/echarts/master/README.md",
+      "sha256": "8cc8864325843d975f082cba0fd4cf208093feffb03568f48f164725dab8ebf9"
+    },
+    {
+      "key": 86,
+      "repo": "grafana/grafana",
+      "stars": 77486,
+      "archived": false,
+      "readmeBytes": 3114,
+      "source": "https://raw.githubusercontent.com/grafana/grafana/main/README.md",
+      "sha256": "fc8a867bf09f319b9288746ab0148faff2e92ed39cd702252ce59161e576c019"
+    },
+    {
+      "key": 87,
+      "repo": "plotly/plotly.py",
+      "stars": 18853,
+      "archived": false,
+      "readmeBytes": 4328,
+      "source": "https://raw.githubusercontent.com/plotly/plotly.py/main/README.md",
+      "sha256": "a8e38d3c57002a0a31164d078c4f1750cca7a0ca87e30a4676b158156dc19c87"
+    },
+    {
+      "key": 88,
+      "repo": "streamlit/streamlit",
+      "stars": 46102,
+      "archived": false,
+      "readmeBytes": 7008,
+      "source": "https://raw.githubusercontent.com/streamlit/streamlit/develop/README.md",
+      "sha256": "45b271be0490145de6b0c245e2dc0ee5518b38f07eab5bc2419dd2c3923cd87e"
+    },
+    {
+      "key": 89,
+      "repo": "gradio-app/gradio",
+      "stars": 43873,
+      "archived": false,
+      "readmeBytes": 13739,
+      "source": "https://raw.githubusercontent.com/gradio-app/gradio/main/README.md",
+      "sha256": "1c10a6a19ae8736e3ce0a1d7e3e64c3208240c3c27a1d50ec90a2cc00112fa38"
+    },
+    {
+      "key": 90,
+      "repo": "reflex-dev/reflex",
+      "stars": 28977,
+      "archived": false,
+      "readmeBytes": 4400,
+      "source": "https://raw.githubusercontent.com/reflex-dev/reflex/main/README.md",
+      "sha256": "cc61e948b2f482cb7166906eb5374da20d5dbcde607339ec56b81247da39f8d5"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/duckdb/duckdb/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/metabase/metabase/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/apache/superset/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PostHog/posthog/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/apache/echarts/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/grafana/grafana/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/plotly/plotly.py/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/streamlit/streamlit/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/gradio-app/gradio/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/reflex-dev/reflex/main/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

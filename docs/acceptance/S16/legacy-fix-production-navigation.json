@@ -1,0 +1,10 @@
+{
+  "beforeLocations": {
+    "primary": 16
+  },
+  "afterLocations": [],
+  "initialSnapshotSha256": "d4eb6456f5e4d0cf17fc1e93f9b28ba71027b2809d9b5e5e6177f09d1f4ad022",
+  "astraThemeModsHash": "8da4e1af38c6f43c24d761541bc4e91ffcc354d07ad76241eaa6752db9b34c54",
+  "menuPostsRetained": true,
+  "scope": "Only active VibeLab menu binding cleared for approved four-link fallback"
+}

@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:12:09.024Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 11,
+      "repo": "laurent22/joplin",
+      "stars": 56862,
+      "archived": false,
+      "readmeBytes": 62392,
+      "source": "https://raw.githubusercontent.com/laurent22/joplin/dev/README.md",
+      "sha256": "b9444e9a16aa4d8b87124a368605847ce9ad368e603e5f6116c34f3121a86f69"
+    },
+    {
+      "key": 12,
+      "repo": "logseq/logseq",
+      "stars": 45364,
+      "archived": false,
+      "readmeBytes": 15551,
+      "source": "https://raw.githubusercontent.com/logseq/logseq/master/README.md",
+      "sha256": "597bcf7218c37fdf053524467029e22db5c29faffd8fb21007512bbbd3affe56"
+    },
+    {
+      "key": 13,
+      "repo": "AppFlowy-IO/AppFlowy",
+      "stars": 77725,
+      "archived": false,
+      "readmeBytes": 8569,
+      "source": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+      "sha256": "f59d3e49037d392f36d7ea13d25485c5d54317f9aee7c61c4c2a47f067aa996d"
+    },
+    {
+      "key": 14,
+      "repo": "toeverything/AFFiNE",
+      "stars": 73804,
+      "archived": false,
+      "readmeBytes": 16285,
+      "source": "https://raw.githubusercontent.com/toeverything/AFFiNE/canary/README.md",
+      "sha256": "8d5be20062755f5b1ecc26bca4cf6d590efa28de7c4a64d2732bf26f66f78ae0"
+    },
+    {
+      "key": 15,
+      "repo": "siyuan-note/siyuan",
+      "stars": 46919,
+      "archived": false,
+      "readmeBytes": 30546,
+      "source": "https://raw.githubusercontent.com/siyuan-note/siyuan/master/README.md",
+      "sha256": "2e8149ff44c748a100517401455618b6569858eec3d8c6a24ffe96f5da2721cd"
+    },
+    {
+      "key": 16,
+      "repo": "TriliumNext/Trilium",
+      "stars": 38542,
+      "archived": false,
+      "readmeBytes": 16254,
+      "source": "https://raw.githubusercontent.com/TriliumNext/Trilium/main/README.md",
+      "sha256": "087906667d44cbca6a47a4e198713c7b068c1766c8fe9a80daa9b4e7480eae95"
+    },
+    {
+      "key": 17,
+      "repo": "outline/outline",
+      "stars": 41054,
+      "archived": false,
+      "readmeBytes": 5722,
+      "source": "https://raw.githubusercontent.com/outline/outline/main/README.md",
+      "sha256": "f726b4c7b465cfcf91a009fa897b5bafe24803d6ef03f68366011a3d5caf7f61"
+    },
+    {
+      "key": 18,
+      "repo": "docmost/docmost",
+      "stars": 22086,
+      "archived": false,
+      "readmeBytes": 1931,
+      "source": "https://raw.githubusercontent.com/docmost/docmost/main/README.md",
+      "sha256": "dd05f459978695449638d22d53315dfd4cde1f481b3bb48ec50a6f6523f54828"
+    },
+    {
+      "key": 19,
+      "repo": "standardnotes/app",
+      "stars": 6682,
+      "archived": false,
+      "readmeBytes": 3141,
+      "source": "https://raw.githubusercontent.com/standardnotes/app/main/README.md",
+      "sha256": "35a6bbc30b55fc38ee598047a783949e01c069fa96822cf5a6eb28567a9df480"
+    },
+    {
+      "key": 20,
+      "repo": "anyproto/anytype-ts",
+      "stars": 8989,
+      "archived": false,
+      "readmeBytes": 8756,
+      "source": "https://raw.githubusercontent.com/anyproto/anytype-ts/develop/README.md",
+      "sha256": "47d0d6e087c3334551809d8290604f3346b16703ed3f733e08b4f9dee0fa2064"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/laurent22/joplin/dev/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/logseq/logseq/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/AppFlowy-IO/AppFlowy/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/toeverything/AFFiNE/canary/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/siyuan-note/siyuan/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/TriliumNext/Trilium/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/outline/outline/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/docmost/docmost/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/standardnotes/app/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anyproto/anytype-ts/develop/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

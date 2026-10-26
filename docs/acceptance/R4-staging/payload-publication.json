@@ -1,0 +1,57 @@
+{
+  "status": "PUSHED_CI_VERIFIED_STAGING_PAYLOAD",
+  "sourceSha": "f587eea20526f32294a8826949d7407337040ec6",
+  "payloadSha": "602d9f55793d53d29f0654ae01e5daf5841e9f9c",
+  "tree": "e22aab5d25edfaf0607e4cc0bfcf82dc04c86391",
+  "parent": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
+  "branch": "release-staging",
+  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40284129915",
+  "manifestSha256": "374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c",
+  "files": [
+    {
+      "path": "content.json",
+      "sha256": "839da70208973589675634a266b71cd944340fc84cde23087114e302a42ec6a4"
+    },
+    {
+      "path": "environments.json",
+      "sha256": "05af8f32ebe2e47a27ae9fc3a01bf9812c0aa6faaae28fc81b3dabbca4e6973b"
+    },
+    {
+      "path": "evidence/antigravity.html",
+      "sha256": "e7daa10f8c1302c49bee378d8d87475f9d9c0072e9e4e3ed1aaaf74728d5b6d6"
+    },
+    {
+      "path": "evidence/claude-code.html",
+      "sha256": "c9ce6010ff2d425442d7dc5df9837cd8129e4c523104714515980cb0ba8c0b50"
+    },
+    {
+      "path": "evidence/codex.html",
+      "sha256": "59c6fb5efec075549f6b0add3066eaccb95bb0d06d5b300520c1c324c3d686a8"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c"
+    },
+    {
+      "path": "plugin.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5"
+    },
+    {
+      "path": "receiver.php",
+      "sha256": "6be74e3b87547e2321f5f80b8b2d787d875b03619490e8b9a7cc89389866e9cd"
+    },
+    {
+      "path": "rollback.zip",
+      "sha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215"
+    },
+    {
+      "path": "theme.zip",
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab"
+    }
+  ],
+  "limits": [
+    "GitHub source/payload publication only; not proof of Plesk receipt/application",
+    "No checkout or mutation of the source working tree",
+    "Production disabled; no force push or release/production ref"
+  ]
+}

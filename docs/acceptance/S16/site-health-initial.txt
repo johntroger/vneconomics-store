@@ -1,0 +1,373 @@
+- navigation "Main menu":
+  - link "Skip to main content":
+    - /url: "#wpbody-content"
+  - link "Skip to toolbar":
+    - /url: "#wp-toolbar"
+  - list:
+    - link "Dashboard":
+      - /url: index.php
+      - generic: 
+      - generic: Dashboard
+    - list:
+      - listitem: Dashboard
+      - link "Home":
+        - /url: index.php
+      - link "Updates 8":
+        - /url: update-core.php
+        - text: Updates
+        - generic: "8"
+    - link "WP Toolkit":
+      - /url: admin.php?page=wp-toolkit
+      - generic: 
+      - generic: WP Toolkit
+    - list:
+      - listitem: WP Toolkit
+      - link "Vulnerabilities":
+        - /url: admin.php?page=wp-toolkit
+      - link "Autoupdates":
+        - /url: admin.php?page=wp-toolkit-auto-updates-settings
+      - link "Settings":
+        - /url: admin.php?page=wp-toolkit-settings
+      - link "Subscriptions":
+        - /url: admin.php?page=wp-toolkit-subscriptions
+      - link "Security Measures":
+        - /url: admin.php?page=wp-toolkit-security-measures
+    - link "Posts":
+      - /url: edit.php
+      - generic: 
+      - generic: Posts
+    - list:
+      - listitem: Posts
+      - link "All Posts":
+        - /url: edit.php
+      - link "Add Post":
+        - /url: post-new.php
+      - link "Categories":
+        - /url: edit-tags.php?taxonomy=category
+      - link "Tags":
+        - /url: edit-tags.php?taxonomy=post_tag
+    - link "Media":
+      - /url: upload.php
+      - generic: 
+      - generic: Media
+    - list:
+      - listitem: Media
+      - link "Library":
+        - /url: upload.php
+      - link "Add Media File":
+        - /url: media-new.php
+    - link "Pages":
+      - /url: edit.php?post_type=page
+      - generic: 
+      - generic: Pages
+    - list:
+      - listitem: Pages
+      - link "All Pages":
+        - /url: edit.php?post_type=page
+      - link "Add Page":
+        - /url: post-new.php?post_type=page
+    - link "Comments":
+      - /url: edit-comments.php
+      - generic: 
+      - generic: Comments
+    - link "WooCommerce":
+      - /url: admin.php?page=wc-admin
+      - generic: WooCommerce
+    - list:
+      - listitem: WooCommerce
+      - link "Home 3":
+        - /url: admin.php?page=wc-admin
+        - text: Home
+        - generic: "3"
+      - link "Orders":
+        - /url: admin.php?page=wc-orders
+      - link "Customers":
+        - /url: admin.php?page=wc-admin&path=/customers
+      - link "Coupons":
+        - /url: admin.php?page=coupons-moved
+      - link "Reports":
+        - /url: admin.php?page=wc-reports
+      - link "Settings":
+        - /url: admin.php?page=wc-settings
+      - link "Status":
+        - /url: admin.php?page=wc-status
+      - link "Extensions":
+        - /url: admin.php?page=wc-admin&path=/extensions
+    - link "Products":
+      - /url: edit.php?post_type=product
+      - generic: 
+      - generic: Products
+    - list:
+      - listitem: Products
+      - link "All Products":
+        - /url: edit.php?post_type=product
+      - link "Add new product":
+        - /url: post-new.php?post_type=product
+      - link "Brands":
+        - /url: edit-tags.php?taxonomy=product_brand&post_type=product
+      - link "Categories":
+        - /url: edit-tags.php?taxonomy=product_cat&post_type=product
+      - link "Tags":
+        - /url: edit-tags.php?taxonomy=product_tag&post_type=product
+      - link "Attributes":
+        - /url: edit.php?post_type=product&page=product_attributes
+      - link "Reviews":
+        - /url: edit.php?post_type=product&page=product-reviews
+    - link "Payments":
+      - /url: admin.php?page=wc-settings&tab=checkout&from=PAYMENTS_MENU_ITEM
+      - generic: Payments
+    - link "Analytics":
+      - /url: admin.php?page=wc-admin&path=/analytics/overview
+      - generic: 
+      - generic: Analytics
+    - list:
+      - listitem: Analytics
+      - link "Overview":
+        - /url: admin.php?page=wc-admin&path=/analytics/overview
+      - link "Products":
+        - /url: admin.php?page=wc-admin&path=/analytics/products
+      - link "Revenue":
+        - /url: admin.php?page=wc-admin&path=/analytics/revenue
+      - link "Orders":
+        - /url: admin.php?page=wc-admin&path=/analytics/orders
+      - link "Variations":
+        - /url: admin.php?page=wc-admin&path=/analytics/variations
+      - link "Categories":
+        - /url: admin.php?page=wc-admin&path=/analytics/categories
+      - link "Coupons":
+        - /url: admin.php?page=wc-admin&path=/analytics/coupons
+      - link "Taxes":
+        - /url: admin.php?page=wc-admin&path=/analytics/taxes
+      - link "Downloads":
+        - /url: admin.php?page=wc-admin&path=/analytics/downloads
+      - link "Stock":
+        - /url: admin.php?page=wc-admin&path=/analytics/stock
+      - link "Settings":
+        - /url: admin.php?page=wc-admin&path=/analytics/settings
+    - link "Marketing":
+      - /url: admin.php?page=wc-admin&path=/marketing
+      - generic: 
+      - generic: Marketing
+    - list:
+      - listitem: Marketing
+      - link "Overview":
+        - /url: admin.php?page=wc-admin&path=/marketing
+      - link "Coupons":
+        - /url: edit.php?post_type=shop_coupon
+    - link "Appearance":
+      - /url: themes.php
+      - generic: 
+      - generic: Appearance
+    - list:
+      - listitem: Appearance
+      - link "Themes 4":
+        - /url: themes.php
+        - text: Themes
+        - generic: "4"
+      - link "Patterns":
+        - /url: site-editor.php?p=/pattern
+      - link "Customize":
+        - /url: customize.php?return=%2Fwp-admin%2Fsite-health.php
+      - link "Fonts":
+        - /url: font-library.php
+      - link "Menus":
+        - /url: nav-menus.php
+      - link "Theme File Editor":
+        - /url: theme-editor.php
+    - link "Plugins 4":
+      - /url: plugins.php
+      - generic: 
+      - text: Plugins
+      - generic: "4"
+    - list:
+      - text: Plugins
+      - generic: "4"
+      - link "Installed Plugins":
+        - /url: plugins.php
+      - link "Add Plugin":
+        - /url: plugin-install.php
+      - link "Plugin File Editor":
+        - /url: plugin-editor.php
+    - link "Users":
+      - /url: users.php
+      - generic: 
+      - generic: Users
+    - list:
+      - listitem: Users
+      - link "All Users":
+        - /url: users.php
+      - link "Add User":
+        - /url: user-new.php
+      - link "Profile":
+        - /url: profile.php
+    - link "Tools":
+      - /url: tools.php
+      - generic: 
+      - generic: Tools
+    - list:
+      - listitem: Tools
+      - link "Available Tools":
+        - /url: tools.php
+      - link "Import":
+        - /url: import.php
+      - link "Export":
+        - /url: export.php
+      - link "Site Health 1":
+        - /url: site-health.php
+        - text: Site Health
+        - generic: "1"
+      - link "Export Personal Data":
+        - /url: export-personal-data.php
+      - link "Erase Personal Data":
+        - /url: erase-personal-data.php
+      - link "Network Setup":
+        - /url: network.php
+      - link "Scheduled Actions":
+        - /url: tools.php?page=action-scheduler
+    - link "Settings":
+      - /url: options-general.php
+      - generic: 
+      - generic: Settings
+    - list:
+      - listitem: Settings
+      - link "General":
+        - /url: options-general.php
+      - link "Connectors":
+        - /url: options-connectors.php
+      - link "Writing":
+        - /url: options-writing.php
+      - link "Reading":
+        - /url: options-reading.php
+      - link "Discussion":
+        - /url: options-discussion.php
+      - link "Media":
+        - /url: options-media.php
+      - link "Permalinks":
+        - /url: options-permalink.php
+      - link "Privacy":
+        - /url: options-privacy.php
+    - link "Thư viện":
+      - /url: admin.php?page=vne-library
+      - generic: 
+      - generic: Thư viện
+    - list:
+      - listitem: Thư viện
+      - link "Thư viện":
+        - /url: admin.php?page=vne-library
+      - link "Báo lỗi riêng":
+        - /url: admin.php?page=vne-reports
+    - button "Collapse Main menu" [expanded]
+- navigation "Toolbar":
+  - menu:
+    - menuitem "About WordPress":
+      - generic: About WordPress
+    - menuitem "store.vneconomics"
+    - menuitem "Live"
+    - menuitem "8 updates available":
+      - generic: "8"
+      - generic: 8 updates available
+    - menuitem "Ctrl+K Open command palette":
+      - text: Ctrl+K
+      - generic: Open command palette
+    - menuitem "0 Comments in moderation":
+      - generic: "0"
+      - generic: 0 Comments in moderation
+    - menuitem "New":
+      - generic: New
+  - menu:
+    - menuitem "Howdy, admin"
+- main:
+  - button "Help"
+  - heading "Site Health" [level=1]
+  - generic: Should be improved
+  - navigation "Secondary menu":
+    - link "Status":
+      - /url: https://store.vneconomics.com/wp-admin/site-health.php?tab
+    - link "Info":
+      - /url: https://store.vneconomics.com/wp-admin/site-health.php?tab=debug
+  - text: 
+  - heading "Site Health Status" [level=2]
+  - paragraph: The site health check shows information about your WordPress configuration and items that may need your attention.
+  - heading "1 critical issue" [level=3]
+  - paragraph: Critical issues are items that may have a high impact on your site’s performance or security. Resolving these issues should be prioritized.
+  - heading "Page cache is not detected and the server response time is slow Performance" [level=4]:
+    - button "Page cache is not detected and the server response time is slow Performance" [expanded] [active]:
+      - generic: Page cache is not detected and the server response time is slow
+      - generic: Performance
+  - paragraph: Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits.
+  - paragraph: "Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:"
+  - code: cache-control
+  - text: ","
+  - code: expires
+  - text: ","
+  - code: age
+  - text: ","
+  - code: last-modified
+  - text: ","
+  - code: etag
+  - text: ","
+  - code: via
+  - text: ","
+  - code: x-cache-enabled
+  - text: ","
+  - code: x-cache-disabled
+  - text: ","
+  - code: cf-cache-status
+  - text: ","
+  - code: x-cache
+  - text: ","
+  - code: x-litespeed-cache
+  - text: ","
+  - code: x-srcache-store-status
+  - text: ","
+  - code: x-srcache-fetch-status
+  - text: ","
+  - code: x-cache-status
+  - text: ","
+  - code: x-proxy-cache
+  - text: ","
+  - code: x-varnish.
+  - list:
+    - generic: 
+    - text: Median server response time was 1,054 milliseconds. It should be less than the recommended 600 milliseconds threshold.
+    - generic: 
+    - text: No client caching response headers were detected.
+    - generic: 
+    - text: A page cache plugin was not detected.
+  - paragraph:
+    - link "Learn more about page cache (opens in a new tab)":
+      - /url: https://developer.wordpress.org/advanced-administration/performance/optimization/#caching
+      - text: Learn more about page cache
+      - generic: (opens in a new tab)
+      - generic: 
+  - heading "4 recommended improvements" [level=3]
+  - paragraph: Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue. They may include improvements in areas such as security, performance, and user experience.
+  - heading "You should remove inactive plugins Security" [level=4]:
+    - button "You should remove inactive plugins Security":
+      - generic: You should remove inactive plugins
+      - generic: Security
+  - heading "You should remove inactive themes Security" [level=4]:
+    - button "You should remove inactive themes Security":
+      - generic: You should remove inactive themes
+      - generic: Security
+  - heading "Outdated SQL server Performance" [level=4]:
+    - button "Outdated SQL server Performance":
+      - generic: Outdated SQL server
+      - generic: Performance
+  - text: 
+  - heading "Opcode cache is not enabled Performance" [level=4]:
+    - button "Opcode cache is not enabled Performance":
+      - generic: Opcode cache is not enabled
+      - generic: Performance
+  - text: 
+  - button "Passed tests": Passed tests
+  - text:     
+- contentinfo:
+  - paragraph:
+    - text: Thank you for creating with
+    - link "WordPress":
+      - /url: https://wordpress.org/
+    - text: .
+  - paragraph: Version 7.1.3
+- paragraph: Notifications
+- generic: All site health tests have finished running. There are items that should be addressed.

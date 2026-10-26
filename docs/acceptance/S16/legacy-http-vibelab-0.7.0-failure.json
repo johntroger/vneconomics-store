@@ -1,0 +1,124 @@
+{
+  "status": "FAIL_LEGACY_PUBLIC_RENDER",
+  "observedAt": "2026-10-24T11:15:30.129Z",
+  "requests": [
+    {
+      "id": 1,
+      "path": "/hello-world/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 2,
+      "path": "/sample-page/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 7,
+      "path": "/shop/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 8,
+      "path": "/cart/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 9,
+      "path": "/checkout/",
+      "status": 302,
+      "location": "/cart/",
+      "unsupportedLibraryFallback": false
+    },
+    {
+      "id": 10,
+      "path": "/my-account/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 67,
+      "path": "/home/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 71,
+      "path": "/about/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 78,
+      "path": "/gioi-thieu/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 81,
+      "path": "/san-pham/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 84,
+      "path": "/tin-tuc/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 87,
+      "path": "/lien-he/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 92,
+      "path": "/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    },
+    {
+      "id": 95,
+      "path": "/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "location": null,
+      "unsupportedLibraryFallback": true
+    }
+  ],
+  "failures": [
+    1,
+    2,
+    7,
+    8,
+    10,
+    67,
+    71,
+    78,
+    81,
+    84,
+    87,
+    92,
+    95
+  ],
+  "limits": [
+    "Anonymous GET only",
+    "No cart mutations, checkout submission, payment or email",
+    "Detects unsupported-library fallback/status errors; not full legacy visual equivalence"
+  ]
+}

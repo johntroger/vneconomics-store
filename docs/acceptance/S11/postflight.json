@@ -1,0 +1,125 @@
+{
+  "allSuitesMatchCurrentPlugin": true,
+  "pluginRuntimeFileCount": 9,
+  "noExternalMessagesOrHostingDeployment": true,
+  "protectedFiles": [
+    {
+      "path": ".local/site/wp-content/database/.ht.sqlite",
+      "sha256": "F2A35E44C395FB790E6EA5524B21F2525D49F75D19FF129E8E3894FA08721FD8"
+    },
+    {
+      "path": ".local/site/wp-config.php",
+      "sha256": "B2B3F3FE6DBF560B38DB952A868DF3120FFF14BB39BA96EA34E2F26B5C2892F8"
+    }
+  ],
+  "suites": [
+    {
+      "backendChecks": 37,
+      "themeMatched": true,
+      "pluginMatched": true,
+      "checks": 61,
+      "stage": "S11",
+      "path": "docs/acceptance/S11/test-results.json"
+    },
+    {
+      "backendChecks": 0,
+      "themeMatched": false,
+      "pluginMatched": true,
+      "checks": 50,
+      "stage": "S05",
+      "path": "docs/acceptance/S11/S05-regression/test-results.json"
+    },
+    {
+      "backendChecks": 0,
+      "themeMatched": true,
+      "pluginMatched": true,
+      "checks": 55,
+      "stage": "S08",
+      "path": "docs/acceptance/S11/S08-regression/test-results.json"
+    },
+    {
+      "backendChecks": 0,
+      "themeMatched": true,
+      "pluginMatched": true,
+      "checks": 55,
+      "stage": "S10",
+      "path": "docs/acceptance/S11/S10-regression/test-results.json"
+    },
+    {
+      "backendChecks": 0,
+      "themeMatched": true,
+      "pluginMatched": true,
+      "checks": 59,
+      "stage": "S06",
+      "path": "docs/acceptance/S11/S06-regression/test-results.json"
+    }
+  ],
+  "runCacheCount": 0,
+  "testPorts": [
+    19403,
+    19404,
+    19405,
+    19406,
+    19407,
+    19408,
+    19409,
+    19410,
+    19411
+  ],
+  "testListenerCount": 0,
+  "date": "2026-10-22T11:33:19.0615705+07:00",
+  "tmpTestsCount": 0,
+  "currentThemeHashes": {
+    "archive-vne_resource.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "assets/cover-astro.svg": "630b950d4af6d0731f0bf0cc22e1b18d38f0013af021ffc46840c21cdf842001",
+    "assets/cover-default.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-mdn.svg": "d779f88b87b213693ed56de56e0b616f456fc2438f3fb05f14fc2d50c8829493",
+    "assets/cover-pico.svg": "47771b773d17fee8cd5e4e35b270c45753ef6b1e4a13f131554fec1a2e82d5f5",
+    "assets/cover-react.svg": "8f96b1d8ce5d49339ec399e2750797665a85376e8338f7011bdaf1e0d29b07d8",
+    "assets/cover-web-basics.svg": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3",
+    "assets/cover-web-design.svg": "33eacd1dc728eece4a5759b1fbda4bfe6dda19dc74aecbf284a6fbff91ef4ca8",
+    "assets/discovery.js": "cdd2fc6e074eaa210494a6801a79ad66f200cfc50f5e1f652c339d57fa6a908f",
+    "assets/lesson.css": "a6c13865485ad492d896db308c22e45b12e2a63ca098571370cd353b65d8e5d5",
+    "assets/lesson.js": "9ba49f0fb47a4d01dce9551e8462f1173925fc72e710ace8f1c4bff105e30c73",
+    "assets/menu.js": "acb2ff5b5b8395f7e649c51c73846f5001d0ccd72873045faae6dbec43471283",
+    "assets/moc-studio/index.html": "add426737a36ac24f868f5e2f97009378ffd3ba3e53a23865642b48649f72b03",
+    "assets/moc-studio/style.css": "e49c59b342708f293f8ab75c463db27fb2b15004541e7dfadea5499c52572514",
+    "assets/support.css": "5f5994ce2f64d91c7f7e1b9f2cbf55a8052fb4fd7e0257baae50835dabbee658",
+    "assets/support.js": "c2c0eacab17133bd7f3a5a9b84852f7f59cb5708be5ba93434df7488954633d3",
+    "catalog-template.php": "a2bcf5c89152a6f33424f4bd3f0149c3eeefef3b19cffc2b074278403a37a066",
+    "catalog.php": "f9740ce2cb1de7a603ebd718531d29e39732f1abdf25c099f157e097c4274a5a",
+    "detail.php": "b425d547aa7a1500389f9de113e791f304fa488f32e7e12cd4e41f33c12347c3",
+    "discovery-template.php": "1e59557b3c59c37cd1c004f85d7b2a835b5e33143586683040f8297b445feff8",
+    "discovery.php": "c2aa781cc5dd8459ae34f79ccfe11c2e8d34c61be825d87e773ea0619950d00d",
+    "footer.php": "5740254af91f81096c63ef4d31e7856a35ee9eed9272f2f419745763bb76fc11",
+    "front-page.php": "ca7ed2b60f46d3bd840674195c716140cf375aca2b918465ba70b75c2d1ff9bf",
+    "functions.php": "7d745edcb593879f2268fd6130d12e677bee62fd2e27909f9a6d74b29535bfb4",
+    "header.php": "b47231a8bf341f641d061df07acf010a0d69e33a86485381a893c7a7fe61860a",
+    "index.php": "a15678648fed9067a7efd27ee1ccb2aa25f5928e71c3adc642280396e7822ec1",
+    "lesson-template.php": "c15bb57a6cef0b559527452ef213e3176c5a41a8e709174d2a73acf2abb3d772",
+    "lesson.php": "af98d06bfd9faa46491dceeb91905f54ed0c43ab80b55299b15aba9f1a052e88",
+    "single-vne_resource.php": "f9482d863ba713bebee2baba5002d932c711bae725ce10ba75f114211cb8adc7",
+    "style.css": "45447b203216518d59270c1a691304116e26263a7d0f9bd6d15af35b187de62f",
+    "support-template.php": "493ab6ab7b3ff45da58c54828e92eb7c05c79ad648803d95dd5babcd2490fe71",
+    "support.php": "18745edcaa8639e768b432930309a14f6a88f2322544593c32b3be040cacba19",
+    "taxonomy-vne_category.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_need.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305",
+    "taxonomy-vne_tool.php": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+  },
+  "lockExists": false,
+  "currentPluginHashes": {
+    "admin.php": "e8af77d55c732cd7ecf41c3eb7993161ebea991d5ea1e91aad18eca7c75b902a",
+    "api.php": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890",
+    "model.php": "b28c9a7ca5c469709ecd54499dc4ec564360bc608f96c04ee5cf44b0b2917852",
+    "reports.php": "df68e3320981760a0e09a82d2fc768f41c1cf0c7cc75578786fae0913ef2b30a",
+    "revision-admin.php": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8",
+    "revisions.php": "7f2943beec516a843812f02fe8f341779432a7582e5d6546d1f85c16d1a2a911",
+    "state-admin.php": "b201063a4762c719dec107cb88d32a99dd15aedebf8a4f64e41db8f7f1e45318",
+    "state.php": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c",
+    "vne-library-core.php": "e24fe12ecbdd7b9d826edcdb165d615e87544e5f0ba0c048d2a2b81e36e81c68"
+  },
+  "legacyModulesAndHistoricalEvidenceUnchanged": true,
+  "originalHashesMatch": true,
+  "allApplicableSuitesMatchCurrentTheme": true,
+  "themeRuntimeFileCount": 35
+}

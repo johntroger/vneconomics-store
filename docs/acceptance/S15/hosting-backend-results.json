@@ -1,0 +1,222 @@
+{
+  "observedDate": "2026-10-23",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "source": "Plesk staging 319 WP-CLI log",
+  "observations": [
+    {
+      "status": "READY_FOR_PLUGIN_INSTALL",
+      "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+      },
+      "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+      "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+      },
+      "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+      },
+      "plugin": {
+        "active": false,
+        "runtimeVersion": null,
+        "schema": null,
+        "files": {
+          "present": false,
+          "hashesMatch": false,
+          "missing": [],
+          "unexpected": [],
+          "changed": []
+        }
+      },
+      "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+      },
+      "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+      ]
+    },
+    {
+      "status": "INSTALLED_NOT_ACTIVE",
+      "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+      },
+      "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+      "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+      },
+      "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+      },
+      "plugin": {
+        "active": false,
+        "runtimeVersion": null,
+        "schema": null,
+        "files": {
+          "present": true,
+          "hashesMatch": true,
+          "missing": [],
+          "unexpected": [],
+          "changed": []
+        }
+      },
+      "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+      },
+      "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+      ]
+    },
+    {
+      "status": "ACTIVE_PLUGIN_OBSERVED",
+      "target": {
+        "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+        "database": "vne35060_wp_udx1z",
+        "home": "https://staging-store.vneconomics.com",
+        "siteurl": "https://staging-store.vneconomics.com",
+        "blog_public": "0"
+      },
+      "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+      "runtime": {
+        "phpCLI": "8.3.36",
+        "databaseVersion": "10.6.22-MariaDB-cll-lve",
+        "mysqli": true,
+        "curl": true,
+        "zip": true,
+        "WP_CACHE": false,
+        "objectCache": null
+      },
+      "bundle": {
+        "manifestHashVerified": true,
+        "pluginArchiveHashVerified": true
+      },
+      "plugin": {
+        "active": true,
+        "runtimeVersion": "0.4.2",
+        "schema": "3",
+        "files": {
+          "present": true,
+          "hashesMatch": true,
+          "missing": [],
+          "unexpected": [],
+          "changed": []
+        }
+      },
+      "theme": {
+        "stylesheet": "astra",
+        "version": "4.12.0"
+      },
+      "limits": [
+        "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+        "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+        "Theme gate stays closed until required plugin checks are completed"
+      ]
+    },
+    {
+      "public": {
+        "status": 200,
+        "headers": {
+          "Allow": "GET",
+          "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+          "VNE-Cache-Policy": "bypass"
+        }
+      },
+      "private_edit": {
+        "status": 403,
+        "headers": {
+          "Allow": "GET",
+          "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+          "VNE-Cache-Policy": "bypass"
+        }
+      },
+      "anonymous_write": {
+        "status": 401,
+        "headers": {
+          "Allow": "GET",
+          "Cache-Control": "private, no-store, no-cache, must-revalidate, max-age=0",
+          "VNE-Cache-Policy": "bypass"
+        }
+      }
+    },
+    {
+      "firstInsert": true,
+      "secondInsertRejected": true,
+      "ownerPreserved": true,
+      "rollbackRestoresValue": true,
+      "commitPersistsValue": true,
+      "cleanup": true
+    },
+    {
+      "status": "PASS_STAGING_BACKEND_DRAFT",
+      "plugin": "0.4.2",
+      "schema": 3,
+      "theme": "astra",
+      "checks": [
+        "InnoDB table: ujycnUe_posts",
+        "InnoDB table: ujycnUe_postmeta",
+        "InnoDB table: ujycnUe_options",
+        "existing administrator available",
+        "administrator plugin capabilities",
+        "draft saved through plugin on MariaDB",
+        "approved revision generated",
+        "anonymous cannot read draft",
+        "anonymous cannot change draft",
+        "approved-base update persisted",
+        "revision changes after update",
+        "stale base rejected with 409",
+        "stale write leaves approved data unchanged",
+        "invalid payload rolls back without revision change",
+        "state saved and read back",
+        "state does not promote validation",
+        "active theme preserved",
+        "fixture post and core revisions deleted",
+        "fixture postmeta removed",
+        "fixture content lock released",
+        "existing posts/pages unchanged",
+        "theme unchanged after cleanup"
+      ],
+      "failure": null,
+      "limits": [
+        "One draft only, no publication or seed",
+        "No parallel contender, HTTP/HTTPS, proxy cache or theme certification"
+      ]
+    },
+    {
+      "fixturePostsAndRevisionsRemaining": 0,
+      "probeOptionsRemaining": 0,
+      "theme": "astra",
+      "schema": 3
+    }
+  ],
+  "limits": [
+    "CLI and internal REST only; no public HTTP/HTTPS or upstream cache certification",
+    "Sequential lock probe does not certify parallel contention",
+    "S15 incomplete; theme gate remains closed"
+  ]
+}

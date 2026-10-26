@@ -1,0 +1,24 @@
+{
+  "status": "READY_FOR_APPROVED_CONTENT_IMPORT",
+  "payloadHash": "d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934",
+  "categories": [
+    "Nền tảng web",
+    "Mẫu dự án",
+    "Skills cho AI agent"
+  ],
+  "titles": [
+    "Web Dev for Beginners",
+    "MDN Learning Area",
+    "Web Design Guidelines",
+    "Astro Basics",
+    "React Best Practices",
+    "Pico CSS",
+    "Làm landing page Mộc Studio với Codex trên Windows",
+    "Trước bài đầu: chuẩn bị công cụ và quyền truy cập",
+    "Sửa lỗi bài đầu: ghi lại điều đang xảy ra",
+    "Sau bài đầu: hiểu HTML và CSS vừa tạo",
+    "Bộ thực hành landing page cho dịch vụ chụp ảnh"
+  ],
+  "existingPostsPagesHash": "00f9babaf73b86635518bd84ec36bd711c2f8676d0131733c6ff0b5d2279a9f6",
+  "validationPolicy": "No validation records imported; no new PASS claims"
+}

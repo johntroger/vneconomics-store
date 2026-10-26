@@ -1,0 +1,20 @@
+{
+  "observedAt": "2026-10-24T09:45:13.070Z",
+  "status": "PASS_BACKUP_CRC_AND_STRUCTURE_NOT_PRODUCTION_RESTORE",
+  "path": "/var/www/vhosts/vneconomics.com/wordpress-backups/store.vneconomics.com__2026-10-24T16_43_31+0700.zip",
+  "size": 81419753,
+  "sha256": "f6fc2810a6c175bfdc56306856e74e7c4d4efa330303ec070966d749c98a0666",
+  "entries": 16669,
+  "filesChecked": 14362,
+  "uncompressedBytes": 235031988,
+  "crcErrors": [],
+  "unsafePaths": [],
+  "criticalPresent": {
+    "sqldump.sql": true,
+    "files/wp-config.php": true,
+    "files/wp-content/themes/astra/functions.php": true,
+    "files/wp-content/themes/astra/style.css": true
+  },
+  "hposOrders": 0,
+  "readOnly": true
+}

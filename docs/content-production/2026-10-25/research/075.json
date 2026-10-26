@@ -1,0 +1,21 @@
+{
+  "key": 75,
+  "repo": "audacity/audacity",
+  "repoId": "32921736",
+  "url": "https://github.com/audacity/audacity",
+  "stars": 18822,
+  "archived": false,
+  "disabled": false,
+  "branch": "master",
+  "pushedAt": "2026-10-23T13:36:39Z",
+  "license": "NOASSERTION",
+  "description": "Audio Editor                                     ",
+  "homepage": "https://www.audacityteam.org/manual/getting-started/",
+  "observedAt": "2026-10-25T03:38:16.444Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+    "path": "README.md",
+    "text": "# Audacity\n\n[![Coverage](https://s3.us-east-1.amazonaws.com/extensions.musescore.org/test/code_coverage/au_coverage_badge.svg)](https://github.com/audacity/audacity/actions/workflows/au4_check_unit_tests.yml)\n\n[**Audacity**](https://www.audacityteam.org) is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems. More info can be found on https://www.audacityteam.org\n\n## This repository is currently undergoing major structural change.\n\nWe're currently working on Audacity 4, which means an entirely new UI and also refactorings aplenty. As such, the `master` branch is currently not particularly friendly to new contributors. It is still possible to submit patches to Audacity 3.x; make sure you branch off `audacity3` if you choose to do so. Build instructions for 3.x can be found [here](https://github.com/audacity/audacity/blob/release-3.7.0/BUILDING.md); build instructions for Audacity 4 can be found [here](https://github.com/audacity/audacity/blob/master/BUILDING.md).\n\nYou can stay updated with our efforts on [YouTube](https://youtube.com/@audacity), [Discord](https://discord.gg/audacity) and [our blog](https://audacityteam.org/blog).\n\n## License\n\nAudacity is open source software licensed GPLv3. Most code files are GPLv2-or-later, with the notable exceptions being `/au3/lib-src` (which contains third party libraries), as well as VST3-related code. Documentation is licensed CC-by 3.0 unless otherwise noted. Details can be found in the [license file](LICENSE.txt).\n",
+    "sha256": "c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121"
+  }
+}

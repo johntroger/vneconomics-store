@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:35:23.159Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 61,
+      "repo": "excalidraw/excalidraw",
+      "stars": 134501,
+      "archived": false,
+      "readmeBytes": 7774,
+      "source": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/README.md",
+      "sha256": "011eea74cbbf38fd263ec93a221f379466c557dc7587acfe93797201193a7e7a"
+    },
+    {
+      "key": 62,
+      "repo": "jgraph/drawio-desktop",
+      "stars": 63639,
+      "archived": false,
+      "readmeBytes": 7553,
+      "source": "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/README.md",
+      "sha256": "bd5abacd56d9b8e0810dd6e3bde1890cda8a605da89cc62032735f7f29e6b566"
+    },
+    {
+      "key": 63,
+      "repo": "mermaid-js/mermaid",
+      "stars": 90841,
+      "archived": false,
+      "readmeBytes": 24999,
+      "source": "https://raw.githubusercontent.com/mermaid-js/mermaid/develop/README.md",
+      "sha256": "eae450a8a65100cb0f5a4b29b8ebfe9a1b7c57e771887e1471d6726c02cc3dd5"
+    },
+    {
+      "key": 64,
+      "repo": "tldraw/tldraw",
+      "stars": 51073,
+      "archived": false,
+      "readmeBytes": 8717,
+      "source": "https://raw.githubusercontent.com/tldraw/tldraw/main/README.md",
+      "sha256": "1e35efa97844b08409feb26294c4eac533207057d7595e8e7d3b80cf1a333d5b"
+    },
+    {
+      "key": 65,
+      "repo": "penpot/penpot",
+      "stars": 61624,
+      "archived": false,
+      "readmeBytes": 11834,
+      "source": "https://raw.githubusercontent.com/penpot/penpot/develop/README.md",
+      "sha256": "8c79712fea5fb2d98462817e65f5eba37ef66f652611da23bc64275ac008ad53"
+    },
+    {
+      "key": 66,
+      "repo": "upscayl/upscayl",
+      "stars": 50961,
+      "archived": false,
+      "readmeBytes": 12990,
+      "source": "https://raw.githubusercontent.com/upscayl/upscayl/main/README.md",
+      "sha256": "4f3467e3748517bd6bf67d8c412e24a1de461e7642d2a4d83e6cd3e082ebb8d0"
+    },
+    {
+      "key": 67,
+      "repo": "Acly/krita-ai-diffusion",
+      "stars": 10778,
+      "archived": false,
+      "readmeBytes": 7145,
+      "source": "https://raw.githubusercontent.com/Acly/krita-ai-diffusion/main/README.md",
+      "sha256": "abf4e65d970a420c192f20a01b6254cd6e8cc27b7d2dbe20647bb3330984d788"
+    },
+    {
+      "key": 68,
+      "repo": "Sanster/IOPaint",
+      "stars": 23298,
+      "archived": true,
+      "readmeBytes": 6748,
+      "source": "https://raw.githubusercontent.com/Sanster/IOPaint/main/README.md",
+      "sha256": "dfeef9bdd08e58f2331daa3ed9675cfa27879b51e34bf7f6e98bb0466d494fdd"
+    },
+    {
+      "key": 69,
+      "repo": "invoke-ai/InvokeAI",
+      "stars": 28853,
+      "archived": false,
+      "readmeBytes": 8394,
+      "source": "https://raw.githubusercontent.com/invoke-ai/InvokeAI/main/README.md",
+      "sha256": "87f933b43279c7a7955cf8d2af850f5558ff8f2b6a1c4f84019d5db55bbed273"
+    },
+    {
+      "key": 70,
+      "repo": "Comfy-Org/ComfyUI",
+      "stars": 142655,
+      "archived": false,
+      "readmeBytes": 29300,
+      "source": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/README.md",
+      "sha256": "d812a66af88fe0a08d25d19c2dba3b6ce604ce364f88b1e315c13587d6f7a2eb"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/excalidraw/excalidraw/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jgraph/drawio-desktop/dev/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mermaid-js/mermaid/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tldraw/tldraw/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/penpot/penpot/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/upscayl/upscayl/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Acly/krita-ai-diffusion/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Sanster/IOPaint/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/invoke-ai/InvokeAI/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Comfy-Org/ComfyUI/master/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

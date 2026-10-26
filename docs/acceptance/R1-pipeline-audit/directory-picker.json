@@ -1,0 +1,14 @@
+{
+  "configurationApplied": false,
+  "configuredPath": "/store.vneconomics.com/codex-deploy-check",
+  "newDirectoryCreated": false,
+  "privateSiblingDirectoriesVisible": [
+    "g03-production",
+    "content-100-20261025",
+    "git"
+  ],
+  "websiteRootsVisible": [
+    "staging-store.vneconomics.com",
+    "store.vneconomics.com"
+  ]
+}

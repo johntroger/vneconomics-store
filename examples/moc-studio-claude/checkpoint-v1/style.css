@@ -1,0 +1,191 @@
+:root {
+  --kem: #faf5ec;
+  --kem-dam: #f0e6d3;
+  --nau: #5b3d26;
+  --nau-dam: #3b2616;
+  --go: #a8754a;
+  --trang: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--nau-dam);
+  background: var(--kem);
+}
+
+.container {
+  width: min(1040px, 100% - 2rem);
+  margin-inline: auto;
+}
+
+.notice {
+  margin: 0;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--trang);
+  background: var(--nau);
+}
+
+.hero {
+  padding: 4rem 0;
+  background: var(--kem-dam);
+}
+
+.brand {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--go);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--nau);
+}
+
+.lead {
+  max-width: 36rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.15rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--trang);
+  background: var(--nau);
+}
+
+.button:hover {
+  background: var(--nau-dam);
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--go);
+  outline-offset: 3px;
+}
+
+.section {
+  padding: 3.5rem 0;
+}
+
+.section.alt {
+  background: var(--kem-dam);
+}
+
+h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--nau);
+}
+
+h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--nau);
+}
+
+.grid,
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: 1.25rem;
+  border: 1px solid var(--kem-dam);
+  border-radius: 0.75rem;
+  background: var(--trang);
+}
+
+.card p {
+  margin: 0;
+}
+
+.swatch {
+  height: 6rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+
+.swatch-1 {
+  background: var(--kem);
+  border: 1px solid var(--kem-dam);
+}
+
+.swatch-2 {
+  background: linear-gradient(135deg, var(--go), var(--kem-dam));
+}
+
+.swatch-3 {
+  background: radial-gradient(circle at 30% 30%, var(--kem-dam), var(--nau));
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  font-weight: 700;
+  color: var(--trang);
+  background: var(--go);
+}
+
+.contact {
+  background: var(--nau);
+  color: var(--trang);
+}
+
+.contact h2 {
+  color: var(--trang);
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 1.25rem 0 0;
+}
+
+.contact-list dt {
+  font-weight: 600;
+}
+
+.contact-list dd {
+  margin: 0;
+}
+
+.footer {
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+  background: var(--kem-dam);
+}
+
+.footer p {
+  margin: 0;
+}

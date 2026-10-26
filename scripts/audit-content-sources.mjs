@@ -1,0 +1,11 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+const base='docs/content-audit/2026-10-25',snapshot=JSON.parse(readFileSync(base+'/public-snapshot.json','utf8'));
+const requests=[],repos={},paths={},docs={};
+async function get(url){try{const r=await fetch(url,{redirect:'manual',signal:AbortSignal.timeout(25000),headers:{'User-Agent':'Vneconomics-Owner-Content-Audit','Accept':'application/json'}});const body=await r.text();requests.push({url,status:r.status,location:r.headers.get('location')});return {status:r.status,body,location:r.headers.get('location')};}catch(e){requests.push({url,status:0,error:String(e)});return {status:0,body:''};}}
+for(const x of snapshot.api.vne_resource){const u=new URL(x.data.source_url),parts=u.pathname.split('/').filter(Boolean),key=parts.slice(0,2).join('/');if(!repos[key]){const r=await get('https://api.github.com/repos/'+key);if(r.status===200){const d=JSON.parse(r.body);repos[key]={status:200,html_url:d.html_url,archived:d.archived,disabled:d.disabled,default_branch:d.default_branch,pushed_at:d.pushed_at,license:d.license?{spdx_id:d.license.spdx_id,url:d.license.url}:null,description:d.description};}else repos[key]={status:r.status,body:r.body.slice(0,200)};}
+ if(x.data.source_path){const r=await get('https://api.github.com/repos/'+key+'/contents/'+x.data.source_path);paths[x.id]={url:x.data.source_url,status:r.status,exists:r.status===200};}
+}
+const docUrls=new Set();for(const p of snapshot.pages)for(const l of p.links)if(l.href.startsWith('https://learn.chatgpt.com/'))docUrls.add(l.href);
+for(const url of docUrls){const r=await get(url);docs[url]={status:r.status,location:r.location,title:(r.body.match(/<title[^>]*>(.*?)<\/title>/is)??[])[1]??null};}
+writeFileSync(base+'/source-checks.json',JSON.stringify({observedAt:new Date().toISOString(),scope:'Anonymous GET to current official source endpoints only; no install, code execution or provider account calls',repos,paths,docs,requests,limits:['HTTP availability and declared repository metadata do not establish runtime compatibility, cost or safety','License API result is a lead for review, not a legal determination','Live source observations do not update website metadata or confer validation']},null,2)+'\n');
+console.log(JSON.stringify({repos,paths,docs,requests:requests.length},null,2));

@@ -1,0 +1,92 @@
+{
+  "status": "PASS_NATIVE_WORDPRESS_LEGACY_FIX",
+  "observedAt": "2026-10-24T11:24:07.612Z",
+  "checks": [
+    "actual plugin0.4.2 activated",
+    "native WordPress HTTP ready",
+    "regression reproduced against exact0.7.0 ZIP",
+    "legacy post200",
+    "legacy post content retained",
+    "legacy post the_content shortcode filter executes",
+    "legacy post title escaped",
+    "legacy page200",
+    "legacy page content retained",
+    "legacy page the_content shortcode filter executes",
+    "legacy page title escaped",
+    "password-protected content remains protected",
+    "private page remains inaccessible anonymously",
+    "library home still renders",
+    "library home no PHP error",
+    "six VNE resource cards retained",
+    "library catalog still renders",
+    "library catalog no PHP error",
+    "library resource still renders",
+    "library resource no PHP error",
+    "library lesson still renders",
+    "library lesson no PHP error",
+    "fixed theme keeps plugin/schema",
+    "no PHP errors across original/fixed flows",
+    "real local DB/config preserved"
+  ],
+  "visits": [
+    {
+      "name": "startup",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "name": "old-0.7.0-legacy-page",
+      "path": "/legacy-page-title/",
+      "status": 200
+    },
+    {
+      "name": "fixed-post",
+      "path": "/legacy-post-title/",
+      "status": 200
+    },
+    {
+      "name": "fixed-page",
+      "path": "/legacy-page-title/",
+      "status": 200
+    },
+    {
+      "name": "protected",
+      "path": "/protected-fixture/",
+      "status": 200
+    },
+    {
+      "name": "private",
+      "path": "/?page_id=20",
+      "status": 404
+    },
+    {
+      "name": "library-home",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "name": "library-catalog",
+      "path": "/tai-nguyen/",
+      "status": 200
+    },
+    {
+      "name": "library-resource",
+      "path": "/?vne_resource=web-dev-for-beginners",
+      "status": 200
+    },
+    {
+      "name": "library-lesson",
+      "path": "/?vne_guide=lam-landing-page-moc-studio-voi-codex-tren-windows",
+      "status": 200
+    }
+  ],
+  "patchFiles": [
+    "index.php",
+    "style.css"
+  ],
+  "limits": [
+    "Fresh WordPress/PHP8.3.36/SQLite fixture, not Plesk/MariaDB",
+    "Shortcode pipeline tested with a harmless fixture; no payment/email/network",
+    "Current working-tree patch tested; release ZIP needs separate hash verification"
+  ]
+}

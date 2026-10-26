@@ -1,0 +1,319 @@
+{
+  "observedAt": "2026-10-26T02:14:14+00:00",
+  "root": "/var/www/vhosts/vneconomics.com/store.vneconomics.com/",
+  "database": "vne35060_wp_kmqnf",
+  "home": "https://store.vneconomics.com",
+  "php": "8.3.36",
+  "wordpress": "7.1.3",
+  "theme": "0.7.2",
+  "stylesheet": "vibelab",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "indexing": "1",
+  "activePlugins": [
+    "ai-provider-for-anthropic/plugin.php",
+    "visa-acceptance-solutions/visa-acceptance-solutions.php",
+    "vne-library-core/vne-library-core.php",
+    "woocommerce/woocommerce.php"
+  ],
+  "counts": {
+    "vne_resource": {
+      "publish": "106",
+      "future": 0,
+      "draft": 0,
+      "pending": 0,
+      "private": 0,
+      "trash": 0,
+      "auto-draft": 0,
+      "inherit": 0,
+      "request-pending": 0,
+      "request-confirmed": 0,
+      "request-failed": 0,
+      "request-completed": 0,
+      "wc-pending": 0,
+      "wc-processing": 0,
+      "wc-on-hold": 0,
+      "wc-completed": 0,
+      "wc-cancelled": 0,
+      "wc-refunded": 0,
+      "wc-failed": 0,
+      "wc-checkout-draft": 0
+    },
+    "vne_guide": {
+      "publish": "6",
+      "future": 0,
+      "draft": 0,
+      "pending": 0,
+      "private": 0,
+      "trash": 0,
+      "auto-draft": 0,
+      "inherit": 0,
+      "request-pending": 0,
+      "request-confirmed": 0,
+      "request-failed": 0,
+      "request-completed": 0,
+      "wc-pending": 0,
+      "wc-processing": 0,
+      "wc-on-hold": 0,
+      "wc-completed": 0,
+      "wc-cancelled": 0,
+      "wc-refunded": 0,
+      "wc-failed": 0,
+      "wc-checkout-draft": 0
+    },
+    "vne_practice": {
+      "publish": "1",
+      "future": 0,
+      "draft": 0,
+      "pending": 0,
+      "private": 0,
+      "trash": 0,
+      "auto-draft": 0,
+      "inherit": 0,
+      "request-pending": 0,
+      "request-confirmed": 0,
+      "request-failed": 0,
+      "request-completed": 0,
+      "wc-pending": 0,
+      "wc-processing": 0,
+      "wc-on-hold": 0,
+      "wc-completed": 0,
+      "wc-cancelled": 0,
+      "wc-refunded": 0,
+      "wc-failed": 0,
+      "wc-checkout-draft": 0
+    }
+  },
+  "original": {
+    "count": 128,
+    "rowHash": "96a612478b8a15c282923a849252956fe5c7a6a07d599a45dfc0d79a9cc70335",
+    "metaExceptCodexValidationHash": "79a1e270254a27d80cabd5263ac62f680023d8aeec410cc53473d46244d53860"
+  },
+  "components": {
+    "theme": {
+      "expected": 38,
+      "actual": 38,
+      "mismatch": [],
+      "extra": [],
+      "missing": [],
+      "symlinks": []
+    },
+    "plugin": {
+      "expected": 10,
+      "actual": 10,
+      "mismatch": [],
+      "extra": [],
+      "missing": [],
+      "symlinks": []
+    }
+  },
+  "guides": [
+    {
+      "id": 107,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows",
+      "slug": "lam-landing-page-moc-studio-voi-codex-tren-windows",
+      "status": "publish",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "contentSha256": "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47",
+      "validationCount": 1,
+      "validationStatus": "tested",
+      "commandsAllowed": true,
+      "testedAt": "2026-10-22",
+      "evidenceUrl": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html"
+    },
+    {
+      "id": 213,
+      "title": "Làm landing page Mộc Studio với Claude Code trên Windows",
+      "slug": "lam-landing-page-moc-studio-voi-claude-code-tren-windows",
+      "status": "publish",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "contentSha256": "41503054b1d00e3df1fa353a8ecfee0b6fd6a691ee492570bbaaac705e98f6e5",
+      "validationCount": 1,
+      "validationStatus": "tested",
+      "commandsAllowed": true,
+      "testedAt": "2026-10-25",
+      "evidenceUrl": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html"
+    },
+    {
+      "id": 215,
+      "title": "Làm landing page Mộc Studio với Antigravity IDE trên Windows",
+      "slug": "lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows",
+      "status": "publish",
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "contentSha256": "1179294952f3904e179ea4d65bef6b17e82ff7b11184e67660bc7ae974f6b109",
+      "validationCount": 1,
+      "validationStatus": "tested",
+      "commandsAllowed": true,
+      "testedAt": "2026-10-25",
+      "evidenceUrl": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html"
+    }
+  ],
+  "c100": [
+    {
+      "batch": 1,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "564be3a0ec0f986e12c14bd844511f864b01f1b9df78690a4aaae4f2c9a86498",
+      "mismatchIds": []
+    },
+    {
+      "batch": 2,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "a5cbfc3bd4cfc06a85d7f3f6e414a6158339b1ab0753dbb6cfa243eb12174df8",
+      "mismatchIds": []
+    },
+    {
+      "batch": 3,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "3f0695a78ac9f75b11866a879bb3ee6d16af740f43226414faaab30567515a6b",
+      "mismatchIds": []
+    },
+    {
+      "batch": 4,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "0d2d802c027b2e77f56692f576149a6dd7cbe7490cd169283aa596a4bccad062",
+      "mismatchIds": []
+    },
+    {
+      "batch": 5,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "6e79209eb5cf50d66f684778a7fb2b1d162231fdaf4b5135172fb7e399bfb024",
+      "mismatchIds": []
+    },
+    {
+      "batch": 6,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "834d3749afa7dc9c7e090649cd2d5e6fb8e7008ca2d116f27fe6e43b5f8b37cb",
+      "mismatchIds": []
+    },
+    {
+      "batch": 7,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "2e1e79fc0e8300fcf3dc45f96e7b2e647210235467709059b926cde703db6cde",
+      "mismatchIds": []
+    },
+    {
+      "batch": 8,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "418ced2a7b32e90e1345c35e6ad7f0d3403f67b9c29585b47e33f55de4cea3c5",
+      "mismatchIds": []
+    },
+    {
+      "batch": 9,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "a0d6b1c84697fdb70ae453fb37ac98a8fb8caecfde9cecc5e98f91bdbf9deff2",
+      "mismatchIds": []
+    },
+    {
+      "batch": 10,
+      "status": "verified",
+      "count": 10,
+      "payloadSha256": "544775b7d04ea4124b50bf5262d9eaa3039d3425af682762f88d35c552eb27b5",
+      "mismatchIds": []
+    }
+  ],
+  "backups": [
+    {
+      "name": "staging-store.vneconomics.com__2026-10-23T11_02_11+0700.zip",
+      "bytes": 81243339,
+      "sha256": "51c9f67ffd01ade61d22ba9b32fdb53b5750804639dead984c109098966917f3"
+    },
+    {
+      "name": "staging-store.vneconomics.com__2026-10-23T14_49_28+0700.zip",
+      "bytes": 81537595,
+      "sha256": "50f5044df962a7c72412a8169bc9423d00aac9954a486712fc59054e351fafdd"
+    },
+    {
+      "name": "staging-store.vneconomics.com__2026-10-24T09_59_46+0700.zip",
+      "bytes": 81541424,
+      "sha256": "f25d308309091275deb1d9036b40507af91a1443640b8a5fa0c7b28accdbfce7"
+    },
+    {
+      "name": "store.vneconomics.com__2026-10-24T16_43_31+0700.zip",
+      "bytes": 81419753,
+      "sha256": "f6fc2810a6c175bfdc56306856e74e7c4d4efa330303ec070966d749c98a0666"
+    },
+    {
+      "name": "store.vneconomics.com__2026-10-24T18_28_20+0700.zip",
+      "bytes": 81539044,
+      "sha256": "541a8e7eaba271c979ab38cd05780dacdf123d2f746d12f24974de2aa7087325"
+    },
+    {
+      "name": "store.vneconomics.com__2026-10-25T10_05_23+0700.zip",
+      "bytes": 81540483,
+      "sha256": "5631842c2ca6271a4fe4ca5e8a948aff2148ee911944732be4d8d2d6758fe8cf"
+    },
+    {
+      "name": "store.vneconomics.com__2026-10-25T20_37_35+0700.zip",
+      "bytes": 81513763,
+      "sha256": "9bd3c5ad8b4a127328f6bab99f516b2780219734ae194f744bb30b62eb41380b"
+    }
+  ],
+  "privatePackages": {
+    "release.zip": {
+      "bytes": 241890,
+      "sha256": "5e4b9d0f11d145bc9a1b5fa07273f4414182665c4f7de9c40a8a21b02a37104b"
+    },
+    "theme.zip": {
+      "bytes": 164810,
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab"
+    },
+    "previous-theme.zip": {
+      "bytes": 59048,
+      "sha256": "02e640e2e5ac7471e8cff8e32eeec3be99e96972bc345146e5bea075ab4fab23"
+    },
+    "manifest.json": {
+      "bytes": 20574,
+      "sha256": "f0de4e7ecbfdc7c60f915fa466952978d3138e13d5c6e17f3ee9efb0018e332a"
+    },
+    "import.php": {
+      "bytes": 13107,
+      "sha256": "d92efc431e02aea9c62dd9952c56ef93be040062ac75e9a73370d83add007e82"
+    },
+    "content.json": {
+      "bytes": 33806,
+      "sha256": "9915174f80b27e5bc5b099d9e7657ee23c06b087980676e161758de74c7e531e"
+    }
+  },
+  "gitDirectories": [
+    {
+      "name": "vneconomics-store.git",
+      "head": "ref: refs/heads/release",
+      "commit": "4fe952ac7eec550d3125be9885fa6271aece2718"
+    }
+  ],
+  "typedContentRows": 130,
+  "g03Journal": {
+    "status": "published",
+    "manifestHash": "f0de4e7ecbfdc7c60f915fa466952978d3138e13d5c6e17f3ee9efb0018e332a",
+    "publishedAt": "2026-10-25T14:18:17+00:00",
+    "verifiedAt": null,
+    "map": {
+      "claude-code": {
+        "id": 213,
+        "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+        "title": "Làm landing page Mộc Studio với Claude Code trên Windows",
+        "contentSha256": "41503054b1d00e3df1fa353a8ecfee0b6fd6a691ee492570bbaaac705e98f6e5"
+      },
+      "antigravity": {
+        "id": 215,
+        "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+        "title": "Làm landing page Mộc Studio với Antigravity IDE trên Windows",
+        "contentSha256": "1179294952f3904e179ea4d65bef6b17e82ff7b11184e67660bc7ae974f6b109"
+      }
+    }
+  },
+  "privateParent": {
+    "exists": true,
+    "writableForHostingUser": true,
+    "mode": "700"
+  }
+}

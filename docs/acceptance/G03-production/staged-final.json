@@ -1,0 +1,29 @@
+{
+  "status": "CONTENT_STAGED_AS_DRAFT",
+  "journal": {
+    "status": "content_ready",
+    "manifestHash": "f0de4e7ecbfdc7c60f915fa466952978d3138e13d5c6e17f3ee9efb0018e332a",
+    "previousThemeSha256": "02e640e2e5ac7471e8cff8e32eeec3be99e96972bc345146e5bea075ab4fab23",
+    "map": {
+      "claude-code": {
+        "id": 213,
+        "url": "https://store.vneconomics.com/?post_type=vne_guide&p=213",
+        "title": "Làm landing page Mộc Studio với Claude Code trên Windows",
+        "contentSha256": "41503054b1d00e3df1fa353a8ecfee0b6fd6a691ee492570bbaaac705e98f6e5"
+      },
+      "antigravity": {
+        "id": 215,
+        "url": "https://store.vneconomics.com/?post_type=vne_guide&p=215",
+        "title": "Làm landing page Mộc Studio với Antigravity IDE trên Windows",
+        "contentSha256": "1179294952f3904e179ea4d65bef6b17e82ff7b11184e67660bc7ae974f6b109"
+      }
+    },
+    "startedAt": "2026-10-25T14:10:49+00:00",
+    "baseline": {
+      "count": 128,
+      "rowHash": "96a612478b8a15c282923a849252956fe5c7a6a07d599a45dfc0d79a9cc70335",
+      "metaExceptCodexValidationHash": "79a1e270254a27d80cabd5263ac62f680023d8aeec410cc53473d46244d53860"
+    },
+    "stagedAt": "2026-10-25T14:16:47+00:00"
+  }
+}

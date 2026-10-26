@@ -1,0 +1,49 @@
+{
+  "clipboardRestored": true,
+  "checklistsRestored": true,
+  "viewportReset": true,
+  "checks": [
+    {
+      "path": "/",
+      "robots": "max-image-preview:large",
+      "scroll": 375,
+      "viewport": 390,
+      "pass": true
+    },
+    {
+      "path": "/huong-dan/",
+      "robots": "max-image-preview:large",
+      "scroll": 375,
+      "viewport": 390,
+      "pass": true
+    },
+    {
+      "path": "/tai-nguyen/",
+      "robots": "max-image-preview:large",
+      "scroll": 375,
+      "viewport": 390,
+      "pass": true
+    },
+    {
+      "path": "/",
+      "robots": "max-image-preview:large",
+      "scroll": 305,
+      "viewport": 320,
+      "pass": true
+    },
+    {
+      "path": "/huong-dan/",
+      "robots": "max-image-preview:large",
+      "scroll": 305,
+      "viewport": 320,
+      "pass": true
+    },
+    {
+      "path": "/tai-nguyen/",
+      "robots": "max-image-preview:large",
+      "scroll": 305,
+      "viewport": 320,
+      "pass": true
+    }
+  ]
+}

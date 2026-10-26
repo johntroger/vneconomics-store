@@ -1,0 +1,25 @@
+{
+  "archive": "staging-store.vneconomics.com__2026-10-23T11_02_11+0700.zip",
+  "bytes": 81243339,
+  "sha256": "51c9f67ffd01ade61d22ba9b32fdb53b5750804639dead984c109098966917f3",
+  "entries": 16669,
+  "unsafeRelativePaths": 0,
+  "sampleEntryNames": [
+    "files/",
+    "files/wp-config.php",
+    "files/wp-cron.php",
+    "files/wp-activate.php",
+    "files/wp-comments-post.php",
+    "files/wp-admin/",
+    "files/wp-admin/edit-tag-form.php",
+    "files/wp-admin/admin-functions.php",
+    "files/wp-admin/site-health.php",
+    "files/wp-admin/options-privacy.php",
+    "files/wp-admin/menu.php",
+    "files/wp-admin/theme-editor.php"
+  ],
+  "sqlEntryNames": [
+    "sqldump.sql"
+  ],
+  "limit": "Read-only archive integrity/index observation; not a new restore rehearsal"
+}

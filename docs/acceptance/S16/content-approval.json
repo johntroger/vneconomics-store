@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Saigon",
+  "ownerStatement": "Đưa cả 11 mục lên production",
+  "target": "https://store.vneconomics.com/",
+  "scope": "6 resources, 4 guides, 1 practice item from approved S15 content; preserve original posts/pages; no database copy",
+  "source": "Direct answer to production content question in this chat",
+  "importExecuted": false
+}

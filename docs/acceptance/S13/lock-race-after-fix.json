@@ -1,0 +1,46 @@
+{
+  "runtime": "PHP8.3.36 native, separate concurrent CLI processes, shared fresh SQLite DB",
+  "barrier": "1s delay in query filter immediately before INSERT for both contenders; no owner releases before both results",
+  "lockRace": {
+    "content": {
+      "results": [
+        {
+          "won": true,
+          "token_hash": "12ec6c1aedb796423be8d1fe14d9197cccb9976b414c1e1c982f311018173eee"
+        },
+        {
+          "won": false,
+          "token_hash": "ba7ac646e589a084c2d71cf1e97d5b740e77c5a8f98b8e768bdf86b0000d226f"
+        }
+      ],
+      "winners": 1,
+      "expected": 1
+    },
+    "report": {
+      "results": [
+        {
+          "won": false,
+          "token_hash": "03210e74d95a4a36807af20ab60f83634d56335dbb39dea777e44aad90ab9305"
+        },
+        {
+          "won": true,
+          "token_hash": "f2f80f625ca0e34898382b3360d8ca5e3ac42bb37dc5117b0bc00733159fbc35"
+        }
+      ],
+      "winners": 1,
+      "expected": 1
+    }
+  },
+  "testedPluginHashes": {
+    "admin.php": "e8af77d55c732cd7ecf41c3eb7993161ebea991d5ea1e91aad18eca7c75b902a",
+    "api.php": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890",
+    "cache.php": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6",
+    "model.php": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a",
+    "reports.php": "5fcec3ba8973ea01d4cf9727968b889f6e31d9010f1b78140bd7f0e9d3708ca2",
+    "revision-admin.php": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8",
+    "revisions.php": "5c0e68ff77b4faaa3b01cb4167d86a7855f19d40acff9e02c54b9587f51d1dd5",
+    "state-admin.php": "b201063a4762c719dec107cb88d32a99dd15aedebf8a4f64e41db8f7f1e45318",
+    "state.php": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c",
+    "vne-library-core.php": "f7a7406a33332e92bba73c13d57fc5d6052e93a28647c69fbc412225878db0cd"
+  }
+}

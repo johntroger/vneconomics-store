@@ -1,0 +1,21 @@
+{
+  "key": 79,
+  "repo": "blender/blender",
+  "repoId": "213916896",
+  "url": "https://github.com/blender/blender",
+  "stars": 21225,
+  "archived": false,
+  "disabled": false,
+  "branch": "main",
+  "pushedAt": "2026-10-25T02:59:49Z",
+  "license": "NOASSERTION",
+  "description": "Official mirror of Blender",
+  "homepage": "https://developer.blender.org/docs/handbook/contributing/using_git/#github-mirror",
+  "observedAt": "2026-10-25T03:38:18.266Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/blender/blender/main/README.md",
+    "path": "README.md",
+    "text": "<!--\nKeep this document short & concise,\nlinking to external resources instead of including content in-line.\nSee 'release/text/readme.html' for the end user read-me.\n-->\n\nBlender\n=======\n\nBlender is the free and open source 3D creation suite.\nIt supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing,\nmotion tracking and video editing.\n\n![Blender screenshot](https://code.blender.org/wp-content/uploads/2018/12/springrg.jpg \"Blender screenshot\")\n\nProject Pages\n-------------\n\n- [Main Website](https://www.blender.org)\n- [Reference Manual](https://docs.blender.org/manual/en/latest/index.html)\n- [User Community](https://www.blender.org/community/)\n\nDevelopment\n-----------\n\n- [Build Instructions](https://developer.blender.org/docs/handbook/building_blender/)\n- [Code Review & Bug Tracker](https://projects.blender.org)\n- [Developer Forum](https://devtalk.blender.org)\n- [Developer Documentation](https://developer.blender.org/docs/)\n\n\nLicense\n-------\n\nBlender as a whole is licensed under the GNU General Public License, Version 3.\nIndividual files may have a different but compatible license.\n\nSee [blender.org/about/license](https://www.blender.org/about/license) for details.\n",
+    "sha256": "1bbb333e5196ba3d5cdc42830e5f1db6b77c311da96d4ff4d9a6f8143d9821e1"
+  }
+}

@@ -1,0 +1,119 @@
+- banner:
+  - search "Global search":
+    - combobox "Search..."
+  - list:
+    - button "vneconomics.com":
+      - generic: vneconomics.com
+    - button "All subscriptions":
+      - generic: All subscriptions
+    - button:
+    - button:
+    - button "Switch to dark theme":
+- complementary:
+  - generic: W
+  - list:
+    - list:
+      - link "Websites & Domains":
+        - /url: /smb/web/view
+      - link "Files":
+        - /url: /smb/file-manager
+      - link "Databases":
+        - /url: /smb/database
+      - link "Statistics":
+        - /url: /smb/statistics
+      - link "Users":
+        - /url: /smb/user/index
+      - link "Account":
+        - /url: /smb/account
+      - link "WordPress":
+        - /url: /modules/wp-toolkit/index.php/domain/index?context=extNavButton_wp_toolkit_1
+      - link "Installer By MatBao":
+        - /url: /modules/wordpress-installer/index.php/index/installthemes?context=extNavButton_wordpress_installer_1
+  - button "Expand sidebar"
+- navigation "Breadcrumbs":
+  - list:
+    - link "Websites & Domains":
+      - /url: /smb/web/view
+    - link "store.vneconomics.com":
+      - /url: /smb/web/overview/id/291/type/domain
+- heading "Git Repositories on store.vneconomics.com" [level=1]
+- main:
+  - figure:
+  - heading "vneconomics-store.git" [level=3]
+  - generic: URL
+  - textbox: git@github.com:johntroger/vneconomics-store.git
+  - button "Copy to clipboard":
+  - generic: Branch
+  - combobox "Branch"
+  - generic: release
+  - button:
+  - separator
+  - heading "Deploy key" [level=5]
+  - text: Default
+  - separator
+  - heading "Latest commits" [level=5]
+  - list:
+    - generic: 2026-10-17 11:37
+    - generic "Verify automatic hosting deployment connection v2"
+    - generic: 2026-10-17 11:24
+    - generic "Prepare isolated hosting connection check v1"
+    - button "show more"
+  - paragraph:
+    - button "Pull now":
+      - generic: Pull now
+  - separator
+  - heading "Deployment" [level=5]
+  - paragraph:
+    - text: The
+    - strong: release
+    - text: branch is being deployed automatically to
+    - link "/store.vneconomics.com/codex-deploy-check":
+      - /url: /smb/file-manager/list/domainId/291?currentDir=/store.vneconomics.com/codex-deploy-check
+  - paragraph:
+    - button "Deploy now":
+      - generic: Deploy now
+  - button "Remove repository":
+  - button "Repository settings":
+  - button "Refresh this repository card":
+  - button "Add Repository":
+    - text: Add Repository
+- contentinfo:
+  - link "plesk.com":
+    - /url: https://www.plesk.com/
+  - link "Suggest an Idea":
+    - /url: https://features.plesk.com/tabs/28-planned-roadmap
+  - link "Accessibility":
+    - /url: https://docs.plesk.com/accessibility/
+  - link "Cookies":
+    - /url: /modules/git/index.php/domain/repositories?modals[cookie-policy-preferences]=true
+- button "7 successes":
+  - generic: 7 successes
+- button "Collapse":
+- status:
+  - text: Site backed up on 2026-10-25 20:37:35
+  - list
+  - button "Close":
+- status:
+  - text: Site backed up on 2026-10-25 10:05:23
+  - list
+  - button "Close":
+- status:
+  - text: Site backed up on 2026-10-24 18:28:20
+  - list
+  - button "Close":
+- status:
+  - text: Site backed up on 2026-10-24 16:43:31
+  - list
+  - button "Close":
+- status:
+  - text: store.vneconomics has been restored to its state on 2026-10-24 09:59:46
+  - list
+  - button "Close":
+- status:
+  - text: Site backed up on 2026-10-24 09:59:46
+  - list
+  - button "Close":
+- status:
+  - text: Site backed up on 2026-10-23 14:49:28
+  - list
+  - button "Close":

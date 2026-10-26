@@ -1,0 +1,17 @@
+WP-CLI
+WP-CLI commands executed here will directly affect your WordPress site, bypassing WP Toolkit GUI. To see these changes in WP Toolkit GUI, click Refresh in the top right corner of the site card or wait until the installation cache is refreshed automatically.
+Learn more about running WP-CLI in WP Toolkit
+Command
+WP
+Environment variables
+# wp theme install /var/www/vhosts/vneconomics.com/g03-production/theme.zip --force
+Unpacking the package...
+Installing the theme...
+Removing the old version of the theme...
+Theme updated successfully.
+Success: Installed 1 of 1 themes.
+
+
+< exit code: 0 >
+# 
+Clear

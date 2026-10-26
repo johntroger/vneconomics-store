@@ -1,0 +1,15 @@
+{
+  "observedAt": "2026-10-24T04:26:07.663Z",
+  "status": "PASS_ACTIVE_THEME_FULL_TREE_ROLLBACK",
+  "id": "d650bf0cb1bec2ee09db4b5a10940f27",
+  "phase": "restored",
+  "restoredThemeFiles": 36,
+  "obsoleteFileAbsent": true,
+  "activePluginsUnchanged": true,
+  "themeModsUnchanged": true,
+  "schema": "3",
+  "faultyArchive": "/var/www/vhosts/vneconomics.com/s15-release/s15-live-d650bf0cb1bec2ee09db4b5a10940f27/faulty-theme-evidence.zip",
+  "faultyArchiveSha256": "ddaf1bdabae6f71e996869100225bf6c0c3fe3de3046b72d178ca36208fe1fc1",
+  "failedTreeCleaned": true,
+  "registryRemoved": true
+}

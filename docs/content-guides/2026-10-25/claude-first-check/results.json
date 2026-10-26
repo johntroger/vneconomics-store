@@ -1,0 +1,238 @@
+{
+  "status": "PASS_INITIAL_OUTPUT",
+  "tool": "claude",
+  "stage": "claude-first-check",
+  "observedAt": "2026-10-25T12:24:35.276Z",
+  "expectedTitle": "Ảnh đẹp để sản phẩm lên tiếng",
+  "sourceHashes": {
+    "index.html": "9a1b6fa9f47d052ba7ee39fb135c89ad66863a04bccc7db0faece0c4232b62ee",
+    "style.css": "359e49a176a2105c6a0d93fdb39934841e4fcd4e27e9a45ee56f8fa1cb265b0c"
+  },
+  "checks": [
+    {
+      "name": "two output files and expected checkpoint only",
+      "ok": true
+    },
+    {
+      "name": "single expected h1 1280",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 1280",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 1280",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 1280",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 1280",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 1280",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 1280",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 1280",
+      "ok": true,
+      "details": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 1280 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 1280 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 1280 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 1280 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 559.171875,
+        "headerBottom": 0
+      }
+    },
+    {
+      "name": "single expected h1 390",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 390",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 390",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 390",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 390",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 390",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 390",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 390",
+      "ok": true,
+      "details": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 390 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 390 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 390 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 390 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 523.6875,
+        "headerBottom": 0
+      }
+    },
+    {
+      "name": "single expected h1 320",
+      "ok": true
+    },
+    {
+      "name": "Vietnamese language 320",
+      "ok": true
+    },
+    {
+      "name": "no scripts/forms/embedded application 320",
+      "ok": true
+    },
+    {
+      "name": "no inline handlers 320",
+      "ok": true
+    },
+    {
+      "name": "three services and three process steps 320",
+      "ok": true
+    },
+    {
+      "name": "contact clearly illustrative 320",
+      "ok": true
+    },
+    {
+      "name": "local CSS loaded 320",
+      "ok": true
+    },
+    {
+      "name": "no horizontal overflow 320",
+      "ok": true,
+      "details": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "overflow": []
+      }
+    },
+    {
+      "name": "internal link 320 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "unique anchor 320 #lien-he",
+      "ok": true
+    },
+    {
+      "name": "clicked link target 320 Xem cách liên hệ",
+      "ok": true
+    },
+    {
+      "name": "target heading not covered by sticky header 320 #lien-he",
+      "ok": true,
+      "details": {
+        "headingTop": 523.40625,
+        "headerBottom": 0
+      }
+    },
+    {
+      "name": "no browser JavaScript errors",
+      "ok": true,
+      "details": []
+    },
+    {
+      "name": "no external or unexpected file requests",
+      "ok": true,
+      "details": []
+    },
+    {
+      "name": "original output bytes unchanged",
+      "ok": true
+    }
+  ],
+  "passed": 40,
+  "failed": [],
+  "views": [
+    {
+      "width": 1280,
+      "layout": {
+        "viewport": 1280,
+        "scrollWidth": 1280,
+        "overflow": []
+      }
+    },
+    {
+      "width": 390,
+      "layout": {
+        "viewport": 390,
+        "scrollWidth": 390,
+        "overflow": []
+      }
+    },
+    {
+      "width": 320,
+      "layout": {
+        "viewport": 320,
+        "scrollWidth": 320,
+        "overflow": []
+      }
+    }
+  ],
+  "errors": [],
+  "outsideRequests": [],
+  "originalUnchanged": true,
+  "limitations": [
+    "Output checked in the named tool folder; model/session not recorded by this runner",
+    "This script checks the named output stage without changing it; restoration has a separate guarded runner",
+    "Not a production publication or certificate of installation/sign-in or whole tutorial"
+  ]
+}

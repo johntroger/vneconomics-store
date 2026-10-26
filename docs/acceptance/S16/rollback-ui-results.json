@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-10-24T11:21:47.039Z",
+  "startedAt": "2026-10-24T11:16:46.086Z",
+  "theme": "astra",
+  "themeVersion": "4.12.0",
+  "pluginRetained": "0.4.2",
+  "schemaRetained": 3,
+  "contentItemsRetained": 11,
+  "reason": "VibeLab0.7.0 unsupported legacy post/page rendering:13 of14 legacy URLs failed",
+  "rollbackMethod": "WordPress activate retained Astra, no DB restore or content deletion",
+  "httpEvidence": "legacy-http-results.json",
+  "releaseComplete": false
+}

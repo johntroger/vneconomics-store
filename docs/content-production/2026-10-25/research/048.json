@@ -1,0 +1,21 @@
+{
+  "key": 48,
+  "repo": "RooCodeInc/Roo-Code",
+  "repoId": "881506708",
+  "url": "https://github.com/RooCodeInc/Roo-Code",
+  "stars": 24263,
+  "archived": true,
+  "disabled": false,
+  "branch": "main",
+  "pushedAt": "2026-05-15T18:08:47Z",
+  "license": "Apache-2.0",
+  "description": "Roo Code gives you a whole dev team of AI agents in your code editor.",
+  "homepage": "https://roocode.com",
+  "observedAt": "2026-10-25T03:25:24.209Z",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/RooCodeInc/Roo-Code/main/README.md",
+    "path": "README.md",
+    "text": "<p align=\"center\">\n  <a href=\"https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline\"><img src=\"https://img.shields.io/badge/VS_Code_Marketplace-007ACC?style=flat&logo=visualstudiocode&logoColor=white\" alt=\"VS Code Marketplace\"></a>  \n</p>\n\n# Roo Code\n\n> Your AI-Powered Dev Team, Right in Your Editor\n\n<details>\n  <summary>🌐 Available languages</summary>\n\n- [English](README.md)\n- [Català](locales/ca/README.md)\n- [Deutsch](locales/de/README.md)\n- [Español](locales/es/README.md)\n- [Français](locales/fr/README.md)\n- [हिंदी](locales/hi/README.md)\n- [Bahasa Indonesia](locales/id/README.md)\n- [Italiano](locales/it/README.md)\n- [日本語](locales/ja/README.md)\n- [한국어](locales/ko/README.md)\n- [Nederlands](locales/nl/README.md)\n- [Polski](locales/pl/README.md)\n- [Português (BR)](locales/pt-BR/README.md)\n- [Русский](locales/ru/README.md)\n- [Türkçe](locales/tr/README.md)\n- [Tiếng Việt](locales/vi/README.md)\n- [简体中文](locales/zh-CN/README.md)\n- [繁體中文](locales/zh-TW/README.md)\n- ...\n    </details>\n\n---\n\n## What Can Roo Code Do For YOU?\n\n- Generate Code from natural language descriptions and specs\n- Adapt with Modes: Code, Architect, Ask, Debug, and Custom Modes\n- Refactor & Debug existing code\n- Write & Update documentation\n- Answer Questions about your codebase\n- Automate repetitive tasks\n- Utilize MCP Servers\n\n## Modes\n\nRoo Code adapts to how you work:\n\n- Code Mode: everyday coding, edits, and file ops\n- Architect Mode: plan systems, specs, and migrations\n- Ask Mode: fast answers, explanations, and docs\n- Debug Mode: trace issues, add logs, isolate root causes\n- Custom Modes: build specialized modes for your team or workflow\n\nLearn more: [Using Modes](https://roocodeinc.github.io/Roo-Code/basic-usage/using-modes) • [Custom Modes](https://roocodeinc.github.io/Roo-Code/advanced-usage/custom-modes)\n\n## Resources\n\n- **[Documentation](https://roocodeinc.github.io/Roo-Code/):** The official guide to installing, configuring, and mastering Roo Code.\n- **[GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues):** Report bugs and track development.\n\n---\n\n## Disclaimer\n\nThe Roo Code Extension was shut down on May 15th.\n\n- If you're looking for an alternative, check out [ZooCode](https://github.com/Zoo-Code-Org/Zoo-Code/) (a fork started by the Roo Code community) and [Cline](https://cline.bot/) (from where Roo Code originated).\n- If you were a paying user and have billing questions, please write [billing@roocode.com](mailto:billing@roocode.com).\n\n**Please note** that Roo Code, Inc does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with Roo Code, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **\"AS IS\"** and **\"AS AVAILABLE\"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).\n\n---\n\n## License\n\n[Apache 2.0 © 2026 Roo Code, Inc.](./LICENSE)\n",
+    "sha256": "bcabc1221142dc7d7161d089dcd945bb50ff8d7498d7c6b8774b10a8cd5c164f"
+  }
+}

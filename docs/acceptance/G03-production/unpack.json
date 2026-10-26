@@ -1,0 +1,7 @@
+{
+  "status": "PRIVATE_PACKAGE_READY",
+  "files": 7,
+  "directory": "/var/www/vhosts/vneconomics.com/g03-production",
+  "bundleSha256": "5e4b9d0f11d145bc9a1b5fa07273f4414182665c4f7de9c40a8a21b02a37104b",
+  "importerSha256": "d92efc431e02aea9c62dd9952c56ef93be040062ac75e9a73370d83add007e82"
+}

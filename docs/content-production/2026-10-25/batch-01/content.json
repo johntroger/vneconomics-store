@@ -1,0 +1,1048 @@
+{
+  "format": 1,
+  "campaign": "github-100-20261025",
+  "batch": 1,
+  "scope": "Owner-approved new production introductions; no runtime validation claims",
+  "items": [
+    {
+      "key": 1,
+      "batch": 1,
+      "slug": "markitdown",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "MarkItDown: chuyển tài liệu thành Markdown để chuẩn bị đầu vào cho công việc với AI",
+        "excerpt": "Chuyển tài liệu thành Markdown để chuẩn bị đầu vào cho công việc với AI. Không kỳ vọng bản Markdown giữ nguyên bố cục của tài liệu gốc.",
+        "content": "<p>Chuyển tài liệu thành Markdown để chuẩn bị đầu vào cho công việc với AI. README mô tả tiện ích Python chuyển nhiều loại tệp sang Markdown, ưu tiên cấu trúc cho xử lý văn bản hơn là tái tạo bản trình bày. Các định dạng có phụ thuộc tùy chọn khác nhau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một tài liệu giới thiệu sản phẩm hư cấu, đối chiếu tiêu đề và bảng sau chuyển đổi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README yêu cầu Python 3.10–3.14 và khuyến nghị môi trường ảo; định dạng cần chuyển quyết định phụ thuộc bổ sung.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc Prerequisites và Optional Dependencies, chỉ chọn định dạng bạn cần.</li><li>Giữ bản gốc, chuẩn bị một file Word hoặc PDF mẫu rồi xem Usage theo đúng môi trường máy.</li><li>Đối chiếu tiêu đề, bảng và liên kết trong đầu ra; ghi phần cần sửa tay trước khi dùng với AI.</li></ol><h2>Giới hạn cần biết</h2><p>Không kỳ vọng bản Markdown giữ nguyên bố cục của tài liệu gốc. Công cụ có thể truy cập tài nguyên bằng quyền của tiến trình đang chạy; tránh nhận file/URL không tin cậy và không cấp quyền rộng chỉ để chuyển đổi.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>microsoft</strong> có <strong>191.989 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/microsoft/markitdown/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/microsoft/markitdown\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 1. Chưa cài/chạy thử; không tạo validation. Snapshot sao 191989; repo_id 888092115; README SHA256 cd5ba48d320fedd4f5f2845a97968491b557d39d8afe264eb423d5c6906adf09.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/microsoft/markitdown",
+          "repo_id": "888092115",
+          "source_path": "",
+          "source_revision": "README-SHA256:cd5ba48d320fedd4f5f2845a97968491b557d39d8afe264eb423d5c6906adf09",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README yêu cầu Python 3.10–3.14 và khuyến nghị môi trường ảo; định dạng cần chuyển quyết định phụ thuộc bổ sung.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/microsoft/markitdown/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Công cụ có thể truy cập tài nguyên bằng quyền của tiến trình đang chạy; tránh nhận file/URL không tin cậy và không cấp quyền rộng chỉ để chuyển đổi.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/microsoft/markitdown/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "microsoft/markitdown",
+        "stars": 191989,
+        "observedAt": "2026-10-25T03:02:55.486Z",
+        "readmeUrl": "https://raw.githubusercontent.com/microsoft/markitdown/main/README.md",
+        "readmeSha256": "cd5ba48d320fedd4f5f2845a97968491b557d39d8afe264eb423d5c6906adf09",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "ec1b6c7252119cff0e60fee41f0702e9eaa04f04b8699108502709794ecec6bc"
+    },
+    {
+      "key": 2,
+      "batch": 1,
+      "slug": "pandoc",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Pandoc: hiểu cách chuyển đổi giữa các định dạng tài liệu bằng một công cụ chuyên dụng",
+        "excerpt": "Hiểu cách chuyển đổi giữa các định dạng tài liệu bằng một công cụ chuyên dụng. Định dạng đầu ra và tài nguyên kèm theo cần kiểm tra riêng.",
+        "content": "<p>Hiểu cách chuyển đổi giữa các định dạng tài liệu bằng một công cụ chuyên dụng. Pandoc gồm thư viện chuyển đổi định dạng đánh dấu và công cụ dòng lệnh. README phân biệt định dạng đọc vào và ghi ra; không nên suy một đường chuyển đổi giữ được mọi tính năng của tài liệu.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đoạn ghi chú Markdown được chuyển sang định dạng đọc được trong công việc. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn cách cài theo hệ điều hành từ INSTALL.md; yêu cầu phụ trợ tùy đầu ra, cần xem User’s Guide.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Trong README, tìm đúng định dạng nguồn và định dạng đích cần dùng.</li><li>Mở mục Installing và Documentation thay vì tự ghép lệnh từ bài viết hệ điều hành khác.</li><li>Dùng một đoạn văn có tiêu đề, danh sách và bảng nhỏ; đối chiếu bản xuất trước khi xử lý tài liệu dài.</li></ol><h2>Giới hạn cần biết</h2><p>Định dạng đầu ra và tài nguyên kèm theo cần kiểm tra riêng. Không dùng một phép chuyển đổi thành công để kết luận tài liệu tham khảo, công thức và bố cục cũng đúng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>jgm</strong> có <strong>46.684 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép GPL-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/jgm/pandoc/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/jgm/pandoc\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 2. Chưa cài/chạy thử; không tạo validation. Snapshot sao 46684; repo_id 571770; README SHA256 4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/jgm/pandoc",
+          "repo_id": "571770",
+          "source_path": "",
+          "source_revision": "README-SHA256:4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn cách cài theo hệ điều hành từ INSTALL.md; yêu cầu phụ trợ tùy đầu ra, cần xem User’s Guide.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/jgm/pandoc/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dùng một phép chuyển đổi thành công để kết luận tài liệu tham khảo, công thức và bố cục cũng đúng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/jgm/pandoc/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "jgm/pandoc",
+        "stars": 46684,
+        "observedAt": "2026-10-25T03:02:55.846Z",
+        "readmeUrl": "https://raw.githubusercontent.com/jgm/pandoc/main/README.md",
+        "readmeSha256": "4375d3060e00abfa1ec0013bfef122f1e678ad40013a7a18e4e4214d4f0c427d",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "90cc719beef599970dcd68e0a9dea5321bcc3216c7feb69178e8f960fbad9975"
+    },
+    {
+      "key": 3,
+      "batch": 1,
+      "slug": "stirling-pdf",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Stirling-PDF: tìm hiểu bộ công cụ xử lý PDF thay vì tải tài liệu lên nhiều website khác nhau",
+        "excerpt": "Tìm hiểu bộ công cụ xử lý PDF thay vì tải tài liệu lên nhiều website khác nhau. Self-host không tự bảo đảm cấu hình riêng tư; cần biết máy chủ đặt ở đâu.",
+        "content": "<p>Tìm hiểu bộ công cụ xử lý PDF thay vì tải tài liệu lên nhiều website khác nhau. README hiện giới thiệu nền tảng xử lý PDF với lựa chọn ứng dụng desktop, giao diện trình duyệt và tự triển khai máy chủ. Phần License gọi mô hình là open-core, vì vậy tính năng và điều kiện cần đọc theo bản cụ thể.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một PDF mẫu không chứa thông tin cá nhân để khảo sát thao tác tách hoặc ghép. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn desktop hoặc đường triển khai được tài liệu chính thức hỗ trợ; bản server có yêu cầu môi trường riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định bạn cần xử lý file trên máy hay dùng máy chủ; đừng chọn server chỉ vì thấy lệnh nhanh.</li><li>Tìm trong Key Capabilities đúng thao tác cần làm, chẳng hạn tách hoặc ghép PDF.</li><li>Dùng file giả, mở lại bản kết quả và kiểm tra số trang, thứ tự, phần văn bản trước khi giữ.</li></ol><h2>Giới hạn cần biết</h2><p>Self-host không tự bảo đảm cấu hình riêng tư; cần biết máy chủ đặt ở đâu. Chức năng sửa/xóa nội dung PDF cần được kiểm tra trong file đầu ra; hình chữ nhật che chữ không tự chứng minh đã xóa dữ liệu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>Stirling-Tools</strong> có <strong>94.907 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/Stirling-Tools/Stirling-PDF/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/Stirling-Tools/Stirling-PDF\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 3. Chưa cài/chạy thử; không tạo validation. Snapshot sao 94907; repo_id 594155488; README SHA256 0539da44759af7d1c3da8d76b00b892d9ebda4c82f9e161f01658f188a66ed86.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/Stirling-Tools/Stirling-PDF",
+          "repo_id": "594155488",
+          "source_path": "",
+          "source_revision": "README-SHA256:0539da44759af7d1c3da8d76b00b892d9ebda4c82f9e161f01658f188a66ed86",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn desktop hoặc đường triển khai được tài liệu chính thức hỗ trợ; bản server có yêu cầu môi trường riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/Stirling-Tools/Stirling-PDF/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chức năng sửa/xóa nội dung PDF cần được kiểm tra trong file đầu ra; hình chữ nhật che chữ không tự chứng minh đã xóa dữ liệu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/Stirling-Tools/Stirling-PDF/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "Stirling-Tools/Stirling-PDF",
+        "stars": 94907,
+        "observedAt": "2026-10-25T03:02:56.214Z",
+        "readmeUrl": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/README.md",
+        "readmeSha256": "0539da44759af7d1c3da8d76b00b892d9ebda4c82f9e161f01658f188a66ed86",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "5301c2e2baf64bb6a49c2caaff6e1c9515dd5dec4420dd8ae5b7884b56c73f8e"
+    },
+    {
+      "key": 4,
+      "batch": 1,
+      "slug": "ocrmypdf",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "OCRmyPDF: tìm hiểu việc bổ sung lớp văn bản tìm kiếm cho PDF scan",
+        "excerpt": "Tìm hiểu việc bổ sung lớp văn bản tìm kiếm cho PDF scan. OCR có thể nhận sai; vẫn phải đối chiếu số liệu và tiếng Việt.",
+        "content": "<p>Tìm hiểu việc bổ sung lớp văn bản tìm kiếm cho PDF scan. OCRmyPDF bổ sung lớp chữ cho PDF scan để có thể tìm kiếm hoặc sao chép. README nêu phụ thuộc ngoài Python và phân biệt bản thân phần mềm với các thành phần/giấy phép đi kèm.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một trang scan mẫu rõ chữ, kiểm tra phần văn bản nhận dạng được. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Ngoài Python phù hợp, README yêu cầu Ghostscript và Tesseract OCR; chọn hướng cài đúng hệ điều hành.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Xác định PDF là ảnh scan hay đã có lớp chữ; chỉ chọn OCR khi đúng nhu cầu.</li><li>Đọc Installation, Languages và Requirements, kiểm tra gói ngôn ngữ cần nhận dạng.</li><li>Thử một trang mẫu rồi tìm kiếm, sao chép và đối chiếu số/tiếng Việt với ảnh gốc.</li></ol><h2>Giới hạn cần biết</h2><p>OCR có thể nhận sai; vẫn phải đối chiếu số liệu và tiếng Việt. Chữ nhìn giống đúng chưa đủ; đặc biệt kiểm tra dấu, cột bảng và các chữ số quan trọng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>ocrmypdf</strong> có <strong>35.141 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MPL-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/ocrmypdf/OCRmyPDF/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/ocrmypdf/OCRmyPDF\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 4. Chưa cài/chạy thử; không tạo validation. Snapshot sao 35141; repo_id 15333471; README SHA256 b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/ocrmypdf/OCRmyPDF",
+          "repo_id": "15333471",
+          "source_path": "",
+          "source_revision": "README-SHA256:b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Ngoài Python phù hợp, README yêu cầu Ghostscript và Tesseract OCR; chọn hướng cài đúng hệ điều hành.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/ocrmypdf/OCRmyPDF/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chữ nhìn giống đúng chưa đủ; đặc biệt kiểm tra dấu, cột bảng và các chữ số quan trọng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/ocrmypdf/OCRmyPDF/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "ocrmypdf/OCRmyPDF",
+        "stars": 35141,
+        "observedAt": "2026-10-25T03:02:56.579Z",
+        "readmeUrl": "https://raw.githubusercontent.com/ocrmypdf/OCRmyPDF/main/README.md",
+        "readmeSha256": "b10f4270559ee2963754c1593dc25eabee971c7c1aedb597e23425cd17c9aca0",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "534de0d2dfebba346b073d808c303532ff691a25766d3128ed3018fca3fb7b27"
+    },
+    {
+      "key": 5,
+      "batch": 1,
+      "slug": "tesseract-ocr",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Tesseract OCR: hiểu công cụ nhận dạng chữ từ ảnh và nhu cầu dữ liệu ngôn ngữ",
+        "excerpt": "Hiểu công cụ nhận dạng chữ từ ảnh và nhu cầu dữ liệu ngôn ngữ. Chất lượng ảnh và ngôn ngữ ảnh hưởng kết quả; không coi OCR là bản sao chính xác.",
+        "content": "<p>Hiểu công cụ nhận dạng chữ từ ảnh và nhu cầu dữ liệu ngôn ngữ. Tesseract cung cấp engine OCR và chương trình dòng lệnh; dữ liệu ngôn ngữ là phần cần chọn cùng cách chạy. Tài liệu cài sẵn và tự biên dịch là hai đường khác nhau, người mới nên đọc hướng phù hợp trước.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một ảnh chụp văn bản tiếng Việt mẫu, so sánh với bản gõ đúng. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần bản cài Tesseract phù hợp và traineddata cho ngôn ngữ sử dụng; tự build còn có yêu cầu trình biên dịch.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc Installing Tesseract để phân biệt bản dựng sẵn với biên dịch từ nguồn.</li><li>Chuẩn bị ảnh văn bản rõ, đúng chiều và xác định ngôn ngữ trước khi xem Running Tesseract.</li><li>So sánh văn bản nhận dạng với một bản gõ đúng ngắn, ghi loại lỗi thay vì chỉ nhìn trang xuất.</li></ol><h2>Giới hạn cần biết</h2><p>Chất lượng ảnh và ngôn ngữ ảnh hưởng kết quả; không coi OCR là bản sao chính xác. Đây là engine OCR, không phải giải pháp tự hiểu đúng toàn bộ cấu trúc hóa đơn hay bảng biểu.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>tesseract-ocr</strong> có <strong>77.153 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/tesseract-ocr/tesseract/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/tesseract-ocr/tesseract\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 5. Chưa cài/chạy thử; không tạo validation. Snapshot sao 77153; repo_id 22887094; README SHA256 1a14c7cd54039ffb79e05aff12841f48d4d4da50f231ee98e7e9bb6138d03e7a.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/tesseract-ocr/tesseract",
+          "repo_id": "22887094",
+          "source_path": "",
+          "source_revision": "README-SHA256:1a14c7cd54039ffb79e05aff12841f48d4d4da50f231ee98e7e9bb6138d03e7a",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần bản cài Tesseract phù hợp và traineddata cho ngôn ngữ sử dụng; tự build còn có yêu cầu trình biên dịch.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/tesseract-ocr/tesseract/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Đây là engine OCR, không phải giải pháp tự hiểu đúng toàn bộ cấu trúc hóa đơn hay bảng biểu.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/tesseract-ocr/tesseract/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "tesseract-ocr/tesseract",
+        "stars": 77153,
+        "observedAt": "2026-10-25T03:02:56.862Z",
+        "readmeUrl": "https://raw.githubusercontent.com/tesseract-ocr/tesseract/main/README.md",
+        "readmeSha256": "1a14c7cd54039ffb79e05aff12841f48d4d4da50f231ee98e7e9bb6138d03e7a",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "3799a32cfc3a5cfad69ffcdbb25c76decb2360e32c0fee2f83b29d5aa0542157"
+    },
+    {
+      "key": 6,
+      "batch": 1,
+      "slug": "tabula",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Tabula: tìm hiểu cách lấy bảng từ PDF để tiếp tục xử lý dữ liệu",
+        "excerpt": "Tìm hiểu cách lấy bảng từ PDF để tiếp tục xử lý dữ liệu. Bảng trong ảnh scan cần bước khác; không giả định mọi PDF đều lấy được bảng.",
+        "content": "<p>Tìm hiểu cách lấy bảng từ PDF để tiếp tục xử lý dữ liệu. Tabula hướng tới lấy bảng dữ liệu từ PDF. README cảnh báo nhóm tác giả gốc hiện không có thời gian tiếp tục ứng dụng người dùng cuối và nhánh phát triển có thể khác bản phát hành; tabula-java là thành phần liên quan được nhắc riêng.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một PDF có bảng văn bản nhỏ, đối chiếu từng cột sau trích xuất. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README của ứng dụng nêu Java Runtime; cần đọc lại hướng Using Tabula và Known Issues trước chọn bản tải.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc ghi chú duy trì ở đầu README trước khi quyết định dùng cho quy trình lâu dài.</li><li>Kiểm tra PDF có văn bản có thể chọn, sau đó xem hướng Using Tabula theo hệ điều hành.</li><li>Chỉ thử một bảng nhỏ, so sánh cột và dòng sau xuất; nếu nguồn là ảnh scan, dừng để chọn bước OCR phù hợp.</li></ol><h2>Giới hạn cần biết</h2><p>Bảng trong ảnh scan cần bước khác; không giả định mọi PDF đều lấy được bảng. Giữ để tìm hiểu nhu cầu trích bảng; chưa khuyến nghị làm lựa chọn mới mặc định vì thông báo duy trì của tác giả.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>tabulapdf</strong> có <strong>7.489 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/tabulapdf/tabula/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/tabulapdf/tabula\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 6. Chưa cài/chạy thử; không tạo validation. Snapshot sao 7489; repo_id 8711354; README SHA256 8a558fb5ca141217b00544897bb6e1376f026cdefefc9bff0f1e375fe12ba05d.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/tabulapdf/tabula",
+          "repo_id": "8711354",
+          "source_path": "",
+          "source_revision": "README-SHA256:8a558fb5ca141217b00544897bb6e1376f026cdefefc9bff0f1e375fe12ba05d",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README của ứng dụng nêu Java Runtime; cần đọc lại hướng Using Tabula và Known Issues trước chọn bản tải.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/tabulapdf/tabula/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Giữ để tìm hiểu nhu cầu trích bảng; chưa khuyến nghị làm lựa chọn mới mặc định vì thông báo duy trì của tác giả.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/tabulapdf/tabula/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "README nêu ứng dụng người dùng cuối ít khả năng nhận cập nhật từ nhóm gốc; chưa kết luận toàn bộ hệ sinh thái Tabula ngừng hoạt động."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": "README nêu ứng dụng người dùng cuối ít khả năng nhận cập nhật từ nhóm gốc; chưa kết luận toàn bộ hệ sinh thái Tabula ngừng hoạt động."
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "tabulapdf/tabula",
+        "stars": 7489,
+        "observedAt": "2026-10-25T03:02:57.202Z",
+        "readmeUrl": "https://raw.githubusercontent.com/tabulapdf/tabula/master/README.md",
+        "readmeSha256": "8a558fb5ca141217b00544897bb6e1376f026cdefefc9bff0f1e375fe12ba05d",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "9d58653cc69d39841cbcc68b60792b129e4997bc918eeab7b7bf7adec03a9b44"
+    },
+    {
+      "key": 7,
+      "batch": 1,
+      "slug": "prompts-chat",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "prompts.chat: khám phá thư viện prompt rồi điều chỉnh cho nhiệm vụ cụ thể bằng tiếng Việt",
+        "excerpt": "Khám phá thư viện prompt rồi điều chỉnh cho nhiệm vụ cụ thể bằng tiếng Việt. Prompt cộng đồng không bảo đảm kết quả; cần đọc và tự kiểm tra từng yêu cầu.",
+        "content": "<p>Khám phá thư viện prompt rồi điều chỉnh cho nhiệm vụ cụ thể bằng tiếng Việt. prompts.chat là collection prompt cộng đồng, có cách duyệt trên website và các tệp dữ liệu trong repo. Nó cung cấp đầu vào tham khảo; chất lượng kết quả vẫn phụ thuộc yêu cầu, model và dữ liệu bạn đưa vào.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một đề bài giới thiệu sản phẩm có đầu vào, đối tượng đọc và checklist. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần một công cụ trò chuyện phù hợp nếu muốn chạy prompt; quyền sử dụng và hạn mức của công cụ đó là điều riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc What is this để chọn cách duyệt prompt trên web hoặc trong tệp repo.</li><li>Chọn một prompt sát công việc, viết lại đối tượng đọc, dữ liệu đầu vào và tiêu chí đạt bằng tiếng Việt.</li><li>Dùng ví dụ hư cấu, kiểm tra từng dữ kiện trong phản hồi; lưu prompt đã sửa cùng nhận xét để lần sau cải thiện.</li></ol><h2>Giới hạn cần biết</h2><p>Prompt cộng đồng không bảo đảm kết quả; cần đọc và tự kiểm tra từng yêu cầu. Không sao chép yêu cầu cấp quyền, upload dữ liệu hoặc lời hứa kết quả chỉ vì chúng xuất hiện trong prompt của cộng đồng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>f</strong> có <strong>174.415 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>Chưa kết luận giấy phép từ metadata GitHub. Đọc mục License và điều khoản từng thành phần trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/f/prompts.chat/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/f/prompts.chat\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 7. Chưa cài/chạy thử; không tạo validation. Snapshot sao 174415; repo_id 574523116; README SHA256 99759a80c13e55d1d5376f4e110998f2923bc616837f22a5de83839016cf4472.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/f/prompts.chat",
+          "repo_id": "574523116",
+          "source_path": "",
+          "source_revision": "README-SHA256:99759a80c13e55d1d5376f4e110998f2923bc616837f22a5de83839016cf4472",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần một công cụ trò chuyện phù hợp nếu muốn chạy prompt; quyền sử dụng và hạn mức của công cụ đó là điều riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/f/prompts.chat/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không sao chép yêu cầu cấp quyền, upload dữ liệu hoặc lời hứa kết quả chỉ vì chúng xuất hiện trong prompt của cộng đồng.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/f/prompts.chat/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "f/prompts.chat",
+        "stars": 174415,
+        "observedAt": "2026-10-25T03:02:57.610Z",
+        "readmeUrl": "https://raw.githubusercontent.com/f/prompts.chat/main/README.md",
+        "readmeSha256": "99759a80c13e55d1d5376f4e110998f2923bc616837f22a5de83839016cf4472",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "fd807bff0f752feba1bce94c74ef459ebb7ea2d100adc24709fc1f42cba1fa6e"
+    },
+    {
+      "key": 8,
+      "batch": 1,
+      "slug": "drawdb",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "drawDB: phác thảo cấu trúc dữ liệu trước khi nhờ agent làm ứng dụng",
+        "excerpt": "Phác thảo cấu trúc dữ liệu trước khi nhờ agent làm ứng dụng. Sơ đồ không tự thay thế thiết kế quyền truy cập hoặc kiểm tra database.",
+        "content": "<p>Phác thảo cấu trúc dữ liệu trước khi nhờ agent làm ứng dụng. drawDB là trình biên tập sơ đồ quan hệ dữ liệu trong trình duyệt, có các chức năng làm việc với SQL được README mô tả. Chế độ phát triển local và chia sẻ có cấu hình riêng; tạo sơ đồ không đồng nghĩa đã tạo database thật.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ba bảng minh họa lớp học, học viên và đăng ký bằng dữ liệu giả. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Dùng giao diện có sẵn hoặc xem Local Development nếu muốn tự chạy; README mô tả server/cấu hình riêng cho chia sẻ.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Bắt đầu bằng ba đối tượng quen thuộc: lớp học, học viên và đăng ký.</li><li>Phác tên cột và mối liên hệ trên sơ đồ, ghi bằng lời quan hệ một-nhiều bạn muốn diễn đạt.</li><li>Nếu xem SQL xuất ra, đọc lại tên bảng/cột trước; chưa thực thi trên database đang dùng.</li></ol><h2>Giới hạn cần biết</h2><p>Sơ đồ không tự thay thế thiết kế quyền truy cập hoặc kiểm tra database. Sơ đồ là cách trao đổi thiết kế; còn cần kiểm tra khóa, ràng buộc và quyền truy cập khi xây ứng dụng thật.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>drawdb-io</strong> có <strong>40.121 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép AGPL-3.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/drawdb-io/drawdb/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/drawdb-io/drawdb\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 8. Chưa cài/chạy thử; không tạo validation. Snapshot sao 40121; repo_id 667110339; README SHA256 bdcaa50bfdd827ca9cf0e935476018e377acaa9c771dff5073dc51c343a759e7.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/drawdb-io/drawdb",
+          "repo_id": "667110339",
+          "source_path": "",
+          "source_revision": "README-SHA256:bdcaa50bfdd827ca9cf0e935476018e377acaa9c771dff5073dc51c343a759e7",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Dùng giao diện có sẵn hoặc xem Local Development nếu muốn tự chạy; README mô tả server/cấu hình riêng cho chia sẻ.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/drawdb-io/drawdb/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Sơ đồ là cách trao đổi thiết kế; còn cần kiểm tra khóa, ràng buộc và quyền truy cập khi xây ứng dụng thật.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/drawdb-io/drawdb/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "drawdb-io/drawdb",
+        "stars": 40121,
+        "observedAt": "2026-10-25T03:02:57.965Z",
+        "readmeUrl": "https://raw.githubusercontent.com/drawdb-io/drawdb/main/README.md",
+        "readmeSha256": "bdcaa50bfdd827ca9cf0e935476018e377acaa9c771dff5073dc51c343a759e7",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "4d8871e2ae11002e9ee5ce84bb345aa85883a6f489c1ddbc42d83f4c436062dd"
+    },
+    {
+      "key": 9,
+      "batch": 1,
+      "slug": "hoppscotch",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Hoppscotch: làm quen khái niệm gửi yêu cầu API bằng giao diện trực quan",
+        "excerpt": "Làm quen khái niệm gửi yêu cầu API bằng giao diện trực quan. Không dán token thật hoặc gửi yêu cầu thay đổi dữ liệu khi chưa hiểu.",
+        "content": "<p>Làm quen khái niệm gửi yêu cầu API bằng giao diện trực quan. Hoppscotch hỗ trợ tạo yêu cầu và xem phản hồi API. README nêu nhiều phương thức HTTP; với người mới, cần hiểu phương thức nào chỉ đọc và phương thức nào có thể thay đổi dữ liệu trước khi thử.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Một API công khai chỉ đọc, quan sát mã trạng thái và cấu trúc phản hồi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn ứng dụng hoặc hướng self-host từ tài liệu; API đích có thể có yêu cầu xác thực/quyền riêng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Mở Documentation từ README và tìm phần gửi yêu cầu HTTP cơ bản.</li><li>Dùng endpoint công khai được phép với GET, ghi URL, mã trạng thái và các trường phản hồi.</li><li>Chưa thêm token hoặc đổi sang POST/DELETE cho đến khi hiểu tác động và quyền của API đích.</li></ol><h2>Giới hạn cần biết</h2><p>Không dán token thật hoặc gửi yêu cầu thay đổi dữ liệu khi chưa hiểu. Mã phản hồi thành công không chứng minh dữ liệu đúng; không lưu credential thật trong ví dụ hoặc ảnh chụp bài học.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>hoppscotch</strong> có <strong>80.681 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/hoppscotch/hoppscotch/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/hoppscotch/hoppscotch\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 9. Chưa cài/chạy thử; không tạo validation. Snapshot sao 80681; repo_id 203587744; README SHA256 f943825e526b79841882127fbf6a3c043359efd1ca6f47794c851f827a6373b4.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/hoppscotch/hoppscotch",
+          "repo_id": "203587744",
+          "source_path": "",
+          "source_revision": "README-SHA256:f943825e526b79841882127fbf6a3c043359efd1ca6f47794c851f827a6373b4",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn ứng dụng hoặc hướng self-host từ tài liệu; API đích có thể có yêu cầu xác thực/quyền riêng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/hoppscotch/hoppscotch/blob/main/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Mã phản hồi thành công không chứng minh dữ liệu đúng; không lưu credential thật trong ví dụ hoặc ảnh chụp bài học.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/hoppscotch/hoppscotch/blob/main/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "hoppscotch/hoppscotch",
+        "stars": 80681,
+        "observedAt": "2026-10-25T03:02:58.260Z",
+        "readmeUrl": "https://raw.githubusercontent.com/hoppscotch/hoppscotch/main/README.md",
+        "readmeSha256": "f943825e526b79841882127fbf6a3c043359efd1ca6f47794c851f827a6373b4",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "fde0a87849c85adcf7a4762c5ac24d03a78adb2bfe941f460dc5844dd5c563f4"
+    },
+    {
+      "key": 10,
+      "batch": 1,
+      "slug": "cyberchef",
+      "category": "Tài liệu và công việc văn phòng",
+      "need": "Chuyển đổi tài liệu",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "CyberChef: tìm hiểu các bước biến đổi văn bản và dữ liệu bằng công thức trực quan",
+        "excerpt": "Tìm hiểu các bước biến đổi văn bản và dữ liệu bằng công thức trực quan. Biến đổi dữ liệu không đồng nghĩa mã hóa an toàn hoặc ẩn danh.",
+        "content": "<p>Tìm hiểu các bước biến đổi văn bản và dữ liệu bằng công thức trực quan. CyberChef là ứng dụng biến đổi dữ liệu trong trình duyệt, ghép các thao tác thành recipe. README phân biệt công cụ web, chạy local và tích hợp kỹ thuật; các thao tác encoding, băm và mã hóa giải quyết những việc khác nhau.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Chuỗi văn bản minh họa được mã hóa rồi giải mã để hiểu phép biến đổi. Đây là tình huống biên tập đề xuất, chưa phải kết quả đã chạy thử.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Chọn ứng dụng web chính thức hoặc hướng chạy local từ README; tự build là đường cho người có nền kỹ thuật.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Dùng chuỗi tiếng Việt hư cấu và chọn một thao tác biến đổi dễ đối chiếu.</li><li>Đọc input, recipe và output riêng, ghi lại điều mỗi bước thay đổi.</li><li>Thử phép đảo ngược khi thao tác hỗ trợ; phân biệt việc đổi cách biểu diễn với bảo vệ bí mật.</li></ol><h2>Giới hạn cần biết</h2><p>Biến đổi dữ liệu không đồng nghĩa mã hóa an toàn hoặc ẩn danh. Không dùng Base64 như một cơ chế giữ bí mật và không đưa dữ liệu riêng vào công cụ khi chưa xác định nơi xử lý.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>gchq</strong> có <strong>36.201 sao GitHub</strong> tại lần quan sát 2026-10-25. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 tại lần đọc metadata. Đây là thông tin để tiếp tục đối chiếu LICENSE và thành phần đi kèm, không phải kết luận mọi cách sử dụng đều được phép. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/gchq/CyberChef/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/gchq/CyberChef\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-10-25. Bài giới thiệu do AI nghiên cứu và duyệt biên tập; chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "AI duyệt biên tập từ README ngày 2026-10-25. Đợt 100 bài/lô 1, key 10. Chưa cài/chạy thử; không tạo validation. Snapshot sao 36201; repo_id 74962515; README SHA256 d486615fa34e2cf2a901c44203b019d1a27293c7d7d6384cf73170a16632b2cc.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/gchq/CyberChef",
+          "repo_id": "74962515",
+          "source_path": "",
+          "source_revision": "README-SHA256:d486615fa34e2cf2a901c44203b019d1a27293c7d7d6384cf73170a16632b2cc",
+          "source_verified": true,
+          "observed_at": "2026-10-25",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Thông tin nhận diện giấy phép GitHub được giải thích trong bài; chưa đối chiếu đầy đủ phạm vi LICENSE/phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Chọn ứng dụng web chính thức hoặc hướng chạy local từ README; tự build là đường cho người có nền kỹ thuật.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/gchq/CyberChef/blob/master/README.md",
+              "observed_at": "2026-10-25",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Không dùng Base64 như một cơ chế giữ bí mật và không đưa dữ liệu riêng vào công cụ khi chưa xác định nơi xử lý.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/gchq/CyberChef/blob/master/README.md",
+          "observed_at": "2026-10-25",
+          "note": "README chính thức trả HTTP200, đã lưu snapshot và tự duyệt mô tả."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": false,
+          "reason": "",
+          "reviewed_at": "2026-10-25",
+          "review_due_at": "2026-11-08"
+        }
+      },
+      "evidence": {
+        "repo": "gchq/CyberChef",
+        "stars": 36201,
+        "observedAt": "2026-10-25T03:02:58.742Z",
+        "readmeUrl": "https://raw.githubusercontent.com/gchq/CyberChef/master/README.md",
+        "readmeSha256": "d486615fa34e2cf2a901c44203b019d1a27293c7d7d6384cf73170a16632b2cc",
+        "reviewer": "AI editorial review, not independent human review",
+        "runtimeValidated": false
+      },
+      "contentHash": "d144ce88c90e2cd00fbd207f1084f5e287b532a72fc324fbc4d615dd8a2d786e"
+    }
+  ]
+}

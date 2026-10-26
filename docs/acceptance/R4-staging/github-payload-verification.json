@@ -1,0 +1,64 @@
+{
+  "status": "PASS_GITHUB_PAYLOAD_READY_FOR_PLESK",
+  "observedAt": "2026-10-26T06:33:58.951Z",
+  "sourceSha": "ebc6deb69f86364c4064de4c6eac2192f16906c8",
+  "payloadSha": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
+  "manifestSha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437",
+  "files": [
+    {
+      "path": "theme.zip",
+      "bytes": 164810,
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab"
+    },
+    {
+      "path": "plugin.zip",
+      "bytes": 108507,
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5"
+    },
+    {
+      "path": "rollback.zip",
+      "bytes": 159391,
+      "sha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215"
+    },
+    {
+      "path": "content.json",
+      "bytes": 742091,
+      "sha256": "839da70208973589675634a266b71cd944340fc84cde23087114e302a42ec6a4"
+    },
+    {
+      "path": "receiver.php",
+      "bytes": 24544,
+      "sha256": "6be74e3b87547e2321f5f80b8b2d787d875b03619490e8b9a7cc89389866e9cd"
+    },
+    {
+      "path": "environments.json",
+      "bytes": 808,
+      "sha256": "05af8f32ebe2e47a27ae9fc3a01bf9812c0aa6faaae28fc81b3dabbca4e6973b"
+    },
+    {
+      "path": "evidence/codex.html",
+      "bytes": 2554,
+      "sha256": "59c6fb5efec075549f6b0add3066eaccb95bb0d06d5b300520c1c324c3d686a8"
+    },
+    {
+      "path": "evidence/claude-code.html",
+      "bytes": 2928,
+      "sha256": "c9ce6010ff2d425442d7dc5df9837cd8129e4c523104714515980cb0ba8c0b50"
+    },
+    {
+      "path": "evidence/antigravity.html",
+      "bytes": 3121,
+      "sha256": "e7daa10f8c1302c49bee378d8d87475f9d9c0072e9e4e3ed1aaaf74728d5b6d6"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 17255,
+      "sha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437"
+    }
+  ],
+  "releaseUnchanged": "4fe952ac7eec550d3125be9885fa6271aece2718",
+  "limits": [
+    "Local fetch and GitHub read only; no Plesk pull or deployment",
+    "No claim that Plesk has received this payload yet"
+  ]
+}

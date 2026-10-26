@@ -13,3 +13,13 @@ Ngày thực hiện: 2026-10-17 (Asia/Saigon).
 
 Một lần thử đầu thất bại do database không được lưu ở đường dẫn mong đợi.
 Đã sửa bằng cấu hình rõ DB_DIR/DB_FILE và kiểm thử lại thành công.
+
+## S01 — xác nhận lại baseline ngày 19/10/2026
+
+Chủ dự án đã cho phép S01. Sau sửa workers 2 -> 6 theo khuyến nghị CLI, npm test
+PASS hai lần boot cùng fixture, home/login/REST 200 và option tồn tại sau restart.
+Lần chạy đầu bị dừng chưa hoàn tất, wrapper vẫn cleanup; lần cuối exit 0 và không
+còn cảnh báo worker. Đã xác nhận hash DB/config local không đổi, fixture/cache/lock
+đã dọn, port 19400 và smoke process đóng. Có deadline smoke 300 giây.
+Chi tiết và giới hạn: [S01-local-baseline.vi.md](acceptance/S01-local-baseline.vi.md).
+Chưa bắt đầu S02; kết quả này không xác nhận UI/nghiệp vụ hoặc PHP/MySQL hosting.

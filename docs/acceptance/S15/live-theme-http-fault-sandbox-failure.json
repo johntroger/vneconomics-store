@@ -1,0 +1,13 @@
+{
+  "status": "FAIL",
+  "observedAt": "2026-10-24T04:25:23.291Z",
+  "id": "d650bf0cb1bec2ee09db4b5a10940f27",
+  "checks": [],
+  "requests": [],
+  "failure": "TypeError: fetch failed",
+  "localSessionConfigRemoved": true,
+  "limits": [
+    "Active theme fault is conditional on an exact GET homepage request and random expiring header",
+    "No global theme outage or automatic deployment watchdog certified"
+  ]
+}

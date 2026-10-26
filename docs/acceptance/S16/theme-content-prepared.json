@@ -1,0 +1,12 @@
+{
+  "themeFiles": 36,
+  "themeMismatches": [],
+  "toolHashes": {
+    "content.json": "d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934",
+    "import.php": "b3d206e84173f41ccd956a668046a6bb2af5462a77c7d3feb093c0ceab2ba70d"
+  },
+  "toolDirectory": "/var/www/vhosts/vneconomics.com/s16-content",
+  "savedThemeMods": true,
+  "savedConfigSha256": "1ec39506eb81ad4ce8da0cdcf4f03cb85235354fe5d8f8f773f7969e639b89a5",
+  "themeStill": "astra"
+}

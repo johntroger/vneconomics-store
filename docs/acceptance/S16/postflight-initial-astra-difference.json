@@ -1,0 +1,195 @@
+{
+  "release": {
+    "plugin": {
+      "files": 10,
+      "mismatches": [],
+      "unexpected": []
+    },
+    "theme": {
+      "files": 36,
+      "mismatches": [],
+      "unexpected": []
+    }
+  },
+  "plugin": "0.4.2",
+  "schema": "3",
+  "theme": "vibelab",
+  "themeVersion": "0.7.0",
+  "indexing": "1",
+  "originalRowsCount": 17,
+  "originalRowsHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+  "originalMetaHash": "b2c41ff0b1d420969c212540ed6f0cb21f6c6b8561804b84ec6c79a17a5eb9b2",
+  "originalAstraKeysUnchanged": false,
+  "astraAddedKeys": [],
+  "menu16Items": 10,
+  "activePlugins": [
+    "ai-provider-for-anthropic/plugin.php",
+    "visa-acceptance-solutions/visa-acceptance-solutions.php",
+    "vne-library-core/vne-library-core.php",
+    "woocommerce/woocommerce.php"
+  ],
+  "importStatus": "complete",
+  "items": [
+    {
+      "id": 101,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 102,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 103,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 104,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 105,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 106,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 107,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 108,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 109,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 110,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    },
+    {
+      "id": 111,
+      "status": "publish",
+      "comments": "closed",
+      "pings": "closed",
+      "toPingEmpty": true,
+      "validations": 0,
+      "hasStagingLink": false
+    }
+  ],
+  "legacyPublic": [
+    {
+      "id": 1,
+      "url": "https://store.vneconomics.com/hello-world/"
+    },
+    {
+      "id": 2,
+      "url": "https://store.vneconomics.com/sample-page/"
+    },
+    {
+      "id": 7,
+      "url": "https://store.vneconomics.com/shop/"
+    },
+    {
+      "id": 8,
+      "url": "https://store.vneconomics.com/cart/"
+    },
+    {
+      "id": 9,
+      "url": "https://store.vneconomics.com/checkout/"
+    },
+    {
+      "id": 10,
+      "url": "https://store.vneconomics.com/my-account/"
+    },
+    {
+      "id": 67,
+      "url": "https://store.vneconomics.com/home/"
+    },
+    {
+      "id": 71,
+      "url": "https://store.vneconomics.com/about/"
+    },
+    {
+      "id": 78,
+      "url": "https://store.vneconomics.com/gioi-thieu/"
+    },
+    {
+      "id": 81,
+      "url": "https://store.vneconomics.com/san-pham/"
+    },
+    {
+      "id": 84,
+      "url": "https://store.vneconomics.com/tin-tuc/"
+    },
+    {
+      "id": 87,
+      "url": "https://store.vneconomics.com/lien-he/"
+    },
+    {
+      "id": 92,
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/"
+    },
+    {
+      "id": 95,
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/"
+    }
+  ],
+  "hposOrders": 0,
+  "recoveryKeys": 0,
+  "s15JournalAbsent": true,
+  "readOnly": true
+}

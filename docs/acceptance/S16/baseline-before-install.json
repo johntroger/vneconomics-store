@@ -1,0 +1,18 @@
+{
+  "root": "/var/www/vhosts/vneconomics.com/store.vneconomics.com/",
+  "database": "vne35060_wp_kmqnf",
+  "postsPagesCount": 17,
+  "postsPagesHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+  "postsPagesMetaHash": "b2c41ff0b1d420969c212540ed6f0cb21f6c6b8561804b84ec6c79a17a5eb9b2",
+  "activePlugins": [
+    "ai-provider-for-anthropic/plugin.php",
+    "visa-acceptance-solutions/visa-acceptance-solutions.php",
+    "woocommerce/woocommerce.php"
+  ],
+  "astraThemeModsHash": "b9cd4b947f8296b1bd8e4342922ba42617e0a9b0027274f9063792c4a19be0dc",
+  "indexing": "1",
+  "hposOrders": 0,
+  "backupSha256": "f6fc2810a6c175bfdc56306856e74e7c4d4efa330303ec070966d749c98a0666",
+  "php": "8.3.36",
+  "time": "2026-10-24T10:49:38+00:00"
+}

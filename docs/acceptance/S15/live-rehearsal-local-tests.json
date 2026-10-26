@@ -1,0 +1,57 @@
+{
+  "status": "PASS_NATIVE_WORDPRESS_LIVE_REHEARSAL",
+  "observedAt": "2026-10-24T04:22:03.079Z",
+  "helperSha256": "8b839ea72eff2fa5add37e29507b9d2e2b2d0d849a32c7d8bac8574cc3dcda07",
+  "checks": [
+    "native fixture VNE activated",
+    "activation expectedActivationFailureCaught",
+    "activation failedPluginInactiveInsideTransaction",
+    "activation otherConnectionSawOriginalActivePlugins",
+    "activation schemaUnchanged",
+    "activation activePluginsRestored",
+    "activation transactionRolledBack",
+    "activation failure does not attempt theme",
+    "complete recovery theme prepared",
+    "native HTTP fixture healthy",
+    "ordinary request healthy while active theme has scoped fault",
+    "wrong token does not trigger active theme fault",
+    "actual active theme produces scoped HTTP500",
+    "full active theme directory restored and obsolete file removed",
+    "theme rollback does not lower schema",
+    "ordinary request healthy after active rollback",
+    "old probe token no longer has effect",
+    "cleanup refuses non-owned parent",
+    "real local database/config preserved"
+  ],
+  "visits": [
+    {
+      "phase": "startup",
+      "status": 200
+    },
+    {
+      "phase": "ordinary-during-fault",
+      "status": 200
+    },
+    {
+      "phase": "bad-token",
+      "status": 200
+    },
+    {
+      "phase": "scoped-active-theme-failure",
+      "status": 500
+    },
+    {
+      "phase": "ordinary-after-restore",
+      "status": 200
+    },
+    {
+      "phase": "old-token-after-restore",
+      "status": 200
+    }
+  ],
+  "limits": [
+    "Native WordPress/PHP8.3.36/SQLite fresh fixture; not MariaDB or Plesk",
+    "Actual WordPress activation hook is fault-injected before migration; no candidate bytes damaged",
+    "Scoped theme failure only; not a global outage"
+  ]
+}

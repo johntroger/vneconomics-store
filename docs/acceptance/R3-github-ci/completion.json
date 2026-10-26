@@ -1,0 +1,14 @@
+{
+  "status": "PASS_R3_FINAL",
+  "source": "71a914ea7e1746620a0f055dfec26ece3c231ea6",
+  "run": "40267580030",
+  "protectedHashes": [
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8",
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+  ],
+  "cleanup": "All run-clean commands completed, no runner lock",
+  "plesk": "Read-only Git card unchanged after final source push",
+  "remoteChanges": "Source branch and Draft PR only; no merge, payload branches, hosting changes",
+  "receipt": "Final run receipts kept local and summarized in PR; no further source commit"
+}

@@ -1,0 +1,11 @@
+{
+  "originalCount": 17,
+  "originalHash": "2a66c50e9447f5850e62a513f1069698e4ed302a387ab961c61dbd89d1123d00",
+  "allContentCount": 28,
+  "contentRowsHash": "301c10b5d1a4b7fe9a6ffe7db2cc2bdb4cd7de45a6b40246b016039faf699456",
+  "contentMetaCount": 80,
+  "contentMetaHash": "59a9c2ad64b93984ac03e8d27b52fe4a2a0aa602718e6cda6913af25a7a3ec4f",
+  "importJournalHash": "55c42d9c5ec1e3ceeb99f845f555193c2b648f8a8d3912d1a251adf702581f52",
+  "readOnly": true,
+  "note": "Counts include every status: 17 original post/page rows (14 public), plus 11 approved library items. Hash of original rows matches import baseline."
+}

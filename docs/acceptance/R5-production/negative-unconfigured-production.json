@@ -1,0 +1,10 @@
+{
+  "status": "PASS_REJECTED_UNCONFIGURED_PRODUCTION",
+  "candidateSource": "f587eea20526f32294a8826949d7407337040ec6",
+  "publisherSource": "5931b31",
+  "target": "production",
+  "exitCode": 1,
+  "observedError": "AssertionError: false !== true at publish-r5-payload.mjs:14:87",
+  "boundary": "Rejected at deploymentConfigured guard before gh API or Git ref writes",
+  "cleanup": "Temporary test data and run cache cleaned; existing data and deliverables kept."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "TEST_ENVIRONMENT_ABORT",
+  "date": "2026-10-25",
+  "error": "Node24 bundled undici Parser.finish assertion: assert(!this.paused)",
+  "acceptance": "No PASS claimed from the aborted run",
+  "cleanup": "run-clean reported fixture/cache cleanup success; inspection found no php.exe or listener on19423 remaining",
+  "resolution": "Use node:http with fully consumed response streams for native PHP fixture HTTP; rerun entire mandatory suite"
+}

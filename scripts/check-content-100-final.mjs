@@ -1,0 +1,25 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+import {catalog} from './content-100-catalog.mjs';
+const base='docs/content-production/2026-10-25',checks=[],requests=[];let failure=null;
+const check=(v,n)=>{assert(v,n);checks.push(n);};
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const slug=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replaceAll('đ','d').replaceAll('Đ','D').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+async function get(path){const url=new URL(path,'https://store.vneconomics.com');assert.equal(url.origin,'https://store.vneconomics.com');const r=await fetch(url,{redirect:'manual',signal:AbortSignal.timeout(30000)}),body=await r.text();requests.push({path:url.pathname+url.search,status:r.status});check(r.status===200,'HTTP200 '+path);check(!/Fatal error:|Uncaught Error/.test(body),'healthy '+path);return body;}
+try{
+ const all=[],urls=[];let totalHttp=0,totalRequests=0;
+ for(let b=1;b<=10;b++){const dir=base+'/batch-'+String(b).padStart(2,'0'),bytes=readFileSync(dir+'/content.json'),payload=JSON.parse(bytes),review=JSON.parse(readFileSync(dir+'/review.json','utf8')),http=JSON.parse(readFileSync(dir+'/http-results.json','utf8'));check(review.payloadSha256===hash(bytes),'review pins payload batch '+b);check(http.status==='PASS_PRODUCTION_BATCH_HTTP','all batch HTTP gates pass '+b);check(Object.keys(http.map).length===10,'ten actual published URLs '+b);all.push(...payload.items);urls.push(...Object.values(http.map).map(x=>x.url));totalHttp+=http.checks.length;totalRequests+=http.requests.length;}
+ check(all.length===100,'exactly100 authored articles');check(new Set(all.map(x=>x.payload.data.repo_id)).size===100,'one hundred unique repository IDs');check(new Set(urls).size===100,'one hundred unique live URLs');
+ const audit=JSON.parse(readFileSync(base+'/production-final-audit.json','utf8')),before=JSON.parse(readFileSync(base+'/production-baseline.json','utf8'));
+ check(audit.original.count===28&&audit.original.rows===before.rowHash&&audit.original.meta===before.metaHash,'all original28 rows and metadata unchanged');
+ check(audit.journals.length===10&&audit.journals.every(x=>x.status==='verified'&&x.count===10),'all ten server journals verified');check(audit.articleCount===100&&audit.uniqueRepoIds===100,'actual campaign count and source uniqueness');
+ check(audit.counts.vne_resource===106&&audit.counts.vne_guide===4&&audit.counts.vne_practice===1,'final library106 resources4 guides1 practice');
+ check(audit.theme==='0.7.1'&&audit.plugin==='0.4.2'&&Number(audit.schema)===3&&String(audit.indexing)==='1','release versions and indexability retained');check(audit.allNotTested===true,'no fabricated runtime validation');check(audit.articleHashesMatch===true,'server content equals approved100 payloads');
+ const originalPlugins=JSON.parse(readFileSync('docs/acceptance/S16/production-current-state.json','utf8')).activePlugins;check(JSON.stringify([...audit.activePlugins].sort())===JSON.stringify([...originalPlugins].sort()),'active plugin set unchanged');
+ const xml=await get('/wp-sitemap-posts-vne_resource-1.xml'),listed=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1].replaceAll('&amp;','&'));check(listed.length===106,'resource sitemap106 entries');for(const url of urls)check(listed.includes(url),'new article discoverable '+url.split('/').at(-2));
+ for(let b=1;b<=10;b++){const c=catalog.find(x=>x.batch===b),representative=all.find(x=>x.key===c.key),id=JSON.parse(readFileSync(base+'/batch-'+String(b).padStart(2,'0')+'/http-results.json')).map[c.key].id;for(const [field,value] of [['category',c.category],['need[]',c.need]]){const path='/?vne_find=1&scope=resources&'+encodeURIComponent(field)+'='+encodeURIComponent(slug(value));const html=await get(path);check(html.includes('data-resource-id="'+id+'"'),'working '+field+' filter batch '+b);}}
+ const native=JSON.parse(readFileSync(base+'/native-import-checks.json','utf8'));check(native.status==='PASS_NATIVE_WORDPRESS_IMPORT'&&native.articles===100,'native100-item fixture passed');
+ writeFileSync(base+'/final-results.json',JSON.stringify({status:'PASS_CONTENT_100_PRODUCTION',observedAt:new Date().toISOString(),checks,requests,published:100,batchHttpChecks:totalHttp,batchHttpRequests:totalRequests,nativeChecks:native.checks.length,originalContentUnchanged:true,limits:['Editorial introductions and source-reading guidance; no claim100 repositories were installed/executed','Star counts are dated snapshots; no scheduled update enabled','Existing hosting performance warning was not optimized in this content campaign']},null,2)+'\n');
+ console.log('PASS content campaign:100 published; '+checks.length+' final checks; '+totalHttp+' batch HTTP checks / '+totalRequests+' batch GETs');
+}catch(e){failure=String(e.stack??e);writeFileSync(base+'/final-failure.json',JSON.stringify({status:'FAIL',failure,checks,requests},null,2)+'\n');console.error(failure);process.exitCode=1;}

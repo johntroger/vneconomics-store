@@ -1,0 +1,135 @@
+{
+  "status": "PASS_PUBLIC_HTTP_ONLY",
+  "observedAt": "2026-10-23T07:12:05.679Z",
+  "target": "https://staging-store.vneconomics.com",
+  "checks": [
+    "private report blocked /?p=106",
+    "report description absent /?p=106",
+    "private report blocked /?post_type=vne_report",
+    "report description absent /?post_type=vne_report",
+    "private report blocked /wp-json/wp/v2/vne_report/106",
+    "report description absent /wp-json/wp/v2/vne_report/106",
+    "private report blocked /wp-json/vne-library/v1/items/106",
+    "report description absent /wp-json/vne-library/v1/items/106",
+    "anonymous report admin denied"
+  ],
+  "requests": [
+    {
+      "path": "/?p=106",
+      "method": "GET",
+      "status": 404,
+      "ms": 2041,
+      "headers": {
+        "alt-svc": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, h3-Q050=\":443\"; ma=2592000, h3-Q046=\":443\"; ma=2592000, h3-Q043=\":443\"; ma=2592000, quic=\":443\"; ma=2592000; v=\"43,46\"",
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:12:24 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "x-powered-by": "PHP/8.3.36, PleskLin"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t<link rel=\"profile\" href=\"https://gmpg.org/xfn/11\"> \n\t<title>Page not found &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"store.vneconomics &raquo; Feed\" href=\"https://staging-store.vneconomics.com/feed/\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"store.vneconomics &raquo; Comments Feed\" href=\"https://staging-store.vneconomics.com/comments/feed/\" />\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<link rel='stylesheet' id='astra-theme-css-css' href='https://staging-store.vneconomics.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=4.12.0' media='all' />\n<style id=\"astra-theme-css-inline-css\">\n:root{--ast-post-nav-space:0;--ast-container-default-xlg-padding:2.5em;--ast-container-default-lg-padding:2.5em;--ast-container-default-slg-padding:2em;--ast-container-default-md-padding:2.5em;--ast-container-default-sm-padding:2.5em;--ast-container-default-xs-padding:2.4em;--ast-container-default-xxs-padding:1.8em;--ast-code-block-background:#ECEFF3;--ast-comment-inputs-background:#F9FAFB;--ast-normal-container-width:1200px;--ast-narrow-container-width:750px;--ast-blog-title-font-weight:600;--ast-blog-meta-weight:600;--ast-global-color-primary:var(--ast-global-color-4);--ast-global-co"
+    },
+    {
+      "path": "/?post_type=vne_report",
+      "method": "GET",
+      "status": 404,
+      "ms": 1612,
+      "headers": {
+        "cache-control": "no-cache, must-revalidate, max-age=0, no-store, private",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:12:26 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "transfer-encoding": "chunked",
+        "vary": "Accept-Encoding",
+        "x-powered-by": "PHP/8.3.36, PleskLin"
+      },
+      "body": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t<link rel=\"profile\" href=\"https://gmpg.org/xfn/11\"> \n\t<title>Page not found &#8211; store.vneconomics</title>\n<meta name='robots' content='noindex, nofollow' />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"store.vneconomics &raquo; Feed\" href=\"https://staging-store.vneconomics.com/feed/\" />\n<link rel=\"alternate\" type=\"application/rss+xml\" title=\"store.vneconomics &raquo; Comments Feed\" href=\"https://staging-store.vneconomics.com/comments/feed/\" />\n<style id=\"wp-img-auto-sizes-contain-inline-css\">\nimg:is([sizes=auto i],[sizes^=\"auto,\" i]){contain-intrinsic-size:3000px 1500px}\n/*# sourceURL=wp-img-auto-sizes-contain-inline-css */\n</style>\n<link rel='stylesheet' id='astra-theme-css-css' href='https://staging-store.vneconomics.com/wp-content/themes/astra/assets/css/minified/main.min.css?ver=4.12.0' media='all' />\n<style id=\"astra-theme-css-inline-css\">\n:root{--ast-post-nav-space:0;--ast-container-default-xlg-padding:2.5em;--ast-container-default-lg-padding:2.5em;--ast-container-default-slg-padding:2em;--ast-container-default-md-padding:2.5em;--ast-container-default-sm-padding:2.5em;--ast-container-default-xs-padding:2.4em;--ast-container-default-xxs-padding:1.8em;--ast-code-block-background:#ECEFF3;--ast-comment-inputs-background:#F9FAFB;--ast-normal-container-width:1200px;--ast-narrow-container-width:750px;--ast-blog-title-font-weight:600;--ast-blog-meta-weight:600;--ast-global-color-primary:var(--ast-global-color-4);--ast-global-co"
+    },
+    {
+      "path": "/wp-json/wp/v2/vne_report/106",
+      "method": "GET",
+      "status": 404,
+      "ms": 1571,
+      "headers": {
+        "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+        "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-length": "105",
+        "content-type": "application/json; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:12:27 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "vary": "Origin,Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex"
+      },
+      "body": "{\"code\":\"rest_no_route\",\"message\":\"No route was found matching the URL and request method.\",\"data\":{\"status\":404}}"
+    },
+    {
+      "path": "/wp-json/vne-library/v1/items/106",
+      "method": "GET",
+      "status": 404,
+      "ms": 1560,
+      "headers": {
+        "access-control-allow-headers": "Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type",
+        "access-control-expose-headers": "X-WP-Total, X-WP-TotalPages, Link",
+        "allow": "GET",
+        "cache-control": "private, no-store, no-cache, must-revalidate, max-age=0",
+        "connection": "Keep-Alive",
+        "content-encoding": "br",
+        "content-length": "85",
+        "content-type": "application/json; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:12:29 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "link": "<https://staging-store.vneconomics.com/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "LiteSpeed",
+        "vary": "Origin,Accept-Encoding",
+        "vne-cache-policy": "bypass",
+        "x-content-type-options": "nosniff",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-robots-tag": "noindex"
+      },
+      "body": "{\"code\":\"vne_library_invalid\",\"message\":\"Kh\\u00f4ng t\\u00ecm th\\u1ea5y.\",\"data\":{\"status\":404}}"
+    },
+    {
+      "path": "/wp-admin/admin.php?page=vne-reports",
+      "method": "GET",
+      "status": 302,
+      "ms": 1379,
+      "headers": {
+        "cache-control": "no-cache, no-store, must-revalidate, max-age=0         ",
+        "connection": "Keep-Alive",
+        "content-length": "0",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Fri, 23 Oct 2026 07:12:30 GMT",
+        "expires": "Wed, 11 Jan 1984 05:00:00 GMT",
+        "keep-alive": "timeout=5, max=100",
+        "location": "https://staging-store.vneconomics.com/wp-login.php?redirect_to=https%3A%2F%2Fstaging-store.vneconomics.com%2Fwp-admin%2Fadmin.php%3Fpage%3Dvne-reports&reauth=1",
+        "server": "LiteSpeed",
+        "x-powered-by": "PHP/8.3.36, PleskLin",
+        "x-redirect-by": "WordPress"
+      },
+      "body": ""
+    }
+  ],
+  "failure": null,
+  "limits": [
+    "Anonymous HTTP only; no authenticated revision/report/race or proxy purge certification",
+    "No fixture created by HTTP runner; empty anonymous POST probes must be denied; TLS verification enabled"
+  ]
+}

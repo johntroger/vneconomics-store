@@ -1,0 +1,60 @@
+{
+  "status": "PASS_PIPELINE_CI_CLI",
+  "testedSource": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+  "cases": [
+    {
+      "name": "R5 valid preview",
+      "exitCode": 0,
+      "expectedBoundary": "preview"
+    },
+    {
+      "name": "R5 wrong workflow rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    },
+    {
+      "name": "R5 skipped test rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    },
+    {
+      "name": "R5 stale artifact rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    },
+    {
+      "name": "R4 valid preview",
+      "exitCode": 0,
+      "expectedBoundary": "preview"
+    },
+    {
+      "name": "R4 wrong workflow rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    },
+    {
+      "name": "artifact verifier valid gate",
+      "exitCode": 1,
+      "expectedBoundary": "download-boundary"
+    },
+    {
+      "name": "artifact verifier wrong workflow rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    },
+    {
+      "name": "artifact verifier missing upload rejected",
+      "exitCode": 1,
+      "expectedBoundary": "reject"
+    }
+  ],
+  "unchangedPayloadFiles": 9,
+  "preservedR5EvidenceFiles": 50,
+  "networkCalls": 0,
+  "refMutations": 0,
+  "downloadPerformed": false,
+  "limits": [
+    "Actual publisher/verifier CLIs; GitHub metadata and approved-origin response mocked (CI checkout URL can omit .git)",
+    "Preview only; download stopped at explicit mock boundary; no publication/hosting/DB/mail/AI"
+  ]
+}

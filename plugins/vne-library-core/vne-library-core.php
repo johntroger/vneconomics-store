@@ -1,0 +1,36 @@
+<?php
+/**
+ * Plugin Name: Vneconomics Library Core
+ * Description: Nhập tay tài nguyên, hướng dẫn và nguồn có kiểm tra dữ liệu/quyền.
+ * Version: 0.4.2
+ * Requires PHP: 8.1
+ * Text Domain: vne-library-core
+ */
+if (!defined('ABSPATH')) { exit; }
+define('VNE_LIBRARY_VERSION', '0.4.2');
+require_once __DIR__ . '/model.php';
+require_once __DIR__ . '/state.php';
+require_once __DIR__ . '/state-admin.php';
+require_once __DIR__ . '/admin.php';
+require_once __DIR__ . '/api.php';
+require_once __DIR__ . '/revisions.php';
+require_once __DIR__ . '/revision-admin.php';
+add_action('init', 'vne_library_register_types');
+add_action('init', 'vne_library_register_proposals');
+add_action('init', 'vne_library_revision_upgrade', 6);
+add_action('init', 'vne_library_maybe_upgrade', 5);
+add_action('admin_menu', 'vne_library_admin_menu');
+add_action('admin_init', 'vne_library_admin_preflight');
+add_action('rest_api_init', 'vne_library_register_routes');
+add_action('rest_api_init', 'vne_library_state_routes');
+add_filter('wp_insert_post_data', 'vne_library_publication_guard', 10, 4);
+register_activation_hook(__FILE__, 'vne_library_activate');
+register_deactivation_hook(__FILE__, function () { flush_rewrite_rules(false); });
+
+add_action('rest_api_init','vne_library_proposal_routes');
+add_filter('rest_post_dispatch','vne_library_private_revision_headers',10,3);
+add_action('admin_menu','vne_library_revision_menu');
+add_action('admin_init','vne_library_preview_preflight');
+
+require_once __DIR__ . '/reports.php';
+require_once __DIR__ . '/cache.php';

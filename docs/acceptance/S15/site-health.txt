@@ -1,0 +1,97 @@
+Help
+Site Health
+Should be improved
+Status
+Info
+Help us improve Astra and our other products!
+
+With your permission, we'd like to collect non-sensitive information from your website — like your PHP version and which features you use — so we can fix bugs faster, make smarter decisions, and build features that actually matter to you. No personal info. Ever. Know More.
+
+
+Yes! Allow it No Thanks
+Dismiss this notice.
+Site Health Status
+
+The site health check shows information about your WordPress configuration and items that may need your attention.
+
+1 critical issue
+
+Critical issues are items that may have a high impact on your site’s performance or security. Resolving these issues should be prioritized.
+
+Page cache is not detected and the server response time is slow
+Performance
+
+Page cache enhances the speed and performance of your site by saving and serving static pages instead of calling for a page every time a user visits.
+
+Page cache is detected by looking for an active page cache plugin as well as making three requests to the homepage and looking for one or more of the following HTTP client caching response headers:
+
+cache-control, expires, age, last-modified, etag, via, x-cache-enabled, x-cache-disabled, cf-cache-status, x-cache, x-litespeed-cache, x-srcache-store-status, x-srcache-fetch-status, x-cache-status, x-proxy-cache, x-varnish.
+ Median server response time was 2,222 milliseconds. It should be less than the recommended 600 milliseconds threshold.
+ No client caching response headers were detected.
+ A page cache plugin was not detected.
+
+Learn more about page cache
+(opens in a new tab)
+
+5 recommended improvements
+
+Recommended items are considered beneficial to your site, although not as important to prioritize as a critical issue. They may include improvements in areas such as security, performance, and user experience.
+
+You should remove inactive plugins
+Security
+You should remove inactive themes
+Security
+Outdated SQL server
+Performance
+Search engines are discouraged from indexing this site.
+Privacy
+Opcode cache is not enabled
+Performance
+Passed tests
+23 items with no issues detected
+Your version of WordPress (7.1.3) is up to date
+Performance
+Your site is running a recommended version of PHP (8.3.36)
+Performance
+Required and recommended modules are installed
+Performance
+PHP default timezone is valid
+Performance
+No PHP sessions detected
+Performance
+Your site can communicate securely with other services
+Security
+Scheduled events are running
+Performance
+HTTP requests seem to be working as expected
+Performance
+The REST API is available
+Performance
+Your site is not set to output debug information
+Security
+Files can be uploaded
+Performance
+Plugin and theme auto-updates appear to be configured correctly
+Security
+Plugin and theme temporary backup directory is writable
+Security
+Disk space available to safely perform updates
+Security
+Autoloaded options are acceptable
+Performance
+Open Registration with privileged default role
+Security
+A persistent object cache is not required
+Performance
+Memory usage is within acceptable limits
+Astra Theme
+Can communicate with WordPress.org
+Security
+Background updates are working
+Security
+Your site can perform loopback requests
+Performance
+Your website is using an active HTTPS connection
+Security
+The Authorization header is working as expected
+Security

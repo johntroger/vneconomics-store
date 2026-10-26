@@ -1,0 +1,106 @@
+{
+  "status": "IMPORTED_APPROVED_STAGING_CONTENT",
+  "journal": {
+    "status": "complete",
+    "payloadHash": "d96ee1409998e06c6aae822adb0e60b609fc0cac927b1bd7ac1a68cb6ec5a934",
+    "beforePostsPagesHash": "2a66c50e9447f5850e62a513f1069698e4ed302a387ab961c61dbd89d1123d00",
+    "createdTerms": [
+      20,
+      21,
+      22
+    ],
+    "map": {
+      "1": {
+        "id": 108,
+        "title": "Web Dev for Beginners",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/web-dev-for-beginners/"
+      },
+      "2": {
+        "id": 109,
+        "title": "MDN Learning Area",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/mdn-learning-area/"
+      },
+      "3": {
+        "id": 110,
+        "title": "Web Design Guidelines",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/web-design-guidelines/"
+      },
+      "4": {
+        "id": 111,
+        "title": "Astro Basics",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/astro-basics/"
+      },
+      "5": {
+        "id": 112,
+        "title": "React Best Practices",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/react-best-practices/"
+      },
+      "6": {
+        "id": 113,
+        "title": "Pico CSS",
+        "type": "vne_resource",
+        "url": "https://staging-store.vneconomics.com/tai-nguyen/pico-css/"
+      },
+      "7": {
+        "id": 114,
+        "title": "Làm landing page Mộc Studio với Codex trên Windows",
+        "type": "vne_guide",
+        "url": "https://staging-store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      },
+      "8": {
+        "id": 115,
+        "title": "Trước bài đầu: chuẩn bị công cụ và quyền truy cập",
+        "type": "vne_guide",
+        "url": "https://staging-store.vneconomics.com/huong-dan/truoc-bai-dau-chuan-bi-cong-cu-va-quyen-truy-cap/"
+      },
+      "9": {
+        "id": 116,
+        "title": "Sửa lỗi bài đầu: ghi lại điều đang xảy ra",
+        "type": "vne_guide",
+        "url": "https://staging-store.vneconomics.com/huong-dan/sua-loi-bai-dau-ghi-lai-dieu-dang-xay-ra/"
+      },
+      "10": {
+        "id": 117,
+        "title": "Sau bài đầu: hiểu HTML và CSS vừa tạo",
+        "type": "vne_guide",
+        "url": "https://staging-store.vneconomics.com/huong-dan/sau-bai-dau-hieu-html-va-css-vua-tao/"
+      },
+      "11": {
+        "id": 118,
+        "title": "Bộ thực hành landing page cho dịch vụ chụp ảnh",
+        "type": "vne_practice",
+        "url": "https://staging-store.vneconomics.com/bo-thuc-hanh/bo-thuc-hanh-landing-page-cho-dich-vu-chup-anh/"
+      }
+    },
+    "sourceFiles": {
+      "seed": {
+        "path": "scripts/fixtures/s13-integrated-seed.php",
+        "sha256": "32758a4aea1c74973ed97a4710b92c970f1036f7921a3b2c3f9899ab86d8c353"
+      },
+      "lesson": {
+        "path": "docs/content-samples/S10-moc-studio-lesson.html",
+        "sha256": "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+      },
+      "observations": {
+        "path": "docs/acceptance/S02/source-observations.json",
+        "sha256": "572cfd9212ae60fb0ffd700d4ce43bb66a5c28df9c1ff390f7339394034b4702"
+      },
+      "model": {
+        "path": "plugins/vne-library-core/model.php",
+        "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
+      },
+      "state": {
+        "path": "plugins/vne-library-core/state.php",
+        "sha256": "e29b34214b65fc3cd99a7960de6c3c5a2a6622303b2570e776cef60cbaad935c"
+      }
+    },
+    "validationPolicy": "No validation records imported; not_tested remains unless separately verified",
+    "completedAt": "2026-10-23T07:33:39+00:00",
+    "existingPostsPagesUnchanged": true
+  }
+}

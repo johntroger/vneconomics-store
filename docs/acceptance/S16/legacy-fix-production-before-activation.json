@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-10-24T11:40:47.172Z",
+  "installStartedAt": "2026-10-24T11:39:31.800Z",
+  "theme": "astra",
+  "themeVersion": "4.12.0",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "themeFiles": 36,
+  "themeAggregate": "b98707b50b78b4cfa7fea57f82d98da010466ee5dac63ada4965af7e20bcd5a5",
+  "themeBytesMatchCandidate": true,
+  "indexing": "1",
+  "contentCount": 28,
+  "contentRowsHash": "d8507571df09e7c52b5636c78de7685525cb7ad90ccf52de51528995fb6e5d74",
+  "contentMetaHash": "5aacbe74b52871a062ae589acfcd5a0f7d9ce903fa3544ecafa1df8654c373f6",
+  "recoveryKeys": 0
+}

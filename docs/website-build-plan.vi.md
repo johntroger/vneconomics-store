@@ -781,6 +781,13 @@ cả detail, danh mục/trang chủ, API và guide liên quan; mô phỏng purge
 khôi phục. Giữ bằng chứng thời điểm thay đổi và thời điểm các view cập nhật; giá trị
 TTL/mức trễ chỉ chốt sau khảo sát, không hứa realtime khi chưa có cơ chế.
 
+Phương án local S12 được ghi ở [hợp đồng cache](S12-cache-contract.vi.md):
+bypass HTML/API và tính lại derived state mỗi request; nếu purge lỗi thì tạm chặn
+phần công khai bằng 503 cho tới khi người có quyền xác nhận phục hồi. Incident
+và điều khiển phục hồi đọc trực tiếp DB để không tin object cache đang lỗi.
+Đây chưa là chứng nhận cache hosting; TTL/tầng cache thật và mức trễ chờ S15.
+Native RSS chưa được cung cấp, chặn trước đường conditional 304 của WordPress.
+
 ## 10. AI và Việt hóa
 
 Dùng một pipeline có các bước chuyên biệt và đầu ra JSON kiểm tra được; chưa cần hệ
@@ -1492,3 +1499,7 @@ Nguồn tham chiếu dùng cho nguyên tắc kỹ thuật; thang điểm, lịch
 ước lượng trong tài liệu là đề xuất riêng, cần kiểm chứng qua pilot của website này.
 
 Cập nhật S00 ngày 19/10/2026: [brief thực thi](S00-implementation-brief.vi.md) và [báo cáo khảo sát](acceptance/S00-brief-and-conditions.vi.md). Chưa cho phép S01.
+
+### Quyết định nghiệm thu S13 — 22/10/2026
+
+Theo chỉ thị mới của chủ dự án, bản website đã xây sẽ do chính chủ dự án trực tiếp thử và báo điểm chưa ổn để sửa. Không bắt buộc tuyển thêm người mới cho gate S13. Kiểm thử tự động và việc chưa nhận phản hồi không được xem là chấp thuận giao diện/hành vi hoặc cho phép S14. Kết quả thử của chủ dự án không được diễn giải thành nghiên cứu usability với người mới hoàn toàn; nhóm người dùng mục tiêu vẫn giữ nguyên. S13 chạy local, hosting chờ bước được duyệt riêng.

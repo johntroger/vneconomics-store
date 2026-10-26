@@ -1,0 +1,256 @@
+{
+  "sourceSha": "4266b71990702d87969a847e95d9c39933cb05a4",
+  "payloadSha": "dc4af296692ddac2dd71dc9f1be4a69f1af29959",
+  "files": [
+    {
+      "path": "docs/acceptance/R5-production/adopt-production-command.txt",
+      "bytes": 2435,
+      "sha256": "91d788b8c8330859cdd4f78bcf988556c80ec8cf1c65ce899571ae04f1e44ce2"
+    },
+    {
+      "path": "docs/acceptance/R5-production/adopt-staging-command.txt",
+      "bytes": 2429,
+      "sha256": "ea7400d648d595ccf565e9962da5028dc7c550f0c41b4f31c6a023865d72585b"
+    },
+    {
+      "path": "docs/acceptance/R5-production/baseline-operator-command.txt",
+      "bytes": 2476,
+      "sha256": "d5d57a21243aab65a648edfee7b93abbdadc52f2d27536211aef32fd047d522e"
+    },
+    {
+      "path": "docs/acceptance/R5-production/browser-cleanup.json",
+      "bytes": 342,
+      "sha256": "a6a375326a2ee43a17af8b8948a0dedeaa5b828b67cd038a403b7d5149705d0e"
+    },
+    {
+      "path": "docs/acceptance/R5-production/candidate-comparison.json",
+      "bytes": 2533,
+      "sha256": "1374690440ce9cf56948c854e11218615ce1e007c6b6ba80f05ef049f829c8d7"
+    },
+    {
+      "path": "docs/acceptance/R5-production/ci-check-summary.txt",
+      "bytes": 1130,
+      "sha256": "addd7e5b55815f303d9b1a27d06387a4197a9ab51dd58a96655c0da5675e302a"
+    },
+    {
+      "path": "docs/acceptance/R5-production/ci-run.json",
+      "bytes": 1881,
+      "sha256": "0824b647fbd1b69abe406ad0d284cd8e211507c0fafdd936e0d1d776c571c839"
+    },
+    {
+      "path": "docs/acceptance/R5-production/completion.json",
+      "bytes": 2492,
+      "sha256": "d08437f07e84a6456708cec4a3c63c284b360d63921e5de80a4efa27c08b230f"
+    },
+    {
+      "path": "docs/acceptance/R5-production/frozen-s14/package-results.json",
+      "bytes": 13019,
+      "sha256": "a0fc5e342bbbc30ab1e4b3200cc6d2d5a6b292086357f9282b5cd2f76992c37c"
+    },
+    {
+      "path": "docs/acceptance/R5-production/github-final-refs.json",
+      "bytes": 456,
+      "sha256": "dd345f55f5a4a90e5cc97086e06a592cc734f8fe63d66a5b57c008521c6b21b8"
+    },
+    {
+      "path": "docs/acceptance/R5-production/http-after.json",
+      "bytes": 104271,
+      "sha256": "9fd6e04ac37e6aa9927c20e461d09708155fd227a794d1bd5deacdb252cf2738"
+    },
+    {
+      "path": "docs/acceptance/R5-production/inspect-production-command.txt",
+      "bytes": 1548,
+      "sha256": "1705105f962756b8ad87a3476eaf424ee7ee4b39d1a9160f8c28a644dc914930"
+    },
+    {
+      "path": "docs/acceptance/R5-production/inspect-staging-command.txt",
+      "bytes": 1536,
+      "sha256": "bdd2e25caace7409916e672e2ac685ad34157a41add74c2bcdf016f90cf81869"
+    },
+    {
+      "path": "docs/acceptance/R5-production/local-packages/package-results.json",
+      "bytes": 19537,
+      "sha256": "f938fcd96499c3b11d49b82e00cf14fd716a64733d9bc0f0c1263f7e7ba7505a"
+    },
+    {
+      "path": "docs/acceptance/R5-production/negative-missing-staging-receipt.json",
+      "bytes": 534,
+      "sha256": "41df1f99a8061ae8586001edac340855b211a02325419a95de324a49de20fd59"
+    },
+    {
+      "path": "docs/acceptance/R5-production/negative-unconfigured-production.json",
+      "bytes": 465,
+      "sha256": "eb9d5e921ede00d4c923babc7c8585a2560a9cdadea81bac9d697e9b8e40dd41"
+    },
+    {
+      "path": "docs/acceptance/R5-production/plesk-production-final.jpg",
+      "bytes": 90003,
+      "sha256": "6b88797dcc3c2a0b797d61a64328e19f2c04b690c1af3f319dbfd73107e17630"
+    },
+    {
+      "path": "docs/acceptance/R5-production/plesk-production-final.txt",
+      "bytes": 881,
+      "sha256": "19e0323b2759c7f6e278029c46a568cde85fb2d4ce5c5f06379db52a54d3cadf"
+    },
+    {
+      "path": "docs/acceptance/R5-production/plesk-production-receive.jpg",
+      "bytes": 72992,
+      "sha256": "5807c33b1de4a0a647dc781d0e4c8ee992ddff9dffa7517751746c4c891a9cb6"
+    },
+    {
+      "path": "docs/acceptance/R5-production/plesk-staging-receive.jpg",
+      "bytes": 72195,
+      "sha256": "8f3119654a7202414f8c43d675ae6ce3cf941b763fb2f6f1b13bbf4f38f1c9fb"
+    },
+    {
+      "path": "docs/acceptance/R5-production/pr-body.md",
+      "bytes": 3920,
+      "sha256": "09fbc9bfc388b2e3d13183fbcaf0f67840b75459f523b6c95d53237da10df1b4"
+    },
+    {
+      "path": "docs/acceptance/R5-production/pr-final.json",
+      "bytes": 311,
+      "sha256": "7d0e0a5bfdf896390469840cbe13a57b788ff1bfe53f9dd8b42839c990f66477"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-adoption.json",
+      "bytes": 5690,
+      "sha256": "205f5dd85f75cbca767eed019aadb61ffe8f95120a891bbfcb1004330a3eb09d"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-approval.json",
+      "bytes": 298,
+      "sha256": "c23520314fa242b1a567914120397558f1f456e76117b79ead9a3b33b4c0660d"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-baseline-backup.json",
+      "bytes": 4011,
+      "sha256": "4e1618880a6c58c8d9fe3977a49acd8d648724cd15d96e374beddb3ce7f277cb"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-guide-hub-final.jpg",
+      "bytes": 99465,
+      "sha256": "f277d6572d962730239a2333335d53a6a9f8fda53cb6ff4fc9dfb5474a33b961"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-guide-hub.jpg",
+      "bytes": 67489,
+      "sha256": "2e4f9984f3530dbcc697d18eff4c4d3c5ef80138c510f5ad3a2f24e3ffc40499"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-hub-dom.json",
+      "bytes": 662,
+      "sha256": "64af424322fdca8eaef4465d9474818ee915a7b4241a8e81deced2b207ac31bf"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-inspect-before.json",
+      "bytes": 14310,
+      "sha256": "bc57861d68549ae54a782702966b586734653cab27668ec661b9bbc8f9b051fe"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-inspect-final.json",
+      "bytes": 14315,
+      "sha256": "8a86fec3747492c55c9956f6bbce76b9abb93c4839f29dc762a0338211184e58"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-inspect.json",
+      "bytes": 14309,
+      "sha256": "b4766ef842e03b6b6c25aca7c979ad19d5b29e2748784adf4cc76ebddee71a29"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-plesk-received.json",
+      "bytes": 1787,
+      "sha256": "216a685114a99da0de8d1a7bda574be95bf0f4e1ac27f40c614e5a4459dbe915"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-postflight.json",
+      "bytes": 6766,
+      "sha256": "92de653e847beb8bcba6089db447cbb3b6ef8df89e9fd7d2dee96b5d45b56a6a"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-received-final.json",
+      "bytes": 1787,
+      "sha256": "216a685114a99da0de8d1a7bda574be95bf0f4e1ac27f40c614e5a4459dbe915"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-retry.json",
+      "bytes": 4469,
+      "sha256": "1446429383dcb44b3bb1fde9eb422d6a08d23c9c02f0aee597caa005ce0c10b7"
+    },
+    {
+      "path": "docs/acceptance/R5-production/production-ui-checks.json",
+      "bytes": 1192,
+      "sha256": "831189355f3396f4e83c662527bb40f66d888194a51c411845827c509c616438"
+    },
+    {
+      "path": "docs/acceptance/R5-production/publication-production.json",
+      "bytes": 2071,
+      "sha256": "bc69d7c5839b9a3966a44b8f5781904fe8c18148fae74943cf9496f02aa763ad"
+    },
+    {
+      "path": "docs/acceptance/R5-production/publication-staging.json",
+      "bytes": 2103,
+      "sha256": "c04d5b4c29daef1cee1da70a215611df0f68eb4f1b8ea69a8821f42573314fd1"
+    },
+    {
+      "path": "docs/acceptance/R5-production/responsive-and-ui-cleanup.json",
+      "bytes": 975,
+      "sha256": "a3320b3a3df3fa6fd077a754584019857a70f9e43677e7aa98ad97f2c917d567"
+    },
+    {
+      "path": "docs/acceptance/R5-production/retry-production-command.txt",
+      "bytes": 388,
+      "sha256": "52c889dd78011dc27629d7b99dfee45804f7aaedf57efe622ad2d5f867651034"
+    },
+    {
+      "path": "docs/acceptance/R5-production/retry-staging-command.txt",
+      "bytes": 382,
+      "sha256": "395fd74c896bfd74685f8ce6aaed5c0029c5147a93cc73cdd14e29edd022598e"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-adoption.json",
+      "bytes": 5688,
+      "sha256": "50caa22a80ef74fe725e3e6efd3b462e5d4bf74da3e55eeed76a52a4701bad39"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-approval.json",
+      "bytes": 298,
+      "sha256": "b9700c48d72bf0eb27e9af414703bc054be4baafc14d6ba5c752c62f2c47c3b6"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-inspect-final.json",
+      "bytes": 14315,
+      "sha256": "467c63c5bfde52c226de1870ea122f9c467d9ab027b66fabd4d2e748a2f14d49"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-inspect.json",
+      "bytes": 14309,
+      "sha256": "71321e6289a1d95a9d7db58d7eb4e44b75a2f709482e6f8b0b1518b5e8e488e5"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-plesk-received.json",
+      "bytes": 1789,
+      "sha256": "765c3aadb63eed454556d41678d5b16c9d1970a3090e268ee6456d1ecf4178f0"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-postflight.json",
+      "bytes": 5141,
+      "sha256": "5f07edf1181070563b0cf130f952ed3f49ffc11b1f7dbf0c70096647e24d977f"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-public-smoke.json",
+      "bytes": 247,
+      "sha256": "309a253fc4934f087acb2aa71312a6f85ad96b44f214554e17356d574f9c437a"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-received-final.json",
+      "bytes": 1789,
+      "sha256": "765c3aadb63eed454556d41678d5b16c9d1970a3090e268ee6456d1ecf4178f0"
+    },
+    {
+      "path": "docs/acceptance/R5-production/staging-retry.json",
+      "bytes": 4467,
+      "sha256": "4e051782a5b0c714ccbda5a723be73106aa5c68084adb9dd2da9dec3cc12dd9b"
+    }
+  ]
+}

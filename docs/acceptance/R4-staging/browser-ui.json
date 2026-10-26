@@ -1,0 +1,32 @@
+{
+  "status": "PASS_GUIDE_INTERACTIONS",
+  "guides": [
+    {
+      "key": "codex",
+      "id": 114,
+      "copy": "clipboard-exact-after-sentinel",
+      "checklistPersisted": true,
+      "initialChecksRestored": true
+    },
+    {
+      "key": "claude-code",
+      "id": 221,
+      "copy": "clipboard-exact-after-sentinel",
+      "checklistPersisted": true,
+      "initialChecksRestored": true
+    },
+    {
+      "key": "antigravity",
+      "id": 222,
+      "copy": "clipboard-exact-after-sentinel",
+      "checklistPersisted": true,
+      "initialChecksRestored": true
+    }
+  ],
+  "limits": [
+    "Copied commands never executed",
+    "Checklist marks restored via UI; no bulk storage clear",
+    "Only our copied browser clipboard text read and cleared",
+    "Initial timing mismatch resolved by waiting for visible copy status and testing after UI settled"
+  ]
+}

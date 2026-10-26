@@ -1,0 +1,69 @@
+{
+  "id": 40284129915,
+  "url": "https://github.com/johntroger/vneconomics-store/actions/runs/40284129915",
+  "event": "pull_request",
+  "headSha": "f587eea20526f32294a8826949d7407337040ec6",
+  "status": "completed",
+  "conclusion": "success",
+  "createdAt": "2026-10-26T07:10:09Z",
+  "updatedAt": "2026-10-26T07:11:46Z",
+  "jobs": [
+    {
+      "name": "payload",
+      "conclusion": "success",
+      "runner": "GitHub Actions 1000000670",
+      "labels": [
+        "windows-2025"
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify deterministic source-derived payload and rejection gates",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify frozen S14 profile still rebuilds",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build candidate from the exact reviewed source",
+          "conclusion": "success"
+        },
+        {
+          "name": "Preserve candidate for local checksum comparison",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "artifact": {
+    "id": 12632763390,
+    "name": "pipeline-f587eea20526f32294a8826949d7407337040ec6",
+    "bytes": 405304,
+    "digest": "sha256:9818201964a1c1b371bc96cce4da81c6f8f0af8be29c0bbdfd2158402ec44811",
+    "expiresAt": "2026-10-27T07:11:40Z"
+  }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "server": "ns1.matbao.com",
+    "name": "staging-store.vneconomics.com",
+    "type": "A",
+    "ttl": 3600,
+    "address": "103.138.88.13"
+  },
+  {
+    "server": "ns2.matbao.com",
+    "name": "staging-store.vneconomics.com",
+    "type": "A",
+    "ttl": 3600,
+    "address": "103.138.88.13"
+  }
+]

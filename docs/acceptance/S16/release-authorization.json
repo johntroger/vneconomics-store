@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-24",
+  "timezone": "Asia/Saigon",
+  "ownerStatement": "phát hành ngay",
+  "proposal": "docs/S16-deployment-proposal.vi.md",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "target": "https://store.vneconomics.com/",
+  "plugin": "0.4.2",
+  "schema": 3,
+  "theme": "0.7.0",
+  "contentItems": 11,
+  "sequence": "plugin then confirm, theme then confirm, approved content and smoke",
+  "scope": "Approved proposal and existing data preservation; no database copy"
+}

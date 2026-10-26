@@ -1,0 +1,6 @@
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T04:36:24.4344501Z PASS pipeline packages 218 checks
+payload	Verify deterministic source-derived payload and rejection gates	2026-10-26T04:36:24.4348040Z Temporary test data and run cache cleaned; existing data and deliverables kept.
+payload	Verify frozen S14 profile still rebuilds	2026-10-26T04:36:44.2115407Z PASS S14 packaging 75 checks; fixture cleanup follows.
+payload	Verify frozen S14 profile still rebuilds	2026-10-26T04:36:44.2334034Z Temporary test data and run cache cleaned; existing data and deliverables kept.
+payload	Build candidate from the exact reviewed source	2026-10-26T04:36:50.7593815Z Temporary test data and run cache cleaned; existing data and deliverables kept.
+payload	Complete job	2026-10-26T04:36:55.4774904Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

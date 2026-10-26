@@ -1,0 +1,121 @@
+<?php
+require '/wordpress/wp-load.php';
+$admin=get_user_by('login','admin');wp_set_current_user($admin->ID);vne_library_revision_upgrade();
+function s05_payload($title) {
+    $category=get_terms(array('taxonomy'=>'vne_category','hide_empty'=>false))[0];
+    $data=vne_library_default_resource();
+    $data['source_url']='https://github.com/example/s04';$data['source_revision']='fixture-r1';$data['source_verified']=true;$data['observed_at']='2026-10-21';
+    foreach($data['claims'] as &$claim){$claim=array('value'=>'Fixture only','verification_status'=>'upstream_claimed','source_url'=>'https://example.com/evidence','observed_at'=>'2026-10-21','note'=>'Dữ liệu thử hư cấu, không phát hành','conflict_sources'=>array());}unset($claim);
+    return array('title'=>$title,'excerpt'=>'Fixture S04','content'=>'<p>Fixture</p>','status'=>'publish','primary_category'=>(int)$category->term_id,'data'=>$data);
+}
+function s05_state($access='available',$maintenance='active',$rec='normal') {
+    $state=vne_library_default_state();
+    foreach(array('source_access'=>$access,'maintenance'=>$maintenance) as $axis=>$value){$state[$axis]=array('status'=>$value,'source_url'=>'https://example.com/observation','observed_at'=>'2026-10-21','note'=>'Quan sát fixture, không phải dữ kiện thật');}
+    $state['recommendation']=array('status'=>$rec,'reason'=>'Quyết định fixture có ghi lý do');return $state;
+}
+function s05_evidence($id,$outcome='pass') {
+    return array('revision'=>vne_library_revision($id),'outcome'=>$outcome,'tested_at'=>'2026-10-21','os'=>'Windows fixture','tool'=>'Công cụ fixture','version'=>'fixture-1','input'=>'Đầu vào fixture','output'=>'Đầu ra fixture','checklist'=>array('Bước fixture đạt mục tiêu giả lập'),'evidence_url'=>'https://example.com/fixture-evidence');
+}
+
+$checks=array();
+function s05_check($ok,$name){global $checks;if(!$ok){throw new Exception('FAIL S05 '.$name);}$checks[]=$name;}
+function s05_propose($id,$payload){return vne_library_create_proposal($id,array('base_revision'=>vne_library_approved_revision($id),'payload'=>$payload));}
+$payload=s05_payload('Bản công khai S05');$payload['editorial_note']='S05 INTERNAL ONLY';
+$item=vne_library_save_item($payload);s05_check(!is_wp_error($item),'create approved fixture');$id=$item['id'];
+wp_update_post(array('ID'=>$id,'post_date'=>'2001-02-03 04:05:06','post_date_gmt'=>'2001-02-03 04:05:06'));$original_author=(int)get_post_field('post_author',$id);
+vne_library_save_state($id,s05_state());vne_library_record_validation($id,s05_evidence($id));
+$before=vne_library_item($id);$url=get_permalink($id);$slug=get_post_field('post_name',$id);$base=vne_library_approved_revision($id);
+$unchanged=vne_library_editorial_snapshot($id);foreach($unchanged['data']['claims'] as &$claim){$claim=array_reverse($claim,true);}unset($claim);
+s05_check(is_wp_error(s05_propose($id,$unchanged)),'JSON object key order does not create a false change');
+$draft=$payload;$draft['title']='S05 SECRET PENDING';$draft['content']='<p>Candidate with C:\\tools\\demo and "quotes"</p>';$draft['data']['source_revision']='fixture-r2';
+$proposal=s05_propose($id,$draft);s05_check(!is_wp_error($proposal),'create isolated proposal');$pid=$proposal['id'];
+s05_check(vne_library_item($id)===$before&&get_post_status($id)==='publish','proposal leaves public exactly unchanged');
+s05_check(get_post_type($pid)==='vne_proposal'&&get_post_status($pid)==='private'&&!get_post_type_object('vne_proposal')->public,'proposal private CPT');
+s05_check($proposal['base_revision']===$base&&in_array('title',$proposal['changed_fields'],true),'immutable base and changed fields recorded');
+$preview=vne_library_preview_proposal($pid);
+s05_check($preview['payload']['title']==='S05 SECRET PENDING'&&$preview['payload']['content']===$draft['content'],'preview candidate preserves text and escaping');
+s05_check($preview['derived']['validation_status']==='review_needed'&&!$preview['derived']['is_public'],'preview new technical revision not green or public');
+s05_check($preview['public_url']===$url&&vne_library_item($id)===$before,'preview keeps URL and has no temporary writes');
+$state=s05_state('available','active','suspended');$state['recommendation']['reason']='Cờ mới sau khi tạo draft';$state['review']['needed']=true;$state['review']['reason']='Rà soát mới';vne_library_save_state($id,$state);
+$epoch=get_post_meta($id,'_vne_review_epoch',true);$history=vne_library_validations($id);
+s05_check(vne_library_preview_proposal($pid)['derived']['primary_badge']==='suspended','preview resolves latest operational flags');
+$approved=vne_library_decide_proposal($pid,'approved','Duyệt fixture có đối chiếu');
+s05_check(!is_wp_error($approved)&&$approved['status']==='approved','approve current proposal');
+$public=vne_library_item($id);
+s05_check($public['title']===$draft['title']&&$public['data']['source_revision']==='fixture-r2','approved fields become public together');
+s05_check(get_permalink($id)===$url&&get_post_field('post_name',$id)===$slug,'ID and slug/permalink stable after changed title');
+s05_check(get_post_field('post_date',$id)==='2001-02-03 04:05:06'&&(int)get_post_field('post_author',$id)===$original_author,'approval preserves original publication date and author');
+s05_check($public['derived']['primary_badge']==='suspended'&&get_post_meta($id,'_vne_review_epoch',true)===$epoch,'approval preserves newer suspend/review flags');
+s05_check(vne_library_validations($id)===$history&&$public['derived']['validation_status']==='review_needed','approval cannot create/erase validation');
+s05_check(is_wp_error(vne_library_decide_proposal($pid,'approved','Lặp lại')),'second approval of same proposal rejected');
+s05_check(vne_library_approved_revision($id)!==$base,'approved generation advances');
+$a=s05_propose($id,$payload);$b=s05_propose($id,array_replace($payload,array('title'=>'Đề xuất song song B')));
+s05_check(!is_wp_error(vne_library_decide_proposal($a['id'],'approved','Duyệt A')),'first of sibling proposals approved');
+$after_a=vne_library_item($id);
+$stale=vne_library_decide_proposal($b['id'],'approved','Không được ghi đè');
+s05_check(is_wp_error($stale)&&$stale->get_error_data()['status']===409&&vne_library_item($id)===$after_a,'sibling approval conflict preserves approved version');
+s05_check(vne_library_get_proposal($b['id'])['is_stale'],'stale preview retains proposal for comparison');
+$manual_pending=s05_propose($id,$draft);
+$manual=$payload;$manual['title']='Sửa tay mới hơn';$manual_base=vne_library_approved_revision($id);
+s05_check(!is_wp_error(vne_library_save_item($manual,$id,$manual_base)),'manual edit uses same write protocol');
+s05_check(is_wp_error(vne_library_decide_proposal($manual_pending['id'],'approved','Stale after manual'))&&vne_library_item($id)['title']==='Sửa tay mới hơn','manual edit not overwritten by pending draft');
+s05_check(is_wp_error(vne_library_save_item($payload,$id,$manual_base)),'stale manual form token rejected');
+$reject=s05_propose($id,$draft);$pre_reject=vne_library_item($id);
+s05_check(!is_wp_error(vne_library_decide_proposal($reject['id'],'rejected','Không áp dụng'))&&vne_library_item($id)===$pre_reject,'reject leaves public unchanged');
+s05_check(is_wp_error(vne_library_decide_proposal($reject['id'],'approved','Cannot revive')),'rejected proposal cannot be approved');
+$bad=array('base_revision'=>vne_library_approved_revision($id),'payload'=>array_replace($draft,array('unknown_field'=>true)));
+s05_check(is_wp_error(vne_library_create_proposal($id,$bad)),'unknown proposal fields rejected');
+$bad['payload']=$draft;$bad['payload']['data']['source_url']='https://evil.example/repo';
+s05_check(is_wp_error(vne_library_create_proposal($id,$bad)),'invalid candidate source rejected');
+s05_check(is_wp_error(vne_library_create_proposal($id,array('base_revision'=>str_repeat('0',64),'payload'=>$draft))),'stale create rejected');
+$rollback_payload=$draft;$rollback_category=vne_library_create_term(array('taxonomy'=>'vne_category','name'=>'Rollback category fixture'));$rollback_payload['primary_category']=(int)$rollback_category['term_id'];$rollback=s05_propose($id,$rollback_payload);$before_failure=vne_library_item($id);$snap_before=vne_library_editorial_snapshot($id);$count_before=count(get_post_meta($id,'_vne_approval',false));
+$thrower=function(){throw new RuntimeException('Injected failure after writes');};add_action('vne_library_before_approval_commit',$thrower);
+$failed=vne_library_decide_proposal($rollback['id'],'approved','Fault fixture');remove_action('vne_library_before_approval_commit',$thrower);
+s05_check(is_wp_error($failed)&&$failed->get_error_data()['status']===500,'write failure returned safely');
+s05_check(vne_library_item($id)===$before_failure&&vne_library_editorial_snapshot($id)===$snap_before,'rollback restores approved snapshot and core fields');
+s05_check(vne_library_get_proposal($rollback['id'])['status']==='pending'&&count(get_post_meta($id,'_vne_approval',false))===$count_before,'rollback restores proposal and history');
+s05_check(get_option(vne_library_content_lock_key($id),null)===null,'failure releases own lock');
+$held=add_option(vne_library_content_lock_key($id),'another-owner','',false);
+$busy=vne_library_decide_proposal($rollback['id'],'approved','Busy test');
+s05_check($held&&is_wp_error($busy)&&$busy->get_error_data()['status']===409&&get_option(vne_library_content_lock_key($id))==='another-owner','active lock never stolen');
+delete_option(vne_library_content_lock_key($id));
+$editor=get_user_by('login','s03editor');$editor->add_cap('vne_approve_library',false);wp_set_current_user(0);wp_set_current_user($editor->ID);
+$draft['content']='<p><a href="https://example.com/reference">Nguồn thử</a> C:\tools\demo</p>';$edit_proposal=s05_propose($id,$draft);
+s05_check(vne_library_preview_proposal($edit_proposal['id'])['payload']['content']===$draft['content'],'contributor HTML attributes roundtrip without JSON filters');
+s05_check(!is_wp_error($edit_proposal)&&!is_wp_error(vne_library_preview_proposal($edit_proposal['id'])),'contributor can propose and preview');
+s05_check(is_wp_error(vne_library_save_item($payload)),'contributor cannot bypass approval by publishing a new item');
+s05_check(is_wp_error(vne_library_decide_proposal($edit_proposal['id'],'approved','Denied'))&&is_wp_error(vne_library_save_item($payload,$id)),'contributor cannot approve or direct overwrite');
+$editor->remove_cap('vne_approve_library');
+$subscriber=get_user_by('login','s03subscriber');wp_set_current_user($subscriber->ID);
+s05_check(is_wp_error(vne_library_get_proposal($pid))&&is_wp_error(vne_library_preview_proposal($pid))&&is_wp_error(s05_propose($id,$draft)),'subscriber cannot read preview or propose');
+wp_set_current_user(0);
+$request=new WP_REST_Request('GET','/vne-library/v1/proposals/'.$pid.'/preview');$denied=rest_do_request($request);
+s05_check($denied->get_status()===403,'anonymous REST preview denied');
+s05_check(is_wp_error(vne_library_get_proposal($pid)),'anonymous cannot read proposal record');
+$list=rest_do_request(new WP_REST_Request('GET','/vne-library/v1/items'))->get_data();
+s05_check(!str_contains(wp_json_encode($list),'S05 SECRET PENDING')&&!str_contains(wp_json_encode($list),'S05 INTERNAL ONLY'),'public list excludes pending and internal note');
+wp_set_current_user($admin->ID);
+$hidden=s05_propose($id,$draft);wp_update_post(array('ID'=>$id,'post_status'=>'private'));
+s05_check(is_wp_error(vne_library_decide_proposal($hidden['id'],'approved','Hidden since draft'))&&is_wp_error(vne_library_item($id)),'hidden target cannot be re-published by pending proposal');
+wp_update_post(array('ID'=>$id,'post_status'=>'publish'));
+$legacy=vne_library_write_item(s05_payload('Legacy chưa có snapshot S05'));$legacy_id=$legacy['id'];$legacy_base=vne_library_approved_revision($legacy_id);$legacy_before=vne_library_item($legacy_id);
+$legacy_proposal=s05_propose($legacy_id,$draft);
+s05_check(!is_wp_error($legacy_proposal)&&vne_library_approved_revision($legacy_id)===$legacy_base&&vne_library_item($legacy_id)===$legacy_before,'sealing legacy snapshot preserves public and base token');
+s05_check(!is_wp_error(vne_library_decide_proposal($legacy_proposal['id'],'approved','Legacy approval')),'legacy item supports first approval without migration rewrite');
+$guide_ids=get_option('s04_persist_ids');$guide_id=$guide_ids['guide'];$guide_payload=vne_library_editorial_snapshot($guide_id);$guide_payload['content']='<p>Bài hướng dẫn sửa S05</p>';
+$deps_before=vne_library_dependencies($guide_id);$guide_history=vne_library_validations($guide_id);$guide_url=get_permalink($guide_id);
+$guide_proposal=s05_propose($guide_id,$guide_payload);
+s05_check(!is_wp_error($guide_proposal)&&vne_library_preview_proposal($guide_proposal['id'])['derived']['validation_status']==='review_needed','guide preview computes candidate content revision');
+vne_library_save_state($guide_ids['resource'],s05_state('unavailable'));
+s05_check(in_array('dependency_unavailable',array_column(vne_library_preview_proposal($guide_proposal['id'])['derived']['warnings'],'code'),true),'guide preview uses current dependency warning');
+$guide_applied=vne_library_decide_proposal($guide_proposal['id'],'approved','Duyệt guide fixture');
+s05_check(!is_wp_error($guide_applied)&&vne_library_dependencies($guide_id)===$deps_before&&vne_library_validations($guide_id)===$guide_history&&get_permalink($guide_id)===$guide_url,'guide approval keeps dependencies evidence and URL');
+$ui_payload=s05_payload('Bản gốc để kiểm tra UI S05');$ui=vne_library_save_item($ui_payload);$ui_id=$ui['id'];
+vne_library_save_state($ui_id,s05_state());
+$race_payload=s05_payload('Race approved original');$race=vne_library_save_item($race_payload);$race_id=$race['id'];
+$race_a=s05_propose($race_id,array_replace($race_payload,array('title'=>'Race winner A')));$race_b=s05_propose($race_id,array_replace($race_payload,array('title'=>'Race winner B')));
+$reviewer=wp_create_user('s05reviewer2',S03_PASSWORD,'s05reviewer@example.test');$user=new WP_User($reviewer);$user->set_role('vne_library_editor');
+update_option('s05_persist_ids',array('item'=>$id,'ui'=>$ui_id,'race'=>$race_id,'race_a'=>$race_a['id'],'race_b'=>$race_b['id']));
+s05_check(get_post_type_object('vne_proposal')->show_in_rest===false,'generic proposal REST disabled');
+s05_check(count(get_post_meta($id,'_vne_approval',false))>=4,'approved history retains before/after and actor');
+echo wp_json_encode(array('checks'=>$checks,'ui_id'=>$ui_id,'ui_original'=>$ui_payload['title'],'ui_payload'=>$ui_payload,'ui_author'=>(int)get_post_field('post_author',$ui_id),'race_id'=>$race_id,'race_a'=>$race_a['id'],'race_b'=>$race_b['id']));

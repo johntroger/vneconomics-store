@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "observedAt": "2026-10-24T04:25:42.945Z",
+  "id": "d650bf0cb1bec2ee09db4b5a10940f27",
+  "checks": [
+    "ordinary homepage healthy",
+    "ordinary no-store",
+    "ordinary bypass",
+    "wrong token stays healthy",
+    "active theme scoped request fails with HTTP500",
+    "exception details not exposed",
+    "ordinary homepage healthy after probe"
+  ],
+  "requests": [
+    {
+      "phase": "ordinary",
+      "status": 200,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0",
+      "cachePolicy": "bypass"
+    },
+    {
+      "phase": "wrong-token",
+      "status": 200,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0",
+      "cachePolicy": "bypass"
+    },
+    {
+      "phase": "scoped-active-theme-fault",
+      "status": 500,
+      "cacheControl": "no-cache, must-revalidate, max-age=0, no-store, private",
+      "cachePolicy": null
+    },
+    {
+      "phase": "ordinary-after-probe",
+      "status": 200,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0",
+      "cachePolicy": "bypass"
+    }
+  ],
+  "failure": null,
+  "localSessionConfigRemoved": true,
+  "limits": [
+    "Active theme fault is conditional on an exact GET homepage request and random expiring header",
+    "No global theme outage or automatic deployment watchdog certified"
+  ]
+}

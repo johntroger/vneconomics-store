@@ -1,0 +1,10 @@
+{
+  "message": "AssertionError [ERR_ASSERTION]: sitemap exact approved public count vne_resource\n    at check (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:16:28)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:94:317",
+  "checks": [
+    "six approved resources and five-piece lesson cluster",
+    "seed rerun retains ids and does not duplicate/overwrite",
+    "sitemap vne_resource status"
+  ],
+  "performance": [],
+  "audits": []
+}

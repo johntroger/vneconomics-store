@@ -1,0 +1,148 @@
+{
+  "observedAt": "2026-10-25T03:38:18.587Z",
+  "status": "SOURCE_CAPTURED_NOT_YET_EDITORIALLY_REVIEWED",
+  "results": [
+    {
+      "key": 71,
+      "repo": "openai/whisper",
+      "stars": 111210,
+      "archived": false,
+      "readmeBytes": 8246,
+      "source": "https://raw.githubusercontent.com/openai/whisper/main/README.md",
+      "sha256": "38c180c2a8d8ba628a3e131ad42bf06c8a51bb681efb30fbe28d5a0f4b65f288"
+    },
+    {
+      "key": 72,
+      "repo": "SYSTRAN/faster-whisper",
+      "stars": 26115,
+      "archived": false,
+      "readmeBytes": 15249,
+      "source": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/README.md",
+      "sha256": "43efe4a6eb9046d5ba4dcdcf2abcc27ad9e021f3edfc00bd6eb4913a9abe065b"
+    },
+    {
+      "key": 73,
+      "repo": "ggml-org/whisper.cpp",
+      "stars": 54636,
+      "archived": false,
+      "readmeBytes": 40988,
+      "source": "https://raw.githubusercontent.com/ggml-org/whisper.cpp/master/README.md",
+      "sha256": "43451813ec96b5ea286c6d676f467bdffb053224c110c257ce3d67d911e774e7"
+    },
+    {
+      "key": 74,
+      "repo": "SubtitleEdit/subtitleedit",
+      "stars": 14707,
+      "archived": false,
+      "readmeBytes": 3474,
+      "source": "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/README.md",
+      "sha256": "c401520f5fbfba09979485e4df9b6415b0b7f367d037dbb74e9b9bae52e4b0d4"
+    },
+    {
+      "key": 75,
+      "repo": "audacity/audacity",
+      "stars": 18822,
+      "archived": false,
+      "readmeBytes": 1541,
+      "source": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+      "sha256": "c84ab5991133706a2899c20539df624ecaa124b7be9d4aff6d2b20986978d121"
+    },
+    {
+      "key": 76,
+      "repo": "mltframework/shotcut",
+      "stars": 15492,
+      "archived": false,
+      "readmeBytes": 2838,
+      "source": "https://raw.githubusercontent.com/mltframework/shotcut/master/README.md",
+      "sha256": "2a38840fc2fafa928b9b8cfa4082581b1a1a699b920e5b9168a23c62bd6a9df8"
+    },
+    {
+      "key": 77,
+      "repo": "OpenShot/openshot-qt",
+      "stars": 6690,
+      "archived": false,
+      "readmeBytes": 6756,
+      "source": "https://raw.githubusercontent.com/OpenShot/openshot-qt/develop/README.md",
+      "sha256": "007fa904476da233e2df182677908c1378fb76e44dc20c748a7ff8e6c170ba8a"
+    },
+    {
+      "key": 78,
+      "repo": "yt-dlp/yt-dlp",
+      "stars": 201586,
+      "archived": false,
+      "readmeBytes": 179127,
+      "source": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/master/README.md",
+      "sha256": "6adba80a892aee34940550ee8d7085041afca6140b7ac56d6414f1e6eb484bfe"
+    },
+    {
+      "key": 79,
+      "repo": "blender/blender",
+      "stars": 21225,
+      "archived": false,
+      "readmeBytes": 1234,
+      "source": "https://raw.githubusercontent.com/blender/blender/main/README.md",
+      "sha256": "1bbb333e5196ba3d5cdc42830e5f1db6b77c311da96d4ff4d9a6f8143d9821e1"
+    },
+    {
+      "key": 80,
+      "repo": "ManimCommunity/manim",
+      "stars": 41840,
+      "archived": false,
+      "readmeBytes": 8378,
+      "source": "https://raw.githubusercontent.com/ManimCommunity/manim/main/README.md",
+      "sha256": "41cac8aeb33a726c1b0a70d10233ee06d9cd73c6df0bace8145637d75c5fc283"
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://raw.githubusercontent.com/openai/whisper/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SYSTRAN/faster-whisper/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ggml-org/whisper.cpp/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SubtitleEdit/subtitleedit/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/audacity/audacity/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mltframework/shotcut/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/OpenShot/openshot-qt/develop/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yt-dlp/yt-dlp/master/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/blender/blender/main/README.md",
+      "status": 200,
+      "remaining": null
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ManimCommunity/manim/main/README.md",
+      "status": 200,
+      "remaining": null
+    }
+  ]
+}

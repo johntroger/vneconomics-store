@@ -1,0 +1,7 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: {\"error\":\"The plugin does not have a valid header.\",\"active\":[],\"pluginDir\":\"C:/Users/trant/CodexProjects/VneconomicsStore/tmp/tests/s15-active-XLJD4n/wp-content/plugins\",\"found\":[],\"directoryEntries\":[\".\",\"..\",\"sqlite-database-integration\",\"vne-library-core\"],\"header\":{\"Name\":\"Vneconomics Library Core\",\"PluginURI\":\"\",\"Version\":\"0.4.2\",\"Description\":\"Nhập tay tài nguyên, hướng dẫn và nguồn có kiểm tra dữ liệu/quyền.\",\"Author\":\"\",\"AuthorURI\":\"\",\"TextDomain\":\"vne-library-core\",\"DomainPath\":\"\",\"Network\":false,\"RequiresWP\":\"\",\"RequiresPHP\":\"8.1\",\"UpdateURI\":\"\",\"RequiresPlugins\":\"\",\"Title\":\"Vneconomics Library Core\",\"AuthorName\":\"\"}}\n+ actual - expected\n\n+ 'The plugin does not have a valid header.'\n- null\n\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s15-live-rehearsal.mjs:37:9\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)",
+  "checks": [],
+  "visits": [],
+  "logs": "",
+  "phpLog": ""
+}

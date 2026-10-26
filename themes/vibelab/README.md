@@ -1,0 +1,111 @@
+# VibeLab Việt — theme 0.4.0
+
+Theme nền/trang chủ S06, danh mục/thẻ S07, chi tiết S08 và tìm/lọc S09.
+Dùng plugin vne-library-core 0.3.0/schema 3. Không WooCommerce, giỏ hàng hay thanh toán.
+Thư viện miễn phí, CTA mở đúng repo/path; không bắt kết nối AI để đọc hoặc mở nguồn.
+
+## Dữ liệu và điều hướng
+
+Theme không tạo dữ liệu khi kích hoạt. vne_library_item() public trả approved snapshot
+và derived state. Home tối đa 6 resource; guide đầu tiên theo tên. Thẻ ghi loại,
+chủ repo theo namespace URL, yêu cầu và mức xác minh; không tự nhận đã thử.
+
+Archive và taxonomy category/need/tool: breadcrumb, danh mục có counts, grid 3/2/1,
+9 mục/trang theo tên approved. Category cha gồm con; đa danh mục không đếm trùng.
+Guide/private/draft/proposal không vào số resource; không dùng WP term.count.
+Tập approved ID thống nhất main query, membership, count và pagination.
+Danh mục có thật nhưng rỗng trả 200; taxonomy không có hoặc ngoài phạm vi trả 404.
+Snapshot chỉ cache trong request; chưa có index/cache cho thư viện lớn.
+MVP dự kiến 20 resource; xem hợp đồng S07 trước khi tăng quy mô.
+
+## Trang tài nguyên chi tiết S08
+
+single-vne_resource.php và detail.php: ảnh trái/thông tin phải trên desktop,
+một cột mobile, CTA nguồn, điều hướng mục bằng anchor HTML.
+Có giới thiệu; yêu cầu/quyền/tương thích/giấy phép/chi phí; tình trạng và phạm vi
+kiểm chứng; cách tìm hiểu; nguồn/path/revision và các mốc đã ghi.
+Không dựng gallery, rating, FAQ hoặc lịch sử thiếu dữ liệu.
+
+Unknown / theo nguồn / mâu thuẫn được trình bày riêng, không nâng thành đã xác minh.
+Bằng chứng cũ vẫn có thể được đọc nhưng không xác nhận phiên bản hiện tại.
+Không hiển thị audit nội bộ. Suspended/unavailable chỉ mở giải thích, URL nguồn
+và tham chiếu trên trang đó không còn là link ngoài. Các cảnh báo phụ được giữ.
+
+Giới thiệu được lọc HTML, không media/form/shortcode ngoài, không h1/style;
+ID/anchor được prefix để tránh đụng template. commands_allowed=false thay khối pre
+bằng giải thích. Không sinh/copy/chạy lệnh; mã inline/văn xuôi vẫn cần biên tập.
+Related dùng category approved chung, tối đa3, bỏ suspended/unavailable;
+guide cùng chủ đề không được coi là đã sử dụng repo. Không dữ liệu thì bỏ mục.
+Frontend private/draft không hiển thị kể cả đã đăng nhập; preview S05 ở admin riêng.
+
+Ảnh SVG S02 là minh họa tự biên soạn, không là demo. Thiếu bìa dùng bìa chung;
+thiếu cả bìa chung hiện placeholder có nhãn. Không tải font/ảnh từ dịch vụ ngoài.
+Font Segoe UI/system-ui. Menu hai cấp, liên kết và nội dung vẫn dùng được khi tắt JS.
+
+## Kiểm thử và giới hạn
+
+Chạy tuần tự tại root:
+
+- npm run test:search
+- npm run test:search-catalog-regression
+- npm run test:search-detail-regression
+- npm run test:search-home-regression
+
+Các lệnh hồi quy ghi riêng vào docs/acceptance/S09/S07-regression, S08-regression và S06-regression.
+Hồ sơ S06/S07/S08 gốc giữ nguyên. Mọi runner qua run-clean, fixture độc lập;
+không nạp QA vào database local đang dùng, không deploy hoặc gọi API trả phí.
+
+index.php còn là bản đọc nền cho guide/practice và fallback chung.
+S09 PASS kỹ thuật local; xem docs/acceptance/S09-search-and-filters.vi.md. Chưa làm bài học tương tác S10 hoặc hỗ trợ S11.
+SQLite/PHP WebAssembly/Edge local chưa chứng nhận hosting MySQL/cache/browser khác.
+
+## Tìm kiếm và bộ lọc S09
+
+discovery.php và discovery-template.php dùng chung cho search/archive/taxonomy.
+Header mặc định tài nguyên, có scope hướng dẫn + bộ thực hành; chuyển scope giữ từ khóa.
+Index từ approved title/excerpt/content/taxonomy, không raw/proposal/private/audit.
+Unicode NFC/bỏ dấu Việt, alias hữu hạn vibe coding/vibecode, kỹ năng/skill/skills.
+Từ khóa và các nhóm dùng AND; nhiều nhãn need/tool cùng nhóm dùng OR.
+Sort tên dùng fold dấu riêng, không alias; có relevance và ngày đối chiếu nguồn.
+Không dựng sort đề xuất/stars, lọc OS/chi phí/độ khó khi thiếu dữ liệu hữu ích.
+
+URL GET lưu scope/s/category/need[]/tool[]/sort/paged. Chip/scope/form/sort reset trang1;
+pagination và Back/share giữ kết quả. Counts danh mục theo scope trước bộ lọc;
+counts kết quả sau toàn bộ tiêu chí. Category cha gồm con, hiển thị cha trước con.
+Danh mục rỗng đã chọn vẫn giữ được qua GET. Input sai có alert, không mở rộng truy vấn.
+
+discovery.js chỉ nâng cấp panel mobile: native dialog, focus trap/restore, draft,
+Áp dụng, Xóa draft; Đóng/Escape/backdrop/Back hủy nháp. Apply thay entry panel bằng
+URL kết quả để Back về kết quả trước. Không JS/script lỗi: form GET hiện inline.
+Không dùng AJAX; reload có tiến trình và lỗi thư viện khác với kết quả0 hợp lệ.
+Xem docs/S09-search-contract.vi.md; staging/MySQL/cache/usability vẫn chờ bước riêng.
+
+
+## S10 — Bài thực hành (0.5.0)
+
+Guide và practice dùng lesson-template.php. Nội dung phải nhập/duyệt qua VNE Library
+Core; theme không tự seed hoặc sửa database. Soạn theo hợp đồng
+docs/S10-lesson-contract.vi.md: h2 cho mục lục, pre.language-powershell cho lệnh,
+pre cho prompt, ul.lesson-checklist/li cho tự kiểm tra. Bản mẫu MOC-WIN-1 nằm trong
+docs/content-samples/S10-moc-studio-lesson.html.
+
+Marker p.lesson-example dành riêng cho demo Mộc Studio đã đóng gói ở
+assets/moc-studio; không phải cơ chế nhúng/chạy repo bất kỳ. Bản gốc ở
+examples/s10-moc-studio; test kiểm tra hai bản giống nhau.
+
+Cổng lệnh/cảnh báo/bằng chứng dùng derived state hiện hành, không suy từ lượt copy
+hay checkbox. Tiến độ chỉ lưu trên trình duyệt; JavaScript không bắt buộc để đọc bài.
+Không có thực thi lệnh, chatbot, API, analytics hay chứng nhận hoàn thành.
+
+
+## S11 — Hỗ trợ và báo lỗi (0.6.0)
+
+Footer nối trang giới thiệu, tiêu chí, FAQ, quyền riêng tư, điều kiện và trợ giúp.
+Query route vne_support do plugin/controller nhận; theme hỗ trợ đọc nội dung và form
+native POST, không cần JS. Trang tài nguyên/bài học có link gắn đúng nội dung;
+trang thiếu plugin báo503 cho form. JS chỉ phản hồi đang gửi, không quyết định lưu.
+
+support.php/support-template.php/assets/support.* chứa nội dung/giao diện.
+Bản sao chính sách mô tả đúng hàng đợi riêng/no-email/no-SLA hiện tại; không giả
+người trực/email/hotline hoặc chứng nhận pháp lý. Trước mở hosting phải đối chiếu
+người xử lý, log và backup thực tế theo kế hoạch. Chưa tự deploy từ S11.

@@ -1,0 +1,8 @@
+      - row "Toggle row Related to store.vneconomics.com Edit Web Admin Remove":
+            - text: vne35060_wp_kmqnf
+        - cell "Related to store.vneconomics.com Edit":
+          - text: Related to store.vneconomics.com
+      - row "Toggle row Related to staging-store.vneconomics.com Edit Web Admin Remove":
+            - text: vne35060_wp_udx1z
+        - cell "Related to staging-store.vneconomics.com Edit":
+          - text: Related to staging-store.vneconomics.com

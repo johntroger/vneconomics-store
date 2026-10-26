@@ -1,0 +1,64 @@
+{
+  "status": "PASS_GITHUB_LOCAL_BYTE_MATCH",
+  "observedAt": "2026-10-26T04:10:55.520Z",
+  "sourceSha": "71a914ea7e1746620a0f055dfec26ece3c231ea6",
+  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40267580030",
+  "manifestSha256": "42876608ef3ebfe3de131c9de4a8ef7136e925dfc89da5987bb58f8b4c3afaf3",
+  "files": [
+    {
+      "path": "content.json",
+      "sha256": "839da70208973589675634a266b71cd944340fc84cde23087114e302a42ec6a4"
+    },
+    {
+      "path": "environments.json",
+      "sha256": "d5f5cc7760f0fb5b685f3c211ebc06141c38b6e5589de2d5b0535afa443cc001"
+    },
+    {
+      "path": "evidence/antigravity.html",
+      "sha256": "e7daa10f8c1302c49bee378d8d87475f9d9c0072e9e4e3ed1aaaf74728d5b6d6"
+    },
+    {
+      "path": "evidence/claude-code.html",
+      "sha256": "c9ce6010ff2d425442d7dc5df9837cd8129e4c523104714515980cb0ba8c0b50"
+    },
+    {
+      "path": "evidence/codex.html",
+      "sha256": "59c6fb5efec075549f6b0add3066eaccb95bb0d06d5b300520c1c324c3d686a8"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "42876608ef3ebfe3de131c9de4a8ef7136e925dfc89da5987bb58f8b4c3afaf3"
+    },
+    {
+      "path": "payload.zip",
+      "sha256": "fa239c3dc17c46c3aeb61fe33e5a5301ca8239a456f3d41375facd82cbe8afda"
+    },
+    {
+      "path": "plugin.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5"
+    },
+    {
+      "path": "receiver.php",
+      "sha256": "6be74e3b87547e2321f5f80b8b2d787d875b03619490e8b9a7cc89389866e9cd"
+    },
+    {
+      "path": "rollback.zip",
+      "sha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215"
+    },
+    {
+      "path": "theme.zip",
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab"
+    }
+  ],
+  "unchangedR2PayloadFiles": 9,
+  "themeFiles": 38,
+  "pluginFiles": 10,
+  "remoteReleaseUnchanged": "4fe952ac7eec550d3125be9885fa6271aece2718",
+  "localDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\71a914ea7e1746620a0f055dfec26ece3c231ea6",
+  "downloadDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\github-40267580030",
+  "limits": [
+    "No Plesk install/pull/configuration change performed",
+    "Artifact retention1day on GitHub; immutable downloaded/local candidate retained",
+    "Native/UI R2 evidence applies to unchanged application/receiver bytes; CI executes package/S14 checks only"
+  ]
+}

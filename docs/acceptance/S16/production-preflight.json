@@ -1,0 +1,43 @@
+{
+  "observedAt": "2026-10-24T09:42:49.195Z",
+  "readOnly": true,
+  "root": "/var/www/vhosts/vneconomics.com/store.vneconomics.com/",
+  "database": "vne35060_wp_kmqnf",
+  "home": "https://store.vneconomics.com",
+  "siteurl": "https://store.vneconomics.com",
+  "php": "8.3.36",
+  "wordpress": "7.1.3",
+  "databaseVersion": "10.6.22-MariaDB-cll-lve",
+  "theme": "astra",
+  "themeVersion": "4.12.0",
+  "schema": null,
+  "indexing": 1,
+  "postsPagesCount": 17,
+  "postsPagesHash": "d6b5b93b7f7a4a235659ebfa9aa73d4e42f580636bfc0ffef69800531163a651",
+  "plugins": {
+    "ai-provider-for-anthropic/plugin.php": {
+      "version": "1.0.3",
+      "active": true
+    },
+    "akismet/akismet.php": {
+      "version": "5.6",
+      "active": false
+    },
+    "hello.php": {
+      "version": "1.7.2",
+      "active": false
+    },
+    "visa-acceptance-solutions/visa-acceptance-solutions.php": {
+      "version": "2.1.0",
+      "active": true
+    },
+    "woocommerce/woocommerce.php": {
+      "version": "10.5.1",
+      "active": true
+    }
+  },
+  "products": 0,
+  "legacyOrders": 0,
+  "hposTablePresent": true,
+  "externalObjectCache": false
+}

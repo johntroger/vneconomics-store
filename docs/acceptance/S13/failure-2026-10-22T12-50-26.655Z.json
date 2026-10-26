@@ -1,0 +1,436 @@
+{
+  "message": "page.waitForLoadState: Timeout 30000ms exceeded.\n    at go (C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\scripts\\test-s13-integrated.mjs:19:102)\n    at async file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-s13-integrated.mjs:109:4",
+  "checks": [
+    "six approved resources and five-piece lesson cluster",
+    "seed rerun retains ids and does not duplicate/overwrite",
+    "home desktop language/title/main/h1",
+    "home desktop visible controls named and image alt present",
+    "home desktop no horizontal page overflow",
+    "home desktop one canonical and description",
+    "home contains six catalog cards",
+    "repo action distinct from internal detail",
+    "repo CTA opens correct URL in new tab (intercepted, no upstream request)",
+    "repo target has no opener",
+    "internal card opens exact resource detail",
+    "resource desktop language/title/main/h1",
+    "resource desktop visible controls named and image alt present",
+    "resource desktop no horizontal page overflow",
+    "resource desktop one canonical and description",
+    "resource exposes original repo",
+    "catalog desktop language/title/main/h1",
+    "catalog desktop visible controls named and image alt present",
+    "catalog desktop no horizontal page overflow",
+    "catalog desktop one canonical and description",
+    "catalog has navigable category",
+    "category desktop language/title/main/h1",
+    "category desktop visible controls named and image alt present",
+    "category desktop no horizontal page overflow",
+    "category desktop one canonical and description",
+    "category title describes exact category",
+    "search results noindex",
+    "accentless CSS query returns catalog result",
+    "search does not claim unrelated canonical",
+    "lesson desktop language/title/main/h1",
+    "lesson desktop visible controls named and image alt present",
+    "lesson desktop no horizontal page overflow",
+    "lesson desktop one canonical and description",
+    "lesson commands visible only with scoped historical validation",
+    "lesson checklist survives reload",
+    "lesson progress reset works",
+    "supporting lesson 11 language/title/main/h1",
+    "supporting lesson 11 visible controls named and image alt present",
+    "supporting lesson 11 no horizontal page overflow",
+    "supporting lesson 11 one canonical and description",
+    "supporting lesson 12 language/title/main/h1",
+    "supporting lesson 12 visible controls named and image alt present",
+    "supporting lesson 12 no horizontal page overflow",
+    "supporting lesson 12 one canonical and description",
+    "supporting lesson 13 language/title/main/h1",
+    "supporting lesson 13 visible controls named and image alt present",
+    "supporting lesson 13 no horizontal page overflow",
+    "supporting lesson 13 one canonical and description",
+    "supporting lesson 14 language/title/main/h1",
+    "supporting lesson 14 visible controls named and image alt present",
+    "supporting lesson 14 no horizontal page overflow",
+    "supporting lesson 14 one canonical and description",
+    "support language/title/main/h1",
+    "support visible controls named and image alt present",
+    "support no horizontal page overflow",
+    "support one canonical and description",
+    "support title contains brand without fake pagination",
+    "home mobile 360 language/title/main/h1",
+    "home mobile 360 visible controls named and image alt present",
+    "home mobile 360 no horizontal page overflow",
+    "home mobile 360 one canonical and description",
+    "catalog mobile 360 language/title/main/h1",
+    "catalog mobile 360 visible controls named and image alt present",
+    "catalog mobile 360 no horizontal page overflow",
+    "catalog mobile 360 one canonical and description",
+    "resource mobile 360 language/title/main/h1",
+    "resource mobile 360 visible controls named and image alt present",
+    "resource mobile 360 no horizontal page overflow",
+    "resource mobile 360 one canonical and description",
+    "lesson mobile 360 language/title/main/h1",
+    "lesson mobile 360 visible controls named and image alt present",
+    "lesson mobile 360 no horizontal page overflow",
+    "lesson mobile 360 one canonical and description",
+    "home mobile 390 language/title/main/h1",
+    "home mobile 390 visible controls named and image alt present",
+    "home mobile 390 no horizontal page overflow",
+    "home mobile 390 one canonical and description",
+    "catalog mobile 390 language/title/main/h1",
+    "catalog mobile 390 visible controls named and image alt present",
+    "catalog mobile 390 no horizontal page overflow",
+    "catalog mobile 390 one canonical and description",
+    "resource mobile 390 language/title/main/h1",
+    "resource mobile 390 visible controls named and image alt present",
+    "resource mobile 390 no horizontal page overflow",
+    "resource mobile 390 one canonical and description",
+    "lesson mobile 390 language/title/main/h1",
+    "lesson mobile 390 visible controls named and image alt present",
+    "lesson mobile 390 no horizontal page overflow",
+    "lesson mobile 390 one canonical and description",
+    "first Tab reaches skip link",
+    "skip link focuses main",
+    "lesson instructions readable without JavaScript",
+    "sitemap vne_resource status",
+    "raw network XML rather than browser XSL presentation vne_resource",
+    "sitemap exact approved public count vne_resource",
+    "sitemap includes approved URL 4",
+    "sitemap includes approved URL 5",
+    "sitemap includes approved URL 6",
+    "sitemap includes approved URL 7",
+    "sitemap includes approved URL 8",
+    "sitemap includes approved URL 9",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_resource",
+    "sitemap vne_guide status",
+    "raw network XML rather than browser XSL presentation vne_guide",
+    "sitemap exact approved public count vne_guide",
+    "sitemap includes approved URL 10",
+    "sitemap includes approved URL 11",
+    "sitemap includes approved URL 12",
+    "sitemap includes approved URL 13",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_guide",
+    "sitemap vne_practice status",
+    "raw network XML rather than browser XSL presentation vne_practice",
+    "sitemap exact approved public count vne_practice",
+    "sitemap includes approved URL 14",
+    "draft/private/unapproved entries excluded",
+    "sitemap excludes installer and private system content vne_practice",
+    "index sitemap only library content"
+  ],
+  "performance": [
+    {
+      "page": "home",
+      "run": 1,
+      "lcp": 8248,
+      "cls": 0.18467285803328767,
+      "ttfb": 4542.5999999996275,
+      "transfer": 29656
+    },
+    {
+      "page": "home",
+      "run": 2,
+      "lcp": 7172,
+      "cls": 0.18467285803328767,
+      "ttfb": 4144.5,
+      "transfer": 29656
+    },
+    {
+      "page": "home",
+      "run": 3,
+      "lcp": 6880,
+      "cls": 0,
+      "ttfb": 4222.0999999996275,
+      "transfer": 29656
+    },
+    {
+      "page": "catalog",
+      "run": 1,
+      "lcp": 8496,
+      "cls": 0.3257201829749099,
+      "ttfb": 5109.0999999996275,
+      "transfer": 35773
+    },
+    {
+      "page": "catalog",
+      "run": 2,
+      "lcp": 6968,
+      "cls": 0.3257201829749099,
+      "ttfb": 4326.100000000559,
+      "transfer": 35773
+    },
+    {
+      "page": "catalog",
+      "run": 3,
+      "lcp": 5968,
+      "cls": 0,
+      "ttfb": 4364.600000000559,
+      "transfer": 35773
+    },
+    {
+      "page": "resource",
+      "run": 1,
+      "lcp": 6740,
+      "cls": 0,
+      "ttfb": 4762.5999999996275,
+      "transfer": 28250
+    }
+  ],
+  "audits": [
+    {
+      "label": "home desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "category desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Mẫu dự án – VibeLab Việt",
+      "description": "Tài nguyên trong danh mục Mẫu dự án. Đọc yêu cầu, nguồn và tình trạng kiểm chứng trước khi chọn.",
+      "canonical": [
+        "http://127.0.0.1:19413/danh-muc/mau-du-an/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson desktop",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 11",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Trước bài đầu: chuẩn bị công cụ và quyền truy cập – VibeLab Việt",
+      "description": "Kiểm tra điều kiện trước khi làm bài; dừng ở bước cần tài khoản hoặc chi phí chưa rõ.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/truoc-bai-dau-chuan-bi-cong-cu-va-quyen-truy-cap/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 12",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Sửa lỗi bài đầu: ghi lại điều đang xảy ra – VibeLab Việt",
+      "description": "Mô tả lỗi rõ ràng trước khi nhờ trợ giúp, không chia sẻ thông tin bí mật.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/sua-loi-bai-dau-ghi-lai-dieu-dang-xay-ra/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 13",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Sau bài đầu: hiểu HTML và CSS vừa tạo – VibeLab Việt",
+      "description": "Đọc cấu trúc trang rồi thay đổi từng phần nhỏ và kiểm tra lại.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/sau-bai-dau-hieu-html-va-css-vua-tao/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "supporting lesson 14",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Bộ thực hành landing page cho dịch vụ chụp ảnh – VibeLab Việt",
+      "description": "Một nhiệm vụ nhỏ: chuẩn bị, tạo trang Mộc Studio, kiểm tra, sửa một chi tiết và khôi phục.",
+      "canonical": [
+        "http://127.0.0.1:19413/bo-thuc-hanh/bo-thuc-hanh-landing-page-cho-dich-vu-chup-anh/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "support",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Trợ giúp và liên hệ – VibeLab Việt",
+      "description": "Bạn có thể đọc bài, tìm tài nguyên và mở repo mà không đăng ký tài khoản website hoặc nhập API key. Nếu gặp lỗi, hãy phân biệt lỗi nội dung với lỗi tài khoản hoặc công cụ ngoài.Báo…",
+      "canonical": [
+        "http://127.0.0.1:19413/?vne_support=ho-tro"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "home mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson mobile 360",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "home mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "VibeLab Việt",
+      "description": "Thư viện tiếng Việt giúp người mới tìm hiểu vibe coding, chọn tài nguyên và làm bài landing page từng bước. Đọc miễn phí, không cần API key.",
+      "canonical": [
+        "http://127.0.0.1:19413/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "catalog mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Tài nguyên – VibeLab Việt",
+      "description": "Khám phá tài nguyên và hướng dẫn thực hành tiếng Việt. Xem nguồn, yêu cầu và phạm vi kiểm chứng trước khi dùng.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "resource mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Web Dev for Beginners – VibeLab Việt",
+      "description": "Hiểu các phần của một trang web trước khi nhờ AI viết và sửa mã.",
+      "canonical": [
+        "http://127.0.0.1:19413/tai-nguyen/web-dev-for-beginners/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    },
+    {
+      "label": "lesson mobile 390",
+      "lang": "vi",
+      "h1": 1,
+      "main": 1,
+      "title": "Làm landing page Mộc Studio với Codex trên Windows – VibeLab Việt",
+      "description": "Bắt đầu từ thư mục mới: làm trang cho dịch vụ chụp ảnh hư cấu, kiểm tra, sửa và quay lại bản mốc.",
+      "canonical": [
+        "http://127.0.0.1:19413/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/"
+      ],
+      "unnamed": [],
+      "missingAlt": [],
+      "overflow": false
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "installedVersion": "0.7.0",
+    "activeTheme": "astra",
+    "expectedFiles": 36,
+    "actualFiles": 36,
+    "changedOrMissing": [],
+    "unexpected": [],
+    "hashesMatch": true,
+    "plugin": "0.4.2",
+    "schema": 3
+  },
+  {
+    "theme": "vibelab",
+    "version": "0.7.0",
+    "previousMenuLocations": {
+      "primary": 16
+    },
+    "currentMenuLocations": [],
+    "backupOutsideWebroot": true,
+    "plugin": "0.4.2",
+    "schema": 3
+  },
+  {
+    "status": "ACTIVE_PLUGIN_OBSERVED",
+    "target": {
+      "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+      "database": "vne35060_wp_udx1z",
+      "home": "https://staging-store.vneconomics.com",
+      "siteurl": "https://staging-store.vneconomics.com",
+      "blog_public": "0"
+    },
+    "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+    "runtime": {
+      "phpCLI": "8.3.36",
+      "databaseVersion": "10.6.22-MariaDB-cll-lve",
+      "mysqli": true,
+      "curl": true,
+      "zip": true,
+      "WP_CACHE": false,
+      "objectCache": null
+    },
+    "bundle": {
+      "manifestHashVerified": true,
+      "pluginArchiveHashVerified": true
+    },
+    "plugin": {
+      "active": true,
+      "runtimeVersion": "0.4.2",
+      "schema": "3",
+      "files": {
+        "present": true,
+        "hashesMatch": true,
+        "missing": [],
+        "unexpected": [],
+        "changed": []
+      }
+    },
+    "theme": {
+      "stylesheet": "vibelab",
+      "version": "0.7.0"
+    },
+    "limits": [
+      "Read-only observation; no install/activation/seed/purge/mail/network/subprocess",
+      "Does not certify Astra compatibility, mutex/concurrency, HTTP/HTTPS or server/CDN cache",
+      "Theme gate stays closed until required plugin checks are completed"
+    ]
+  }
+]

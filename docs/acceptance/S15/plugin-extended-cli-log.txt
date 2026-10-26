@@ -1,0 +1,128 @@
+WP-CLIWP-CLI commands executed here will directly affect your WordPress site, bypassing WP Toolkit GUI. To see these changes in WP Toolkit GUI, click Refresh in the top right corner of the site card or wait until the installation cache is refreshed automatically.Learn more about running WP-CLI in WP ToolkitCommandwpEnvironment variablesEnvironment variables  Add one more# wp eval global $wpdb; if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com"){WP_CLI::error("Wrong staging");} $id=101; $p=get_post($id); if(!$p || $p->post_type!=="vne_resource" || $p->post_title!=="S15 UI disposable draft 1792738386005 current" || $p->post_status!=="draft"){WP_CLI::error("Fixture ownership mismatch");} $proposals=get_posts(array("post_type"=>"vne_proposal","post_parent"=>$id,"post_status"=>"any","numberposts"=>-1,"fields"=>"ids")); if($proposals){WP_CLI::error("Unexpected proposals; preserve for review");} $before=array("title"=>$p->post_title,"status"=>$p->post_status,"validation"=>vne_library_item($id,true)["derived"]["validation_status"],"recommendation"=>vne_library_state_input($id)["recommendation"]["status"]); wp_delete_post($id,true); $left=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE ID=%d OR post_parent=%d",$id,$id)); $meta=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id=%d",$id)); $lock=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name=%s",vne_library_content_lock_key($id))); echo wp_json_encode(array("beforeCleanup"=>$before,"remainingPostsOrChildren"=>$left,"remainingMeta"=>$meta,"remainingContentLock"=>$lock,"theme"=>get_stylesheet(),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL; if($left || $meta || $lock){WP_CLI::error("Cleanup incomplete");}
+
+PHP Fatal error:  Uncaught Error: Cannot use object of type WP_Error as array in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code:1
+Stack trace:
+#0 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44): eval()
+#1 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(63): Eval_Command->{closure}()
+#2 [internal function]: Eval_Command->__invoke()
+#3 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#4 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#5 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#6 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#7 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#8 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(136): WP_CLI\Runner->run_command_and_exit()
+#9 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1248): WP_CLI\Runner->do_early_invoke()
+#10 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#11 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#12 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#13 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/boot-fs.php(17): require_once('...')
+#14 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/wpt-wp-cli.php(49): require_once('...')
+#15 {main}
+  thrown in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code on line 1
+Fatal error: Uncaught Error: Cannot use object of type WP_Error as array in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code:1
+Stack trace:
+#0 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44): eval()
+#1 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(63): Eval_Command->{closure}()
+#2 [internal function]: Eval_Command->__invoke()
+#3 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/CommandFactory.php(100): call_user_func()
+#4 [internal function]: WP_CLI\Dispatcher\CommandFactory::WP_CLI\Dispatcher\{closure}()
+#5 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Dispatcher/Subcommand.php(497): call_user_func()
+#6 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(470): WP_CLI\Dispatcher\Subcommand->invoke()
+#7 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(493): WP_CLI\Runner->run_command()
+#8 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(136): WP_CLI\Runner->run_command_and_exit()
+#9 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Runner.php(1248): WP_CLI\Runner->do_early_invoke()
+#10 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/WP_CLI/Bootstrap/LaunchRunner.php(28): WP_CLI\Runner->start()
+#11 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/bootstrap.php(84): WP_CLI\Bootstrap\LaunchRunner->process()
+#12 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/wp-cli.php(35): WP_CLI\bootstrap()
+#13 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/wp-cli/php/boot-fs.php(17): require_once('...')
+#14 /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/wpt-wp-cli.php(49): require_once('...')
+#15 {main}
+  thrown in /usr/local/psa/admin/plib/modules/wp-toolkit/vendor/wp-cli/vendor/wp-cli/eval-command/src/Eval_Command.php(44) : eval()'d code on line 1
+Error: There has been a critical error on this website.Learn more about troubleshooting WordPress. There has been a critical error on this website.
+
+< exit code: 1 >
+# wp eval global $wpdb; if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com"){WP_CLI::error("Wrong staging");} $id=101; $p=get_post($id); if(!$p || $p->post_type!=="vne_resource" || $p->post_title!=="S15 UI disposable draft 1792738386005 current" || $p->post_status!=="draft"){WP_CLI::error("Fixture ownership mismatch");} $proposals=get_posts(array("post_type"=>"vne_proposal","post_parent"=>$id,"post_status"=>"any","numberposts"=>-1,"fields"=>"ids")); if($proposals){WP_CLI::error("Unexpected proposals; preserve for review");} $actor=get_current_user_id(); wp_set_current_user(1); if(!current_user_can("vne_manage_library")){WP_CLI::error("Cleanup admin unavailable");} $before=array("title"=>$p->post_title,"status"=>$p->post_status,"validation"=>vne_library_item($id,true)["derived"]["validation_status"],"recommendation"=>vne_library_state_input($id)["recommendation"]["status"]); wp_delete_post($id,true); $left=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE ID=%d OR post_parent=%d",$id,$id)); $meta=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id=%d",$id)); $lock=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name=%s",vne_library_content_lock_key($id))); echo wp_json_encode(array("beforeCleanup"=>$before,"remainingPostsOrChildren"=>$left,"remainingMeta"=>$meta,"remainingContentLock"=>$lock,"theme"=>get_stylesheet(),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version")),JSON_PRETTY_PRINT),PHP_EOL; if($left || $meta || $lock){WP_CLI::error("Cleanup incomplete");}
+{
+    "beforeCleanup": {
+        "title": "S15 UI disposable draft 1792738386005 current",
+        "status": "draft",
+        "validation": "not_tested",
+        "recommendation": "suspended"
+    },
+    "remainingPostsOrChildren": 0,
+    "remainingMeta": 0,
+    "remainingContentLock": 0,
+    "theme": "astra",
+    "plugin": "0.4.2",
+    "schema": 3
+}
+
+
+< exit code: 0 >
+# wp eval if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com"){WP_CLI::error("Wrong staging");} global $wpdb; $key="vne_s15_probe_".wp_generate_uuid4(); $tokens=array(wp_generate_uuid4(),wp_generate_uuid4()); $connections=array(); $out=array(); try{for($i=0;$i<2;$i++){ $db=new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME); if($db->connect_errno)throw new Exception("Probe connection unavailable"); $connections[]=$db; } foreach($connections as $i=>$db){$sql=$wpdb->prepare("INSERT IGNORE INTO {$wpdb->options} (option_name,option_value,autoload) VALUES (%s,%s,%s)",$key,$tokens[$i],"no"); if(!$db->query($sql,MYSQLI_ASYNC))throw new Exception("Async query unavailable");} $pending=$connections; $rows=array(); $until=microtime(true)+10; while($pending){if(microtime(true)>$until)throw new Exception("Probe timeout"); $read=$pending;$errors=$pending;$reject=$pending; if(!mysqli_poll($read,$errors,$reject,1))continue; foreach($read as $db){$index=array_search($db,$connections,true); $result=$db->reap_async_query(); if($result===false)throw new Exception("Probe query failed"); $rows[$index]=$db->affected_rows; unset($pending[array_search($db,$pending,true)]);}} ksort($rows);$winner=array_search(1,$rows,true);$out["twoIndependentAsyncConnections"]=count($connections)===2;$out["affectedRows"]=array_values($rows);$out["exactlyOneWinner"]=array_sum($rows)===1&&count(array_filter($rows,fn($n)=>$n===0))===1;$owner=$wpdb->get_var($wpdb->prepare("SELECT option_value FROM {$wpdb->options} WHERE option_name=%s",$key));$out["winnerOwnsLock"]=$winner!==false&&$owner===$tokens[$winner];}catch(Throwable $e){$out["failure"]=$e->getMessage();}finally{foreach($connections as $db){$db->close();} $wpdb->query($wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name=%s AND option_value IN (%s,%s)",$key,$tokens[0],$tokens[1]));$out["cleanup"]=!$wpdb->get_var($wpdb->prepare("SELECT option_name FROM {$wpdb->options} WHERE option_name=%s",$key));}echo wp_json_encode($out,JSON_PRETTY_PRINT),PHP_EOL;if(isset($out["failure"])||empty($out["exactlyOneWinner"])||empty($out["winnerOwnsLock"])||empty($out["cleanup"]))WP_CLI::error("Concurrent SQL probe failed");
+{
+    "twoIndependentAsyncConnections": true,
+    "affectedRows": [
+        0,
+        1
+    ],
+    "exactlyOneWinner": true,
+    "winnerOwnsLock": true,
+    "cleanup": true
+}
+
+
+< exit code: 0 >
+# wp eval if(DB_NAME!=="vne35060_wp_udx1z" || get_option("home")!=="https://staging-store.vneconomics.com" || (string)get_option("blog_public")!=="0"){WP_CLI::error("Wrong staging");} wp_set_current_user(1); if(!current_user_can("vne_approve_library"))WP_CLI::error("Admin unavailable"); add_filter("pre_wp_mail",fn()=>false,PHP_INT_MAX);add_filter("pre_http_request",fn()=>new WP_Error("s15_network_blocked","External requests disabled"),PHP_INT_MAX); global $wpdb;$id=0;$term=0;$pid=0;$tag="S15 PUBLIC DISPOSABLE 1792738796732"; $baseline=hash("sha256",wp_json_encode($wpdb->get_results($wpdb->prepare("SELECT ID,post_type,post_title,post_status FROM {$wpdb->posts} WHERE post_type IN (%s,%s) ORDER BY ID","post","page"),ARRAY_A))); $need=function($r){if(is_wp_error($r))throw new Exception($r->get_error_message());return $r;};try{$t=$need(wp_insert_term($tag,"vne_category"));$term=(int)$t["term_id"]; $payload=array("post_type"=>"vne_guide","status"=>"publish","title"=>$tag,"excerpt"=>"Temporary S15 acceptance fixture; automatically removed after testing.","content"=>"<p>S15 disposable test only. This is not a real guide. No commands or external service calls.</p>","primary_category"=>$term,"document_source"=>array("source_url"=>"https://staging-store.vneconomics.com/","observed_at"=>"2026-10-23","note"=>"Self-referenced staging fixture, not a source claim."));$item=$need(vne_library_save_item($payload));$id=(int)$item["id"];if(get_post_status($id)!=="publish")throw new Exception("Fixture not public");$payload["title"]=$tag." PROPOSED";$p=$need(vne_library_create_proposal($id,array("base_revision"=>$item["approved_revision"],"payload"=>$payload)));$pid=(int)$p["id"];$record=array("marker"=>$tag,"id"=>$id,"term"=>$term,"proposal"=>$pid,"baselinePostsPagesHash"=>$baseline);if(!add_option("vne_s15_fixture_1792738796732",$record,"","no"))throw new Exception("Fixture registry failed");echo wp_json_encode(array("registry"=>"vne_s15_fixture_1792738796732","fixture"=>$record,"publicTitleBeforeApproval"=>vne_library_item($id)["title"],"proposalStatus"=>$p["status"]),JSON_PRETTY_PRINT),PHP_EOL;}catch(Throwable $e){if($pid)wp_delete_post($pid,true);if($id)wp_delete_post($id,true);if($term)wp_delete_term($term,"vne_category");WP_CLI::error($e->getMessage());}
+{
+    "registry": "vne_s15_fixture_1792738796732",
+    "fixture": {
+        "marker": "S15 PUBLIC DISPOSABLE 1792738796732",
+        "id": 103,
+        "term": 19,
+        "proposal": 104,
+        "baselinePostsPagesHash": "2a66c50e9447f5850e62a513f1069698e4ed302a387ab961c61dbd89d1123d00"
+    },
+    "publicTitleBeforeApproval": "S15 PUBLIC DISPOSABLE 1792738796732",
+    "proposalStatus": "pending"
+}
+
+
+< exit code: 0 >
+# wp eval if(DB_NAME!=="vne35060_wp_udx1z"||get_option("home")!=="https://staging-store.vneconomics.com")WP_CLI::error("Wrong staging"); $key="vne_s15_fixture_1792738796732";$f=get_option($key);if(!is_array($f)||$f["id"]!==103||$f["proposal"]!==104||$f["marker"]!=="S15 PUBLIC DISPOSABLE 1792738796732")WP_CLI::error("Wrong fixture");add_filter("pre_wp_mail",fn()=>false,PHP_INT_MAX);add_filter("pre_http_request",fn()=>new WP_Error("s15_network_blocked","No external calls"),PHP_INT_MAX);$actor=get_current_user_id();wp_set_current_user(0);$oldRemote=$_SERVER["REMOTE_ADDR"]??null;$_SERVER["REMOTE_ADDR"]="s15-".wp_generate_uuid4();$bucket="vne_report_rate_".hash_hmac("sha256",$_SERVER["REMOTE_ADDR"]."|".floor(time()/900),wp_salt("auth"));if(get_transient($bucket)!==false)WP_CLI::error("Rate fixture collision");$f["rateBucket"]=$bucket;update_option($key,$f,false);$checks=array();$assert=function($v,$label)use(&$checks){if(!$v)throw new Exception($label);$checks[]=$label;};$need=function($r){if(is_wp_error($r))throw new Exception($r->get_error_message());return $r;};try{$item=$need(vne_library_item(103));$raw=array_merge(vne_report_ticket($item),array("nonce"=>wp_create_nonce("vne_report_submit"),"kind"=>"other","description"=>"S15 disposable report only: verifying local private queue, not a real issue.","email"=>"","website"=>"","consent"=>"1"));$bad=$raw;$bad["nonce"]="invalid";$r=vne_report_submit($bad);$assert(is_wp_error($r)&&$r->get_error_data()["status"]===403,"invalid nonce rejected");$bad=$raw;$bad["website"]="bot";$r=vne_report_submit($bad);$assert(is_wp_error($r)&&$r->get_error_data()["status"]===400,"honeypot rejected");$bad=$raw;$bad["revision"]=vne_library_proposal_record(104)["base_revision"];$bad["signature"]=vne_report_signature($bad);$r=vne_report_submit($bad);$assert(is_wp_error($r)&&$r->get_error_data()["status"]===409,"old approved revision rejected");$result=$need(vne_report_submit($raw));$ticketHash=hash("sha256",$raw["signature"]);$reports=get_posts(array("post_type"=>"vne_report","post_status"=>"private","name"=>"report-".$ticketHash,"numberposts"=>-1));$assert(count($reports)===1,"one private report saved");$f["report"]=(int)$reports[0]->ID;$f["ticketHash"]=$ticketHash;update_option($key,$f,false);$dup=$need(vne_report_submit($raw));$assert($dup["code"]===$result["code"],"duplicate submission same receipt code");$again=get_posts(array("post_type"=>"vne_report","post_status"=>"private","name"=>"report-".$ticketHash,"numberposts"=>-1));$assert(count($again)===1,"no duplicate report");$record=json_decode($reports[0]->post_content,true);$assert($record["resource_id"]===103&&$record["approved_revision"]===$item["approved_revision"],"report pins approved item revision");$assert($record["email"]==="","no personal email stored in fixture");$assert(!get_post_type_object("vne_report")->show_in_rest&&!get_post_type_object("vne_report")->publicly_queryable,"report type hidden from REST and public query");echo wp_json_encode(array("status"=>"PASS_REPORT_SERVICE_ONLY","checks"=>$checks,"reportId"=>$f["report"],"limits"=>"Service invocation under anonymous actor, not a submitted browser form; mail and external HTTP blocked"),JSON_PRETTY_PRINT),PHP_EOL;}catch(Throwable $e){WP_CLI::warning($e->getMessage());WP_CLI::halt(1);}finally{wp_set_current_user($actor);if($oldRemote===null)unset($_SERVER["REMOTE_ADDR"]);else $_SERVER["REMOTE_ADDR"]=$oldRemote;}
+{
+    "status": "PASS_REPORT_SERVICE_ONLY",
+    "checks": [
+        "invalid nonce rejected",
+        "honeypot rejected",
+        "old approved revision rejected",
+        "one private report saved",
+        "duplicate submission same receipt code",
+        "no duplicate report",
+        "report pins approved item revision",
+        "no personal email stored in fixture",
+        "report type hidden from REST and public query"
+    ],
+    "reportId": 106,
+    "limits": "Service invocation under anonymous actor, not a submitted browser form; mail and external HTTP blocked"
+}
+
+
+< exit code: 0 >
+# wp eval if(DB_NAME!=="vne35060_wp_udx1z"||get_option("home")!=="https://staging-store.vneconomics.com")WP_CLI::error("Wrong staging");$key="vne_s15_fixture_1792738796732";$f=get_option($key);if(!is_array($f)||$f["id"]!==103||$f["term"]!==19||$f["proposal"]!==104||$f["report"]!==106||$f["marker"]!=="S15 PUBLIC DISPOSABLE 1792738796732")WP_CLI::error("Wrong fixture registry");wp_set_current_user(1);add_filter("pre_wp_mail",fn()=>false,PHP_INT_MAX);add_filter("pre_http_request",fn()=>new WP_Error("s15_network_blocked","No external calls"),PHP_INT_MAX);$guide=get_post(103);$proposal=get_post(104);$report=get_post(106);$term=get_term(19,"vne_category");if(!$guide||$guide->post_type!=="vne_guide"||!str_starts_with($guide->post_title,$f["marker"])||!$proposal||$proposal->post_type!=="vne_proposal"||(int)$proposal->post_parent!==103||!$report||$report->post_type!=="vne_report"||json_decode($report->post_content,true)["resource_id"]!==103||is_wp_error($term)||$term->name!==$f["marker"])WP_CLI::error("Cleanup ownership mismatch");wp_delete_post(106,true);wp_delete_post(104,true);wp_delete_post(103,true);wp_delete_term(19,"vne_category");delete_transient($f["rateBucket"]);global $wpdb;$left=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->posts} WHERE ID IN (%d,%d,%d) OR post_parent IN (%d,%d,%d)",103,104,106,103,104,106));$meta=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->postmeta} WHERE post_id IN (%d,%d,%d)",103,104,106));$locks=(int)$wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM {$wpdb->options} WHERE option_name IN (%s,%s,%s)",vne_library_content_lock_key(103),"vne_report_lock_".$f["ticketHash"],"vne_report_lock_".hash("sha256",$f["rateBucket"])));$after=hash("sha256",wp_json_encode($wpdb->get_results($wpdb->prepare("SELECT ID,post_type,post_title,post_status FROM {$wpdb->posts} WHERE post_type IN (%s,%s) ORDER BY ID","post","page"),ARRAY_A)));$out=array("remainingPostsOrChildren"=>$left,"remainingMeta"=>$meta,"remainingLocks"=>$locks,"termRemoved"=>!term_exists(19,"vne_category"),"rateTransientRemoved"=>get_transient($f["rateBucket"])===false,"existingPostsPagesUnchanged"=>hash_equals($f["baselinePostsPagesHash"],$after),"theme"=>get_stylesheet(),"plugin"=>VNE_LIBRARY_VERSION,"schema"=>(int)get_option("vne_library_schema_version"));$clean=$left===0&&$meta===0&&$locks===0&&$out["termRemoved"]&&$out["rateTransientRemoved"]&&$out["existingPostsPagesUnchanged"];if($clean)delete_option($key);$out["registryRemoved"]=get_option($key)===false;echo wp_json_encode($out,JSON_PRETTY_PRINT),PHP_EOL;if(!$clean||!$out["registryRemoved"])WP_CLI::error("Cleanup incomplete");
+{
+    "remainingPostsOrChildren": 0,
+    "remainingMeta": 0,
+    "remainingLocks": 0,
+    "termRemoved": true,
+    "rateTransientRemoved": true,
+    "existingPostsPagesUnchanged": true,
+    "theme": "astra",
+    "plugin": "0.4.2",
+    "schema": 3,
+    "registryRemoved": true
+}
+
+
+< exit code: 0 >
+# Clear

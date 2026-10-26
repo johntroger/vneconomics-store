@@ -1,0 +1,53 @@
+{
+  "path": "docs/content-production/2026-10-25/packages/content-100-100-b6fab929073c.zip",
+  "sha256": "b6fab929073c15d0467c720c31214397c08fe712ecb1e55e1f0e5413fadb8617",
+  "size": 765830,
+  "manifestSha256": "2cd8b52931face46be369db627364121a676433b37bbb3303969b92a53936f3e",
+  "campaign": "github-100-20261025",
+  "count": 100,
+  "preparedCount": 100,
+  "target": "https://store.vneconomics.com",
+  "importerSha256": "79714eeaa98ba9b56764ea7e5c358ee374e581f946ec9f541203f4cec9635f46",
+  "batches": {
+    "1": {
+      "sha256": "564be3a0ec0f986e12c14bd844511f864b01f1b9df78690a4aaae4f2c9a86498",
+      "count": 10
+    },
+    "2": {
+      "sha256": "a5cbfc3bd4cfc06a85d7f3f6e414a6158339b1ab0753dbb6cfa243eb12174df8",
+      "count": 10
+    },
+    "3": {
+      "sha256": "3f0695a78ac9f75b11866a879bb3ee6d16af740f43226414faaab30567515a6b",
+      "count": 10
+    },
+    "4": {
+      "sha256": "0d2d802c027b2e77f56692f576149a6dd7cbe7490cd169283aa596a4bccad062",
+      "count": 10
+    },
+    "5": {
+      "sha256": "6e79209eb5cf50d66f684778a7fb2b1d162231fdaf4b5135172fb7e399bfb024",
+      "count": 10
+    },
+    "6": {
+      "sha256": "834d3749afa7dc9c7e090649cd2d5e6fb8e7008ca2d116f27fe6e43b5f8b37cb",
+      "count": 10
+    },
+    "7": {
+      "sha256": "2e1e79fc0e8300fcf3dc45f96e7b2e647210235467709059b926cde703db6cde",
+      "count": 10
+    },
+    "8": {
+      "sha256": "418ced2a7b32e90e1345c35e6ad7f0d3403f67b9c29585b47e33f55de4cea3c5",
+      "count": 10
+    },
+    "9": {
+      "sha256": "a0d6b1c84697fdb70ae453fb37ac98a8fb8caecfde9cecc5e98f91bdbf9deff2",
+      "count": 10
+    },
+    "10": {
+      "sha256": "544775b7d04ea4124b50bf5262d9eaa3039d3425af682762f88d35c552eb27b5",
+      "count": 10
+    }
+  }
+}
