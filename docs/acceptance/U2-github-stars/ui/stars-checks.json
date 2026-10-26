@@ -1,0 +1,10 @@
+{
+  "status": "PASS_U2_STARS_UI",
+  "contentCount": 113,
+  "collectorChecks": 373,
+  "fingerprint": "a16f0aea4944cbcab8a4c81281dde97ae9b39ecf8219a68847f92a794ccf6234",
+  "limits": [
+    "Synthetic GitHub responses only; no live API",
+    "No scheduled job, deployment or real content change"
+  ]
+}

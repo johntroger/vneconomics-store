@@ -1,0 +1,30 @@
+{
+  "changed": {
+    "posts": [],
+    "meta": [],
+    "terms": [],
+    "options": [
+      "_site_transient_timeout_wp_theme_files_patterns-58aa5ebba5e25d410e24a2653ec2228a",
+      "_site_transient_timeout_wp_theme_files_patterns-e0bcd1bf34325732cd56e26e0124cf31",
+      "_site_transient_wp_theme_files_patterns-e0bcd1bf34325732cd56e26e0124cf31"
+    ]
+  },
+  "coreCacheExceptions": [
+    "_site_transient_timeout_wp_theme_files_patterns-58aa5ebba5e25d410e24a2653ec2228a",
+    "_site_transient_timeout_wp_theme_files_patterns-e0bcd1bf34325732cd56e26e0124cf31",
+    "_site_transient_wp_theme_files_patterns-58aa5ebba5e25d410e24a2653ec2228a",
+    "_site_transient_wp_theme_files_patterns-e0bcd1bf34325732cd56e26e0124cf31"
+  ],
+  "before": {
+    "posts": "3128aedfa0a69cd95c869de3ada1e90de5caa3b6208bd3aeec87842e58dde80c",
+    "meta": "e8f4f6ce80efa856e308cf3256910f4f7f71b39c25ff7c7876b532407a02b5d9",
+    "terms": "fd1175f6f08bf6777ed0e91dc7234f454d1f56364fcd5423c610993bbcc86d44",
+    "options": "5257b8441dc83f58c86e908993f6e97eb54ec2e12967b4139f83a81a38cb4233"
+  },
+  "after": {
+    "posts": "3128aedfa0a69cd95c869de3ada1e90de5caa3b6208bd3aeec87842e58dde80c",
+    "meta": "e8f4f6ce80efa856e308cf3256910f4f7f71b39c25ff7c7876b532407a02b5d9",
+    "terms": "fd1175f6f08bf6777ed0e91dc7234f454d1f56364fcd5423c610993bbcc86d44",
+    "options": "5257b8441dc83f58c86e908993f6e97eb54ec2e12967b4139f83a81a38cb4233"
+  }
+}

@@ -4,6 +4,8 @@ Ngày26/10/2026, sau khi PR1 đã merge. Bản khảo sát ban đầu cho yêu c
 
 ## Điều chỉnh U1 theo yêu cầu làm đơn giản
 
+**U2 local đã nghiệm thu sau phê duyệt “ok”:** theme0.7.3/plugin0.4.3/schema3, profile code-only riêng và quay lui cặp0.7.2/0.4.2. Xem [nghiệm thu U2](../../acceptance/U2-github-stars.vi.md). Chưa push GitHub, deploy, gọi API thật hoặc bật lịch; U3 chưa được mở từ PASS U2.
+
 U1 dùng **option riêng không autoload, một snapshot gần nhất cho mỗi repo**, thay cho hai bảng/lịch sử đo được đề xuất ban đầu. Không migrate DB, không đổi schema/version biên tập. Module đặt ngoài plugin đang chạy, chỉ nhận transport giả trong kiểm thử; chưa có tích hợp, UI, queue tự động, HTTP adapter thật hoặc lịch chạy. Không triển khai phần tăng trưởng7/30ngày. Xem [contract U1](../../../modules/github-stars/README.vi.md) và [nghiệm thu](../../acceptance/U1-github-stars.vi.md). Các đoạn “thiết kế đề xuất” dưới đây là lộ trình tham khảo, không phải phạm vi đã code hoặc phê duyệt thêm.
 
 ## Điều đã xác minh và tài nguyên dùng lại
