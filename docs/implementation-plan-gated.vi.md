@@ -1,5 +1,7 @@
 # Kế hoạch triển khai từng bước có kiểm thử và phê duyệt
 
+> Cập nhật26/10/2026: chủ dự án yêu cầu khôi phục đúng luồng local → GitHub → Plesk. [Kế hoạch chuyển quy trình](deployment-pipeline-recovery-plan-2026-10-26.vi.md) áp dụng cho các bước tiếp theo; phương án ZIP local trực tiếp trong hồ sơ S16 là lịch sử. [R1](acceptance/R1-pipeline-audit.vi.md) đã hoàn tất khảo sát chỉ đọc. Chủ dự án duyệt riêng R2 bằng “duyệt R2”; đã triển khai và kiểm thử pipeline local trên `codex/deployment-pipeline`, xem [hồ sơ R2](acceptance/R2-pipeline.vi.md). **R3–R6 chưa được duyệt. Không push, chạy CI remote hoặc đổi Plesk từ quyền R2.**
+
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
 Trạng thái hiện tại24/10/2026: S15 đã nghiệm thu trong phạm vi đã ghi. S16 đã phát hành VibeLab0.7.1/ref18a91ca trên store.vneconomics.com sau phê duyệt riêng bản sửa; plugin0.4.2/schema3 và11mục giữ nguyên.135kiểm tra/20request VNE và14/14URL cũ đạt, data/hash/cleanup đạt. Còn cảnh báo SiteHealth median994ms/pagecache, không ghi hiệu năng productionPASS. Không mở các bước khác.
