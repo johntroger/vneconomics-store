@@ -1,0 +1,342 @@
+{
+  "status": "PASS",
+  "date": "2026-10-26T07:45:24.261Z",
+  "sourceSha": "594ccd9a7de812a49f2c0d8260d20cbfced71752",
+  "node": "v24.19.0",
+  "checks": [
+    "deterministic rebuild manifest.json",
+    "deterministic rebuild vibelab-0.7.0.zip",
+    "deterministic rebuild vne-library-core-0.4.2.zip",
+    "independent ref verification succeeds",
+    "plugin ZIP expands with exact file count",
+    "extracted vne-library-core/admin.php",
+    "extracted vne-library-core/api.php",
+    "extracted vne-library-core/cache.php",
+    "extracted vne-library-core/model.php",
+    "extracted vne-library-core/reports.php",
+    "extracted vne-library-core/revision-admin.php",
+    "extracted vne-library-core/revisions.php",
+    "extracted vne-library-core/state-admin.php",
+    "extracted vne-library-core/state.php",
+    "extracted vne-library-core/vne-library-core.php",
+    "plugin no config/db/uploads/tooling",
+    "theme ZIP expands with exact file count",
+    "extracted vibelab/archive-vne_resource.php",
+    "extracted vibelab/assets/cover-astro.svg",
+    "extracted vibelab/assets/cover-default.svg",
+    "extracted vibelab/assets/cover-mdn.svg",
+    "extracted vibelab/assets/cover-pico.svg",
+    "extracted vibelab/assets/cover-react.svg",
+    "extracted vibelab/assets/cover-web-basics.svg",
+    "extracted vibelab/assets/cover-web-design.svg",
+    "extracted vibelab/assets/discovery.js",
+    "extracted vibelab/assets/lesson.css",
+    "extracted vibelab/assets/lesson.js",
+    "extracted vibelab/assets/menu.js",
+    "extracted vibelab/assets/moc-studio/index.html",
+    "extracted vibelab/assets/moc-studio/style.css",
+    "extracted vibelab/assets/support.css",
+    "extracted vibelab/assets/support.js",
+    "extracted vibelab/catalog-template.php",
+    "extracted vibelab/catalog.php",
+    "extracted vibelab/detail.php",
+    "extracted vibelab/discovery-template.php",
+    "extracted vibelab/discovery.php",
+    "extracted vibelab/footer.php",
+    "extracted vibelab/front-page.php",
+    "extracted vibelab/functions.php",
+    "extracted vibelab/header.php",
+    "extracted vibelab/index.php",
+    "extracted vibelab/lesson-template.php",
+    "extracted vibelab/lesson.php",
+    "extracted vibelab/seo.php",
+    "extracted vibelab/single-vne_resource.php",
+    "extracted vibelab/style.css",
+    "extracted vibelab/support-template.php",
+    "extracted vibelab/support.php",
+    "extracted vibelab/taxonomy-vne_category.php",
+    "extracted vibelab/taxonomy-vne_need.php",
+    "extracted vibelab/taxonomy-vne_tool.php",
+    "theme no config/db/uploads/tooling",
+    "truncated theme archive rejected before deployment",
+    "forged version pair rejected",
+    "unlisted release file rejected",
+    "archive traversal rejected",
+    "source allowlist rejects wp-config.php",
+    "source allowlist rejects .env",
+    "source allowlist rejects uploads/private.jpg",
+    "source allowlist rejects assets/key.json",
+    "source rejects Git mode 120000",
+    "source rejects Git mode 160000",
+    "source rejects Git mode 100755",
+    "missing required source file rejected",
+    "plugin failed blocks theme",
+    "plugin pending blocks theme",
+    "plugin timeout blocks theme",
+    "plugin missing-confirmation blocks theme",
+    "theme failed restores files and retains compatible plugin",
+    "theme timeout restores files and retains compatible plugin",
+    "theme missing-confirmation restores files and retains compatible plugin",
+    "two confirmed packages still require cache confirmation",
+    "original database/config preserved",
+    "main/release/deploy refs unchanged"
+  ],
+  "components": {
+    "plugin": {
+      "slug": "vne-library-core",
+      "version": "0.4.2",
+      "sourceTree": "21c711a69339b51de7f7d9ca2a6cbb307e1ae540",
+      "archive": "vne-library-core-0.4.2.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5",
+      "bytes": 108507,
+      "files": [
+        {
+          "path": "vne-library-core/admin.php",
+          "bytes": 11523,
+          "sha256": "6a8fe22ca5c5e9f2de1abf74eae6091a2165f798303a31461b75117195a9e128"
+        },
+        {
+          "path": "vne-library-core/api.php",
+          "bytes": 2771,
+          "sha256": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890"
+        },
+        {
+          "path": "vne-library-core/cache.php",
+          "bytes": 8150,
+          "sha256": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6"
+        },
+        {
+          "path": "vne-library-core/model.php",
+          "bytes": 19014,
+          "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
+        },
+        {
+          "path": "vne-library-core/reports.php",
+          "bytes": 17364,
+          "sha256": "5fcec3ba8973ea01d4cf9727968b889f6e31d9010f1b78140bd7f0e9d3708ca2"
+        },
+        {
+          "path": "vne-library-core/revision-admin.php",
+          "bytes": 5512,
+          "sha256": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8"
+        },
+        {
+          "path": "vne-library-core/revisions.php",
+          "bytes": 15448,
+          "sha256": "8790af31f601854e7a3ae514afd4a0407d67527b2a7ef1749114bec4a2323f0d"
+        },
+        {
+          "path": "vne-library-core/state-admin.php",
+          "bytes": 6840,
+          "sha256": "b201063a4762c719dec107cb88d32a99dd15aedebf8a4f64e41db8f7f1e45318"
+        },
+        {
+          "path": "vne-library-core/state.php",
+          "bytes": 18959,
+          "sha256": "6eeb6e319dba378d8d9ebe43860682b9aeaba9d921a82c3e31c163a1b1aeb42b"
+        },
+        {
+          "path": "vne-library-core/vne-library-core.php",
+          "bytes": 1564,
+          "sha256": "a63b70d88ad15fe781df17b994b42621ef01ce8bd19a7a5847032aff8449d4ac"
+        }
+      ]
+    },
+    "theme": {
+      "slug": "vibelab",
+      "version": "0.7.0",
+      "sourceTree": "72084b2bbf2c9e111130bb29c729d020e11a43d6",
+      "archive": "vibelab-0.7.0.zip",
+      "sha256": "f6124d7693e8c8af7e8dcd7668012b8c0ed986d338c2a9e864e0f77afa3f0778",
+      "bytes": 158966,
+      "files": [
+        {
+          "path": "vibelab/archive-vne_resource.php",
+          "bytes": 91,
+          "sha256": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+        },
+        {
+          "path": "vibelab/assets/cover-astro.svg",
+          "bytes": 1112,
+          "sha256": "630b950d4af6d0731f0bf0cc22e1b18d38f0013af021ffc46840c21cdf842001"
+        },
+        {
+          "path": "vibelab/assets/cover-default.svg",
+          "bytes": 1120,
+          "sha256": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3"
+        },
+        {
+          "path": "vibelab/assets/cover-mdn.svg",
+          "bytes": 1114,
+          "sha256": "d779f88b87b213693ed56de56e0b616f456fc2438f3fb05f14fc2d50c8829493"
+        },
+        {
+          "path": "vibelab/assets/cover-pico.svg",
+          "bytes": 1112,
+          "sha256": "47771b773d17fee8cd5e4e35b270c45753ef6b1e4a13f131554fec1a2e82d5f5"
+        },
+        {
+          "path": "vibelab/assets/cover-react.svg",
+          "bytes": 1112,
+          "sha256": "8f96b1d8ce5d49339ec399e2750797665a85376e8338f7011bdaf1e0d29b07d8"
+        },
+        {
+          "path": "vibelab/assets/cover-web-basics.svg",
+          "bytes": 1120,
+          "sha256": "83a6cbad93a874a6511c6f7489fea24282b3d3876f682509c659028aaa1f99d3"
+        },
+        {
+          "path": "vibelab/assets/cover-web-design.svg",
+          "bytes": 1114,
+          "sha256": "33eacd1dc728eece4a5759b1fbda4bfe6dda19dc74aecbf284a6fbff91ef4ca8"
+        },
+        {
+          "path": "vibelab/assets/discovery.js",
+          "bytes": 4405,
+          "sha256": "cdd2fc6e074eaa210494a6801a79ad66f200cfc50f5e1f652c339d57fa6a908f"
+        },
+        {
+          "path": "vibelab/assets/lesson.css",
+          "bytes": 3630,
+          "sha256": "a6c13865485ad492d896db308c22e45b12e2a63ca098571370cd353b65d8e5d5"
+        },
+        {
+          "path": "vibelab/assets/lesson.js",
+          "bytes": 2985,
+          "sha256": "9ba49f0fb47a4d01dce9551e8462f1173925fc72e710ace8f1c4bff105e30c73"
+        },
+        {
+          "path": "vibelab/assets/menu.js",
+          "bytes": 1403,
+          "sha256": "acb2ff5b5b8395f7e649c51c73846f5001d0ccd72873045faae6dbec43471283"
+        },
+        {
+          "path": "vibelab/assets/moc-studio/index.html",
+          "bytes": 2418,
+          "sha256": "add426737a36ac24f868f5e2f97009378ffd3ba3e53a23865642b48649f72b03"
+        },
+        {
+          "path": "vibelab/assets/moc-studio/style.css",
+          "bytes": 2373,
+          "sha256": "e49c59b342708f293f8ab75c463db27fb2b15004541e7dfadea5499c52572514"
+        },
+        {
+          "path": "vibelab/assets/support.css",
+          "bytes": 3126,
+          "sha256": "5f5994ce2f64d91c7f7e1b9f2cbf55a8052fb4fd7e0257baae50835dabbee658"
+        },
+        {
+          "path": "vibelab/assets/support.js",
+          "bytes": 512,
+          "sha256": "c2c0eacab17133bd7f3a5a9b84852f7f59cb5708be5ba93434df7488954633d3"
+        },
+        {
+          "path": "vibelab/catalog-template.php",
+          "bytes": 2920,
+          "sha256": "a2bcf5c89152a6f33424f4bd3f0149c3eeefef3b19cffc2b074278403a37a066"
+        },
+        {
+          "path": "vibelab/catalog.php",
+          "bytes": 4953,
+          "sha256": "f9740ce2cb1de7a603ebd718531d29e39732f1abdf25c099f157e097c4274a5a"
+        },
+        {
+          "path": "vibelab/detail.php",
+          "bytes": 6177,
+          "sha256": "2b73b988936547bb5e5dc00780a41cb8b31445f38999434860bd9fd1e8734cb5"
+        },
+        {
+          "path": "vibelab/discovery-template.php",
+          "bytes": 10283,
+          "sha256": "429176937fd77f3a2ac31bf78ff2f533eacb8802329343ad1650b0d81fc0a0f2"
+        },
+        {
+          "path": "vibelab/discovery.php",
+          "bytes": 12842,
+          "sha256": "0076e766b0c28d86747c25ed9949d3aec9aa188c357dbca4999e4a8431816f92"
+        },
+        {
+          "path": "vibelab/footer.php",
+          "bytes": 1378,
+          "sha256": "5740254af91f81096c63ef4d31e7856a35ee9eed9272f2f419745763bb76fc11"
+        },
+        {
+          "path": "vibelab/front-page.php",
+          "bytes": 4921,
+          "sha256": "ca7ed2b60f46d3bd840674195c716140cf375aca2b918465ba70b75c2d1ff9bf"
+        },
+        {
+          "path": "vibelab/functions.php",
+          "bytes": 7438,
+          "sha256": "fb8ee9a3e74cd0104381fff28572c1018bfad97b2aa88fe9b9390ea8c088ed12"
+        },
+        {
+          "path": "vibelab/header.php",
+          "bytes": 2358,
+          "sha256": "7033753fe9d7ce5f0b40f49ec947fcc13b1bcb28f65ccad50c69cdd0348d1c22"
+        },
+        {
+          "path": "vibelab/index.php",
+          "bytes": 2226,
+          "sha256": "a15678648fed9067a7efd27ee1ccb2aa25f5928e71c3adc642280396e7822ec1"
+        },
+        {
+          "path": "vibelab/lesson-template.php",
+          "bytes": 5365,
+          "sha256": "c15bb57a6cef0b559527452ef213e3176c5a41a8e709174d2a73acf2abb3d772"
+        },
+        {
+          "path": "vibelab/lesson.php",
+          "bytes": 3177,
+          "sha256": "af98d06bfd9faa46491dceeb91905f54ed0c43ab80b55299b15aba9f1a052e88"
+        },
+        {
+          "path": "vibelab/seo.php",
+          "bytes": 4218,
+          "sha256": "a7d4eaff4c62622f0bac1f007095e1ea754d2e1de75cd1fe40417e2d9e4211f5"
+        },
+        {
+          "path": "vibelab/single-vne_resource.php",
+          "bytes": 9504,
+          "sha256": "f9482d863ba713bebee2baba5002d932c711bae725ce10ba75f114211cb8adc7"
+        },
+        {
+          "path": "vibelab/style.css",
+          "bytes": 24824,
+          "sha256": "a3d4b1a745acdb7e6b7d9b0fcbac3280147c432be44d1f45182997b8c722f44b"
+        },
+        {
+          "path": "vibelab/support-template.php",
+          "bytes": 5976,
+          "sha256": "493ab6ab7b3ff45da58c54828e92eb7c05c79ad648803d95dd5babcd2490fe71"
+        },
+        {
+          "path": "vibelab/support.php",
+          "bytes": 16770,
+          "sha256": "18745edcaa8639e768b432930309a14f6a88f2322544593c32b3be040cacba19"
+        },
+        {
+          "path": "vibelab/taxonomy-vne_category.php",
+          "bytes": 91,
+          "sha256": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+        },
+        {
+          "path": "vibelab/taxonomy-vne_need.php",
+          "bytes": 91,
+          "sha256": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+        },
+        {
+          "path": "vibelab/taxonomy-vne_tool.php",
+          "bytes": 91,
+          "sha256": "5afcb97a950928a6050196f143ada80f639b8e94b444984ff147c7c5ce138305"
+        }
+      ]
+    }
+  },
+  "protectedHashes": [
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8",
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8"
+  ],
+  "protectedRefs": "refs/heads/main 6cd895f32906c1c7907d6b34dd368a30ab3c5982\nrefs/heads/release 4fe952ac7eec550d3125be9885fa6271aece2718\n",
+  "scope": "Packaging and fixture confirmations only; runtime compatibility separate; no remote API/deploy"
+}
