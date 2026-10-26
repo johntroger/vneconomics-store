@@ -6,11 +6,13 @@ import {verifyPipeline} from './pipeline-release.mjs';
 import {sha256} from './release-lib.mjs';
 const [directoryArg,source,runId]=process.argv.slice(2),publish=process.argv.includes('--publish'),directory=resolve(directoryArg||'');
 assert.match(source??'',/^[a-f0-9]{40}$/);assert.match(runId??'',/^\d+$/);
-const branch='release/staging',repo='johntroger/vneconomics-store';
+// Flat name: the preserved historical branch `release` blocks `release/*` refs.
+const branch='release-staging',repo='johntroger/vneconomics-store';
 function call(cmd,args,input){const p=spawnSync(cmd,args,{input,encoding:'utf8',windowsHide:true,timeout:120000,maxBuffer:8*1024*1024});assert.equal(p.status,0,p.stderr);return p.stdout.trim();}
 function git(args,input){return call('git',args,input);}
 const manifest=verifyPipeline(directory,source),config=JSON.parse(readFileSync(join(directory,'environments.json')));
 assert.equal(config.production.deploymentConfigured,false);assert.equal(config.staging.deploymentConfigured,true);
+assert.equal(config.staging.payloadBranch,branch);
 const run=JSON.parse(call('gh',['api','repos/'+repo+'/actions/runs/'+runId]));assert.equal(run.head_sha,source);assert.equal(run.conclusion,'success');
 assert.equal(git(['remote','get-url','origin']),'https://github.com/'+repo+'.git');
 const files=[...manifest.files.map(f=>f.path),'manifest.json'].sort();assert.equal(files.length,10);

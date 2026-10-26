@@ -25,7 +25,7 @@ try{
  for(const e of content.entries.filter(e=>e.kind==='guide'))check(sha256(Buffer.from(e.payload.content))===e.contentSha256,'approved guide body '+e.key);
  const config=JSON.parse(readFileSync(join(first,'environments.json'),'utf8'));
  check(!config.production.deploymentConfigured&&config.production.repositoryDirectory===null&&config.production.inboxDirectory===null,'production remains disabled through R4');
- if(config.staging.deploymentConfigured){check(config.staging.repositoryDirectory==='/var/www/vhosts/vneconomics.com/git/vneconomics-store-staging.git'&&config.staging.inboxDirectory==='/var/www/vhosts/vneconomics.com/deploy-inbox/staging','staging transport pins paths observed on hosting in R4');}
+ if(config.staging.deploymentConfigured){check(config.staging.payloadBranch==='release-staging'&&config.staging.repositoryDirectory==='/var/www/vhosts/vneconomics.com/git/vneconomics-store-staging.git'&&config.staging.inboxDirectory==='/var/www/vhosts/vneconomics.com/deploy-inbox/staging','staging transport pins flat branch and paths observed on hosting in R4');}
  else{check(config.staging.repositoryDirectory===null&&config.staging.inboxDirectory===null,'unconfigured staging fails closed');}
  const bad=join(root,'bad');cpSync(first,bad,{recursive:true});writeFileSync(join(bad,'theme.zip'),'truncated');assert.throws(()=>verifyPipeline(bad,ref));check(true,'bad archive rejected');
  cpSync(first,bad,{recursive:true});writeFileSync(join(bad,'secret.env'),'fixture');assert.throws(()=>verifyPipeline(bad,ref));check(true,'extra payload file rejected');
