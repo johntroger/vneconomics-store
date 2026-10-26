@@ -4,6 +4,7 @@ import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {verifyPipeline} from './pipeline-release.mjs';
 import {sha256} from './release-lib.mjs';
+import {verifyPipelineCi,assertPipelineCiRunCurrent,pipelineCiSummary} from './pipeline-ci-policy.mjs';
 // R5 only: GitHub publication, never installation/import or a Plesk API call.
 const [directoryArg,source,runId,target]=process.argv.slice(2),publish=process.argv.includes('--publish'),directory=resolve(directoryArg||'');
 assert.match(source??'',/^[a-f0-9]{40}$/);assert.match(runId??'',/^\d+$/);assert.ok(['staging','production'].includes(target),'Explicit R5 target required');
@@ -12,7 +13,7 @@ function call(cmd,args,input){const p=spawnSync(cmd,args,{input,encoding:'utf8',
 function git(args,input){return call('git',args,input);}
 const manifest=verifyPipeline(directory,source),config=JSON.parse(readFileSync(join(directory,'environments.json'))),manifestHash=sha256(readFileSync(join(directory,'manifest.json')));
 for(const environment of ['staging','production']){const c=config[environment];assert.equal(c.deploymentConfigured,true);assert.equal(c.payloadBranch,'release-'+environment);assert.equal(c.repositoryDirectory,'/var/www/vhosts/vneconomics.com/git/vneconomics-store-'+environment+'.git');assert.equal(c.inboxDirectory,'/var/www/vhosts/vneconomics.com/deploy-inbox/'+environment);}
-const ci=JSON.parse(call('gh',['api','repos/'+repo+'/actions/runs/'+runId]));assert.equal(ci.head_sha,source);assert.equal(ci.conclusion,'success');
+const api=path=>JSON.parse(call('gh',['api',path])),ciEvidence=verifyPipelineCi({runId,sourceSha:source,api}),ci=ciEvidence.run;
 assert.equal(git(['remote','get-url','origin']),'https://github.com/'+repo+'.git');
 const files=[...manifest.files.map(f=>f.path),'manifest.json'].sort();assert.equal(files.length,10);
 const paths=files.map(path=>({path,sha256:sha256(readFileSync(join(directory,path)))}));
@@ -35,6 +36,6 @@ if(target==='staging'){
  function treeOid(node){const lines=Object.entries(node).sort(([a],[b])=>a.localeCompare(b)).map(([name,value])=>typeof value==='string'?'100644 blob '+value+'\t'+name:'040000 tree '+treeOid(value)+'\t'+name);return git(['mktree'],lines.join('\n')+'\n');}
  commit=git(['commit-tree',treeOid(tree),...(parent?['-p',parent]:[])],`R5 payload from ${source}\n\nCI run ${runId}\nManifest SHA256 ${manifestHash}\n`);
 }else if(parent){git(['merge-base','--is-ancestor',parent,commit]);}
-git(['update-ref','refs/heads/'+branch,commit,existing||'0'.repeat(40)]);git(['push','origin','refs/heads/'+branch+':refs/heads/'+branch]);
+assertPipelineCiRunCurrent(ciEvidence,api);git(['update-ref','refs/heads/'+branch,commit,existing||'0'.repeat(40)]);git(['push','origin','refs/heads/'+branch+':refs/heads/'+branch]);
 const received=JSON.parse(call('gh',['api','repos/'+repo+'/git/ref/heads/'+branch])).object.sha;assert.equal(received,commit);
-mkdirSync(out,{recursive:true});writeFileSync(join(out,'publication-'+target+'.json'),JSON.stringify({status:'PUSHED_CI_VERIFIED_R5_PAYLOAD',target,sourceSha:source,payloadSha:commit,tree:git(['rev-parse',commit+'^{tree}']),previousRemote:parent,branch,runUrl:ci.html_url,manifestSha256:manifestHash,files:paths,limits:['GitHub publication only; Plesk receipt and adoption require independent verification','Production reuses the exact staging-tested payload commit, not a rebuild','No checkout, force push, application installation, content import or DB restore']},null,2)+'\n');console.log('PUSHED '+branch+' '+commit+' from CI-verified '+source);
+mkdirSync(out,{recursive:true});writeFileSync(join(out,'publication-'+target+'.json'),JSON.stringify({status:'PUSHED_CI_VERIFIED_R5_PAYLOAD',target,sourceSha:source,payloadSha:commit,tree:git(['rev-parse',commit+'^{tree}']),previousRemote:parent,branch,runUrl:ci.html_url,ciGate:pipelineCiSummary(ciEvidence),manifestSha256:manifestHash,files:paths,limits:['GitHub publication only; Plesk receipt and adoption require independent verification','Production reuses the exact staging-tested payload commit, not a rebuild','No checkout, force push, application installation, content import or DB restore']},null,2)+'\n');console.log('PUSHED '+branch+' '+commit+' from CI-verified '+source);

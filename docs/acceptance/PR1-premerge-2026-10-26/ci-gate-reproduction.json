@@ -1,0 +1,74 @@
+{
+  "status": "REPRODUCED_UNRELATED_CI_ACCEPTED",
+  "reviewedSource": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+  "cases": [
+    {
+      "name": "expected workflow success",
+      "mockedRun": {
+        "head_sha": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+        "status": "completed",
+        "event": "workflow_dispatch",
+        "html_url": "https://example.invalid/mock-only",
+        "path": ".github/workflows/pipeline-check.yml",
+        "conclusion": "success"
+      },
+      "exitCode": 0,
+      "accepted": true,
+      "previewStatus": "PREVIEW_ONLY_NO_REFS_CHANGED",
+      "error": null
+    },
+    {
+      "name": "expected workflow failure",
+      "mockedRun": {
+        "head_sha": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+        "status": "completed",
+        "event": "workflow_dispatch",
+        "html_url": "https://example.invalid/mock-only",
+        "path": ".github/workflows/pipeline-check.yml",
+        "conclusion": "failure"
+      },
+      "exitCode": 1,
+      "accepted": false,
+      "previewStatus": null,
+      "error": "node:internal/modules/run_main:107\r\n    triggerUncaughtException(\r\n    ^\r\n\r\nAssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\r\n+ actual - expected\r\n\r\n+ 'failure'\r\n- 'success'\r\n\r\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/tmp/tests/pr1-ci-gate-JKMWnK/reviewed-publisher.mjs:15:118\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\r\n    at async node:internal/modules/esm/loader:643:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 'failure',\r\n  expected: 'success',\r\n  operator: 'strictEqua"
+    },
+    {
+      "name": "historical-only workflow success",
+      "mockedRun": {
+        "head_sha": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+        "status": "completed",
+        "event": "workflow_dispatch",
+        "html_url": "https://example.invalid/mock-only",
+        "path": ".github/workflows/release-package-check.yml",
+        "conclusion": "success"
+      },
+      "exitCode": 0,
+      "accepted": true,
+      "previewStatus": "PREVIEW_ONLY_NO_REFS_CHANGED",
+      "error": null
+    },
+    {
+      "name": "unrelated workflow success",
+      "mockedRun": {
+        "head_sha": "6964a4c345112f5088af1d9eae79f5a2c067d47f",
+        "status": "completed",
+        "event": "workflow_dispatch",
+        "html_url": "https://example.invalid/mock-only",
+        "path": ".github/workflows/unrelated.yml",
+        "conclusion": "success"
+      },
+      "exitCode": 0,
+      "accepted": true,
+      "previewStatus": "PREVIEW_ONLY_NO_REFS_CHANGED",
+      "error": null
+    }
+  ],
+  "realNetworkCalls": 0,
+  "refMutations": 0,
+  "publishFlagUsed": false,
+  "limits": [
+    "Actual publisher CLI with actual source-derived candidate; only gh API response mocked",
+    "Preview mode; Git mutation/network commands blocked by preload",
+    "No hosting, database, mail, AI, workflow dispatch or remote publication"
+  ]
+}

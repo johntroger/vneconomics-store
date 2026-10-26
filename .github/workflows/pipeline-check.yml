@@ -21,6 +21,12 @@ jobs:
           node-version: '22'
       # Uses only Node built-ins, Git and the runner's PowerShell archive reader.
       # No .local, WordPress DB, bundled desktop runtime, hosting secret or push.
+      - name: Verify pipeline CI provenance gate
+        shell: pwsh
+        run: npm run test:pipeline-ci
+      - name: Verify CI gate in publisher and artifact CLIs
+        shell: pwsh
+        run: npm run test:pipeline-ci-cli
       - name: Verify deterministic source-derived payload and rejection gates
         shell: pwsh
         run: npm run test:pipeline-packages -- $env:SOURCE_SHA docs/acceptance/R3-github-ci/packages

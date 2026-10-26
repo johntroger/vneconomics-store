@@ -70,7 +70,9 @@
     "test:beginner-guides": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs",
     "build:pipeline": "node scripts/run-clean.mjs script scripts/build-pipeline-release.mjs",
     "test:pipeline-packages": "node scripts/run-clean.mjs script scripts/test-pipeline-packages.mjs",
-    "test:pipeline-native": "node scripts/run-clean.mjs script scripts/test-pipeline-native.mjs"
+    "test:pipeline-native": "node scripts/run-clean.mjs script scripts/test-pipeline-native.mjs",
+    "test:pipeline-ci": "node scripts/run-clean.mjs script scripts/test-pipeline-ci.mjs",
+    "test:pipeline-ci-cli": "node scripts/run-clean.mjs script scripts/test-pipeline-ci-cli.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

@@ -4,7 +4,7 @@ Dùng với [runbook](deployment-runbook.vi.md), không tự cấp quyền tri�
 
 - [ ] Chủ dự án đã duyệt đúng bước/đích/phạm vi/thời điểm; người reviewer và quyền hiện hữu được kiểm.
 - [ ] Baseline root/DB/home/indexing/version/schema/nội dung/journal đọc mới; backup/hash/CRC và rollback tương thích có thật.
-- [ ] Source commit đã có trên GitHub; CI đúng SHA đạt; các kiểm native/UI/migration cần thiết đã đạt, cleanup không lỗi.
+- [ ] Source commit đã có trên GitHub; CI đúng workflow/SHA/lượt chạy, job/bước bắt buộc đạt và artifact đúng run/source còn hạn; các kiểm native/UI/migration cần thiết đã đạt, cleanup không lỗi.
 - [ ] Artifact CI/local khớp byte; profile/allowlist và nội dung/bằng chứng đúng; không có secret/DB/backup/QA giả.
 - [ ] Payload commit10file trên GitHub; ghi riêng source SHA/CI/payload SHA/manifest SHA256; production dùng đúng commit đã thử staging.
 - [ ] Plesk đúng repo/branch, Manual, không post-actions; inbox realpath private ngoài document root, permissions đã kiểm.
