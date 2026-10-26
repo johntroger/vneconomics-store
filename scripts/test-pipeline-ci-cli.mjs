@@ -6,8 +6,10 @@ import {writePipeline,preparePipeline} from './pipeline-release.mjs';
 import {resolveRef,git,sha256} from './release-lib.mjs';
 import {REQUIRED_PIPELINE_STEPS} from './pipeline-ci-policy.mjs';
 import mock from './fixtures/pipeline-ci-api.cjs';
-const out='docs/acceptance/PR1-ci-gate-fix';mkdirSync(out,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const temporary=mkdtempSync(resolve('tmp/tests/ci-policy-cli-'));
-const source=resolveRef('HEAD'),legacy='f587eea20526f32294a8826949d7407337040ec6',candidate=join(temporary,'candidate'),old=join(temporary,'legacy');writePipeline(source,candidate);writePipeline(legacy,old);
+const u2=process.argv.includes('--u2'),out=u2?'docs/acceptance/U2-github-stars/ci-cli':'docs/acceptance/PR1-ci-gate-fix';mkdirSync(out,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const temporary=mkdtempSync(resolve('tmp/tests/ci-policy-cli-'));
+// R5 publisher keeps its reviewed version pair. U2 gets a different code-only profile.
+const source=resolveRef(u2?'58aa1f829d9a05c09639a7ae4bd6c0340ee6dc5b':'HEAD'),legacy='f587eea20526f32294a8826949d7407337040ec6',candidate=join(temporary,'candidate'),old=join(temporary,'legacy');writePipeline(source,candidate);writePipeline(legacy,old);
+if(u2){assert.throws(()=>preparePipeline('HEAD'),'R5 builder must refuse U2 versions');}
 const before=git(['for-each-ref','--format=%(refname) %(objectname)']).toString(),inventory=JSON.parse(readFileSync('docs/acceptance/R6-closeout/r5-evidence-inventory.json'));
 const preload=join(temporary,'api.cjs');writeFileSync(preload,`
 const cp=require('node:child_process'),fs=require('node:fs'),original=cp.spawnSync,api=require(${JSON.stringify(resolve('scripts/fixtures/pipeline-ci-api.cjs'))}).apiFor(JSON.parse(fs.readFileSync(process.env.VNE_CI_MOCK_FILE,'utf8')));

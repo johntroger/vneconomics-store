@@ -1,6 +1,6 @@
 <?php
 wp_set_current_user(get_user_by('login','admin')->ID);
-require STARS_MODULE;
+require_once STARS_MODULE;
 $checks=array();$now=intdiv(time(),3600)*3600+100;$repos=json_decode(STARS_REPOS,true);$one=$repos[0];$two=$repos[1];
 function stars_check($value,$label){global $checks;if(!$value){throw new Exception($label);}$checks[]=$label;}
 function stars_reset(){

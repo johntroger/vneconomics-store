@@ -62,6 +62,7 @@ function vibelab_card($item) {
         <div class="card-body"><div class="card-meta"><?php echo esc_html($kind); ?> <span><?php echo esc_html(vibelab_category_name($item)); ?></span></div>
         <h3><a href="<?php echo esc_url($url); ?>"><?php echo esc_html($item['title']); ?></a></h3>
         <?php if($owner){ ?><p class="repo-owner">Chủ repo: <?php echo esc_html($owner); ?></p><?php } ?>
+        <?php vibelab_stars($item); ?>
         <p><?php echo esc_html($item['excerpt']?:'Đọc thông tin và tình trạng nguồn trước khi lựa chọn.'); ?></p>
         <p class="card-requirements"><strong>Yêu cầu:</strong> <?php echo esc_html($requirements); ?></p>
         <div class="card-badges"><span class="badge"><?php echo esc_html($item['derived']['primary_label']); ?></span>
@@ -118,6 +119,25 @@ require_once __DIR__.'/seo.php';
 remove_action('wp_head','print_emoji_detection_script',7);
 remove_action('wp_enqueue_scripts','wp_enqueue_emoji_styles');
 remove_action('wp_print_styles','print_emoji_styles');
+
+function vibelab_stars($item,$detail=false) {
+    if(($item['post_type']??'')!=='vne_resource'){return;}
+    $data=$item['data']??array();$url=$data['source_url']??'';$parts=wp_parse_url($url);
+    if(strtolower($parts['host']??'')!=='github.com'){return;}
+    $path=explode('/',trim($parts['path']??'','/'));$name=implode('/',array_slice($path,0,2));
+    $s=function_exists('vne_stars_snapshot')?vne_stars_snapshot($data['repo_id']??null):null;
+    if(!$s||!is_string($s['full_name']??null)||strcasecmp($s['full_name'],$name)!==0||!is_int($s['observed_at']??null)||!is_int($s['last_success_at']??null)){
+        echo '<p class="repo-stars" data-stars-state="unknown">GitHub: chưa có số sao cập nhật</p>';return;
+    }
+    $stale=!empty($s['stale']);$zone=new DateTimeZone('Asia/Ho_Chi_Minh');
+    echo '<div class="repo-stars" data-stars-state="'.($stale?'stale':'current').'" data-stars-count="'.esc_attr((string)$s['stars']).'"><p><strong>★ '.esc_html(number_format_i18n($s['stars'])).' sao GitHub</strong>'.($stale?' · Dữ liệu cũ':'').'</p>';
+    echo '<p class="stars-date">Xác nhận <time datetime="'.esc_attr(gmdate('c',$s['last_success_at'])).'">'.esc_html(wp_date('d/m/Y H:i',$s['last_success_at'],$zone)).'</time> (GMT+7)</p>';
+    if($detail){echo '<p>Số gần nhất đã lưu; không phản ánh chất lượng hoặc kết quả chạy thử. Giá trị ghi nhận ngày '.esc_html(wp_date('d/m/Y H:i',$s['observed_at'],$zone)).' (GMT+7). Các số trong bài là snapshot lúc biên soạn.</p>';}
+    if(function_exists('vibelab_detail_source_allowed')&&vibelab_detail_source_allowed($item)){
+        echo '<a href="'.esc_url('https://github.com/'.$s['full_name']).'" target="_blank" rel="noopener noreferrer">Nguồn GitHub<span class="screen-reader-text"> (mở tab mới)</span></a>';
+    }
+    echo '</div>';
+}
 
 function vibelab_inline_enhancement($name) {
     // Trusted bundled code runs after its controls, before the content it reflows.

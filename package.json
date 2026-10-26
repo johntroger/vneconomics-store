@@ -73,7 +73,10 @@
     "test:pipeline-native": "node scripts/run-clean.mjs script scripts/test-pipeline-native.mjs",
     "test:pipeline-ci": "node scripts/run-clean.mjs script scripts/test-pipeline-ci.mjs",
     "test:pipeline-ci-cli": "node scripts/run-clean.mjs script scripts/test-pipeline-ci-cli.mjs",
-    "test:github-stars": "node scripts/run-clean.mjs script scripts/test-github-stars-u1.mjs"
+    "test:github-stars": "node scripts/run-clean.mjs script scripts/test-github-stars-u1.mjs",
+    "build:github-stars": "node scripts/run-clean.mjs script scripts/github-stars-release.mjs",
+    "test:github-stars-packages": "node scripts/run-clean.mjs script scripts/test-github-stars-packages.mjs",
+    "test:github-stars-ui": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs --stars-u2"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

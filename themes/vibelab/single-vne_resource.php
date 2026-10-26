@@ -17,6 +17,7 @@ get_header(); ?>
 <div class="detail-decision"><p class="detail-kind"><?php echo esc_html($kinds[$data['resource_type']]??'Tài nguyên'); ?></p><h1><?php echo esc_html($item['title']); ?></h1>
 <p class="detail-excerpt"><?php echo esc_html($item['excerpt']); ?></p><p class="detail-owner">Chủ repo: <strong><?php echo esc_html($path[0]); ?></strong></p>
 <div class="detail-badges"><span class="badge"><?php echo esc_html($state['primary_label']); ?></span><span class="badge"><?php echo esc_html($trial[$state['validation_status']]); ?></span></div>
+<?php vibelab_stars($item,true); ?>
 <p class="detail-disclaimer">Đối chiếu nguồn không đồng nghĩa đã cài hoặc thử. Xem điều kiện và phạm vi kiểm chứng trước khi dùng.</p>
 <div class="detail-actions"><?php vibelab_cta($item,'button primary'); ?><a href="#dieu-kien">Xem điều kiện sử dụng</a></div>
 <p class="detail-free">Đọc trên website miễn phí. Chi phí của tài nguyên/công cụ gốc xem bên dưới.</p>

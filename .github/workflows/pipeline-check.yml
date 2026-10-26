@@ -26,16 +26,26 @@ jobs:
         run: npm run test:pipeline-ci
       - name: Verify CI gate in publisher and artifact CLIs
         shell: pwsh
-        run: npm run test:pipeline-ci-cli
+        run: npm run test:pipeline-ci-cli -- --u2
       - name: Verify deterministic source-derived payload and rejection gates
         shell: pwsh
-        run: npm run test:pipeline-packages -- $env:SOURCE_SHA docs/acceptance/R3-github-ci/packages
+        run: |
+          if ((Get-Content themes/vibelab/style.css -Raw) -match 'Version: 0.7.3') {
+            npm run test:github-stars-packages -- $env:SOURCE_SHA
+          } else {
+            npm run test:pipeline-packages -- $env:SOURCE_SHA docs/acceptance/R3-github-ci/packages
+          }
       - name: Verify frozen S14 profile still rebuilds
         shell: pwsh
         run: npm run test:release -- 594ccd9a7de812a49f2c0d8260d20cbfced71752 docs/acceptance/R3-github-ci/historical-S14
       - name: Build candidate from the exact reviewed source
         shell: pwsh
-        run: npm run build:pipeline -- $env:SOURCE_SHA
+        run: |
+          if ((Get-Content themes/vibelab/style.css -Raw) -match 'Version: 0.7.3') {
+            npm run build:github-stars -- $env:SOURCE_SHA
+          } else {
+            npm run build:pipeline -- $env:SOURCE_SHA
+          }
       - name: Preserve candidate for local checksum comparison
         uses: actions/upload-artifact@v4
         with:
