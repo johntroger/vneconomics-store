@@ -26,7 +26,7 @@ export function preparePipeline(ref){
  const sourceSha=resolveRef(ref),files=[],components={};
  for(const kind of ['theme','plugin']){
   const source=sourceFiles(sourceSha,kind),bytes=makeZip(source),name=kind+'.zip';
-  const header=source.find(e=>e.name.endsWith(kind==='theme'?'/style.css':'/vne-library-core.php')).data.toString();assert.match(header,new RegExp('Version:\\s*'+pipelineProfile[kind].replaceAll('.','\\.')));
+  const header=source.find(e=>e.name===(kind==='theme'?'vibelab/style.css':'vne-library-core/vne-library-core.php')).data.toString();assert.match(header,new RegExp('Version:\\s*'+pipelineProfile[kind].replaceAll('.','\\.')));
   components[kind]={version:pipelineProfile[kind],archive:name,sha256:sha256(bytes),files:source.map(e=>({path:e.name,sha256:sha256(e.data),bytes:e.data.length}))};files.push({name,data:bytes});
  }
  const rollback=sourceFiles(resolveRef('18a91ca0d5445479acd110e7886067e8fe5ab083'),'theme'),rollbackZip=makeZip(rollback);files.push({name:'rollback.zip',data:rollbackZip});
