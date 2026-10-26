@@ -1,0 +1,86 @@
+{
+  "status": "PASS_PRE_PUSH_READ_ONLY",
+  "observedAt": "2026-10-26T03:56:32.134Z",
+  "localHead": "db5ec58b598b31e073d9f312b5b91e0600c84297",
+  "hook": {
+    "id": 699352374,
+    "active": true,
+    "events": [
+      "push"
+    ],
+    "sha256": "23bfa06b002cc8802ff348abe017e03524808565c0b18c1f941bb077671c3f5b",
+    "sslVerification": true
+  },
+  "heads": [
+    {
+      "ref": "refs/heads/codex/s01-local-baseline",
+      "sha": "d786ebd5b7fa8b36331a2d8dc43ffdd2d391152a"
+    },
+    {
+      "ref": "refs/heads/codex/s02-catalog-prototype",
+      "sha": "9c50e04b9da709d9c8eb271bfc9ce43a3da423d6"
+    },
+    {
+      "ref": "refs/heads/codex/s03-library-data",
+      "sha": "c07d8b81a98b9c5fd5e183657fee4e144e757942"
+    },
+    {
+      "ref": "refs/heads/codex/s04-state-resolver",
+      "sha": "254fda8d8ca9f770c11df2e1f73485fedbc4c43f"
+    },
+    {
+      "ref": "refs/heads/codex/s05-proposals-preview",
+      "sha": "decc41e8f43ea0bae1523403251de0af714a1807"
+    },
+    {
+      "ref": "refs/heads/codex/s06-theme-home",
+      "sha": "69be5e546937f54b3f2eeafaef023d888a283bce"
+    },
+    {
+      "ref": "refs/heads/codex/s07-catalog-cards",
+      "sha": "6bd4494c6d225f83567d7210f529bd3b8e2d7712"
+    },
+    {
+      "ref": "refs/heads/codex/s08-resource-detail",
+      "sha": "cdaab49048e693ad0a1733d9c90e5cb827ee49f4"
+    },
+    {
+      "ref": "refs/heads/codex/s09-search-filters",
+      "sha": "2ba866352ec949dbef6904a1c6d3869c3fff853d"
+    },
+    {
+      "ref": "refs/heads/codex/s10-practice-guide",
+      "sha": "a26b6836bab8c4d8e914240d793faa6984635180"
+    },
+    {
+      "ref": "refs/heads/codex/s11-reports-support",
+      "sha": "8b349085c817215494781610ef3b384554c7cde2"
+    },
+    {
+      "ref": "refs/heads/codex/s12-cache-consistency",
+      "sha": "4e80391d906e20f645ca02f819644045a274123c"
+    },
+    {
+      "ref": "refs/heads/main",
+      "sha": "6cd895f32906c1c7907d6b34dd368a30ab3c5982"
+    },
+    {
+      "ref": "refs/heads/release",
+      "sha": "4fe952ac7eec550d3125be9885fa6271aece2718"
+    }
+  ],
+  "pleskObserved": {
+    "repository": "git@github.com:johntroger/vneconomics-store.git",
+    "branch": "release",
+    "lastCommit": "4fe952a",
+    "deploymentDirectory": "/store.vneconomics.com/codex-deploy-check",
+    "mode": "Automatic",
+    "postDeployActions": false,
+    "method": "Read Git card and repository settings in authenticated Plesk UI; Cancel without Apply"
+  },
+  "limits": [
+    "No webhook ping or hosting write",
+    "Legacy billing API unavailable with current token scope; no added scope, budget or paid runner configured",
+    "Only existing GitHub Actions permissions/runner allowance; job timeout10m, artifact retention1day"
+  ]
+}

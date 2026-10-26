@@ -7,9 +7,13 @@ permissions:
 jobs:
   payload:
     runs-on: windows-2025
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: ${{ env.SOURCE_SHA }}
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v4
@@ -19,7 +23,17 @@ jobs:
       # No .local, WordPress DB, bundled desktop runtime, hosting secret or push.
       - name: Verify deterministic source-derived payload and rejection gates
         shell: pwsh
-        run: npm run test:pipeline-packages -- $env:GITHUB_SHA
+        run: npm run test:pipeline-packages -- $env:SOURCE_SHA
       - name: Verify frozen S14 profile still rebuilds
         shell: pwsh
         run: npm run test:release -- 594ccd9a7de812a49f2c0d8260d20cbfced71752
+      - name: Build candidate from the exact reviewed source
+        shell: pwsh
+        run: npm run build:pipeline -- $env:SOURCE_SHA
+      - name: Preserve candidate for local checksum comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-${{ env.SOURCE_SHA }}
+          path: artifacts/pipeline/${{ env.SOURCE_SHA }}/
+          if-no-files-found: error
+          retention-days: 1
