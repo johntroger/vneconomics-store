@@ -4,6 +4,16 @@ if(!defined('ABSPATH')){exit(1);}
 function vne_pipeline_need($result){if(is_wp_error($result)){throw new RuntimeException($result->get_error_message());}return $result;}
 function vne_pipeline_equal($a,$b){return vne_library_canonical_value($a)===vne_library_canonical_value($b);}
 function vne_pipeline_json($path){return json_decode(file_get_contents($path),true,512,JSON_THROW_ON_ERROR);}
+function vne_pipeline_zip($directory,$spec,$slug,$header,$version,$count){
+ if(count($spec['files']??array())!==$count||($spec['version']??'')!==$version||hash_file('sha256',$directory.'/'.$spec['archive'])!==$spec['sha256']){throw new RuntimeException('Component profile/archive mismatch');}
+ $z=new ZipArchive();if($z->open($directory.'/'.$spec['archive'])!==true){throw new RuntimeException('Invalid component ZIP');}
+ try{
+  if($z->numFiles!==$count){throw new RuntimeException('ZIP entry count differs');}$expected=array();
+  foreach($spec['files'] as $f){$p=$f['path'];if(!preg_match('~^'.$slug.'/[a-z0-9_/-]+\.[a-z]+$~D',$p)||str_contains($p,'..')||isset($expected[$p])){throw new RuntimeException('Unsafe/duplicate component path');}$expected[$p]=$f['sha256'];}
+  $seen=array();for($i=0;$i<$z->numFiles;$i++){$s=$z->statIndex($i);$p=$s['name'];if(!isset($expected[$p])||isset($seen[$p])||$s['size']>1048576){throw new RuntimeException('Unexpected ZIP member');}$seen[$p]=true;$z->getExternalAttributesIndex($i,$system,$attributes);if($system===3&&(($attributes>>16)&0170000)===0120000){throw new RuntimeException('ZIP symlink refused');}$stream=$z->getStream($p);if(!$stream){throw new RuntimeException('ZIP stream failed');}try{$hash=hash_init('sha256');hash_update_stream($hash,$stream);if(hash_final($hash)!==$expected[$p]){throw new RuntimeException('ZIP member hash differs');}}finally{fclose($stream);}}
+  if(!preg_match('/^\s*(?:\*\s*)?Version:\s*'.preg_quote($version,'/').'\s*$/m',$z->getFromName($slug.'/'.$header))){throw new RuntimeException('ZIP component header differs');}
+ }finally{$z->close();}
+}
 function vne_pipeline_fingerprint($ids,$validationExceptions=array()){
  global $wpdb;if(!$ids){return hash('sha256','empty');}$list=implode(',',array_map('intval',$ids));
  $posts=$wpdb->get_results("SELECT * FROM {$wpdb->posts} WHERE ID IN ($list) ORDER BY ID",ARRAY_A);$meta=$wpdb->get_results("SELECT * FROM {$wpdb->postmeta} WHERE post_id IN ($list) ORDER BY meta_id",ARRAY_A);
@@ -19,6 +29,7 @@ function vne_pipeline_package($directory){
  $required=array('theme.zip','plugin.zip','rollback.zip','content.json','receiver.php','environments.json','evidence/codex.html','evidence/claude-code.html','evidence/antigravity.html');$actual=array_column($m['files'],'path');sort($required);sort($actual);if($required!==$actual){throw new RuntimeException('Incomplete package');}
  if(hash_file('sha256',__FILE__)!==array_values(array_filter($m['files'],fn($f)=>$f['path']==='receiver.php'))[0]['sha256']){throw new RuntimeException('Receiver source differs');}
  foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory,FilesystemIterator::SKIP_DOTS)) as $f){if($f->isLink()){throw new RuntimeException('Payload symlink');}if($f->isFile()){$p=substr($f->getPathname(),strlen($directory)+1);if(!in_array(str_replace(chr(92),'/',$p),array_merge($listed,array('payload.zip')),true)){throw new RuntimeException('Unexpected payload file');}}}
+ vne_pipeline_zip($directory,$m['components']['theme'],'vibelab','style.css','0.7.2',38);vne_pipeline_zip($directory,$m['components']['plugin'],'vne-library-core','vne-library-core.php','0.4.2',10);vne_pipeline_zip($directory,$m['previousTheme'],'vibelab','style.css','0.7.1',36);
  $content=vne_pipeline_json($directory.'/content.json');if(count($content['entries']??array())!==103||($content['campaign']??'')!=='vne-existing-content-20261026'||($content['evidenceDirectory']??'')!=='g03-0499402e4708'||($m['evidenceDirectory']??'')!==$content['evidenceDirectory']){throw new RuntimeException('Unexpected content set');}
  $keys=array_column($content['entries'],'key');if(count(array_unique($keys))!==103){throw new RuntimeException('Duplicate content key');}
  foreach($content['entries'] as $e){if(!in_array($e['kind'],array('observe','guide','resource'),true)||(!empty($e['validation'])&&(!in_array($e['key'],array('codex','claude-code','antigravity'),true)||str_contains(wp_json_encode($e['validation']),'g03-fixture')))){throw new RuntimeException('Unexpected evidence/content kind');}}
@@ -102,9 +113,9 @@ function vne_pipeline_run($directory,$mode='inspect',$environment='production',$
   if(!$journal){$prefix=array();foreach($exceptions as $id){$prefix[$id]=vne_library_validations($id);}$journal=array('status'=>'in_progress','environment'=>$environment,'approval'=>$approval,'originalIds'=>$ids,'validationExceptions'=>$exceptions,'validationPrefixes'=>$prefix,'protectedSha256'=>vne_pipeline_fingerprint($ids,$exceptions),'map'=>array());if(!vne_library_lock_insert($key,maybe_serialize($journal))){throw new RuntimeException('Receipt creation race');}}
   if(vne_pipeline_fingerprint($journal['originalIds'],$journal['validationExceptions'])!==$journal['protectedSha256']){throw new RuntimeException('Pre-existing content changed during/resuming operation');}
   foreach($journal['validationPrefixes'] as $id=>$prefix){if(!vne_pipeline_equal(array_slice(vne_library_validations($id),0,count($prefix)),$prefix)){throw new RuntimeException('Historical validation altered');}}
-  if($mode==='adopt'&&$journal['status']==='complete'){return array('status'=>'ALREADY_ADOPTED','journal'=>$journal);}
+  if($mode==='adopt'&&$journal['status']==='complete'&&($journal['outcome']??null)==='ADOPTED_EXISTING_BASELINE'){return array('status'=>'ALREADY_ADOPTED','journal'=>$journal);}
   if($mode==='apply-content'){
-   $evidenceRoot=ABSPATH.'wp-content/uploads/vne-guide-evidence/'.$content['evidenceDirectory'];if(!is_dir($evidenceRoot)&&!wp_mkdir_p($evidenceRoot)){throw new RuntimeException('Cannot create evidence directory');}
+   $evidenceRoot=ABSPATH.'wp-content/uploads/vne-guide-evidence/'.$content['evidenceDirectory'];$cursor=$evidenceRoot;while($cursor!==rtrim(ABSPATH,'/')){if(is_link($cursor)){throw new RuntimeException('Evidence path symlink refused');}$parent=dirname($cursor);if($parent===$cursor){throw new RuntimeException('Evidence path escaped site');}$cursor=$parent;}if(!is_dir($evidenceRoot)&&!wp_mkdir_p($evidenceRoot)){throw new RuntimeException('Cannot create evidence directory');}
    foreach($evidence as $name=>$exists){if(!$exists&&!copy($directory.'/evidence/'.$name.'.html',$evidenceRoot.'/'.$name.'.html')){throw new RuntimeException('Cannot publish evidence');}}
    $processed=0;
    foreach($content['entries'] as $e){

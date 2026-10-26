@@ -1,11 +1,14 @@
 <?php
 if(!str_contains(str_replace(chr(92),'/',ABSPATH),'/tmp/tests/r2-')||DB_NAME!=='wordpress'){throw new RuntimeException('Isolated fixture only');}
 define('VNE_PIPELINE_LIBRARY_ONLY',true);define('VNE_PIPELINE_FIXTURE',true);require R2_INBOX.'/receiver.php';wp_set_current_user(1);
+// Test-only evidence origin: HTTPS URL validation disallows the localhost server's port.
+// No requests are made to this reserved hostname; fixture validation rows are never exported.
+add_filter('home_url',function($url,$path,$scheme){return $scheme==='https'&&str_starts_with($path,'/wp-content/uploads/vne-guide-evidence/')?'https://example.test'.$path:$url;},10,3);
 $checks=array();function r2_check($v,$name){global $checks;if(!$v){throw new RuntimeException($name);}$checks[]=$name;}
-function r2_refused($call,$name){try{$call();}catch(Throwable $e){r2_check(true,$name);return;}throw new RuntimeException('Accepted unsafe case: '.$name);}
+function r2_refused($call,$name,$expected=null){try{$call();}catch(Throwable $e){if($expected!==null&&!str_contains($e->getMessage(),$expected)){throw $e;}r2_check(true,$name);return;}throw new RuntimeException('Accepted unsafe case: '.$name);}
 $c=array('root'=>ABSPATH,'database'=>DB_NAME,'home'=>get_option('home'),'indexing'=>'0','payloadBranch'=>'release/staging','repositoryDirectory'=>R2_REPO,'inboxDirectory'=>R2_INBOX,'deploymentConfigured'=>true);
 list($manifest,$content,$manifestHash)=vne_pipeline_package(R2_INBOX);
-$original=vne_pipeline_ids();$before=vne_pipeline_fingerprint($original);$optionsBefore=$wpdb->get_results("SELECT * FROM {$wpdb->options} ORDER BY option_id",ARRAY_A);
+$original=vne_pipeline_ids();$before=vne_pipeline_fingerprint($original);$optionsBefore=$wpdb->get_results("SELECT * FROM {$wpdb->options} ORDER BY option_id",ARRAY_A);$insertCallbacksBefore=$GLOBALS['wp_filter']['wp_insert_post_data']->callbacks[20]??array();
 $inspect=vne_pipeline_run(R2_INBOX,'inspect','fixture',array(),$c);
 r2_check($inspect['status']==='INSPECTED_READ_ONLY'&&count($inspect['entries'])===103,'full103-entry inspect');r2_check($before===vne_pipeline_fingerprint($original),'inspect leaves original posts/meta/terms/runtime unchanged');r2_check($optionsBefore===$wpdb->get_results("SELECT * FROM {$wpdb->options} ORDER BY option_id",ARRAY_A),'inspect writes no options');
 $approval=array('payloadSha'=>str_repeat('a',40),'manifestSha256'=>$manifestHash,'sourceSha'=>$manifest['sourceSha'],'baselineSha256'=>$inspect['baselineSha256']);
@@ -24,7 +27,7 @@ r2_check($before===vne_pipeline_fingerprint($original),'foreign fixture removed 
 $oldValidation=vne_library_validations($codex->ID);
 foreach(array(1,2) as $nth){
  $fault=function($event,$count,$key)use($nth){if($event==='after-create-before-journal'&&$count===$nth){throw new RuntimeException('Injected interruption');}};
- r2_refused(fn()=>vne_pipeline_run(R2_INBOX,'apply-content','fixture',$approval,$c,$fault),'interruption after '.$nth.' new records before journal map');
+ r2_refused(fn()=>vne_pipeline_run(R2_INBOX,'apply-content','fixture',$approval,$c,$fault),'interruption after '.$nth.' new records before journal map','Injected interruption');
  $owned=get_posts(array('post_type'=>array('vne_resource','vne_guide'),'post_status'=>'draft','posts_per_page'=>-1));$marked=array_values(array_filter($owned,fn($p)=>str_starts_with($p->post_content_filtered,'vne-pipeline:'.$manifestHash.':')));
  r2_check(count($marked)===($nth===1?1:3),'no duplicate creation across partial retry '.$nth);
  foreach($marked as $p){r2_check($p->post_name!==''&&get_post_meta($p->ID,'_vne_approved_content',true)['revision']===vne_library_approved_revision($p->ID),'slug sealed atomically in owned draft '.$p->ID);}
@@ -45,5 +48,5 @@ $resource=$result['journal']['map']['c100-001'];$oldState=vne_library_state_inpu
 r2_refused(fn()=>vne_pipeline_run(R2_INBOX,'apply-content','fixture',$approval,$c),'human review flag is a conflict, not reset');r2_check(vne_library_state_input($resource)['review']['needed'],'human review flag preserved');vne_pipeline_need(vne_library_save_state($resource,$oldState));
 $guide=$result['journal']['map']['claude-code'];wp_update_post(array('ID'=>$guide,'post_title'=>'Owner unapproved edit fixture'));
 r2_refused(fn()=>vne_pipeline_run(R2_INBOX,'adopt','fixture',$approval,$c),'unapproved raw content is not silently adopted');r2_check(get_post_field('post_title',$guide)==='Owner unapproved edit fixture','human raw edit preserved after rejection');
-r2_check(!has_filter('wp_insert_post_data',isset($filter)?$filter:'r2_nonexistent'),'receiver insertion hook removed');
+r2_check(($GLOBALS['wp_filter']['wp_insert_post_data']->callbacks[20]??array())===$insertCallbacksBefore,'receiver insertion hook removed after success/failure');
 echo wp_json_encode(array('status'=>'PASS_NATIVE_RECEIVER','checks'=>$checks,'counts'=>array('resources'=>(int)wp_count_posts('vne_resource')->publish,'guides'=>(int)wp_count_posts('vne_guide')->publish),'map'=>$result['journal']['map'],'limits'=>array('Isolated SQLite native WordPress, not MariaDB/Plesk','Git HEAD is an explicit local filesystem fixture, not a GitHub delivery','Validation rows are test-only records in a disposable fixture; never shipped')));
