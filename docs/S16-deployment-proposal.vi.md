@@ -1,5 +1,7 @@
 # S16 — Phương án phát hành production để chốt
 
+> **Lịch sử S16.** Các trạng thái chờ duyệt/ZIP dưới đây thuộc24/10. Xem [R5](acceptance/R5-production.vi.md) cho baseline0.7.2 đã tiếp nhận và [runbook hiện hành](deployment-runbook.vi.md). Không dùng phương án cũ để upload local trực tiếp hoặc mở lại quyền đã hết phạm vi.
+
 Phương án lịch sử ngày24/10/2026. Chủ dự án yêu cầu “S16 — phát hành production” sau khi nghiệm thu S15 và duyệt đưa cả11mục nội dung lên production. Tài liệu giữ lại cả đề xuất ban đầu và đề xuất sửa lỗi để đối chiếu quyền; [báo cáo thực hiện](acceptance/S16-production.vi.md) là trạng thái hiện tại.
 
 **Cập nhật sau thực hiện:** phương án0.7.0 bên dưới đã được chủ dự án xác nhận “phát hành ngay”. Plugin/11mục đã đưa lên production; theme0.7.0 gặp lỗi hiển thị bài/trang cũ và đã quay về Astra. S16 chưa hoàn tất. [Báo cáo thực hiện](acceptance/S16-production.vi.md). Phương án mới0.7.1 chờ duyệt ở cuối tài liệu; không coi phần đề xuất lịch sử là trạng thái hiện tại.

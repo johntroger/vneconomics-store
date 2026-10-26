@@ -1,5 +1,7 @@
 # Vneconomics Store
 
+> Hiện hành26/10/2026: R1–R5 đã tiếp nhận baseline qua local → GitHub → Plesk; R6 chốt hồ sơ theo phê duyệt riêng. Xem [runbook](docs/deployment-runbook.vi.md), [checklist](docs/release-checklist.vi.md) và [R6](docs/acceptance/R6-closeout.vi.md). Source đang phát hành4266b71/payload dc4af29, theme0.7.2/plugin0.4.2/schema3. Các mục trạng thái S13 bên dưới là lịch sử local, không phải hướng dẫn phát hành hiện hành.
+
 Dự án riêng cho https://store.vneconomics.com/.
 
 ## Trạng thái

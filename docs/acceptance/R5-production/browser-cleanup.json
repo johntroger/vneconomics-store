@@ -1,0 +1,21 @@
+{
+  "closedOwnTemporaryTabs": 5,
+  "productionPublicTabRetained": true,
+  "viewportReset": true,
+  "clipboardRestored": true,
+  "checklistsRestored": true,
+  "guideIds": [
+    {
+      "key": "codex",
+      "id": 107
+    },
+    {
+      "key": "claude-code",
+      "id": 213
+    },
+    {
+      "key": "antigravity",
+      "id": 215
+    }
+  ]
+}

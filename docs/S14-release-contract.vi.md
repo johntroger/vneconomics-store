@@ -1,5 +1,7 @@
 # S14 — Gói phát hành và dry-run local
 
+> **Hợp đồng lịch sử S14**, giữ profile/biên nhận đúng thời điểm. Đường phát hành hiện hành là [local → GitHub → Plesk](deployment-runbook.vi.md); không áp dụng lại phương án ZIP local trực tiếp.
+
 Chủ dự án cho phép riêng S14 ngày 23/10/2026 bằng yêu cầu “làm s14”. S13 còn chờ phản hồi trải nghiệm; không tự ghi nhận đã được nghiệm thu giao diện. S15/S16 chưa được phép.
 
 Phạm vi: `scripts/release-policy.mjs`, `release-lib.mjs`, `build-s14-release.mjs`, hai runner kiểm thử S14 và `postflight-s14.mjs`, npm scripts, CI kiểm tra gói và hồ sơ này. Không sửa mã theme/plugin hoặc dữ liệu gốc.

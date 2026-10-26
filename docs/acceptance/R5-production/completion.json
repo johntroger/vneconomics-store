@@ -1,0 +1,79 @@
+{
+  "status": "PASS_R5_BASELINE_ADOPTION",
+  "observedAt": "2026-10-26T08:19:20.777Z",
+  "sourceSha": "4266b71990702d87969a847e95d9c39933cb05a4",
+  "payloadSha": "dc4af296692ddac2dd71dc9f1be4a69f1af29959",
+  "manifestSha256": "02953f231825577da95d1a71887a44ba07e425015412b5448581588af042bf34",
+  "ciUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40288437763",
+  "branches": [
+    "release-staging",
+    "release-production"
+  ],
+  "samePayloadCommitBothEnvironments": true,
+  "githubLocalFilesMatched": 11,
+  "unchangedR2ApplicationContentEvidenceFiles": 8,
+  "liveComponents": {
+    "theme": "0.7.2",
+    "themeFiles": 38,
+    "plugin": "0.4.2",
+    "pluginFiles": 10,
+    "schema": 3
+  },
+  "production": {
+    "counts": {
+      "vne_resource": 106,
+      "vne_guide": 6,
+      "vne_practice": 1
+    },
+    "typedRows": 130,
+    "fingerprint": "85d0113fb4db5d18264d9967a61d020603e30f24ce2c955546d1f96099cd1a62",
+    "indexing": "1",
+    "onlyNewReceiptOption": true,
+    "legacyJournalsPreserved": true,
+    "retry": "ALREADY_ADOPTED"
+  },
+  "staging": {
+    "fingerprint": "22e86a5a80e471fef39fa0bb267059a4a708c358260c59587d02f4eb92ff562d",
+    "indexing": "0",
+    "onlyNewReceiptOption": true,
+    "oldJournalsPreserved": true,
+    "retry": "ALREADY_ADOPTED"
+  },
+  "checks": {
+    "localPackages": 218,
+    "localFrozenS14": 76,
+    "ciPackages": 218,
+    "ciFrozenS14": 75,
+    "http": 783,
+    "requests": 151,
+    "interactiveGuides": 3,
+    "responsiveCases": 6
+  },
+  "cleanup": {
+    "localRunnerClean": true,
+    "serverLocks": 0,
+    "nativeUpgradeFoldersEmpty": true,
+    "clipboardRestored": true,
+    "checklistsRestored": true,
+    "viewportReset": true
+  },
+  "backups": {
+    "production": 5,
+    "staging": 4,
+    "newProduction": {
+      "filename": "store.vneconomics.com__2026-10-26T14_33_18+0700.zip",
+      "bytes": 81538427,
+      "sha256": "4b24994b5b1296c30cbc8749b8d2a7a97b17d3da661c32631ce2c38355d9f6a2",
+      "entries": 16726,
+      "files": 14413,
+      "crcErrors": []
+    }
+  },
+  "limits": [
+    "Baseline adoption: no application reinstall, content reimport or DB restore",
+    "Historical direct ZIP installations remain historical; this receipt does not rewrite their path",
+    "Manual private Plesk targets only; original release/connection-check preserved; PR draft and main unmerged",
+    "Final operational receipts retained locally/on hosting and summarized on PR; released source remains pinned",
+    "R6 not started"
+  ]
+}

@@ -1,5 +1,7 @@
 # S15 — Cổng xác nhận thủ công và diễn tập file riêng
 
+> **Lịch sử S15.** Giữ giới hạn/thử nghiệm/biên nhận của24/10; các helper đã upload khi đó không phải phương án triển khai mới. Từ R6 làm theo [runbook](deployment-runbook.vi.md) và [checklist](release-checklist.vi.md); không chuyển ZIP/mã local trực tiếp lên hosting.
+
 Ngày24/10/2026. Chỉ áp dụng staging đã được duyệt, không cấp quyền triển khai production.
 
 ## Đích và cặp phiên bản

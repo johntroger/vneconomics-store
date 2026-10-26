@@ -1,5 +1,7 @@
 # Pipeline local → GitHub → Plesk
 
+> Hiện hành sau R5: cả hai transport đã được kiểm và pin trong environments.json; nhánh thật là release-staging/release-production, cùng payloaddc4af29/source4266b71. Plesk Manual/private inbox, baseline đã adopt. Làm theo [runbook hiện hành](../docs/deployment-runbook.vi.md) và [checklist](../docs/release-checklist.vi.md). Phần dưới giữ nguyên như **snapshot lịch sử R2**; các câu disabled/null, nhánh dự kiến release/* hoặc chưa có bằng chứng hosting chỉ mô tả thời điểm R2.
+
 R2 chỉ chuẩn bị và kiểm thử local. `environments.json` cố ý để cả hai môi trường `deploymentConfigured:false`, repository/inbox `null`. Không có hook tự triển khai, thông tin đăng nhập hoặc lệnh ghi hosting trong CI. Các đường dẫn private thật chỉ được chốt trong R4/R5 sau khi kiểm chứng Plesk.
 
 ## Nguồn và gói

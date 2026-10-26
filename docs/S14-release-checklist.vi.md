@@ -1,5 +1,7 @@
 # S14 — Checklist ứng viên, phát hành và khôi phục
 
+> **Lịch sử S14.** Từ R6 dùng [checklist hiện hành](release-checklist.vi.md) và [runbook](deployment-runbook.vi.md). Giữ các phương án ZIP/ref/cặp phiên bản dưới đây để truy vết; không dùng làm quyền upload local trực tiếp lên hosting.
+
 Đây là checklist để duyệt, không phải quyền triển khai. Chỉ hoàn tất mục local trong S14. Chủ dự án phải cho phép riêng S15; production còn cần S16 với ref/payload/đích/thời điểm cụ thể.
 
 ## Đã chuẩn bị cho local

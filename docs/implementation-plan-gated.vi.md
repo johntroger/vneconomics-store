@@ -1,6 +1,6 @@
 # Kế hoạch triển khai từng bước có kiểm thử và phê duyệt
 
-> Cập nhật26/10/2026: chủ dự án yêu cầu khôi phục đúng luồng local → GitHub → Plesk. [R1](acceptance/R1-pipeline-audit.vi.md), [R2](acceptance/R2-pipeline.vi.md), [R3](acceptance/R3-github-ci.vi.md) và [R4](acceptance/R4-staging.vi.md) đã đạt trong phạm vi ghi. R4: sourcef587eea/payload602d9f5 → Plesk private Manual, rollback/nhập/retry/HTTP650/145/UI và adopt receipt mới trên MariaDB đạt; giữ journal nhập cũ. Nhánh thực tế release-staging vì release/* xung đột release lịch sử. **Chủ dự án đã duyệt R5 riêng; R5 đang thực hiện theo [phạm vi](acceptance/R5-production.vi.md). R6 chưa được duyệt.** [Kế hoạch](deployment-pipeline-recovery-plan-2026-10-26.vi.md).
+> Hiện hành26/10/2026: R1–R5 đã đạt; chủ dự án đã duyệt riêng R6 chốt hồ sơ/quy tắc. Xem [R6 và biên nhận kiểm chứng](acceptance/R6-closeout.vi.md), [runbook](deployment-runbook.vi.md), [checklist](release-checklist.vi.md). Source phát hành4266b71/CI40288437763, hai nhánh payload cùngdc4af29; R6 không đổi hosting/payload hoặc mở lô mới. Các bản ghi S13–S16 bên dưới là lịch sử. Bước tiếp, merge main và automation vẫn cần đúng quyền riêng.
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.

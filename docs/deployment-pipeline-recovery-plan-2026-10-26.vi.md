@@ -1,6 +1,6 @@
 # Kế hoạch khôi phục luồng local → GitHub → Plesk
 
-Ngày: 26/10/2026. Trạng thái: **R1 chỉ đọc đã hoàn tất theo “ok” của chủ dự án; R2–R6 chưa thực thi**. [Báo cáo R1](acceptance/R1-pipeline-audit.vi.md) ghi kết quả và phạm vi R2 cụ thể để duyệt.
+Ngày:26/10/2026. **R1–R5 đã đạt theo từng phê duyệt; chủ dự án đã duyệt R6 chốt hồ sơ.** [R6](acceptance/R6-closeout.vi.md), [runbook hiện hành](deployment-runbook.vi.md), [checklist](release-checklist.vi.md). Các câu “chưa thực thi/cần duyệt” trong mô tả từng bước bên dưới là điều kiện lịch sử của kế hoạch, không mở quyền cho lần phát hành mới.
 
 ## Mục tiêu và phạm vi
 
@@ -119,6 +119,6 @@ Cập nhật AGENTS.md/tài liệu triển khai/checklist: mọi bản ứng d�
 
 **Đầu ra/đạt:** runbook và biên nhận end-to-end; nhánh/cấu hình/đích rõ ràng; danh sách hạn chế còn lại; dữ liệu tạm được dọn, nguồn/bằng chứng/backup/gói quay lui được giữ. Phát hành nội dung tiếp theo và tự động hóa dài hạn là các bước được duyệt riêng.
 
-## Bước cần duyệt trước tiên
+## Bước cần duyệt trước tiên — lịch sử trước khi thực thi
 
 **R1 — khảo sát và đối chiếu chỉ đọc.** Chưa sửa mã, push GitHub, đổi webhook hoặc phát hành lại. Khi R1 hoàn tất, chủ dự án có đủ bằng chứng để duyệt phương án R2 cụ thể, tận dụng tối đa các tài nguyên đã làm.

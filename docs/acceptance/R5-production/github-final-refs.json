@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SAME_PAYLOAD_AND_LEGACY_RELEASE_PRESERVED",
+  "observedAt": "2026-10-26T08:16:30.757Z",
+  "refs": [
+    {
+      "ref": "refs/heads/release",
+      "sha": "4fe952ac7eec550d3125be9885fa6271aece2718"
+    },
+    {
+      "ref": "refs/heads/release-production",
+      "sha": "dc4af296692ddac2dd71dc9f1be4a69f1af29959"
+    },
+    {
+      "ref": "refs/heads/release-staging",
+      "sha": "dc4af296692ddac2dd71dc9f1be4a69f1af29959"
+    }
+  ]
+}
