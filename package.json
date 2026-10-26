@@ -76,7 +76,9 @@
     "test:github-stars": "node scripts/run-clean.mjs script scripts/test-github-stars-u1.mjs",
     "build:github-stars": "node scripts/run-clean.mjs script scripts/github-stars-release.mjs",
     "test:github-stars-packages": "node scripts/run-clean.mjs script scripts/test-github-stars-packages.mjs",
-    "test:github-stars-ui": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs --stars-u2"
+    "test:github-stars-ui": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs --stars-u2",
+    "test:github-stars-publication": "node scripts/run-clean.mjs script scripts/test-github-stars-publication.mjs",
+    "publish:github-stars": "node scripts/run-clean.mjs script scripts/publish-github-stars.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

@@ -32,6 +32,8 @@ jobs:
         run: |
           if ((Get-Content themes/vibelab/style.css -Raw) -match 'Version: 0.7.3') {
             npm run test:github-stars-packages -- $env:SOURCE_SHA
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+            npm run test:github-stars-publication
           } else {
             npm run test:pipeline-packages -- $env:SOURCE_SHA docs/acceptance/R3-github-ci/packages
           }
