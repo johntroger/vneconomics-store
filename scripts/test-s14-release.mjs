@@ -4,7 +4,7 @@ import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {writeRelease,verifyRelease,sha256,git,dryRunGate,makeZip,validateSourceTree} from './release-lib.mjs';
 import {policy} from './release-policy.mjs';
-const ref=process.argv[2]||'HEAD',evidence=resolve('docs/acceptance/S14');mkdirSync(evidence,{recursive:true});
+const ref=process.argv[2]||'HEAD',evidence=resolve(process.argv[3]||'docs/acceptance/S14');mkdirSync(evidence,{recursive:true});
 mkdirSync('tmp/tests',{recursive:true});const root=mkdtempSync(resolve('tmp/tests/s14-package-')),checks=[];
 const check=(value,label)=>{assert.ok(value,label);checks.push(label);};
 const protectedPaths=['.local/site/wp-config.php','.local/site/wp-content/database/.ht.sqlite'].filter(existsSync);

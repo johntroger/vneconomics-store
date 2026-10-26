@@ -1,0 +1,37 @@
+{
+  "status": "PASS_PUBLIC_EVIDENCE",
+  "observedAt": "2026-10-25T14:16:27.333Z",
+  "checks": [
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+    "live real evidence exact bytes codex",
+    "evidence noindex codex",
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+    "live real evidence exact bytes claude-code",
+    "evidence noindex claude-code",
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+    "live real evidence exact bytes antigravity",
+    "evidence noindex antigravity"
+  ],
+  "visits": [
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+      "status": 200
+    }
+  ],
+  "limits": [
+    "Read-only anonymous HTTP checks; interactive Edge checks recorded separately",
+    "Legacy rendering checks do not exercise WooCommerce transactions",
+    "No fresh install/sign-in or new model generation is certified"
+  ]
+}

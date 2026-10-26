@@ -6,3 +6,4 @@ tmp/
 !.env.example
 *.log
 artifacts/private/
+artifacts/pipeline/

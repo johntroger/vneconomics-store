@@ -1,0 +1,14 @@
+d786ebd5b7fa8b36331a2d8dc43ffdd2d391152a	refs/heads/codex/s01-local-baseline
+9c50e04b9da709d9c8eb271bfc9ce43a3da423d6	refs/heads/codex/s02-catalog-prototype
+c07d8b81a98b9c5fd5e183657fee4e144e757942	refs/heads/codex/s03-library-data
+254fda8d8ca9f770c11df2e1f73485fedbc4c43f	refs/heads/codex/s04-state-resolver
+decc41e8f43ea0bae1523403251de0af714a1807	refs/heads/codex/s05-proposals-preview
+69be5e546937f54b3f2eeafaef023d888a283bce	refs/heads/codex/s06-theme-home
+6bd4494c6d225f83567d7210f529bd3b8e2d7712	refs/heads/codex/s07-catalog-cards
+cdaab49048e693ad0a1733d9c90e5cb827ee49f4	refs/heads/codex/s08-resource-detail
+2ba866352ec949dbef6904a1c6d3869c3fff853d	refs/heads/codex/s09-search-filters
+a26b6836bab8c4d8e914240d793faa6984635180	refs/heads/codex/s10-practice-guide
+8b349085c817215494781610ef3b384554c7cde2	refs/heads/codex/s11-reports-support
+4e80391d906e20f645ca02f819644045a274123c	refs/heads/codex/s12-cache-consistency
+6cd895f32906c1c7907d6b34dd368a30ab3c5982	refs/heads/main
+4fe952ac7eec550d3125be9885fa6271aece2718	refs/heads/release

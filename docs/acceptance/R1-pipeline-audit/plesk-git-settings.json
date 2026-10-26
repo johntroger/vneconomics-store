@@ -1,0 +1,28 @@
+{
+  "branch": "release",
+  "deploymentDirectory": "/store.vneconomics.com/codex-deploy-check",
+  "modeButtons": [
+    {
+      "className": "pul-button pul-button--selected pul-segmented-control__button",
+      "name": "Automatic",
+      "pressed": "true",
+      "selected": null
+    },
+    {
+      "className": "pul-button pul-segmented-control__button",
+      "name": "Manual",
+      "pressed": "false",
+      "selected": null
+    },
+    {
+      "className": "pul-button pul-segmented-control__button",
+      "name": "Disabled",
+      "pressed": "false",
+      "selected": null
+    }
+  ],
+  "postDeployActionsEnabled": false,
+  "repository": "git@github.com:johntroger/vneconomics-store.git",
+  "webhookSha256": "23bfa06b002cc8802ff348abe017e03524808565c0b18c1f941bb077671c3f5b",
+  "webhookOrigin": "https://s88d13.cloudnetwork.vn:8443"
+}

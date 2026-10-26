@@ -1,0 +1,53 @@
+- banner:
+  - search "Global search":
+    - combobox "Search..."
+  - list:
+    - button "vneconomics.com":
+      - generic: vneconomics.com
+    - button "All subscriptions":
+      - generic: All subscriptions
+    - button:
+    - button:
+    - button "Switch to dark theme":
+- complementary:
+  - generic: W
+  - list:
+    - list:
+      - link "Websites & Domains":
+        - /url: /smb/web/view
+      - link "Files":
+        - /url: /smb/file-manager
+      - link "Databases":
+        - /url: /smb/database
+      - link "Statistics":
+        - /url: /smb/statistics
+      - link "Users":
+        - /url: /smb/user/index
+      - link "Account":
+        - /url: /smb/account
+      - link "WordPress":
+        - /url: /modules/wp-toolkit/index.php/domain/index?context=extNavButton_wp_toolkit_1
+      - link "Installer By MatBao":
+        - /url: /modules/wordpress-installer/index.php/index/installthemes?context=extNavButton_wordpress_installer_1
+  - button "Expand sidebar"
+- navigation "Breadcrumbs":
+  - list:
+    - link "Websites & Domains":
+      - /url: /smb/web/view
+    - link "staging-store.vneconomics.com":
+      - /url: /smb/web/overview/id/319/type/domain
+- heading "Git Repositories on staging-store.vneconomics.com" [level=1]
+- main:
+  - heading "Add a repository to start deploying files" [level=3]
+  - generic: Push or pull from Git repositories hosted elsewhere, including from Git hosting services such as GitHub or BitBucket. Deploy changes automatically or manually.
+  - button "Add Repository":
+    - generic: Add Repository
+- contentinfo:
+  - link "plesk.com":
+    - /url: https://www.plesk.com/
+  - link "Suggest an Idea":
+    - /url: https://features.plesk.com/tabs/28-planned-roadmap
+  - link "Accessibility":
+    - /url: https://docs.plesk.com/accessibility/
+  - link "Cookies":
+    - /url: /modules/git/index.php/domain/repositories?modals[cookie-policy-preferences]=true

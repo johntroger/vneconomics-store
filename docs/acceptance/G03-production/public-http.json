@@ -1,0 +1,206 @@
+{
+  "status": "PASS_G03_PRODUCTION_HTTP",
+  "observedAt": "2026-10-25T14:20:02.022Z",
+  "checks": [
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+    "live real evidence exact bytes codex",
+    "evidence noindex codex",
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+    "live real evidence exact bytes claude-code",
+    "evidence noindex claude-code",
+    "HTTP200 /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+    "healthy /wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+    "live real evidence exact bytes antigravity",
+    "evidence noindex antigravity",
+    "HTTP200 /huong-dan/",
+    "healthy /huong-dan/",
+    "three primary beginner cards",
+    "supplementary guides separate",
+    "hub choice Codex",
+    "hub choice Claude Code",
+    "hub choice Antigravity IDE",
+    "HTTP200 /",
+    "healthy /",
+    "home has three beginner choices",
+    "home links guide hub",
+    "HTTP200 /huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+    "healthy /huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+    "approved title codex",
+    "six live copy controls codex",
+    "six live checklist entries codex",
+    "actual evidence linked codex",
+    "no QA evidence codex",
+    "lesson progress/fallback UI codex",
+    "production canonical codex",
+    "HTTP200 /huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+    "healthy /huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+    "approved title claude-code",
+    "six live copy controls claude-code",
+    "six live checklist entries claude-code",
+    "actual evidence linked claude-code",
+    "no QA evidence claude-code",
+    "lesson progress/fallback UI claude-code",
+    "production canonical claude-code",
+    "HTTP200 /huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+    "healthy /huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+    "approved title antigravity",
+    "six live copy controls antigravity",
+    "six live checklist entries antigravity",
+    "actual evidence linked antigravity",
+    "no QA evidence antigravity",
+    "lesson progress/fallback UI antigravity",
+    "production canonical antigravity",
+    "HTTP200 /",
+    "healthy /",
+    "new guide searchable",
+    "HTTP200 /tai-nguyen/",
+    "healthy /tai-nguyen/",
+    "HTTP200 /wp-sitemap-posts-vne_guide-1.xml",
+    "healthy /wp-sitemap-posts-vne_guide-1.xml",
+    "guide in sitemap codex",
+    "guide in sitemap claude-code",
+    "guide in sitemap antigravity",
+    "legacy baseline fourteen URLs",
+    "HTTP200 /hello-world/",
+    "healthy /hello-world/",
+    "HTTP200 /sample-page/",
+    "healthy /sample-page/",
+    "HTTP200 /shop/",
+    "healthy /shop/",
+    "HTTP200 /cart/",
+    "healthy /cart/",
+    "HTTP200 /cart/",
+    "healthy /cart/",
+    "HTTP200 /my-account/",
+    "healthy /my-account/",
+    "HTTP200 /home/",
+    "healthy /home/",
+    "HTTP200 /about/",
+    "healthy /about/",
+    "HTTP200 /gioi-thieu/",
+    "healthy /gioi-thieu/",
+    "HTTP200 /san-pham/",
+    "healthy /san-pham/",
+    "HTTP200 /tin-tuc/",
+    "healthy /tin-tuc/",
+    "HTTP200 /lien-he/",
+    "healthy /lien-he/",
+    "HTTP200 /cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+    "healthy /cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+    "HTTP200 /diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+    "healthy /diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/"
+  ],
+  "visits": [
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/codex.html",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/claude-code.html",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/wp-content/uploads/vne-guide-evidence/g03-0499402e4708/antigravity.html",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/?vne_find=1&scope=guides&s=Antigravity",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/tai-nguyen/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/wp-sitemap-posts-vne_guide-1.xml",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/hello-world/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/sample-page/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/shop/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/checkout/",
+      "status": 302
+    },
+    {
+      "url": "https://store.vneconomics.com/cart/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/my-account/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/home/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/about/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/gioi-thieu/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/san-pham/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/tin-tuc/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/lien-he/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200
+    },
+    {
+      "url": "https://store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200
+    }
+  ],
+  "limits": [
+    "Read-only anonymous HTTP checks; interactive Edge checks recorded separately",
+    "Legacy rendering checks do not exercise WooCommerce transactions",
+    "No fresh install/sign-in or new model generation is certified"
+  ]
+}

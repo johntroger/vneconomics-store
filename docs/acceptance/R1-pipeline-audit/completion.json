@@ -1,0 +1,14 @@
+{
+  "status": "PASS_R1_READ_ONLY",
+  "observedAt": "2026-10-26T09:14:14+07:00",
+  "jsonEvidenceFilesParsed": 15,
+  "gitBlobMatches": 48,
+  "liveComponentMismatchCount": 0,
+  "originalRowsMatch": true,
+  "originalMetadataExceptCodexValidationMatch": true,
+  "c100VerifiedBatches": 10,
+  "g03JournalStatus": "published",
+  "cleanupLockPresent": false,
+  "newDeploymentPerformed": false,
+  "r2Authorized": false
+}

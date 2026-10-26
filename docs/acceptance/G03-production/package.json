@@ -1,0 +1,13 @@
+{
+  "status": "BUILT_NOT_DEPLOYED",
+  "sourceRef": "0499402e4708336deb9c58802b2981bbd44103f8",
+  "directory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\production\\g03-0499402e4708",
+  "bundleSha256": "5e4b9d0f11d145bc9a1b5fa07273f4414182665c4f7de9c40a8a21b02a37104b",
+  "bundleBytes": 241890,
+  "themeSha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab",
+  "themeFiles": 38,
+  "pluginUnchanged": true,
+  "localWorkingTreeByteDifferences": [
+    "vibelab/detail.php"
+  ]
+}

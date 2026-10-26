@@ -44,6 +44,18 @@ $again=vne_pipeline_run(R2_INBOX,'apply-content','fixture',$approval,$c);r2_chec
 r2_check($validationCounts===array_map(fn($key)=>count(vne_library_validations($result['journal']['map'][$key])),array('codex','claude-code','antigravity')),'validation retry creates no duplicates');
 $adopt=vne_pipeline_run(R2_INBOX,'adopt','fixture',$approval,$c);r2_check($adopt['status']==='ADOPTED_EXISTING_BASELINE'&&$after===vne_pipeline_fingerprint($afterIds),'adoption writes only a traceability receipt');
 r2_check(vne_pipeline_run(R2_INBOX,'adopt','fixture',$approval,$c)['status']==='ALREADY_ADOPTED','adoption retry is idempotent');
+// Reset only our disposable receipt to simulate an existing library predating this pipeline.
+$receiptKey='vne_pipeline_'.substr($manifestHash,0,24);
+r2_check(get_option($receiptKey)!==false,'fixture receipt exists before fresh adoption');
+delete_option($receiptKey);
+$fresh=vne_pipeline_run(R2_INBOX,'inspect','fixture',array(),$c);$approval['baselineSha256']=$fresh['baselineSha256'];
+$optionsWithoutReceipt=$wpdb->get_results("SELECT option_name,option_value,autoload FROM {$wpdb->options} ORDER BY option_name",ARRAY_A);
+$freshAdopt=vne_pipeline_run(R2_INBOX,'adopt','fixture',$approval,$c);
+r2_check($freshAdopt['status']==='ADOPTED_EXISTING_BASELINE'&&count($freshAdopt['journal']['map'])===103,'fresh receipt adopts all existing natural keys');
+r2_check($after===vne_pipeline_fingerprint($afterIds),'fresh adoption changes no posts/meta/terms/runtime');
+$optionsAfterAdopt=$wpdb->get_results($wpdb->prepare("SELECT option_name,option_value,autoload FROM {$wpdb->options} WHERE option_name<>%s ORDER BY option_name",$receiptKey),ARRAY_A);
+r2_check($optionsWithoutReceipt===$optionsAfterAdopt,'fresh adoption only adds its own receipt option');
+r2_check(vne_pipeline_run(R2_INBOX,'adopt','fixture',$approval,$c)['status']==='ALREADY_ADOPTED','fresh adoption retry is idempotent');
 $resource=$result['journal']['map']['c100-001'];$oldState=vne_library_state_input($resource);$state=$oldState;$state['review']['needed']=true;$state['review']['reason']='Owner review fixture';vne_pipeline_need(vne_library_save_state($resource,$state));
 r2_refused(fn()=>vne_pipeline_run(R2_INBOX,'apply-content','fixture',$approval,$c),'human review flag is a conflict, not reset');r2_check(vne_library_state_input($resource)['review']['needed'],'human review flag preserved');vne_pipeline_need(vne_library_save_state($resource,$oldState));
 $guide=$result['journal']['map']['claude-code'];wp_update_post(array('ID'=>$guide,'post_title'=>'Owner unapproved edit fixture'));

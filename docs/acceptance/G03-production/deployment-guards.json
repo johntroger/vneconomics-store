@@ -1,0 +1,28 @@
+{
+  "status": "PASS_DEPLOYMENT_GUARDS",
+  "observedAt": "2026-10-25T14:06:06.957Z",
+  "checks": [
+    "private importer PHP syntax",
+    "packaged importer exact source",
+    "theme archive pinned",
+    "only two new guides",
+    "three scoped real validations",
+    "evidence hash codex",
+    "public evidence contains no private paths or QA certificate codex",
+    "public evidence scoped and noindex codex",
+    "evidence hash claude-code",
+    "public evidence contains no private paths or QA certificate claude-code",
+    "public evidence scoped and noindex claude-code",
+    "evidence hash antigravity",
+    "public evidence contains no private paths or QA certificate antigravity",
+    "public evidence scoped and noindex antigravity",
+    "PHP target and validation retry guards ",
+    "17 pure guard cases, no WordPress mutation"
+  ],
+  "phpGuardCases": 17,
+  "sourceSha256": "d92efc431e02aea9c62dd9952c56ef93be040062ac75e9a73370d83add007e82",
+  "limits": [
+    "Pure target/idempotence guards; does not simulate server failure or a full production restore",
+    "Actual WordPress UI/package tests and real production dry-run recorded separately"
+  ]
+}

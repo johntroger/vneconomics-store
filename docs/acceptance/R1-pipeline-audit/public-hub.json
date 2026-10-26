@@ -1,0 +1,25 @@
+{
+  "cards": [
+    {
+      "href": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "key": "codex",
+      "text": "Bài thực hành đầu tiênCodexLàm trang đầu tiên trong ứng dụng Codex trên Windows.Đã thử · Đọc phạm vi kiểm chứng trong bài.Thực hành với Codex"
+    },
+    {
+      "href": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "key": "claude-code",
+      "text": "Bài thực hành đầu tiênClaude CodeLàm trang với tab Code của Claude desktop và xem từng thay đổi.Đã thử · Đọc phạm vi kiểm chứng trong bài.Thực hành với Claude Code"
+    },
+    {
+      "href": "https://store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "key": "antigravity",
+      "text": "Bài thực hành đầu tiênAntigravity IDELàm trang trong IDE, đọc phương án và kiểm tra đầu ra của Agent.Đã thử · Đọc phạm vi kiểm chứng trong bài.Thực hành với Antigravity IDE"
+    }
+  ],
+  "heading": "Chọn công cụ cho bài thực hành đầu tiên",
+  "robots": "max-image-preview:large",
+  "themeStyles": [
+    "https://store.vneconomics.com/wp-content/themes/vibelab/style.css?ver=0.7.2"
+  ],
+  "title": "Thực hành với Codex, Claude Code và Antigravity – store.vneconomics"
+}
