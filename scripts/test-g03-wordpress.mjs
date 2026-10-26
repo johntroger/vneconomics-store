@@ -9,7 +9,7 @@ import {randomBytes} from 'node:crypto';
 import {get as httpGet} from 'node:http';
 import {sha256} from './release-lib.mjs';
 import {policy} from './release-policy.mjs';
-import {runStarsUi} from './github-stars-ui-cases.mjs';
+import {runStarsUi,runStarsRollback} from './github-stars-ui-cases.mjs';
 const starsU2=process.argv.includes('--stars-u2');
 const releaseAt=process.argv.indexOf('--release'),release=releaseAt>=0?resolve(process.argv[releaseAt+1]):null;
 const pipeline=release?.startsWith(resolve('artifacts/pipeline/'));
@@ -88,6 +88,7 @@ try{
  cli(load+"wp_update_post(array('ID'=>"+map.antigravity.id+",'post_title'=>'G03_RAW_MUST_NOT_LEAK','post_content'=>'G03_RAW_MUST_NOT_LEAK'));",'raw-edit');const approved=await visit(map.antigravity.url);check(approved.status===200&&!approved.body.includes('G03_RAW_MUST_NOT_LEAK'),'unapproved raw edits do not replace public snapshot');
  check(cli(fingerprint,'after-tests')===baseline,'original11 library rows and metadata retained after UI tests');
  cli(load+"wp_update_post(array('ID'=>"+map.antigravity.id+",'post_status'=>'draft'));",'hide-guide');await go(page,base+'/huong-dan/');check(await page.locator('[data-beginner-tool]').count()===3&&await page.locator('[data-beginner-tool="antigravity"] a').count()===0,'missing guide becomes non-link placeholder');
+ if(starsU2){await runStarsRollback({cli,load,fixture,release,check,visit});}
  cli(load+"require_once ABSPATH.'wp-admin/includes/plugin.php';deactivate_plugins('vne-library-core/vne-library-core.php');",'no-plugin');const fallback=await visit('/');check(fallback.status===200&&fallback.body.includes('Bài đang được chuẩn bị'),'plugin missing graceful home');
  await ctx.close();check(errors.length===0,'no browser JS errors');check(blocked.length===0,'no external browser requests');
  const phpLog=existsSync(join(fixture,'php-errors.log'))?readFileSync(join(fixture,'php-errors.log'),'utf8'):'';check(!/PHP (Warning|Fatal error|Notice|Deprecated):/.test(phpLog),'no PHP warnings/fatals');check(JSON.stringify(protectedPaths.map(p=>sha256(readFileSync(p))))===JSON.stringify(before),'real DB/config and original Codex source unchanged');

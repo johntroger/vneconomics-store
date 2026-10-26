@@ -23,7 +23,7 @@ jobs:
       # No .local, WordPress DB, bundled desktop runtime, hosting secret or push.
       - name: Verify pipeline CI provenance gate
         shell: pwsh
-        run: npm run test:pipeline-ci
+        run: npm run test:pipeline-ci -- --u2
       - name: Verify CI gate in publisher and artifact CLIs
         shell: pwsh
         run: npm run test:pipeline-ci-cli -- --u2

@@ -13,7 +13,7 @@ function vne_stars_release_verify($directory,$approval){
  sort($actual);sort($expected);if($actual!==$expected){throw new RuntimeException('Incomplete stars package');}
  $allowed=array_merge($expected,array('manifest.json','payload.zip'));foreach(new DirectoryIterator($directory) as $f){if(!$f->isDot()&&($f->isLink()||!$f->isFile()||!in_array($f->getFilename(),$allowed,true))){throw new RuntimeException('Unexpected package member');}}
  foreach(array('receiver.php','github-stars-receiver.php') as $path){$spec=array_values(array_filter($m['files'],fn($f)=>$f['path']===$path))[0];if(hash_file('sha256',__DIR__.'/'.$path)!==$spec['sha256']){throw new RuntimeException('Verifier source differs');}}
- foreach(array(array($m['components'],'0.7.3','0.4.3',11),array($m['previous']['components'],'0.7.2','0.4.2',10)) as $pair){vne_pipeline_zip($directory,$pair[0]['theme'],'vibelab','style.css',$pair[1],38);vne_pipeline_zip($directory,$pair[0]['plugin'],'vne-library-core','vne-library-core.php',$pair[2],$pair[3]);}
+ foreach(array(array($m['components'],'0.7.3','0.4.3',11,''),array($m['previous']['components'],'0.7.2','0.4.2',10,'previous-')) as $pair){if(($pair[0]['theme']['archive']??'')!==$pair[4].'theme.zip'||($pair[0]['plugin']['archive']??'')!==$pair[4].'plugin.zip'){throw new RuntimeException('Component archive path differs');}vne_pipeline_zip($directory,$pair[0]['theme'],'vibelab','style.css',$pair[1],38);vne_pipeline_zip($directory,$pair[0]['plugin'],'vne-library-core','vne-library-core.php',$pair[2],$pair[3]);}
  return $m;
 }
 function vne_stars_release_runtime($directory,$approval,$previous=false){

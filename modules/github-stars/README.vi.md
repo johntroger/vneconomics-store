@@ -1,5 +1,7 @@
 # U1 — snapshot sao GitHub, local
 
+**Cập nhật U2:** implementation hiện nằm trong `plugins/vne-library-core/stars.php`, được plugin0.4.3 tải; file collector trong thư mục này là entry tương thích cho phát triển. Theme0.7.3 chỉ đọc snapshot đã lưu. Các mô tả “chưa tích hợp” bên dưới ghi phạm vi U1 lúc nghiệm thu; không có HTTP adapter thật hoặc lịch chạy nào được bật trong U2.
+
 Thư viện phát triển, chưa được plugin tải. Không có hook, route, UI, cron hoặc HTTP client thật. Dùng lại 100 repo ID từ C100; không nhập lại bài. U1 được chủ dự án duyệt theo yêu cầu “làm tiếp đi, đơn giản thôi”.
 
 ## Thiết kế gọn

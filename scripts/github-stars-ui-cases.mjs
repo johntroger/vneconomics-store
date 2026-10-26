@@ -1,4 +1,5 @@
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,unlinkSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
 import {join,resolve} from 'node:path';
 import {sha256} from './release-lib.mjs';
 export async function runStarsUi({page,cli,load,fixture,base,out,check,visit,go,seed,release}){
@@ -16,18 +17,31 @@ export async function runStarsUi({page,cli,load,fixture,base,out,check,visit,go,
  const fresh={repo_id:first.repo,full_name:first.name,stars:12345,observed_at:Math.floor(Date.now()/1000)-86400,last_success_at:Math.floor(Date.now()/1000),status:'ok'};put(fresh);
  await go(page,first.url);check(await page.locator('.detail-decision [data-stars-count="12345"]').count()===1,'detail displays cached count');check((await page.locator('.detail-decision .repo-stars').innerText()).includes('GMT+7'),'confirmation date timezone explicit');check(await page.locator('.detail-decision .repo-stars time[datetime]').count()===1,'machine readable confirmation date');check(await page.locator('h1').count()===1,'resource has one heading');check((await page.locator('link[rel="canonical"]').getAttribute('href'))===first.url,'canonical unchanged');check((await page.locator('meta[name="robots"]').getAttribute('content')).includes('noindex'),'fixture noindex retained');
  const search='/?vne_find=1&scope=resources&s=MarkItDown';await go(page,base+search);check(await page.locator('[data-resource-id="'+first.id+'"] [data-stars-count="12345"]').count()===1,'search card reads same snapshot');
- for(const width of [1280,390,320]){await page.setViewportSize({width,height:900});await go(page,first.url);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'stars detail no overflow '+width);await page.screenshot({path:join(out,'stars-detail-'+width+'.png')});await go(page,base+search);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'stars card no overflow '+width);await page.screenshot({path:join(out,'stars-card-'+width+'.png')});}
+ for(const width of [1280,390,320]){await page.setViewportSize({width,height:900});await go(page,first.url);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'stars detail no overflow '+width);await page.screenshot({path:join(out,'stars-detail-'+width+'.png')});await page.locator('.detail-decision .repo-stars').screenshot({path:join(out,'stars-block-'+width+'.png')});await go(page,base+search);check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'stars card no overflow '+width);await page.screenshot({path:join(out,'stars-card-'+width+'.png')});await page.locator('[data-resource-id="'+first.id+'"]').screenshot({path:join(out,'stars-result-'+width+'.png')});}
  put({...fresh,last_success_at:fresh.last_success_at-172801});await go(page,first.url);check((await page.locator('.detail-decision [data-stars-state="stale"]').innerText()).includes('Dữ liệu cũ'),'old confirmation labelled stale');
  put({...fresh,status:'http_500'});await go(page,base+search);check(await page.locator('[data-resource-id="'+first.id+'"] [data-stars-state="stale"][data-stars-count="12345"]').count()===1,'failed refresh keeps old count on card');
  put({...fresh,stars:0});await go(page,first.url);check(await page.locator('.detail-decision [data-stars-count="0"]').count()===1,'real zero remains visible');
  put({...fresh,full_name:'other/repo'});await go(page,first.url);check(await page.locator('.detail-decision [data-stars-state="unknown"]').count()===1,'mismatched source identity not displayed');put(fresh);
  await go(page,seed.resources[0].url);check(await page.locator('.detail-decision [data-stars-state="unknown"]').count()===1,'seed without repo ID not guessed');
  check(cli(fingerprint,'stars-after')===before,'100 bodies/meta/terms and cron unchanged by stats/rendering');
- const privateApi=await visit('/wp-json/vne-library/v1/items?context=edit');check([401,403,404].includes(privateApi.status),'anonymous editing API remains denied');
+ const rendered=await visit(first.url);check(rendered.body.includes('data-stars-count="12345"')&&(rendered.headers['cache-control']??'').includes('no-store'),'stats rendered server-side with no-store');
+ const privateApi=await visit('/wp-json/vne-library/v1/items?context=edit');check([401,403].includes(privateApi.status)&&(privateApi.headers['cache-control']??'').includes('no-store'),'anonymous editing API remains denied and no-store');
  if(release){
   const m=JSON.parse(readFileSync(join(release,'manifest.json'))),approval={sourceSha:m.sourceSha,manifestSha256:sha256(readFileSync(join(release,'manifest.json')))};
   const code=load+"require "+JSON.stringify(slash(join(release,'github-stars-receiver.php')))+";echo wp_json_encode(vne_stars_release_runtime("+JSON.stringify(slash(resolve(release)))+",json_decode('"+JSON.stringify(approval)+"',true)));";
   check(JSON.parse(cli(code,'stars-runtime')).status==='VERIFIED_RUNTIME_ONLY','new receiver verifies exact packaged runtime bytes');
  }
  writeFileSync(join(out,'stars-checks.json'),JSON.stringify({status:'PASS_U2_STARS_UI',contentCount:113,collectorChecks:native.checks.length,fingerprint:before,limits:['Synthetic GitHub responses only; no live API','No scheduled job, deployment or real content change']},null,2)+'\n');
+}
+export async function runStarsRollback({cli,load,fixture,release,check,visit}){
+ if(!release)throw new Error('U2 rollback requires Git package');
+ const slash=p=>p.replaceAll('\\','/'),m=JSON.parse(readFileSync(join(release,'manifest.json'))),approval={sourceSha:m.sourceSha,manifestSha256:sha256(readFileSync(join(release,'manifest.json')))},fingerprint=load+"global $wpdb;echo hash('sha256',serialize(array($wpdb->get_results('SELECT * FROM wp_posts ORDER BY ID',ARRAY_A),$wpdb->get_results('SELECT * FROM wp_postmeta ORDER BY meta_id',ARRAY_A),$wpdb->get_results('SELECT * FROM wp_term_relationships ORDER BY object_id,term_taxonomy_id',ARRAY_A),$wpdb->get_results('SELECT option_name,option_value FROM wp_options ORDER BY option_name',ARRAY_A))));",before=cli(fingerprint,'rollback-before');
+ const extract=(archive,folder)=>{const q=s=>"'"+s.replaceAll("'","''")+"'",r=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command','Expand-Archive -Force -LiteralPath '+q(resolve(release,archive))+' -DestinationPath '+q(join(fixture,'wp-content',folder))],{encoding:'utf8',windowsHide:true,timeout:120000});check(r.status===0,'fixture restore '+archive);};
+ extract('previous-plugin.zip','plugins');unlinkSync(join(fixture,'wp-content/plugins/vne-library-core/stars.php'));
+ const item=JSON.parse(cli(load+"$ids=get_posts(array('post_type'=>'vne_resource','numberposts'=>-1,'post_status'=>'publish'));foreach($ids as $p){if(get_post_meta($p->ID,'_vne_resource',true)['repo_id']){echo wp_json_encode(array('url'=>get_permalink($p->ID)));break;}}",'rollback-item'));
+ const mixed=await visit(item.url);check(mixed.status===200&&mixed.body.includes('data-stars-state="unknown"'),'new theme with previous plugin has graceful stats fallback');
+ extract('previous-theme.zip','themes');
+ const runtime=previous=>load+"require "+JSON.stringify(slash(join(release,'github-stars-receiver.php')))+";echo wp_json_encode(vne_stars_release_runtime("+JSON.stringify(slash(resolve(release)))+",json_decode('"+JSON.stringify(approval)+"',true),"+(previous?'true':'false')+"));";
+ check(JSON.parse(cli(runtime(true),'rollback-runtime')).pair==='previous','previous exact runtime pair passes verifier');check((await visit(item.url)).status===200,'previous pair still serves same resource URL');check(cli(fingerprint,'rollback-keeps-data')===before,'rollback retains all posts/meta/terms/options including stats and validation');
+ extract('plugin.zip','plugins');extract('theme.zip','themes');check(JSON.parse(cli(runtime(false),'restore-current')).pair==='current','current exact pair restored after rehearsal');check(cli(fingerprint,'current-keeps-data')===before,'return to current code keeps full fixture data');
 }
