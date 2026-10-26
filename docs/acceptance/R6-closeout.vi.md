@@ -2,6 +2,8 @@
 
 Evidence R5 được pin `-text` trong .gitattributes để Git giữ byte gốc; log UI giữ khoảng trắng cuối dòng có chủ ý. Kiểm sau commit đối chiếu cả50Git blob với inventory SHA256, không chỉ kiểm tên file đã track. Chính sách whitespace chỉ nới cho snapshot .txt R5, không nới cho mã nguồn. Source/ref/journal R5 không được sửa để đổi kết quả lịch sử.
 
+**Kiểm sau commit đạt218điểm** tại `ecb8f6c68d4b2a616ddb676d396b66b7f534263a`:50file R5 đã track và50hash Git blob khớp byte gốc,9file payload không đổi. [Biên nhận](R6-closeout/post-commit-verification.json). Commit hồ sơ tiếp theo chỉ lưu kết quả/tài liệu này; không tạo payload hoặc thao tác hosting. Run-clean đã dọn dữ liệu tạm/cache mới sau cả hai lượt118/218; các sản phẩm và thay đổi marketing ngoài phạm vi được giữ nguyên.
+
 Chủ dự án duyệt riêng “duyệt R6” ngày26/10/2026. Phạm vi: kiểm tính đầy đủ R5, lưu hồ sơ lên GitHub, cập nhật AGENTS/runbook/checklist và gắn nhãn đường ZIP lịch sử. Không phát hành app/nội dung, đổi hosting/ref payload, merge main, restoreDB hoặc bật automation.
 
 [Runbook](../deployment-runbook.vi.md) và [checklist](../release-checklist.vi.md) là hướng dẫn hiện hành. AGENTS bắt buộc source GitHub/CI đạt và payload SHA trước khi Plesk nhận, pin riêng source/payload/manifest/baseline, staging trước production, từ chối conflict, không upload trực tiếp local. Có quy tắc đổi version/schema, lô mới, reviewer, retry/timeout/rollback và cleanup. Helper R5/profile baseline103mục được ghi rõ không phải bộ phát hành tùy ý.
