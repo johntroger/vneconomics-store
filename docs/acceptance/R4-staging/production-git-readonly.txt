@@ -1,0 +1,78 @@
+Browser tab: 6, Title: "Git Repositories on store.vneconomics.com - WordPress Hosting V5", URL: "https://s88d13.cloudnetwork.vn:8443/modules/git/index.php/domain/repositories?dom_id=58&site_id=291".
+1 AXWebArea Git Repositories on store.vneconomics.com - WordPress Hosting V5, URL: s88d13.cloudnetwork.vn:8443/modules/git/index.php/domain/repositories?dom_id=58&site_id=291
+	2 container
+		3 container page
+			4 container
+				5 container Global search
+					6 combo box (collapsed, settable) Description: Search..., ID: searchTerm, Secondary Actions: Expand
+				7 content list
+					8 pop up button (collapsed) vneconomics.com, ID: account-menu, Secondary Actions: Expand
+					9 button All subscriptions
+					10 button
+					11 button help-menu
+					12 button Switch to dark theme
+			13 container
+				14 text W
+				15 content list
+					16 content list menuId-general
+						17 link Description: Websites & Domains, Value: s88d13.cloudnetwork.vn:8443/smb/web/view
+						18 link Description: Files, Value: s88d13.cloudnetwork.vn:8443/smb/file-manager
+						19 link Description: Databases, Value: s88d13.cloudnetwork.vn:8443/smb/database
+						20 link Description: Statistics, Value: s88d13.cloudnetwork.vn:8443/smb/statistics
+						21 link Description: Users, Value: s88d13.cloudnetwork.vn:8443/smb/user/index
+						22 link Description: Account, Value: s88d13.cloudnetwork.vn:8443/smb/account
+						23 link Description: WordPress, Value: s88d13.cloudnetwork.vn:8443/modules/wp-toolkit/index.php/domain/index?context=extNavButton_wp_toolkit_1
+						24 link Description: Installer By MatBao, Value: s88d13.cloudnetwork.vn:8443/modules/wordpress-installer/index.php/index/installthemes?context=extNavButton_wordpress_installer_1
+				25 button Expand sidebar
+			26 container
+				27 container Breadcrumbs
+					28 content list
+						29 link Description: Websites & Domains, Value: s88d13.cloudnetwork.vn:8443/smb/web/view
+						30 link Description: store.vneconomics.com, Value: s88d13.cloudnetwork.vn:8443/smb/web/overview/id/291/type/domain
+				31 heading Git Repositories on store.vneconomics.com, Value: 1
+					32 text Git Repositories on store.vneconomics.com
+				33 container git
+					34 heading vneconomics-store.git, Value: 3
+						35 text vneconomics-store.git
+					36 text URL
+					37 text field (settable) git@github.com:johntroger/vneconomics-store.git
+					38 button Copy to clipboard
+					39 text Branch
+					40 container :re:-value
+						41 combo box (collapsed, settable) Description: Branch, Secondary Actions: Expand
+						42 text release
+					43 heading Deploy key, Value: 5
+						44 text Deploy key
+					45 text Default
+					46 heading Latest commits, Value: 5
+						47 text Latest commits
+					48 content list
+						49 container
+							50 AXListMarker • 
+							51 text 2026-10-17 11:37
+							52 text Verify automatic hosting deployment connection v2
+						53 container
+							54 AXListMarker • 
+							55 text 2026-10-17 11:24
+							56 text Prepare isolated hosting connection check v1
+						57 button show more
+					58 button Pull now
+					59 heading Deployment, Value: 5
+						60 text Deployment
+					61 container
+						62 text The  release  branch is being deployed automatically to 
+						63 link Description: /store.vneconomics.com/codex-deploy-check, Value: s88d13.cloudnetwork.vn:8443/smb/file-manager/list/domainId/291?currentDir=/store.vneconomics.com/codex-deploy-check
+					64 button Deploy now
+					65 container
+						66 button Remove repository
+						67 button Repository settings
+						68 button Refresh this repository card
+					69 button  Add Repository
+						70 container
+							71 text Add Repository
+				72 link Description: plesk.com, Value: plesk.com/
+				73 link Description: Suggest an Idea, Value: features.plesk.com/tabs/28-planned-roadmap
+				74 link Description: Accessibility, Value: docs.plesk.com/accessibility/
+				75 link Description: Cookies, Value: s88d13.cloudnetwork.vn:8443/modules/git/index.php/domain/repositories?modals%5Bcookie-policy-preferences%5D=true
+
+The focused UI element is 1 AXWebArea Git Repositories on store.vneconomics.com - WordPress Hosting V5, URL: s88d13.cloudnetwork.vn:8443/modules/git/index.php/domain/repositories?dom_id=58&site_id=291

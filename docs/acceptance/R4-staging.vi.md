@@ -1,6 +1,8 @@
 # R4 — GitHub → Plesk staging
 
-Ngày26/10/2026. Quyền: chủ dự án duyệt riêng R4, sau đó yêu cầu tiếp tục. Chỉ staging domain319; không thay production hoặc kết nối release lịch sử. Gate đang hoàn thiện lượt tiếp nhận baseline bằng receipt riêng; chưa chuyển R5.
+Ngày26/10/2026. **PASS R4 trong phạm vi đã ghi.** Quyền: chủ dự án duyệt riêng R4, sau đó yêu cầu tiếp tục. Chỉ staging domain319; không thay production hoặc kết nối release lịch sử. Dừng trước R5.
+
+Source cuối `f587eea20526f32294a8826949d7407337040ec6`, [CI40284129915](https://github.com/johntroger/vneconomics-store/actions/runs/40284129915) PASS218+75. Payload cuối `602d9f55793d53d29f0654ae01e5daf5841e9f9c` trên release-staging, parent payload nhập đầu f9860e9, manifestSHA256 `374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c`. Cả9 tệp payload giữ byte so với lượt nhập đầu; chỉ manifest/source SHA thay do commit hồ sơ/QA. Plesk nhận đúng commit/10 tệp/0hash lệch và dùng receipt mới, không cài lại hoặc nhập lại bài. Xem [biên nhận nhận gói cuối](R4-staging/plesk-private-received-adopt.json).
 
 ## Đường nhận gói đã kiểm chứng
 
@@ -28,10 +30,16 @@ Giữ28 hàng gốc và metadata, chỉ cho phép nối validation Codex114 theo
 - Cả3guide kiểm copy thật sau sentinel, clipboard khớp nội dung, checklist giữ qua reload và hoàn nguyên dấu ban đầu. Lượt đọc clipboard quá sớm được khắc phục bằng chờ trạng thái UI; không thay code sản phẩm, không thực thi nội dung vừa copy.
 - Homepage/hub/catalog ở390 và320px:6case không tràn ngang,3 thẻ công cụ ở homepage/hub. Viewport đã reset. Lưu ảnh thực tế và browser-ui/responsive-ui.json.
 
-## Lượt tiếp nhận baseline tiếp theo
+## Lượt tiếp nhận baseline riêng đã đạt trên MariaDB
 
-Tạo candidate chỉ đổi source/manifest do commit hồ sơ và bộ kiểm; app/receiver/config/nội dung giữ byte. Đưa candidate đó qua CI → GitHub payload → Plesk private inbox rồi adopt vào **receipt mới** trên MariaDB. Giữ journal nhập đầu dưới nhãn APPLIED_MISSING_CONTENT; không sửa nhãn nó để giả thành tiếp nhận baseline. Kiểm toàn bộ posts/meta/runtime, validation, option ngoài receipt và retry; hoàn tất mới kết luận R4 PASS.
+Candidate thứ2 qua CI → GitHub payload → Plesk private inbox, rồi adopt vào receipt mới trên MariaDB thật. [Kết quả](R4-staging/adopt-existing-baseline.json): ADOPTED_EXISTING_BASELINE;130typedrows/fingerprint toàn bộ posts/meta/runtime giữ nguyên, các option ngoài receipt mới giống hệt trước, journal nhập đầu giữ nguyên APPLIED_MISSING_CONTENT. Retry trả ALREADY_ADOPTED,103ID vẫn đúng. [Inspect cuối](R4-staging/inspect-final.json):38/10file MATCH,103 mục publish/validation đủ, fingerprint vẫn `22e86a5a80e471fef39fa0bb267059a4a708c358260c59587d02f4eb92ff562d`.
+
+650 kiểm HTTP và UI đã chạy sau nhập; không gọi chúng là một lượt chạy lại sau adopt. Tính áp dụng được bảo đảm bằng việc9 tệp payload ứng dụng và toàn bộ posts/meta/runtime không đổi qua adopt. Chụp lại hub cuối vẫn3 công cụ. Cấu hình Git card cuối vẫn Manual/release-staging/private inbox; post-deploy actions tắt khi tạo và không được thay trong R4. Production Git card đọc lại vẫn release → codex-deploy-check, không bấm chỉnh/pull/deploy production.
+
+[Cleanup cuối](R4-staging/server-cleanup-final.json): upgrade/upgrade-temp-backup rỗng, không còn pipeline lock; backup thật còn đúng SHA ban đầu. Viewport được reset, dấu checklist ban đầu được phục hồi. Không tạo bài QA hoặc endpoint thử công khai. Receipt run cuối được lưu local sau CI và tóm tắt trong mô tả PR; mã/công cụ/bằng chứng lượt nhập đầu đã trên GitHub, không tạo vòng commit receipt → source SHA mới vô hạn.
 
 Các báo cáo và gói ứng viên là sản phẩm cần giữ. Mọi runner local qua run-clean; không xóa DB/config, nguồn, backup thật hoặc marketing ngoài phạm vi. Không bật automation, gửi email, gọi API AI tính phí hoặc thay production.
 
-R5 cần duyệt riêng với source/payload/config production cụ thể. Production trong payload hiện vẫn disabled/null; tên release/production cũng xung đột tiền tố release nên dự kiến dùng release-production ở R5. Không coi gói staging hiện tại đã được cho phép ghi production. Nếu config production thay manifest thì phải đối chiếu ứng viên mới và kiểm tiếp nhận trên staging trước khi ghi production.
+R5 cần duyệt riêng với source/payload/config production cụ thể. Đề xuất: dùng nguyên byte ứng dụng/nội dung của source f587eea, pin transport production vào repository vneconomics-store-production.git và inbox private /deploy-inbox/production sau xác thực, nhánh release-production/Manual (release/* xung đột release lịch sử). Đích ứng dụng store.vneconomics.com, DB vne35060_wp_kmqnf. Đọc lại baseline/backup mới và hash48file/103naturalkey trước mọi ghi. Nếu khớp, chỉ adopt bằng reviewer hiện có, không cài theme/plugin, không nhập lại bài, không copy/restore DB; lệch nội dung/phiên bản phải dừng ở xung đột. Thời điểm: sau phê duyệt R5, sau kiểm/backup, không bật tự động.
+
+Production trong payload R4 hiện vẫn disabled/null; không dùng payload đó để ghi production. Khi pin config production làm thay source/manifest, phải version hóa qua GitHub/CI, đối chiếu ứng viên mới và kiểm tiếp nhận trên staging trước khi dùng cùng ứng viên cho production. R4 không cấp quyền R5/R6.

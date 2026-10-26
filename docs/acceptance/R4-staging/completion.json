@@ -1,0 +1,26 @@
+{
+  "status": "PASS_R4",
+  "source": "f587eea20526f32294a8826949d7407337040ec6",
+  "payload": "602d9f55793d53d29f0654ae01e5daf5841e9f9c",
+  "branch": "release-staging",
+  "ci": "40284129915",
+  "httpChecks": 650,
+  "httpRequests": 145,
+  "resources": 106,
+  "guides": 6,
+  "practices": 1,
+  "typedRows": 130,
+  "adopt": "new receipt only, old import journal preserved",
+  "nativeTemporaryDirectories": "empty",
+  "pipelineLocks": "none",
+  "localProtectedHashes": [
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8",
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+  ],
+  "production": "unchanged, R5 not approved",
+  "latestReceipts": "local after CI, summarized in PR; source/payload frozen",
+  "browserTabsClosed": true,
+  "viewportReset": true,
+  "finalScreenshot": "docs/acceptance/R4-staging/staging-guide-hub-final.jpg"
+}

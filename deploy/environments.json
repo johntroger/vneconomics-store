@@ -5,10 +5,10 @@
     "database": "vne35060_wp_kmqnf",
     "home": "https://store.vneconomics.com",
     "indexing": "1",
-    "payloadBranch": "release/production",
-    "repositoryDirectory": null,
-    "inboxDirectory": null,
-    "deploymentConfigured": false
+    "payloadBranch": "release-production",
+    "repositoryDirectory": "/var/www/vhosts/vneconomics.com/git/vneconomics-store-production.git",
+    "inboxDirectory": "/var/www/vhosts/vneconomics.com/deploy-inbox/production",
+    "deploymentConfigured": true
   },
   "staging": {
     "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",

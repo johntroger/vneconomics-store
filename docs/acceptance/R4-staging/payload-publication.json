@@ -1,12 +1,12 @@
 {
   "status": "PUSHED_CI_VERIFIED_STAGING_PAYLOAD",
-  "sourceSha": "ebc6deb69f86364c4064de4c6eac2192f16906c8",
-  "payloadSha": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
-  "tree": "0fb2ee26846004eea24f88fddc47f91a20a9474d",
-  "parent": null,
+  "sourceSha": "f587eea20526f32294a8826949d7407337040ec6",
+  "payloadSha": "602d9f55793d53d29f0654ae01e5daf5841e9f9c",
+  "tree": "e22aab5d25edfaf0607e4cc0bfcf82dc04c86391",
+  "parent": "f9860e94cf6129f17fe4786d64621f71f7ecec9c",
   "branch": "release-staging",
-  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40270538594",
-  "manifestSha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437",
+  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40284129915",
+  "manifestSha256": "374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c",
   "files": [
     {
       "path": "content.json",
@@ -30,7 +30,7 @@
     },
     {
       "path": "manifest.json",
-      "sha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437"
+      "sha256": "374f88cb98f9b6315ddf14a112827bc42da89d24d88ad206e96ea13490c8af3c"
     },
     {
       "path": "plugin.zip",
