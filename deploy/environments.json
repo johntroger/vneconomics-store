@@ -16,8 +16,8 @@
     "home": "https://staging-store.vneconomics.com",
     "indexing": "0",
     "payloadBranch": "release/staging",
-    "repositoryDirectory": null,
-    "inboxDirectory": null,
-    "deploymentConfigured": false
+    "repositoryDirectory": "/var/www/vhosts/vneconomics.com/git/vneconomics-store-staging.git",
+    "inboxDirectory": "/var/www/vhosts/vneconomics.com/deploy-inbox/staging",
+    "deploymentConfigured": true
   }
 }

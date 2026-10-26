@@ -23,7 +23,10 @@ try{
  const content=JSON.parse(readFileSync(join(first,'content.json'),'utf8'));check(content.entries.length===103,'reuse100 introductions +2guides +Codex observation');check(content.entries.filter(e=>e.kind==='resource').length===100,'one hundred resource entries');check(content.entries.filter(e=>e.validation).length===3,'only scoped three-tool evidence');
  for(const e of content.entries.filter(e=>e.kind==='resource'))check(!e.validation&&e.payload.primary_category===0&&e.payload.categories.length===0,'environment-neutral resource '+e.key);
  for(const e of content.entries.filter(e=>e.kind==='guide'))check(sha256(Buffer.from(e.payload.content))===e.contentSha256,'approved guide body '+e.key);
- const config=JSON.parse(readFileSync(join(first,'environments.json'),'utf8'));check(!config.production.deploymentConfigured&&!config.staging.deploymentConfigured,'both remote targets fail closed until approved configuration');
+ const config=JSON.parse(readFileSync(join(first,'environments.json'),'utf8'));
+ check(!config.production.deploymentConfigured&&config.production.repositoryDirectory===null&&config.production.inboxDirectory===null,'production remains disabled through R4');
+ if(config.staging.deploymentConfigured){check(config.staging.repositoryDirectory==='/var/www/vhosts/vneconomics.com/git/vneconomics-store-staging.git'&&config.staging.inboxDirectory==='/var/www/vhosts/vneconomics.com/deploy-inbox/staging','staging transport pins paths observed on hosting in R4');}
+ else{check(config.staging.repositoryDirectory===null&&config.staging.inboxDirectory===null,'unconfigured staging fails closed');}
  const bad=join(root,'bad');cpSync(first,bad,{recursive:true});writeFileSync(join(bad,'theme.zip'),'truncated');assert.throws(()=>verifyPipeline(bad,ref));check(true,'bad archive rejected');
  cpSync(first,bad,{recursive:true});writeFileSync(join(bad,'secret.env'),'fixture');assert.throws(()=>verifyPipeline(bad,ref));check(true,'extra payload file rejected');
  const raw=JSON.stringify(manifest)+readFileSync(join(first,'content.json'),'utf8');check(!/DB_PASSWORD|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY|github_pat_[A-Za-z0-9]|g03-fixture/.test(raw),'no credentials or QA certificate in manifest/content');

@@ -1,9 +1,9 @@
 {
   "status": "PASS_GITHUB_LOCAL_BYTE_MATCH",
-  "observedAt": "2026-10-26T04:06:25.908Z",
-  "sourceSha": "8212eafa3f537e6db4f37d63695dbbf2ae0292d0",
-  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40267049302",
-  "manifestSha256": "b8e0d4630c5ad03c3fc493941059837ebf776f348861f7b7062a4727476f659a",
+  "observedAt": "2026-10-26T04:10:55.520Z",
+  "sourceSha": "71a914ea7e1746620a0f055dfec26ece3c231ea6",
+  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40267580030",
+  "manifestSha256": "42876608ef3ebfe3de131c9de4a8ef7136e925dfc89da5987bb58f8b4c3afaf3",
   "files": [
     {
       "path": "content.json",
@@ -27,11 +27,11 @@
     },
     {
       "path": "manifest.json",
-      "sha256": "b8e0d4630c5ad03c3fc493941059837ebf776f348861f7b7062a4727476f659a"
+      "sha256": "42876608ef3ebfe3de131c9de4a8ef7136e925dfc89da5987bb58f8b4c3afaf3"
     },
     {
       "path": "payload.zip",
-      "sha256": "741a28ba6d9a89979e110878fe4a1659716f7f1a5f0e059766af45502d009640"
+      "sha256": "fa239c3dc17c46c3aeb61fe33e5a5301ca8239a456f3d41375facd82cbe8afda"
     },
     {
       "path": "plugin.zip",
@@ -54,8 +54,8 @@
   "themeFiles": 38,
   "pluginFiles": 10,
   "remoteReleaseUnchanged": "4fe952ac7eec550d3125be9885fa6271aece2718",
-  "localDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\8212eafa3f537e6db4f37d63695dbbf2ae0292d0",
-  "downloadDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\github-40267049302",
+  "localDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\71a914ea7e1746620a0f055dfec26ece3c231ea6",
+  "downloadDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\github-40267580030",
   "limits": [
     "No Plesk install/pull/configuration change performed",
     "Artifact retention1day on GitHub; immutable downloaded/local candidate retained",

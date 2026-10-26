@@ -1,17 +1,17 @@
 {
-  "id": 40267049302,
-  "url": "https://github.com/johntroger/vneconomics-store/actions/runs/40267049302",
+  "id": 40267580030,
+  "url": "https://github.com/johntroger/vneconomics-store/actions/runs/40267580030",
   "event": "pull_request",
-  "headSha": "8212eafa3f537e6db4f37d63695dbbf2ae0292d0",
+  "headSha": "71a914ea7e1746620a0f055dfec26ece3c231ea6",
   "status": "completed",
   "conclusion": "success",
-  "createdAt": "2026-10-26T04:03:01Z",
-  "updatedAt": "2026-10-26T04:04:37Z",
+  "createdAt": "2026-10-26T04:09:16Z",
+  "updatedAt": "2026-10-26T04:10:27Z",
   "jobs": [
     {
       "name": "payload",
       "conclusion": "success",
-      "runner": "GitHub Actions 1000000666",
+      "runner": "GitHub Actions 1000000667",
       "labels": [
         "windows-2025"
       ],
@@ -60,10 +60,10 @@
     }
   ],
   "artifact": {
-    "id": 12626519197,
-    "name": "pipeline-8212eafa3f537e6db4f37d63695dbbf2ae0292d0",
-    "bytes": 405244,
-    "digest": "sha256:94931b064eb4bb5aee82e71dca53b01bc04b9d4d092e1ff1ead82dab648dade7",
-    "expiresAt": "2026-10-27T04:04:31Z"
+    "id": 12627410985,
+    "name": "pipeline-71a914ea7e1746620a0f055dfec26ece3c231ea6",
+    "bytes": 405253,
+    "digest": "sha256:3ba8eb32e8bab684f8cab28c93c98d93f79889af0fb9bf37f115e4aefee81a8d",
+    "expiresAt": "2026-10-27T04:10:22Z"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "method": "Read-only WP-CLI eval on staging after backup, before app/content changes",
+  "root": "/var/www/vhosts/vneconomics.com/staging-store.vneconomics.com/",
+  "database": "vne35060_wp_udx1z",
+  "home": "https://staging-store.vneconomics.com",
+  "indexing": "0",
+  "theme": "0.7.1",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "ids": [1,2,3,7,8,9,10,11,67,71,78,81,84,87,92,95,100,108,109,110,111,112,113,114,115,116,117,118],
+  "postsSha256": "301c10b5d1a4b7fe9a6ffe7db2cc2bdb4cd7de45a6b40246b016039faf699456",
+  "metaExceptCodexValidationSha256": "59a9c2ad64b93984ac03e8d27b52fe4a2a0aa602718e6cda6913af25a7a3ec4f",
+  "repository": "/var/www/vhosts/vneconomics.com/git/vneconomics-store-staging.git",
+  "gitHead": "ref: refs/heads/main",
+  "inbox": "/var/www/vhosts/vneconomics.com/deploy-inbox/staging",
+  "inboxInitiallyEmpty": true,
+  "backup": {
+    "file": "staging-store.vneconomics.com__2026-10-26T11_21_11+0700.zip",
+    "bytes": 81378232,
+    "sha256": "4b6725f57f383ece92b1c7003cbdb09d494fc9f17e2b61fee3b76c1f5d531066",
+    "zipCheck": true,
+    "entries": 16720
+  },
+  "existingReviewer": {"id":1,"login":"admin","review":true,"validate":true},
+  "hostingConfiguration": {"repositoryName":"vneconomics-store-staging.git","mode":"Manual","postDeployActions":false,"deployKey":"Existing Default read-only key reused; no new key or GitHub permissions"}
+}
