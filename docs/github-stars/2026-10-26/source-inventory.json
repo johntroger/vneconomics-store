@@ -1,0 +1,810 @@
+{
+  "observedLocallyOn": "2026-10-26",
+  "source": "Approved C100 source snapshots, not a new GitHub/API or live CMS probe",
+  "items": 100,
+  "uniqueRepoIds": 100,
+  "missingRepoIds": 0,
+  "uniqueSourceUrls": 100,
+  "rows": [
+    {
+      "key": 1,
+      "repoId": "888092115",
+      "sourceUrl": "https://github.com/microsoft/markitdown",
+      "stars": 191989,
+      "observedAt": "2026-10-25T03:02:55.486Z",
+      "contentHash": "ec1b6c7252119cff0e60fee41f0702e9eaa04f04b8699108502709794ecec6bc"
+    },
+    {
+      "key": 2,
+      "repoId": "571770",
+      "sourceUrl": "https://github.com/jgm/pandoc",
+      "stars": 46684,
+      "observedAt": "2026-10-25T03:02:55.846Z",
+      "contentHash": "90cc719beef599970dcd68e0a9dea5321bcc3216c7feb69178e8f960fbad9975"
+    },
+    {
+      "key": 3,
+      "repoId": "594155488",
+      "sourceUrl": "https://github.com/Stirling-Tools/Stirling-PDF",
+      "stars": 94907,
+      "observedAt": "2026-10-25T03:02:56.214Z",
+      "contentHash": "5301c2e2baf64bb6a49c2caaff6e1c9515dd5dec4420dd8ae5b7884b56c73f8e"
+    },
+    {
+      "key": 4,
+      "repoId": "15333471",
+      "sourceUrl": "https://github.com/ocrmypdf/OCRmyPDF",
+      "stars": 35141,
+      "observedAt": "2026-10-25T03:02:56.579Z",
+      "contentHash": "534de0d2dfebba346b073d808c303532ff691a25766d3128ed3018fca3fb7b27"
+    },
+    {
+      "key": 5,
+      "repoId": "22887094",
+      "sourceUrl": "https://github.com/tesseract-ocr/tesseract",
+      "stars": 77153,
+      "observedAt": "2026-10-25T03:02:56.862Z",
+      "contentHash": "3799a32cfc3a5cfad69ffcdbb25c76decb2360e32c0fee2f83b29d5aa0542157"
+    },
+    {
+      "key": 6,
+      "repoId": "8711354",
+      "sourceUrl": "https://github.com/tabulapdf/tabula",
+      "stars": 7489,
+      "observedAt": "2026-10-25T03:02:57.202Z",
+      "contentHash": "9d58653cc69d39841cbcc68b60792b129e4997bc918eeab7b7bf7adec03a9b44"
+    },
+    {
+      "key": 7,
+      "repoId": "574523116",
+      "sourceUrl": "https://github.com/f/prompts.chat",
+      "stars": 174415,
+      "observedAt": "2026-10-25T03:02:57.61Z",
+      "contentHash": "fd807bff0f752feba1bce94c74ef459ebb7ea2d100adc24709fc1f42cba1fa6e"
+    },
+    {
+      "key": 8,
+      "repoId": "667110339",
+      "sourceUrl": "https://github.com/drawdb-io/drawdb",
+      "stars": 40121,
+      "observedAt": "2026-10-25T03:02:57.965Z",
+      "contentHash": "4d8871e2ae11002e9ee5ce84bb345aa85883a6f489c1ddbc42d83f4c436062dd"
+    },
+    {
+      "key": 9,
+      "repoId": "203587744",
+      "sourceUrl": "https://github.com/hoppscotch/hoppscotch",
+      "stars": 80681,
+      "observedAt": "2026-10-25T03:02:58.26Z",
+      "contentHash": "fde0a87849c85adcf7a4762c5ac24d03a78adb2bfe941f460dc5844dd5c563f4"
+    },
+    {
+      "key": 10,
+      "repoId": "74962515",
+      "sourceUrl": "https://github.com/gchq/CyberChef",
+      "stars": 36201,
+      "observedAt": "2026-10-25T03:02:58.742Z",
+      "contentHash": "d144ce88c90e2cd00fbd207f1084f5e287b532a72fc324fbc4d615dd8a2d786e"
+    },
+    {
+      "key": 11,
+      "repoId": "79162682",
+      "sourceUrl": "https://github.com/laurent22/joplin",
+      "stars": 56862,
+      "observedAt": "2026-10-25T03:12:06.242Z",
+      "contentHash": "b36032752d68459249043a38db23fa8b13017a374cef9242fe4e4bb71aa9c7da"
+    },
+    {
+      "key": 12,
+      "repoId": "266231149",
+      "sourceUrl": "https://github.com/logseq/logseq",
+      "stars": 45364,
+      "observedAt": "2026-10-25T03:12:06.519Z",
+      "contentHash": "6a3b3ec3a1c9ad92a5f73c2983f00ba8c23ebeb6a6b902083a348a78eaeea31e"
+    },
+    {
+      "key": 13,
+      "repoId": "377496562",
+      "sourceUrl": "https://github.com/AppFlowy-IO/AppFlowy",
+      "stars": 77725,
+      "observedAt": "2026-10-25T03:12:06.813Z",
+      "contentHash": "ae89edb6db6eb1d89793956a1c542fea87f5e51d321545a6f4d4add784d2eb54"
+    },
+    {
+      "key": 14,
+      "repoId": "519859998",
+      "sourceUrl": "https://github.com/toeverything/AFFiNE",
+      "stars": 73804,
+      "observedAt": "2026-10-25T03:12:07.108Z",
+      "contentHash": "a2ee0b1d167510c36944bc70e69aca60957adbe70bc8cf5e21dfae9c7d0af6b0"
+    },
+    {
+      "key": 15,
+      "repoId": "291438522",
+      "sourceUrl": "https://github.com/siyuan-note/siyuan",
+      "stars": 46919,
+      "observedAt": "2026-10-25T03:12:07.43Z",
+      "contentHash": "3a5b9a64f76cb0c6d05c653919612a5a17b69479497e930c3ca91f8acea74eab"
+    },
+    {
+      "key": 16,
+      "repoId": "92111509",
+      "sourceUrl": "https://github.com/TriliumNext/Trilium",
+      "stars": 38542,
+      "observedAt": "2026-10-25T03:12:07.729Z",
+      "contentHash": "1737df6652e0ed2743ff17464935f302eef16f36d64a789cc53d589c1f6b558f"
+    },
+    {
+      "key": 17,
+      "repoId": "59435364",
+      "sourceUrl": "https://github.com/outline/outline",
+      "stars": 41054,
+      "observedAt": "2026-10-25T03:12:08.117Z",
+      "contentHash": "b574d7c813307f8c396a52f5b77ed36537df3f36fd2045dac7bb97cecc97d741"
+    },
+    {
+      "key": 18,
+      "repoId": "674295265",
+      "sourceUrl": "https://github.com/docmost/docmost",
+      "stars": 22086,
+      "observedAt": "2026-10-25T03:12:08.404Z",
+      "contentHash": "fd3ae56837b90ad91c9efa53a52d589548703fa1abf80aadc989dfeb13206593"
+    },
+    {
+      "key": 19,
+      "repoId": "75675698",
+      "sourceUrl": "https://github.com/standardnotes/app",
+      "stars": 6682,
+      "observedAt": "2026-10-25T03:12:08.712Z",
+      "contentHash": "beed69b2b82ac97fac18986d279bedc446cf0f665e12d414b0b0d1d53cacbe1e"
+    },
+    {
+      "key": 20,
+      "repoId": "643874750",
+      "sourceUrl": "https://github.com/anyproto/anytype-ts",
+      "stars": 8989,
+      "observedAt": "2026-10-25T03:12:09.021Z",
+      "contentHash": "e99f44731fb73e711fd054554610ecbc8aab98c25f29dbc984172eb1910ab2bf"
+    },
+    {
+      "key": 21,
+      "repoId": "193215554",
+      "sourceUrl": "https://github.com/n8n-io/n8n",
+      "stars": 208508,
+      "observedAt": "2026-10-25T03:15:07.548Z",
+      "contentHash": "d3b4d358f025bdbc78c184a47f7cb863c5740de1b0ba5bbd90a3c22217ae6f88"
+    },
+    {
+      "key": 22,
+      "repoId": "573661753",
+      "sourceUrl": "https://github.com/activepieces/activepieces",
+      "stars": 25207,
+      "observedAt": "2026-10-25T03:15:07.952Z",
+      "contentHash": "db80e4d1e98642fc883e6819ea4e7c3e9f0aeed7e3952214bac7f55b25ed6014"
+    },
+    {
+      "key": 23,
+      "repoId": "488804911",
+      "sourceUrl": "https://github.com/windmill-labs/windmill",
+      "stars": 18261,
+      "observedAt": "2026-10-25T03:15:08.31Z",
+      "contentHash": "49e3ad78ee72c3539c3bc33ba8f6bb94784976816f922f2ea07a1ee30600c647"
+    },
+    {
+      "key": 24,
+      "repoId": "621803253",
+      "sourceUrl": "https://github.com/FlowiseAI/Flowise",
+      "stars": 55527,
+      "observedAt": "2026-10-25T03:15:08.686Z",
+      "contentHash": "db5b815dfc549f9c24a9263f6603699879770477ea1680191830270b6015ad0e"
+    },
+    {
+      "key": 25,
+      "repoId": "626805178",
+      "sourceUrl": "https://github.com/langgenius/dify",
+      "stars": 159444,
+      "observedAt": "2026-10-25T03:15:08.969Z",
+      "contentHash": "ce8cb16f778128014f224aedcda1ff63e1cb6c5553b11717cf13fcc94abba219"
+    },
+    {
+      "key": 26,
+      "repoId": "275993885",
+      "sourceUrl": "https://github.com/appsmithorg/appsmith",
+      "stars": 41116,
+      "observedAt": "2026-10-25T03:15:09.341Z",
+      "contentHash": "fc49b7ce850808960cd87df2c6a13ebaa3456069b6d35a263c52fa1942358b4c"
+    },
+    {
+      "key": 27,
+      "repoId": "352933140",
+      "sourceUrl": "https://github.com/ToolJet/ToolJet",
+      "stars": 41126,
+      "observedAt": "2026-10-25T03:15:09.633Z",
+      "contentHash": "517fc85f51e04bf604c7f4f60e9a1ac4390a7bccb08a5b855b7122e7b9e9f7cc"
+    },
+    {
+      "key": 28,
+      "repoId": "190729906",
+      "sourceUrl": "https://github.com/Budibase/budibase",
+      "stars": 28350,
+      "observedAt": "2026-10-25T03:15:10.006Z",
+      "contentHash": "7a5985773fe1e9fbbee72f3fb14f40e877cf08c0c6feb5e0f331acb534b28bf2"
+    },
+    {
+      "key": 29,
+      "repoId": "108761645",
+      "sourceUrl": "https://github.com/nocodb/nocodb",
+      "stars": 65350,
+      "observedAt": "2026-10-25T03:15:10.377Z",
+      "contentHash": "44e5b1029a2bbac0eca8bf26590c2f50324658806f0b523e3a35de05115b255e"
+    },
+    {
+      "key": 30,
+      "repoId": "281073868",
+      "sourceUrl": "https://github.com/baserow/baserow",
+      "stars": 6211,
+      "observedAt": "2026-10-25T03:15:10.7Z",
+      "contentHash": "10e45401cdffc79b261cd2580135359a18b72998b9bf45541fde41f192fb4338"
+    },
+    {
+      "key": 31,
+      "repoId": "658928958",
+      "sourceUrl": "https://github.com/ollama/ollama",
+      "stars": 184669,
+      "observedAt": "2026-10-25T03:16:42.691Z",
+      "contentHash": "150fd9173a3b0cd7872b96aca3832181d399c220878fe44ede5b7f89c88a3148"
+    },
+    {
+      "key": 32,
+      "repoId": "701547123",
+      "sourceUrl": "https://github.com/open-webui/open-webui",
+      "stars": 156664,
+      "observedAt": "2026-10-25T03:16:43.041Z",
+      "contentHash": "a450e1e4e5214ff13db01d7fc5cd85bf496ef7b62def6bc0e2c3b22153c345da"
+    },
+    {
+      "key": 33,
+      "repoId": "649170660",
+      "sourceUrl": "https://github.com/Mintplex-Labs/anything-llm",
+      "stars": 67521,
+      "observedAt": "2026-10-25T03:16:43.318Z",
+      "contentHash": "22919e40388db077275f1ea73a0f0903e8a2aed9eb669ed66feb01bca96fb265"
+    },
+    {
+      "key": 34,
+      "repoId": "730534580",
+      "sourceUrl": "https://github.com/infiniflow/ragflow",
+      "stars": 92814,
+      "observedAt": "2026-10-25T03:16:43.639Z",
+      "contentHash": "fdc03fba8356b54126e259c9167dc598cb6c166d079f4ba6e848d2b6ca2feaab"
+    },
+    {
+      "key": 35,
+      "repoId": "599320067",
+      "sourceUrl": "https://github.com/langflow-ai/langflow",
+      "stars": 155993,
+      "observedAt": "2026-10-25T03:16:43.897Z",
+      "contentHash": "37b69cfa56f54e92aee0bca151a69087e1e05f52a67167e82aac002d2e58a965"
+    },
+    {
+      "key": 36,
+      "repoId": "679506386",
+      "sourceUrl": "https://github.com/janhq/jan",
+      "stars": 45067,
+      "observedAt": "2026-10-25T03:16:44.207Z",
+      "contentHash": "f31345cd4e4e4fe82d84b6e3dbe4c67b3081eb95043d426e9cf4b2a715044878"
+    },
+    {
+      "key": 37,
+      "repoId": "619959033",
+      "sourceUrl": "https://github.com/nomic-ai/gpt4all",
+      "stars": 77359,
+      "observedAt": "2026-10-25T03:16:44.596Z",
+      "contentHash": "0fb035b08c1f7aea5849b25ba8823e5ac20e06c1cdf601a4db439b6bfa353543"
+    },
+    {
+      "key": 38,
+      "repoId": "805155266",
+      "sourceUrl": "https://github.com/CherryHQ/cherry-studio",
+      "stars": 52956,
+      "observedAt": "2026-10-25T03:16:44.88Z",
+      "contentHash": "1dc57347a45515e7dc929281cdbe06d9d29c440eb3549d893b3913d9ce5ac5ff"
+    },
+    {
+      "key": 39,
+      "repoId": "600596928",
+      "sourceUrl": "https://github.com/LibreChat-AI/LibreChat",
+      "stars": 46265,
+      "observedAt": "2026-10-25T03:16:45.179Z",
+      "contentHash": "2458b2567872fe97b3b68be4b178a567e745578d5ed44d919aa11c0d1cded95a"
+    },
+    {
+      "key": 40,
+      "repoId": "671269505",
+      "sourceUrl": "https://github.com/BerriAI/litellm",
+      "stars": 61983,
+      "observedAt": "2026-10-25T03:16:45.236Z",
+      "contentHash": "ed630f9c554dc4d9acf1dfecbfb23d53eb7e4ad4542467d1695427c3a41eb792"
+    },
+    {
+      "key": 41,
+      "repoId": "965415649",
+      "sourceUrl": "https://github.com/openai/codex",
+      "stars": 130820,
+      "observedAt": "2026-10-25T03:25:22.356Z",
+      "contentHash": "ed97e8525a112903d9ab86395f699d0ba549001f7e54a75e64c2a791069c4400"
+    },
+    {
+      "key": 42,
+      "repoId": "937253475",
+      "sourceUrl": "https://github.com/anthropics/claude-code",
+      "stars": 153300,
+      "observedAt": "2026-10-25T03:25:22.614Z",
+      "contentHash": "4120810a36a4c507cd7e1fceac00cdff6e6472183d888de910222ce253761278"
+    },
+    {
+      "key": 43,
+      "repoId": "968197216",
+      "sourceUrl": "https://github.com/google-gemini/gemini-cli",
+      "stars": 108110,
+      "observedAt": "2026-10-25T03:25:22.955Z",
+      "contentHash": "9c10e3bb9673cb518180c14b1ccbebfce413b6fd7e38e8b80a06317bcfea74df"
+    },
+    {
+      "key": 44,
+      "repoId": "975734319",
+      "sourceUrl": "https://github.com/anomalyco/opencode",
+      "stars": 221118,
+      "observedAt": "2026-10-25T03:25:23.261Z",
+      "contentHash": "f5744bc13100ee400105cdf20300fa561a94d678bc1e211f965e5975a46cc03c"
+    },
+    {
+      "key": 45,
+      "repoId": "638629097",
+      "sourceUrl": "https://github.com/Aider-AI/aider",
+      "stars": 49742,
+      "observedAt": "2026-10-25T03:25:23.33Z",
+      "contentHash": "cf0e89186b096a40c22e2bbf697921c753bd7fe6b20446fa47da48aa1fddee61"
+    },
+    {
+      "key": 46,
+      "repoId": "644686905",
+      "sourceUrl": "https://github.com/continuedev/continue",
+      "stars": 36314,
+      "observedAt": "2026-10-25T03:25:23.626Z",
+      "contentHash": "03df2874a3d4e7796a20288c9ad24adba211bb2a00f598d835b0066ba9b4db9a"
+    },
+    {
+      "key": 47,
+      "repoId": "824874689",
+      "sourceUrl": "https://github.com/cline/cline",
+      "stars": 70831,
+      "observedAt": "2026-10-25T03:25:23.908Z",
+      "contentHash": "50f533dc0b799ec4ebb7d0a7a8e21c898cad1fe132315314938bc4b15efd0337"
+    },
+    {
+      "key": 48,
+      "repoId": "881506708",
+      "sourceUrl": "https://github.com/RooCodeInc/Roo-Code",
+      "stars": 24263,
+      "observedAt": "2026-10-25T03:25:24.209Z",
+      "contentHash": "b3b732b2214d6c949758d9d1403f2c34676b83fb7583d672798c2e8d3a744559"
+    },
+    {
+      "key": 49,
+      "repoId": "771302083",
+      "sourceUrl": "https://github.com/OpenHands/OpenHands",
+      "stars": 91761,
+      "observedAt": "2026-10-25T03:25:24.566Z",
+      "contentHash": "9764e3649964b65077e168d8bceddec5b960d6cdacb184e384a1ce837dc6180c"
+    },
+    {
+      "key": 50,
+      "repoId": "846698999",
+      "sourceUrl": "https://github.com/aaif-goose/goose",
+      "stars": 55658,
+      "observedAt": "2026-10-25T03:25:24.921Z",
+      "contentHash": "16d243cb7bc59a16b1e9a89e473359a59cfe29887e7c0148e17a684a0f3eaac5"
+    },
+    {
+      "key": 51,
+      "repoId": "1061953414",
+      "sourceUrl": "https://github.com/anthropics/skills",
+      "stars": 183535,
+      "observedAt": "2026-10-25T03:33:07.715Z",
+      "contentHash": "33f05818079f592a9bde65ede272fb86984c4be7816a8798c71f53f3703edcfa"
+    },
+    {
+      "key": 52,
+      "repoId": "1073224795",
+      "sourceUrl": "https://github.com/obra/superpowers",
+      "stars": 304664,
+      "observedAt": "2026-10-25T03:33:07.991Z",
+      "contentHash": "aa12e857c6d6e0ab682b5a4b8780c0e7fcf8ebf2fbc5645fad883086a2f4d011"
+    },
+    {
+      "key": 53,
+      "repoId": "1042367133",
+      "sourceUrl": "https://github.com/github/spec-kit",
+      "stars": 142744,
+      "observedAt": "2026-10-25T03:33:08.294Z",
+      "contentHash": "3de42121925ed73a538b0d11ac4a47f5f2cfdb48c25634b25df59411a48a6cdb"
+    },
+    {
+      "key": 54,
+      "repoId": "1078079172",
+      "sourceUrl": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "stars": 77851,
+      "observedAt": "2026-10-25T03:33:08.562Z",
+      "contentHash": "6ab0c372dd4388fbd78881305833a1aaa1edb5e9429864db3256d69ddde03a94"
+    },
+    {
+      "key": 55,
+      "repoId": "1158722119",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills",
+      "stars": 110235,
+      "observedAt": "2026-10-25T03:33:08.858Z",
+      "contentHash": "e5acbecd90984e8163c9ac8d77fb97fe575aa3cf3208157f194555030a993390"
+    },
+    {
+      "key": 56,
+      "repoId": "808207942",
+      "sourceUrl": "https://github.com/anthropics/courses",
+      "stars": 22932,
+      "observedAt": "2026-10-25T03:33:09.265Z",
+      "contentHash": "d76ac8ef5c5a24ef7afc39f2ceab2c94a321fec7a46564cf233f3176210e1e25"
+    },
+    {
+      "key": 57,
+      "repoId": "781022269",
+      "sourceUrl": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "stars": 38727,
+      "observedAt": "2026-10-25T03:33:09.543Z",
+      "contentHash": "b3e3040ba94b2c5489612fdf714a29cbf21ca10694b177e7e4ddded17e92a6e8"
+    },
+    {
+      "key": 58,
+      "repoId": "344190478",
+      "sourceUrl": "https://github.com/microsoft/AI-For-Beginners",
+      "stars": 70205,
+      "observedAt": "2026-10-25T03:33:09.926Z",
+      "contentHash": "7cd2322be68f79592eb341a41f9e0765d5272f30ddbfe4682585e422d1648ced"
+    },
+    {
+      "key": 59,
+      "repoId": "655806940",
+      "sourceUrl": "https://github.com/microsoft/generative-ai-for-beginners",
+      "stars": 122107,
+      "observedAt": "2026-10-25T03:33:10.244Z",
+      "contentHash": "e8373a2264b351dc5ab75c5efdd2479d24b2aba50d5444569c5b82bde18b12e1"
+    },
+    {
+      "key": 60,
+      "repoId": "1211139949",
+      "sourceUrl": "https://github.com/tt-a1i/archify",
+      "stars": 88783,
+      "observedAt": "2026-10-25T03:33:10.552Z",
+      "contentHash": "c93c0c29412831c8b0b23718e313a39f27045c5f5ba3d1b5dc2a285f6935f1d7"
+    },
+    {
+      "key": 61,
+      "repoId": "231283452",
+      "sourceUrl": "https://github.com/excalidraw/excalidraw",
+      "stars": 134501,
+      "observedAt": "2026-10-25T03:35:20.363Z",
+      "contentHash": "28fd7cb0ea1ddb9ddc3c8a3437124ccf04d5f31a4977714254a7d0c3940c7bec"
+    },
+    {
+      "key": 62,
+      "repoId": "92443980",
+      "sourceUrl": "https://github.com/jgraph/drawio-desktop",
+      "stars": 63639,
+      "observedAt": "2026-10-25T03:35:20.66Z",
+      "contentHash": "8afb76504402eda62d7fbfe9c0d838a308d98f7191c20652c006ce93e07b13ae"
+    },
+    {
+      "key": 63,
+      "repoId": "26066727",
+      "sourceUrl": "https://github.com/mermaid-js/mermaid",
+      "stars": 90841,
+      "observedAt": "2026-10-25T03:35:20.962Z",
+      "contentHash": "9cacf6b4c2f36279306973051a0bb67fc97a7e2b8cbab0b0ea9eeb32d9b64116"
+    },
+    {
+      "key": 64,
+      "repoId": "365739812",
+      "sourceUrl": "https://github.com/tldraw/tldraw",
+      "stars": 51073,
+      "observedAt": "2026-10-25T03:35:21.254Z",
+      "contentHash": "f8b2441f4f7d355ad3d08c322cd854624fe8a4e365d7623e7e70cbf7a13ccc35"
+    },
+    {
+      "key": 65,
+      "repoId": "48769241",
+      "sourceUrl": "https://github.com/penpot/penpot",
+      "stars": 61624,
+      "observedAt": "2026-10-25T03:35:21.542Z",
+      "contentHash": "ffa09c016736c6d938d03de0c11e9c8dcf59c320abeecc71c57421fe83e74c12"
+    },
+    {
+      "key": 66,
+      "repoId": "519577891",
+      "sourceUrl": "https://github.com/upscayl/upscayl",
+      "stars": 50961,
+      "observedAt": "2026-10-25T03:35:21.835Z",
+      "contentHash": "cf25db93acca4a478a0867a8e5f103573c315ab752b740597ca850921e66a453"
+    },
+    {
+      "key": 67,
+      "repoId": "686161611",
+      "sourceUrl": "https://github.com/Acly/krita-ai-diffusion",
+      "stars": 10778,
+      "observedAt": "2026-10-25T03:35:22.192Z",
+      "contentHash": "13efa05d8e25f8007c9f87ef0df2ffe8184fa666c8366d190bc4a28b75b627c7"
+    },
+    {
+      "key": 68,
+      "repoId": "428292281",
+      "sourceUrl": "https://github.com/Sanster/IOPaint",
+      "stars": 23298,
+      "observedAt": "2026-10-25T03:35:22.48Z",
+      "contentHash": "0e299d759d82f6f135e33a25bfd094f1670e39912deb9c8bb76522811150f20b"
+    },
+    {
+      "key": 69,
+      "repoId": "525592995",
+      "sourceUrl": "https://github.com/invoke-ai/InvokeAI",
+      "stars": 28853,
+      "observedAt": "2026-10-25T03:35:22.833Z",
+      "contentHash": "cc08fa210b73babac8ef0d655da429dcec7154349e7fa11c37baccb77b42e963"
+    },
+    {
+      "key": 70,
+      "repoId": "589831718",
+      "sourceUrl": "https://github.com/Comfy-Org/ComfyUI",
+      "stars": 142655,
+      "observedAt": "2026-10-25T03:35:23.157Z",
+      "contentHash": "d832b7dc477384f9a48808b99d7fb3fd53de61d6a5211fe8af3a9400bf13b4c8"
+    },
+    {
+      "key": 71,
+      "repoId": "537603333",
+      "sourceUrl": "https://github.com/openai/whisper",
+      "stars": 111210,
+      "observedAt": "2026-10-25T03:38:15.258Z",
+      "contentHash": "e3b0021f209e2624005c45c721a9b4238470a376e0f8bba28f01b4ce5b5da3d7"
+    },
+    {
+      "key": 72,
+      "repoId": "600368121",
+      "sourceUrl": "https://github.com/SYSTRAN/faster-whisper",
+      "stars": 26115,
+      "observedAt": "2026-10-25T03:38:15.505Z",
+      "contentHash": "b4bb78bbec58d0be0da5ac3ea502084f94790c9414c38c2147e0879ba8f4b442"
+    },
+    {
+      "key": 73,
+      "repoId": "541269386",
+      "sourceUrl": "https://github.com/ggml-org/whisper.cpp",
+      "stars": 54636,
+      "observedAt": "2026-10-25T03:38:15.786Z",
+      "contentHash": "1f9ce2e8990ef17c8c09fe10c841c4f71f8315ee4b2a0539cfbaa701d519d847"
+    },
+    {
+      "key": 74,
+      "repoId": "16473585",
+      "sourceUrl": "https://github.com/SubtitleEdit/subtitleedit",
+      "stars": 14707,
+      "observedAt": "2026-10-25T03:38:16.139Z",
+      "contentHash": "1a362fea17889b71b6596fec5757a4248fee422dd3de57004b73e47dc9d3e1ff"
+    },
+    {
+      "key": 75,
+      "repoId": "32921736",
+      "sourceUrl": "https://github.com/audacity/audacity",
+      "stars": 18822,
+      "observedAt": "2026-10-25T03:38:16.444Z",
+      "contentHash": "3793b3d8e772438504ce5504f0be057eb41903f2d4e26647f714c34b4ccc5c0d"
+    },
+    {
+      "key": 76,
+      "repoId": "4118776",
+      "sourceUrl": "https://github.com/mltframework/shotcut",
+      "stars": 15492,
+      "observedAt": "2026-10-25T03:38:17.273Z",
+      "contentHash": "a97a1dabc9b430de77b4a08041e32b2328aafacadb5a6481d31fc6a1064d47e5"
+    },
+    {
+      "key": 77,
+      "repoId": "36648301",
+      "sourceUrl": "https://github.com/OpenShot/openshot-qt",
+      "stars": 6690,
+      "observedAt": "2026-10-25T03:38:17.578Z",
+      "contentHash": "e20473d4b92963420d9c5429c5a1b2ac8f0c4e08b5f6639b5a50da5da7cd7fb9"
+    },
+    {
+      "key": 78,
+      "repoId": "307260205",
+      "sourceUrl": "https://github.com/yt-dlp/yt-dlp",
+      "stars": 201586,
+      "observedAt": "2026-10-25T03:38:17.904Z",
+      "contentHash": "a76fb078b469143f9fba06c7ae413632ccf66186d2c7f3e5c70f0a1977fc0f5f"
+    },
+    {
+      "key": 79,
+      "repoId": "213916896",
+      "sourceUrl": "https://github.com/blender/blender",
+      "stars": 21225,
+      "observedAt": "2026-10-25T03:38:18.266Z",
+      "contentHash": "ef2bdbf250c719a15130128dd59451809cffc250961fe8e0111c17df32a647f4"
+    },
+    {
+      "key": 80,
+      "repoId": "265122478",
+      "sourceUrl": "https://github.com/ManimCommunity/manim",
+      "stars": 41840,
+      "observedAt": "2026-10-25T03:38:18.585Z",
+      "contentHash": "f1222857eecaf89052870d761963ed5ad0f5c2933e3edc5b7dc9adc67d0472c1"
+    },
+    {
+      "key": 81,
+      "repoId": "138754790",
+      "sourceUrl": "https://github.com/duckdb/duckdb",
+      "stars": 42503,
+      "observedAt": "2026-10-25T03:41:20.506Z",
+      "contentHash": "93f9d215676cf484952dfe84dad278d822a815f7d3f73105fb8049c3ed8a1957"
+    },
+    {
+      "key": 82,
+      "repoId": "30203935",
+      "sourceUrl": "https://github.com/metabase/metabase",
+      "stars": 49833,
+      "observedAt": "2026-10-25T03:41:20.827Z",
+      "contentHash": "e23130c004dea0ea3ab35fcf2e41eb02a3128873f1bf3b4a263be135b7b8edbe"
+    },
+    {
+      "key": 83,
+      "repoId": "39464018",
+      "sourceUrl": "https://github.com/apache/superset",
+      "stars": 75295,
+      "observedAt": "2026-10-25T03:41:21.204Z",
+      "contentHash": "4b7a26bd667ee8ae62bb643e3b0765aaecc1f47e8b1462826ea3c6ddc6f50631"
+    },
+    {
+      "key": 84,
+      "repoId": "235901813",
+      "sourceUrl": "https://github.com/PostHog/posthog",
+      "stars": 40420,
+      "observedAt": "2026-10-25T03:41:21.523Z",
+      "contentHash": "81e5bf3c2822343d9a2cc8a0b007249e7d31193510e9a7be4da8a10e6901b9ad"
+    },
+    {
+      "key": 85,
+      "repoId": "9185792",
+      "sourceUrl": "https://github.com/apache/echarts",
+      "stars": 67588,
+      "observedAt": "2026-10-25T03:41:21.857Z",
+      "contentHash": "06f526b6000625ed6f43a08b9162f7d1019d7b0841bb43319cedd666c73aa9f2"
+    },
+    {
+      "key": 86,
+      "repoId": "15111821",
+      "sourceUrl": "https://github.com/grafana/grafana",
+      "stars": 77486,
+      "observedAt": "2026-10-25T03:41:22.217Z",
+      "contentHash": "28f496004159d701bf71d27bd9bd3b384f8f6177379def4442cc76e68b88768e"
+    },
+    {
+      "key": 87,
+      "repoId": "14579099",
+      "sourceUrl": "https://github.com/plotly/plotly.py",
+      "stars": 18853,
+      "observedAt": "2026-10-25T03:41:22.573Z",
+      "contentHash": "9274f7c218b0375986843ce70e4904aec3a94605c3455de76f3b22d4e0263290"
+    },
+    {
+      "key": 88,
+      "repoId": "204086862",
+      "sourceUrl": "https://github.com/streamlit/streamlit",
+      "stars": 46102,
+      "observedAt": "2026-10-25T03:41:22.614Z",
+      "contentHash": "9b33fccd9991544cf171ca168df9891989472cfcf1f0805cf46ce912059d2df7"
+    },
+    {
+      "key": 89,
+      "repoId": "162405963",
+      "sourceUrl": "https://github.com/gradio-app/gradio",
+      "stars": 43873,
+      "observedAt": "2026-10-25T03:41:22.927Z",
+      "contentHash": "ebe81643d13d7783b448e61ad329b92b4d6c9c44dc6675c66d40d6d4856f86dd"
+    },
+    {
+      "key": 90,
+      "repoId": "557075997",
+      "sourceUrl": "https://github.com/reflex-dev/reflex",
+      "stars": 28977,
+      "observedAt": "2026-10-25T03:41:23.229Z",
+      "contentHash": "94051b2ee354c705993d00d599960d4b5ad956254aeec57e25ecda2f5460773b"
+    },
+    {
+      "key": 91,
+      "repoId": "578822531",
+      "sourceUrl": "https://github.com/localsend/localsend",
+      "stars": 95462,
+      "observedAt": "2026-10-25T03:43:07.958Z",
+      "contentHash": "7dacbd124cdc0fda9c13c198409813f159602dcd3fee94d3f06ae644dc5cf8d0"
+    },
+    {
+      "key": 92,
+      "repoId": "14712850",
+      "sourceUrl": "https://github.com/syncthing/syncthing",
+      "stars": 89709,
+      "observedAt": "2026-10-25T03:43:08.322Z",
+      "contentHash": "44fe3495811c910fee21a282282153596bda062072e42dc313885cb8d4335e8e"
+    },
+    {
+      "key": 93,
+      "repoId": "17803236",
+      "sourceUrl": "https://github.com/rclone/rclone",
+      "stars": 60518,
+      "observedAt": "2026-10-25T03:43:08.672Z",
+      "contentHash": "a4300edb38d0fbefce8c99e3b5b6f6bc236cb88f46b5012b4f13919c0dd7f3e2"
+    },
+    {
+      "key": 94,
+      "repoId": "19205896",
+      "sourceUrl": "https://github.com/restic/restic",
+      "stars": 36788,
+      "observedAt": "2026-10-25T03:43:09.022Z",
+      "contentHash": "9f1265ede40270f2bb534d0f98983f72d6d04f84f0790aa0fb01fbd2416123da"
+    },
+    {
+      "key": 95,
+      "repoId": "60243197",
+      "sourceUrl": "https://github.com/nextcloud/server",
+      "stars": 37282,
+      "observedAt": "2026-10-25T03:43:09.404Z",
+      "contentHash": "a57aaa86c237bffd4bab36cb37f7b4a25f3c05a1e4c4e755f942ddd63dbc9f21"
+    },
+    {
+      "key": 96,
+      "repoId": "455229168",
+      "sourceUrl": "https://github.com/immich-app/immich",
+      "stars": 117127,
+      "observedAt": "2026-10-25T03:43:09.78Z",
+      "contentHash": "194a8e99b61433417ffba1eba294bf7ded74d76612834f388a561ddb4af282da"
+    },
+    {
+      "key": 97,
+      "repoId": "119160553",
+      "sourceUrl": "https://github.com/photoprism/photoprism",
+      "stars": 40355,
+      "observedAt": "2026-10-25T03:43:10.13Z",
+      "contentHash": "32ddbc097ae5e01137da2ca3b94b0db16a2c8b4a207be22ac5a5d7327dec35c9"
+    },
+    {
+      "key": 98,
+      "repoId": "436297812",
+      "sourceUrl": "https://github.com/usememos/memos",
+      "stars": 64043,
+      "observedAt": "2026-10-25T03:43:10.457Z",
+      "contentHash": "11d7fcedc79ab5ad6c31b1443f70dba203fc66ac7c0ae0da0211f0b6d7784400"
+    },
+    {
+      "key": 99,
+      "repoId": "205453332",
+      "sourceUrl": "https://github.com/plankanban/planka",
+      "stars": 12639,
+      "observedAt": "2026-10-25T03:43:10.74Z",
+      "contentHash": "dd4372313c7fcdab3372eb18f752b332d04c1496ec69807cc7af94ebfe466197"
+    },
+    {
+      "key": 100,
+      "repoId": "382496361",
+      "sourceUrl": "https://github.com/louislam/uptime-kuma",
+      "stars": 92872,
+      "observedAt": "2026-10-25T03:43:11.097Z",
+      "contentHash": "6e5c19a7da14e26edaae24ffe279be345498b48c2d43b30828f02d1993cb045f"
+    }
+  ]
+}

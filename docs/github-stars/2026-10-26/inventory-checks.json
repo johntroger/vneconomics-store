@@ -1,0 +1,10 @@
+{
+  "status": "PASS_LOCAL_SOURCE_INVENTORY",
+  "checkedOn": "2026-10-26",
+  "articles":100,
+  "uniqueRepositoryIds":100,
+  "missingRepositoryIds":0,
+  "uniqueSourceUrls":100,
+  "checks":["All repo IDs are positive digit strings","All recorded star counts are nonnegative safe integers","All source URLs identify HTTPS github.com owner/repository","All observation timestamps parse","All contentHash values have SHA256 format"],
+  "limits":["Approved local C100 snapshots only; not a new API/CMS probe","Hash format checked here, not a new content rehash or live publication validation","No code, scheduler, database or hosting changes"]
+}
