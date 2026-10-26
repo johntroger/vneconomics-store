@@ -1,0 +1,200 @@
+{
+  "status": "PASS_R4_HTTP_ROLLBACK",
+  "observedAt": "2026-10-26T06:48:34.433Z",
+  "origin": "https://staging-store.vneconomics.com",
+  "checks": [
+    "HTTP200 home",
+    "no PHP error home",
+    "noindex home",
+    "HTTP200 resource archive",
+    "no PHP error resource archive",
+    "noindex resource archive",
+    "HTTP200 guide hub",
+    "no PHP error guide hub",
+    "noindex guide hub",
+    "HTTP200 public resource API",
+    "no PHP error public resource API",
+    "public API array",
+    "anonymous private-user access denied",
+    "private inbox not served from staging document root",
+    "legacy baseline14 URLs",
+    "HTTP200 legacy /hello-world/",
+    "no PHP error legacy /hello-world/",
+    "legacy supported /hello-world/",
+    "HTTP200 legacy /sample-page/",
+    "no PHP error legacy /sample-page/",
+    "legacy supported /sample-page/",
+    "HTTP200 legacy /shop/",
+    "no PHP error legacy /shop/",
+    "legacy supported /shop/",
+    "HTTP200 legacy /cart/",
+    "no PHP error legacy /cart/",
+    "legacy supported /cart/",
+    "HTTP200 legacy /checkout/",
+    "no PHP error legacy /checkout/",
+    "legacy supported /checkout/",
+    "HTTP200 legacy /my-account/",
+    "no PHP error legacy /my-account/",
+    "legacy supported /my-account/",
+    "HTTP200 legacy /home/",
+    "no PHP error legacy /home/",
+    "legacy supported /home/",
+    "HTTP200 legacy /about/",
+    "no PHP error legacy /about/",
+    "legacy supported /about/",
+    "HTTP200 legacy /gioi-thieu/",
+    "no PHP error legacy /gioi-thieu/",
+    "legacy supported /gioi-thieu/",
+    "HTTP200 legacy /san-pham/",
+    "no PHP error legacy /san-pham/",
+    "legacy supported /san-pham/",
+    "HTTP200 legacy /tin-tuc/",
+    "no PHP error legacy /tin-tuc/",
+    "legacy supported /tin-tuc/",
+    "HTTP200 legacy /lien-he/",
+    "no PHP error legacy /lien-he/",
+    "legacy supported /lien-he/",
+    "HTTP200 legacy /cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+    "no PHP error legacy /cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+    "legacy supported /cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+    "HTTP200 legacy /diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+    "no PHP error legacy /diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+    "legacy supported /diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/"
+  ],
+  "requests": [
+    {
+      "url": "https://staging-store.vneconomics.com/",
+      "status": 200,
+      "ms": 1587,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/tai-nguyen/",
+      "status": 200,
+      "ms": 1384,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/huong-dan/",
+      "status": 200,
+      "ms": 1340,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/wp-json/vne-library/v1/items",
+      "status": 200,
+      "ms": 1605,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/wp-json/wp/v2/users/me",
+      "status": 401,
+      "ms": 1635,
+      "robots": "noindex"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/deploy-inbox/staging/manifest.json",
+      "status": 404,
+      "ms": 1385,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/hello-world/",
+      "status": 200,
+      "ms": 1541,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/sample-page/",
+      "status": 200,
+      "ms": 1400,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/shop/",
+      "status": 200,
+      "ms": 1440,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 1189,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/checkout/",
+      "status": 302,
+      "ms": 1091,
+      "cacheControl": "no-cache, no-store, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/cart/",
+      "status": 200,
+      "ms": 1294,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/my-account/",
+      "status": 200,
+      "ms": 1282,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/home/",
+      "status": 200,
+      "ms": 1303,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/about/",
+      "status": 200,
+      "ms": 1438,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/gioi-thieu/",
+      "status": 200,
+      "ms": 1400,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/san-pham/",
+      "status": 200,
+      "ms": 1244,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/tin-tuc/",
+      "status": 200,
+      "ms": 1122,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/lien-he/",
+      "status": 200,
+      "ms": 1199,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/cap-nhat-thi-truong-tai-san-so-ngay-14-6-2026-sac-xanh-tro-lai-bitcoin-lay-lai-moc-64-000-usd/",
+      "status": 200,
+      "ms": 1355,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    },
+    {
+      "url": "https://staging-store.vneconomics.com/diem-tin-kinh-te-tai-chinh-viet-nam-24h-qua-15-6-2026-vang-but-pha-ty-gia-leo-thang-chung-khoan-dieu-chinh/",
+      "status": 200,
+      "ms": 1340,
+      "cacheControl": "private, no-store, no-cache, must-revalidate, max-age=0"
+    }
+  ],
+  "failure": null,
+  "limits": [
+    "Read-only anonymous HTTPS GET; TLS verification enabled, same-origin redirects only",
+    "No report submission, payment, mail, login, API mutation or server deployment",
+    "Before phase is baseline only; after phase requires completed receiver import",
+    "Interactive copy/checklist and hosting hashes are checked separately"
+  ]
+}

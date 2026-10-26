@@ -27,3 +27,5 @@
 /deploy/evidence/** g03
 /scripts/g03-production.php g03
 /artifacts/production/g03-0499402e4708/** g03
+# Preserve native CLI acceptance logs verbatim, including timestamp-only lines.
+/docs/acceptance/R4-staging/*.txt -text whitespace=-blank-at-eol,-blank-at-eof

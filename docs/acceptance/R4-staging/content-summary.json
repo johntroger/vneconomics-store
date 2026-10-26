@@ -1,0 +1,39 @@
+{
+  "theme": "0.7.2",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "indexing": "0",
+  "typedRows": 130,
+  "fingerprint": "22e86a5a80e471fef39fa0bb267059a4a708c358260c59587d02f4eb92ff562d",
+  "counts": {
+    "resources": 106,
+    "guides": 6,
+    "practices": 1
+  },
+  "mapped": 103,
+  "guides": {
+    "codex": {
+      "id": 114,
+      "url": "https://staging-store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "validationCount": 1,
+      "commandsAllowed": true,
+      "contentSha256": "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+    },
+    "claude-code": {
+      "id": 221,
+      "url": "https://staging-store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "validationCount": 1,
+      "commandsAllowed": true,
+      "contentSha256": "41503054b1d00e3df1fa353a8ecfee0b6fd6a691ee492570bbaaac705e98f6e5"
+    },
+    "antigravity": {
+      "id": 222,
+      "url": "https://staging-store.vneconomics.com/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "validationCount": 1,
+      "commandsAllowed": true,
+      "contentSha256": "1179294952f3904e179ea4d65bef6b17e82ff7b11184e67660bc7ae974f6b109"
+    }
+  },
+  "journalStatus": "complete",
+  "journalOutcome": "APPLIED_MISSING_CONTENT"
+}

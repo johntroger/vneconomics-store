@@ -1,0 +1,740 @@
+{
+  "status": "INSPECTED_READ_ONLY",
+  "sourceSha": "ebc6deb69f86364c4064de4c6eac2192f16906c8",
+  "manifestSha256": "d7340aa43fa28f0a60a6fecea37b2e817e442b16e320eb19e16d19ebce688437",
+  "baselineSha256": "66c57b79cd4516f99ccff5addb9f50ae94c70b5116da45386f47039982687d1c",
+  "components": {
+    "theme": "PREVIOUS_MATCH",
+    "plugin": "MATCH"
+  },
+  "transportConfigured": true,
+  "entries": [
+    {
+      "key": "codex",
+      "id": 114,
+      "owned": false,
+      "status": "publish",
+      "validationReady": false
+    },
+    {
+      "key": "c100-001",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-002",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-003",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-004",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-005",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-006",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-007",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-008",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-009",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-010",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-011",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-012",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-013",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-014",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-015",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-016",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-017",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-018",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-019",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-020",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-021",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-022",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-023",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-024",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-025",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-026",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-027",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-028",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-029",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-030",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-031",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-032",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-033",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-034",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-035",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-036",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-037",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-038",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-039",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-040",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-041",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-042",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-043",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-044",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-045",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-046",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-047",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-048",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-049",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-050",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-051",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-052",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-053",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-054",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-055",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-056",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-057",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-058",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-059",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-060",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-061",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-062",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-063",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-064",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-065",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-066",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-067",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-068",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-069",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-070",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-071",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-072",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-073",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-074",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-075",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-076",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-077",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-078",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-079",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-080",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-081",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-082",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-083",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-084",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-085",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-086",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-087",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-088",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-089",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-090",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-091",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-092",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-093",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-094",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-095",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-096",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-097",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-098",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-099",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "c100-100",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "claude-code",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    },
+    {
+      "key": "antigravity",
+      "id": null,
+      "owned": false,
+      "status": null,
+      "validationReady": false
+    }
+  ],
+  "evidence": {
+    "codex": false,
+    "claude-code": false,
+    "antigravity": false
+  },
+  "journalStatus": null
+}

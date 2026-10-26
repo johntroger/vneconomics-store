@@ -1,0 +1,54 @@
+{
+  "status": "PASS_RESPONSIVE_STAGING",
+  "pages": [
+    {
+      "width": 390,
+      "path": "/",
+      "cards": 3,
+      "h1": "Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "scroll": 375,
+      "viewport": 390
+    },
+    {
+      "width": 390,
+      "path": "/huong-dan/",
+      "cards": 3,
+      "h1": "Chọn công cụ cho bài thực hành đầu tiên",
+      "scroll": 375,
+      "viewport": 390
+    },
+    {
+      "width": 390,
+      "path": "/tai-nguyen/",
+      "cards": 0,
+      "h1": "Tài nguyên để khám phá",
+      "scroll": 375,
+      "viewport": 390
+    },
+    {
+      "width": 320,
+      "path": "/",
+      "cards": 3,
+      "h1": "Chọn đúng công cụ.Bắt đầu làm được việc.",
+      "scroll": 305,
+      "viewport": 320
+    },
+    {
+      "width": 320,
+      "path": "/huong-dan/",
+      "cards": 3,
+      "h1": "Chọn công cụ cho bài thực hành đầu tiên",
+      "scroll": 305,
+      "viewport": 320
+    },
+    {
+      "width": 320,
+      "path": "/tai-nguyen/",
+      "cards": 0,
+      "h1": "Tài nguyên để khám phá",
+      "scroll": 305,
+      "viewport": 320
+    }
+  ],
+  "viewportReset": true
+}

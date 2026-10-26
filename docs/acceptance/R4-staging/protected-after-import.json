@@ -1,0 +1,9 @@
+{
+  "originalIds": 28,
+  "postsSha256": "301c10b5d1a4b7fe9a6ffe7db2cc2bdb4cd7de45a6b40246b016039faf699456",
+  "metaExceptCodexValidationSha256": "59a9c2ad64b93984ac03e8d27b52fe4a2a0aa602718e6cda6913af25a7a3ec4f",
+  "theme": "0.7.2",
+  "plugin": "0.4.2",
+  "schema": "3",
+  "indexing": "0"
+}

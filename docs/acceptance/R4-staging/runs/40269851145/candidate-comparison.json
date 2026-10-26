@@ -1,0 +1,67 @@
+{
+  "status": "PASS_GITHUB_LOCAL_BYTE_MATCH",
+  "observedAt": "2026-10-26T04:37:34.484Z",
+  "sourceSha": "390a0838915f21757086eabd041280496b2a8728",
+  "runUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40269851145",
+  "manifestSha256": "938fc8a23e8b8949a70455508bcc4ab39bb7093e486b7c20b5b0de1ab1ac2793",
+  "files": [
+    {
+      "path": "content.json",
+      "sha256": "839da70208973589675634a266b71cd944340fc84cde23087114e302a42ec6a4"
+    },
+    {
+      "path": "environments.json",
+      "sha256": "50bd8e9ffeff5f4936501d7fb8b60718eab620cba6437c71e0b11066b0661184"
+    },
+    {
+      "path": "evidence/antigravity.html",
+      "sha256": "e7daa10f8c1302c49bee378d8d87475f9d9c0072e9e4e3ed1aaaf74728d5b6d6"
+    },
+    {
+      "path": "evidence/claude-code.html",
+      "sha256": "c9ce6010ff2d425442d7dc5df9837cd8129e4c523104714515980cb0ba8c0b50"
+    },
+    {
+      "path": "evidence/codex.html",
+      "sha256": "59c6fb5efec075549f6b0add3066eaccb95bb0d06d5b300520c1c324c3d686a8"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "938fc8a23e8b8949a70455508bcc4ab39bb7093e486b7c20b5b0de1ab1ac2793"
+    },
+    {
+      "path": "payload.zip",
+      "sha256": "6b4f30472a3774a464e634fb9fcf9f17eedf07dc8ebc85a53d9e52470f014104"
+    },
+    {
+      "path": "plugin.zip",
+      "sha256": "2648f76f915c456ff4221a45862d60ecaf9cc5cdd468781ea8b302f6d63ee4c5"
+    },
+    {
+      "path": "receiver.php",
+      "sha256": "6be74e3b87547e2321f5f80b8b2d787d875b03619490e8b9a7cc89389866e9cd"
+    },
+    {
+      "path": "rollback.zip",
+      "sha256": "26d78709146cf94b75465a35c670981de386682fb1cd7ced2dcdcb52ff7b7215"
+    },
+    {
+      "path": "theme.zip",
+      "sha256": "3ac78ea97c8959d3955a74efc7d5998fdb58ffb27635eb22a3a38c4c7a8d0aab"
+    }
+  ],
+  "unchangedR2PayloadFiles": 8,
+  "changedR2PayloadPaths": [
+    "environments.json"
+  ],
+  "themeFiles": 38,
+  "pluginFiles": 10,
+  "remoteReleaseUnchanged": "4fe952ac7eec550d3125be9885fa6271aece2718",
+  "localDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\390a0838915f21757086eabd041280496b2a8728",
+  "downloadDirectory": "C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\artifacts\\pipeline\\github-40269851145",
+  "limits": [
+    "This command only verifies GitHub/local candidates; it does not apply a package on Plesk",
+    "Artifact retention1day on GitHub; immutable downloaded/local candidate retained",
+    "Native/UI R2 evidence applies to unchanged application/receiver bytes; CI executes package/S14 checks only"
+  ]
+}

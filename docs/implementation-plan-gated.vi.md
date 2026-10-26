@@ -1,6 +1,6 @@
 # Kế hoạch triển khai từng bước có kiểm thử và phê duyệt
 
-> Cập nhật26/10/2026: chủ dự án yêu cầu khôi phục đúng luồng local → GitHub → Plesk. [Kế hoạch chuyển quy trình](deployment-pipeline-recovery-plan-2026-10-26.vi.md) áp dụng cho các bước tiếp theo; phương án ZIP local trực tiếp trong hồ sơ S16 là lịch sử. [R1](acceptance/R1-pipeline-audit.vi.md) và [R2](acceptance/R2-pipeline.vi.md) đã hoàn tất. Chủ dự án duyệt riêng R3 bằng “duyệt R3”; [R3 PASS](acceptance/R3-github-ci.vi.md): GitHub source71a914e, Draft PR1, CI217+75 và11file ứng viên khớp local. **R4–R6 chưa được duyệt. Chưa đưa payload sang Plesk hoặc đổi staging/production từ quyền R3.**
+> Cập nhật26/10/2026: chủ dự án yêu cầu khôi phục đúng luồng local → GitHub → Plesk. [R1](acceptance/R1-pipeline-audit.vi.md), [R2](acceptance/R2-pipeline.vi.md) và [R3](acceptance/R3-github-ci.vi.md) đã đạt trong phạm vi ghi. Chủ dự án duyệt riêng R4; [R4 đang hoàn thiện](acceptance/R4-staging.vi.md): GitHub payload → private inbox Plesk Manual, rollback theme/nhập/retry/HTTP/UI staging đã đạt; đang thử receipt tiếp nhận baseline riêng. Nhánh thực tế release-staging vì release/* xung đột release lịch sử. **R5–R6 chưa được duyệt; không đổi production.** [Kế hoạch](deployment-pipeline-recovery-plan-2026-10-26.vi.md).
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.
