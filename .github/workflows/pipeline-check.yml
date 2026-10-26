@@ -23,10 +23,10 @@ jobs:
       # No .local, WordPress DB, bundled desktop runtime, hosting secret or push.
       - name: Verify deterministic source-derived payload and rejection gates
         shell: pwsh
-        run: npm run test:pipeline-packages -- $env:SOURCE_SHA
+        run: npm run test:pipeline-packages -- $env:SOURCE_SHA docs/acceptance/R3-github-ci/packages
       - name: Verify frozen S14 profile still rebuilds
         shell: pwsh
-        run: npm run test:release -- 594ccd9a7de812a49f2c0d8260d20cbfced71752
+        run: npm run test:release -- 594ccd9a7de812a49f2c0d8260d20cbfced71752 docs/acceptance/R3-github-ci/historical-S14
       - name: Build candidate from the exact reviewed source
         shell: pwsh
         run: npm run build:pipeline -- $env:SOURCE_SHA

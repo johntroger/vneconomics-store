@@ -5,8 +5,10 @@ import {spawnSync} from 'node:child_process';
 import {writePipeline,verifyPipeline,preparePipeline} from './pipeline-release.mjs';
 import {git,sha256,sourceFiles,makeZip} from './release-lib.mjs';
 import {componentProfile} from './release-profiles.mjs';
-const ref=process.argv[2]||'HEAD',out=resolve('docs/acceptance/R2-pipeline'),checks=[];mkdirSync(out,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const root=mkdtempSync(resolve('tmp/tests/r2-package-'));
-const check=(v,n)=>{assert.ok(v,n);checks.push(n);},refs=git(['show-ref','--heads']).toString();
+const ref=process.argv[2]||'HEAD',out=resolve(process.argv[3]||'docs/acceptance/R2-pipeline'),checks=[];mkdirSync(out,{recursive:true});mkdirSync('tmp/tests',{recursive:true});const root=mkdtempSync(resolve('tmp/tests/r2-package-'));
+// Exact-SHA Actions checkouts may have no local branches. Empty refs are valid.
+const branchRefs=()=>git(['for-each-ref','--format=%(refname) %(objectname)','refs/heads/']).toString();
+const check=(v,n)=>{assert.ok(v,n);checks.push(n);},refs=branchRefs();
 try{
  const first=join(root,'one'),second=join(root,'two'),manifest=writePipeline(ref,first);writePipeline(ref,second);verifyPipeline(first,ref);
  for(const f of [...manifest.files,{path:'manifest.json'},{path:'payload.zip'}])check(readFileSync(join(first,f.path)).equals(readFileSync(join(second,f.path))),'deterministic '+f.path);
@@ -26,6 +28,6 @@ try{
  cpSync(first,bad,{recursive:true});writeFileSync(join(bad,'secret.env'),'fixture');assert.throws(()=>verifyPipeline(bad,ref));check(true,'extra payload file rejected');
  const raw=JSON.stringify(manifest)+readFileSync(join(first,'content.json'),'utf8');check(!/DB_PASSWORD|BEGIN (?:RSA |OPENSSH )?PRIVATE KEY|github_pat_[A-Za-z0-9]|g03-fixture/.test(raw),'no credentials or QA certificate in manifest/content');
  const prepared=preparePipeline(ref);check(prepared.files.every(f=>!/(?:wp-config|\.sqlite|\.sql$|wordpress-backups|node_modules|\.env)/.test(f.name)),'no runtime config/database/backup in payload');
- assert.equal(git(['show-ref','--heads']).toString(),refs);check(true,'all branch refs unchanged by packaging tests');
+ assert.equal(branchRefs(),refs);check(true,'all branch refs unchanged by packaging tests');
  writeFileSync(join(out,'package-results.json'),JSON.stringify({status:'PASS_LOCAL_PIPELINE_PACKAGES',observedAt:new Date().toISOString(),sourceSha:manifest.sourceSha,checks,components:manifest.components,manifestSha256:sha256(readFileSync(join(first,'manifest.json'))),limits:['Local execution of the CI command; GitHub Actions has not run','Native WordPress receiver/UI tests are separate; no remote publication/deployment']},null,2)+'\n');console.log('PASS pipeline packages '+checks.length+' checks');
 }catch(e){writeFileSync(join(out,'package-failure.json'),JSON.stringify({error:String(e.stack??e),checks},null,2)+'\n');throw e;}
