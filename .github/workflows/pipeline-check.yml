@@ -1,0 +1,25 @@
+name: Validate GitHub-to-Plesk payload (no deployment)
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  payload:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      # Uses only Node built-ins, Git and the runner's PowerShell archive reader.
+      # No .local, WordPress DB, bundled desktop runtime, hosting secret or push.
+      - name: Verify deterministic source-derived payload and rejection gates
+        shell: pwsh
+        run: npm run test:pipeline-packages -- $env:GITHUB_SHA
+      - name: Verify frozen S14 profile still rebuilds
+        shell: pwsh
+        run: npm run test:release -- 594ccd9a7de812a49f2c0d8260d20cbfced71752

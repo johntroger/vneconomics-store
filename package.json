@@ -67,7 +67,10 @@
     "test:production-legacy": "node scripts/run-clean.mjs script scripts/test-s16-legacy-http.mjs",
     "test:production-legacy-runtime": "node scripts/run-clean.mjs script scripts/test-s16-legacy-runtime.mjs",
     "build:production-legacy-fix": "node scripts/run-clean.mjs script scripts/build-s16-legacy-fix.mjs",
-    "test:beginner-guides": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs"
+    "test:beginner-guides": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs",
+    "build:pipeline": "node scripts/run-clean.mjs script scripts/build-pipeline-release.mjs",
+    "test:pipeline-packages": "node scripts/run-clean.mjs script scripts/test-pipeline-packages.mjs",
+    "test:pipeline-native": "node scripts/run-clean.mjs script scripts/test-pipeline-native.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

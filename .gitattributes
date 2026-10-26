@@ -23,3 +23,7 @@
 /examples/moc-studio-claude/** g03-original
 /examples/moc-studio-antigravity/** g03-original
 /scripts/fixtures/g03-guides-seed.php text eol=lf
+/deploy/*.php text eol=lf
+/deploy/evidence/** g03
+/scripts/g03-production.php g03
+/artifacts/production/g03-0499402e4708/** g03

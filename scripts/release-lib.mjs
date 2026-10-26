@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 import {mkdirSync,existsSync,readFileSync,writeFileSync,readdirSync,lstatSync} from 'node:fs';
 import {join} from 'node:path';
 import {policy,releaseContract,previousThemeRef} from './release-policy.mjs';
+import {componentProfile} from './release-profiles.mjs';
 
 export function git(args){
  const r=spawnSync('git',args,{encoding:null,maxBuffer:32*1024*1024,windowsHide:true});
@@ -20,12 +21,15 @@ export function sourceFiles(sha,kind,{previous=false}={}){
  const rows=git(['ls-tree','-rz',sha+':'+p.source]).toString().split('\0').filter(Boolean).map(row=>{
   const [mode,type,oid,name]=row.split(/[\t ]/);return {mode,type,oid,name};
  });
- const expected=validateSourceTree(rows,kind,{previous});
+ const header=git(['show',sha+':'+p.source+'/'+p.header]).toString();
+ const v=header.match(/^\s*(?:\*\s*)?Version:\s*(\d+\.\d+\.\d+)\s*$/m)?.[1];
+ const profile=componentProfile(kind,v);if(previous)assert.equal(v,'0.6.0','Unexpected previous-theme profile');
+ const expected=validateSourceTree(rows,kind,{files:profile.files});
  return expected.map(name=>({name:policy[kind].slug+'/'+name,data:git(['show',sha+':'+p.source+'/'+name])}));
 }
-export function validateSourceTree(rows,kind,{previous=false}={}){
+export function validateSourceTree(rows,kind,{previous=false,files=null}={}){
  const p=policy[kind];assert.ok(p,'Unknown component');
- const expected=previous?p.files.filter(n=>n!=='seo.php'):p.files;
+ const expected=files??(previous?componentProfile(kind,'0.6.0').files:p.files);
  assert.deepEqual(rows.map(r=>r.name).sort(),[...expected,'README.md'].sort(),'Component tree must match allowlist plus excluded README');
  for(const row of rows)assert.ok(row.mode==='100644'&&row.type==='blob','Reject executable, symlink or submodule '+row.name);
  return expected;
