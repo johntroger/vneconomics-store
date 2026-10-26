@@ -35,12 +35,14 @@ Nhịp cuối, múi giờ Asia/Saigon, binary/path/OS user/quyền/PHP CLI và c
 
 ## Các bước cần duyệt riêng
 
+**Điều chỉnh theo chỉ đạo mới sau U2:** bỏ staging, đi local → GitHub/CI → production. U3 staging được bỏ qua; bước phát hành tiếp theo là U4 trực tiếp production. Không xóa hoặc relabel nghiệm thu U1/U2 và hồ sơ staging trước đây.
+
 | Bước | Phạm vi | Điều kiện hoàn tất |
 |---|---|---|
 | U1 — nền dữ liệu/collector local | Thiết kế và code module lưu stats/queue/lock, client inject được HTTP giả;100ID từ nguồn hiện có. Tất cả mặc định tắt, không gọi API thật, không deploy | Test200/304/tăng/giảm/0, saiID/shape/redirect/timeout/quota/backoff, schema additive, retry/lock/race, token redaction và bảo toàn bài/revision/validation/DB local; cleanup đạt |
 | U2 — UI/profile local | Card/detail hiển thị snapshot động và trạng thái cũ; version/profile/allowlist/manifest/receiver tương thích, đường rollback an toàn | Kiểm đủ hash, UI/SEO/search/14legacy/privacy/no-store, không gọi mạng trên page load, bảo toàn toàn bộ nội dung; test pipeline/CI guard đạt |
-| U3 — staging | Source GitHub/CI → payload Plesk private; migration/additive install đã duyệt; thử thủ công với nhóm repo thật có giới hạn cụ thể, chưa bật lịch | Hash/ID/count/snapshot/journal/backup/noindex/rollback đạt; đo quota thực và xác minh scheduler/path/quyền, có đề xuất thao tác production cụ thể |
-| U4 — production code, chạy thử thủ công | Cùng payload đã thử staging, backup mới và approval riêng; không bật lịch từ quyền deploy | App hash/runtime/113mục thư viện/14legacy/validation/option cũ giữ đúng; stats mới đúng nguồn, retry/cleanup đạt, rollback không drop lịch sử thống kê |
+| U3 — staging: bỏ qua | Theo chỉ đạo mới của chủ dự án, không triển khai staging | Giữ hồ sơ/môi trường lịch sử |
+| U4 — production code, chạy thử thủ công | Source GitHub/CI đạt → payload GitHub → inbox Plesk production, backup mới và approval đúng phạm vi; không bật lịch từ quyền deploy | App hash/runtime/113mục thư viện/14legacy/validation/option cũ giữ đúng; stats mới đúng nguồn, retry/cleanup đạt; kiểm MariaDB khi preflight/hậu kiểm production, rollback giữ option thống kê |
 | U5 — kích hoạt vận hành | Duyệt riêng chính xác job/người chạy/path/nhịp/budget credential nếu có; không mở endpoint công khai | Chạy thử đúng job, tránh trùng, observe cycle hoàn tất và lỗi/backoff/stale; biên nhận/tắt lịch có kiểm soát; không tự thêm repo/bài hoặc phát hành tiếp |
 
 Mỗi bước báo kết quả/giới hạn và dừng theo AGENTS. Phân biệt thay cấu hình lịch với cài code; U4 không tự cấp quyền U5. Không gọi API có phí/mua gói/cấp token mới từ bản kế hoạch.
@@ -52,7 +54,7 @@ Mỗi bước báo kết quả/giới hạn và dừng theo AGENTS. Phân biệt
 3.Timeout/403/429/5xx/404/redirect ngoài GitHub/response quá lớn; không leak secret trong URL/HTTP error/log; thiếu quota thì queue chưa xong được giữ, không quay vòng retry nóng.
 4.Khóa nguyên tử/owner token, không tự phá lock đang chạy, crash/retry/CAS/cursor không mất hoặc trùng mẫu; đồng hồ và ngày UTC/AsiaSaigon rõ. Không gọi mẫu sinh lại là lịch sử thật.
 5.So posts/meta/terms/approved revision/history/validation/commands_allowed/oldC100G03 journals trước-sau sync. Stats đổi không chạy save_post/seal/editorial approval/cache-incident ngoài phạm vi.
-6.Cài/upgrade additive trên SQLite local và MariaDB staging phù hợp, không đổi DB/config gốc; rollback code giữ dữ liệu đo, không tự drop table/restore production. Fixture và mock credential được dọn qua run-clean, evidence và backup thật giữ.
+6.Cài/upgrade additive trên SQLite local; kiểm tương thích MariaDB trong preflight/hậu kiểm production theo chỉ đạo bỏ staging. Không đổi DB/config local gốc; rollback code giữ dữ liệu đo, không tự drop table/restore production. Fixture và mock credential được dọn qua run-clean, evidence và backup thật giữ.
 
 ## Đề xuất mở trước tiên
 

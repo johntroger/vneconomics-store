@@ -25,4 +25,6 @@ Kiểm local dùng fixture riêng: new theme/old plugin hiển thị chưa có s
 
 ## Cổng tiếp
 
-U3 cần source trên GitHub/CI đạt, payload chính xác từ GitHub và duyệt staging. Trước khi cài, công cụ publish/installer phải được chốt đúng **profile code-only mới**, inbox/ref/manifest/baseline và target staging; công cụ R4/R5 pin profile cũ không được dùng để vượt guard. U2 mới cung cấp builder/verifier/rollback đã kiểm local, chưa thao tác staging. Transport live/scheduler không nằm trong U2; thử API thật phải được giới hạn và duyệt riêng ở bước phù hợp.
+**Chỉ đạo mới sau nghiệm thu U2:** bỏ U3 staging; bước tiếp là U4 trực tiếp production qua GitHub/CI. Giữ baseline/backup/rollback và các gate theo runbook hiện hành; không xóa staging lịch sử.
+
+U4 cần source trên GitHub/CI đạt, payload chính xác từ GitHub và phạm vi production đã duyệt. Trước khi cài, công cụ publish/installer phải được chốt đúng **profile code-only mới**, inbox/ref/manifest/baseline và target production; công cụ R4/R5 pin profile cũ không được dùng để vượt guard. U2 đã cung cấp builder/verifier/rollback kiểm local. Transport live/scheduler không nằm trong U2; thử API thật phải được giới hạn và duyệt riêng ở bước phù hợp.

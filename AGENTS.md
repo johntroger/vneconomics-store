@@ -17,6 +17,8 @@
 
 # Đường phát hành bắt buộc — R6 ngày 26/10/2026
 
+- Cập nhật theo chỉ đạo trực tiếp của chủ dự án ngày 26/10/2026: từ nay bỏ bước staging, dùng local → GitHub/CI → payload GitHub → private inbox Plesk production → hậu kiểm production. Quy tắc này thay yêu cầu phải thử staging trước production trong các kế hoạch/runbook cũ. Giữ staging, backup và bằng chứng lịch sử; không tự xóa hay đổi cấu hình staging. Mỗi lượt production vẫn theo phạm vi/ref/gate đã được duyệt, kiểm local/CI, backup và rollback tương thích; việc bỏ staging không tự bật scheduler hoặc cho phép upload trực tiếp từ local.
+
 - Tuân thủ `docs/deployment-runbook.vi.md` và `docs/release-checklist.vi.md`: local kiểm thử → source SHA trên GitHub/CI đạt → payload commit SHA trên GitHub → Plesk nhận vào inbox private → đối chiếu ref/manifest/hash/baseline → thao tác đúng phạm vi đã duyệt → hậu kiểm/cleanup/biên nhận.
 - Không upload ZIP hoặc mã ứng dụng/nội dung trực tiếp từ local lên Plesk/WordPress. Trình cài native chỉ dùng ZIP đã được Plesk nhận từ payload GitHub và kiểm chứng; `payload.zip` local không phải đường triển khai.
 - Nhánh payload hiện hành là `release-staging` và `release-production`, không dùng `release/*` vì xung đột nhánh `release` lịch sử. Giữ Manual và inbox ngoài document root; không tự đổi ref/đích, post-deploy action, key, quyền hoặc bật automation.

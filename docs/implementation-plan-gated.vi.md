@@ -1,5 +1,7 @@
 # Kế hoạch triển khai từng bước có kiểm thử và phê duyệt
 
+> Chỉ đạo mới của chủ dự án ngày26/10/2026: từ nay bỏ staging, phát hành local → GitHub/CI → production. Nội dung lịch sử về staging bên dưới được giữ làm bằng chứng, không còn là điều kiện bắt buộc cho lượt mới. Các cổng kiểm thử/phạm vi/ref, backup, rollback và quyền bật lịch vẫn áp dụng; xem runbook hiện hành.
+
 > Hiện hành26/10/2026: R1–R5 đã đạt; chủ dự án đã duyệt riêng R6 chốt hồ sơ/quy tắc. Xem [R6 và biên nhận kiểm chứng](acceptance/R6-closeout.vi.md), [runbook](deployment-runbook.vi.md), [checklist](release-checklist.vi.md). Source phát hành4266b71/CI40288437763, hai nhánh payload cùngdc4af29; R6 không đổi hosting/payload hoặc mở lô mới. Các bản ghi S13–S16 bên dưới là lịch sử. Bước tiếp, merge main và automation vẫn cần đúng quyền riêng.
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
