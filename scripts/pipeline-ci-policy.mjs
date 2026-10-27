@@ -2,10 +2,10 @@ import assert from 'node:assert/strict';
 export const PIPELINE_REPOSITORY='johntroger/vneconomics-store';
 export const PIPELINE_WORKFLOW='.github/workflows/pipeline-check.yml';
 export const REQUIRED_PIPELINE_STEPS=Object.freeze([
- 'Verify deterministic source-derived payload and rejection gates',
- 'Verify frozen S14 profile still rebuilds',
+ 'Install locked dependencies',
+ 'Verify deterministic candidate',
  'Build candidate from the exact reviewed source',
- 'Preserve candidate for local checksum comparison'
+ 'Preserve candidate for approval'
 ]);
 const positive=value=>Number.isSafeInteger(value)&&value>0;
 const time=(value,label)=>{const n=typeof value==='string'?Date.parse(value):NaN;assert.ok(Number.isFinite(n),'Invalid '+label);return n;};
@@ -34,7 +34,7 @@ export function verifyPipelineCi({runId,sourceSha,api,now=Date.now()}){
  assert.ok(positive(run.id)&&String(run.id)===String(runId),'Wrong CI run ID');assert.equal(run.workflow_id,workflow.id,'Unexpected CI workflow ID');assert.equal(run.path,PIPELINE_WORKFLOW,'Unexpected CI workflow path');
  assert.equal(run.repository?.full_name,PIPELINE_REPOSITORY,'Unexpected CI repository');assert.equal(run.head_repository?.full_name,PIPELINE_REPOSITORY,'Unexpected CI source repository');
  assert.ok(positive(run.repository?.id)&&positive(run.head_repository?.id),'Missing repository identity');assert.equal(run.head_sha,sourceSha,'CI source SHA differs');
- assert.equal(run.status,'completed','CI is not complete');assert.equal(run.conclusion,'success','CI did not pass');assert.ok(['pull_request','workflow_dispatch'].includes(run.event),'Unexpected CI event');assert.ok(positive(run.run_attempt),'Missing CI attempt');
+ assert.equal(run.status,'completed','CI is not complete');assert.equal(run.conclusion,'success','CI did not pass');assert.equal(run.event,'workflow_dispatch','Unexpected CI event');assert.ok(positive(run.run_attempt),'Missing CI attempt');
  const jobs=collection(api,runPath+'/attempts/'+run.run_attempt+'/jobs','jobs'),matching=jobs.filter(j=>j.name==='payload');assert.equal(matching.length,1,'Missing/ambiguous payload job');const job=matching[0];
  assert.equal(job.run_id,run.id,'Job run differs');assert.equal(job.run_attempt,run.run_attempt,'Job attempt differs');assert.equal(job.head_sha,sourceSha,'Job source differs');assert.equal(job.status,'completed','Payload job incomplete');assert.equal(job.conclusion,'success','Payload job failed/skipped');assert.ok(Array.isArray(job.steps),'Missing payload steps');
  const steps=REQUIRED_PIPELINE_STEPS.map(name=>{const found=job.steps.filter(s=>s.name===name);assert.equal(found.length,1,'Missing/ambiguous required step: '+name);const s=found[0];assert.equal(s.status,'completed','Required step incomplete: '+name);assert.equal(s.conclusion,'success','Required step failed/skipped: '+name);assert.ok(positive(s.number),'Missing step order');assert.ok(time(s.completed_at,'step completion')>=time(s.started_at,'step start'),'Invalid step interval');return s;});

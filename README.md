@@ -1,18 +1,21 @@
 # Vneconomics Store
 
-> Hiện hành26/10/2026: R1–R5 đã tiếp nhận baseline qua local → GitHub → Plesk; R6 chốt hồ sơ theo phê duyệt riêng. Xem [runbook](docs/deployment-runbook.vi.md), [checklist](docs/release-checklist.vi.md) và [R6](docs/acceptance/R6-closeout.vi.md). Source đang phát hành4266b71/payload dc4af29, theme0.7.2/plugin0.4.2/schema3. Các mục trạng thái S13 bên dưới là lịch sử local, không phải hướng dẫn phát hành hiện hành.
+Repository public của website https://store.vneconomics.com/.
 
-Dự án riêng cho https://store.vneconomics.com/.
+## Trạng thái hiện hành
 
-## Trạng thái
+| Lớp | Trạng thái |
+|---|---|
+| Development | Theme 0.7.3, plugin 0.4.3, schema 3 trong working tree; chưa đồng nghĩa đã phát hành |
+| Rebuild candidate v3 | Chưa có |
+| Production đã ghi nhận | Source `4266b71990702d87969a847e95d9c39933cb05a4`, payload `dc4af296692ddac2dd71dc9f1be4a69f1af29959`, theme 0.7.2, plugin 0.4.2, schema 3 |
 
-- WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
-- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07, trang chi tiết S08 và tìm/lọc S09 (PASS kỹ thuật local).
-- Baseline .local/site chưa kích hoạt theme/plugin; bản thử S13 dùng database riêng. Chưa đưa code thư viện lên hosting.
-- Repository riêng tư: https://github.com/johntroger/vneconomics-store
+Nguồn điều hành: [kế hoạch tái thiết v3](docs/website-rebuild-plan-current.vi.md), [bản đồ tài liệu](docs/current-docs-index.vi.md), [runbook](docs/deployment-runbook.vi.md) và [checklist phát hành](docs/release-checklist.vi.md).
+
+S00–S16 và staging là lịch sử của website hiện tại, không phải menu triển khai website làm lại.
 
 
-## Bản thử S13
+## Lịch sử kỹ thuật S13
 
 `npm run dev:s13` mở thư viện tích hợp tại http://127.0.0.1:9430/ với database riêng .local/s13-site.
 Lệnh tạo bản thử lần đầu; những lần sau không seed đè nội dung đã sửa. Bản này noindex, không gửi email, không cần API key để đọc bài.
@@ -69,12 +72,11 @@ SQLite/PHP WebAssembly không thay thế kiểm thử PHP/MySQL/cache/plugin tr�
 
 ## Quy trình phát hành
 
-Local → kiểm thử → GitHub → Plesk webhook → thư mục mã tùy chỉnh.
-Chi tiết: [plesk-setup.md](docs/plesk-setup.md).
-Không đưa database, uploads, wp-config.php, khóa bí mật hoặc WordPress core vào
-nhánh triển khai. release chỉ nhận payload đã kiểm thử và được duyệt triển khai.
+`local → GitHub/CI → payload GitHub → Plesk private inbox → verify → production`.
 
-## Tiến độ theo bước
+Không dùng staging cho lượt mới. Production Plesk giữ Manual/no post-action; không upload ZIP/code trực tiếp từ local. Build, push, CI PASS hoặc merge không tự cấp quyền production. Nội dung thường ngày như bài viết hoặc CTA đã cấu hình đi qua WordPress Draft → Preview → Publish và không cần phát hành lại code.
+
+## Lịch sử S00–S16
 
 [Báo cáo S05](docs/acceptance/S05-revisions-and-preview.vi.md) và
 [báo cáo S06](docs/acceptance/S06-theme-and-home.vi.md) (59 điểm kiểm tra PASS local).

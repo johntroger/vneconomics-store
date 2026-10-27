@@ -1,0 +1,72 @@
+name: Promote approved payload to release-production
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_ref:
+        description: Candidate branch, for example candidate-production/<source SHA>
+        required: true
+        type: string
+      payload_sha:
+        description: Exact candidate payload commit SHA
+        required: true
+        type: string
+      source_sha:
+        description: Exact application source commit SHA recorded in manifest
+        required: true
+        type: string
+      expected_parent:
+        description: Current release-production SHA approved for fast-forward
+        required: true
+        type: string
+      profile:
+        description: Exact reviewed manifest profile
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: production-payload-promotion
+  cancel-in-progress: false
+jobs:
+  promote:
+    environment: production
+    runs-on: windows-2025
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: release-production
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Validate candidate and expected parent
+        shell: pwsh
+        env:
+          CANDIDATE_REF: ${{ inputs.candidate_ref }}
+          PAYLOAD_SHA: ${{ inputs.payload_sha }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          EXPECTED_PARENT: ${{ inputs.expected_parent }}
+          RELEASE_PROFILE: ${{ inputs.profile }}
+        run: |
+          if ($env:CANDIDATE_REF -notmatch '^candidate-production/[a-f0-9]{40}$') { throw 'Invalid candidate_ref' }
+          foreach ($value in @($env:PAYLOAD_SHA,$env:SOURCE_SHA,$env:EXPECTED_PARENT)) {
+            if ($value -notmatch '^[a-f0-9]{40}$') { throw 'SHA inputs must be 40 lowercase hex characters' }
+          }
+          git fetch origin refs/heads/release-production:refs/remotes/origin/release-production
+          git fetch origin ("refs/heads/"+$env:CANDIDATE_REF+":refs/remotes/origin/"+$env:CANDIDATE_REF)
+          if ((git rev-parse refs/remotes/origin/release-production) -ne $env:EXPECTED_PARENT) { throw 'release-production moved' }
+          if ((git rev-parse ("refs/remotes/origin/"+$env:CANDIDATE_REF)) -ne $env:PAYLOAD_SHA) { throw 'Candidate ref moved or differs' }
+          node scripts/validate-payload-commit.mjs $env:PAYLOAD_SHA $env:SOURCE_SHA $env:EXPECTED_PARENT $env:RELEASE_PROFILE
+      - name: Fast-forward release-production
+        shell: pwsh
+        env:
+          PAYLOAD_SHA: ${{ inputs.payload_sha }}
+          EXPECTED_PARENT: ${{ inputs.expected_parent }}
+        run: |
+          $remote = (git ls-remote origin refs/heads/release-production).Split()[0]
+          if ($remote -ne $env:EXPECTED_PARENT) { throw 'release-production changed before push' }
+          $spec = $env:PAYLOAD_SHA + ':refs/heads/release-production'
+          git push origin $spec

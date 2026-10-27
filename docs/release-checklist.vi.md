@@ -5,10 +5,10 @@ Dùng với [runbook](deployment-runbook.vi.md), không tự cấp quyền tri�
 Từ chỉ đạo ngày26/10/2026: **local → GitHub/CI → production**, bỏ staging. Giữ các receipt/môi trường staging lịch sử.
 
 - [ ] Chủ dự án đã duyệt đúng bước/đích/phạm vi/thời điểm; người reviewer và quyền hiện hữu được kiểm.
-- [ ] Baseline root/DB/home/indexing/version/schema/nội dung/journal đọc mới; backup/hash/CRC và rollback tương thích có thật.
+- [ ] Baseline root/DB/home/indexing/version/schema/nội dung/journal đọc mới; xác định cấp A/B/C. A có immutable previous code/rollback package đủ hash và không ghi persisted state; B có backup scoped DB/file mới; C có full backup + bản ngoài hosting. Hash/CRC/manifest áp dụng đã đạt.
 - [ ] Source commit đã có trên GitHub; CI đúng workflow/SHA/lượt chạy, job/bước bắt buộc đạt và artifact đúng run/source còn hạn; các kiểm native/UI/migration cần thiết đã đạt, cleanup không lỗi.
 - [ ] Artifact CI/local khớp byte; profile/allowlist và nội dung/bằng chứng đúng; không có secret/DB/backup/QA giả.
-- [ ] Payload commit đúng allowlist profile trên GitHub; ghi riêng source SHA/CI/payload SHA/manifest SHA256; production dùng đúng commit đã đối chiếu artifact CI/local, không yêu cầu qua staging.
+- [ ] R5 tạo payload candidate trên ref không được Plesk theo dõi. Chỉ sau approval R6 mới fast-forward `release-production`; payload commit đúng allowlist profile và ghi riêng source SHA/CI/payload SHA/manifest SHA256.
 - [ ] Plesk đúng repo/branch, Manual, không post-actions; inbox realpath private ngoài document root, permissions đã kiểm.
 - [ ] GitHub ref/Plesk HEAD/manifest/từng hash khớp; không chuyển ZIP local trực tiếp.
 - [ ] Approval có payloadSha/sourceSha/manifestSha256/baselineSha256; mode adopt/apply/cài thành phần nằm đúng phạm vi; không reinstall/import lại khi MATCH.

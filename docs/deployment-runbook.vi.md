@@ -6,6 +6,8 @@ Chốt theo R6 được chủ dự án duyệt ngày26/10/2026. Đây là quy tr
 
 ## Baseline và các đích
 
+Cột staging trong bảng dưới chỉ là baseline lịch sử/read-only; không phải đích hoặc cổng của release mới.
+
 Source ứng dụng/payload đã tiếp nhận: `4266b71990702d87969a847e95d9c39933cb05a4`; [CI40288437763](https://github.com/johntroger/vneconomics-store/actions/runs/40288437763)218pipeline+75S14 đạt. Hai nhánh `release-staging`/`release-production` cùng payload `dc4af296692ddac2dd71dc9f1be4a69f1af29959`, manifest SHA256 `02953f231825577da95d1a71887a44ba07e425015412b5448581588af042bf34`. R6 chỉ chốt hồ sơ, không đổi các ref đang phát hành. Source commit chứa hồ sơ R6 có thể mới hơn; không thay số source trong receipt R5.
 
 | Mục | Staging | Production |
@@ -39,7 +41,7 @@ Mỗi lượt ghi source SHA40hex, CI run URL/conclusion, payload SHA40hex, mani
 
 ## Plesk nhận và thao tác
 
-1. Đọc lại baseline và tạo backup mới trước thay đổi; kiểm hash/CRC và giữ bản quay lui thật. Từ chối lệch root/DB/home/indexing, symlink hoặc inbox dưới webroot. Plesk Pull đúng repository/branch, xác nhận Manual/đích rồi Deploy **chỉ vào private inbox**.
+1. Đọc lại baseline và phân cấp release. Cấp A không ghi persisted state phải có immutable previous code/rollback package đủ hash; cấp B tạo backup DB/file đúng phạm vi; cấp C tạo full backup và giữ một bản ngoài hosting. Backup áp dụng phải complete, có hash/CRC/manifest. Từ chối lệch root/DB/home/indexing, symlink hoặc inbox dưới webroot. Plesk Pull đúng repository/branch, xác nhận Manual/đích rồi Deploy **chỉ vào private inbox**.
 2. So sánh GitHub ref với symbolic HEAD/loose hoặc packed ref trên clone Plesk, source/manifest và toàn bộ10hash. Toast không đủ xác nhận. Receiver tự kiểm clone local, không gọi GitHub; người vận hành phải giữ cả bằng chứng GitHub và Plesk.
 3. Lệnh chỉ đọc: `wp --path=<root> --user=<reviewer> eval-file <inbox>/receiver.php inspect <environment>`. Trong ô Plesk đã có `wp`, bỏ tiền tố đó. Dùng đường thật đã kiểm; không chạy placeholder. Component MATCH cần đủ48hash; inspect không cài ứng dụng hoặc đổi schema.
 4. Approval JSON có đúng thứ tự `payloadSha`, `sourceSha`, `manifestSha256`, `baselineSha256`. `wp ... eval-file <inbox>/receiver.php <mode> <environment> '<approval-json>'`. Không tự tái tính baseline để vượt xung đột sau khi đã duyệt; giữ nguyên JSON khi retry vì receiver so sánh journal nghiêm ngặt.
