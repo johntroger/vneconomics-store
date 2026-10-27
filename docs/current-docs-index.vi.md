@@ -41,7 +41,7 @@ Không xóa lịch sử, staging, backup hoặc evidence thật chỉ vì chúng
 
 R0A hiện hành: [R0A-rebuild-plan-v3.vi.md](acceptance/R0A-rebuild-plan-v3.vi.md).
 
-R0B hiện hành: [R0B-fast-ci.vi.md](acceptance/R0B-fast-ci.vi.md) — local PASS, chưa đóng gate remote.
+R0B hiện hành: [R0B-fast-ci.vi.md](acceptance/R0B-fast-ci.vi.md) — PASS; PR #3 fast check thật đạt, chưa merge.
 
 ## Quy tắc cập nhật
 

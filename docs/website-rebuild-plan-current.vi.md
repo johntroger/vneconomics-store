@@ -1,7 +1,7 @@
 # Kế hoạch hiện hành tái thiết Vneconomics Store — v3
 
 Ngày cập nhật: 27/10/2026
-Trạng thái: R0/R0A hoàn tất; R0B local PASS nhưng chưa hoàn tất kiểm chứng GitHub; không có quyền code website hoặc production
+Trạng thái: R0, R0A và R0B đã hoàn tất; chưa cấp quyền R1, code website hoặc production
 
 Đây là kế hoạch điều hành duy nhất cho website làm lại. `website-rebuild-master-plan-2026-10-27.vi.md` và S00–S16 là lịch sử, không phải checklist thực thi. Xem [bản đồ tài liệu hiện hành](current-docs-index.vi.md).
 
@@ -146,7 +146,7 @@ Mỗi hàng là một gate độc lập. PASS không tự mở bước tiếp th
 |---|---|---|
 | **R0 — Tối ưu quy trình** | Ma trận test nhanh, loại file chắc chắn hết dùng, giữ evidence/backup | Đã PASS tại `acceptance/O1-process-optimization.vi.md` |
 | **R0A — Kế hoạch v3 và nguồn sự thật** | Kế hoạch, README, bản đồ tài liệu; tách development/candidate/production | Đã PASS tại `acceptance/R0A-rebuild-plan-v3.vi.md`; chỉ tài liệu |
-| **R0B — Fast CI và release workflow v2** | Tách `pr-fast`, `release-candidate`, `promote-production`; bỏ chọn pipeline bằng phiên bản CSS và S14 khỏi PR mặc định; pin action/dependency/retention | Local PASS tại `acceptance/R0B-fast-ci.vi.md`; còn thiếu PR/Actions thật trên nhánh sạch trước khi đóng gate |
+| **R0B — Fast CI và release workflow v2** | Tách `pr-fast`, `release-candidate`, `promote-production`; bỏ chọn pipeline bằng phiên bản CSS và S14 khỏi PR mặc định; pin action/dependency/retention | PASS tại `acceptance/R0B-fast-ci.vi.md`; PR #3 fast check thật đạt, không deploy |
 | **R1 — Product, nội dung và cấu trúc thông tin** | Inventory URL; giữ/đổi/301/loại; ba hành trình, sitemap, content model, dữ liệu/media, baseline SEO/hiệu năng và KPI | 100% URL có quyết định; wireframe và tiêu chí responsive/accessibility/browser được duyệt; chỉ read-only/local |
 | **R2 — Architecture foundation và design system** | Theme v2; hợp đồng theme/plugin; release marker; tokens và component nền; test skeleton bốn tầng | Preview desktop và 320/390px; keyboard/focus/contrast, không tràn ngang; smoke và chủ dự án duyệt |
 | **R3.1 — Khám phá** | Homepage → catalog → resource detail | Targeted test + smoke; URL/canonical/metadata; preview local được duyệt |
@@ -194,8 +194,8 @@ Migration cấp B mặc định dùng chuỗi **expand → code tương thích c
 
 ## 12. Điểm dừng hiện tại
 
-R0B đã PASS toàn bộ kiểm tra local nhưng chưa đóng gate: nhánh hiện tại chứa 6 commit U2 chưa có trên `origin/main`; mở PR ngay sẽ trộn U2 với thay đổi quy trình. Không push/PR/dispatch nhầm, không chuyển sang R1.
+R0B đã hoàn tất trên PR xếp tầng #3 với base `codex/github-stars-u2`; fast check thật đạt và không deploy. PR chưa merge; candidate/promote chưa dispatch. Không có quyền mặc định tiếp tục R1, merge main hoặc production.
 
 Bước có thể xin duyệt tiếp theo:
 
-> **Phần còn lại của R0B — đặt thay đổi lên base GitHub đã được chủ dự án chọn, mở PR thử và xác nhận Actions thật không deploy.** Không merge main, không đổi `release-production`, không Plesk và không deploy.
+> **R1 — kiểm kê read-only, chốt product/content contract, sitemap, hành trình và phạm vi giao diện v2.** Không sửa theme/plugin, không đăng nhập Plesk và không thay production.
