@@ -8,7 +8,7 @@ Trạng thái: **LOCAL PASS — CHƯA ĐÓNG GATE REMOTE**
 - Chuyển `.github/workflows/pipeline-check.yml` thành workflow candidate chạy thủ công từ exact source SHA và profile được allowlist.
 - Thêm `pr-fast.yml` quyền `contents: read`, không secret, không publish/deploy.
 - Thêm `promote-production.yml` chạy thủ công qua GitHub Environment `production`, kiểm candidate ref/payload/source/expected parent/manifest/hash trước normal fast-forward; không force-push và không gọi Plesk.
-- Pin action chính thức bằng commit SHA đã đối chiếu tag chính thức: checkout v4.2.2, setup-node v4.4.0, upload-artifact v4.6.2.
+- Pin action chính thức bằng commit SHA đã đối chiếu tag chính thức: checkout v7.0.1, setup-node v7.1.0, upload-artifact v7.0.2; cả ba dùng runtime Node 24 trên GitHub-hosted runner.
 - Retention candidate 21 ngày.
 - Bỏ chọn builder bằng chuỗi phiên bản CSS và bỏ S14 lịch sử khỏi candidate mặc định.
 - Thêm runner candidate/profile, validator payload commit, syntax fast check và workflow security contract.
