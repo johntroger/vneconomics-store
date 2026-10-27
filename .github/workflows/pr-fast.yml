@@ -1,0 +1,31 @@
+name: Fast pull-request checks
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fast:
+    runs-on: windows-2025
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        shell: pwsh
+        run: npm ci --ignore-scripts
+      - name: Check JavaScript syntax
+        shell: pwsh
+        run: npm run test:ci-fast
+      - name: Check workflow security contract
+        shell: pwsh
+        run: npm run test:workflow-contract
+      - name: Check candidate evidence policy
+        shell: pwsh
+        run: npm run test:pipeline-ci -- --u2
