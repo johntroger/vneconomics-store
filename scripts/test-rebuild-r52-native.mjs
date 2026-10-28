@@ -5,7 +5,7 @@ import {startSite} from './local-runtime.mjs';
 import {prepareRebuildRelease,verifyRebuildRelease} from './rebuild-release.mjs';
 import {sha256} from './release-lib.mjs';
 const source=process.argv[2],packages=resolve('artifacts/rebuild',source);const manifest=verifyRebuildRelease(source,packages);const expected=prepareRebuildRelease(source);const second=prepareRebuildRelease(source);for(const name of Object.keys(expected.buffers))assert.equal(sha256(expected.buffers[name]),sha256(second.buffers[name]));
-const fixture=mkdtempSync(resolve('tmp/tests/rebuild-r52-'));const evidence=resolve('docs/acceptance/R52-rebuild');mkdirSync(evidence,{recursive:true});let app;const checks=['exact source packages verified','two builds byte identical'];
+mkdirSync(resolve('tmp/tests'),{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/rebuild-r52-'));const evidence=resolve('docs/acceptance/R52-rebuild');mkdirSync(evidence,{recursive:true});let app;const checks=['exact source packages verified','two builds byte identical'];
 try{
  if(existsSync('.local/site/wp-load.php')){for(const d of ['wp-admin','wp-includes'])cpSync(resolve('.local/site',d),join(fixture,d),{recursive:true});for(const e of readdirSync('.local/site',{withFileTypes:true}))if(e.isFile()&&e.name.endsWith('.php')&&e.name!=='wp-config.php')cpSync(join('.local/site',e.name),join(fixture,e.name));}
  app=await startSite(fixture,19452,{workers:1});for(const name of Object.keys(expected.buffers).filter(n=>n.endsWith('.zip')))cpSync(join(packages,name),join(fixture,name));
