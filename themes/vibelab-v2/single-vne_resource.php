@@ -19,5 +19,6 @@ get_header();
 </div><aside class="v2-detail-aside"><div class="v2-aside-box"><h2>Cách đọc trang này</h2><p>“Đã đọc nguồn” và “đã chạy thử” là hai trạng thái khác nhau. Luôn so revision và môi trường với trường hợp của bạn.</p></div><div class="v2-aside-box"><h2>Bước tiếp theo</h2><p><?php echo vibelab_v2_source_allowed($item)?'Mở nguồn, đọc hướng dẫn chính thức và bắt đầu bằng một đầu ra nhỏ.':'Đọc cảnh báo tình trạng và chọn tài nguyên khác nếu điều kiện chưa đủ rõ.'; ?></p></div></aside></div>
 </div>
 <?php if($related){ ?><section id="lien-quan" class="v2-shell v2-related" tabindex="-1"><div class="v2-section-heading"><div><span class="v2-kicker">Cùng chủ đề</span><h2>Tài nguyên liên quan</h2></div><p>Có chung danh mục; không mặc định thay thế cho nhau.</p></div><div class="v2-resource-list"><?php foreach($related as $index=>$other){vibelab_v2_resource_row($other,$index+1);} ?></div></section><?php } ?>
+<div class="v2-shell"><?php vibelab_v2_report_link($item); ?></div>
 </main>
 <?php get_footer(); ?>
