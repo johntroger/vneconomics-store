@@ -34,5 +34,6 @@ jobs:
           path: |
             artifacts/rebuild/${{ github.sha }}/
             docs/acceptance/R52-rebuild/native-results.json
+            docs/acceptance/R52-rebuild/url-probes.json
           if-no-files-found: error
           retention-days: 21
