@@ -11,6 +11,8 @@ require_once __DIR__.'/inc/catalog.php';
 require_once __DIR__.'/inc/search.php';
 require_once __DIR__.'/inc/detail.php';
 require_once __DIR__.'/inc/guides.php';
+require_once __DIR__.'/inc/routes.php';
+require_once __DIR__.'/inc/support.php';
 require_once __DIR__.'/inc/seo.php';
 
 function vibelab_v2_setup() {

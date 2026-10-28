@@ -29,7 +29,7 @@ add_action('pre_get_posts',function($query) {
     $query->is_home=false;$query->is_search=true;
 },40);
 add_filter('template_include',function($template) {
-    return vibelab_v2_is_guide_search() && !is_404()?__DIR__.'/../archive-vne_guide.php':$template;
+    return vibelab_v2_is_guide_search() && !is_singular() && !is_404() && !isset($_GET['vne_support'])?__DIR__.'/../archive-vne_guide.php':$template;
 },50);
 
 function vibelab_v2_guide_body($item) {

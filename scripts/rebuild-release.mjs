@@ -5,7 +5,7 @@ import {pathToFileURL} from 'node:url';
 import {git,makeZip,sha256,resolveRef} from './release-lib.mjs';
 export const rebuildProfile='vibelab-v2-cutover-schema3';
 export const rebuildBaseline='4266b71990702d87969a847e95d9c39933cb05a4';
-const themeFiles=['404.php','archive-vne_guide.php','archive-vne_resource.php','footer.php','front-page.php','functions.php','header.php','inc/catalog.php','inc/components.php','inc/contract.php','inc/detail.php','inc/guides.php','inc/search.php','inc/seo.php','index.php','search.php','single-vne_guide.php','single-vne_practice.php','single-vne_resource.php','style.css','taxonomy-vne_category.php'];
+const themeFiles=['404.php','archive-vne_guide.php','archive-vne_resource.php','footer.php','front-page.php','functions.php','header.php','inc/catalog.php','inc/components.php','inc/contract.php','inc/detail.php','inc/guides.php','inc/routes.php','inc/support.php','inc/search.php','inc/seo.php','index.php','search.php','single-vne_guide.php','single-vne_practice.php','single-vne_resource.php','style.css','support-template.php','taxonomy-vne_category.php'];
 function tree(sha,path,expected){
  const rows=git(['ls-tree','-rz',sha+':'+path]).toString().split('\0').filter(Boolean).map(row=>{const [mode,type,oid,name]=row.split(/[\t ]/);return {mode,type,oid,name};});
  for(const row of rows)assert.ok(row.type==='blob'&&row.mode==='100644','Unsafe tree member '+row.name);
