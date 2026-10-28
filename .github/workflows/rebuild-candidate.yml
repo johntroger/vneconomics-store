@@ -2,6 +2,14 @@ name: Rebuild candidate package and native checks
 on:
   push:
     branches: [codex/rebuild-r52-candidate]
+    paths:
+      - 'themes/vibelab-v2/**'
+      - 'plugins/vne-library-core/**'
+      - 'scripts/**'
+      - 'package*.json'
+      - '.github/workflows/rebuild-candidate.yml'
+      - 'docs/acceptance/S02/source-observations.json'
+      - 'docs/acceptance/R52-rebuild/production-url-snapshot.json'
 permissions:
   contents: read
 jobs:
