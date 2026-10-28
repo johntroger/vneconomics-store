@@ -4,7 +4,7 @@ import {join,resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {git,makeZip,sha256,resolveRef} from './release-lib.mjs';
 export const rebuildProfile='vibelab-v2-cutover-schema3';
-export const rebuildBaseline='4266b71990702d87969a847e95d9c39933cb05a4';
+export const rebuildBaseline='7b7ae3454512576e676d43ebb10f274920ee2a34';
 const themeFiles=['404.php','archive-vne_guide.php','archive-vne_resource.php','footer.php','front-page.php','functions.php','header.php','inc/catalog.php','inc/components.php','inc/contract.php','inc/detail.php','inc/guides.php','inc/routes.php','inc/support.php','inc/search.php','inc/seo.php','index.php','search.php','single-vne_guide.php','single-vne_practice.php','single-vne_resource.php','style.css','support-template.php','taxonomy-vne_category.php'];
 function tree(sha,path,expected){
  const rows=git(['ls-tree','-rz',sha+':'+path]).toString().split('\0').filter(Boolean).map(row=>{const [mode,type,oid,name]=row.split(/[\t ]/);return {mode,type,oid,name};});
@@ -24,14 +24,14 @@ export function prepareRebuildRelease(ref){
  const approved=git(['show',sourceSha+':plugins/vne-library-core/state-admin.php']);
  assert.equal(approved.toString().replaceAll('\r\n','\n'),admin.data.toString().replace(previousLine,nextLine).replaceAll('\r\n','\n'),'Plugin must contain only approved R4 diff');admin.data=approved;
  const header=plugin.find(f=>f.name==='vne-library-core/vne-library-core.php');
- // New release version tracks this scoped patch; no stars module is included.
- assert.ok(header.data.toString().includes('0.4.2'));header.data=Buffer.from(header.data.toString().replaceAll('0.4.2','0.4.4'));
+ // Preserve the released stars module; version only advances for the R4 patch.
+ assert.ok(header.data.toString().includes('0.4.3'));header.data=Buffer.from(header.data.toString().replaceAll('0.4.3','0.4.4'));
  const previousTheme=tree(rebuildBaseline,'themes/vibelab');const previousPlugin=tree(rebuildBaseline,'plugins/vne-library-core');
  const buffers={};const components={};
  for(const [key,files] of [['theme',theme],['plugin',plugin],['previous-theme',previousTheme],['previous-plugin',previousPlugin]]){
   const archive=key+'.zip';buffers[archive]=makeZip(files);components[key]={archive,sha256:sha256(buffers[archive]),bytes:buffers[archive].length,files:files.map(f=>({path:f.name,bytes:f.data.length,sha256:sha256(f.data)}))};
  }
- const manifest={format:1,profile:rebuildProfile,sourceSha,productionBaselineSource:rebuildBaseline,schema:3,changeClass:'B',themeVersion:'2.0.0-alpha.4',themeMarker:'r33-guides-local',pluginVersion:'0.4.4',pluginComposition:'production baseline plus exact source state-admin R4 patch and explicit 0.4.4 version stamp',components,approval:{candidateOnly:true,deployAuthorized:false},requiredRemainingGates:['native-install-maintenance-rollback','full-release-flows','CI-exact-SHA','payload-commit','owner-R6-approval']};
+ const manifest={format:1,profile:rebuildProfile,sourceSha,productionBaselineSource:rebuildBaseline,schema:3,changeClass:'B',themeVersion:'2.0.0-alpha.4',themeMarker:'r33-guides-local',pluginVersion:'0.4.4',pluginComposition:'U4 production 0.4.3 including stars plus exact source state-admin R4 patch and explicit 0.4.4 version stamp',components,files:Object.entries(buffers).map(([path,data])=>({path,bytes:data.length,sha256:sha256(data)})),approval:{candidateOnly:true,deployAuthorized:false},requiredRemainingGates:['native-install-maintenance-rollback','full-release-flows','CI-exact-SHA','payload-commit','owner-R6-approval']};
  buffers['manifest.json']=Buffer.from(JSON.stringify(manifest,null,2)+'\n');return {manifest,buffers};
 }
 export function writeRebuildRelease(source,dir){assert.ok(!existsSync(dir),'Immutable output exists');const r=prepareRebuildRelease(source);mkdirSync(dir,{recursive:true});for(const [name,data] of Object.entries(r.buffers))writeFileSync(join(dir,name),data);return r.manifest;}

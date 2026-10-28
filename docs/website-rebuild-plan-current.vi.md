@@ -1,7 +1,7 @@
 # Kế hoạch hiện hành tái thiết Vneconomics Store — v3
 
-Ngày cập nhật: 27/10/2026
-Trạng thái: R0, R0A và R0B đã hoàn tất; chưa cấp quyền R1, code website hoặc production
+Ngày cập nhật: 28/10/2026
+Trạng thái: R0–R5.1 đã hoàn tất; R5.2 native CI PASS, còn full gate/payload; chưa cấp quyền merge hoặc production
 
 Đây là kế hoạch điều hành duy nhất cho website làm lại. `website-rebuild-master-plan-2026-10-27.vi.md` và S00–S16 là lịch sử, không phải checklist thực thi. Xem [bản đồ tài liệu hiện hành](current-docs-index.vi.md).
 
@@ -24,7 +24,7 @@ Không dùng một con số “phiên bản hiện tại” chung cho developmen
 |---|---|---|
 | Development | Working tree/nhánh đang làm; chưa phải bằng chứng phát hành | Theme 0.7.3, plugin 0.4.3, schema 3 trên nhánh `codex/github-stars-u2` tại HEAD `7b7ae3454512576e676d43ebb10f274920ee2a34`, có thay đổi chưa commit |
 | Rebuild candidate | Manifest R5, source SHA, CI run và payload SHA | Chưa có candidate v3 |
-| Production | Receipt production mới nhất và runbook | Source `4266b71990702d87969a847e95d9c39933cb05a4`, payload `dc4af296692ddac2dd71dc9f1be4a69f1af29959`, theme 0.7.2, plugin 0.4.2, schema 3 |
+| Production | Receipt U4 ngày 27/10/2026 | Source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3, plugin 0.4.3, schema 3; xem `acceptance/U4-github-stars.vi.md` |
 
 Nếu working tree, README, manifest và receipt khác nhau, production được xác định bằng receipt/runbook đã nghiệm thu; source mới hơn không tự trở thành production.
 
@@ -147,13 +147,13 @@ Mỗi hàng là một gate độc lập. PASS không tự mở bước tiếp th
 | **R0 — Tối ưu quy trình** | Ma trận test nhanh, loại file chắc chắn hết dùng, giữ evidence/backup | Đã PASS tại `acceptance/O1-process-optimization.vi.md` |
 | **R0A — Kế hoạch v3 và nguồn sự thật** | Kế hoạch, README, bản đồ tài liệu; tách development/candidate/production | Đã PASS tại `acceptance/R0A-rebuild-plan-v3.vi.md`; chỉ tài liệu |
 | **R0B — Fast CI và release workflow v2** | Tách `pr-fast`, `release-candidate`, `promote-production`; bỏ chọn pipeline bằng phiên bản CSS và S14 khỏi PR mặc định; pin action/dependency/retention | PASS tại `acceptance/R0B-fast-ci.vi.md`; PR #3 fast check thật đạt, không deploy |
-| **R1 — Product, nội dung và cấu trúc thông tin** | Inventory URL; giữ/đổi/301/loại; ba hành trình, sitemap, content model, dữ liệu/media, baseline SEO/hiệu năng và KPI | 100% URL có quyết định; wireframe và tiêu chí responsive/accessibility/browser được duyệt; chỉ read-only/local |
-| **R2 — Architecture foundation và design system** | Theme v2; hợp đồng theme/plugin; release marker; tokens và component nền; test skeleton bốn tầng | Preview desktop và 320/390px; keyboard/focus/contrast, không tràn ngang; smoke và chủ dự án duyệt |
-| **R3.1 — Khám phá** | Homepage → catalog → resource detail | Targeted test + smoke; URL/canonical/metadata; preview local được duyệt |
-| **R3.2 — Tìm kiếm** | Search → filter → result → detail | Query state/empty/error/pagination/mobile; preview local được duyệt |
-| **R3.3 — Hướng dẫn** | Guide list → detail → related resources | Mục lục/heading/evidence/mobile; preview local được duyệt |
-| **R4 — Quản trị và dữ liệu mở rộng** | Chỉ bổ sung field/admin/importer R3 chứng minh là cần | Validation/quyền/idempotency; migration theo expand → migrate → contract; không migration production trong gate local |
-| **R5.1 — Hợp đồng promote/rollback** | Chốt cài đặt, allowlist, atomic switch hoặc maintenance window, rollback từng component, marker/health/lock/disk | Thử failure trên release chưa active; không giả định symlink/atomic rename; không đổi live |
+| **R1 — Product, nội dung và cấu trúc thông tin** | Inventory URL; giữ/đổi/301/loại; ba hành trình, sitemap, content model, dữ liệu/media, baseline SEO/hiệu năng và KPI | PASS tại `acceptance/R1-product-content.vi.md`; chủ dự án duyệt ngày 28/10/2026; chỉ read-only/local |
+| **R2 — Architecture foundation và design system** | Theme v2; hợp đồng theme/plugin; release marker; tokens và component nền; test skeleton bốn tầng | PASS tại `acceptance/R2-rebuild.vi.md`; 36 kiểm tra đạt và chủ dự án duyệt preview ngày 28/10/2026 |
+| **R3.1 — Khám phá** | Homepage → catalog → resource detail | PASS tại `acceptance/R31-rebuild.vi.md`; 46 kiểm tra đạt và chủ dự án duyệt preview ngày 28/10/2026 |
+| **R3.2 — Tìm kiếm** | Search → filter → result → detail | PASS tại `acceptance/R32-rebuild.vi.md`; 41 kiểm tra đạt và chủ dự án duyệt preview ngày 28/10/2026 |
+| **R3.3 — Hướng dẫn** | Guide list → detail → related resources | PASS 37 kiểm tra tại `acceptance/R33-rebuild.vi.md`; chủ dự án duyệt preview ngày 28/10/2026 |
+| **R4 — Quản trị và dữ liệu mở rộng** | Chỉ bổ sung field/admin/importer R3 chứng minh là cần | PASS 10 kiểm tra tại `acceptance/R4-rebuild.vi.md`; sửa selector dependency; giữ schema3; chủ dự án duyệt ngày 28/10/2026 |
+| **R5.1 — Hợp đồng promote/rollback** | Chốt cài đặt, allowlist, atomic switch hoặc maintenance window, rollback từng component, marker/health/lock/disk | PASS 29 kiểm tra tại `acceptance/R51-rebuild.vi.md`; chủ dự án duyệt ngày 28/10/2026; native ZIP/candidate thuộc R5.2 |
 | **R5.2 — Release candidate production** | Exact SHA trên runner sạch; build theme/plugin/payload; manifest/allowlist/hash/rollback | Candidate tái tạo được trên ref Plesk không theo dõi; không thay `release-production`, Plesk hoặc live |
 | **R6 — Cutover production** | Backup theo cấp, Plesk private inbox, deploy production-only, hậu kiểm | URL/data/runtime/logs đạt; rollback sẵn; receipt/cleanup |
 | **R7 — Tối ưu vận hành** | Đo bottleneck thật; cache/performance; cân nhắc Automatic cấp A | Chỉ bật automation sau approval và thử failure/rollback |
@@ -194,8 +194,16 @@ Migration cấp B mặc định dùng chuỗi **expand → code tương thích c
 
 ## 12. Điểm dừng hiện tại
 
-R0B đã hoàn tất trên PR xếp tầng #3 với base `codex/github-stars-u2`; fast check thật đạt và không deploy. PR chưa merge; candidate/promote chưa dispatch. Không có quyền mặc định tiếp tục R1, merge main hoặc production.
+R0B đã hoàn tất trên PR xếp tầng #3 với base `codex/github-stars-u2`; fast check thật đạt và không deploy. PR chưa merge; candidate/promote chưa dispatch.
+
+R1 đã PASS với [hợp đồng sản phẩm/nội dung](rebuild/R1-product-content-contract.vi.md), [ledger URL](rebuild/R1-url-disposition.vi.md) và [báo cáo nghiệm thu](acceptance/R1-product-content.vi.md); chủ dự án duyệt ngày 28/10/2026.
+
+R2 đã PASS với theme foundation local, design system, contract/test skeleton và 36 kiểm tra đạt; chủ dự án duyệt hai preview desktop/mobile ngày 28/10/2026. Xem [báo cáo R2](acceptance/R2-rebuild.vi.md).
+
+R3.1 đã PASS với hành trình homepage → catalog/category → resource detail, canonical/metadata và 46 kiểm tra đạt; chủ dự án duyệt bốn preview ngày 28/10/2026. Xem [báo cáo R3.1](acceptance/R31-rebuild.vi.md).
+
+R3.2 đã PASS với search/filter/result/detail, empty/error/pagination/mobile và 41 kiểm tra đạt; chủ dự án duyệt bốn preview ngày 28/10/2026. Xem [hợp đồng R3.2](rebuild/R32-search-contract.vi.md) và [báo cáo R3.2](acceptance/R32-rebuild.vi.md). Không có quyền mặc định tiếp tục R3.3, merge main hoặc production.
 
 Bước có thể xin duyệt tiếp theo:
 
-> **R1 — kiểm kê read-only, chốt product/content contract, sitemap, hành trình và phạm vi giao diện v2.** Không sửa theme/plugin, không đăng nhập Plesk và không thay production.
+> **Tiếp tục R5.2 đã được duyệt.** Xem [tiến độ R5.2](acceptance/R52-rebuild.vi.md). Candidate và native CI đã PASS, artifact CI khớp local. Còn full release gate và payload candidate; chưa đủ điều kiện xin duyệt R6.

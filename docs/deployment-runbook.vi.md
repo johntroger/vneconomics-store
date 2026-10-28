@@ -6,6 +6,8 @@ Chốt theo R6 được chủ dự án duyệt ngày26/10/2026. Đây là quy tr
 
 ## Baseline và các đích
 
+Production hiện hành theo [receipt U4 ngày 27/10/2026](acceptance/U4-github-stars.vi.md): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, manifest SHA256 `d18cd7336172dbe17efab3dd031bde903a36c6fe53442735e2ff43e8e35c719c`; theme 0.7.3/plugin 0.4.3/schema 3, 49 file, 106 tài nguyên/6 hướng dẫn/1 thực hành. Đây là đối chiếu receipt, chưa phải kiểm tra live mới. Baseline R5 bên dưới giữ làm lịch sử; không dùng để dựng rollback cho lượt mới.
+
 Cột staging trong bảng dưới chỉ là baseline lịch sử/read-only; không phải đích hoặc cổng của release mới.
 
 Source ứng dụng/payload đã tiếp nhận: `4266b71990702d87969a847e95d9c39933cb05a4`; [CI40288437763](https://github.com/johntroger/vneconomics-store/actions/runs/40288437763)218pipeline+75S14 đạt. Hai nhánh `release-staging`/`release-production` cùng payload `dc4af296692ddac2dd71dc9f1be4a69f1af29959`, manifest SHA256 `02953f231825577da95d1a71887a44ba07e425015412b5448581588af042bf34`. R6 chỉ chốt hồ sơ, không đổi các ref đang phát hành. Source commit chứa hồ sơ R6 có thể mới hơn; không thay số source trong receipt R5.
