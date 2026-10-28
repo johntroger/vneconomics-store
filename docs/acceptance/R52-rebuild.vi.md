@@ -1,8 +1,33 @@
-# R5.2 — Candidate đang thực hiện
+# R5.2 — Candidate đã kiểm chứng, chờ duyệt R6
 
-Ngày: 28/10/2026. Trạng thái: **IN_PROGRESS_NATIVE_CI_PASS_FULL_GATE_PENDING**.
+Ngày: 28/10/2026. Trạng thái: **PASS_R52_CANDIDATE_PENDING_OWNER_R6**.
 
-## Sửa baseline trước khi chốt candidate
+## Kết quả chốt R5.2
+
+Đã tạo candidate GitHub riêng; **chưa deploy**, không đổi `release-production`, staging, Plesk hoặc database thật. [Biên nhận máy](R52-rebuild/publication-candidate.json).
+
+| Mục | Giá trị đã pin |
+|---|---|
+| Source ứng dụng | `50437bd16eae1912d8cffea093401449786faaea` |
+| CI ứng dụng | [40660368997 — PASS](https://github.com/johntroger/vneconomics-store/actions/runs/40660368997) |
+| Candidate ref | `candidate-production/50437bd16eae1912d8cffea093401449786faaea` |
+| Payload | `fa4c67821008e0fcc4307fedf202bcdf95b85bb6` |
+| Manifest SHA256 | `1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2` |
+| Production parent phải còn khớp | `80729d511b2f2f168a96a495a4e5cadc93377759` |
+| Runtime candidate | theme 2.0.0 / marker `r52-v2-20261028`, plugin 0.4.4, schema 3 |
+| Rollback | Cặp U4 theme 0.7.3/plugin 0.4.3; giữ Stars, không restore DB mặc định |
+
+Kiểm thử cùng source: [native](R52-rebuild/native-results.json) **13 PASS**, [URL probes](R52-rebuild/url-probes.json) **13 PASS**, [Chromium/Firefox/WebKit](R52-rebuild/browser-results.json) **90 PASS**, [URL/privacy/sitemap](R52-rebuild/private-url-results.json) **126 đường dẫn PASS** và các endpoint riêng tư đạt. Native ZIP install/hash readback, maintenance 503 → kích hoạt/soft-flush/health 200 → quay lui cặp U4 đạt. Hai build byte giống nhau; cả năm file CI khớp local; payload validator xác nhận parent/tree/allowlist/hash. Fixture và cache của lượt chạy đã dọn, cleanup PASS. Ảnh home/trợ giúp mobile đã tự rà.
+
+Workflow promote đã sửa để checkout source chứa validator thay vì cây payload ZIP. Workflow candidate lọc đường dẫn để bỏ qua thay đổi chỉ ở báo cáo. Commit công cụ `c2be9e091065edd51f92b7120a0195d837e835bb`, [CI 40662022291 — PASS](https://github.com/johntroger/vneconomics-store/actions/runs/40662022291), không thay source/payload ứng dụng đã pin trên. Chưa dispatch promote; cấu hình job promote được rà và validator kiểm trực tiếp, chưa chứng nhận job ghi production đã chạy.
+
+Giới hạn: native fixture dùng PHP 8.3/SQLite trên Playground một worker, không chứng nhận MariaDB/Plesk hoặc thời gian cutover thực tế. 126 path được seed tổng hợp theo snapshot sitemap thật, không phải bản sao nội dung production. R6 phải đối chiếu baseline live/code/data/options, dung lượng/lock/writer và tạo backup mới trước ghi.
+
+**Phạm vi xin duyệt R6 riêng:** production `https://store.vneconomics.com`, cấp B; promote đúng payload/source/CI/hash/parent trên → Plesk nhận GitHub vào private inbox → kiểm baseline/backup/rollback/disk/lock → maintenance có giám sát, hạn 300 giây → cài plugin 0.4.4 và theme v2 native, giữ theme cũ → activate/soft-flush → hậu kiểm URL/data/schema/logs → cleanup/receipt. Không import lại nội dung, đổi schema, bật scheduler/Automatic, gọi API có phí hoặc merge main. Baseline thay đổi hay trạng thái chưa rõ thì dừng inspect; không ghi đè hoặc restore DB để vượt guard. Chi tiết theo [hợp đồng R5.1](../rebuild/R51-cutover-contract.vi.md).
+
+Các phần dưới là lịch sử trong lúc xử lý R5.2; trạng thái/source cũ không thay kết quả chốt trên.
+
+## Lịch sử sửa baseline trước khi chốt candidate
 
 Đối chiếu receipt U4 cho thấy production đã ở theme 0.7.3/plugin 0.4.3, source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`. Nhận định trước đây rằng Stars chỉ ở development là sai. Mọi candidate bên dưới ghép từ 0.4.2 đều không đủ điều kiện phát hành; giữ nguyên làm lịch sử, không relabel. Builder hiện sửa để giữ toàn bộ plugin U4 (gồm Stars), thêm đúng R4 và stamp 0.4.4; rollback là cặp U4 0.7.3/0.4.3. Chưa kiểm lại gate trên source mới, chưa tạo candidate ref mới.
 

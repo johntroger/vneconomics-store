@@ -1,0 +1,51 @@
+{
+  "status": "PASS_R52_CANDIDATE_GITHUB_ONLY",
+  "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "ciRun": "40660368997",
+  "ciUrl": "https://github.com/johntroger/vneconomics-store/actions/runs/40660368997",
+  "candidateRef": "candidate-production/50437bd16eae1912d8cffea093401449786faaea",
+  "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "expectedProductionParent": "80729d511b2f2f168a96a495a4e5cadc93377759",
+  "manifestSha256": "1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2",
+  "profile": "vibelab-v2-cutover-schema3",
+  "themeVersion": "2.0.0",
+  "themeMarker": "r52-v2-20261028",
+  "pluginVersion": "0.4.4",
+  "baselineSource": "7b7ae3454512576e676d43ebb10f274920ee2a34",
+  "releaseToolsSource": "c2be9e091065edd51f92b7120a0195d837e835bb",
+  "tree": "6d58ee24d2bc454fe26b9b8526e70717753808e0",
+  "files": [
+    {
+      "path": "manifest.json",
+      "sha256": "1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2"
+    },
+    {
+      "path": "plugin.zip",
+      "sha256": "2becd448fc8dcefd0da18e5fdda5ce07a2766a6dd1d63b394ccaff6aa9e6d7cf"
+    },
+    {
+      "path": "previous-plugin.zip",
+      "sha256": "2f31b246cd125036051b05fb972e5737488c6642fdbfe9837295c03618ee4484"
+    },
+    {
+      "path": "previous-theme.zip",
+      "sha256": "99c8040e052bffae8bf935cde0fe771c1d67351acfa251fcf9f9f1734ca2be3b"
+    },
+    {
+      "path": "theme.zip",
+      "sha256": "c79b067167dca3629bb2bd61a6480dd5f4c1fef14dc919c32fa5da8fd0796acc"
+    }
+  ],
+  "nativeChecks": 13,
+  "browserChecks": 90,
+  "structuralUrlPaths": 126,
+  "urlProbes": 13,
+  "cleanup": "PASS",
+  "protectedRefsUnchanged": true,
+  "deployed": false,
+  "limits": [
+    "Local Playground PHP8.3/SQLite, not Plesk/MariaDB",
+    "URL fixtures are synthetic; production content/data equivalence checked only at R6",
+    "R6 owner approval, live baseline/disk/lock and fresh backup required before production writes"
+  ]
+}

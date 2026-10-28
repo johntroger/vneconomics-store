@@ -1,0 +1,222 @@
+{
+  "status": "PASS_R52_THREE_BROWSERS",
+  "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "checks": [
+    "chromium discovery lists six approved resources; actual 6",
+    "chromium discovery reaches detail",
+    "chromium report form reachable without submitting",
+    "chromium report noindex",
+    "chromium search narrows results",
+    "chromium search has no canonical",
+    "chromium guide journey reaches toc",
+    "chromium FAQ keyboard opens",
+    "chromium no overflow / 320",
+    "chromium no overflow / 390",
+    "chromium no overflow / 768",
+    "chromium no overflow / 1024",
+    "chromium no overflow / 1440",
+    "chromium no overflow /tai-nguyen/ 320",
+    "chromium no overflow /tai-nguyen/ 390",
+    "chromium no overflow /tai-nguyen/ 768",
+    "chromium no overflow /tai-nguyen/ 1024",
+    "chromium no overflow /tai-nguyen/ 1440",
+    "chromium no overflow /huong-dan/ 320",
+    "chromium no overflow /huong-dan/ 390",
+    "chromium no overflow /huong-dan/ 768",
+    "chromium no overflow /huong-dan/ 1024",
+    "chromium no overflow /huong-dan/ 1440",
+    "chromium no overflow /tro-giup/ 320",
+    "chromium no overflow /tro-giup/ 390",
+    "chromium no overflow /tro-giup/ 768",
+    "chromium no overflow /tro-giup/ 1024",
+    "chromium no overflow /tro-giup/ 1440",
+    "chromium no page errors",
+    "chromium no external requests",
+    "firefox discovery lists six approved resources; actual 6",
+    "firefox discovery reaches detail",
+    "firefox report form reachable without submitting",
+    "firefox report noindex",
+    "firefox search narrows results",
+    "firefox search has no canonical",
+    "firefox guide journey reaches toc",
+    "firefox FAQ keyboard opens",
+    "firefox no overflow / 320",
+    "firefox no overflow / 390",
+    "firefox no overflow / 768",
+    "firefox no overflow / 1024",
+    "firefox no overflow / 1440",
+    "firefox no overflow /tai-nguyen/ 320",
+    "firefox no overflow /tai-nguyen/ 390",
+    "firefox no overflow /tai-nguyen/ 768",
+    "firefox no overflow /tai-nguyen/ 1024",
+    "firefox no overflow /tai-nguyen/ 1440",
+    "firefox no overflow /huong-dan/ 320",
+    "firefox no overflow /huong-dan/ 390",
+    "firefox no overflow /huong-dan/ 768",
+    "firefox no overflow /huong-dan/ 1024",
+    "firefox no overflow /huong-dan/ 1440",
+    "firefox no overflow /tro-giup/ 320",
+    "firefox no overflow /tro-giup/ 390",
+    "firefox no overflow /tro-giup/ 768",
+    "firefox no overflow /tro-giup/ 1024",
+    "firefox no overflow /tro-giup/ 1440",
+    "firefox no page errors",
+    "firefox no external requests",
+    "webkit discovery lists six approved resources; actual 6",
+    "webkit discovery reaches detail",
+    "webkit report form reachable without submitting",
+    "webkit report noindex",
+    "webkit search narrows results",
+    "webkit search has no canonical",
+    "webkit guide journey reaches toc",
+    "webkit FAQ keyboard opens",
+    "webkit no overflow / 320",
+    "webkit no overflow / 390",
+    "webkit no overflow / 768",
+    "webkit no overflow / 1024",
+    "webkit no overflow / 1440",
+    "webkit no overflow /tai-nguyen/ 320",
+    "webkit no overflow /tai-nguyen/ 390",
+    "webkit no overflow /tai-nguyen/ 768",
+    "webkit no overflow /tai-nguyen/ 1024",
+    "webkit no overflow /tai-nguyen/ 1440",
+    "webkit no overflow /huong-dan/ 320",
+    "webkit no overflow /huong-dan/ 390",
+    "webkit no overflow /huong-dan/ 768",
+    "webkit no overflow /huong-dan/ 1024",
+    "webkit no overflow /huong-dan/ 1440",
+    "webkit no overflow /tro-giup/ 320",
+    "webkit no overflow /tro-giup/ 390",
+    "webkit no overflow /tro-giup/ 768",
+    "webkit no overflow /tro-giup/ 1024",
+    "webkit no overflow /tro-giup/ 1440",
+    "webkit no page errors",
+    "webkit no external requests"
+  ],
+  "visits": [
+    {
+      "engine": "chromium",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/cau-hoi-thuong-gap/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/tai-nguyen/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "chromium",
+      "path": "/tro-giup/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/cau-hoi-thuong-gap/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/tai-nguyen/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "firefox",
+      "path": "/tro-giup/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/cau-hoi-thuong-gap/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/tai-nguyen/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/huong-dan/",
+      "status": 200
+    },
+    {
+      "engine": "webkit",
+      "path": "/tro-giup/",
+      "status": 200
+    }
+  ],
+  "limits": [
+    "Synthetic approved fixtures from installed candidate ZIP; not production data",
+    "Report GET only; no submission/email/external service call"
+  ]
+}

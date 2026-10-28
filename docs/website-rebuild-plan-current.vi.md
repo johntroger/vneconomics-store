@@ -1,7 +1,7 @@
 # Kế hoạch hiện hành tái thiết Vneconomics Store — v3
 
 Ngày cập nhật: 28/10/2026
-Trạng thái: R0–R5.1 đã hoàn tất; R5.2 native CI PASS, còn full gate/payload; chưa cấp quyền merge hoặc production
+Trạng thái: R0–R5.1 đã được duyệt; R5.2 full gate/CI/payload candidate PASS, chờ chủ dự án duyệt R6; chưa cấp quyền merge hoặc production
 
 Đây là kế hoạch điều hành duy nhất cho website làm lại. `website-rebuild-master-plan-2026-10-27.vi.md` và S00–S16 là lịch sử, không phải checklist thực thi. Xem [bản đồ tài liệu hiện hành](current-docs-index.vi.md).
 
@@ -154,7 +154,7 @@ Mỗi hàng là một gate độc lập. PASS không tự mở bước tiếp th
 | **R3.3 — Hướng dẫn** | Guide list → detail → related resources | PASS 37 kiểm tra tại `acceptance/R33-rebuild.vi.md`; chủ dự án duyệt preview ngày 28/10/2026 |
 | **R4 — Quản trị và dữ liệu mở rộng** | Chỉ bổ sung field/admin/importer R3 chứng minh là cần | PASS 10 kiểm tra tại `acceptance/R4-rebuild.vi.md`; sửa selector dependency; giữ schema3; chủ dự án duyệt ngày 28/10/2026 |
 | **R5.1 — Hợp đồng promote/rollback** | Chốt cài đặt, allowlist, atomic switch hoặc maintenance window, rollback từng component, marker/health/lock/disk | PASS 29 kiểm tra tại `acceptance/R51-rebuild.vi.md`; chủ dự án duyệt ngày 28/10/2026; native ZIP/candidate thuộc R5.2 |
-| **R5.2 — Release candidate production** | Exact SHA trên runner sạch; build theme/plugin/payload; manifest/allowlist/hash/rollback | Candidate tái tạo được trên ref Plesk không theo dõi; không thay `release-production`, Plesk hoặc live |
+| **R5.2 — Release candidate production** | Exact SHA trên runner sạch; build theme/plugin/payload; manifest/allowlist/hash/rollback | PASS 13 native + 13 URL probes + 90 browser + 126 URL/privacy; CI và payload candidate đạt; xem `acceptance/R52-rebuild.vi.md`; chờ duyệt R6 |
 | **R6 — Cutover production** | Backup theo cấp, Plesk private inbox, deploy production-only, hậu kiểm | URL/data/runtime/logs đạt; rollback sẵn; receipt/cleanup |
 | **R7 — Tối ưu vận hành** | Đo bottleneck thật; cache/performance; cân nhắc Automatic cấp A | Chỉ bật automation sau approval và thử failure/rollback |
 
@@ -206,4 +206,4 @@ R3.2 đã PASS với search/filter/result/detail, empty/error/pagination/mobile 
 
 Bước có thể xin duyệt tiếp theo:
 
-> **Tiếp tục R5.2 đã được duyệt.** Xem [tiến độ R5.2](acceptance/R52-rebuild.vi.md). Candidate và native CI đã PASS, artifact CI khớp local. Còn full release gate và payload candidate; chưa đủ điều kiện xin duyệt R6.
+> **Xin duyệt R6 riêng theo hồ sơ R5.2.** Xem [nghiệm thu R5.2 và phạm vi R6](acceptance/R52-rebuild.vi.md). Source `50437bd16eae1912d8cffea093401449786faaea`, CI 40660368997, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, full gate/byte-match/cleanup PASS. Candidate không phải ref Plesk đang theo dõi; chưa deploy hoặc merge main.
