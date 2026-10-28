@@ -15,7 +15,7 @@ function tree(sha,path,expected){
 export function prepareRebuildRelease(ref){
  assert.match(ref,/^[a-f0-9]{40}$/);const sourceSha=resolveRef(ref);assert.equal(sourceSha,ref);
  const theme=tree(sourceSha,'themes/vibelab-v2',themeFiles);
- assert.ok(theme.find(f=>f.name.endsWith('/functions.php')).data.toString().includes("'r33-guides-local'"),'Unreviewed theme marker');
+ assert.ok(theme.find(f=>f.name.endsWith('/functions.php')).data.toString().includes("'r52-v2-20261028'"),'Unreviewed theme marker');
  // Compose only the approved R4 change over the pinned production plugin.
  const plugin=tree(rebuildBaseline,'plugins/vne-library-core');
  const admin=plugin.find(f=>f.name==='vne-library-core/state-admin.php');
@@ -31,7 +31,7 @@ export function prepareRebuildRelease(ref){
  for(const [key,files] of [['theme',theme],['plugin',plugin],['previous-theme',previousTheme],['previous-plugin',previousPlugin]]){
   const archive=key+'.zip';buffers[archive]=makeZip(files);components[key]={archive,sha256:sha256(buffers[archive]),bytes:buffers[archive].length,files:files.map(f=>({path:f.name,bytes:f.data.length,sha256:sha256(f.data)}))};
  }
- const manifest={format:1,profile:rebuildProfile,sourceSha,productionBaselineSource:rebuildBaseline,schema:3,changeClass:'B',themeVersion:'2.0.0-alpha.4',themeMarker:'r33-guides-local',pluginVersion:'0.4.4',pluginComposition:'U4 production 0.4.3 including stars plus exact source state-admin R4 patch and explicit 0.4.4 version stamp',components,files:Object.entries(buffers).map(([path,data])=>({path,bytes:data.length,sha256:sha256(data)})),approval:{candidateOnly:true,deployAuthorized:false},requiredRemainingGates:['native-install-maintenance-rollback','full-release-flows','CI-exact-SHA','payload-commit','owner-R6-approval']};
+ const manifest={format:1,profile:rebuildProfile,sourceSha,productionBaselineSource:rebuildBaseline,schema:3,changeClass:'B',themeVersion:'2.0.0',themeMarker:'r52-v2-20261028',pluginVersion:'0.4.4',pluginComposition:'U4 production 0.4.3 including stars plus exact source state-admin R4 patch and explicit 0.4.4 version stamp',components,files:Object.entries(buffers).map(([path,data])=>({path,bytes:data.length,sha256:sha256(data)})),approval:{candidateOnly:true,deployAuthorized:false},requiredRemainingGates:['native-install-maintenance-rollback','full-release-flows','CI-exact-SHA','payload-commit','owner-R6-approval']};
  buffers['manifest.json']=Buffer.from(JSON.stringify(manifest,null,2)+'\n');return {manifest,buffers};
 }
 export function writeRebuildRelease(source,dir){assert.ok(!existsSync(dir),'Immutable output exists');const r=prepareRebuildRelease(source);mkdirSync(dir,{recursive:true});for(const [name,data] of Object.entries(r.buffers))writeFileSync(join(dir,name),data);return r.manifest;}

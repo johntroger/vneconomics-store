@@ -1,9 +1,9 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 
-define('VIBELAB_V2_VERSION', '2.0.0-alpha.4');
+define('VIBELAB_V2_VERSION', '2.0.0');
 define('VIBELAB_V2_CONTRACT_VERSION', '1');
-define('VIBELAB_V2_RELEASE_MARKER', 'r33-guides-local');
+define('VIBELAB_V2_RELEASE_MARKER', 'r52-v2-20261028');
 
 require_once __DIR__.'/inc/contract.php';
 require_once __DIR__.'/inc/components.php';
