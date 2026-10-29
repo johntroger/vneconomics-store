@@ -26,12 +26,13 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
    for(const name of ['wp-admin','wp-includes'])cpSync(resolve('.local/site',name),join(directory,name),{recursive:true});
    for(const entry of readdirSync('.local/site',{withFileTypes:true}))if(entry.isFile()&&entry.name.endsWith('.php')&&entry.name!=='wp-config.php')cpSync(join('.local/site',entry.name),join(directory,entry.name));
   }
-  app=await startSite(directory,19482,{workers:1});
+  const controlDirectory=join(fixture,'adapter-private-control');mkdirSync(controlDirectory,{recursive:true});
+  app=await startSite(directory,19482,{workers:1,mounts:[{hostPath:controlDirectory,vfsPath:'/adapter-fixture/control'}]});
   const php=async code=>{let result;try{result=await app.playground.run({code:"<?php clearstatcache();try{"+code+"}catch(Throwable $e){echo json_encode(array('error'=>$e->getMessage()));}"});}catch(e){throw new Error('Runtime PHP: '+String(e.response?.text||e.response?.errors||e.message).slice(-2000));}assert.equal(result.exitCode,0,result.errors||result.text);assert.equal(result.errors,'',result.errors);return result.text;};
   const json=async code=>JSON.parse(await php(code));
   writeFileSync(join(directory,'.adapter-owned'),token);mkdirSync(join(directory,'adapter-stage'));
   for(const [name,data] of Object.entries(prepared.buffers))writeFileSync(join(directory,'adapter-stage',name),data);
-  await php("mkdir('/adapter-fixture',0700);mkdir('/adapter-fixture/inbox',0700);mkdir('/adapter-fixture/control',0700);mkdir('/adapter-fixture/clone.git',0700);mkdir('/adapter-fixture/clone.git/refs',0700);mkdir('/adapter-fixture/clone.git/refs/heads',0700);foreach(scandir('/wordpress/adapter-stage') as $n)if($n!=='.'&&$n!=='..'){copy('/wordpress/adapter-stage/'.$n,'/adapter-fixture/inbox/'.$n);unlink('/wordpress/adapter-stage/'.$n);}rmdir('/wordpress/adapter-stage');file_put_contents('/adapter-fixture/clone.git/HEAD',\"ref: refs/heads/release-production\\n\");file_put_contents('/adapter-fixture/clone.git/refs/heads/release-production','"+payload+"'.chr(10));file_put_contents('/adapter-fixture/control/health-key.json',json_encode(array('key'=>'"+keyHex+"')));define('FS_METHOD','direct');require '/wordpress/wp-load.php';require_once ABSPATH.'wp-admin/includes/file.php';WP_Filesystem();foreach(array('plugin.zip'=>'plugins','previous-theme.zip'=>'themes') as $zip=>$dest){$r=unzip_file('/adapter-fixture/inbox/'.$zip,WP_CONTENT_DIR.'/'.$dest.'/');if(is_wp_error($r))throw new Exception($r->get_error_message());}");
+  await php("if(!is_dir('/adapter-fixture'))mkdir('/adapter-fixture',0700);mkdir('/adapter-fixture/inbox',0700);if(!is_dir('/adapter-fixture/control'))mkdir('/adapter-fixture/control',0700);mkdir('/adapter-fixture/clone.git',0700);mkdir('/adapter-fixture/clone.git/refs',0700);mkdir('/adapter-fixture/clone.git/refs/heads',0700);foreach(scandir('/wordpress/adapter-stage') as $n)if($n!=='.'&&$n!=='..'){copy('/wordpress/adapter-stage/'.$n,'/adapter-fixture/inbox/'.$n);unlink('/wordpress/adapter-stage/'.$n);}rmdir('/wordpress/adapter-stage');file_put_contents('/adapter-fixture/clone.git/HEAD',\"ref: refs/heads/release-production\\n\");file_put_contents('/adapter-fixture/clone.git/refs/heads/release-production','"+payload+"'.chr(10));file_put_contents('/adapter-fixture/control/health-key.json',json_encode(array('key'=>'"+keyHex+"')));define('FS_METHOD','direct');require '/wordpress/wp-load.php';require_once ABSPATH.'wp-admin/includes/file.php';WP_Filesystem();foreach(array('plugin.zip'=>'plugins','previous-theme.zip'=>'themes') as $zip=>$dest){$r=unzip_file('/adapter-fixture/inbox/'.$zip,WP_CONTENT_DIR.'/'.$dest.'/');if(is_wp_error($r))throw new Exception($r->get_error_message());}");
   const observations=readFileSync('docs/acceptance/S02/source-observations.json','utf8').replace(/^\uFEFF/,'');
   const seed=readFileSync('scripts/fixtures/s06-theme-seed.php','utf8').replace('<?php',"define('S06_OBSERVATIONS',"+JSON.stringify(observations)+");").replace("switch_theme('vibelab');","switch_theme('vibelab-v2');");
   const seeded=await json(seed);assert.ok(!seeded.error,JSON.stringify(seeded));
@@ -83,6 +84,8 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   };
   // A timeout/retry reads state; it does not restart the writer or relabel a journal.
   const jBefore=await read(journalPath(active)),inspected=await call('inspect-state');assert.equal(inspected.phase,'AWAIT_HEALTH');assert.equal(inspected.lockPresent,true);assert.deepEqual(await read(journalPath(active)),jBefore);checks.push('inspect after simulated client timeout preserves journal/lock');
+  await reject('cooperative writer mutex rejects overlapping finalize','finish',active,'Operation busy',"$held=fopen('/adapter-fixture/control/receiver.lock','r+');if(!flock($held,LOCK_EX|LOCK_NB))throw new Exception('Fixture could not hold mutex');");
+  assert.deepEqual(await read(journalPath(active)),jBefore);
   const corrupt={...jBefore,baseline:{...jBefore.baseline,protected_options:'corrupted'}};
   await php("file_put_contents('"+journalPath(active)+"',base64_decode('"+Buffer.from(JSON.stringify(corrupt)).toString('base64')+"'));");
   await reject('journal baseline corruption cannot bypass pinned approval','finish',active,'Journal baseline differs');
@@ -93,22 +96,42 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   await prove({alter:{payloadSha:'a'.repeat(40)}});await reject('health payload binding enforced','finish',active,'Health identity differs');
   await reject('foreign owner cannot finalize','finish',{...active,owner:'f'.repeat(32)},'Canonical path required');
   assert.equal((await read(journalPath(active))).phase,'AWAIT_HEALTH');
-  const good=await prove();assert.equal(good.httpStatus,200);assert.equal(good.marker,prepared.manifest.themeMarker);
+  let good=await prove();assert.equal(good.httpStatus,200);assert.equal(good.marker,prepared.manifest.themeMarker);
+  // Simulate elapsed wall time ONLY in this owned fixture, without a two-minute sleep.
+  const aged=await call(null,active,"[$jp,$lp]=vne_adapter_journal_paths($a);$j=vne_adapter_json($jp);$l=vne_adapter_json($lp);$j['createdAt']=time()-180;$l['createdAt']=$j['createdAt'];$j['healthLease']['phaseStartedAt']=time()-160;$j['issuedAt']=time()-130;$j['expiresAt']=$j['issuedAt']+120;file_put_contents($jp,json_encode($j));file_put_contents($lp,json_encode($l));echo json_encode($j);");
+  await reject('expired challenge cannot finalize','finish',active,'Health proof expired/stale');
+  const renewal={...active,expectedChallenge:aged.challenge},renewed=await call('renew-health',renewal);
+  assert.equal(renewed.renewalOutcome,'RENEWED');assert.equal(renewed.phase,'AWAIT_HEALTH');assert.notEqual(renewed.challenge,aged.challenge);assert.equal(renewed.renewalHistory.length,1);assert.deepEqual(renewed.baseline,aged.baseline);checks.push('expired challenge renews with new nonce and audit while preserving phase baseline lock');
+  const afterRenew=await read(journalPath(active)),retry=await call('renew-health',renewal);assert.equal(retry.renewalOutcome,'ALREADY_RENEWED');assert.deepEqual(await read(journalPath(active)),afterRenew);checks.push('same renewal request is idempotent without extending expiry twice');
+  await reject('renewal rejects wrong owner','renew-health',{...renewal,owner:'f'.repeat(32)},'Canonical path required');
+  await reject('renewal rejects changed payload pin','renew-health',{...renewal,payloadSha:'a'.repeat(40)},'Git ref differs');
+  await reject('renewal rejects unrelated stale challenge','renew-health',{...active,expectedChallenge:'0'.repeat(64)},'Stale renewal challenge');
+  await reject('proof from before renewal cannot finalize','finish',active,'Health challenge/phase differs');
+  const twice=await call('renew-health',{...active,expectedChallenge:renewed.challenge});assert.equal(twice.renewalOutcome,'RENEWED');assert.equal(twice.renewalHistory.length,2);
+  const atLimit=await read(journalPath(active));await reject('phase renewal budget cannot be exceeded','renew-health',{...active,expectedChallenge:twice.challenge},'renewal limit reached');assert.deepEqual(await read(journalPath(active)),atLimit);
+  const originalLock=await read('/adapter-fixture/control/receiver.lock');
+  await php("$jp='"+journalPath(active)+"';$lp='/adapter-fixture/control/receiver.lock';$j=json_decode(file_get_contents($jp),true);$l=json_decode(file_get_contents($lp),true);$j['createdAt']=time()-901;$l['createdAt']=$j['createdAt'];file_put_contents($jp,json_encode($j));file_put_contents($lp,json_encode($l));");
+  await reject('recovery window cannot be extended indefinitely','renew-health',{...active,expectedChallenge:twice.challenge},'Renewal recovery window exceeded');
+  await php("file_put_contents('"+journalPath(active)+"',base64_decode('"+Buffer.from(JSON.stringify(atLimit)).toString('base64')+"'));file_put_contents('/adapter-fixture/control/receiver.lock',base64_decode('"+Buffer.from(JSON.stringify(originalLock)).toString('base64')+"'));");
+  good=await prove();assert.equal(good.httpStatus,200);
   const completed=await call('finish');assert.equal(completed.phase,'COMPLETE');assert.equal(await php("echo file_exists('/adapter-fixture/control/receiver.lock')?'yes':'no';"),'no');checks.push('native update plus fresh signed real HTTP health completes and cleans own lock');
   progress('native update and signed HTTP health');
   await call(null,active,"vne_adapter_upgrade_local('/adapter-fixture/inbox/previous-theme.zip');vne_adapter_maintenance_off();echo json_encode(true);");
   // Reset only fixture application code; immutable completed journal is preserved.
   await reject('completed journal cannot be relabeled','install',active,'Existing journal/lock');assert.equal((await read(journalPath(active))).phase,'COMPLETE');
+  await reject('completed release cannot renew challenge','renew-health',{...active,expectedChallenge:twice.challenge},'Canonical path required');assert.equal((await read(journalPath(active))).phase,'COMPLETE');
   active={...approval,owner:randomBytes(16).toString('hex')};started=await call('install',active);assert.equal(started.phase,'AWAIT_HEALTH');
   const failed=await prove({fail:true});assert.equal(failed.httpStatus,503);
   const rolling=await call('finish',active);assert.equal(rolling.phase,'ROLLBACK_AWAIT_HEALTH');
   await prove({alter:{challenge:started.challenge}});await reject('pre-rollback proof cannot confirm rollback','confirm-rollback',active,'Health challenge/phase differs');
+  await prove();const renewedRollback=await call('renew-health',{...active,expectedChallenge:rolling.challenge});assert.equal(renewedRollback.phase,'ROLLBACK_AWAIT_HEALTH');assert.equal(renewedRollback.renewalHistory[0].phase,'ROLLBACK_AWAIT_HEALTH');checks.push('rollback health phase can renew without reinstalling theme or restoring DB');
+  await reject('pre-renewal rollback proof cannot close release','confirm-rollback',active,'Health challenge/phase differs');
   const baselineHealth=await prove();assert.equal(baselineHealth.marker,'r52-v2-20261028');const rolled=await call('confirm-rollback',active);assert.equal(rolled.phase,'ROLLED_BACK');assert.deepEqual(await call(null,active,'echo json_encode(vne_adapter_data());'),initial.data);checks.push('real HTTP503 rolls theme back then requires fresh baseline HTTP proof; data unchanged');
   progress('rollback and fresh baseline HTTP health');
   active={...approval,owner:randomBytes(16).toString('hex')};assert.equal((await call('install',active)).phase,'AWAIT_HEALTH');
   await call(null,active,"update_option('vne_fixture_owner_edit','keep-owner-edit');echo json_encode(true);");
   const editedData=await call(null,active,'echo json_encode(vne_adapter_data());');
-  await prove({fail:true});await reject('application data conflict stops rollback','finish',active,'Runtime data conflict');
+  await prove({fail:true});const pendingData=await read(journalPath(active));await reject('application data conflict stops challenge renewal','renew-health',{...active,expectedChallenge:pendingData.challenge},'Runtime data conflict');
   assert.equal((await read(journalPath(active))).phase,'CONFLICT_INSPECT');assert.deepEqual(await call(null,active,'echo json_encode(vne_adapter_data());'),editedData);checks.push('intentional owner option edit survives data conflict with lock retained');
   assert.equal(await php("echo file_exists('/adapter-fixture/control/receiver.lock')?'yes':'no';"),'yes');
   // Reset ONLY this deliberate fixture conflict; preserve its CONFLICT_INSPECT journal.
@@ -123,6 +146,7 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   await call(null,active,"$p=WP_CONTENT_DIR.'/themes/vibelab-v2/index.php';file_put_contents($p,file_get_contents($p).'/* concurrent owner edit */');echo json_encode(true);");
   await prove({fail:true});await reject('file conflict prevents rollback overwrite','finish',active,'Runtime file conflict');
   const conflict=await read(journalPath(active));assert.equal(conflict.phase,'CONFLICT_INSPECT');
+  await reject('conflict journal cannot be renewed or relabeled','renew-health',{...active,expectedChallenge:conflict.challenge},'Phase cannot renew/finalize');assert.deepEqual(await read(journalPath(active)),conflict);
   assert.equal(await php("echo file_exists('/adapter-fixture/control/receiver.lock')?'yes':'no';"),'yes');assert.ok((await php("echo file_get_contents('/wordpress/wp-content/themes/vibelab-v2/index.php');")).includes('concurrent owner edit'));checks.push('conflict preserves concurrent edit and own lock');
   assert.deepEqual(await call(null,active,'echo json_encode(vne_adapter_data());'),initial.data);checks.push('all five tables and protected options preserved through success rollback failure conflict');
   progress('native failure conflict data preservation and private HTTP');

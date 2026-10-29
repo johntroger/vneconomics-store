@@ -3,8 +3,11 @@ import {createServer} from 'node:http';
 import {createHmac,randomBytes} from 'node:crypto';
 import {buildOperatorBootstrap,collectLocalHealthProof} from './r6-css-operator.mjs';
 import {sha256} from './release-lib.mjs';
+import {mkdirSync,readFileSync} from 'node:fs';
+import {join} from 'node:path';
+import {createNodeFsMountHandler} from '@php-wasm/node';
 
-export async function exerciseOperator({php,approval,token,receiver}){
+export async function exerciseOperator({php,approval,token,receiver,fixture}){
  const checks=[],controller='/adapter-fixture/inbox/receiver.php',manifest='/adapter-fixture/inbox/manifest.json';
  const run=async code=>{const r=await php.run({code:'<?php try{'+code+'}catch(Throwable $e){echo json_encode(array("error"=>$e->getMessage()));}'});assert.equal(r.exitCode,0,r.errors||r.text);assert.equal(r.errors,'',r.errors);return JSON.parse(r.text);};
  const make=a=>buildOperatorBootstrap('inspect-inbox',a,{fixtureToken:token});
@@ -14,7 +17,7 @@ export async function exerciseOperator({php,approval,token,receiver}){
  for(const field of ['sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256'])assert.throws(()=>make({...approval,[field]:approval[field]+'\n'}));
  assert.throws(()=>buildOperatorBootstrap('inspect-inbox',approval,{fixtureToken:token+'\n'}));
  const prod={...approval,environment:'production'};assert.match(buildOperatorBootstrap('inspect-inbox',prod).command,/--skip-wordpress/);
- for(const mode of ['install','inspect-state','finish','confirm-rollback'])assert.throws(()=>buildOperatorBootstrap(mode,prod),/Production runtime/);
+ for(const mode of ['install','inspect-state','finish','confirm-rollback','renew-health'])assert.throws(()=>buildOperatorBootstrap(mode,prod),/Production runtime/);
  assert.throws(()=>buildOperatorBootstrap('arbitrary();',approval,{fixtureToken:token}));checks.push('production only permits read-only inbox command; all runtime modes blocked');
  assert.equal((await run('function get_option(){};'+good.code)).error,'Use --skip-wordpress for inbox inspect');checks.push('already bootstrapped WordPress context rejected before inspect');
  const oldManifest=php.readFileAsBuffer(manifest);php.writeFile(manifest,'tampered');
@@ -24,6 +27,12 @@ export async function exerciseOperator({php,approval,token,receiver}){
  php.writeFile('/adapter-fixture/controller-copy.php',receiver);php.unlink(controller);php.symlink('/adapter-fixture/controller-copy.php',controller);
  assert.equal((await run(good.code)).error,'Bootstrap symlink refused');php.unlink(controller);php.writeFile(controller,receiver);php.unlink('/adapter-fixture/controller-copy.php');checks.push('controller symlink blocked before include');
  const runtime={...approval,environment:'local-runtime',productionApproved:false,owner:randomBytes(16).toString('hex'),baselineSha256:'a'.repeat(64),requiredFreeBytes:300000000};
+ const renewing={...runtime,expectedChallenge:'b'.repeat(64)};
+ assert.equal(buildOperatorBootstrap('renew-health',renewing,{fixtureToken:token}).productionWriteAuthorized,false);
+ assert.throws(()=>buildOperatorBootstrap('renew-health',runtime,{fixtureToken:token}),/fields differ/);
+ assert.throws(()=>buildOperatorBootstrap('renew-health',{...renewing,expectedChallenge:'b'.repeat(64)+'\n'},{fixtureToken:token}));
+ assert.throws(()=>buildOperatorBootstrap('finish',renewing,{fixtureToken:token}),/fields differ/);
+ checks.push('renewal bootstrap binds exact expected challenge and remains local-only');
  for(const field of ['owner','baselineSha256'])assert.throws(()=>buildOperatorBootstrap('finish',{...runtime,[field]:runtime[field]+'\n'},{fixtureToken:token}));
  const key=randomBytes(32),now=Math.floor(Date.now()/1000),journal={...runtime,phase:'AWAIT_HEALTH',challenge:randomBytes(32).toString('hex'),issuedAt:now,expiresAt:now+120};
  let behavior='good',requests=0;const css=Buffer.from('body{color:#123}'),marker='r6-css-'+runtime.sourceSha.slice(0,12);
@@ -55,5 +64,14 @@ export async function exerciseOperator({php,approval,token,receiver}){
   behavior='large-css';await assert.rejects(()=>collectLocalHealthProof(runtime,journal,options),/exceeds limit/);
   behavior='large-html';await assert.rejects(()=>collectLocalHealthProof(runtime,journal,options),/exceeds limit/);checks.push('streaming byte limits reject oversized CSS and HTML');
  }finally{server.closeAllConnections();await new Promise((done,fail)=>server.close(error=>error?fail(error):done()));}
+ const storage=join(fixture,'control-storage-unit');mkdirSync(storage);php.mkdir('/control-storage-unit');
+ const unmount=await php.mount('/control-storage-unit',createNodeFsMountHandler(storage));
+ try{
+  const result=await run('$p="/control-storage-unit/lock.json";file_put_contents($p,json_encode(array("value"=>str_repeat("a",64))));$original=file_get_contents($p);$a=fopen($p,"r+");$first=flock($a,LOCK_EX|LOCK_NB);$b=fopen($p,"r+");$second=flock($b,LOCK_EX|LOCK_NB);if($second)flock($b,LOCK_UN);fclose($b);flock($a,LOCK_UN);fclose($a);$preserved=file_get_contents($p)===$original;file_put_contents($p,json_encode(array("value"=>"short")));$raw=file_get_contents($p);$decoded=json_decode($raw,true);$inplace=json_last_error()===JSON_ERROR_NONE&&($decoded["value"]??null)==="short";file_put_contents($p.".tmp",json_encode(array("value"=>"atomic")));rename($p.".tmp",$p);echo json_encode(array("first"=>$first,"busy"=>!$second,"preserved"=>$preserved,"inplaceTruncates"=>$inplace,"atomic"=>json_decode(file_get_contents($p),true)));');
+  assert.equal(result.first,true,JSON.stringify(result));assert.equal(result.busy,true,JSON.stringify(result));assert.equal(result.preserved,true,JSON.stringify(result));assert.deepEqual(result.atomic,{value:'atomic'},JSON.stringify(result));
+  assert.deepEqual(JSON.parse(readFileSync(join(storage,'lock.json'),'utf8')),{value:'atomic'});
+  console.log('PASS native control storage mutex/atomic rename; inplaceTruncates='+result.inplaceTruncates);
+  checks.push('native filesystem mutex preserves bytes and atomic JSON replacement roundtrips');
+ }finally{await unmount();}
  return checks;
 }

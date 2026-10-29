@@ -3,7 +3,7 @@ import {createHmac} from 'node:crypto';
 import {r6CssProfile} from './release-r6-css.mjs';
 
 const pins={sourceSha:40,controllerSourceSha:40,payloadSha:40,expectedParent:40,manifestSha256:64,receiverSha256:64};
-const runtimeModes=['inspect-state','install','finish','confirm-rollback'];
+const runtimeModes=['inspect-state','install','finish','confirm-rollback','renew-health'];
 function exactHex(value,length,label){assert.equal(typeof value,'string','Invalid '+label);assert.equal(value.length,length,'Invalid length '+label);assert.match(value,/^[a-f0-9]+$/,'Invalid hex '+label);}
 export function validateOperatorRequest(mode,approval,fixtureToken){
  assert.ok(mode==='inspect-inbox'||runtimeModes.includes(mode),'Unknown operator mode');
@@ -11,7 +11,7 @@ export function validateOperatorRequest(mode,approval,fixtureToken){
  const runtime=mode!=='inspect-inbox',environment=approval.environment;
  assert.ok(['production','local-fixture','local-runtime'].includes(environment),'Unknown operator environment');
  assert.ok(!runtime||environment==='local-runtime','Production runtime bootstrap disabled');
- const fields=[...Object.keys(pins),'environment',...(runtime?['owner','baselineSha256','requiredFreeBytes','productionApproved']:[])].sort();
+ const fields=[...Object.keys(pins),'environment',...(runtime?['owner','baselineSha256','requiredFreeBytes','productionApproved']:[]),...(mode==='renew-health'?['expectedChallenge']:[])].sort();
  assert.deepEqual(Object.keys(approval).sort(),fields,'Approval fields differ');
  for(const [key,length] of Object.entries(pins))exactHex(approval[key],length,key);
  assert.equal(approval.expectedParent,r6CssProfile.payload,'Unreviewed production parent');
@@ -21,6 +21,7 @@ export function validateOperatorRequest(mode,approval,fixtureToken){
  if(runtime){
   assert.equal(approval.productionApproved,false,'Production approval cannot enable fixture bootstrap');
   exactHex(approval.owner,32,'owner');exactHex(approval.baselineSha256,64,'baseline hash');
+  if(mode==='renew-health')exactHex(approval.expectedChallenge,64,'expected challenge');
   assert.ok(Number.isSafeInteger(approval.requiredFreeBytes)&&approval.requiredFreeBytes>=268435456,'Invalid approved disk reserve');
  }
  return {runtime,environment};
