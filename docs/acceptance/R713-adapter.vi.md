@@ -14,7 +14,7 @@ Phạm vi hoàn tất tại local: profile `vibelab-v2-r6-css-adapter-schema3`, 
 
 [Local test](R713-adapter/local-test-6.json): PASS 32 nhóm, gồm build lặp, Git controller regular-file, parent/profile, byte/hash, source/controller/manifest pins, tampering, symlink, loose/packed/ref sai, quyền sở hữu fixture và filesystem không đổi. Bảo toàn DB/config local thật; cleanup PASS. Harness PHP8.3 đặt CLI SAPI để kiểm đúng guard; không mở WordPress hoặc server HTTP.
 
-[Workflow contract](R713-adapter/workflow-test.json): PASS, thêm bốn biến thể workflow adapter không an toàn bị từ chối. CI riêng theo đường dẫn module, read-only, không secrets/push/deploy. Không chạy bộ native R7.11 hoặc URL suite cho thay đổi inspect độc lập.
+[Workflow contract](R713-adapter/workflow-test.json): PASS, tám phép thử biến thể workflow adapter không an toàn trên cả LF/CRLF bị từ chối. CI riêng theo đường dẫn module, read-only, không secrets/push/deploy. Không chạy bộ native R7.11 hoặc URL suite cho thay đổi inspect độc lập.
 
 Lượt đầu bị sandbox Windows chặn Git/MSYS; chạy lại fixture với quyền phù hợp. Harness cũng đã sửa khởi tạo process ID và SAPI của PHP-WASM; guard CLI của controller giữ nguyên. Log lỗi giữ local, không đóng gói vào PR.
 

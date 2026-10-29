@@ -151,10 +151,13 @@ function checkAdapterWorkflow(text){
 }
 const adapterWorkflow=read('.github/workflows/css-adapter-check.yml');checkAdapterWorkflow(adapterWorkflow);
 let adapterRejected=0;
-for(const mutate of [
- text=>text.replace('contents: read','contents: write'),
- text=>text.replace('persist-credentials: false','persist-credentials: true'),
- text=>text.replace('scripts/test-r6-css-adapter.mjs\n','scripts/skipped.mjs\n'),
- text=>text.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
-]){assert.throws(()=>checkAdapterWorkflow(mutate(adapterWorkflow)));adapterRejected++;}
+for(const ending of ['\n','\r\n']){
+ const text=adapterWorkflow.replace(/\r?\n/g,ending);checkAdapterWorkflow(text);
+ for(const mutate of [
+  value=>value.replace('contents: read','contents: write'),
+  value=>value.replace('persist-credentials: false','persist-credentials: true'),
+  value=>value.replace(/run: node scripts\/run-clean\.mjs script scripts\/test-r6-css-adapter\.mjs/,'run: node scripts/skipped.mjs'),
+  value=>value.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
+ ]){const changed=mutate(text);assert.notEqual(changed,text,'Workflow mutation did not apply');assert.throws(()=>checkAdapterWorkflow(changed));adapterRejected++;}
+}
 console.log('PASS R7.13 inspect adapter CI policy; '+adapterRejected+' unsafe mutations rejected');
