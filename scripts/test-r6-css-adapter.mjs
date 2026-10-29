@@ -49,7 +49,7 @@ try{
  const snapshot=async()=>run("$root='/adapter-fixture';$rows=array();foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root,FilesystemIterator::SKIP_DOTS),RecursiveIteratorIterator::SELF_FIRST) as $f){$p=$f->getPathname();$rows[$p]=array('mode'=>$f->getPerms(),'bytes'=>$f->isFile()?hash_file('sha256',$p):null);}ksort($rows);echo json_encode($rows);");
  const initial=await snapshot(),good=await inspect();assert.equal(good.status,'VERIFIED_INBOX_BYTES_AND_REF',JSON.stringify(good));assert.equal(good.files,6);assert.equal(good.installAuthorized,false);assert.equal(good.gitObjectParentVerified,false);assert.equal(good.runtimeVerified,false);
  assert.deepEqual(await snapshot(),initial);checks.push('loose-ref inspect reads six files without filesystem changes or WordPress bootstrap');
- for(const mode of ['inspect-state','install','finish','confirm-rollback','renew-health'])await reject(mode+' blocked before writes','','not implemented',"echo json_encode(vne_adapter_dispatch('"+mode+"',$a));");
+ for(const mode of ['inspect-state','install','finish','confirm-rollback','renew-health','import-health'])await reject(mode+' blocked before writes','','not implemented',"echo json_encode(vne_adapter_dispatch('"+mode+"',$a));");
  assert.deepEqual(await snapshot(),initial);checks.push('all blocked runtime/write modes preserve filesystem');
  await reject('source pin mismatch blocked',"$a['sourceSha']=str_repeat('a',40);",'Profile/source differs');
  await reject('controller source mismatch blocked',"$a['controllerSourceSha']=str_repeat('a',40);",'Controller identity differs');

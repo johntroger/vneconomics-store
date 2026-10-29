@@ -1,0 +1,35 @@
+{
+  "status": "PASS_R719_LOCAL",
+  "checkoutBase": "5c7e7318dce7ecd92b5238aa79816d551871f394",
+  "testedWorkingTree": true,
+  "nativeChecks": 95,
+  "runtimeSeconds": 234,
+  "sourceFiles": [
+    {
+      "path": "release-tools/r6-css-adapter.php",
+      "sha256": "56686e78086a486b5b33de441f74c1c7c536f87802c4b50854e5abf6de965129"
+    },
+    {
+      "path": "scripts/r6-css-operator.mjs",
+      "sha256": "e4d0fb6e98d7d79f8cc93820d21f88db7e0061f27c2d318c66135074d871e0a4"
+    },
+    {
+      "path": "scripts/test-r6-css-operator.mjs",
+      "sha256": "c9db079d25d02ef6ce4137bbbc09460f1f1e68dd1bb78eade4f79ab1c26fbb69"
+    },
+    {
+      "path": "scripts/test-r6-css-adapter-runtime.mjs",
+      "sha256": "bca28c4c92482ff3f3f4bc26cf23b6c8da75e4b6c0f150eb29d71aba84791f42"
+    },
+    {
+      "path": "scripts/test-r6-css-adapter.mjs",
+      "sha256": "6f70a8bc1631028c8e14295cad03a57077964d4531f686c68576df78c750e413"
+    }
+  ],
+  "ownedFixturesCleaned": true,
+  "cleanupLockAbsent": true,
+  "applicationDiffAgainstR6Empty": true,
+  "windowsUnlockDiagnosticCount": 4,
+  "ciRun": null,
+  "productionWriteAuthorized": false
+}
