@@ -187,3 +187,30 @@ for(const mutate of [
  value=>value.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
 ]){const changed=mutate(r717Workflow);assert.notEqual(changed,r717Workflow);assert.throws(()=>checkR717Workflow(changed));r717Rejected++;}
 console.log('PASS R7.17 rehearsal artifact policy; '+r717Rejected+' unsafe mutations rejected');
+
+function checkR720Workflow(text){
+ for(const pin of pins)assert.ok(text.includes(pin));
+ assert.match(text,/permissions:\s*\n\s*contents: read/);assert.match(text,/persist-credentials: false/);
+ assert.ok(text.includes('actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9'));
+ assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
+ assert.ok(text.includes('ORCHESTRATOR_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}'));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/r720-adapter-rehearsal.mjs --native'));
+ assert.equal((text.match(/git ls-remote origin refs\/heads\/release-production/g)||[]).length,2);
+ assert.ok(text.includes('fa4c67821008e0fcc4307fedf202bcdf95b85bb6'));
+ const block=text.match(/name: r720-six-file-rehearsal\s*\n\s*path: \|([\s\S]+?)\s+if-no-files-found: error/);assert.ok(block);
+ assert.deepEqual(block[1].trim().split(/\r?\n/).map(line=>line.trim()).sort(),['manifest.json','receiver.php','theme.zip','plugin.zip','previous-theme.zip','previous-plugin.zip'].map(name=>'artifacts/r720-adapter/files/'+name).sort());
+ assert.match(text,/name: r720-rehearsal-proofs/);assert.match(text,/path: artifacts\/r720-adapter\/evidence\//);
+ assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|webhook|path: tmp|path: \.local/);
+}
+const r720Workflow=read('.github/workflows/r720-adapter-rehearsal.yml');let r720Rejected=0;
+for(const ending of ['\n','\r\n']){
+ const text=r720Workflow.replace(/\r?\n/g,ending);checkR720Workflow(text);
+ for(const mutate of [
+  value=>value.replace('contents: read','contents: write'),
+  value=>value.replace('persist-credentials: false','persist-credentials: true'),
+  value=>value.replace(' --native',''),
+  value=>value.replace('artifacts/r720-adapter/files/receiver.php','tmp/private/health-key.json'),
+  value=>value.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
+ ]){const changed=mutate(text);assert.notEqual(changed,text);assert.throws(()=>checkR720Workflow(changed));r720Rejected++;}
+}
+console.log('PASS R7.20 importer artifact policy; '+r720Rejected+' unsafe mutations rejected');

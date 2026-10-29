@@ -1,0 +1,64 @@
+name: Importer package rehearsal (no deployment)
+on:
+  pull_request:
+    paths:
+      - 'scripts/r720-adapter-rehearsal.mjs'
+      - '.github/workflows/r720-adapter-rehearsal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: r720-rehearsal-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  rehearsal:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env:
+      ORCHESTRATOR_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        shell: pwsh
+        run: npm ci --ignore-scripts
+      - name: Verify frozen R6 production parent before build
+        shell: pwsh
+        run: |
+          $baseline = git ls-remote origin refs/heads/release-production
+          if ($LASTEXITCODE -ne 0 -or $baseline -cnotmatch '^fa4c67821008e0fcc4307fedf202bcdf95b85bb6\s+refs/heads/release-production$') { throw 'R6 baseline moved' }
+      - name: Build and native test exact six-file package
+        shell: pwsh
+        run: node scripts/run-clean.mjs script scripts/r720-adapter-rehearsal.mjs --native
+      - name: Verify frozen R6 production parent after native
+        shell: pwsh
+        run: |
+          $baseline = git ls-remote origin refs/heads/release-production
+          if ($LASTEXITCODE -ne 0 -or $baseline -cnotmatch '^fa4c67821008e0fcc4307fedf202bcdf95b85bb6\s+refs/heads/release-production$') { throw 'R6 baseline moved' }
+      - name: Upload exactly six transport files
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: r720-six-file-rehearsal
+          path: |
+            artifacts/r720-adapter/files/manifest.json
+            artifacts/r720-adapter/files/receiver.php
+            artifacts/r720-adapter/files/theme.zip
+            artifacts/r720-adapter/files/plugin.zip
+            artifacts/r720-adapter/files/previous-theme.zip
+            artifacts/r720-adapter/files/previous-plugin.zip
+          if-no-files-found: error
+          retention-days: 21
+      - name: Upload separate public proof receipts
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: r720-rehearsal-proofs
+          path: artifacts/r720-adapter/evidence/
+          if-no-files-found: error
+          retention-days: 21
