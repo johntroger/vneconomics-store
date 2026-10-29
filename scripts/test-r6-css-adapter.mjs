@@ -10,6 +10,7 @@ import {r6CssProfile,prepareR6CssCandidate} from './release-r6-css.mjs';
 import {controllerPath,adapterProfile,prepareCssAdapter,writeCssAdapter,verifyCssAdapter} from './release-r6-css-adapter.mjs';
 
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/css-adapter-')),repo=join(fixture,'git'),checks=[];
+const native=process.argv.includes('--native');assert.ok(process.argv.slice(2).every(arg=>arg==='--native'),'Use optional --native');
 const kept=['.local/site/wp-config.php','.local/site/wp-content/database/.ht.sqlite'].filter(existsSync),before=Object.fromEntries(kept.map(path=>[path,sha256(readFileSync(path))]));
 const git=(args,input,cwd=repo)=>{const r=spawnSync('git',args,{input,cwd,encoding:null,windowsHide:true,maxBuffer:32*1024*1024});assert.equal(r.status,0,r.stderr?.toString());return r.stdout;};
 git(['clone','--shared','--no-checkout',resolve('.'),repo],undefined,fixture);git(['config','user.name','Adapter fixture']);git(['config','user.email','fixture@example.invalid']);
@@ -74,5 +75,6 @@ try{
  php.writeFile(root+'/inbox/receiver.php',"<?php file_put_contents('/adapter-fixture/EXECUTED','bad');");
  await reject('tampered controller cannot execute','','Bootstrap controller pin differs');assert.equal(php.fileExists(root+'/EXECUTED'),false);php.writeFile(root+'/inbox/receiver.php',prepared.buffers['receiver.php']);
  assert.equal(php.fileExists(root+'/WORDPRESS_LOADED'),false);assert.equal(php.fileExists(root+'/inbox/receiver.lock'),false);checks.push('no WordPress bootstrap or lock created through all inspections');
- console.log(JSON.stringify({status:'PASS_R6_CSS_ADAPTER_INSPECT',checks,sourceFixtureOnly:source,controllerFixtureOnly:controller,payloadFixtureOnly:payload,installAuthorized:false,limits:['Inspect-only; no runtime/installer/health adapter','Git object parent checked by Node, not PHP ref reader','No hosting/Plesk operation']}));
 }finally{if(php)php.exit();for(const path of kept)assert.equal(sha256(readFileSync(path)),before[path],'Real local DB/config changed');}
+if(native){const {exerciseAdapterRuntime}=await import('./test-r6-css-adapter-runtime.mjs');checks.push(...await exerciseAdapterRuntime({fixture,prepared,payload}));}
+console.log(JSON.stringify({status:'PASS_R6_CSS_ADAPTER_INSPECT',native,checks,sourceFixtureOnly:source,controllerFixtureOnly:controller,payloadFixtureOnly:payload,installAuthorized:false,limits:['Runtime writer restricted to owned local fixture','Git object parent checked by Node, not PHP ref reader','No hosting/Plesk operation']}));
