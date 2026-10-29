@@ -192,25 +192,59 @@ function vne_adapter_renew_health($a,$path,$j){
 }
 function vne_adapter_health($a,$j,$p,$previous){
     // The private key/proof are local harness resources, never in the Git payload.
-    $key=vne_adapter_json('/adapter-fixture/control/health-key.json');$proof=vne_adapter_json('/adapter-fixture/control/proof-'.$a['owner'].'.json');
+    return vne_adapter_health_proof($a,$j,$p,$previous,vne_adapter_json('/adapter-fixture/control/proof-'.$a['owner'].'.json'));
+}
+function vne_adapter_decode_health($proof){
+    vne_adapter_need(is_array($proof)&&count($proof)===2&&isset($proof['body'],$proof['signature'])&&is_string($proof['body'])&&strlen($proof['body'])<=10924&&is_string($proof['signature'])&&preg_match('/^[a-f0-9]{64}$/D',$proof['signature']),'Health envelope invalid');
+    $key=vne_adapter_json('/adapter-fixture/control/health-key.json');
     vne_adapter_need(is_string($key['key']??null)&&preg_match('/^[a-f0-9]{64}$/D',$key['key']),'Health key invalid');
     $body=base64_decode($proof['body']??'',true);vne_adapter_need(is_string($body)&&strlen($body)<=8192&&hash_equals(hash_hmac('sha256',$body,hex2bin($key['key'])),$proof['signature']??''),'Health signature invalid');
     $h=json_decode($body,true,32,JSON_THROW_ON_ERROR);
+    $fields=array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','phase','challenge','observedAt','url','httpStatus','cssStatus','marker','cssSha256');$keys=is_array($h)?array_keys($h):array();sort($fields);sort($keys);vne_adapter_need($keys===$fields,'Health observation fields differ');
+    return $h;
+}
+function vne_adapter_health_proof($a,$j,$p,$previous,$proof){
+    $h=vne_adapter_decode_health($proof);
     foreach(array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256') as $pin)vne_adapter_need(($h[$pin]??null)===$a[$pin],'Health identity differs');
     vne_adapter_need(($h['challenge']??null)===$j['challenge']&&($h['phase']??null)===$j['phase'],'Health challenge/phase differs');
     vne_adapter_need(is_int($h['observedAt']??null)&&$h['observedAt']>=$j['issuedAt']&&$h['observedAt']<=time()&&time()<=$j['expiresAt'],'Health proof expired/stale');
     vne_adapter_need(($h['url']??null)==='http://127.0.0.1:19482/','Health target differs');
     return ($h['httpStatus']??0)===200&&($h['cssStatus']??0)===200&&($h['marker']??'')===($previous?'r52-v2-20261028':$p['manifest']['themeMarker'])&&($h['cssSha256']??'')===hash('sha256',$p['maps'][$previous?'previous-theme':'theme']['vibelab-v2/style.css']);
 }
-function vne_adapter_runtime_dispatch($mode,$a){
+function vne_adapter_proof_path($a){
+    vne_adapter_write_scope();vne_adapter_need(is_string($a['owner']??null)&&preg_match('/^[a-f0-9]{32}$/D',$a['owner']),'Invalid proof owner');
+    $path='/adapter-fixture/control/proof-'.$a['owner'].'.json';vne_adapter_need(!is_link($path),'Proof symlink refused');return $path;
+}
+function vne_adapter_import_health($a,$j,$p,$proof,$operationHandle){
+    vne_adapter_write_scope();vne_adapter_need(is_resource($operationHandle),'Proof import requires operation mutex');vne_adapter_owned($a,$j['phase'],$operationHandle);
+    $good=vne_adapter_health_proof($a,$j,$p,$j['phase']==='ROLLBACK_AWAIT_HEALTH',$proof);
+    $path=vne_adapter_proof_path($a);$bytes=json_encode($proof,JSON_THROW_ON_ERROR);
+    $same=false;
+    if(file_exists($path)){
+        vne_adapter_path($path);vne_adapter_need(is_file($path)&&filesize($path)<=12000,'Existing proof invalid');$old=file_get_contents($path);$same=$old===$bytes;
+        $prior=json_decode($old,true,32,JSON_THROW_ON_ERROR);
+        $oldHealth=vne_adapter_decode_health($prior);$newHealth=vne_adapter_decode_health($proof);
+        foreach(array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256') as $pin)vne_adapter_need(($oldHealth[$pin]??null)===$a[$pin],'Existing proof identity differs');
+        // A new challenge may replace a previously valid signed proof after renewal.
+        vne_adapter_need(is_int($oldHealth['observedAt']??null)&&$newHealth['observedAt']>=$oldHealth['observedAt'],'Health proof observation regressed');
+    }
+    if(!$same){
+        $temp=$path.'.tmp-'.bin2hex(random_bytes(8));$handle=null;
+        try{$handle=fopen($temp,'x');vne_adapter_need($handle!==false,'Exclusive proof temp create failed');vne_adapter_need(fwrite($handle,$bytes)===strlen($bytes),'Proof write failed');vne_adapter_need(fclose($handle),'Proof temp close failed');$handle=null;vne_adapter_need(rename($temp,$path),'Proof rename failed');}
+        finally{if(is_resource($handle))fclose($handle);if(is_file($temp))unlink($temp);}
+    }
+    return array('status'=>$same?'HEALTH_PROOF_ALREADY_IMPORTED':'HEALTH_PROOF_IMPORTED','owner'=>$a['owner'],'phase'=>$j['phase'],'challenge'=>$j['challenge'],'proofSha256'=>hash('sha256',$bytes),'healthPassed'=>$good,'productionWriteAuthorized'=>false);
+}
+function vne_adapter_runtime_dispatch($mode,$a,$proof=null){
     vne_adapter_runtime_scope($a);
-    if(!in_array($mode,array('renew-health','finish','confirm-rollback'),true))return vne_adapter_runtime_dispatch_locked($mode,$a);
+    vne_adapter_need($mode==='import-health'||$proof===null,'Proof input only allowed for import-health');
+    if(!in_array($mode,array('import-health','renew-health','finish','confirm-rollback'),true))return vne_adapter_runtime_dispatch_locked($mode,$a);
     // Serialize cooperative journal writers; keep the existing logical owner lock.
     [$path,$lock]=vne_adapter_journal_paths($a);vne_adapter_path($lock);$handle=fopen($lock,'r+');vne_adapter_need($handle!==false,'Cannot open operation lock');
-    $held=false;try{$held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Operation busy; inspect before retry');return vne_adapter_runtime_dispatch_locked($mode,$a,$handle);}
+    $held=false;try{$held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Operation busy; inspect before retry');return vne_adapter_runtime_dispatch_locked($mode,$a,$handle,$proof);}
     finally{if($held)flock($handle,LOCK_UN);fclose($handle);}
 }
-function vne_adapter_runtime_dispatch_locked($mode,$a,$operationHandle=null){
+function vne_adapter_runtime_dispatch_locked($mode,$a,$operationHandle=null,$proof=null){
     vne_adapter_runtime_scope($a);$p=vne_adapter_runtime_package($a);[$path,$lock]=vne_adapter_journal_paths($a);vne_adapter_path('/adapter-fixture/control');
     if($mode==='inspect-state'){
         $exists=file_exists($path)||file_exists($lock);$data=$exists?vne_adapter_data():vne_adapter_runtime_state($p,true);
@@ -228,13 +262,15 @@ function vne_adapter_runtime_dispatch_locked($mode,$a,$operationHandle=null){
         try{vne_adapter_upgrade_local($p['paths']['inbox'].'/theme.zip');vne_adapter_need(vne_adapter_runtime_state($p,false)===$data,'Install data conflict');vne_adapter_maintenance_off();vne_adapter_challenge($j,'AWAIT_HEALTH');vne_adapter_write_journal($path,$j);return $j;}
         catch(Throwable $e){$j['phase']='STOPPED_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
     }
-    vne_adapter_need(in_array($mode,array('finish','confirm-rollback','renew-health'),true),'Unknown runtime mode');
-    $phase=$mode==='renew-health'?(vne_adapter_json($path)['phase']??'') : ($mode==='finish'?'AWAIT_HEALTH':'ROLLBACK_AWAIT_HEALTH');
+    vne_adapter_need(in_array($mode,array('import-health','finish','confirm-rollback','renew-health'),true),'Unknown runtime mode');
+    vne_adapter_need($mode!=='import-health'||is_resource($operationHandle),'Proof import requires operation mutex');
+    $phase=in_array($mode,array('import-health','renew-health'),true)?(vne_adapter_json($path)['phase']??'') : ($mode==='finish'?'AWAIT_HEALTH':'ROLLBACK_AWAIT_HEALTH');
     vne_adapter_need(in_array($phase,array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true),'Phase cannot renew/finalize');
     [$path,$lock,$j]=vne_adapter_owned($a,$phase,$operationHandle);
     try{vne_adapter_need(vne_adapter_runtime_state($p,$phase==='ROLLBACK_AWAIT_HEALTH')===$j['baseline'],'Runtime data conflict');}
     catch(Throwable $e){$j['phase']='CONFLICT_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
     if($mode==='renew-health')return vne_adapter_renew_health($a,$path,$j);
+    if($mode==='import-health')return vne_adapter_import_health($a,$j,$p,$proof,$operationHandle);
     $good=vne_adapter_health($a,$j,$p,$mode==='confirm-rollback');
     if($mode==='confirm-rollback'){vne_adapter_need($good,'Rollback HTTP health failed');$j['phase']='ROLLED_BACK';}
     elseif($good)$j['phase']='COMPLETE';

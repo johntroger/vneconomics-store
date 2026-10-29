@@ -3,7 +3,7 @@ import {createHmac} from 'node:crypto';
 import {r6CssProfile} from './release-r6-css.mjs';
 
 const pins={sourceSha:40,controllerSourceSha:40,payloadSha:40,expectedParent:40,manifestSha256:64,receiverSha256:64};
-const runtimeModes=['inspect-state','install','finish','confirm-rollback','renew-health'];
+const runtimeModes=['inspect-state','install','finish','confirm-rollback','renew-health','import-health'];
 function exactHex(value,length,label){assert.equal(typeof value,'string','Invalid '+label);assert.equal(value.length,length,'Invalid length '+label);assert.match(value,/^[a-f0-9]+$/,'Invalid hex '+label);}
 export function validateOperatorRequest(mode,approval,fixtureToken){
  assert.ok(mode==='inspect-inbox'||runtimeModes.includes(mode),'Unknown operator mode');
@@ -26,8 +26,14 @@ export function validateOperatorRequest(mode,approval,fixtureToken){
  }
  return {runtime,environment};
 }
-export function buildOperatorBootstrap(mode,approval,{fixtureToken}={}){
+export function buildOperatorBootstrap(mode,approval,{fixtureToken,proof}={}){
  const {runtime,environment}=validateOperatorRequest(mode,approval,fixtureToken);
+ if(mode==='import-health'){
+  assert.ok(proof&&Object.getPrototypeOf(proof)===Object.prototype,'Signed health proof required');
+  assert.deepEqual(Object.keys(proof).sort(),['body','signature']);
+  assert.equal(typeof proof.body,'string');assert.ok(proof.body.length>0&&proof.body.length<=10924,'Invalid proof body size');
+  exactHex(proof.signature,64,'proof signature');
+ }else assert.equal(proof,undefined,'Proof input only allowed for import-health');
  const production=environment==='production',root=production?'/var/www/vhosts/vneconomics.com/store.vneconomics.com':runtime?'/wordpress':'/adapter-fixture/site';
  const inbox=production?'/var/www/vhosts/vneconomics.com/deploy-inbox/production':'/adapter-fixture/inbox';
  const receiver=inbox+'/receiver.php',manifest=inbox+'/manifest.json',data=Buffer.from(JSON.stringify(approval)).toString('base64');
@@ -41,7 +47,7 @@ export function buildOperatorBootstrap(mode,approval,{fixtureToken}={}){
   'if(!is_file("'+manifest+'")||hash_file("sha256","'+manifest+'")!=="'+approval.manifestSha256+'"){throw new RuntimeException("Bootstrap manifest pin differs");}',
   ...(production?[]:['if(defined("'+(runtime?'VNE_ADAPTER_RUNTIME_TOKEN':'VNE_ADAPTER_FIXTURE_TOKEN')+'")){throw new RuntimeException("Fixture token already set");}define("'+(runtime?'VNE_ADAPTER_RUNTIME_TOKEN':'VNE_ADAPTER_FIXTURE_TOKEN')+'","'+fixtureToken+'");']),
   'require "'+receiver+'";',
-  'echo json_encode('+(runtime?'vne_adapter_runtime_dispatch':'vne_adapter_dispatch')+'("'+mode+'",$a),JSON_THROW_ON_ERROR);',
+  'echo json_encode('+(runtime?'vne_adapter_runtime_dispatch':'vne_adapter_dispatch')+'("'+mode+'",$a'+(mode==='import-health'?',json_decode(base64_decode("'+Buffer.from(JSON.stringify(proof)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR)':'')+'),JSON_THROW_ON_ERROR);',
  ].join('');
  assert.ok(!code.includes("'"),'Plesk single-quote wrapper must not contain single quotes');
  return {code,command:"eval '"+code+"' "+(runtime?'--user=1':'--skip-wordpress --skip-packages'),scope:runtime?'owned-local-runtime':'read-only-inbox',productionWriteAuthorized:false};

@@ -39,9 +39,9 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   // Fault injection exists only in this synthetic WordPress fixture.
   mkdirSync(join(directory,'wp-content/mu-plugins'),{recursive:true});writeFileSync(join(directory,'wp-content/mu-plugins/r714-health.php'),"<?php add_action('template_redirect',function(){if(($_SERVER['HTTP_X_R714_HEALTH_FAIL']??'')==='1'){status_header(503);echo 'fixture health failure';exit;}});");
   const approval={environment:'local-runtime',productionApproved:false,owner:randomBytes(16).toString('hex'),baselineSha256:'0'.repeat(64),requiredFreeBytes:300000000,sourceSha:prepared.manifest.sourceSha,controllerSourceSha:prepared.manifest.controller.sourceSha,payloadSha:payload,expectedParent:r6CssProfile.payload,manifestSha256:sha256(prepared.buffers['manifest.json']),receiverSha256:sha256(prepared.buffers['receiver.php'])};
-  const call=async(mode,a=approval,extra='')=>{
+  const call=async(mode,a=approval,extra='',proof)=>{
    if(mode&&!extra&&a.environment==='local-runtime'&&a.productionApproved===false&&a.requiredFreeBytes>=268435456){
-    const bootstrap=buildOperatorBootstrap(mode,a,{fixtureToken:token});
+    const bootstrap=buildOperatorBootstrap(mode,a,{fixtureToken:token,proof});
     return json("define('WP_DISABLE_FATAL_ERROR_HANDLER',true);define('FS_METHOD','direct');require '/wordpress/wp-load.php';wp_set_current_user(get_user_by('login','admin')->ID);"+bootstrap.code);
    }
    const encoded=Buffer.from(JSON.stringify(a)).toString('base64');
@@ -75,13 +75,35 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   progress('preflight guards and baseline');
   let active=approval,started=await call('install');assert.ok(!started.error,JSON.stringify(started));assert.equal(started.phase,'AWAIT_HEALTH');
   const journalPath=a=>'/adapter-fixture/control/journal-'+a.owner+'.json';
-  const prove=async({a=active,fail=false,alter={},badSignature=false}={})=>{
+  const prove=async({a=active,fail=false,alter={},badSignature=false,directFixture=false}={})=>{
    const j=await read(journalPath(a)),collected=await collectLocalHealthProof(a,j,{key:healthKey,fixtureToken:token,fixtureHttp503:fail});
    // Adversarial proofs below belong only to this fault-injection harness.
    const h={...collected.observation,...alter};
    const body=Buffer.from(JSON.stringify(h)),proof=Object.keys(alter).length||badSignature?{body:body.toString('base64'),signature:badSignature?'0'.repeat(64):createHmac('sha256',healthKey).update(body).digest('hex')}:collected.proof;
-   await php("file_put_contents('/adapter-fixture/control/proof-"+a.owner+".json',base64_decode('"+Buffer.from(JSON.stringify(proof)).toString('base64')+"'));");return h;
+   if(directFixture||Object.keys(alter).length||badSignature){
+    await php("file_put_contents('/adapter-fixture/control/proof-"+a.owner+".json',base64_decode('"+Buffer.from(JSON.stringify(proof)).toString('base64')+"'));");
+   }else{
+    const imported=await call('import-health',a,'',proof);assert.ok(!imported.error,JSON.stringify(imported));assert.ok(['HEALTH_PROOF_IMPORTED','HEALTH_PROOF_ALREADY_IMPORTED'].includes(imported.status));
+    assert.equal(imported.phase,j.phase);assert.equal(imported.healthPassed,!fail);assert.equal(imported.productionWriteAuthorized,false);
+   }return h;
   };
+  const proofPath='/adapter-fixture/control/proof-'+active.owner+'.json',beforeImport=await read(journalPath(active));
+  const candidate=(await collectLocalHealthProof(active,beforeImport,{key:healthKey,fixtureToken:token})).proof;
+  const badImport=await call('import-health',active,'',{...candidate,signature:'0'.repeat(64)});assert.match(badImport.error,/Health signature invalid/);
+  const sign=observation=>{const body=Buffer.from(JSON.stringify(observation));return {body:body.toString('base64'),signature:createHmac('sha256',healthKey).update(body).digest('hex')};};
+  const observation=JSON.parse(Buffer.from(candidate.body,'base64').toString());
+  for(const [alter,expected] of [[{challenge:'old'},/challenge\/phase/],[{owner:'f'.repeat(32)},/identity/],[{observedAt:0},/expired\/stale/],[{unexpected:'field'},/fields differ/]]){
+   const result=await call('import-health',active,'',sign({...observation,...alter}));assert.match(result.error,expected);
+  }
+  assert.equal(await php("echo file_exists('"+proofPath+"')?'yes':'no';"),'no');assert.deepEqual(await read(journalPath(active)),beforeImport);
+  checks.push('proof import rejects bad signature old challenge wrong owner stale time extra observation fields without writing');
+  const encodedProof=Buffer.from(JSON.stringify(candidate)).toString('base64');
+  const busyImport=await call(null,active,"$held=fopen('/adapter-fixture/control/receiver.lock','r+');if(!flock($held,LOCK_EX|LOCK_NB))throw new Exception('Fixture mutex unavailable');$proof=json_decode(base64_decode('"+encodedProof+"'),true);echo json_encode(vne_adapter_runtime_dispatch('import-health',$a,$proof));");assert.match(busyImport.error,/Operation busy/);
+  assert.deepEqual(await read(journalPath(active)),beforeImport);checks.push('proof import shares native operation mutex with finalize and renewal');
+  const firstImport=await call('import-health',active,'',candidate);assert.equal(firstImport.status,'HEALTH_PROOF_IMPORTED');assert.equal(firstImport.healthPassed,true);
+  assert.deepEqual(JSON.parse(readFileSync(join(controlDirectory,'proof-'+active.owner+'.json'),'utf8')),candidate);
+  const retryImport=await call('import-health',active,'',candidate);assert.equal(retryImport.status,'HEALTH_PROOF_ALREADY_IMPORTED');assert.deepEqual(await read(journalPath(active)),beforeImport);
+  assert.ok(!readdirSync(controlDirectory).some(name=>name.includes('.tmp-')));checks.push('proof import atomically roundtrips on native private storage and retries without journal or phase changes');
   // A timeout/retry reads state; it does not restart the writer or relabel a journal.
   const jBefore=await read(journalPath(active)),inspected=await call('inspect-state');assert.equal(inspected.phase,'AWAIT_HEALTH');assert.equal(inspected.lockPresent,true);assert.deepEqual(await read(journalPath(active)),jBefore);checks.push('inspect after simulated client timeout preserves journal/lock');
   await reject('cooperative writer mutex rejects overlapping finalize','finish',active,'Operation busy',"$held=fopen('/adapter-fixture/control/receiver.lock','r+');if(!flock($held,LOCK_EX|LOCK_NB))throw new Exception('Fixture could not hold mutex');");
@@ -96,6 +118,8 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   await prove({alter:{payloadSha:'a'.repeat(40)}});await reject('health payload binding enforced','finish',active,'Health identity differs');
   await reject('foreign owner cannot finalize','finish',{...active,owner:'f'.repeat(32)},'Canonical path required');
   assert.equal((await read(journalPath(active))).phase,'AWAIT_HEALTH');
+  // Remove only the intentionally invalid proof injected by the adversarial harness.
+  await php("unlink('"+proofPath+"');");
   let good=await prove();assert.equal(good.httpStatus,200);assert.equal(good.marker,prepared.manifest.themeMarker);
   // Simulate elapsed wall time ONLY in this owned fixture, without a two-minute sleep.
   const aged=await call(null,active,"[$jp,$lp]=vne_adapter_journal_paths($a);$j=vne_adapter_json($jp);$l=vne_adapter_json($lp);$j['createdAt']=time()-180;$l['createdAt']=$j['createdAt'];$j['healthLease']['phaseStartedAt']=time()-160;$j['issuedAt']=time()-130;$j['expiresAt']=$j['issuedAt']+120;file_put_contents($jp,json_encode($j));file_put_contents($lp,json_encode($l));echo json_encode($j);");
@@ -131,7 +155,7 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   active={...approval,owner:randomBytes(16).toString('hex')};assert.equal((await call('install',active)).phase,'AWAIT_HEALTH');
   await call(null,active,"update_option('vne_fixture_owner_edit','keep-owner-edit');echo json_encode(true);");
   const editedData=await call(null,active,'echo json_encode(vne_adapter_data());');
-  await prove({fail:true});const pendingData=await read(journalPath(active));await reject('application data conflict stops challenge renewal','renew-health',{...active,expectedChallenge:pendingData.challenge},'Runtime data conflict');
+  await prove({fail:true,directFixture:true});const pendingData=await read(journalPath(active));await reject('application data conflict stops challenge renewal','renew-health',{...active,expectedChallenge:pendingData.challenge},'Runtime data conflict');
   assert.equal((await read(journalPath(active))).phase,'CONFLICT_INSPECT');assert.deepEqual(await call(null,active,'echo json_encode(vne_adapter_data());'),editedData);checks.push('intentional owner option edit survives data conflict with lock retained');
   assert.equal(await php("echo file_exists('/adapter-fixture/control/receiver.lock')?'yes':'no';"),'yes');
   // Reset ONLY this deliberate fixture conflict; preserve its CONFLICT_INSPECT journal.
@@ -144,7 +168,7 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   await php("unlink('/adapter-fixture/control/receiver.lock');if(file_exists('/wordpress/.maintenance'))unlink('/wordpress/.maintenance');");
   active={...approval,owner:randomBytes(16).toString('hex')};assert.equal((await call('install',active)).phase,'AWAIT_HEALTH');
   await call(null,active,"$p=WP_CONTENT_DIR.'/themes/vibelab-v2/index.php';file_put_contents($p,file_get_contents($p).'/* concurrent owner edit */');echo json_encode(true);");
-  await prove({fail:true});await reject('file conflict prevents rollback overwrite','finish',active,'Runtime file conflict');
+  await prove({fail:true,directFixture:true});await reject('file conflict prevents rollback overwrite','finish',active,'Runtime file conflict');
   const conflict=await read(journalPath(active));assert.equal(conflict.phase,'CONFLICT_INSPECT');
   await reject('conflict journal cannot be renewed or relabeled','renew-health',{...active,expectedChallenge:conflict.challenge},'Phase cannot renew/finalize');assert.deepEqual(await read(journalPath(active)),conflict);
   assert.equal(await php("echo file_exists('/adapter-fixture/control/receiver.lock')?'yes':'no';"),'yes');assert.ok((await php("echo file_get_contents('/wordpress/wp-content/themes/vibelab-v2/index.php');")).includes('concurrent owner edit'));checks.push('conflict preserves concurrent edit and own lock');

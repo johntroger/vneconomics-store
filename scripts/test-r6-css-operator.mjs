@@ -17,7 +17,7 @@ export async function exerciseOperator({php,approval,token,receiver,fixture}){
  for(const field of ['sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256'])assert.throws(()=>make({...approval,[field]:approval[field]+'\n'}));
  assert.throws(()=>buildOperatorBootstrap('inspect-inbox',approval,{fixtureToken:token+'\n'}));
  const prod={...approval,environment:'production'};assert.match(buildOperatorBootstrap('inspect-inbox',prod).command,/--skip-wordpress/);
- for(const mode of ['install','inspect-state','finish','confirm-rollback','renew-health'])assert.throws(()=>buildOperatorBootstrap(mode,prod),/Production runtime/);
+ for(const mode of ['install','inspect-state','finish','confirm-rollback','renew-health','import-health'])assert.throws(()=>buildOperatorBootstrap(mode,prod),/Production runtime/);
  assert.throws(()=>buildOperatorBootstrap('arbitrary();',approval,{fixtureToken:token}));checks.push('production only permits read-only inbox command; all runtime modes blocked');
  assert.equal((await run('function get_option(){};'+good.code)).error,'Use --skip-wordpress for inbox inspect');checks.push('already bootstrapped WordPress context rejected before inspect');
  const oldManifest=php.readFileAsBuffer(manifest);php.writeFile(manifest,'tampered');
@@ -35,6 +35,22 @@ export async function exerciseOperator({php,approval,token,receiver,fixture}){
  checks.push('renewal bootstrap binds exact expected challenge and remains local-only');
  for(const field of ['owner','baselineSha256'])assert.throws(()=>buildOperatorBootstrap('finish',{...runtime,[field]:runtime[field]+'\n'},{fixtureToken:token}));
  const key=randomBytes(32),now=Math.floor(Date.now()/1000),journal={...runtime,phase:'AWAIT_HEALTH',challenge:randomBytes(32).toString('hex'),issuedAt:now,expiresAt:now+120};
+ const proof={body:Buffer.from('{}').toString('base64'),signature:'a'.repeat(64)};
+ assert.match(buildOperatorBootstrap('import-health',runtime,{fixtureToken:token,proof}).command,/^eval '[^']+' --user=1$/);
+ assert.throws(()=>buildOperatorBootstrap('import-health',runtime,{fixtureToken:token}),/proof required/);
+ assert.throws(()=>buildOperatorBootstrap('import-health',runtime,{fixtureToken:token,proof:{...proof,path:'/tmp/evil'}}),/deep-equal/);
+ assert.throws(()=>buildOperatorBootstrap('import-health',runtime,{fixtureToken:token,proof:{...proof,body:'a'.repeat(10925)}}),/body size/);
+ assert.throws(()=>buildOperatorBootstrap('import-health',runtime,{fixtureToken:token,proof:{...proof,signature:proof.signature+'\n'}}),/Invalid length/);
+ assert.throws(()=>buildOperatorBootstrap('finish',runtime,{fixtureToken:token,proof}),/only allowed/);
+ checks.push('signed proof import bootstrap has closed bounded data input and is local-only');
+ // Windows native mounts may prohibit symlink creation. Exercise the actual path
+ // guard on the PHP virtual filesystem; native atomic replacement is tested separately.
+ const proofGuard='define("ABSPATH","/wordpress/");define("VNE_ADAPTER_RUNTIME_TOKEN","'+token+'");mkdir("/wordpress");file_put_contents("/wordpress/.adapter-owned","'+token+'");mkdir("/adapter-fixture/control");require "/adapter-fixture/inbox/receiver.php";$a=array("owner"=>"'+runtime.owner+'");';
+ const proofTarget='/adapter-fixture/control/proof-'+runtime.owner+'.json';
+ assert.equal((await run(proofGuard+'file_put_contents("/adapter-fixture/control/keep","keep");symlink("/adapter-fixture/control/keep","'+proofTarget+'");vne_adapter_proof_path($a);')).error,'Proof symlink refused');
+ assert.equal(php.readFileAsText('/adapter-fixture/control/keep'),'keep');php.unlink(proofTarget);php.unlink('/adapter-fixture/control/keep');
+ assert.equal((await run(proofGuard.replace('mkdir("/wordpress");','').replace('mkdir("/adapter-fixture/control");','')+'$a["owner"]="../escape";vne_adapter_proof_path($a);')).error,'Invalid proof owner');
+ checks.push('proof path rejects virtual symlink and escaping owner without modifying target');
  let behavior='good',requests=0;const css=Buffer.from('body{color:#123}'),marker='r6-css-'+runtime.sourceSha.slice(0,12);
  const server=createServer((req,res)=>{
   requests++;
