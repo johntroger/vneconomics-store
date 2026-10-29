@@ -162,3 +162,28 @@ for(const ending of ['\n','\r\n']){
  ]){const changed=mutate(text);assert.notEqual(changed,text,'Workflow mutation did not apply');assert.throws(()=>checkAdapterWorkflow(changed));adapterRejected++;}
 }
 console.log('PASS R7.13 inspect adapter CI policy; '+adapterRejected+' unsafe mutations rejected');
+
+function checkR717Workflow(text){
+ for(const pin of pins)assert.ok(text.includes(pin));
+ assert.ok(text.includes('actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9'));
+ assert.match(text,/permissions:\s*\n\s*contents: read/);assert.match(text,/persist-credentials: false/);
+ assert.match(text,/pull_request:\s*\n\s*paths:/);assert.match(text,/group: r717-rehearsal-/);
+ assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
+ assert.ok(text.includes('ORCHESTRATOR_SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}'));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/r717-adapter-candidate.mjs'));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r717-adapter-candidate.mjs --native'));
+ assert.equal((text.match(/git ls-remote origin refs\/heads\/release-production/g)||[]).length,2);
+ assert.ok(text.includes('fa4c67821008e0fcc4307fedf202bcdf95b85bb6'));
+ for(const name of ['manifest.json','receiver.php','theme.zip','plugin.zip','previous-theme.zip','previous-plugin.zip'])assert.ok(text.includes('artifacts/r717-adapter/files/'+name));
+ assert.match(text,/name: r717-rehearsal-proofs/);assert.match(text,/path: artifacts\/r717-adapter\/evidence\//);
+ assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|webhook|path: tmp|path: \.local/);
+}
+const r717Workflow=read('.github/workflows/r717-adapter-rehearsal.yml');checkR717Workflow(r717Workflow);let r717Rejected=0;
+for(const mutate of [
+ value=>value.replace('contents: read','contents: write'),
+ value=>value.replace('persist-credentials: false','persist-credentials: true'),
+ value=>value.replace(' --native',''),
+ value=>value.replace('artifacts/r717-adapter/files/receiver.php','tmp/private/health-key.json'),
+ value=>value.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
+]){const changed=mutate(r717Workflow);assert.notEqual(changed,r717Workflow);assert.throws(()=>checkR717Workflow(changed));r717Rejected++;}
+console.log('PASS R7.17 rehearsal artifact policy; '+r717Rejected+' unsafe mutations rejected');

@@ -1,0 +1,8 @@
+{
+  "output": [
+    "{\"status\":\"PASS_R717_PACKAGE_POLICY\",\"native\":false,\"checks\":[\"actual six-file package excludes private key proof journal DB and config\",\"artifact bytes match canonical build from frozen CSS/controller Git sources\",\"rehearsal source and controller are separate; production capability remains disabled\",\"real temporary Git payload has exact six-file tree and R6 parent; mismatched pins/profile rejected\",\"transport controller bytes are exact Git blob, not local working file\",\"package remains byte identical after verification/native test\"],\"sourceSha\":\"364e89f6b2a053c48937606ab6bba73200bfffcb\",\"controllerSourceSha\":\"f7f060466cd57457ed7adc1c165b8c035ed11ff2\",\"orchestratorSourceSha\":\"f7f060466cd57457ed7adc1c165b8c035ed11ff2\",\"executorCheckoutSha\":\"f7f060466cd57457ed7adc1c165b8c035ed11ff2\",\"manifestSha256\":\"ed926b0d17bde7cc87bd3ad207b359aa7592d094323627000c1a498c46e75789\",\"payloadFixtureOnly\":\"c382f786f22bda4a00205677f66adb4df411a016\",\"expectedProductionParent\":\"fa4c67821008e0fcc4307fedf202bcdf95b85bb6\",\"rehearsalOnly\":true,\"deployAuthorized\":false,\"payloadPublished\":false}",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "status": "PASS",
+  "cleanupLockPresent": false
+}
