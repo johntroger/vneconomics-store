@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "mainMergeSha": "77c45ca5e5e29963d53af287354a63a340c46d02",
+  "mainBefore": "578ce3073158a7bacfbfedef0b4feeef125a2570",
+  "ciTestedHead": "8c28858ed1d128f2b32ca2b5a311edfb0a22217f",
+  "parents": "578ce3073158a7bacfbfedef0b4feeef125a2570 8c28858ed1d128f2b32ca2b5a311edfb0a22217f",
+  "treeSha": "42ccc5cf36f7a63d3079bb75c2bb428b66293b0e",
+  "treeEqualsCiHead": true,
+  "applicationSourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "applicationPathsIdentical": true,
+  "otherRefs": [
+    "8c28858ed1d128f2b32ca2b5a311edfb0a22217f\trefs/heads/codex/main-source-reconciliation",
+    "dc90361d9ddceb7e5d38855a5149f7e4b8743a19\trefs/heads/codex/rebuild-r52-candidate",
+    "fa4c67821008e0fcc4307fedf202bcdf95b85bb6\trefs/heads/release-production"
+  ],
+  "localBranch": "codex/main-source-reconciliation",
+  "cleanupLockPresent": false,
+  "releaseBuildPerformed": false,
+  "productionDeploymentPerformed": false,
+  "manualChangesToPr2And3": false
+}

@@ -31,6 +31,9 @@ Mục đích: xác định tài liệu nào có quyền điều hành, tài li�
 22. [R73-ci.vi.md](acceptance/R73-ci.vi.md) — tách fast CI/build R52 và kiểm chính sách; PASS local, chủ dự án nghiệm thu 29/10/2026; chưa push/merge/chạy CI remote.
 23. [R74-github.vi.md](acceptance/R74-github.vi.md) — tạo PR #4 và fast CI PASS; chủ dự án nghiệm thu 29/10/2026; merge được ghi riêng tại R7.5.
 24. [R75-merge.vi.md](acceptance/R75-merge.vi.md) — PR #4 đã merge vào nhánh R52, tree khớp head đã CI PASS; chủ dự án nghiệm thu 29/10/2026; main/production giữ nguyên.
+25. [R76-main.vi.md](acceptance/R76-main.vi.md) — chuẩn bị draft PR #5 và exact-head fast CI PASS; chủ dự án nghiệm thu 29/10/2026; merge được ghi riêng tại R7.7.
+26. [R77-main-merge.vi.md](acceptance/R77-main-merge.vi.md) — PR #5 đã merge main tại77c45ca, tree khớp head CI PASS; chủ dự án nghiệm thu 29/10/2026; payload/production giữ nguyên.
+27. [R78-css-profile.vi.md](rebuild/R78-css-profile.vi.md) — hợp đồng candidate CSS-only pin baseline R6; kiểm local/native đạt, chưa phát hành production.
 
 Nếu các tài liệu khác nhau: `AGENTS.md` quyết định quyền; kế hoạch tái thiết quyết định gate; runbook/checklist quyết định thao tác; receipt production mới nhất quyết định production thực tế. Không suy production từ working tree, README, CI artifact hoặc source commit mới hơn.
 

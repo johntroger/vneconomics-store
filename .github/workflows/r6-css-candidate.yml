@@ -1,0 +1,57 @@
+name: R6 CSS-only candidate (manual, no deployment)
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact reviewed CSS source SHA; baseline must still be R6
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  candidate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env:
+      SOURCE_SHA: ${{ inputs.source_sha }}
+      CONTROLLER_SHA: ${{ github.sha }}
+    steps:
+      - name: Validate exact source input
+        shell: pwsh
+        run: |
+          if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$') { throw 'Invalid source SHA' }
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          # Execute trusted controller code; read candidate source through Git objects only.
+          ref: ${{ env.CONTROLLER_SHA }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify controller and R6 payload baseline
+        shell: pwsh
+        run: |
+          $actual = git rev-parse HEAD
+          if ($LASTEXITCODE -ne 0 -or $actual -cne $env:CONTROLLER_SHA) { throw 'Controller checkout differs' }
+          $baseline = git ls-remote origin refs/heads/release-production
+          if ($LASTEXITCODE -ne 0 -or $baseline -cnotmatch '^fa4c67821008e0fcc4307fedf202bcdf95b85bb6\s+refs/heads/release-production$') { throw 'R6 baseline moved; new profile required' }
+          $source = git rev-parse --verify ($env:SOURCE_SHA+'^{commit}')
+          if ($LASTEXITCODE -ne 0 -or $source -cne $env:SOURCE_SHA) { throw 'Candidate source object unavailable or differs' }
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Build CSS candidate from exact Git source
+        shell: pwsh
+        run: node scripts/run-clean.mjs script scripts/release-r6-css.mjs build $env:SOURCE_SHA
+      - name: Native theme-only update and rollback
+        shell: pwsh
+        run: node scripts/run-clean.mjs script scripts/test-r6-css-candidate.mjs $env:SOURCE_SHA
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: r6-css-${{ env.SOURCE_SHA }}
+          path: |
+            artifacts/r6-css/${{ env.SOURCE_SHA }}/
+            docs/acceptance/r6-css-candidates/${{ env.SOURCE_SHA }}/
+          if-no-files-found: error
+          retention-days: 21

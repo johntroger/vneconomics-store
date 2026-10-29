@@ -32,3 +32,6 @@ jobs:
       - name: Check candidate evidence policy
         shell: pwsh
         run: npm run test:pipeline-ci -- --u2
+      - name: Check R6 CSS candidate policy
+        shell: pwsh
+        run: node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs
