@@ -6,6 +6,8 @@ on:
       - 'scripts/release-r6-css-adapter.mjs'
       - 'scripts/test-r6-css-adapter.mjs'
       - 'scripts/test-r6-css-adapter-runtime.mjs'
+      - 'scripts/r6-css-operator.mjs'
+      - 'scripts/test-r6-css-operator.mjs'
       - 'scripts/local-runtime.mjs'
       - 'scripts/fixtures/s06-theme-seed.php'
       - 'docs/acceptance/S02/source-observations.json'

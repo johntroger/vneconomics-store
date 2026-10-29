@@ -5,6 +5,7 @@ import {randomBytes,createHmac} from 'node:crypto';
 import {startSite} from './local-runtime.mjs';
 import {sha256} from './release-lib.mjs';
 import {r6CssProfile} from './release-r6-css.mjs';
+import {buildOperatorBootstrap,collectLocalHealthProof} from './r6-css-operator.mjs';
 
 export async function exerciseAdapterRuntime({fixture,prepared,payload}){
  const directory=join(fixture,'adapter-runtime'),checks=[],token=randomBytes(32).toString('hex'),healthKey=randomBytes(32),keyHex=healthKey.toString('hex'),began=Date.now();let app;
@@ -38,6 +39,10 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   mkdirSync(join(directory,'wp-content/mu-plugins'),{recursive:true});writeFileSync(join(directory,'wp-content/mu-plugins/r714-health.php'),"<?php add_action('template_redirect',function(){if(($_SERVER['HTTP_X_R714_HEALTH_FAIL']??'')==='1'){status_header(503);echo 'fixture health failure';exit;}});");
   const approval={environment:'local-runtime',productionApproved:false,owner:randomBytes(16).toString('hex'),baselineSha256:'0'.repeat(64),requiredFreeBytes:300000000,sourceSha:prepared.manifest.sourceSha,controllerSourceSha:prepared.manifest.controller.sourceSha,payloadSha:payload,expectedParent:r6CssProfile.payload,manifestSha256:sha256(prepared.buffers['manifest.json']),receiverSha256:sha256(prepared.buffers['receiver.php'])};
   const call=async(mode,a=approval,extra='')=>{
+   if(mode&&!extra&&a.environment==='local-runtime'&&a.productionApproved===false&&a.requiredFreeBytes>=268435456){
+    const bootstrap=buildOperatorBootstrap(mode,a,{fixtureToken:token});
+    return json("define('WP_DISABLE_FATAL_ERROR_HANDLER',true);define('FS_METHOD','direct');require '/wordpress/wp-load.php';wp_set_current_user(get_user_by('login','admin')->ID);"+bootstrap.code);
+   }
    const encoded=Buffer.from(JSON.stringify(a)).toString('base64');
    return json("define('WP_DISABLE_FATAL_ERROR_HANDLER',true);define('FS_METHOD','direct');require '/wordpress/wp-load.php';define('VNE_ADAPTER_RUNTIME_TOKEN','"+token+"');wp_set_current_user(get_user_by('login','admin')->ID);$a=json_decode(base64_decode('"+encoded+"'),true);if(is_link('/adapter-fixture/inbox/receiver.php')||hash_file('sha256','/adapter-fixture/inbox/receiver.php')!==$a['receiverSha256'])throw new RuntimeException('External controller pin differs');require '/adapter-fixture/inbox/receiver.php';"+extra+(mode?"echo json_encode(vne_adapter_runtime_dispatch('"+mode+"',$a));":''));
   };
@@ -70,11 +75,10 @@ export async function exerciseAdapterRuntime({fixture,prepared,payload}){
   let active=approval,started=await call('install');assert.ok(!started.error,JSON.stringify(started));assert.equal(started.phase,'AWAIT_HEALTH');
   const journalPath=a=>'/adapter-fixture/control/journal-'+a.owner+'.json';
   const prove=async({a=active,fail=false,alter={},badSignature=false}={})=>{
-   const j=await read(journalPath(a)),url='http://127.0.0.1:19482/';
-   const page=await localFetch(url,{headers:fail?{'X-R714-Health-Fail':'1'}:{}}),html=await page.text();
-   const css=await localFetch(url+'wp-content/themes/vibelab-v2/style.css');
-   const h={owner:a.owner,sourceSha:a.sourceSha,controllerSourceSha:a.controllerSourceSha,payloadSha:a.payloadSha,manifestSha256:a.manifestSha256,phase:j.phase,challenge:j.challenge,observedAt:Math.floor(Date.now()/1000),url,httpStatus:page.status,cssStatus:css.status,marker:html.match(/name="vibelab-release" content="([^"]+)"/)?.[1]??null,cssSha256:sha256(Buffer.from(await css.arrayBuffer())),...alter};
-   const body=Buffer.from(JSON.stringify(h)),proof={body:body.toString('base64'),signature:badSignature?'0'.repeat(64):createHmac('sha256',healthKey).update(body).digest('hex')};
+   const j=await read(journalPath(a)),collected=await collectLocalHealthProof(a,j,{key:healthKey,fixtureToken:token,fixtureHttp503:fail});
+   // Adversarial proofs below belong only to this fault-injection harness.
+   const h={...collected.observation,...alter};
+   const body=Buffer.from(JSON.stringify(h)),proof=Object.keys(alter).length||badSignature?{body:body.toString('base64'),signature:badSignature?'0'.repeat(64):createHmac('sha256',healthKey).update(body).digest('hex')}:collected.proof;
    await php("file_put_contents('/adapter-fixture/control/proof-"+a.owner+".json',base64_decode('"+Buffer.from(JSON.stringify(proof)).toString('base64')+"'));");return h;
   };
   // A timeout/retry reads state; it does not restart the writer or relabel a journal.

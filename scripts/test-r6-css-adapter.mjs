@@ -75,6 +75,7 @@ try{
  php.writeFile(root+'/inbox/receiver.php',"<?php file_put_contents('/adapter-fixture/EXECUTED','bad');");
  await reject('tampered controller cannot execute','','Bootstrap controller pin differs');assert.equal(php.fileExists(root+'/EXECUTED'),false);php.writeFile(root+'/inbox/receiver.php',prepared.buffers['receiver.php']);
  assert.equal(php.fileExists(root+'/WORDPRESS_LOADED'),false);assert.equal(php.fileExists(root+'/inbox/receiver.lock'),false);checks.push('no WordPress bootstrap or lock created through all inspections');
+  const {exerciseOperator}=await import('./test-r6-css-operator.mjs');checks.push(...await exerciseOperator({php,approval,token,receiver:prepared.buffers['receiver.php']}));
 }finally{if(php)php.exit();for(const path of kept)assert.equal(sha256(readFileSync(path)),before[path],'Real local DB/config changed');}
 if(native){const {exerciseAdapterRuntime}=await import('./test-r6-css-adapter-runtime.mjs');checks.push(...await exerciseAdapterRuntime({fixture,prepared,payload}));}
 console.log(JSON.stringify({status:'PASS_R6_CSS_ADAPTER_INSPECT',native,checks,sourceFixtureOnly:source,controllerFixtureOnly:controller,payloadFixtureOnly:payload,installAuthorized:false,limits:['Runtime writer restricted to owned local fixture','Git object parent checked by Node, not PHP ref reader','No hosting/Plesk operation']}));
