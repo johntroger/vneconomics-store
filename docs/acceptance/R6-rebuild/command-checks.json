@@ -1,0 +1,27 @@
+{
+  "status": "PASS_R6_OPERATOR_COMMAND_SYNTAX",
+  "checks": [
+    {
+      "name": "private-verify-command.txt",
+      "syntax": "PASS",
+      "quoting": "PASS",
+      "releasePins": "PASS"
+    },
+    {
+      "name": "native-install-command.txt",
+      "syntax": "PASS",
+      "quoting": "PASS",
+      "releasePins": "PASS"
+    },
+    {
+      "name": "activate-command.txt",
+      "syntax": "PASS",
+      "quoting": "PASS",
+      "releasePins": "PASS"
+    }
+  ],
+  "limits": [
+    "Syntax and exact release pins only",
+    "Native ZIP/install/maintenance/activation operations rehearsed at R5.2; live effects require postflight"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "journalPath": "/var/www/vhosts/vneconomics.com/deploy-inbox/r6-rebuild-fa4c678.json",
+  "lockPath": "/var/www/vhosts/vneconomics.com/deploy-inbox/r6-rebuild-fa4c678.lock",
+  "journal": {
+    "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+    "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+    "baselineSha256": "a095f2cf4637a655f6a025ddf03b372a422b8a50cc608f7ac4db3400649ccc28",
+    "startedAt": 1793180355,
+    "phase": "ACTIVATED_PENDING_HEALTH",
+    "tables": {
+      "posts": "b9944b40f471527466eecc49e9dd79ae5c59638243d44fd8d15d27f0f23c625d",
+      "postmeta": "737bd547ae8f0f6079f6b85a041b6b26596edc41d9e3b554580b2ed2ca614db5",
+      "terms": "0348d24657e8952b1b68f158a931984965397f07d197f2156205b99b7d896c80",
+      "term_taxonomy": "7e2766ea925bbb18ff633b3df7c453f09711fa7bda443561ad47aace571279e3",
+      "term_relationships": "565fd8710a2eeb3a31b01431e9f642ce96af7ebfdeecc67d444006b30ba685fb"
+    },
+    "maintenanceEndedAt": 1793180433,
+    "maintenanceSeconds": 78
+  },
+  "lock": {
+    "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+    "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+    "baselineSha256": "a095f2cf4637a655f6a025ddf03b372a422b8a50cc608f7ac4db3400649ccc28",
+    "startedAt": 1793180355,
+    "phase": "MAINTENANCE_INSTALLING"
+  },
+  "maintenance": false
+}

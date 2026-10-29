@@ -1,66 +1,73 @@
 # Vneconomics Store
 
-> Hiện hành26/10/2026: R1–R5 đã tiếp nhận baseline qua local → GitHub → Plesk; R6 chốt hồ sơ theo phê duyệt riêng. Xem [runbook](docs/deployment-runbook.vi.md), [checklist](docs/release-checklist.vi.md) và [R6](docs/acceptance/R6-closeout.vi.md). Source đang phát hành4266b71/payload dc4af29, theme0.7.2/plugin0.4.2/schema3. Các mục trạng thái S13 bên dưới là lịch sử local, không phải hướng dẫn phát hành hiện hành.
+Repository public của website https://store.vneconomics.com/.
 
-Dự án riêng cho https://store.vneconomics.com/.
+## Trạng thái hiện hành
 
-## Trạng thái
+| Lớp | Trạng thái |
+|---|---|
+| Development | Theme v2 2.0.0, plugin header 0.4.3 trong working tree; không suy phiên bản production từ cây local |
+| Rebuild candidate | Source `50437bd16eae1912d8cffea093401449786faaea`, CI `40660368997`; đã cài theo R6 |
+| Production đã nghiệm thu 29/10/2026 | Payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, theme 2.0.0, plugin 0.4.4, schema 3; [receipt R6](docs/acceptance/R6-rebuild.vi.md) |
 
-- WordPress Playground, PHP 8.3, SQLite; chưa phải bản sao dữ liệu/plugin/theme trên hosting.
-- Đã có prototype S02, plugin dữ liệu/trạng thái/bản sửa S05, theme nền/trang chủ S06, danh mục/thẻ S07, trang chi tiết S08 và tìm/lọc S09 (PASS kỹ thuật local).
-- Baseline .local/site chưa kích hoạt theme/plugin; bản thử S13 dùng database riêng. Chưa đưa code thư viện lên hosting.
-- Repository riêng tư: https://github.com/johntroger/vneconomics-store
+Nguồn điều hành: [kế hoạch tái thiết v3](docs/website-rebuild-plan-current.vi.md), [bản đồ tài liệu](docs/current-docs-index.vi.md), [runbook](docs/deployment-runbook.vi.md) và [checklist phát hành](docs/release-checklist.vi.md).
 
+S00–S16 và staging là lịch sử của website hiện tại, không phải menu triển khai website làm lại.
 
-## Bản thử S13
-
-`npm run dev:s13` mở thư viện tích hợp tại http://127.0.0.1:9430/ với database riêng .local/s13-site.
-Lệnh tạo bản thử lần đầu; những lần sau không seed đè nội dung đã sửa. Bản này noindex, không gửi email, không cần API key để đọc bài.
-.local/site là baseline gốc, vẫn được giữ nguyên; không đưa .local lên Git hoặc hosting.
-Chỉ chạy sau khi các bộ fixture đã kết thúc vì cùng dùng khóa run-clean.
-
-S13 dùng plugin0.4.2, theme0.7.0; 122 kiểm tra tích hợp và sáu bộ hồi quy S05/S06/S09/S10/S11/S12 đạt; hậu kiểm hash/bảo toàn/cleanup đạt. Budget lab chưa đạt đủ: native có một lượt LCP3016ms vượt2500ms; WASM chậm hơn. Chưa nghiệm thu S13 hoặc cho phép S14.
-Chủ dự án trực tiếp thử và phản hồi theo [hướng dẫn](docs/S13-owner-review.vi.md).
-Xem [báo cáo](docs/acceptance/S13-local-integrated-acceptance.vi.md) và [hợp đồng nghiệm thu](docs/S13-local-acceptance-contract.vi.md).
 
 ## Chạy local
 
 ~~~powershell
-npm ci
-npm run dev
+npm ci --ignore-scripts
+# Chỉ khi clone mới/chưa có .local/site/wp-load.php:
+npm run local:init
+npm run dev:v2
 ~~~
 
-Mở http://127.0.0.1:9400. Dừng bằng Ctrl+C.
-Database local giữ ở .local/site; runtime WordPress ở .local/home. Không đưa hai
-thư mục này lên GitHub, không xóa database như file tạm. Lệnh dev mở site local
-hiện có, không tự kích hoạt theme/plugin hoặc nạp dữ liệu mẫu.
+Mở http://127.0.0.1:9472. Dừng bằng Ctrl+C trước khi chạy tác vụ có cleanup khác.
+Preview v2 giữ database riêng ở `.local/rebuild-v2`, chỉ tạo nội dung mẫu lần đầu.
+Sau khi lưu theme/plugin trong nguồn, đợi đồng bộ khoảng 750ms rồi refresh trình duyệt;
+chưa có tự reload trang. Không sửa code bằng editor WordPress trong preview.
+Mail, HTTP ngoài và cron bị tắt; nội dung mẫu không dùng để phát hành.
+
+`.local/site` và `.local/s13-site` cũ được giữ nguyên. `npm run dev` vẫn mở baseline
+ở cổng 9400 khi cần điều tra riêng. Không đưa `.local` lên GitHub hoặc xóa database
+như file tạm. Không cài lại thư viện mỗi lần sửa CSS;
+chạy `npm ci --ignore-scripts` khi thiếu dependency hoặc lockfile thay đổi.
 
 ## Kiểm thử
 
-~~~powershell
-npm test
-npm run test:revisions
-npm run test:theme
-npm run test:catalog
-npm run test:catalog-regression
-npm run test:detail
-npm run test:detail-catalog-regression
-npm run test:detail-home-regression
-npm run test:search
-npm run test:search-catalog-regression
-npm run test:search-detail-regression
-npm run test:search-home-regression
-~~~
+Chọn một module theo thay đổi, không chạy toàn bộ bảng cho mỗi chỉnh sửa.
 
-Chạy từng lệnh, không song song. npm test kiểm tra baseline hai boot; test:revisions
-kiểm tra S03–S05; test:theme khởi động fixture riêng với plugin/theme và dữ liệu
-QA để kiểm tra home, responsive, liên kết, bàn phím, JS lỗi, snapshot và state.
+| Thay đổi | Kiểm tra local |
+|---|---|
+| Tài liệu | `git diff --check` và link/ref bị tác động |
+| Homepage CSS/CTA | `npm run test:v2-smoke -- home` |
+| Catalog/detail v2 | `npm run test:v2-smoke -- discovery` và test logic bị ảnh hưởng |
+| Search v2 | `npm run test:v2-smoke -- search` và test logic/filter bị ảnh hưởng |
+| Guide v2 | `npm run test:v2-smoke -- guides` và test logic bị ảnh hưởng |
+| Admin/importer/schema | Test quyền/import/migration đúng phần thay đổi; smoke UI không thay thế các kiểm tra này |
+| Tokens/component dùng chung | Smoke các module trực tiếp bị ảnh hưởng |
+| Runtime preview/đồng bộ | `npm run test:v2-preview` kiểm persistence, sync và failure |
+| JavaScript/tooling | `npm run test:ci-fast` kiểm cú pháp; test hành vi đúng module nếu đổi logic |
+| Runtime/bootstrap/persistence | `npm run test:fast` — hai boot WordPress, không phải smoke v2 một trang |
 
-test:catalog kiểm tra taxonomy, counts, phân trang và thẻ. test:catalog-regression
-chạy lại S06 trên theme mới, ghi riêng tại docs/acceptance/S07/S06-regression.
+Module UI phải có smoke hành trình liên quan. Không tự chạy thêm smoke hai boot
+khi module đã kiểm runtime/hành trình và không đổi bootstrap/persistence.
+Smoke mới kiểm homepage và một hành trình được chọn trên desktop/mobile; không thay
+unit/integration hoặc full gate release. Nó dùng preview local đã giữ dữ liệu, không
+seed lại khi có marker. Lần đầu cần dữ liệu mẫu; nếu chủ dự án xóa/sửa mẫu đó, smoke
+có thể FAIL và không tự khôi phục nội dung để vượt test. Mỗi lượt có evidence riêng
+ở `docs/acceptance/R72-preview/<run-id>/`.
 
-test:detail kiểm tra single resource, điều kiện/nguồn/evidence/preview và responsive.
-Hai lệnh test:detail-*-regression ghi riêng bằng chứng hồi quy S07/S06 vào hồ sơ S08.
+Runner dùng Playwright Node và Microsoft Edge đã có sẵn. Ngoài môi trường Codex,
+đặt `VNE_PREVIEW_PLAYWRIGHT` tới file `index.mjs` của Playwright đã cài.
+Các runner R2–R4 dùng marker cũ chỉ còn phục vụ tái tạo gate tương ứng, không dùng
+chứng nhận source hiện tại. Xem [R7.1](docs/acceptance/R71-process.vi.md).
+
+Các alias S02–S16/staging trong package.json được giữ để tái tạo lịch sử,
+không thuộc menu mặc định. Full URL/privacy, build payload và backup theo cấp
+thay đổi chỉ chạy khi tới gate release được duyệt.
 
 Mọi runner qua scripts/run-clean.mjs, đóng browser/server trước khi dọn fixture
 và cache mới tạo, kể cả khi thất bại. Giữ bằng chứng ở docs/acceptance.
@@ -69,12 +76,16 @@ SQLite/PHP WebAssembly không thay thế kiểm thử PHP/MySQL/cache/plugin tr�
 
 ## Quy trình phát hành
 
-Local → kiểm thử → GitHub → Plesk webhook → thư mục mã tùy chỉnh.
-Chi tiết: [plesk-setup.md](docs/plesk-setup.md).
-Không đưa database, uploads, wp-config.php, khóa bí mật hoặc WordPress core vào
-nhánh triển khai. release chỉ nhận payload đã kiểm thử và được duyệt triển khai.
+Fast CI kiểm PR; bản sửa R7.3 thêm hủy lượt fast cũ cùng PR và chuyển build
+R52 sang gọi thủ công với exact source đã pin. Các sửa workflow cần được review
+qua PR trước khi áp dụng vào default branch; xem [R7.3](docs/acceptance/R73-ci.vi.md). Builder R52 là lịch sử,
+không dùng phát hành source mới sau R6 khi chưa có profile/baseline được duyệt.
 
-## Tiến độ theo bước
+`local → GitHub/CI → payload GitHub → Plesk private inbox → verify → production`.
+
+Không dùng staging cho lượt mới. Production Plesk giữ Manual/no post-action; không upload ZIP/code trực tiếp từ local. Build, push, CI PASS hoặc merge không tự cấp quyền production. Nội dung thường ngày như bài viết hoặc CTA đã cấu hình đi qua WordPress Draft → Preview → Publish và không cần phát hành lại code.
+
+## Lịch sử S00–S16
 
 [Báo cáo S05](docs/acceptance/S05-revisions-and-preview.vi.md) và
 [báo cáo S06](docs/acceptance/S06-theme-and-home.vi.md) (59 điểm kiểm tra PASS local).

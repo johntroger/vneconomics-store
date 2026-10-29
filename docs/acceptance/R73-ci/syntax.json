@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "command": "npm run test:ci-fast",
+  "output": [
+    "",
+    "> vneconomics-store@0.1.0 test:ci-fast",
+    "> node scripts/run-clean.mjs script scripts/test-ci-fast.mjs",
+    "",
+    "PASS JavaScript syntax 123 files",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "cleanupLockPresent": false
+}

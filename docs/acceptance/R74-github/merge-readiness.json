@@ -1,0 +1,19 @@
+{
+  "status": "READY_FOR_SEPARATE_MERGE_APPROVAL",
+  "dateLocal": "2026-10-29",
+  "pullRequest": "https://github.com/johntroger/vneconomics-store/pull/4",
+  "state": "OPEN",
+  "mergeable": "MERGEABLE",
+  "mergeStateStatus": "CLEAN",
+  "headRef": "codex/r7-local-preview-ci",
+  "headSha": "f10bec4df41a2fae3eb97dbf4357fcab02fe43b6",
+  "baseRef": "codex/rebuild-r52-candidate",
+  "baseSha": "9e5268ad8c1907ad94e523bfd7569a08b88dd9a3",
+  "ciRun": 40809965586,
+  "ciConclusion": "SUCCESS",
+  "mainSha": "578ce3073158a7bacfbfedef0b4feeef125a2570",
+  "productionPayloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "mergeAuthorized": false,
+  "mergePerformed": false,
+  "deploymentPerformed": false
+}

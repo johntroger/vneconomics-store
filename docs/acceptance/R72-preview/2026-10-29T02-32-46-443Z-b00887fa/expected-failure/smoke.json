@@ -1,0 +1,12 @@
+{
+  "module": "home",
+  "exitCode": 1,
+  "durationMs": 8455,
+  "timings": {
+    "prepareMs": 10746,
+    "bootMs": 40522,
+    "initializeMs": 11222,
+    "readyMs": 62491
+  },
+  "browserResult": "browser/result.json"
+}

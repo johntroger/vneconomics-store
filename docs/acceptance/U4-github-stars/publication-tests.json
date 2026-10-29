@@ -1,0 +1,23 @@
+{
+  "status": "PASS_STARS_PUBLICATION_GATE",
+  "sourceSha": "35a1646428bbe9dd2f382c9ae84eba84d736c479",
+  "checks": [
+    "code-only8members; no content importer payload",
+    "reject wrong workflow",
+    "reject wrong source",
+    "reject failed test",
+    "reject artifact missing",
+    "reject artifact expired",
+    "reject wrong attempt",
+    "reject no upload",
+    "reject wrong repository",
+    "reject stale upload",
+    "reject changed application archive",
+    "reject old content payload member",
+    "no Git ref mutation"
+  ],
+  "externalRequests": 0,
+  "limits": [
+    "Injected GitHub API only; preview validation, not publication/deployment"
+  ]
+}

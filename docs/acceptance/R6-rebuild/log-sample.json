@@ -1,0 +1,12 @@
+{
+  "status": "OBSERVED_DOMAIN_LOG_SAMPLE",
+  "firstDate": "2026-10-28 16:44:00",
+  "fiveXX": [],
+  "lastDate": "2026-10-29 08:42:59",
+  "phpFatal": [],
+  "rows": 1000,
+  "limits": [
+    "Loaded Plesk log rows only; not a full historical log audit",
+    "Native upgrader emitted nonfatal WooCommerce action-metadata warnings, retained in native-install-console.txt"
+  ]
+}

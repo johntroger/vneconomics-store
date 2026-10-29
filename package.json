@@ -4,8 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev:v2": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs dev",
+    "test:v2-smoke": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs smoke",
+    "test:v2-preview": "node scripts/run-clean.mjs script scripts/test-rebuild-preview.mjs",
     "dev": "node scripts/run-clean.mjs script scripts/dev.mjs",
     "test": "node scripts/run-clean.mjs script scripts/smoke.mjs",
+    "test:fast": "npm test",
+    "test:ci-fast": "node scripts/run-clean.mjs script scripts/test-ci-fast.mjs",
+    "test:workflow-contract": "node scripts/run-clean.mjs script scripts/test-r0b-workflows.mjs",
+    "test:promote-validator": "node scripts/run-clean.mjs script scripts/test-promote-validator.mjs",
+    "test:candidate": "node scripts/run-clean.mjs script scripts/release-candidate.mjs test",
+    "build:candidate": "node scripts/run-clean.mjs script scripts/release-candidate.mjs build",
     "local:init": "node scripts/run-clean.mjs script scripts/init-local.mjs",
     "prototype:build": "node scripts/run-clean.mjs script scripts/build-s02-prototype.mjs",
     "prototype:dev": "node scripts/run-clean.mjs script scripts/s02-prototype-server.mjs",
@@ -72,7 +81,14 @@
     "test:pipeline-packages": "node scripts/run-clean.mjs script scripts/test-pipeline-packages.mjs",
     "test:pipeline-native": "node scripts/run-clean.mjs script scripts/test-pipeline-native.mjs",
     "test:pipeline-ci": "node scripts/run-clean.mjs script scripts/test-pipeline-ci.mjs",
-    "test:pipeline-ci-cli": "node scripts/run-clean.mjs script scripts/test-pipeline-ci-cli.mjs"
+    "test:pipeline-ci-cli": "node scripts/run-clean.mjs script scripts/test-pipeline-ci-cli.mjs",
+    "test:github-stars": "node scripts/run-clean.mjs script scripts/test-github-stars-u1.mjs",
+    "build:github-stars": "node scripts/run-clean.mjs script scripts/github-stars-release.mjs",
+    "test:github-stars-packages": "node scripts/run-clean.mjs script scripts/test-github-stars-packages.mjs",
+    "test:github-stars-ui": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs --stars-u2",
+    "test:github-stars-publication": "node scripts/run-clean.mjs script scripts/test-github-stars-publication.mjs",
+    "publish:github-stars": "node scripts/run-clean.mjs script scripts/publish-github-stars.mjs",
+    "test:github-stars-production": "node scripts/run-clean.mjs script scripts/test-github-stars-production.mjs"
   },
   "devDependencies": {
     "@wp-playground/cli": "3.1.58"

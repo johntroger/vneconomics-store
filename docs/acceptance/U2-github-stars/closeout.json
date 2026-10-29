@@ -1,0 +1,31 @@
+{
+  "status": "PASS_U2_LOCAL",
+  "observedAt": "2026-10-26T13:55:53.2661112Z",
+  "packageSource": "eeb5e9331f58a8cfc0d3235dd5dea82c579c3558",
+  "manifestSha256": "bde61e45bc062ec7b0d58c042cc86e48bb8324135e92152227ee3d153ec72fc2",
+  "profile": "vne-073-043-stars1-schema3",
+  "checks": {
+    "ciPolicy": 73,
+    "collector": 373,
+    "ui": 315,
+    "historicalS14": 76,
+    "packages": 123,
+    "ciCli": 9
+  },
+  "applicationWorkingTreeMatchesTestedPackage": true,
+  "originalFileHashes": [
+    "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8",
+    "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    "0aa89fcfbdbc62d6822a770c222055c2515edbbec8c430f7e72ccd17a2eb3d47"
+  ],
+  "transientFixtureCount": 0,
+  "runnerLockPresent": false,
+  "runCacheCount": 0,
+  "externalActions": {
+    "liveGitHubApi": false,
+    "scheduler": false,
+    "deployment": false,
+    "githubPush": false,
+    "ciDispatch": false
+  }
+}

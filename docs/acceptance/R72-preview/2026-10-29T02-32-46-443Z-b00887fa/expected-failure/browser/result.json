@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "module": "home",
+  "error": "AssertionError [ERR_ASSERTION]: Current release marker\n+ actual - expected\n\n+ 'r52-v2-20261028'\n- 'DELIBERATE-WRONG-MARKER'\n\n    at visit (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/rebuild-preview-browser.mjs:31:10)\n    at async file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/rebuild-preview-browser.mjs:38:2",
+  "checks": [],
+  "visits": [],
+  "browserErrors": [],
+  "blockedExternalRequests": 0,
+  "durationMs": 8338
+}

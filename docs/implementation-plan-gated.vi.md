@@ -1,6 +1,12 @@
 # Kế hoạch triển khai từng bước có kiểm thử và phê duyệt
 
+> Tài liệu này là lịch sử S00–S16. Website làm lại dùng [kế hoạch v3](website-rebuild-plan-current.vi.md) và [bản đồ tài liệu hiện hành](current-docs-index.vi.md); không chạy lại S00–S16 nếu gate mới không phụ thuộc chúng.
+
+> Chỉ đạo mới của chủ dự án ngày26/10/2026: từ nay bỏ staging, phát hành local → GitHub/CI → production. Nội dung lịch sử về staging bên dưới được giữ làm bằng chứng, không còn là điều kiện bắt buộc cho lượt mới. Các cổng kiểm thử/phạm vi/ref, backup, rollback và quyền bật lịch vẫn áp dụng; xem runbook hiện hành.
+
 > Hiện hành26/10/2026: R1–R5 đã đạt; chủ dự án đã duyệt riêng R6 chốt hồ sơ/quy tắc. Xem [R6 và biên nhận kiểm chứng](acceptance/R6-closeout.vi.md), [runbook](deployment-runbook.vi.md), [checklist](release-checklist.vi.md). Source phát hành4266b71/CI40288437763, hai nhánh payload cùngdc4af29; R6 không đổi hosting/payload hoặc mở lô mới. Các bản ghi S13–S16 bên dưới là lịch sử. Bước tiếp, merge main và automation vẫn cần đúng quyền riêng.
+
+> **Tối ưu 27/10/2026:** S00–S16 bên dưới chỉ còn là hồ sơ lịch sử, không phải checklist phải chạy lại cho website làm mới. Vòng lặp hiện hành dùng ma trận nhanh trong `AGENTS.md` và [kế hoạch làm lại website](website-rebuild-plan-current.vi.md): test đúng phần bị tác động khi code local; full release/backup/evidence chỉ chạy ở gate production.
 
 Ngày: 19/10/2026. Phiên bản thực thi: 1.0.
 Tham chiếu: website-build-plan.vi.md 1.10 và yêu cầu mới của chủ dự án.

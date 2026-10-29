@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "diffCheck": "PASS",
+  "workflowContract": "PASS: 15 rejected unsafe mutations and 7 PowerShell guard cases",
+  "evidencePolicy": "PASS 73 checks",
+  "javascriptSyntax": "PASS 123 files",
+  "cleanupLockPresent": false,
+  "localReferencesChecked": 57,
+  "remoteActions": "none",
+  "workflowHashes": {
+    ".github/workflows/rebuild-candidate.yml": "54a0839d116ee51712a06e4c4d05d7d731b9741b8fd68c970e208868c315b362",
+    "scripts/test-r0b-workflows.mjs": "4771dbcace7d0608c790ce9e8d4e86bba51e2ce536c3b80addf4c43afb622fb8",
+    ".github/workflows/pr-fast.yml": "065efcb7a8222b55992896a4844ae9ea72fea951de8a9ad08c2b9807dfab6319"
+  }
+}

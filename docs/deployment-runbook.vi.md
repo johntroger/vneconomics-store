@@ -2,7 +2,17 @@
 
 Chốt theo R6 được chủ dự án duyệt ngày26/10/2026. Đây là quy trình vận hành; mỗi lần phát hành vẫn cần đúng gate và phạm vi đã duyệt. [Checklist](release-checklist.vi.md), [R5](acceptance/R5-production.vi.md), [R6](acceptance/R6-closeout.vi.md).
 
+**Quy định hiện hành theo chỉ đạo mới ngày26/10/2026:** bỏ staging. Đường phát hành là **local → GitHub/CI → payload GitHub → Plesk production → hậu kiểm**. Không cần receipt hoặc payload đã thử staging cho lượt mới. Giữ nguyên môi trường/bằng chứng staging lịch sử, không tự xóa hoặc đổi cấu hình. Việc chọn production không thay quyền duyệt phạm vi/ref, kiểm local/CI, backup, rollback và cổng bật lịch.
+
 ## Baseline và các đích
+
+Production hiện hành theo [receipt R6 v2 đóng ngày 29/10/2026](acceptance/R6-rebuild.vi.md): source `50437bd16eae1912d8cffea093401449786faaea`, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, manifest SHA256 `1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2`; theme 2.0.0/plugin 0.4.4/schema 3, 35 file app và giữ 38 file theme cũ, 106 tài nguyên/6 hướng dẫn/1 thực hành. Manual/private inbox, journal COMPLETE; chưa bật automation.
+
+**Giới hạn ví dụ bên dưới:** các lệnh receiver/profile R5 là lịch sử, không dùng cho v2. Inbox R6 chỉ có manifest và bốn ZIP, không có `receiver.php` hoặc `environments.json`. Các lệnh vận hành R6 được pin theo hồ sơ cụ thể; lượt mới cần baseline/profile/gate mới, không dùng command cũ như bộ phát hành tùy ý.
+
+Baseline trước cutover là U4 ngày 27/10/2026 (hồ sơ audit giữ local tại `docs/acceptance/U4-github-stars.vi.md`): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3/plugin 0.4.3/schema 3. Giữ receipt R5/U4 và staging dưới đây làm lịch sử; không dùng làm baseline runtime hiện tại. Receipt R6 ở trên là nguồn công khai hiện hành; không đưa raw audit hosting lên Git chỉ để sửa liên kết lịch sử.
+
+Cột staging trong bảng dưới chỉ là baseline lịch sử/read-only; không phải đích hoặc cổng của release mới.
 
 Source ứng dụng/payload đã tiếp nhận: `4266b71990702d87969a847e95d9c39933cb05a4`; [CI40288437763](https://github.com/johntroger/vneconomics-store/actions/runs/40288437763)218pipeline+75S14 đạt. Hai nhánh `release-staging`/`release-production` cùng payload `dc4af296692ddac2dd71dc9f1be4a69f1af29959`, manifest SHA256 `02953f231825577da95d1a71887a44ba07e425015412b5448581588af042bf34`. R6 chỉ chốt hồ sơ, không đổi các ref đang phát hành. Source commit chứa hồ sơ R6 có thể mới hơn; không thay số source trong receipt R5.
 
@@ -33,11 +43,11 @@ Mỗi lượt ghi source SHA40hex, CI run URL/conclusion, payload SHA40hex, mani
 3. CI phải checkout đúng SHA, chạy các kiểm tra bắt buộc và tạo artifact. Validator chung `pipeline-ci-policy.mjs` pin workflow pipeline-check.yml/ID được GitHub trả về, repo/source/event, run_attempt và payload job/bốn bước kiểm gói/S14/build/upload thành công. Nó đọc đủ trang jobs/artifact, yêu cầu artifact đúng run/source/repo có digest/còn hạn/được tạo trong upload của lượt đó, đọc lại run để chặn rerun và kiểm lại trước ghi ref. Không lấy success của workflow S14 lịch sử thay pipeline. Workflow hiện không deploy, không có hosting secret, chỉ contents:read. Dùng CI Windows2025/Node22 và tái dựng từ Git blob, không đóng gói working tree chưa commit.
 4. `npm run build:pipeline -- <source-SHA>` tạo thư mục bất biến `artifacts/pipeline/<source-SHA>/`. Kiểm gói bằng `npm run test:pipeline-packages -- <source-SHA> <evidence-dir>` và S14 lịch sử; nếu đổi app/receiver/schema phải chạy native/UI/migration phù hợp trước gate hosting.
 5. Tải artifact CI và đối chiếu byte với bản tái dựng local. Trong gói có9file payload + manifest =10file Git. `payload.zip` là vỏ local thứ11, không push vào nhánh payload hoặc upload lên hosting. Giữ bản artifact đã tải vì GitHub chỉ lưu1ngày.
-6. Chỉ sau duyệt gate tương ứng mới tạo/push nhánh payload. Kiểm allowlist10file, mọi hash, CI đúng source và normal fast-forward; không force, không đổi working tree để đóng gói. Với một ứng viên, production nhận đúng commit đã thử staging, không rebuild rồi gọi là cùng gói.
+6. Chỉ sau duyệt gate tương ứng mới tạo/push nhánh payload production. Kiểm allowlist theo profile (R5 lịch sử10file), mọi hash, CI đúng source và normal fast-forward; không force, không đổi working tree để đóng gói. Production nhận đúng payload đã đối chiếu artifact CI/local; không có bước staging và không rebuild rồi gọi là cùng gói.
 
 ## Plesk nhận và thao tác
 
-1. Đọc lại baseline và tạo backup mới trước thay đổi; kiểm hash/CRC và giữ bản quay lui thật. Từ chối lệch root/DB/home/indexing, symlink hoặc inbox dưới webroot. Plesk Pull đúng repository/branch, xác nhận Manual/đích rồi Deploy **chỉ vào private inbox**.
+1. Đọc lại baseline và phân cấp release. Cấp A không ghi persisted state phải có immutable previous code/rollback package đủ hash; cấp B tạo backup DB/file đúng phạm vi; cấp C tạo full backup và giữ một bản ngoài hosting. Backup áp dụng phải complete, có hash/CRC/manifest. Từ chối lệch root/DB/home/indexing, symlink hoặc inbox dưới webroot. Plesk Pull đúng repository/branch, xác nhận Manual/đích rồi Deploy **chỉ vào private inbox**.
 2. So sánh GitHub ref với symbolic HEAD/loose hoặc packed ref trên clone Plesk, source/manifest và toàn bộ10hash. Toast không đủ xác nhận. Receiver tự kiểm clone local, không gọi GitHub; người vận hành phải giữ cả bằng chứng GitHub và Plesk.
 3. Lệnh chỉ đọc: `wp --path=<root> --user=<reviewer> eval-file <inbox>/receiver.php inspect <environment>`. Trong ô Plesk đã có `wp`, bỏ tiền tố đó. Dùng đường thật đã kiểm; không chạy placeholder. Component MATCH cần đủ48hash; inspect không cài ứng dụng hoặc đổi schema.
 4. Approval JSON có đúng thứ tự `payloadSha`, `sourceSha`, `manifestSha256`, `baselineSha256`. `wp ... eval-file <inbox>/receiver.php <mode> <environment> '<approval-json>'`. Không tự tái tính baseline để vượt xung đột sau khi đã duyệt; giữ nguyên JSON khi retry vì receiver so sánh journal nghiêm ngặt.
@@ -51,7 +61,7 @@ Mỗi lượt ghi source SHA40hex, CI run URL/conclusion, payload SHA40hex, mani
 
 Profile `vne-072-042-schema3` và generator hiện pin baseline103mục, rollback0.7.1/36file; không tự nhận mọi phiên bản/100bài tương lai. Lô mới phải có danh sách nguồn/GitHub/date quan sát, nội dung tiếng Việt cho người mới, kiểm liên kết/claim/quyền sử dụng/phạm vi đã thử, natural-key và chính sách retry/conflict phù hợp. Kiểm chất lượng tự động không thay quyền mở gate. Không sao chép README hoặc coi nhiều sao là bằng chứng đã thử.
 
-Đổi phiên bản/schema cần profile/allowlist/manifest/rollback tương thích và kiểm migration/khôi phục local riêng. Nếu đổi config/receiver/importer/app, thử cùng ứng viên trên staging trước production. Không hạ plugin/schema tùy tiện; gói theme0.7.1 không phải phương án đảo migration schema tương lai. Kế hoạch cho lô/version mới cần được duyệt riêng, rồi thực hiện từng gate.
+Đổi phiên bản/schema cần profile/allowlist/manifest/rollback tương thích và kiểm migration/khôi phục local riêng. Nếu đổi config/receiver/importer/app, kiểm native/UI/phục hồi local trước CI và production; không yêu cầu staging. Không hạ plugin/schema tùy tiện; gói theme0.7.1 không phải phương án đảo migration schema tương lai. Kế hoạch cho lô/version mới cần được duyệt riêng, rồi thực hiện từng gate.
 
 ## Timeout, lỗi, retry và rollback
 

@@ -1,0 +1,26 @@
+{
+  "status": "PASS_R6_BASELINE_FILES_DATA",
+  "baselineSha256": "a095f2cf4637a655f6a025ddf03b372a422b8a50cc608f7ac4db3400649ccc28",
+  "files": 49,
+  "tables": 5,
+  "changedOptions": [
+    "_site_transient_timeout_theme_roots",
+    "_site_transient_timeout_wp_theme_files_patterns-2b73fc423b58f0ffbd0ab4785d2b0165",
+    "_site_transient_update_core",
+    "_site_transient_update_plugins",
+    "_transient_timeout__woocommerce_helper_subscriptions",
+    "_transient_timeout_woocommerce_admin_pes_incentive_woopayments_cache",
+    "_transient_timeout_woocommerce_admin_pes_incentive_woopayments_store_has_orders",
+    "_transient_timeout_woocommerce_admin_remote_free_extensions_specs",
+    "_transient_timeout_woocommerce_admin_remote_inbox_notifications_specs",
+    "_transient_timeout_woocommerce_marketplace_promotions_v2",
+    "_transient_woocommerce_admin_pes_incentive_woopayments_cache",
+    "_transient_woocommerce_admin_remote_inbox_notifications_specs",
+    "action_scheduler_lock_async-request-runner",
+    "cron",
+    "jetpack_options"
+  ],
+  "addedOptions": [
+    "_site_transient_update_themes"
+  ]
+}

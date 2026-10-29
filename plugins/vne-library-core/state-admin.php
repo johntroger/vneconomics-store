@@ -54,7 +54,7 @@ function vne_library_state_admin($id) {
         echo '<h3>Liên kết bước thực hành với tài nguyên</h3><p>Gắn lại chỉ xác nhận snapshot đang tham chiếu; không tự xác nhận bài đã thử.</p>';
         vne_library_state_form_start($id,'dependency');
         echo '<p><label for="vne-dependency-resource">Tài nguyên phụ thuộc</label> <select id="vne-dependency-resource" name="resource_id">';
-        foreach(get_posts(array('post_type'=>'vne_resource','post_status'=>'publish','numberposts'=>50)) as $post) { echo '<option value="'.(int)$post->ID.'">'.esc_html($post->post_title).'</option>'; }
+        foreach(get_posts(array('post_type'=>'vne_resource','post_status'=>'publish','numberposts'=>-1,'orderby'=>'title','order'=>'ASC')) as $post) { echo '<option value="'.(int)$post->ID.'">'.esc_html($post->post_title).'</option>'; }
         echo '</select></p>';
         vne_library_field('Bước phụ thuộc','step','');vne_library_field('Công cụ phụ thuộc','tool','');vne_library_field('Phiên bản phụ thuộc','version','');
         submit_button('Gắn hoặc đối chiếu lại liên kết');echo '</form>';
