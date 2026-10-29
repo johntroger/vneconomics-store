@@ -137,3 +137,24 @@ for(const mutate of [
  text=>text.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
 ]){assert.throws(()=>checkReceiverWorkflow(mutate(receiverWorkflow)));receiverRejected++;}
 console.log('PASS R7.11 fixture receiver CI policy; '+receiverRejected+' unsafe mutations rejected');
+
+function checkAdapterWorkflow(text){
+ for(const pin of pins)assert.ok(text.includes(pin));
+ assert.match(text,/permissions:\s*\n\s*contents: read/);
+ assert.match(text,/persist-credentials: false/);
+ assert.match(text,/group: css-adapter-/);
+ assert.match(text,/pull_request:\s*\n\s*paths:/);
+ assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r6-css-adapter.mjs'));
+ for(const dependency of ['release-tools/r6-css-adapter.php','scripts/release-r6-css-adapter.mjs','scripts/release-r6-css.mjs','scripts/release-lib.mjs','scripts/validate-payload-commit.mjs','scripts/run-clean.mjs','package*.json'])assert.ok(text.includes(dependency));
+ assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|upload-artifact|release-production|themes\/\*\*|style\.css/);
+}
+const adapterWorkflow=read('.github/workflows/css-adapter-check.yml');checkAdapterWorkflow(adapterWorkflow);
+let adapterRejected=0;
+for(const mutate of [
+ text=>text.replace('contents: read','contents: write'),
+ text=>text.replace('persist-credentials: false','persist-credentials: true'),
+ text=>text.replace('scripts/test-r6-css-adapter.mjs\n','scripts/skipped.mjs\n'),
+ text=>text.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
+]){assert.throws(()=>checkAdapterWorkflow(mutate(adapterWorkflow)));adapterRejected++;}
+console.log('PASS R7.13 inspect adapter CI policy; '+adapterRejected+' unsafe mutations rejected');
