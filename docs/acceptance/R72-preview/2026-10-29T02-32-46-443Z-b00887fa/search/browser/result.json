@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "module": "search",
+  "checks": [
+    "homepage: HTTP200, current marker, local banner, noindex, h1, no private fixture",
+    "search Astro returns fixture, noindex, no canonical",
+    "selected module desktop/mobile: no horizontal overflow",
+    "no browser console/page errors; external requests blocked"
+  ],
+  "visits": [
+    {
+      "path": "/",
+      "ms": 9918
+    },
+    {
+      "path": "/?vne_find=Astro",
+      "ms": 9090
+    }
+  ],
+  "browserErrors": [],
+  "blockedExternalRequests": 0,
+  "durationMs": 22031
+}

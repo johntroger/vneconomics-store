@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
 
 const read=path=>readFileSync(path,'utf8'),pr=read('.github/workflows/pr-fast.yml'),candidate=read('.github/workflows/pipeline-check.yml'),promote=read('.github/workflows/promote-production.yml'),historical=read('.github/workflows/release-package-check.yml');
 const pins=['actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1','actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1'];
@@ -12,3 +13,69 @@ assert.match(promote,/workflow_dispatch:/);assert.match(promote,/contents: write
 assert.ok(![pr,candidate,promote].some(text=>/secrets\./.test(text)),'New workflows must not consume repository secrets');
 assert.match(historical,/workflow_dispatch:/);assert.doesNotMatch(historical,/pull_request:/);
 console.log('PASS R0B workflow security contract 4 workflows');
+
+// R7.3: prevent accidental release builds and cancellation of production work.
+const rebuild=read('.github/workflows/rebuild-candidate.yml');
+const frozenSource='50437bd16eae1912d8cffea093401449786faaea';
+function checkFast(text){
+ const on=text.match(/^on:\r?\n([\s\S]*?)(?=^\S)/m)?.[1];assert.ok(on,'Missing fast trigger');
+ assert.match(on,/^  pull_request:/m);assert.doesNotMatch(on,/paths(?:-ignore)?:/);
+ assert.match(text,/group: fast-pr-\$\{\{ github\.event\.pull_request\.number \|\| github\.ref \}\}/);
+ assert.match(text,/cancel-in-progress: true/);
+ assert.doesNotMatch(text,/rebuild-release|test-rebuild-r52-native|build:candidate|git push|contents: write|secrets\./);
+ for(const command of ['test:ci-fast','test:workflow-contract','test:pipeline-ci -- --u2'])assert.ok(text.includes('npm run '+command),'Missing fast gate '+command);
+}
+function checkRebuild(text){
+ const on=text.match(/^on:\r?\n([\s\S]*?)(?=^\S)/m)?.[1];assert.ok(on,'Missing candidate trigger');
+ assert.deepEqual([...on.matchAll(/^  ([a-z_]+):/gm)].map(match=>match[1]),['workflow_dispatch'],'Candidate must be manual only');
+ assert.match(on,/source_sha:\s*\n\s+description:[^\n]*\n\s+required: true\s*\n\s+type: string/);
+ for(const pin of pins)assert.ok(text.includes(pin),'Missing candidate action pin');
+ assert.match(text,/permissions:\s*\n\s*contents: read/);
+ assert.doesNotMatch(text,/contents: write|persist-credentials: true|secrets\.|git push|webhook|post-deploy|cancel-in-progress: true/);
+ assert.match(text,/SOURCE_SHA: \$\{\{ inputs\.source_sha \}\}/);
+ assert.match(text,/ref: \$\{\{ env\.SOURCE_SHA \}\}/);
+ assert.doesNotMatch(text,/github\.sha/);
+ assert.ok(text.includes("-cnotmatch '^[a-f0-9]{40}$'"),'Missing input shape guard');
+ assert.ok(text.includes("-cne '"+frozenSource+"'"),'Missing frozen profile guard');
+ assert.ok(text.includes('$actual -cne $env:SOURCE_SHA'),'Missing checkout identity guard');
+ assert.ok(text.indexOf('Validate frozen R52 source')<text.indexOf('uses: actions/checkout@'),'Input must be checked before checkout');
+ assert.ok(text.indexOf('Verify checked out source')<text.indexOf('npm ci'),'Checkout must be checked before dependency execution');
+ for(const script of ['rebuild-release.mjs','test-rebuild-r52-native.mjs'])assert.ok(text.includes('scripts/'+script+' $env:SOURCE_SHA'),'Candidate gate missing '+script);
+ assert.match(text,/name: rebuild-\$\{\{ env\.SOURCE_SHA \}\}/);assert.match(text,/artifacts\/rebuild\/\$\{\{ env\.SOURCE_SHA \}\}\//);
+ for(const member of ['native-results.json','url-probes.json'])assert.ok(text.includes(member),'Missing evidence '+member);
+ assert.match(text,/if-no-files-found: error/);assert.match(text,/retention-days: 21/);
+ assert.ok(text.includes('actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9'),'Upload action must stay pinned');
+}
+checkFast(pr);checkRebuild(rebuild);
+let rejected=0;
+for(const mutate of [
+ text=>text.replace('  workflow_dispatch:','  push:'),
+ text=>text.replace('  workflow_dispatch:','  pull_request:\n  workflow_dispatch:'),
+ text=>text.replace('contents: read','contents: write'),
+ text=>text.replace('persist-credentials: false','persist-credentials: true'),
+ text=>text.replace('ref: ${{ env.SOURCE_SHA }}','ref: main'),
+ text=>text.replace('-cnotmatch','-cmatch'),
+ text=>text.replace(frozenSource,'a'.repeat(40)),
+ text=>text.replace('$actual -cne $env:SOURCE_SHA','$actual -ceq $env:SOURCE_SHA'),
+ text=>text.replace('test-rebuild-r52-native.mjs','skipped-native.mjs'),
+ text=>text.replace('if-no-files-found: error','if-no-files-found: warn'),
+ text=>text.replace('name: rebuild-${{ env.SOURCE_SHA }}','name: rebuild-${{ github.sha }}'),
+]){assert.throws(()=>checkRebuild(mutate(rebuild)));rejected++;}
+for(const mutate of [
+ text=>text.replace('cancel-in-progress: true','cancel-in-progress: false'),
+ text=>text.replace('fast-pr-${{ github.event.pull_request.number || github.ref }}','production-payload-promotion'),
+ text=>text.replace('test:workflow-contract','build:candidate'),
+ text=>text.replace('  pull_request:','  pull_request:\n    paths-ignore: [docs/**]'),
+]){assert.throws(()=>checkFast(mutate(pr)));rejected++;}
+// Execute the actual PowerShell guard blocks, without checkout/build or network.
+const inputGuard=rebuild.match(/name: Validate frozen R52 source\r?\n\s+shell: pwsh\r?\n\s+run: \|\r?\n([\s\S]*?)(?=^      -)/m)?.[1];
+const checkoutGuard=rebuild.match(/name: Verify checked out source\r?\n\s+shell: pwsh\r?\n\s+run: \|\r?\n([\s\S]*?)(?=^      -)/m)?.[1];
+assert.ok(inputGuard&&checkoutGuard,'Actual workflow guard blocks missing');
+function runGuard(code,source){return spawnSync('pwsh',['-NoProfile','-NonInteractive','-Command',"$ErrorActionPreference='Stop';\n"+code],{encoding:'utf8',windowsHide:true,env:{...process.env,SOURCE_SHA:source}});}
+for(const [source,accepted] of [[frozenSource,true],['main',false],['a'.repeat(40),false],[frozenSource.toUpperCase(),false],['$(throw "injection")',false]]){
+ const result=runGuard(inputGuard,source);if(result.error)throw result.error;assert.equal(result.status===0,accepted,'Input validation behavior: '+source);
+}
+const head=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8',windowsHide:true});assert.equal(head.status,0);
+assert.equal(runGuard(checkoutGuard,head.stdout.trim()).status,0,'Exact checkout accepted');
+assert.notEqual(runGuard(checkoutGuard,'a'.repeat(40)).status,0,'Wrong checkout refused');
+console.log(`PASS R7.3 manual candidate/fast policy; ${rejected} unsafe mutations rejected; 7 actual PowerShell guard cases`);

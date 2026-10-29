@@ -1,0 +1,12 @@
+{
+  "module": "search",
+  "exitCode": 0,
+  "durationMs": 13078,
+  "timings": {
+    "prepareMs": 7178,
+    "bootMs": 40342,
+    "initializeMs": 14740,
+    "readyMs": 62260
+  },
+  "browserResult": "browser/result.json"
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "module": "discovery",
+  "checks": [
+    "homepage: HTTP200, current marker, local banner, noindex, h1, no private fixture",
+    "saved source CSS appears in browser without restarting WordPress",
+    "homepage → catalog → seeded resource detail",
+    "selected module desktop/mobile: no horizontal overflow",
+    "no browser console/page errors; external requests blocked"
+  ],
+  "visits": [
+    {
+      "path": "/",
+      "ms": 7582
+    },
+    {
+      "path": "/tai-nguyen/",
+      "ms": 9954
+    },
+    {
+      "path": "/tai-nguyen/mau-local-astro/",
+      "ms": 8096
+    }
+  ],
+  "browserErrors": [],
+  "blockedExternalRequests": 0,
+  "durationMs": 40209
+}

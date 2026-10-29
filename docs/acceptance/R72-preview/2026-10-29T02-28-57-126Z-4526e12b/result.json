@@ -1,0 +1,28 @@
+{
+  "status": "FAIL",
+  "checks": [
+    "existing unowned site refused without modification",
+    "baseline local site cannot be selected as preview"
+  ],
+  "timings": [
+    {
+      "stage": "first-start",
+      "prepareMs": 6836,
+      "bootMs": 24061,
+      "initializeMs": 8745,
+      "readyMs": 39642
+    },
+    {
+      "stage": "source-css-visible",
+      "ms": 330
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Set VNE_PREVIEW_PYTHON to a Python executable with Playwright\n    at smokePreview (file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/rebuild-preview.mjs:20:9)\n    at file:///C:/Users/trant/CodexProjects/VneconomicsStore/scripts/test-rebuild-preview.mjs:35:60\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)",
+  "baselineUnchanged": true,
+  "baselineHashes": {
+    ".local/site/wp-content/database/.ht.sqlite": "f2a35e44c395fb790e6ea5524b21f2525d49f75d19ff129e8e3894fa08721fd8",
+    ".local/site/wp-config.php": "b2b3f3fe6dbf560b38db952a868df3120fff14bb39ba96ea34e2f26b5c2892f8",
+    "themes/vibelab-v2/style.css": "5ead36a54787348e79125959bd7dc5e5245f1e61602633b6f201705a5557750a",
+    "plugins/vne-library-core/vne-library-core.php": "7791276625a43f4c6adeaf0d45c7fec4e8f20ac130cce7d09ac25704f0283573"
+  }
+}

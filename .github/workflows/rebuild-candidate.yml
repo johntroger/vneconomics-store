@@ -1,26 +1,35 @@
-name: Rebuild candidate package and native checks
+name: Historical R52 candidate package and native checks (manual)
 on:
-  push:
-    branches: [codex/rebuild-r52-candidate]
-    paths:
-      - 'themes/vibelab-v2/**'
-      - 'plugins/vne-library-core/**'
-      - 'scripts/**'
-      - 'package*.json'
-      - '.github/workflows/rebuild-candidate.yml'
-      - 'docs/acceptance/S02/source-observations.json'
-      - 'docs/acceptance/R52-rebuild/production-url-snapshot.json'
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact approved historical R52 source SHA; new releases need a reviewed profile
+        required: true
+        type: string
 permissions:
   contents: read
 jobs:
   candidate:
     runs-on: windows-2025
     timeout-minutes: 15
+    env:
+      SOURCE_SHA: ${{ inputs.source_sha }}
     steps:
+      - name: Validate frozen R52 source
+        shell: pwsh
+        run: |
+          if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$') { throw 'source_sha must be 40 lowercase hex characters' }
+          if ($env:SOURCE_SHA -cne '50437bd16eae1912d8cffea093401449786faaea') { throw 'R52 profile is frozen; new releases require a reviewed profile and approval' }
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
+          ref: ${{ env.SOURCE_SHA }}
           fetch-depth: 0
           persist-credentials: false
+      - name: Verify checked out source
+        shell: pwsh
+        run: |
+          $actual = git rev-parse HEAD
+          if ($LASTEXITCODE -ne 0 -or $actual -cne $env:SOURCE_SHA) { throw 'Checked out source differs from requested source SHA' }
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
         with:
           node-version: '22'
@@ -28,19 +37,15 @@ jobs:
       - run: npm ci --ignore-scripts
       - name: Build packages from exact source
         shell: pwsh
-        env:
-          SOURCE_SHA: ${{ github.sha }}
         run: node scripts/run-clean.mjs script scripts/rebuild-release.mjs $env:SOURCE_SHA
       - name: Native installation maintenance and rollback
         shell: pwsh
-        env:
-          SOURCE_SHA: ${{ github.sha }}
         run: node scripts/run-clean.mjs script scripts/test-rebuild-r52-native.mjs $env:SOURCE_SHA
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
-          name: rebuild-${{ github.sha }}
+          name: rebuild-${{ env.SOURCE_SHA }}
           path: |
-            artifacts/rebuild/${{ github.sha }}/
+            artifacts/rebuild/${{ env.SOURCE_SHA }}/
             docs/acceptance/R52-rebuild/native-results.json
             docs/acceptance/R52-rebuild/url-probes.json
           if-no-files-found: error

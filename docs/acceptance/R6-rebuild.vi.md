@@ -1,6 +1,6 @@
 # R6 — Cutover theme v2 production
 
-Trạng thái: **PASS_R6_PRODUCTION_PENDING_OWNER_REVIEW**. Chủ dự án đã duyệt thực hiện R6 bằng “ok” sau hồ sơ R5.2, tiếp tục sau gián đoạn và đăng nhập lại Plesk. Cutover ngày 28/10/2026; hoàn tất hậu kiểm/biên nhận ngày 29/10/2026, 08:54:37 (Asia/Saigon).
+Trạng thái: **PASS_R6_PRODUCTION_OWNER_APPROVED**. Chủ dự án nghiệm thu bằng “ok” ngày 29/10/2026 sau báo cáo hoàn tất R6. Trước đó đã duyệt thực hiện R6 bằng “ok” sau hồ sơ R5.2, tiếp tục sau gián đoạn và đăng nhập lại Plesk. Cutover ngày 28/10/2026; hoàn tất hậu kiểm/biên nhận ngày 29/10/2026, 08:54:37 (Asia/Saigon).
 
 Website: [store.vneconomics.com](https://store.vneconomics.com/). Runtime hiện tại: theme **2.0.0**, marker `r52-v2-20261028`, plugin **0.4.4**, schema **3**; WordPress **7.1.4** được quan sát khi đóng R6. Còn nguyên **106 tài nguyên, 6 hướng dẫn, 1 bộ thực hành**.
 
@@ -29,4 +29,4 @@ Hậu kiểm **PASS**:
 
 Giới hạn: UI live kiểm ở 1280px; override 390px của browser không áp dụng nên không dùng ảnh desktop làm chứng cứ mobile. Gate R5.2 đã kiểm ba engine và các breakpoint trên candidate đúng byte. Private endpoint live không tạo canary trong production. Native CLI có cảnh báo không fatal từ WooCommerce `Undefined array key "action"`; giữ console local, không sửa plugin ngoài phạm vi. Core hiện được quan sát là 7.1.4, khác runtime fixture R5.2 7.1.3; lượt GET/runtime vừa kiểm trên production hiện tại đều đạt.
 
-R6 dừng để chủ dự án nghiệm thu. Git/Plesk vẫn Manual/private inbox; R7 tối ưu vận hành hoặc bật tự động cần gate riêng. Không bật scheduler, Automatic, post-action hoặc mở lô nội dung mới.
+R6 đã được chủ dự án nghiệm thu ngày 29/10/2026. Git/Plesk vẫn Manual/private inbox; R7 tối ưu vận hành hoặc bật tự động cần gate riêng. Không bật scheduler, Automatic, post-action hoặc mở lô nội dung mới.

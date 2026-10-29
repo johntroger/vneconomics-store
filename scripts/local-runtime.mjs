@@ -1,5 +1,7 @@
 import {mkdirSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {homedir} from 'node:os';
+export const localRuntimeUserHome=homedir();
 const home=resolve('.local/home');mkdirSync(home,{recursive:true});
 process.env.USERPROFILE=home;
 export async function startSite(directory,port=9400,{workers=6}={}){
