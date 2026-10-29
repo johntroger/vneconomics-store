@@ -11,6 +11,8 @@ export async function exerciseOperator({php,approval,token,receiver}){
  const good=make(approval);assert.match(good.command,/^eval '[^']+' --skip-wordpress --skip-packages$/);assert.equal(good.productionWriteAuthorized,false);
  assert.equal((await run(good.code)).status,'VERIFIED_INBOX_BYTES_AND_REF');checks.push('generated inspect bootstrap executes pinned controller without WordPress');
  for(const change of [{sourceSha:'HEAD'},{expectedParent:'a'.repeat(40)},{path:'/tmp/unsafe.php'},{receiverSha256:'";touch evil;#'},{environment:'unknown'}])assert.throws(()=>make({...approval,...change}));checks.push('invalid refs parent unknown fields paths and code injection rejected');
+ for(const field of ['sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256'])assert.throws(()=>make({...approval,[field]:approval[field]+'\n'}));
+ assert.throws(()=>buildOperatorBootstrap('inspect-inbox',approval,{fixtureToken:token+'\n'}));
  const prod={...approval,environment:'production'};assert.match(buildOperatorBootstrap('inspect-inbox',prod).command,/--skip-wordpress/);
  for(const mode of ['install','inspect-state','finish','confirm-rollback'])assert.throws(()=>buildOperatorBootstrap(mode,prod),/Production runtime/);
  assert.throws(()=>buildOperatorBootstrap('arbitrary();',approval,{fixtureToken:token}));checks.push('production only permits read-only inbox command; all runtime modes blocked');
@@ -22,6 +24,7 @@ export async function exerciseOperator({php,approval,token,receiver}){
  php.writeFile('/adapter-fixture/controller-copy.php',receiver);php.unlink(controller);php.symlink('/adapter-fixture/controller-copy.php',controller);
  assert.equal((await run(good.code)).error,'Bootstrap symlink refused');php.unlink(controller);php.writeFile(controller,receiver);php.unlink('/adapter-fixture/controller-copy.php');checks.push('controller symlink blocked before include');
  const runtime={...approval,environment:'local-runtime',productionApproved:false,owner:randomBytes(16).toString('hex'),baselineSha256:'a'.repeat(64),requiredFreeBytes:300000000};
+ for(const field of ['owner','baselineSha256'])assert.throws(()=>buildOperatorBootstrap('finish',{...runtime,[field]:runtime[field]+'\n'},{fixtureToken:token}));
  const key=randomBytes(32),now=Math.floor(Date.now()/1000),journal={...runtime,phase:'AWAIT_HEALTH',challenge:randomBytes(32).toString('hex'),issuedAt:now,expiresAt:now+120};
  let behavior='good',requests=0;const css=Buffer.from('body{color:#123}'),marker='r6-css-'+runtime.sourceSha.slice(0,12);
  const server=createServer((req,res)=>{
@@ -44,6 +47,7 @@ export async function exerciseOperator({php,approval,token,receiver}){
   await assert.rejects(()=>collectLocalHealthProof(runtime,{...journal,payloadSha:'a'.repeat(40)},options),/identity differs/);
   await assert.rejects(()=>collectLocalHealthProof(runtime,{...journal,expiresAt:now-1},options),/expired/);
   await assert.rejects(()=>collectLocalHealthProof(runtime,{...journal,phase:'COMPLETE'},options),/not awaiting/);
+  await assert.rejects(()=>collectLocalHealthProof(runtime,{...journal,challenge:journal.challenge+'\n'},options),/Invalid length/);
   await assert.rejects(()=>collectLocalHealthProof(runtime,journal,{...options,key:Buffer.alloc(1)}),/32 bytes/);
   await assert.rejects(()=>collectLocalHealthProof({...runtime,environment:'production'},journal,options),/Production runtime/);
   assert.equal(requests,before);checks.push('identity phase expiry key and production mismatch rejected before network');

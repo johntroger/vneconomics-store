@@ -4,6 +4,7 @@ import {r6CssProfile} from './release-r6-css.mjs';
 
 const pins={sourceSha:40,controllerSourceSha:40,payloadSha:40,expectedParent:40,manifestSha256:64,receiverSha256:64};
 const runtimeModes=['inspect-state','install','finish','confirm-rollback'];
+function exactHex(value,length,label){assert.equal(typeof value,'string','Invalid '+label);assert.equal(value.length,length,'Invalid length '+label);assert.match(value,/^[a-f0-9]+$/,'Invalid hex '+label);}
 export function validateOperatorRequest(mode,approval,fixtureToken){
  assert.ok(mode==='inspect-inbox'||runtimeModes.includes(mode),'Unknown operator mode');
  assert.ok(approval&&Object.getPrototypeOf(approval)===Object.prototype,'Plain approval required');
@@ -12,14 +13,14 @@ export function validateOperatorRequest(mode,approval,fixtureToken){
  assert.ok(!runtime||environment==='local-runtime','Production runtime bootstrap disabled');
  const fields=[...Object.keys(pins),'environment',...(runtime?['owner','baselineSha256','requiredFreeBytes','productionApproved']:[])].sort();
  assert.deepEqual(Object.keys(approval).sort(),fields,'Approval fields differ');
- for(const [key,length] of Object.entries(pins))assert.match(approval[key]??'',new RegExp('^[a-f0-9]{'+length+'}$'),'Invalid pin '+key);
+ for(const [key,length] of Object.entries(pins))exactHex(approval[key],length,key);
  assert.equal(approval.expectedParent,r6CssProfile.payload,'Unreviewed production parent');
- if(environment.startsWith('local-'))assert.match(fixtureToken??'',/^[a-f0-9]{64}$/,'Owned fixture token required');
+ if(environment.startsWith('local-'))exactHex(fixtureToken,64,'fixture token');
  else assert.equal(fixtureToken,undefined,'Fixture token in production request');
  assert.ok(environment!=='local-runtime'||runtime,'Use local-fixture for no-WordPress inspect');
  if(runtime){
   assert.equal(approval.productionApproved,false,'Production approval cannot enable fixture bootstrap');
-  assert.match(approval.owner??'',/^[a-f0-9]{32}$/);assert.match(approval.baselineSha256??'',/^[a-f0-9]{64}$/);
+  exactHex(approval.owner,32,'owner');exactHex(approval.baselineSha256,64,'baseline hash');
   assert.ok(Number.isSafeInteger(approval.requiredFreeBytes)&&approval.requiredFreeBytes>=268435456,'Invalid approved disk reserve');
  }
  return {runtime,environment};
@@ -55,7 +56,7 @@ export async function collectLocalHealthProof(approval,journal,{key,fixtureToken
  assert.ok(Buffer.isBuffer(key)&&key.length===32,'Private probe key must be 32 bytes');
  for(const field of ['owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','receiverSha256','baselineSha256'])assert.equal(journal[field],approval[field],'Journal/probe identity differs: '+field);
  assert.ok(['AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'].includes(journal.phase),'Probe phase is not awaiting health');
- assert.match(journal.challenge??'',/^[a-f0-9]{64}$/,'Probe challenge invalid');
+ exactHex(journal.challenge,64,'probe challenge');
  const fresh=()=>{const now=Math.floor(Date.now()/1000);assert.ok(Number.isSafeInteger(journal.issuedAt)&&Number.isSafeInteger(journal.expiresAt)&&journal.issuedAt<=now&&journal.expiresAt>=now&&journal.expiresAt>journal.issuedAt&&journal.expiresAt-journal.issuedAt<=120,'Probe challenge expired/invalid');return now;};fresh();
  const url='http://127.0.0.1:19482/',cssUrl=url+'wp-content/themes/vibelab-v2/style.css';
  const get=async(target,headers={})=>{

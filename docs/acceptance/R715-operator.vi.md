@@ -13,7 +13,7 @@ Tiếp nối [R7.14](R714-runtime.vi.md), thêm bộ sinh bootstrap và probe d�
 
 ## Kiểm chứng
 
-[Module local](R715-operator/module-test-1.json): PASS44 nhóm, gồm32 profile/inspect và12 operator. Bao phủ bootstrap thật trong PHP, WordPress context đã nạp, hash/manifest/symlink trước include, controller giả không được thực thi, field/path/code injection, các mode production bị chặn, HTTP thực, HMAC, expiry/identity, redirect và body quá lớn. Cleanup PASS.
+[Module local cuối](R715-operator/module-test-2.json): PASS44 nhóm, gồm32 profile/inspect và12 operator. Bao phủ bootstrap thật trong PHP, WordPress context đã nạp, hash/manifest/symlink trước include, controller giả không được thực thi, field/path/code injection, các mode production bị chặn, HTTP thực, HMAC, expiry/identity, redirect và body quá lớn. Bổ sung kiểm độ dài chính xác để từ chối newline cuối SHA/hash/token/owner/baseline/challenge; kiểm module lại sau thay đổi validation. Cleanup PASS; [lượt module đầu](R715-operator/module-test-1.json) được giữ.
 
 [Native local](R715-operator/native-test-1.json): PASS72 nhóm gồm44 module/inspect/operator và28 runtime; đoạn runtime351 giây. DB/config local thật giữ nguyên, cleanup PASS. Native harness dùng bootstrap mới cho entry bình thường và collector mới cho HTTP; entry/raw proof riêng chỉ giữ để fault-injection. Bản CI cuối sẽ dùng trực tiếp proof module trả về cho các ca bình thường.
 
