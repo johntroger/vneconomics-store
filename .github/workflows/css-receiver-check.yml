@@ -8,6 +8,11 @@ on:
       - 'scripts/fixtures/r711-negative-cases.php'
       - 'scripts/local-runtime.mjs'
       - 'scripts/release-r6-css.mjs'
+      - 'scripts/release-lib.mjs'
+      - 'scripts/validate-payload-commit.mjs'
+      - 'scripts/run-clean.mjs'
+      - 'scripts/fixtures/s06-theme-seed.php'
+      - 'docs/acceptance/S02/source-observations.json'
       - 'package*.json'
       - '.github/workflows/css-receiver-check.yml'
   workflow_dispatch:

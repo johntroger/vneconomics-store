@@ -125,6 +125,7 @@ function checkReceiverWorkflow(text){
  assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
  assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs --receiver'));
  assert.ok(text.includes('scripts/fixtures/r711-negative-cases.php'));
+ for(const dependency of ['scripts/release-lib.mjs','scripts/validate-payload-commit.mjs','scripts/run-clean.mjs','scripts/fixtures/s06-theme-seed.php','docs/acceptance/S02/source-observations.json'])assert.ok(text.includes(dependency),'Missing receiver dependency '+dependency);
  assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|upload-artifact|release-production|themes\/\*\*|style\.css/);
 }
 const receiverWorkflow=read('.github/workflows/css-receiver-check.yml');checkReceiverWorkflow(receiverWorkflow);

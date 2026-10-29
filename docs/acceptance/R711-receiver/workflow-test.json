@@ -1,5 +1,7 @@
 {
+  "cleanupLockPresent": false,
   "exitCode": 0,
+  "status": "PASS",
   "output": [
     "",
     "> vneconomics-store@0.1.0 test:workflow-contract",
@@ -10,7 +12,5 @@
     "PASS R7.8 trusted-controller CSS workflow; 7 unsafe workflow mutations rejected",
     "PASS R7.11 fixture receiver CI policy; 4 unsafe mutations rejected",
     "Temporary test data and run cache cleaned; existing data and deliverables kept."
-  ],
-  "status": "PASS",
-  "cleanupLockPresent": false
+  ]
 }
