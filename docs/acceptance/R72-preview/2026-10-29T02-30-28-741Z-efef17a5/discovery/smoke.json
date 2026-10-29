@@ -1,0 +1,12 @@
+{
+  "module": "discovery",
+  "exitCode": 1,
+  "durationMs": 147,
+  "timings": {
+    "prepareMs": 6587,
+    "bootMs": 24300,
+    "initializeMs": 6525,
+    "readyMs": 37412
+  },
+  "browserResult": "browser/result.json"
+}

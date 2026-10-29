@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "module": "guides",
+  "checks": [
+    "homepage: HTTP200, current marker, local banner, noindex, h1, no private fixture",
+    "guide list → detail → table-of-contents anchor",
+    "selected module desktop/mobile: no horizontal overflow",
+    "no browser console/page errors; external requests blocked"
+  ],
+  "visits": [
+    {
+      "path": "/",
+      "ms": 9990
+    },
+    {
+      "path": "/huong-dan/",
+      "ms": 9885
+    },
+    {
+      "path": "/huong-dan/mau-local-huong-dan-astro/",
+      "ms": 7457
+    }
+  ],
+  "browserErrors": [],
+  "blockedExternalRequests": 0,
+  "durationMs": 30921
+}

@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev:v2": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs dev",
+    "test:v2-smoke": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs smoke",
+    "test:v2-preview": "node scripts/run-clean.mjs script scripts/test-rebuild-preview.mjs",
     "dev": "node scripts/run-clean.mjs script scripts/dev.mjs",
     "test": "node scripts/run-clean.mjs script scripts/smoke.mjs",
     "test:fast": "npm test",

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "command": "npm run test:workflow-contract",
+  "seconds": 5.281,
+  "output": [
+    "",
+    "> vneconomics-store@0.1.0 test:workflow-contract",
+    "> node scripts/run-clean.mjs script scripts/test-r0b-workflows.mjs",
+    "",
+    "PASS R0B workflow security contract 4 workflows",
+    "PASS R7.3 manual candidate/fast policy; 15 unsafe mutations rejected; 7 actual PowerShell guard cases",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "cleanupLockPresent": false,
+  "remoteCiRunCreated": false
+}
