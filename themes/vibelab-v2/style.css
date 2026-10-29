@@ -1456,3 +1456,6 @@ p {
     background: CanvasText;
   }
 }
+
+/* R7.9 CI rehearsal only; no production change. */
+body { --r79-ci-rehearsal: verified; }
