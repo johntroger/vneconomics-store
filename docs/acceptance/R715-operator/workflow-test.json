@@ -1,0 +1,17 @@
+{
+  "exitCode": 0,
+  "cleanupLockPresent": false,
+  "output": [
+    "",
+    "> vneconomics-store@0.1.0 test:workflow-contract",
+    "> node scripts/run-clean.mjs script scripts/test-r0b-workflows.mjs",
+    "",
+    "PASS R0B workflow security contract 4 workflows",
+    "PASS R7.3 manual candidate/fast policy; 15 unsafe mutations rejected; 7 actual PowerShell guard cases",
+    "PASS R7.8 trusted-controller CSS workflow; 7 unsafe workflow mutations rejected",
+    "PASS R7.11 fixture receiver CI policy; 4 unsafe mutations rejected",
+    "PASS R7.13 inspect adapter CI policy; 8 unsafe mutations rejected",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "status": "PASS"
+}
