@@ -1,0 +1,97 @@
+{
+  "sourceSha": "644a01b8a6262f2f0e14b3a4715be48876ccfcca",
+  "status": "PASS_URL_PROBES",
+  "probes": [
+    {
+      "path": "/gioi-thieu/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "VibeLab",
+      "pass": true
+    },
+    {
+      "path": "/cau-hoi-thuong-gap/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "câu hỏi",
+      "pass": true
+    },
+    {
+      "path": "/tro-giup/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "Trợ giúp",
+      "pass": true
+    },
+    {
+      "path": "/tieu-chi-tuyen-chon/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "Tiêu chí",
+      "pass": true
+    },
+    {
+      "path": "/quyen-rieng-tu/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "riêng tư",
+      "pass": true
+    },
+    {
+      "path": "/dieu-kien-su-dung/",
+      "expectedStatus": 200,
+      "actualStatus": 200,
+      "contentExpected": "Điều kiện",
+      "pass": true
+    },
+    {
+      "path": "/shop/",
+      "expectedStatus": 301,
+      "actualStatus": 301,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/cart/",
+      "expectedStatus": 410,
+      "actualStatus": 410,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/checkout/",
+      "expectedStatus": 410,
+      "actualStatus": 410,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/my-account/",
+      "expectedStatus": 410,
+      "actualStatus": 410,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/hello-world/",
+      "expectedStatus": 410,
+      "actualStatus": 410,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/sample-page/",
+      "expectedStatus": 410,
+      "actualStatus": 410,
+      "contentExpected": "",
+      "pass": true
+    },
+    {
+      "path": "/?vne_support=tieu-chi",
+      "expectedStatus": 301,
+      "actualStatus": 301,
+      "contentExpected": "",
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "status": "PASS_R31_DISCOVERY_LOCAL",
+  "observedAt": "2026-10-28T02:46:12.388Z",
+  "runtime": "WordPress 7.1.3 / PHP 8.3 / SQLite; Microsoft Edge headless; Playwright Node",
+  "themeVersion": "2.0.0-alpha.2",
+  "releaseMarker": "r31-discovery-local",
+  "checks": [
+    "R3.1 version and marker are explicit",
+    "template exists archive-vne_resource.php",
+    "template exists taxonomy-vne_category.php",
+    "template exists single-vne_resource.php",
+    "template exists inc/seo.php",
+    "theme remains read-only",
+    "six approved resources seeded",
+    "Astro fixture available for journey",
+    "R3.1 release marker rendered",
+    "homepage canonical self",
+    "homepage reaches canonical catalog URL",
+    "catalog has one descriptive h1",
+    "catalog renders all six approved resources",
+    "catalog canonical self",
+    "catalog meta description",
+    "catalog exposes all categories plus all-resources",
+    "category landing has term h1",
+    "category landing scopes resources",
+    "category canonical self",
+    "catalog reaches resource detail",
+    "detail has approved h1",
+    "detail renders five claim groups",
+    "detail canonical self",
+    "detail meta description uses approved excerpt",
+    "detail source CTA uses verified source",
+    "external source CTA is isolated",
+    "detail breadcrumb returns to catalog",
+    "detail exposes approved content only",
+    "catalog no overflow desktop",
+    "catalog controls at least 44px desktop",
+    "catalog no overflow mobile",
+    "catalog controls at least 44px mobile",
+    "catalog no overflow small-mobile",
+    "catalog controls at least 44px small-mobile",
+    "detail no overflow desktop",
+    "detail controls at least 44px desktop",
+    "detail no overflow mobile",
+    "detail controls at least 44px mobile",
+    "detail no overflow small-mobile",
+    "detail controls at least 44px small-mobile",
+    "blocked source CTA points to explanation",
+    "blocked source CTA never opens external source",
+    "derived unavailable state is visible",
+    "draft resource remains 404 and private",
+    "no browser errors or external browser requests",
+    "live local database and config unchanged"
+  ],
+  "views": [
+    {
+      "page": "catalog",
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "page": "catalog",
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "page": "catalog",
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    },
+    {
+      "page": "detail",
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "page": "detail",
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "page": "detail",
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "screenshots": [
+    "catalog-desktop.png",
+    "catalog-mobile.png",
+    "detail-desktop.png",
+    "detail-mobile.png"
+  ],
+  "liveFilesUnchanged": true,
+  "limits": [
+    "Local isolated fixture, not Plesk/MariaDB",
+    "R3.1 discovery journey only; search/filter state belongs to R3.2",
+    "Edge/Chromium targeted gate; Firefox/WebKit reserved for release",
+    "State-unavailable case is synthetic fixture, not an external source observation"
+  ]
+}

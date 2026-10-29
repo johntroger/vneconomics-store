@@ -1,0 +1,101 @@
+{
+  "status": "PASS_R32_SEARCH_LOCAL",
+  "observedAt": "2026-10-28T03:12:45.859Z",
+  "runtime": "WordPress 7.1.3 / PHP 8.3 / SQLite; Microsoft Edge headless; Playwright Node",
+  "themeVersion": "2.0.0-alpha.3",
+  "releaseMarker": "r32-search-local",
+  "checks": [
+    "R3.2 version and marker are explicit",
+    "search file exists search.php",
+    "search file exists inc/search.php",
+    "theme remains read-only",
+    "eleven public resources prepared",
+    "Astro fixture available",
+    "header search reaches result heading",
+    "keyword narrows to one approved resource",
+    "search has no canonical",
+    "search is noindex follow",
+    "R3.2 marker rendered",
+    "search result reaches detail",
+    "need and tool filters combine",
+    "active filter summary is visible",
+    "category filter returns scoped resources",
+    "derived recommended status filters exactly",
+    "empty state has recovery heading",
+    "empty state offers clear action",
+    "invalid filter produces explicit error",
+    "invalid filter never broadens results",
+    "first result page contains nine resources",
+    "second result page contains remaining resources",
+    "pagination summary keeps result range",
+    "mobile filter panel starts closed",
+    "mobile filter opens by keyboard",
+    "mobile filter closes by keyboard without losing query",
+    "mobile panel preserves query state",
+    "search no overflow desktop",
+    "search controls at least 44px desktop",
+    "search no overflow mobile",
+    "search controls at least 44px mobile",
+    "search no overflow small-mobile",
+    "search controls at least 44px small-mobile",
+    "empty no overflow desktop",
+    "empty controls at least 44px desktop",
+    "empty no overflow mobile",
+    "empty controls at least 44px mobile",
+    "empty no overflow small-mobile",
+    "empty controls at least 44px small-mobile",
+    "no browser errors or external browser requests",
+    "live local database and config unchanged"
+  ],
+  "views": [
+    {
+      "page": "search",
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "page": "search",
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "page": "search",
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    },
+    {
+      "page": "empty",
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "page": "empty",
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "page": "empty",
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "screenshots": [
+    "search-desktop.png",
+    "search-mobile.png",
+    "empty-desktop.png",
+    "empty-mobile.png"
+  ],
+  "liveFilesUnchanged": true,
+  "limits": [
+    "Local isolated fixture, not Plesk/MariaDB",
+    "R3.2 resource search only; guide search belongs to R3.3",
+    "Edge/Chromium targeted gate; Firefox/WebKit reserved for release",
+    "Status and pagination additions are synthetic fixtures, not external observations"
+  ]
+}

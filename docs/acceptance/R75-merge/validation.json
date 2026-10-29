@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "mergeSha": "dc90361d9ddceb7e5d38855a5149f7e4b8743a19",
+  "ciTestedHead": "f10bec4df41a2fae3eb97dbf4357fcab02fe43b6",
+  "ciRun": 40809965586,
+  "newCiRunDispatched": false,
+  "treeMatchesCiHead": true,
+  "cleanupLockPresent": false,
+  "diffCheck": "PASS",
+  "localReferencesChecked": 46,
+  "mainMerged": false,
+  "productionDeploymentPerformed": false
+}

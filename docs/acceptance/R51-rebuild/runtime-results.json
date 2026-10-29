@@ -1,0 +1,17 @@
+{
+  "status": "PASS_R51_LOCAL_RUNTIME",
+  "checks": [
+    "previous theme active before preparation",
+    "inactive candidate corruption detected by hash",
+    "corrupt inactive candidate leaves previous theme active",
+    "candidate repaired and hash verified before activation",
+    "WordPress activates v2 and renders expected marker",
+    "synthetic health mismatch stops receipt",
+    "reactivating previous theme restores selection without changing posts or schema",
+    "existing local database/config unchanged"
+  ],
+  "limits": [
+    "Isolated WordPress/PHP8.3/SQLite, copied working-tree code; not an immutable candidate or native ZIP installation",
+    "Does not certify Plesk filesystem, disk capacity, locks or atomic operations; these require release preflight"
+  ]
+}

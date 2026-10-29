@@ -1,0 +1,23 @@
+{
+  "status": "PASS_R52_NATIVE_LOCAL",
+  "sourceSha": "f6a638c0eda2c6baad9f2cb055ccc073ff6f1aab",
+  "manifestSha256": "24fc4f08f7a4476ad4ece684d8e225f6d44da606b71d389a1949b368531e6211",
+  "checks": [
+    "exact source packages verified",
+    "two builds byte identical",
+    "native upgrader installed plugin",
+    "native upgrader installed theme",
+    "plugin installed file hashes match manifest",
+    "theme installed file hashes match manifest",
+    "new plugin compatible with previous active theme",
+    "native maintenance responds 503",
+    "native maintenance exits with v2 health marker",
+    "native upgrader installed previous-plugin",
+    "native upgrader installed previous-theme",
+    "native rollback restores previous pair/schema"
+  ],
+  "limits": [
+    "WordPress Playground PHP8.3/SQLite local; not Plesk/MariaDB",
+    "Full browser/URL release gate and CI/payload still required"
+  ]
+}

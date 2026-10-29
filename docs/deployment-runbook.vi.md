@@ -10,7 +10,7 @@ Production hiện hành theo [receipt R6 v2 đóng ngày 29/10/2026](acceptance/
 
 **Giới hạn ví dụ bên dưới:** các lệnh receiver/profile R5 là lịch sử, không dùng cho v2. Inbox R6 chỉ có manifest và bốn ZIP, không có `receiver.php` hoặc `environments.json`. Các lệnh vận hành R6 được pin theo hồ sơ cụ thể; lượt mới cần baseline/profile/gate mới, không dùng command cũ như bộ phát hành tùy ý.
 
-Baseline trước cutover là [U4 ngày 27/10/2026](acceptance/U4-github-stars.vi.md): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3/plugin 0.4.3/schema 3. Giữ receipt R5/U4 và staging dưới đây làm lịch sử; không dùng làm baseline runtime hiện tại.
+Baseline trước cutover là U4 ngày 27/10/2026 (hồ sơ audit giữ local tại `docs/acceptance/U4-github-stars.vi.md`): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3/plugin 0.4.3/schema 3. Giữ receipt R5/U4 và staging dưới đây làm lịch sử; không dùng làm baseline runtime hiện tại. Receipt R6 ở trên là nguồn công khai hiện hành; không đưa raw audit hosting lên Git chỉ để sửa liên kết lịch sử.
 
 Cột staging trong bảng dưới chỉ là baseline lịch sử/read-only; không phải đích hoặc cổng của release mới.
 

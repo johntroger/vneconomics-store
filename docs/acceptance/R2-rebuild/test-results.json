@@ -1,0 +1,79 @@
+{
+  "status": "PASS_R2_FOUNDATION_LOCAL",
+  "observedAt": "2026-10-28T02:35:23.419Z",
+  "runtime": "WordPress 7.1.3 / PHP 8.3 / SQLite; Microsoft Edge headless; Playwright Node",
+  "themeVersion": "2.0.0-alpha.1",
+  "contractVersion": "1",
+  "releaseMarker": "r2-foundation-local",
+  "checks": [
+    "theme has WordPress entry files",
+    "release and contract markers are explicit",
+    "static contract rejects theme-side writes and external calls",
+    "body ink contrast 14.82:1",
+    "muted copy contrast 5.66:1",
+    "links contrast 5.19:1",
+    "status contrast 5.20:1",
+    "focus indicator contrast 6.02:1",
+    "theme renders without plugin",
+    "plugin-unavailable state is explicit and marked",
+    "fixture provides six approved resources",
+    "theme/plugin contract is ready on schema 3",
+    "release marker rendered in document head",
+    "release marker rendered on body",
+    "homepage has one h1",
+    "foundation renders four approved resource rows",
+    "draft/private/proposal/editorial fields stay private",
+    "heading levels do not jump",
+    "no horizontal overflow desktop",
+    "interactive controls at least 44px desktop",
+    "no horizontal overflow laptop",
+    "interactive controls at least 44px laptop",
+    "no horizontal overflow mobile",
+    "interactive controls at least 44px mobile",
+    "no horizontal overflow small-mobile",
+    "interactive controls at least 44px small-mobile",
+    "first Tab reaches skip link",
+    "skip link focuses main",
+    "native mobile menu control is visible",
+    "Enter opens native mobile menu",
+    "Tab enters mobile menu",
+    "Enter closes native mobile menu",
+    "404 has usable recovery",
+    "index fallback preserves legacy content",
+    "no browser errors or external browser requests",
+    "live local database and config unchanged"
+  ],
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "label": "laptop",
+      "width": 1024,
+      "height": 900
+    },
+    {
+      "label": "mobile",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "label": "small-mobile",
+      "width": 320,
+      "height": 800
+    }
+  ],
+  "screenshots": [
+    "preview-desktop.png",
+    "preview-mobile.png"
+  ],
+  "liveFilesUnchanged": true,
+  "limits": [
+    "Local isolated fixture, not Plesk/MariaDB",
+    "R2 homepage/design-system foundation only; archive/search/detail/guide belong to R3",
+    "Edge/Chromium gate only; Firefox/WebKit reserved for release gate",
+    "Fixture source observations are cached S02 evidence; no external source refresh"
+  ]
+}

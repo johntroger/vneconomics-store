@@ -1,0 +1,55 @@
+{
+  "status": "PASS_R51_LOCAL_POLICY",
+  "checks": [
+    "theme activation is class B",
+    "reject approved",
+    "reject ciPassed",
+    "reject hashesMatch",
+    "reject allowlistMatch",
+    "reject privateInbox",
+    "reject backupComplete",
+    "reject rollbackVerified",
+    "reject exclusiveWriter",
+    "reject baseline conflict",
+    "reject schema mismatch",
+    "reject existing lock",
+    "reject low disk",
+    "reject bad source ref",
+    "reject missing manifest",
+    "install failure before activation",
+    "plugin failure",
+    "health failure after activation",
+    "client timeout",
+    "baseline conflict preserves edits",
+    "successful receipt"
+  ],
+  "policy": {
+    "profile": "vibelab-v2-cutover-schema3",
+    "schema": 3,
+    "changeClass": "B",
+    "theme": "vibelab-v2",
+    "marker": "r33-guides-local",
+    "maintenanceDeadlineSeconds": 300,
+    "order": [
+      "verify",
+      "maintenance",
+      "plugin",
+      "verify-plugin",
+      "theme-inactive",
+      "verify-theme",
+      "activate",
+      "health",
+      "receipt"
+    ],
+    "payloadRequired": [
+      "sourceSha",
+      "payloadSha",
+      "manifestSha256",
+      "baselineSha256"
+    ]
+  },
+  "limits": [
+    "Pure local policy and failure-decision tests; no installer, WordPress activation or Plesk filesystem operation executed",
+    "Candidate packaging and native installation rehearsal remain required at R5.2 before R6 approval"
+  ]
+}
