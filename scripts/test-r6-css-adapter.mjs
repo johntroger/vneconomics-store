@@ -49,7 +49,7 @@ try{
  const snapshot=async()=>run("$root='/adapter-fixture';$rows=array();foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($root,FilesystemIterator::SKIP_DOTS),RecursiveIteratorIterator::SELF_FIRST) as $f){$p=$f->getPathname();$rows[$p]=array('mode'=>$f->getPerms(),'bytes'=>$f->isFile()?hash_file('sha256',$p):null);}ksort($rows);echo json_encode($rows);");
  const initial=await snapshot(),good=await inspect();assert.equal(good.status,'VERIFIED_INBOX_BYTES_AND_REF',JSON.stringify(good));assert.equal(good.files,6);assert.equal(good.installAuthorized,false);assert.equal(good.gitObjectParentVerified,false);assert.equal(good.runtimeVerified,false);
  assert.deepEqual(await snapshot(),initial);checks.push('loose-ref inspect reads six files without filesystem changes or WordPress bootstrap');
- for(const mode of ['inspect-state','install','finish','confirm-rollback'])await reject(mode+' blocked before writes','','not implemented',"echo json_encode(vne_adapter_dispatch('"+mode+"',$a));");
+ for(const mode of ['inspect-state','install','finish','confirm-rollback','renew-health'])await reject(mode+' blocked before writes','','not implemented',"echo json_encode(vne_adapter_dispatch('"+mode+"',$a));");
  assert.deepEqual(await snapshot(),initial);checks.push('all blocked runtime/write modes preserve filesystem');
  await reject('source pin mismatch blocked',"$a['sourceSha']=str_repeat('a',40);",'Profile/source differs');
  await reject('controller source mismatch blocked',"$a['controllerSourceSha']=str_repeat('a',40);",'Controller identity differs');
@@ -75,7 +75,7 @@ try{
  php.writeFile(root+'/inbox/receiver.php',"<?php file_put_contents('/adapter-fixture/EXECUTED','bad');");
  await reject('tampered controller cannot execute','','Bootstrap controller pin differs');assert.equal(php.fileExists(root+'/EXECUTED'),false);php.writeFile(root+'/inbox/receiver.php',prepared.buffers['receiver.php']);
  assert.equal(php.fileExists(root+'/WORDPRESS_LOADED'),false);assert.equal(php.fileExists(root+'/inbox/receiver.lock'),false);checks.push('no WordPress bootstrap or lock created through all inspections');
-  const {exerciseOperator}=await import('./test-r6-css-operator.mjs');checks.push(...await exerciseOperator({php,approval,token,receiver:prepared.buffers['receiver.php']}));
+  const {exerciseOperator}=await import('./test-r6-css-operator.mjs');checks.push(...await exerciseOperator({php,approval,token,receiver:prepared.buffers['receiver.php'],fixture}));
 }finally{if(php)php.exit();for(const path of kept)assert.equal(sha256(readFileSync(path)),before[path],'Real local DB/config changed');}
 if(native){const {exerciseAdapterRuntime}=await import('./test-r6-css-adapter-runtime.mjs');checks.push(...await exerciseAdapterRuntime({fixture,prepared,payload}));}
 console.log(JSON.stringify({status:'PASS_R6_CSS_ADAPTER_INSPECT',native,checks,sourceFixtureOnly:source,controllerFixtureOnly:controller,payloadFixtureOnly:payload,installAuthorized:false,limits:['Runtime writer restricted to owned local fixture','Git object parent checked by Node, not PHP ref reader','No hosting/Plesk operation']}));

@@ -143,12 +143,19 @@ function vne_adapter_write_scope(){
 }
 function vne_adapter_write_journal($path,$j){
     vne_adapter_write_scope();vne_adapter_need(preg_match('~^/adapter-fixture/control/journal-[a-f0-9]{32}\.json$~D',$path)&&!is_link($path),'Journal path/symlink refused');$temp=$path.'.tmp-'.bin2hex(random_bytes(8));
-    try{$bytes=json_encode($j,JSON_THROW_ON_ERROR);vne_adapter_need(file_put_contents($temp,$bytes,LOCK_EX)===strlen($bytes),'Journal write failed');vne_adapter_need(rename($temp,$path),'Journal rename failed');}finally{if(is_file($temp))unlink($temp);}
+    $handle=null;
+    try{$bytes=json_encode($j,JSON_THROW_ON_ERROR);$handle=fopen($temp,'x');vne_adapter_need($handle!==false,'Exclusive journal temp create failed');vne_adapter_need(fwrite($handle,$bytes)===strlen($bytes),'Journal write failed');vne_adapter_need(fclose($handle),'Journal temp close failed');$handle=null;vne_adapter_need(rename($temp,$path),'Journal rename failed');}
+    finally{if(is_resource($handle))fclose($handle);if(is_file($temp))unlink($temp);}
 }
-function vne_adapter_owned($a,$phase){
-    [$path,$lock]=vne_adapter_journal_paths($a);$j=vne_adapter_json($path);$l=vne_adapter_json($lock);
+function vne_adapter_owned($a,$phase,$operationHandle=null){
+    [$path,$lock]=vne_adapter_journal_paths($a);$j=vne_adapter_json($path);
+    if(is_resource($operationHandle)){
+        vne_adapter_path($lock);$opened=fstat($operationHandle);$current=stat($lock);vne_adapter_need($opened['ino']===$current['ino']&&$opened['dev']===$current['dev'],'Operation lock replaced');
+        rewind($operationHandle);$l=json_decode(stream_get_contents($operationHandle),true,512,JSON_THROW_ON_ERROR);
+    }else{$l=vne_adapter_json($lock);}
     foreach(array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','baselineSha256','receiverSha256') as $key)vne_adapter_need(($j[$key]??null)===$a[$key]&&($l[$key]??null)===$a[$key],'Journal/lock ownership differs');
     vne_adapter_need(($j['baseline']??null)===($l['baseline']??null)&&hash('sha256',wp_json_encode($j['baseline']??null))===$a['baselineSha256'],'Journal baseline differs');
+    vne_adapter_need(is_int($j['createdAt']??null)&&$j['createdAt']===($l['createdAt']??null),'Journal operation clock differs; historical journal unsupported');
     vne_adapter_need(($j['phase']??null)===$phase,'Unexpected journal phase');return array($path,$lock,$j);
 }
 function vne_adapter_upgrade_local($zip){
@@ -159,7 +166,30 @@ function vne_adapter_upgrade_local($zip){
     finally{wp_installing($previous);}
 }
 function vne_adapter_maintenance_off(){vne_adapter_write_scope();(new WP_Upgrader(new Automatic_Upgrader_Skin()))->maintenance_mode(false);}
-function vne_adapter_challenge(&$j,$phase){$j['phase']=$phase;$j['challenge']=bin2hex(random_bytes(32));$j['issuedAt']=time();$j['expiresAt']=$j['issuedAt']+120;}
+function vne_adapter_challenge(&$j,$phase){
+    if(($j['healthLease']['phase']??null)!==$phase)$j['healthLease']=array('version'=>1,'phase'=>$phase,'phaseStartedAt'=>time());
+    $j['phase']=$phase;$j['challenge']=bin2hex(random_bytes(32));$j['issuedAt']=time();$j['expiresAt']=$j['issuedAt']+120;
+}
+function vne_adapter_renew_health($a,$path,$j){
+    vne_adapter_need(is_string($a['expectedChallenge']??null)&&preg_match('/^[a-f0-9]{64}$/D',$a['expectedChallenge']),'Expected renewal challenge required');
+    $now=time();$lease=$j['healthLease']??array();$history=$j['renewalHistory']??null;
+    vne_adapter_need(($lease['version']??null)===1&&($lease['phase']??null)===$j['phase']&&is_int($lease['phaseStartedAt']??null)&&is_int($j['issuedAt']??null)&&is_int($j['expiresAt']??null)&&$lease['phaseStartedAt']>=$j['createdAt']&&$lease['phaseStartedAt']<=$j['issuedAt']&&$j['expiresAt']===$j['issuedAt']+120&&$j['issuedAt']<=$now&&is_array($history)&&array_is_list($history),'Invalid health lease/history');
+    $phaseCount=0;foreach($history as $i=>$entry){
+        vne_adapter_need(is_array($entry)&&($entry['sequence']??null)===$i+1&&in_array($entry['phase']??null,array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true)&&is_int($entry['renewedAt']??null)&&$entry['renewedAt']>=$j['createdAt']&&$entry['renewedAt']<=$now&&preg_match('/^[a-f0-9]{64}$/D',$entry['previousChallengeSha256']??'')&&preg_match('/^[a-f0-9]{64}$/D',$entry['newChallengeSha256']??''),'Invalid renewal audit');
+        if($entry['phase']===$j['phase'])$phaseCount++;
+    }
+    if(!hash_equals($j['challenge'],$a['expectedChallenge'])){
+        $last=$history?end($history):null;
+        vne_adapter_need($last&&$last['phase']===$j['phase']&&$last['previousChallengeSha256']===hash('sha256',$a['expectedChallenge'])&&$last['newChallengeSha256']===hash('sha256',$j['challenge']),'Stale renewal challenge');
+        return array_merge($j,array('renewalOutcome'=>'ALREADY_RENEWED'));
+    }
+    vne_adapter_need($now>=$j['createdAt']&&$now-$j['createdAt']<=900,'Renewal recovery window exceeded');
+    vne_adapter_need($phaseCount<2&&count($history)<4,'Phase/operation renewal limit reached');
+    vne_adapter_need(!file_exists(ABSPATH.'.maintenance')&&!is_link(ABSPATH.'.maintenance'),'Existing maintenance; inspect');
+    $old=$j;vne_adapter_challenge($j,$j['phase']);
+    $j['renewalHistory'][]=array('sequence'=>count($history)+1,'phase'=>$j['phase'],'previousChallengeSha256'=>hash('sha256',$old['challenge']),'newChallengeSha256'=>hash('sha256',$j['challenge']),'issuedAt'=>$old['issuedAt'],'expiresAt'=>$old['expiresAt'],'renewedAt'=>$now);
+    vne_adapter_write_journal($path,$j);return array_merge($j,array('renewalOutcome'=>'RENEWED'));
+}
 function vne_adapter_health($a,$j,$p,$previous){
     // The private key/proof are local harness resources, never in the Git payload.
     $key=vne_adapter_json('/adapter-fixture/control/health-key.json');$proof=vne_adapter_json('/adapter-fixture/control/proof-'.$a['owner'].'.json');
@@ -173,6 +203,14 @@ function vne_adapter_health($a,$j,$p,$previous){
     return ($h['httpStatus']??0)===200&&($h['cssStatus']??0)===200&&($h['marker']??'')===($previous?'r52-v2-20261028':$p['manifest']['themeMarker'])&&($h['cssSha256']??'')===hash('sha256',$p['maps'][$previous?'previous-theme':'theme']['vibelab-v2/style.css']);
 }
 function vne_adapter_runtime_dispatch($mode,$a){
+    vne_adapter_runtime_scope($a);
+    if(!in_array($mode,array('renew-health','finish','confirm-rollback'),true))return vne_adapter_runtime_dispatch_locked($mode,$a);
+    // Serialize cooperative journal writers; keep the existing logical owner lock.
+    [$path,$lock]=vne_adapter_journal_paths($a);vne_adapter_path($lock);$handle=fopen($lock,'r+');vne_adapter_need($handle!==false,'Cannot open operation lock');
+    $held=false;try{$held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Operation busy; inspect before retry');return vne_adapter_runtime_dispatch_locked($mode,$a,$handle);}
+    finally{if($held)flock($handle,LOCK_UN);fclose($handle);}
+}
+function vne_adapter_runtime_dispatch_locked($mode,$a,$operationHandle=null){
     vne_adapter_runtime_scope($a);$p=vne_adapter_runtime_package($a);[$path,$lock]=vne_adapter_journal_paths($a);vne_adapter_path('/adapter-fixture/control');
     if($mode==='inspect-state'){
         $exists=file_exists($path)||file_exists($lock);$data=$exists?vne_adapter_data():vne_adapter_runtime_state($p,true);
@@ -185,15 +223,18 @@ function vne_adapter_runtime_dispatch($mode,$a){
         $needed=268435456;foreach($p['manifest']['components'] as $component){$needed+=$component['bytes'];foreach($component['files'] as $f)$needed+=$f['bytes'];}
         vne_adapter_need(is_int($a['requiredFreeBytes']??null)&&$a['requiredFreeBytes']>=$needed,'Disk reserve not approved');
         $free=disk_free_space(WP_CONTENT_DIR);vne_adapter_need($free!==false&&$free>=$a['requiredFreeBytes'],'Insufficient disk reserve');
-        $j=array_intersect_key($a,array_flip(array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','baselineSha256','receiverSha256')));$j['baseline']=$data;$j['phase']='INSTALLING';
+        $j=array_intersect_key($a,array_flip(array('owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','baselineSha256','receiverSha256')));$j['baseline']=$data;$j['phase']='INSTALLING';$j['createdAt']=time();$j['renewalHistory']=array();
         $handle=fopen($lock,'x');vne_adapter_need($handle!==false,'Exclusive lock failed');$bytes=json_encode($j,JSON_THROW_ON_ERROR);vne_adapter_need(fwrite($handle,$bytes)===strlen($bytes),'Lock write failed');fclose($handle);vne_adapter_write_journal($path,$j);
         try{vne_adapter_upgrade_local($p['paths']['inbox'].'/theme.zip');vne_adapter_need(vne_adapter_runtime_state($p,false)===$data,'Install data conflict');vne_adapter_maintenance_off();vne_adapter_challenge($j,'AWAIT_HEALTH');vne_adapter_write_journal($path,$j);return $j;}
         catch(Throwable $e){$j['phase']='STOPPED_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
     }
-    vne_adapter_need(in_array($mode,array('finish','confirm-rollback'),true),'Unknown runtime mode');
-    [$path,$lock,$j]=vne_adapter_owned($a,$mode==='finish'?'AWAIT_HEALTH':'ROLLBACK_AWAIT_HEALTH');
-    try{vne_adapter_need(vne_adapter_runtime_state($p,$mode==='confirm-rollback')===$j['baseline'],'Runtime data conflict');}
+    vne_adapter_need(in_array($mode,array('finish','confirm-rollback','renew-health'),true),'Unknown runtime mode');
+    $phase=$mode==='renew-health'?(vne_adapter_json($path)['phase']??'') : ($mode==='finish'?'AWAIT_HEALTH':'ROLLBACK_AWAIT_HEALTH');
+    vne_adapter_need(in_array($phase,array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true),'Phase cannot renew/finalize');
+    [$path,$lock,$j]=vne_adapter_owned($a,$phase,$operationHandle);
+    try{vne_adapter_need(vne_adapter_runtime_state($p,$phase==='ROLLBACK_AWAIT_HEALTH')===$j['baseline'],'Runtime data conflict');}
     catch(Throwable $e){$j['phase']='CONFLICT_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
+    if($mode==='renew-health')return vne_adapter_renew_health($a,$path,$j);
     $good=vne_adapter_health($a,$j,$p,$mode==='confirm-rollback');
     if($mode==='confirm-rollback'){vne_adapter_need($good,'Rollback HTTP health failed');$j['phase']='ROLLED_BACK';}
     elseif($good)$j['phase']='COMPLETE';
@@ -202,5 +243,5 @@ function vne_adapter_runtime_dispatch($mode,$a){
         try{vne_adapter_upgrade_local($p['paths']['inbox'].'/previous-theme.zip');vne_adapter_need(vne_adapter_runtime_state($p,true)===$j['baseline'],'Rollback data conflict');vne_adapter_maintenance_off();vne_adapter_challenge($j,'ROLLBACK_AWAIT_HEALTH');vne_adapter_write_journal($path,$j);return $j;}
         catch(Throwable $e){$j['phase']='STOPPED_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
     }
-    vne_adapter_write_journal($path,$j);vne_adapter_owned($a,$j['phase']);vne_adapter_need(unlink($lock),'Own lock cleanup failed');return $j;
+    vne_adapter_write_journal($path,$j);vne_adapter_owned($a,$j['phase'],$operationHandle);vne_adapter_need(unlink($lock),'Own lock cleanup failed');return $j;
 }
