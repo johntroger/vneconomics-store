@@ -115,3 +115,24 @@ for(const mutate of [
 assert.ok(pr.includes('scripts/test-r6-css-profile.mjs'),'Fast CI must test the candidate policy');
 assert.ok(!pr.includes('test-r6-css-profile.mjs --native'),'Native release rehearsal does not belong in every fast PR');
 console.log(`PASS R7.8 trusted-controller CSS workflow; ${cssRejected} unsafe workflow mutations rejected`);
+
+function checkReceiverWorkflow(text){
+ for(const pin of pins)assert.ok(text.includes(pin));
+ assert.match(text,/permissions:\s*\n\s*contents: read/);
+ assert.match(text,/persist-credentials: false/);
+ assert.match(text,/group: css-receiver-/);
+ assert.match(text,/pull_request:\s*\n\s*paths:/);
+ assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs --receiver'));
+ assert.ok(text.includes('scripts/fixtures/r711-negative-cases.php'));
+ assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|upload-artifact|release-production|themes\/\*\*|style\.css/);
+}
+const receiverWorkflow=read('.github/workflows/css-receiver-check.yml');checkReceiverWorkflow(receiverWorkflow);
+let receiverRejected=0;
+for(const mutate of [
+ text=>text.replace('contents: read','contents: write'),
+ text=>text.replace('persist-credentials: false','persist-credentials: true'),
+ text=>text.replace(' --receiver',' --native'),
+ text=>text.replace("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'",'if: true'),
+]){assert.throws(()=>checkReceiverWorkflow(mutate(receiverWorkflow)));receiverRejected++;}
+console.log('PASS R7.11 fixture receiver CI policy; '+receiverRejected+' unsafe mutations rejected');

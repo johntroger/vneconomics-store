@@ -1,0 +1,38 @@
+name: CSS receiver fixture checks (no deployment)
+on:
+  pull_request:
+    paths:
+      - 'release-tools/r6-css-fixture-receiver.php'
+      - 'scripts/test-r6-css-receiver.mjs'
+      - 'scripts/test-r6-css-profile.mjs'
+      - 'scripts/fixtures/r711-negative-cases.php'
+      - 'scripts/local-runtime.mjs'
+      - 'scripts/release-r6-css.mjs'
+      - 'package*.json'
+      - '.github/workflows/css-receiver-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: css-receiver-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  receiver:
+    if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'
+    runs-on: windows-2025
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        shell: pwsh
+        run: npm ci --ignore-scripts
+      - name: Check isolated receiver update health rollback and conflicts
+        shell: pwsh
+        run: node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs --receiver
