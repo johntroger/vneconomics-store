@@ -145,8 +145,8 @@ function checkAdapterWorkflow(text){
  assert.match(text,/group: css-adapter-/);
  assert.match(text,/pull_request:\s*\n\s*paths:/);
  assert.ok(text.includes("if: github.event_name == 'pull_request' || github.ref == 'refs/heads/main'"));
- assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r6-css-adapter.mjs'));
- for(const dependency of ['release-tools/r6-css-adapter.php','scripts/release-r6-css-adapter.mjs','scripts/release-r6-css.mjs','scripts/release-lib.mjs','scripts/validate-payload-commit.mjs','scripts/run-clean.mjs','package*.json'])assert.ok(text.includes(dependency));
+ assert.ok(text.includes('node scripts/run-clean.mjs script scripts/test-r6-css-adapter.mjs --native'));
+ for(const dependency of ['release-tools/r6-css-adapter.php','scripts/release-r6-css-adapter.mjs','scripts/test-r6-css-adapter-runtime.mjs','scripts/local-runtime.mjs','scripts/fixtures/s06-theme-seed.php','docs/acceptance/S02/source-observations.json','scripts/release-r6-css.mjs','scripts/release-lib.mjs','scripts/validate-payload-commit.mjs','scripts/run-clean.mjs','package*.json'])assert.ok(text.includes(dependency));
  assert.doesNotMatch(text,/contents: write|secrets\.|git push|gh pr merge|upload-artifact|release-production|themes\/\*\*|style\.css/);
 }
 const adapterWorkflow=read('.github/workflows/css-adapter-check.yml');checkAdapterWorkflow(adapterWorkflow);
