@@ -1,6 +1,8 @@
-# R5.2 — Candidate đã kiểm chứng, chờ duyệt R6
+# R5.2 — Candidate đã kiểm chứng và được duyệt cho R6
 
-Ngày: 28/10/2026. Trạng thái: **PASS_R52_CANDIDATE_PENDING_OWNER_R6**.
+Ngày: 28/10/2026. Trạng thái: **PASS_R52_OWNER_APPROVED**.
+
+Cập nhật 29/10/2026: chủ dự án đã duyệt R6 theo hồ sơ này; cutover/hậu kiểm/cleanup hoàn tất tại [báo cáo R6](R6-rebuild.vi.md). Các câu “chưa deploy/xin duyệt” bên dưới ghi trạng thái của hồ sơ candidate trước khi R6 được thực hiện, không thay receipt production mới nhất.
 
 ## Kết quả chốt R5.2
 

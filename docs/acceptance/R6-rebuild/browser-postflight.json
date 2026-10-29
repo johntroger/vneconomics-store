@@ -1,0 +1,38 @@
+{
+  "status": "PASS_R6_LIVE_DESKTOP_FLOWS",
+  "checks": [
+    {
+      "check": "homepage desktop 1280px marker and no horizontal overflow",
+      "pass": true
+    },
+    {
+      "check": "catalog shows 12 rows of 106 resources",
+      "pass": true
+    },
+    {
+      "check": "catalog opens Activepieces detail with source/revision and report link",
+      "pass": true
+    },
+    {
+      "check": "resource report form reachable, noindex, GET only",
+      "pass": true
+    },
+    {
+      "check": "Codex search shows two matching results, no canonical",
+      "pass": true
+    },
+    {
+      "check": "guide inventory 6 guides plus 1 practice, real lesson and TOC anchor",
+      "pass": true
+    }
+  ],
+  "submittedReports": false,
+  "mobileLive": {
+    "status": "NOT_VERIFIED_VIEWPORT_OVERRIDE_IGNORED",
+    "requestedWidth": 390,
+    "observedWidth": 1280
+  },
+  "limits": [
+    "Responsive/three-engine candidate gate passed at R5.2; this live visual check verified desktop only"
+  ]
+}

@@ -6,7 +6,11 @@ Chốt theo R6 được chủ dự án duyệt ngày26/10/2026. Đây là quy tr
 
 ## Baseline và các đích
 
-Production hiện hành theo [receipt U4 ngày 27/10/2026](acceptance/U4-github-stars.vi.md): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, manifest SHA256 `d18cd7336172dbe17efab3dd031bde903a36c6fe53442735e2ff43e8e35c719c`; theme 0.7.3/plugin 0.4.3/schema 3, 49 file, 106 tài nguyên/6 hướng dẫn/1 thực hành. Đây là đối chiếu receipt, chưa phải kiểm tra live mới. Baseline R5 bên dưới giữ làm lịch sử; không dùng để dựng rollback cho lượt mới.
+Production hiện hành theo [receipt R6 v2 đóng ngày 29/10/2026](acceptance/R6-rebuild.vi.md): source `50437bd16eae1912d8cffea093401449786faaea`, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, manifest SHA256 `1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2`; theme 2.0.0/plugin 0.4.4/schema 3, 35 file app và giữ 38 file theme cũ, 106 tài nguyên/6 hướng dẫn/1 thực hành. Manual/private inbox, journal COMPLETE; chưa bật automation.
+
+**Giới hạn ví dụ bên dưới:** các lệnh receiver/profile R5 là lịch sử, không dùng cho v2. Inbox R6 chỉ có manifest và bốn ZIP, không có `receiver.php` hoặc `environments.json`. Các lệnh vận hành R6 được pin theo hồ sơ cụ thể; lượt mới cần baseline/profile/gate mới, không dùng command cũ như bộ phát hành tùy ý.
+
+Baseline trước cutover là [U4 ngày 27/10/2026](acceptance/U4-github-stars.vi.md): source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3/plugin 0.4.3/schema 3. Giữ receipt R5/U4 và staging dưới đây làm lịch sử; không dùng làm baseline runtime hiện tại.
 
 Cột staging trong bảng dưới chỉ là baseline lịch sử/read-only; không phải đích hoặc cổng của release mới.
 

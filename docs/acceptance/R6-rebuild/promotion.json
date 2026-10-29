@@ -1,0 +1,16 @@
+{
+  "status": "PROMOTED_EXACT_APPROVED_PAYLOAD",
+  "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "ciRun": "40660368997",
+  "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "manifestSha256": "1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2",
+  "previousPayloadSha": "80729d511b2f2f168a96a495a4e5cadc93377759",
+  "baselineSha256": "a095f2cf4637a655f6a025ddf03b372a422b8a50cc608f7ac4db3400649ccc28",
+  "method": "normal git fast-forward after exact candidate validation and CI recheck",
+  "workflowDispatch": "HTTP 404: workflow absent from default branch; no run created",
+  "mainMerged": false,
+  "backupLocalPath": "C:/Users/trant/Downloads/store.vneconomics.com__2026-10-28T16_24_33+0700.zip",
+  "backupLocalSha256": "cdf07d9ef214437ace842cf6119b7b416768e41f46e51d95cbf1ee26703c76d8",
+  "backupLocalMatchesHosting": true,
+  "applicationInstalled": false
+}

@@ -1,0 +1,779 @@
+{
+  "status": "PASS_R6_PUBLIC_POSTFLIGHT",
+  "sourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "checks": [
+    "126 existing public URL paths 200, self canonical and exact v2 marker",
+    "main navigation routes and all 13 support/legacy probes",
+    "search noindex/no canonical; anonymous edit API forbidden; report REST unavailable",
+    "four sitemap children match all 126 production baseline URLs exactly"
+  ],
+  "visits": [
+    {
+      "path": "/bo-thuc-hanh/bo-thuc-hanh-landing-page-cho-dich-vu-chup-anh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/ai-tren-may-va-khong-gian-tro-chuyen/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/am-thanh-va-video/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/coding-agent-va-cach-lam-du-an/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/du-lieu-va-giao-dien-ung-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/ghi-chu-va-tri-thuc-ca-nhan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/luu-tru-va-cong-cu-ca-nhan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/mau-du-an/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/nen-tang-web/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/skills-cho-ai-agent/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/skills-va-phuong-phap-lam-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/tai-lieu-va-cong-viec-van-phong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/thiet-ke-va-hinh-anh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/danh-muc/workflow-va-ung-dung-truc-quan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/lam-landing-page-moc-studio-voi-antigravity-ide-tren-windows/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/lam-landing-page-moc-studio-voi-claude-code-tren-windows/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/lam-landing-page-moc-studio-voi-codex-tren-windows/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/sau-bai-dau-hieu-html-va-css-vua-tao/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/sua-loi-bai-dau-ghi-lai-dieu-dang-xay-ra/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/truoc-bai-dau-chuan-bi-cong-cu-va-quyen-truy-cap/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/activepieces-kham-pha-workflow-theo-buoc-voi-cac-ket-noi-cong-cu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/affine-kham-pha-cach-ket-hop-trang-ghi-chep-voi-vung-trinh-bay-y-tuong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/agent-skills-cua-addy-osmani-kham-pha-bo-skills-ho-tro-cong-viec-ky-thuat/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/ai-for-beginners-tim-hieu-lo-trinh-nen-tang-ai-thay-vi-chi-suu-tam-cong-cu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/aider-kham-pha-cach-lam-viec-voi-ai-trong-mot-kho-ma-nho/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/anthropic-courses-tim-hieu-kho-bai-hoc-ky-thuat-ve-cong-cu-va-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/anthropic-skills-kham-pha-collection-skills-theo-cong-viec-can-lam/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/anythingllm-kham-pha-workspace-ai-gan-voi-tai-lieu-va-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/anytype-kham-pha-cach-to-chuc-thong-tin-ca-nhan-thanh-cac-doi-tuong-lien-ket/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/apache-echarts-tim-hieu-thu-vien-bieu-do-cho-website-va-ung-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/apache-superset-tim-hieu-moi-truong-kham-pha-va-truc-quan-hoa-du-lieu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/appflowy-tim-hieu-khong-gian-lam-viec-ghi-chu-va-quan-ly-thong-tin/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/appsmith-tim-hieu-cach-ghep-giao-dien-ung-dung-noi-bo-voi-nguon-du-lieu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/archify-tim-hieu-cach-trinh-bay-y-tuong-va-he-thong-bang-so-do/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/astro-basics/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/audacity-lam-quen-cong-cu-bien-tap-am-thanh-va-quy-trinh-giu-ban-goc/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/awesome-claude-skills-doc-mot-danh-sach-tuyen-chon-de-tim-dung-nguon-skill/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/baserow-tim-hieu-bang-du-lieu-dung-de-phoi-hop-cong-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/blender-kham-pha-cong-cu-do-hoa-3d-va-chon-viec-dau-tien-du-nho/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/budibase-tim-hieu-ung-dung-nghiep-vu-nho-co-bang-va-bieu-mau/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/cherry-studio-tim-hieu-ung-dung-to-chuc-nhieu-lua-chon-model-va-nha-cung-cap/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/claude-code-hieu-agent-lam-viec-cung-ma-nguon-va-cac-buoc-giao-nhiem-vu-nho/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/cline-kham-pha-coding-agent-va-co-che-duyet-thao-tac/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/codex-cli-tim-hieu-coding-agent-trong-terminal-va-phan-biet-voi-ung-dung-desktop/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/comfyui-hieu-workflow-dang-node-cho-cong-viec-tao-va-xu-ly-hinh-anh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/continue-tim-hieu-tro-ly-coding-va-cach-tich-hop-vao-moi-truong-lam-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/cyberchef-tim-hieu-cac-buoc-bien-doi-van-ban-va-du-lieu-bang-cong-thuc-truc-quan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/dify-hieu-nen-tang-xay-app-va-workflow-ai-tu-goc-nhin-nguoi-moi/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/docmost-kham-pha-wiki-va-tai-lieu-cong-tac-cho-nhom-nho/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/draw-io-desktop-tim-hieu-ung-dung-desktop-de-ve-so-do-cong-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/drawdb-phac-thao-cau-truc-du-lieu-truoc-khi-nho-agent-lam-ung-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/duckdb-tim-hieu-xu-ly-du-lieu-phan-tich-tren-file-bang-cong-cu-sql/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/excalidraw-phac-thao-so-do-va-brief-bang-hinh-de-dien-dat-y-tuong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/faster-whisper-kham-pha-mot-cach-trien-khai-phuc-vu-nhan-dang-loi-noi/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/flowise-kham-pha-viec-ghep-cac-thanh-phan-ai-bang-so-do-truc-quan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/gemini-cli-kham-pha-agent-ai-trong-terminal-va-dieu-kien-de-bat-dau/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/generative-ai-for-beginners-kham-pha-bai-hoc-xay-dung-ung-dung-ai-tao-sinh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/goose-tim-hieu-agent-va-cac-phan-mo-rong-cho-cong-viec-tren-may/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/gpt4all-kham-pha-he-sinh-thai-chay-model-phuc-vu-tro-chuyen-tren-may/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/gradio-kham-pha-giao-dien-demo-cho-mot-ham-hoac-mo-hinh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/grafana-hieu-dashboard-theo-doi-du-lieu-va-nguon-chi-so/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/hoppscotch-lam-quen-khai-niem-gui-yeu-cau-api-bang-giao-dien-truc-quan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/immich-kham-pha-quan-ly-thu-vien-anh-tu-trien-khai/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/invokeai-tim-hieu-moi-truong-lam-viec-voi-model-tao-anh/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/iopaint-kham-pha-cong-cu-chinh-sua-vung-anh-dua-tren-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/jan-tim-hieu-ung-dung-ai-tren-may-va-cac-lua-chon-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/joplin-to-chuc-ghi-chu-va-tai-lieu-ca-nhan-theo-so-tay/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/krita-ai-diffusion-tim-hieu-tich-hop-ai-cho-quy-trinh-lam-anh-trong-krita/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/langflow-kham-pha-cau-truc-luong-ung-dung-ai-bang-giao-dien/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/librechat-kham-pha-giao-dien-tro-chuyen-va-quan-ly-ket-noi-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/litellm-hieu-lop-ket-noi-giua-ung-dung-va-cac-nha-cung-cap-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/localsend-kham-pha-cong-cu-gui-file-giua-thiet-bi-trong-mang-cuc-bo/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/logseq-kham-pha-ghi-chu-theo-khoi-va-lien-ket-giua-y-tuong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/manim-tim-hieu-cach-lam-hoat-hinh-giai-thich-bang-ma/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/markitdown-chuyen-tai-lieu-thanh-markdown-de-chuan-bi-dau-vao-cho-cong-viec-voi-ai/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/mdn-learning-area/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/memos-kham-pha-ghi-chu-ngan-va-cach-luu-y-tuong-cong-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/mermaid-hieu-cach-mo-ta-so-do-bang-van-ban/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/metabase-kham-pha-dashboard-va-cau-hoi-du-lieu-cho-nhom/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/n8n-hieu-workflow-truc-quan-va-cach-noi-cac-buoc-xu-ly-cong-viec/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/nextcloud-server-tim-hieu-khong-gian-luu-va-chia-se-file-tu-quan-ly/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/nocodb-kham-pha-giao-dien-lam-viec-voi-du-lieu-dang-bang/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/ocrmypdf-tim-hieu-viec-bo-sung-lop-van-ban-tim-kiem-cho-pdf-scan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/ollama-hieu-cach-phuc-vu-model-ai-tren-may-va-chon-model-phu-hop/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/open-webui-phan-biet-giao-dien-tro-chuyen-ai-voi-model-chay-phia-sau/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/opencode-tim-hieu-agent-coding-trong-terminal-va-lua-chon-model/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/openhands-kham-pha-moi-truong-agent-ho-tro-phat-trien-phan-mem/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/openshot-kham-pha-cong-cu-dung-video-cho-du-an-nho/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/outline-tim-hieu-wiki-cho-nhom-va-cach-viet-tai-lieu-dung-chung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/pandoc-hieu-cach-chuyen-doi-giua-cac-dinh-dang-tai-lieu-bang-mot-cong-cu-chuyen-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/penpot-tim-hieu-cong-cu-thiet-ke-giao-dien-va-cong-tac/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/photoprism-tim-hieu-cach-to-chuc-va-tim-anh-trong-thu-vien-ca-nhan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/pico-css/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/planka-tim-hieu-quan-ly-nhiem-vu-theo-bang-kanban/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/plotly-py-kham-pha-bieu-do-tuong-tac-tu-du-lieu-bang-python/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/posthog-tim-hieu-phan-tich-hanh-vi-san-pham-va-dat-cau-hoi-do-luong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/prompt-engineering-interactive-tutorial-kham-pha-bai-tap-thiet-ke-yeu-cau-va-doc-phan-hoi-ai/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/prompts-chat-kham-pha-thu-vien-prompt-roi-dieu-chinh-cho-nhiem-vu-cu-the-bang-tieng-viet/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/ragflow-tim-hieu-quy-trinh-hoi-dap-dua-tren-tai-lieu-va-trich-xuat-noi-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/rclone-tim-hieu-cong-cu-lam-viec-voi-nhieu-nguon-luu-tru/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/react-best-practices/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/reflex-tim-hieu-cach-xay-giao-dien-ung-dung-bang-python/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/restic-kham-pha-quy-trinh-sao-luu-va-thu-phuc-hoi/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/roo-code-tim-hieu-moi-truong-agent-ho-tro-quy-trinh-lam-phan-mem/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/shotcut-tim-hieu-dung-video-theo-timeline-tu-cac-doan-mau/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/siyuan-tim-hieu-ghi-chu-theo-khoi-va-cach-to-chuc-kho-kien-thuc/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/spec-kit-kham-pha-cach-mo-ta-yeu-cau-va-ke-hoach-truoc-khi-viet-ma/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/standard-notes-tim-hieu-ung-dung-ghi-chu-va-cac-lua-chon-bao-ve-thong-tin/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/stirling-pdf-tim-hieu-bo-cong-cu-xu-ly-pdf-thay-vi-tai-tai-lieu-len-nhieu-website-khac-nhau/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/streamlit-tim-hieu-cach-trinh-bay-mot-cong-cu-du-lieu-bang-giao-dien-web/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/subtitle-edit-kham-pha-cong-viec-tao-va-chinh-phu-de-cho-video/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/superpowers-tim-hieu-bo-quy-trinh-giup-agent-di-tu-de-bai-den-kiem-tra/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/syncthing-phan-biet-dong-bo-thu-muc-voi-sao-luu-du-lieu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/tabula-tim-hieu-cach-lay-bang-tu-pdf-de-tiep-tuc-xu-ly-du-lieu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/tesseract-ocr-hieu-cong-cu-nhan-dang-chu-tu-anh-va-nhu-cau-du-lieu-ngon-ngu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/tldraw-kham-pha-ma-nguon-va-cong-cu-cho-trai-nghiem-bang-ve/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/tooljet-kham-pha-cach-tao-cong-cu-noi-bo-bang-cac-thanh-phan-giao-dien/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/trilium-notes-kham-pha-cach-sap-xep-ghi-chu-thanh-cay-va-lien-ket-thong-tin/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/upscayl-kham-pha-cong-cu-tang-kich-thuoc-anh-dung-ai/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/uptime-kuma-kham-pha-viec-theo-doi-website-co-phan-hoi-hay-khong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/web-design-guidelines/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/web-dev-for-beginners/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/whisper-cpp-tim-hieu-cach-trien-khai-nhan-dang-loi-noi-tren-nhieu-moi-truong/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/whisper-tim-hieu-cong-cu-nhan-dang-loi-noi-thanh-van-ban/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/windmill-tim-hieu-cach-ghep-script-thanh-luong-cong-viec-co-giao-dien/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/yt-dlp-tim-hieu-cong-cu-lay-noi-dung-media-tu-nguon-duoc-phep/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tai-nguyen/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/huong-dan/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tro-giup/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/gioi-thieu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/cau-hoi-thuong-gap/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tro-giup/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/tieu-chi-tuyen-chon/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/quyen-rieng-tu/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/dieu-kien-su-dung/",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/shop/",
+      "status": 301,
+      "expectedStatus": 301
+    },
+    {
+      "path": "/cart/",
+      "status": 410,
+      "expectedStatus": 410
+    },
+    {
+      "path": "/checkout/",
+      "status": 410,
+      "expectedStatus": 410
+    },
+    {
+      "path": "/my-account/",
+      "status": 410,
+      "expectedStatus": 410
+    },
+    {
+      "path": "/hello-world/",
+      "status": 410,
+      "expectedStatus": 410
+    },
+    {
+      "path": "/sample-page/",
+      "status": 410,
+      "expectedStatus": 410
+    },
+    {
+      "path": "/?vne_support=tieu-chi",
+      "status": 301,
+      "expectedStatus": 301
+    },
+    {
+      "path": "/?s=Codex",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/wp-json/vne-library/v1/items?context=edit",
+      "status": 403,
+      "expectedStatus": 403
+    },
+    {
+      "path": "/wp-json/wp/v2/vne_report",
+      "status": 404,
+      "expectedStatus": 404
+    },
+    {
+      "path": "/?post_type=vne_report",
+      "status": 404
+    },
+    {
+      "path": "/wp-sitemap.xml",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/wp-sitemap-posts-vne_resource-1.xml",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/wp-sitemap-posts-vne_guide-1.xml",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/wp-sitemap-posts-vne_practice-1.xml",
+      "status": 200,
+      "expectedStatus": 200
+    },
+    {
+      "path": "/wp-sitemap-taxonomies-vne_category-1.xml",
+      "status": 200,
+      "expectedStatus": 200
+    }
+  ],
+  "resumedAfterParserFix": true,
+  "reusedChecks": 143,
+  "priorEvidence": "http-postflight-failure.json",
+  "limits": [
+    "Read-only GET; no report submitted or paid API called",
+    "Private endpoints checked without creating production canaries; local private-content canaries passed R5.2"
+  ]
+}

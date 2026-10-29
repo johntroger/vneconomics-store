@@ -1,0 +1,14 @@
+{
+  "status": "VERIFIED_PRIVATE_PAYLOAD_BASELINE_ZIPS",
+  "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "baselineSha256": "a095f2cf4637a655f6a025ddf03b372a422b8a50cc608f7ac4db3400649ccc28",
+  "members": [
+    "manifest.json",
+    "plugin.zip",
+    "previous-plugin.zip",
+    "previous-theme.zip",
+    "theme.zip"
+  ],
+  "zips": 4,
+  "previousFiles": 49
+}

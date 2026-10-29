@@ -1,0 +1,13 @@
+{
+  "path": "/var/www/vhosts/vneconomics.com/wordpress-backups/store.vneconomics.com__2026-10-28T16_24_33+0700.zip",
+  "files": 16727,
+  "bytes": 81552461,
+  "sha256": "cdf07d9ef214437ace842cf6119b7b416768e41f46e51d95cbf1ee26703c76d8",
+  "crcErrors": [],
+  "sqlEntries": [
+    "sqldump.sql"
+  ],
+  "locks": [],
+  "upgradeEntries": [],
+  "maintenance": false
+}

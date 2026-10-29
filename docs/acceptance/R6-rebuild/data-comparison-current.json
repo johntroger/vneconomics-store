@@ -1,0 +1,36 @@
+{
+  "status": "PASS_R6_CURRENT_DATA_CODE_INSPECTION",
+  "observedDate": "2026-10-29",
+  "tablesUnchanged": 5,
+  "activePluginsUnchanged": true,
+  "counts": [
+    106,
+    6,
+    1
+  ],
+  "theme": "2.0.0",
+  "plugin": "0.4.4",
+  "schema": "3",
+  "changedOptionsSinceCutover": [
+    "_site_transient_theme_roots",
+    "_site_transient_timeout_theme_roots",
+    "_site_transient_timeout_wp_theme_files_patterns-4791313b44e4c2f9f89137d139cbafe0",
+    "_site_transient_update_core",
+    "_site_transient_update_plugins",
+    "_site_transient_update_themes",
+    "_transient_timeout__woocommerce_helper_subscriptions",
+    "_transient_timeout_woocommerce_admin_pes_incentive_woopayments_cache",
+    "_transient_timeout_woocommerce_admin_pes_incentive_woopayments_store_has_orders",
+    "_transient_timeout_woocommerce_admin_remote_free_extensions_specs",
+    "_transient_timeout_woocommerce_admin_remote_inbox_notifications_specs",
+    "_transient_timeout_woocommerce_marketplace_promotions_v2",
+    "_transient_woocommerce_admin_pes_incentive_woopayments_cache",
+    "_transient_woocommerce_admin_remote_inbox_notifications_specs",
+    "action_scheduler_lock_async-request-runner",
+    "cron",
+    "jetpack_options"
+  ],
+  "addedOptionsSinceCutover": [
+    "auto_core_update_notified"
+  ]
+}

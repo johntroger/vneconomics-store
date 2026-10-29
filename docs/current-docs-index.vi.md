@@ -1,6 +1,6 @@
 # Bản đồ tài liệu hiện hành
 
-Ngày cập nhật: 28/10/2026
+Ngày cập nhật: 29/10/2026
 Mục đích: xác định tài liệu nào có quyền điều hành, tài liệu nào chỉ là lịch sử hoặc bằng chứng.
 
 ## Tài liệu điều hành
@@ -24,7 +24,8 @@ Mục đích: xác định tài liệu nào có quyền điều hành, tài li�
 15. [R4-rebuild.vi.md](acceptance/R4-rebuild.vi.md) — R4 PASS 10 kiểm tra và được chủ dự án duyệt kết quả.
 16. [R51-cutover-contract.vi.md](rebuild/R51-cutover-contract.vi.md) — hợp đồng cài đặt/quay lui v2 đã duyệt.
 17. [R51-rebuild.vi.md](acceptance/R51-rebuild.vi.md) — R5.1 PASS 29 kiểm tra và được chủ dự án duyệt kết quả.
-18. [R52-rebuild.vi.md](acceptance/R52-rebuild.vi.md) — full gate/CI/hash/payload candidate PASS; chờ chủ dự án duyệt R6.
+18. [R52-rebuild.vi.md](acceptance/R52-rebuild.vi.md) — candidate đã kiểm chứng và được duyệt để thực hiện R6.
+19. [R6-rebuild.vi.md](acceptance/R6-rebuild.vi.md) — production v2 PASS; receipt/cleanup hoàn tất, chờ chủ dự án nghiệm thu.
 
 Nếu các tài liệu khác nhau: `AGENTS.md` quyết định quyền; kế hoạch tái thiết quyết định gate; runbook/checklist quyết định thao tác; receipt production mới nhất quyết định production thực tế. Không suy production từ working tree, README, CI artifact hoặc source commit mới hơn.
 
@@ -33,8 +34,8 @@ Nếu các tài liệu khác nhau: `AGENTS.md` quyết định quyền; kế ho�
 | Lớp | Nguồn kiểm chứng | Hiện trạng |
 |---|---|---|
 | Development | Working tree/nhánh hiện tại | Theme v2 2.0.0; cây làm việc có thể chứa thay đổi ngoài candidate, không phát hành toàn bộ dirty tree |
-| Rebuild candidate | Manifest R5.2 + source/CI/payload SHA | Theme 2.0.0/plugin 0.4.4/schema 3; source `50437bd16eae1912d8cffea093401449786faaea`, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`; chờ duyệt R6 |
-| Production | Receipt U4 ngày 27/10/2026 | Theme 0.7.3, plugin 0.4.3, schema 3; source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759` |
+| Rebuild candidate | Manifest R5.2 + source/CI/payload SHA | Candidate đã được cài theo gate R6; giữ artifact/rollback bất biến |
+| Production | Receipt R6 v2 đóng 29/10/2026 | Theme 2.0.0/plugin 0.4.4/schema 3; source `50437bd16eae1912d8cffea093401449786faaea`, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`; journal COMPLETE, chờ chủ dự án nghiệm thu |
 
 ## Tài liệu lịch sử
 

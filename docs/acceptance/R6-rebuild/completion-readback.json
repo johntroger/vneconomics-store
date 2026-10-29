@@ -1,0 +1,9 @@
+{
+  "phase": "COMPLETE",
+  "payloadSha": "fa4c67821008e0fcc4307fedf202bcdf95b85bb6",
+  "theme": "2.0.0",
+  "plugin": "0.4.4",
+  "schema": 3,
+  "lockPresent": false,
+  "maintenance": false
+}

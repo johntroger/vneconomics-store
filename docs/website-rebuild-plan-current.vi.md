@@ -1,7 +1,7 @@
 # Kế hoạch hiện hành tái thiết Vneconomics Store — v3
 
-Ngày cập nhật: 28/10/2026
-Trạng thái: R0–R5.1 đã được duyệt; R5.2 full gate/CI/payload candidate PASS, chờ chủ dự án duyệt R6; chưa cấp quyền merge hoặc production
+Ngày cập nhật: 29/10/2026
+Trạng thái: R0–R5.2 đã được duyệt; R6 production PASS, chờ chủ dự án nghiệm thu; R7 và merge main chưa được duyệt
 
 Đây là kế hoạch điều hành duy nhất cho website làm lại. `website-rebuild-master-plan-2026-10-27.vi.md` và S00–S16 là lịch sử, không phải checklist thực thi. Xem [bản đồ tài liệu hiện hành](current-docs-index.vi.md).
 
@@ -23,8 +23,8 @@ Không dùng một con số “phiên bản hiện tại” chung cho developmen
 | Trạng thái | Nguồn sự thật | Trạng thái tại 27/10/2026 |
 |---|---|---|
 | Development | Working tree/nhánh đang làm; chưa phải bằng chứng phát hành | Theme 0.7.3, plugin 0.4.3, schema 3 trên nhánh `codex/github-stars-u2` tại HEAD `7b7ae3454512576e676d43ebb10f274920ee2a34`, có thay đổi chưa commit |
-| Rebuild candidate | Manifest R5, source SHA, CI run và payload SHA | Chưa có candidate v3 |
-| Production | Receipt U4 ngày 27/10/2026 | Source `7b7ae3454512576e676d43ebb10f274920ee2a34`, payload `80729d511b2f2f168a96a495a4e5cadc93377759`, theme 0.7.3, plugin 0.4.3, schema 3; xem `acceptance/U4-github-stars.vi.md` |
+| Rebuild candidate | Manifest R5.2, source/CI/payload | Candidate v2 đã được promote đúng scope R6; không dựng lại từ dirty tree |
+| Production | Receipt R6 v2 đóng ngày 29/10/2026 | Source `50437bd16eae1912d8cffea093401449786faaea`, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, theme 2.0.0, plugin 0.4.4, schema 3; xem `acceptance/R6-rebuild.vi.md` |
 
 Nếu working tree, README, manifest và receipt khác nhau, production được xác định bằng receipt/runbook đã nghiệm thu; source mới hơn không tự trở thành production.
 
@@ -154,8 +154,8 @@ Mỗi hàng là một gate độc lập. PASS không tự mở bước tiếp th
 | **R3.3 — Hướng dẫn** | Guide list → detail → related resources | PASS 37 kiểm tra tại `acceptance/R33-rebuild.vi.md`; chủ dự án duyệt preview ngày 28/10/2026 |
 | **R4 — Quản trị và dữ liệu mở rộng** | Chỉ bổ sung field/admin/importer R3 chứng minh là cần | PASS 10 kiểm tra tại `acceptance/R4-rebuild.vi.md`; sửa selector dependency; giữ schema3; chủ dự án duyệt ngày 28/10/2026 |
 | **R5.1 — Hợp đồng promote/rollback** | Chốt cài đặt, allowlist, atomic switch hoặc maintenance window, rollback từng component, marker/health/lock/disk | PASS 29 kiểm tra tại `acceptance/R51-rebuild.vi.md`; chủ dự án duyệt ngày 28/10/2026; native ZIP/candidate thuộc R5.2 |
-| **R5.2 — Release candidate production** | Exact SHA trên runner sạch; build theme/plugin/payload; manifest/allowlist/hash/rollback | PASS 13 native + 13 URL probes + 90 browser + 126 URL/privacy; CI và payload candidate đạt; xem `acceptance/R52-rebuild.vi.md`; chờ duyệt R6 |
-| **R6 — Cutover production** | Backup theo cấp, Plesk private inbox, deploy production-only, hậu kiểm | URL/data/runtime/logs đạt; rollback sẵn; receipt/cleanup |
+| **R5.2 — Release candidate production** | Exact SHA trên runner sạch; build theme/plugin/payload; manifest/allowlist/hash/rollback | PASS 13 native + 13 URL probes + 90 browser + 126 URL/privacy; chủ dự án đã duyệt R6 theo candidate này |
+| **R6 — Cutover production** | Backup theo cấp, Plesk private inbox, deploy production-only, hậu kiểm | PASS: maintenance78s, 152GET, data/code/runtime/log sample đạt; journal COMPLETE/lock dọn; xem `acceptance/R6-rebuild.vi.md`; chờ nghiệm thu |
 | **R7 — Tối ưu vận hành** | Đo bottleneck thật; cache/performance; cân nhắc Automatic cấp A | Chỉ bật automation sau approval và thử failure/rollback |
 
 Không tạo gate staging. “Release chưa active” nếu có chỉ là thư mục chuẩn bị trong production, không phục vụ công khai và không thay approval production.
@@ -206,4 +206,4 @@ R3.2 đã PASS với search/filter/result/detail, empty/error/pagination/mobile 
 
 Bước có thể xin duyệt tiếp theo:
 
-> **Xin duyệt R6 riêng theo hồ sơ R5.2.** Xem [nghiệm thu R5.2 và phạm vi R6](acceptance/R52-rebuild.vi.md). Source `50437bd16eae1912d8cffea093401449786faaea`, CI 40660368997, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6`, full gate/byte-match/cleanup PASS. Candidate không phải ref Plesk đang theo dõi; chưa deploy hoặc merge main.
+> **R6 production đã PASS, chờ chủ dự án nghiệm thu.** Xem [báo cáo R6](acceptance/R6-rebuild.vi.md). Source `50437bd16eae1912d8cffea093401449786faaea`, CI 40660368997, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6` đã nhận/cài trên production; dữ liệu không đổi, journal COMPLETE, cleanup PASS. R7 chưa được mở; merge main và bật automation vẫn cần quyền riêng.

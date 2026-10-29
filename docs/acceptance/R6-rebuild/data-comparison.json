@@ -1,0 +1,39 @@
+{
+  "status": "PASS_R6_RECORDED_DATA_COMPARISON",
+  "snapshotDate": "2026-10-28",
+  "tablesUnchanged": 5,
+  "activePluginsUnchanged": true,
+  "counts": [
+    106,
+    6,
+    1
+  ],
+  "theme": "2.0.0",
+  "plugin": "0.4.4",
+  "schema": "3",
+  "statsScheduled": false,
+  "changedOptions": [
+    "_site_transient_timeout_theme_roots",
+    "_site_transient_timeout_wp_theme_files_patterns-2b73fc423b58f0ffbd0ab4785d2b0165",
+    "_site_transient_update_core",
+    "_site_transient_update_plugins",
+    "_site_transient_update_themes",
+    "_site_transient_wp_theme_files_patterns-2b73fc423b58f0ffbd0ab4785d2b0165",
+    "_transient_timeout__woocommerce_helper_subscriptions",
+    "cron",
+    "current_theme",
+    "stylesheet",
+    "template",
+    "theme_mods_vibelab"
+  ],
+  "addedOptions": [
+    "_site_transient_timeout_wp_theme_files_patterns-4791313b44e4c2f9f89137d139cbafe0",
+    "_site_transient_wp_theme_files_patterns-4791313b44e4c2f9f89137d139cbafe0",
+    "_transient_timeout_wc_tracks_blog_details",
+    "_transient_wc_tracks_blog_details",
+    "theme_mods_vibelab-v2"
+  ],
+  "limits": [
+    "Comparison of recorded pre/post snapshots; fresh hosting inspection still pending renewed login"
+  ]
+}
