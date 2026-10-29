@@ -81,6 +81,10 @@ R52 sang gọi thủ công với exact source đã pin. Các sửa workflow cầ
 qua PR trước khi áp dụng vào default branch; xem [R7.3](docs/acceptance/R73-ci.vi.md). Builder R52 là lịch sử,
 không dùng phát hành source mới sau R6 khi chưa có profile/baseline được duyệt.
 
+Đường candidate CSS-only theo baseline R6 được mô tả tại [hợp đồng profile](docs/rebuild/R78-css-profile.vi.md).
+Profile mới giữ nguyên plugin, chuẩn bị theme/rollback đúng R6 và còn cần review/CI/gate
+production. Nó không tự cập nhật website và không dùng cho thay đổi PHP, nội dung hoặc schema.
+
 `local → GitHub/CI → payload GitHub → Plesk private inbox → verify → production`.
 
 Không dùng staging cho lượt mới. Production Plesk giữ Manual/no post-action; không upload ZIP/code trực tiếp từ local. Build, push, CI PASS hoặc merge không tự cấp quyền production. Nội dung thường ngày như bài viết hoặc CTA đã cấu hình đi qua WordPress Draft → Preview → Publish và không cần phát hành lại code.

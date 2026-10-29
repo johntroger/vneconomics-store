@@ -1,7 +1,7 @@
 # Kế hoạch hiện hành tái thiết Vneconomics Store — v3
 
 Ngày cập nhật: 29/10/2026
-Trạng thái: R0–R6 đã được duyệt; chủ dự án nghiệm thu R6 và R7.1–R7.5 ngày 29/10/2026; main/deploy và bước tiếp theo chưa được duyệt
+Trạng thái: R0–R6 đã được duyệt; chủ dự án nghiệm thu R6 và R7.1–R7.7 ngày 29/10/2026; đang tiếp tục R7.8 local/GitHub theo chỉ đạo “làm tiếp đi, hỏi ít thôi”; chưa cấp quyền release/deploy mới
 
 Đây là kế hoạch điều hành duy nhất cho website làm lại. `website-rebuild-master-plan-2026-10-27.vi.md` và S00–S16 là lịch sử, không phải checklist thực thi. Xem [bản đồ tài liệu hiện hành](current-docs-index.vi.md).
 
@@ -162,6 +162,9 @@ Mỗi hàng là một gate độc lập. PASS không tự mở bước tiếp th
 | **R7.3 — Tách fast CI/build candidate** | Candidate R52 gọi thủ công, fast concurrency, kiểm chính sách local | PASS tại [R7.3](acceptance/R73-ci.vi.md), chủ dự án nghiệm thu 29/10/2026; chưa push/merge/chạy CI remote |
 | **R7.4 — PR và fast CI thật** | Đóng gói R7.1–R7.3 đúng phạm vi; PR #4 trên base R52; fast CI | PASS tại [R7.4](acceptance/R74-github.vi.md), CI40809965586 đúng source f10bec4; chủ dự án nghiệm thu 29/10/2026; chưa merge/build release/deploy |
 | **R7.5 — Merge PR #4 vào nhánh R52** | Đúng head/base/CI; merge và hậu kiểm parents/tree/refs | PASS tại [R7.5](acceptance/R75-merge.vi.md), merge dc90361 có tree giống head f10bec4; chủ dự án nghiệm thu 29/10/2026; main/production không đổi |
+| **R7.6 — PR đồng bộ main** | Rà soát lịch sử/source identity, đóng link hồ sơ, draft PR #5 và fast CI | PASS tại [R7.6](acceptance/R76-main.vi.md), CI40831450053 đúng head8c28858; chủ dự án nghiệm thu 29/10/2026; chưa merge/deploy |
+| **R7.7 — Merge PR #5 vào main** | Ready/merge đúng source, hậu kiểm tree/refs/workflow | PASS tại [R7.7](acceptance/R77-main-merge.vi.md), main77c45ca có tree giống head8c28858; chủ dự án nghiệm thu 29/10/2026; payload/production không đổi |
+| **R7.8 — Candidate CSS-only baseline R6** | Profile hẹp, ZIP thật R6, native update/rollback, controller CI trusted | Local/native PASS17 nhóm và workflow PASS; xem [hợp đồng](rebuild/R78-css-profile.vi.md); chưa tạo payload/promote/deploy |
 
 Không tạo gate staging. “Release chưa active” nếu có chỉ là thư mục chuẩn bị trong production, không phục vụ công khai và không thay approval production.
 
@@ -211,4 +214,4 @@ R3.2 đã PASS với search/filter/result/detail, empty/error/pagination/mobile 
 
 Bước có thể xin duyệt tiếp theo:
 
-> **R6 production đã PASS và được chủ dự án nghiệm thu ngày 29/10/2026.** Xem [báo cáo R6](acceptance/R6-rebuild.vi.md). Source `50437bd16eae1912d8cffea093401449786faaea`, CI 40660368997, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6` đã nhận/cài trên production; dữ liệu không đổi, journal COMPLETE, cleanup PASS. R7.1–R7.5 đã được nghiệm thu; [R7.5](acceptance/R75-merge.vi.md) ghi nhận merge PR #4 vào nhánh R52 và hậu kiểm PASS. Merge main, bước tiếp theo và bật automation vẫn cần quyền riêng.
+> **R6 production đã PASS và được chủ dự án nghiệm thu ngày 29/10/2026.** Xem [báo cáo R6](acceptance/R6-rebuild.vi.md). Source `50437bd16eae1912d8cffea093401449786faaea`, CI 40660368997, payload `fa4c67821008e0fcc4307fedf202bcdf95b85bb6` đã nhận/cài trên production; dữ liệu không đổi, journal COMPLETE, cleanup PASS. R7.1–R7.7 đã được nghiệm thu; R7.8 đang hoàn thiện candidate CSS-only tại local/GitHub. Main merge mới, bật automation và production vẫn cần quyền đúng phạm vi; không suy approval deployment từ lệnh tiếp tục local.

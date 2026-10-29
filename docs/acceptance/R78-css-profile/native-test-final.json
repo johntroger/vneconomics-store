@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "command": "node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs --native",
+  "exitCode": 0,
+  "output": [
+    "",
+    "WordPress Playground CLI",
+    "",
+    "PHP 8.3  WordPress 7.1.3",
+    "Extensions intl",
+    "Mount C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\r6-css-NgyA8X\\wordpress → /wordpress",
+    "",
+    "Worker count (1) is below the recommended threshold (6). Running fewer than 6 workers may increase the likelihood of deadlock due to workers blocking on file locks.",
+    "",
+    "Ready! WordPress is running on http://127.0.0.1:19478 (1 worker)",
+    "",
+    "{\"status\":\"PASS_R6_CSS_PROFILE\",\"native\":true,\"checks\":[\"two builds for exact SHA are byte identical\",\"rollback uses actual R6 v2/plugin0.4.4 archives including stars\",\"branch refs, uppercase and short SHAs rejected\",\"no-op release rejected\",\"PHP, schema/plugin, deploy and extra app files rejected\",\"CSS symlink rejected\",\"external/escaped CSS and PHP markup rejected\",\"invalid UTF-8 and oversized CSS rejected\",\"manifest and both actual baseline ZIP hash drift rejected\",\"immutable output and package tampering guards\",\"native fixture starts with exact R6 v2/plugin0.4.4/schema3\",\"native theme-only update stamps version/marker and preserves all five application tables\",\"every installed candidate theme file matches manifest\",\"homepage HTTP200 with candidate marker and CSS cache version2.0.1\",\"candidate CSS bytes delivered through local HTTP match manifest\",\"native code rollback restores R6 version/marker/data without DB restore\",\"plugin including stars remains byte identical after update/rollback\"],\"sourceFixtureOnly\":\"dba1900371ef39023cca1cad0fe703d29b33c1b5\",\"deployAuthorized\":false}",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "cleanupLockPresent": false
+}

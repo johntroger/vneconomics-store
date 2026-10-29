@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "sourceSha": "8c28858ed1d128f2b32ca2b5a311edfb0a22217f",
+  "mainBaseSha": "578ce3073158a7bacfbfedef0b4feeef125a2570",
+  "r52BaseSha": "dc90361d9ddceb7e5d38855a5149f7e4b8743a19",
+  "applicationSourceSha": "50437bd16eae1912d8cffea093401449786faaea",
+  "applicationPathsIdentical": true,
+  "priorPr2And3Ancestors": true,
+  "ciRun": 40831450053,
+  "ciConclusion": "success",
+  "fastJobSeconds": 59,
+  "syntaxFiles": 112,
+  "unsafeMutationsRejected": 15,
+  "actualPowerShellCases": 7,
+  "policyChecks": 73,
+  "sourceMarkdownGitLinksChecked": 200,
+  "finalLocalLinksChecked": 47,
+  "cleanupLockPresent": false,
+  "prIsDraft": true,
+  "mainMergePerformed": false,
+  "releaseBuildPerformed": false,
+  "deploymentPerformed": false
+}

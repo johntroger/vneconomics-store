@@ -79,3 +79,39 @@ const head=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8',windowsHide:tru
 assert.equal(runGuard(checkoutGuard,head.stdout.trim()).status,0,'Exact checkout accepted');
 assert.notEqual(runGuard(checkoutGuard,'a'.repeat(40)).status,0,'Wrong checkout refused');
 console.log(`PASS R7.3 manual candidate/fast policy; ${rejected} unsafe mutations rejected; 7 actual PowerShell guard cases`);
+
+function checkCssWorkflow(text){
+ const on=text.match(/^on:\r?\n([\s\S]*?)(?=^\S)/m)?.[1];assert.ok(on);
+ assert.deepEqual([...on.matchAll(/^  ([a-z_]+):/gm)].map(match=>match[1]),['workflow_dispatch']);
+ assert.ok(text.includes("if: github.ref == 'refs/heads/main'"),'Only trusted main controller is allowed');
+ assert.match(text,/permissions:\s*\n\s+contents: read/);
+ assert.doesNotMatch(text,/contents: write|persist-credentials: true|secrets\.|git push|gh pr merge|webhook|cancel-in-progress: true/);
+ for(const pin of pins)assert.ok(text.includes(pin),'CSS workflow action is not pinned');
+ assert.ok(text.includes('actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9'));
+ assert.ok(text.includes('SOURCE_SHA: ${{ inputs.source_sha }}'));
+ assert.ok(text.includes('CONTROLLER_SHA: ${{ github.sha }}'));
+ assert.ok(text.includes('ref: ${{ env.CONTROLLER_SHA }}'),'Do not execute candidate source scripts');
+ assert.ok(!text.includes('ref: ${{ env.SOURCE_SHA }}'));
+ assert.ok(text.includes("$env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$'"));
+ assert.ok(text.includes('$actual -cne $env:CONTROLLER_SHA'));
+ assert.ok(text.includes("'^fa4c67821008e0fcc4307fedf202bcdf95b85bb6\\s+refs/heads/release-production$'"),'Live Git payload baseline pin missing');
+ assert.ok(text.includes('$source -cne $env:SOURCE_SHA'));
+ for(const command of ['scripts/release-r6-css.mjs build $env:SOURCE_SHA','scripts/test-r6-css-candidate.mjs $env:SOURCE_SHA'])assert.ok(text.includes(command));
+ assert.ok(text.includes('artifacts/r6-css/${{ env.SOURCE_SHA }}/'));
+ assert.ok(text.includes('docs/acceptance/r6-css-candidates/${{ env.SOURCE_SHA }}/'));
+ assert.match(text,/if-no-files-found: error/);assert.match(text,/retention-days: 21/);
+}
+const cssWorkflow=read('.github/workflows/r6-css-candidate.yml');checkCssWorkflow(cssWorkflow);
+let cssRejected=0;
+for(const mutate of [
+ text=>text.replace('  workflow_dispatch:','  push:'),
+ text=>text.replace('contents: read','contents: write'),
+ text=>text.replace('persist-credentials: false','persist-credentials: true'),
+ text=>text.replace("if: github.ref == 'refs/heads/main'",'if: true'),
+ text=>text.replace('ref: ${{ env.CONTROLLER_SHA }}','ref: ${{ env.SOURCE_SHA }}'),
+ text=>text.replace('fa4c67821008e0fcc4307fedf202bcdf95b85bb6','a'.repeat(40)),
+ text=>text.replace('test-r6-css-candidate.mjs','skipped.mjs'),
+]){assert.throws(()=>checkCssWorkflow(mutate(cssWorkflow)));cssRejected++;}
+assert.ok(pr.includes('scripts/test-r6-css-profile.mjs'),'Fast CI must test the candidate policy');
+assert.ok(!pr.includes('test-r6-css-profile.mjs --native'),'Native release rehearsal does not belong in every fast PR');
+console.log(`PASS R7.8 trusted-controller CSS workflow; ${cssRejected} unsafe workflow mutations rejected`);

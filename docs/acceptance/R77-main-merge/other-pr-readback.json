@@ -1,0 +1,24 @@
+[
+  {
+    "baseRefName": "main",
+    "headRefName": "codex/github-stars-u2",
+    "headRefOid": "7b7ae3454512576e676d43ebb10f274920ee2a34",
+    "mergeCommit": {
+      "oid": "7b7ae3454512576e676d43ebb10f274920ee2a34"
+    },
+    "mergedAt": "2026-10-29T06:57:25Z",
+    "number": 2,
+    "state": "MERGED",
+    "url": "https://github.com/johntroger/vneconomics-store/pull/2"
+  },
+  {
+    "baseRefName": "codex/github-stars-u2",
+    "headRefName": "codex/r0b-fast-ci",
+    "headRefOid": "84c5c41ad2d11c94a37c86598a85468c7bddf995",
+    "mergeCommit": null,
+    "mergedAt": null,
+    "number": 3,
+    "state": "OPEN",
+    "url": "https://github.com/johntroger/vneconomics-store/pull/3"
+  }
+]
