@@ -1,0 +1,50 @@
+name: Key coordinator checks (manual, no deployment)
+on:
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact source commit SHA to test
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: key-coordinator-check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  key-coordinator:
+    runs-on: windows-2025
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ inputs.source_sha }}
+    steps:
+      - name: Validate source SHA
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}\z') { throw 'Exact lowercase source SHA required' }
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Verify checked-out source
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $actual = (git rev-parse HEAD).Trim()
+          if ($LASTEXITCODE -ne 0 -or $actual -cne $env:SOURCE_SHA) { throw 'Checked-out source differs' }
+          Write-Output ('SOURCE_SHA=' + $actual)
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        shell: pwsh
+        run: npm ci --ignore-scripts
+      - name: Check coordinator workflow contract
+        shell: pwsh
+        run: npm run test:key-coordinator-workflow
+      - name: Check key coordinator fixtures
+        shell: pwsh
+        run: npm run test:key-coordinator

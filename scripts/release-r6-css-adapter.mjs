@@ -3,8 +3,11 @@ import {existsSync,lstatSync,mkdirSync,readFileSync,readdirSync,writeFileSync} f
 import {join} from 'node:path';
 import {git,sha256} from './release-lib.mjs';
 import {prepareR6CssCandidate} from './release-r6-css.mjs';
+import {productionBindingPlan} from './r6-css-operator.mjs';
 
 export const adapterProfile='vibelab-v2-r6-css-adapter-schema3';
+export const productionInspectionProfile='vibelab-v2-r6-css-production-inspect-schema3';
+export const productionProofImportProfile='vibelab-v2-r6-css-production-proof-import-schema3';
 export const controllerPath='release-tools/r6-css-adapter.php';
 // Caller selects a reviewed exact controller SHA; no controller from working tree.
 export function prepareCssAdapter(sourceSha,controllerSourceSha,{readGit=git}={}){
@@ -31,4 +34,21 @@ export function verifyCssAdapter(source,controller,directory,options){
  const prepared=prepareCssAdapter(source,controller,options);assert.deepEqual(readdirSync(directory).sort(),Object.keys(prepared.buffers).sort());
  for(const [name,data] of Object.entries(prepared.buffers)){const path=join(directory,name),stat=lstatSync(path);assert.ok(stat.isFile()&&!stat.isSymbolicLink(),'Non-regular package entry');assert.ok(readFileSync(path).equals(data),'Package bytes differ: '+name);}
  return prepared.manifest;
+}
+export function prepareProductionInspectionAdapter(source,controller,options){
+ const base=prepareCssAdapter(source,controller,options);
+ assert.ok(base.buffers['receiver.php'].includes(Buffer.from('function vne_adapter_production_inspection_dispatch(')),'Controller lacks production inspection dispatcher');
+ const manifest={...base.manifest,profile:productionInspectionProfile,scope:'production-inspection-only',productionPolicy:productionBindingPlan(),
+  controller:{...base.manifest.controller,capabilities:['inspect-inbox','inspect-production-context','inspect-production-storage']},
+  requiredRemainingGates:[...base.manifest.requiredRemainingGates,'production-key-proof-transport','production-writer-profile-review']};
+ return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
+}
+export function prepareProductionProofImportAdapter(source,controller,options){
+ const base=prepareProductionInspectionAdapter(source,controller,options);
+ assert.ok(base.buffers['receiver.php'].includes(Buffer.from('function vne_adapter_import_production_proof(')),'Controller lacks production proof import backend');
+ const manifest={...base.manifest,profile:productionProofImportProfile,scope:'production-proof-import-only',
+  controller:{...base.manifest.controller,capabilities:[...base.manifest.controller.capabilities,'import-production-proof']},
+  productionProofImportPolicy:{applicationWrites:false,databaseWrites:false,createsKeys:false,requiresExistingJournal:true,requiresExistingKey:true},
+  requiredRemainingGates:[...base.manifest.requiredRemainingGates,'private-proof-write-hosting-approval']};
+ return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
 }

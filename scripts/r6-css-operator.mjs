@@ -4,6 +4,10 @@ import {r6CssProfile} from './release-r6-css.mjs';
 
 const pins={sourceSha:40,controllerSourceSha:40,payloadSha:40,expectedParent:40,manifestSha256:64,receiverSha256:64};
 const runtimeModes=['inspect-state','install','finish','confirm-rollback','renew-health','import-health'];
+export function productionBindingPlan(){
+ const base='/var/www/vhosts/vneconomics.com';
+ return {root:base+'/store.vneconomics.com',home:'https://store.vneconomics.com',database:'vne35060_wp_kmqnf',control:base+'/deploy-control/production',keyPath:base+'/deploy-control/production/health-key.json',uid:10044,gid:1004,stylesheet:'vibelab-v2',pluginVersion:'0.4.4',schema:3,activePlugins:['ai-provider-for-anthropic/plugin.php','visa-acceptance-solutions/visa-acceptance-solutions.php','vne-library-core/vne-library-core.php','woocommerce/woocommerce.php']};
+}
 function exactHex(value,length,label){assert.equal(typeof value,'string','Invalid '+label);assert.equal(value.length,length,'Invalid length '+label);assert.match(value,/^[a-f0-9]+$/,'Invalid hex '+label);}
 export function validateOperatorRequest(mode,approval,fixtureToken){
  assert.ok(mode==='inspect-inbox'||runtimeModes.includes(mode),'Unknown operator mode');
@@ -51,6 +55,41 @@ export function buildOperatorBootstrap(mode,approval,{fixtureToken,proof}={}){
  ].join('');
  assert.ok(!code.includes("'"),'Plesk single-quote wrapper must not contain single quotes');
  return {code,command:"eval '"+code+"' "+(runtime?'--user=1':'--skip-wordpress --skip-packages'),scope:runtime?'owned-local-runtime':'read-only-inbox',productionWriteAuthorized:false};
+}
+export function buildProductionInspectionBootstrap(mode,approval){
+ assert.ok(['inspect-inbox','inspect-production-context','inspect-production-storage'].includes(mode),'Production inspection mode only');
+ assert.ok(approval&&Object.getPrototypeOf(approval)===Object.prototype,'Plain approval required');
+ const context=mode==='inspect-production-context';
+ assert.deepEqual(Object.keys(approval).sort(),[...Object.keys(pins),'environment','profile',...(context?['contextPhase']:[])].sort(),'Production inspection approval fields differ');
+ assert.equal(approval.environment,'production');assert.ok(['vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3'].includes(approval.profile),'Production inspection profile differs');
+ for(const [key,length] of Object.entries(pins))exactHex(approval[key],length,key);
+ assert.equal(approval.expectedParent,r6CssProfile.payload);
+ if(context)assert.ok(['baseline','candidate'].includes(approval.contextPhase),'Invalid context phase');
+ const plan=productionBindingPlan(),inbox='/var/www/vhosts/vneconomics.com/deploy-inbox/production',receiver=inbox+'/receiver.php',manifest=inbox+'/manifest.json';
+ const code=[
+  'if(PHP_SAPI!=="cli"){throw new RuntimeException("CLI required");}',
+  context?'if(!function_exists("current_user_can")||!isset($GLOBALS["wpdb"])){throw new RuntimeException("Loaded WordPress context required");}':'if(function_exists("get_option")||isset($GLOBALS["wpdb"])){throw new RuntimeException("Use --skip-wordpress for production file inspection");}',
+  '$a=json_decode(base64_decode("'+Buffer.from(JSON.stringify(approval)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR);',
+  'foreach(["'+plan.root+'","'+inbox+'","'+manifest+'","'+receiver+'"] as $p){for($q=$p;$q!==dirname($q);$q=dirname($q)){if(is_link($q)){throw new RuntimeException("Production bootstrap symlink refused");}}if(realpath($p)!==$p){throw new RuntimeException("Production bootstrap path differs");}}',
+  'if(!is_file("'+receiver+'")||hash_file("sha256","'+receiver+'")!==$a["receiverSha256"]){throw new RuntimeException("Production bootstrap controller pin differs");}',
+  'if(!is_file("'+manifest+'")||hash_file("sha256","'+manifest+'")!==$a["manifestSha256"]){throw new RuntimeException("Production bootstrap manifest pin differs");}',
+  'require "'+receiver+'";',
+  'echo json_encode(vne_adapter_production_inspection_dispatch("'+mode+'",$a),JSON_THROW_ON_ERROR);',
+ ].join('');
+ assert.ok(!code.includes("'"),'Production inspection wrapper must remain literal');
+ return {code,command:"eval '"+code+"' "+(context?'--user=1':'--skip-wordpress --skip-packages'),scope:context?'production-loaded-context-inspection':'production-file-inspection',loadsWordPressBeforeCommand:context,productionWriteAuthorized:false};
+}
+export function buildProductionProofImportBootstrap(a,proof){
+ assert.ok(a&&Object.getPrototypeOf(a)===Object.prototype,'Plain proof import approval required');
+ const fields=[...Object.keys(pins),'environment','profile','protocol','owner','baselineSha256','keyFingerprintSha256','proofImportApproved','expectedChallenge','phase'].sort();
+ assert.deepEqual(Object.keys(a).sort(),fields,'Proof import approval fields differ');
+ assert.equal(a.profile,'vibelab-v2-r6-css-production-proof-import-schema3');assert.equal(a.protocol,'r6-css-production-proof-v1');assert.equal(a.proofImportApproved,true);assert.ok(['AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'].includes(a.phase));
+ for(const field of ['baselineSha256','keyFingerprintSha256','expectedChallenge'])exactHex(a[field],64,field);exactHex(a.owner,32,'owner');
+ assert.ok(proof&&Object.getPrototypeOf(proof)===Object.prototype);assert.deepEqual(Object.keys(proof).sort(),['body','signature']);assert.ok(typeof proof.body==='string'&&proof.body.length>0&&proof.body.length<=10924,'Proof body limit differs');exactHex(proof.signature,64,'proof signature');
+ const read=Object.fromEntries([...Object.keys(pins),'environment','profile'].map(field=>[field,a[field]]));
+ const base=buildProductionInspectionBootstrap('inspect-production-context',{...read,contextPhase:'baseline'}),includeAt=base.code.indexOf('require "');assert.ok(includeAt>0);
+ const code=base.code.slice(0,includeAt)+'$a=json_decode(base64_decode("'+Buffer.from(JSON.stringify(a)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR);require "/var/www/vhosts/vneconomics.com/deploy-inbox/production/receiver.php";echo json_encode(vne_adapter_import_production_proof($a,json_decode(base64_decode("'+Buffer.from(JSON.stringify(proof)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR)),JSON_THROW_ON_ERROR);';
+ assert.ok(!code.includes("'"));return {code,command:"eval '"+code+"' --user=1",scope:'production-private-proof-json-write',privateProofWriteRequested:true,applicationWriteRequested:false,requiresSeparateHostingApproval:true};
 }
 async function readBounded(response,limit){
  const reader=response.body?.getReader();assert.ok(reader,'HTTP response body missing');let bytes=0;const chunks=[];

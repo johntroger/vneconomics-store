@@ -1,4 +1,284 @@
 <?php
+// Pure candidate-key possession protocol. Not a provisioning or activation entry point.
+function vne_adapter_validate_key_handshake_request($request, $now) {
+    $fields = array('protocol','target','operationId','kind','expectedActiveFingerprint','candidateFingerprint','challenge','issuedAt','expiresAt');
+    if (!is_array($request)) { throw new RuntimeException('Invalid candidate handshake request'); }
+    $keys = array_keys($request); $expected = $fields; sort($keys); sort($expected);
+    if ($keys !== $expected) { throw new RuntimeException('Candidate handshake request fields differ'); }
+    $hex = function($value, $length) { return is_string($value) && strlen($value) === $length && preg_match('/^[a-f0-9]+$/D', $value) === 1; };
+    if ($request['protocol'] !== 'r6-css-key-candidate-possession-v1' || $request['target'] !== vne_adapter_production_policy()['home'] || !$hex($request['operationId'],32) || !$hex($request['candidateFingerprint'],64) || !$hex($request['challenge'],64)) { throw new RuntimeException('Candidate handshake scope or identity differs'); }
+    if (!in_array($request['kind'],array('initial','rotation'),true) || ($request['kind'] === 'initial' ? $request['expectedActiveFingerprint'] !== null : (!$hex($request['expectedActiveFingerprint'],64) || $request['expectedActiveFingerprint'] === $request['candidateFingerprint']))) { throw new RuntimeException('Candidate active fingerprint differs'); }
+    if (!is_int($now) || !is_int($request['issuedAt']) || !is_int($request['expiresAt']) || $now > 9007199254740991 || $request['expiresAt'] > 9007199254740991 || $request['issuedAt'] < 0 || $request['issuedAt'] > $now || $request['expiresAt'] <= $now || $request['expiresAt'] <= $request['issuedAt'] || $request['expiresAt'] - $request['issuedAt'] > 60) { throw new RuntimeException('Candidate handshake stale/future or invalid lifetime'); }
+    $canonical = array(); foreach ($fields as $field) { $canonical[$field] = $request[$field]; } return $canonical;
+}
+function vne_adapter_validate_candidate_key_record($record,$fingerprint,$target) {
+    $hex = function($value, $length) { return is_string($value) && strlen($value) === $length && preg_match('/^[a-f0-9]+$/D', $value) === 1; };
+    if (!is_array($record)) { throw new RuntimeException('Invalid candidate key record'); }
+    $keys = array_keys($record); sort($keys);
+    if ($keys !== array('format','key','purpose','target') || $record['format'] !== 1 || $record['purpose'] !== 'r6-css-health-proof' || $record['target'] !== $target || !$hex($record['key'],64)) { throw new RuntimeException('Candidate key record differs'); }
+    if (!hash_equals($fingerprint,hash('sha256',hex2bin($record['key'])))) { throw new RuntimeException('Candidate key fingerprint differs'); }
+}
+function vne_adapter_key_candidate_possession($request, $record, $now) {
+    $request = vne_adapter_validate_key_handshake_request($request,$now);
+    vne_adapter_validate_candidate_key_record($record,$request['candidateFingerprint'],$request['target']);$key = hex2bin($record['key']);
+    try {
+    $body = $request;
+    $body['observedAt'] = $now; $body['status'] = 'CANDIDATE_KEY_POSSESSION';
+    $bytes = json_encode($body,JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR);
+    return array('body'=>base64_encode($bytes),'signature'=>hash_hmac('sha256',$bytes,$key));
+    } finally { $record['key'] = ''; if (function_exists('sodium_memzero')) { sodium_memzero($key); } else { $key = ''; } }
+}
+// Read-only observer; intentionally absent from dispatcher/bootstrap capabilities.
+function vne_adapter_validate_key_private_metadata($s,$directory) {
+    $p=vne_adapter_production_policy();vne_adapter_need(is_array($s)&&is_bool($directory),'Candidate metadata invalid');
+    foreach(array('uid','gid','mode','nlink','size') as $field)vne_adapter_need(isset($s[$field])&&is_int($s[$field]),'Candidate metadata field invalid');
+    vne_adapter_need(($s['mode']&0170000)===($directory?0040000:0100000),'Candidate metadata type differs');
+    vne_adapter_need($s['uid']===$p['uid']&&$s['gid']===$p['gid']&&($s['mode']&07777)===($directory?0700:0600),'Candidate private owner/mode differs');
+    if(!$directory)vne_adapter_need($s['nlink']===1&&$s['size']>0&&$s['size']<=4096,'Candidate private file links/size differs');
+}
+function vne_adapter_key_private_stat($path,$directory) {
+    vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);
+    vne_adapter_need(is_array($s)&&($directory?is_dir($path):is_file($path))&&!is_link($path),'Candidate private path/type differs');
+    vne_adapter_validate_key_private_metadata($s,$directory);
+    return $s;
+}
+function vne_adapter_key_stat_identity($s) {
+    return array_intersect_key($s,array_flip(array('dev','ino','mode','nlink','uid','gid','size','mtime','ctime')));
+}
+function vne_adapter_read_key_observation($path) {
+    $before=vne_adapter_key_private_stat($path,false);$record=vne_adapter_read_key_descriptor($path,$before);
+    vne_adapter_need(vne_adapter_key_stat_identity(vne_adapter_key_private_stat($path,false))===vne_adapter_key_stat_identity($before),'Candidate private key changed after read');return $record;
+}
+function vne_adapter_read_key_descriptor($path,$before) {
+    vne_adapter_need(is_array($before)&&($before['mode']&0170000)===0100000&&$before['nlink']===1&&$before['size']>0&&$before['size']<=4096,'Candidate descriptor metadata invalid');
+    vne_adapter_path($path);$handle=@fopen($path,'rb');vne_adapter_need(is_resource($handle),'Candidate private key open failed');
+    try {
+        vne_adapter_need(vne_adapter_key_stat_identity(fstat($handle))===vne_adapter_key_stat_identity($before),'Candidate private file changed before read');
+        $bytes=stream_get_contents($handle,4097);vne_adapter_need(is_string($bytes)&&strlen($bytes)===$before['size'],'Candidate private key read differs');
+        clearstatcache(true,$path);vne_adapter_path($path);
+        vne_adapter_need(vne_adapter_key_stat_identity(fstat($handle))===vne_adapter_key_stat_identity($before)&&vne_adapter_key_stat_identity(lstat($path))===vne_adapter_key_stat_identity($before),'Candidate private key changed during read');
+        try { return json_decode($bytes,true,16,JSON_THROW_ON_ERROR); } catch(Throwable $e) { throw new RuntimeException('Candidate private key JSON invalid'); }
+    } finally { fclose($handle);$bytes=''; }
+}
+function vne_adapter_observe_key_candidate($request,$contextPins) {
+    $request=vne_adapter_validate_key_handshake_request($request,time());
+    $fields=is_array($contextPins)?array_keys($contextPins):array();sort($fields);vne_adapter_need($fields===array('contextPhase','sourceSha'),'Candidate context pins differ');
+    vne_adapter_validate_production_context(vne_adapter_observe_production_context(),$contextPins['contextPhase'],$contextPins['sourceSha']);
+    $p=vne_adapter_production_policy();$root=$p['control'].'/candidates/'.$request['operationId'];$dirs=array($p['control'],$p['control'].'/candidates',$root);$before=array();
+    foreach($dirs as $dir)$before[$dir]=vne_adapter_key_private_stat($dir,true);
+    $key=null;$active=null;
+    try {
+        clearstatcache(true,$p['keyPath']);if($request['kind']==='initial'){vne_adapter_need(!file_exists($p['keyPath'])&&!is_link($p['keyPath']),'Initial candidate conflicts with active server key');}
+        else {
+            $active=vne_adapter_read_key_observation($p['keyPath']);
+            vne_adapter_validate_candidate_key_record($active,$request['expectedActiveFingerprint'],$request['target']);
+        }
+        $key=vne_adapter_read_key_observation($root.'/health-key.json');$proof=vne_adapter_key_candidate_possession($request,$key,time());
+        foreach($dirs as $dir)vne_adapter_need(vne_adapter_key_stat_identity(vne_adapter_key_private_stat($dir,true))===vne_adapter_key_stat_identity($before[$dir]),'Candidate private directory changed during observation');
+        clearstatcache(true,$p['keyPath']);if($request['kind']==='initial')vne_adapter_need(!file_exists($p['keyPath'])&&!is_link($p['keyPath']),'Active server key appeared during observation');
+        else vne_adapter_need(vne_adapter_read_key_observation($p['keyPath'])===$active,'Active server key changed during observation');
+        vne_adapter_need(vne_adapter_read_key_observation($root.'/health-key.json')===$key,'Candidate server key changed during observation');
+        vne_adapter_validate_key_handshake_request($request,time());
+        return array('status'=>'SERVER_CANDIDATE_OBSERVATION','proof'=>$proof,'keyReturned'=>false,'serverOriginVerified'=>false,'writerReservationVerified'=>false,'activationAuthorized'=>false,'provisioningAuthorized'=>false);
+    } finally { if(is_array($key))$key['key']='';if(is_array($active))$active['key']=''; }
+}
+// Reservation writer is fixture-only. It coordinates with the existing receiver.lock.
+function vne_adapter_validate_key_reservation_record($record,$request) {
+    $fields=is_array($record)?array_keys($record):array();sort($fields);
+    vne_adapter_need($fields===array('createdAt','expiresAt','phase','protocol','request')&&$record['protocol']==='r6-css-key-reservation-v1'&&$record['request']===$request&&is_int($record['createdAt'])&&$record['createdAt']>=$request['issuedAt']&&$record['createdAt']<$request['expiresAt']&&$record['expiresAt']===$request['expiresAt']&&in_array($record['phase'],array('RESERVED','RELEASED'),true),'Key reservation identity/state differs');
+}
+function vne_adapter_key_reservation_fixture($mode,$request) {
+    vne_adapter_write_scope();vne_adapter_need(in_array($mode,array('reserve','inspect','release'),true),'Unknown key reservation mode');
+    $now=time();$request=vne_adapter_validate_key_handshake_request($request,$mode==='release'?($request['issuedAt']??$now):$now);
+    vne_adapter_need($request['issuedAt']<=$now,'Key reservation request is from the future');
+    $control='/adapter-fixture/control';$lock=$control.'/receiver.lock';$journal=$control.'/journal-'.$request['operationId'].'.json';
+    $read=function($path) {
+        vne_adapter_path($path);$s=lstat($path);vne_adapter_need(is_file($path)&&$s['nlink']===1&&$s['size']>0&&$s['size']<=4096,'Key reservation journal type/size differs');
+        try { return json_decode(file_get_contents($path),true,16,JSON_THROW_ON_ERROR); } catch(Throwable $e) { throw new RuntimeException('Key reservation journal JSON invalid'); }
+    };
+    $validate=function($record)use($request) {
+        vne_adapter_validate_key_reservation_record($record,$request);
+    };
+    if(!file_exists($lock)&&!is_link($lock)&&$mode==='release'&&file_exists($journal)){
+        $j=$read($journal);$validate($j);vne_adapter_need($j['phase']==='RELEASED','Missing reservation lock; inspect');
+        return array('status'=>'KEY_RESERVATION_ALREADY_RELEASED','activationAuthorized'=>false,'productionWriteAuthorized'=>false);
+    }
+    $created=false;$handle=null;$held=false;
+    try {
+        if(file_exists($lock)||is_link($lock)){
+            vne_adapter_path($lock);$s=lstat($lock);vne_adapter_need(is_file($lock)&&$s['nlink']===1&&$s['size']>0&&$s['size']<=4096,'Key reservation lock invalid');$handle=@fopen($lock,'r+');
+        }else{
+            vne_adapter_need($mode==='reserve','Key reservation does not exist');
+            vne_adapter_need(!file_exists($journal)&&!is_link($journal),'Existing key reservation journal; inspect');
+            foreach(glob($control.'/journal-*.json') as $other){
+                vne_adapter_need(preg_match('~/journal-[a-f0-9]{32}\.json$~D',$other),'Unknown journal filename; inspect');$old=$read($other);
+                vne_adapter_need(is_array($old)&&in_array($old['phase']??null,array('COMPLETE','ROLLED_BACK','RELEASED'),true),'Nonterminal journal without lock; inspect');
+            }
+            $handle=@fopen($lock,'x+');$created=is_resource($handle);
+        }
+        vne_adapter_need(is_resource($handle),'Cannot acquire key reservation lock; inspect before retry');
+        $held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Key reservation busy; inspect before retry');
+        vne_adapter_path($lock);$opened=fstat($handle);clearstatcache(true,$lock);$current=lstat($lock);
+        vne_adapter_need($opened['ino']===$current['ino']&&$opened['dev']===$current['dev']&&$current['nlink']===1,'Key reservation lock replaced');
+        if($created){
+            vne_adapter_need(chmod($lock,0600),'Key reservation lock mode failed');vne_adapter_validate_key_handshake_request($request,time());
+            $j=array('protocol'=>'r6-css-key-reservation-v1','request'=>$request,'phase'=>'RESERVED','createdAt'=>time(),'expiresAt'=>$request['expiresAt']);$bytes=json_encode($j,JSON_THROW_ON_ERROR);
+            vne_adapter_need(fwrite($handle,$bytes)===strlen($bytes)&&fflush($handle),'Key reservation lock write failed');
+            vne_adapter_need(!file_exists($journal)&&!is_link($journal),'Key reservation journal appeared; inspect');vne_adapter_write_journal($journal,$j);
+        }else{
+            rewind($handle);$raw=stream_get_contents($handle,4097);vne_adapter_need(is_string($raw)&&strlen($raw)>0&&strlen($raw)<=4096,'Key reservation lock read failed');
+            try {$l=json_decode($raw,true,16,JSON_THROW_ON_ERROR);}catch(Throwable $e){throw new RuntimeException('Key reservation lock JSON invalid');}
+            $validate($l);vne_adapter_need($l['phase']==='RESERVED','Reservation lock phase differs');$j=$read($journal);$validate($j);
+            vne_adapter_need($l['createdAt']===$j['createdAt']&&($j['phase']==='RESERVED'||$mode==='release'),'Reservation lock/journal phase differs');
+        }
+        $validate($j);vne_adapter_need($j['createdAt']<=time(),'Key reservation clock differs');
+        rewind($handle);vne_adapter_need(stream_get_contents($handle,4097)===($created?$bytes:$raw)&&$read($journal)===$j,'Key reservation state changed; inspect');
+        clearstatcache(true,$lock);$current=lstat($lock);vne_adapter_need($opened['ino']===$current['ino']&&$opened['dev']===$current['dev']&&!is_link($lock),'Key reservation lock changed');
+        if($mode==='release'){
+            $activation=$control.'/candidates/'.$request['operationId'].'/activation.json';
+            if(file_exists($activation)||is_link($activation))vne_adapter_need(in_array(vne_adapter_read_key_activation_fixture($request)['phase'],array('ACTIVATED','ROLLED_BACK'),true),'Unfinished key activation; retain reservation and inspect');
+            if($j['phase']!=='RELEASED'){$j['phase']='RELEASED';vne_adapter_write_journal($journal,$j);}
+            vne_adapter_need(unlink($lock),'Key reservation own lock cleanup failed');
+            return array('status'=>'KEY_RESERVATION_RELEASED','activationAuthorized'=>false,'productionWriteAuthorized'=>false);
+        }
+        vne_adapter_validate_key_handshake_request($request,time());
+        return array('status'=>$created?'KEY_RESERVATION_CREATED':($mode==='inspect'?'KEY_RESERVATION_VERIFIED':'KEY_RESERVATION_ALREADY_HELD'),'operationId'=>$request['operationId'],'expiresAt'=>$j['expiresAt'],'candidateVerified'=>false,'activationAuthorized'=>false,'productionWriteAuthorized'=>false);
+    }finally{
+        // A partial journal/lock is evidence for inspect; never steal or auto-delete it.
+        if($held)flock($handle,LOCK_UN);if(is_resource($handle))fclose($handle);
+    }
+}
+function vne_adapter_key_reservation_owned_fixture($request,$handle,$allowExpired=false) {
+    vne_adapter_write_scope();vne_adapter_need(is_bool($allowExpired),'Invalid key recovery clock mode');vne_adapter_validate_key_handshake_request($request,$allowExpired?($request['issuedAt']??time()):time());vne_adapter_need($request['issuedAt']<=time(),'Key recovery request is from the future');vne_adapter_need(is_resource($handle),'Key stage requires held reservation mutex');
+    $lock='/adapter-fixture/control/receiver.lock';$journal='/adapter-fixture/control/journal-'.$request['operationId'].'.json';vne_adapter_path($lock);vne_adapter_path($journal);
+    clearstatcache();$opened=fstat($handle);$current=lstat($lock);$js=lstat($journal);
+    vne_adapter_need(is_file($lock)&&$current['nlink']===1&&$opened['dev']===$current['dev']&&$opened['ino']===$current['ino']&&is_file($journal)&&$js['nlink']===1&&$js['size']>0&&$js['size']<=4096,'Key stage lock/journal metadata differs');
+    rewind($handle);$raw=stream_get_contents($handle,4097);vne_adapter_need(is_string($raw)&&strlen($raw)>0&&strlen($raw)<=4096,'Key stage lock size differs');
+    try{$l=json_decode($raw,true,16,JSON_THROW_ON_ERROR);$j=json_decode(file_get_contents($journal),true,16,JSON_THROW_ON_ERROR);}catch(Throwable $e){throw new RuntimeException('Key stage reservation JSON invalid');}
+    vne_adapter_validate_key_reservation_record($l,$request);vne_adapter_validate_key_reservation_record($j,$request);
+    vne_adapter_need($l===$j&&$j['phase']==='RESERVED'&&$j['createdAt']<=time(),'Key stage reservation is not live/owned');return $raw;
+}
+function vne_adapter_read_key_stage_fixture($path,$fingerprint,$target) {
+    vne_adapter_write_scope();vne_adapter_need(preg_match('~^/adapter-fixture/control/(?:health-key\.json|candidates/[a-f0-9]{32}/(?:health-key|previous-health-key)\.json)$~D',$path),'Key stage fixture path differs');vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);
+    vne_adapter_need(($s['mode']&07777)===0600,'Key stage fixture file mode differs');$record=vne_adapter_read_key_descriptor($path,$s);vne_adapter_validate_candidate_key_record($record,$fingerprint,$target);return $record;
+}
+function vne_adapter_stage_key_candidate_fixture($request,$record) {
+    vne_adapter_write_scope();$request=vne_adapter_validate_key_handshake_request($request,time());vne_adapter_validate_candidate_key_record($record,$request['candidateFingerprint'],$request['target']);
+    $control='/adapter-fixture/control';$lock=$control.'/receiver.lock';vne_adapter_path($lock);$handle=@fopen($lock,'r+');vne_adapter_need(is_resource($handle),'Key stage requires existing reservation');$held=false;$out=null;$active=null;$stored=null;
+    try {
+        $held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Key stage reservation busy');$lockRaw=vne_adapter_key_reservation_owned_fixture($request,$handle);
+        $activeGuard=function()use($request,$control){
+            clearstatcache(true,$control.'/health-key.json');
+            if($request['kind']==='initial'){vne_adapter_need(!file_exists($control.'/health-key.json')&&!is_link($control.'/health-key.json'),'Initial stage conflicts with active key');return null;}
+            return vne_adapter_read_key_stage_fixture($control.'/health-key.json',$request['expectedActiveFingerprint'],$request['target']);
+        };
+        $active=$activeGuard();$root=$control.'/candidates/'.$request['operationId'];
+        foreach(array($control,$control.'/candidates',$root) as $dir){
+            if(!file_exists($dir)&&!is_link($dir)){vne_adapter_need($dir!==$control&&mkdir($dir,0700),'Key stage private directory create failed');}
+            vne_adapter_path($dir);clearstatcache(true,$dir);vne_adapter_need(is_dir($dir)&&(lstat($dir)['mode']&07777)===0700,'Key stage fixture directory mode/type differs');
+        }
+        $path=$root.'/health-key.json';$entries=array_values(array_diff(scandir($root),array('.','..')));$retry=file_exists($path)||is_link($path);
+        vne_adapter_need($entries===($retry?array('health-key.json'):array()),'Incomplete key candidate retained; inspect');
+        if(!$retry){
+            vne_adapter_need(vne_adapter_key_reservation_owned_fixture($request,$handle)===$lockRaw,'Key stage reservation changed before write');
+            $out=@fopen($path,'x');vne_adapter_need(is_resource($out),'Key stage exclusive create failed');vne_adapter_need(chmod($path,0600)&&(fstat($out)['mode']&07777)===0600,'Key stage private mode setup failed');
+            $bytes=json_encode($record,JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR);$offset=0;
+            while($offset<strlen($bytes)){$n=fwrite($out,substr($bytes,$offset));vne_adapter_need(is_int($n)&&$n>0,'Key stage write interrupted; inspect retained candidate');$offset+=$n;}
+            vne_adapter_need(fflush($out),'Key stage flush failed');fclose($out);$out=null;$bytes='';
+        }
+        $stored=vne_adapter_read_key_stage_fixture($path,$request['candidateFingerprint'],$request['target']);
+        vne_adapter_need($activeGuard()===$active,'Active fixture key changed while staging');vne_adapter_need(vne_adapter_key_reservation_owned_fixture($request,$handle)===$lockRaw,'Key stage reservation changed after write');
+        $proof=vne_adapter_key_candidate_possession($request,$stored,time());
+        return array('status'=>$retry?'CANDIDATE_KEY_ALREADY_STAGED':'CANDIDATE_KEY_STAGED','proof'=>$proof,'candidateFingerprint'=>$request['candidateFingerprint'],'activeKeyChanged'=>false,'activationAuthorized'=>false,'productionWriteAuthorized'=>false);
+    } finally {
+        if(is_resource($out))fclose($out);$record['key']='';$bytes='';if(is_array($active))$active['key']='';if(is_array($stored))$stored['key']='';
+        // Partial candidate is retained for inspect; it may already contain credential bytes.
+        if($held)flock($handle,LOCK_UN);fclose($handle);
+    }
+}
+function vne_adapter_read_key_activation_fixture($request) {
+    vne_adapter_write_scope();$path='/adapter-fixture/control/candidates/'.$request['operationId'].'/activation.json';vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);
+    vne_adapter_need(($s['mode']&07777)===0600,'Key activation metadata mode differs');$state=vne_adapter_read_key_descriptor($path,$s);$fields=is_array($state)?array_keys($state):array();sort($fields);
+    vne_adapter_need($fields===array('phase','protocol','request')&&$state['protocol']==='r6-css-key-activation-v1'&&$state['request']===$request&&in_array($state['phase'],array('PREPARED','ACTIVATED','ROLLBACK_PREPARED','ROLLED_BACK'),true),'Key activation identity/state differs');return $state;
+}
+function vne_adapter_write_key_activation_fixture($request,$phase) {
+    vne_adapter_write_scope();vne_adapter_need(in_array($phase,array('PREPARED','ACTIVATED','ROLLBACK_PREPARED','ROLLED_BACK'),true),'Key activation phase differs');
+    $path='/adapter-fixture/control/candidates/'.$request['operationId'].'/activation.json';vne_adapter_need(!is_link($path),'Key activation metadata symlink refused');$temp=$path.'.tmp-'.bin2hex(random_bytes(8));$out=null;
+    try{$out=@fopen($temp,'x');vne_adapter_need(is_resource($out)&&chmod($temp,0600),'Key activation metadata temp create failed');$bytes=json_encode(array('protocol'=>'r6-css-key-activation-v1','request'=>$request,'phase'=>$phase),JSON_THROW_ON_ERROR);vne_adapter_need(fwrite($out,$bytes)===strlen($bytes)&&fflush($out),'Key activation metadata write failed');fclose($out);$out=null;vne_adapter_need(rename($temp,$path),'Key activation metadata rename failed');}
+    finally{if(is_resource($out))fclose($out);if(is_file($temp))unlink($temp);}
+}
+function vne_adapter_activate_key_candidate_fixture($approval) {
+    vne_adapter_write_scope();$fields=is_array($approval)?array_keys($approval):array();sort($fields);vne_adapter_need($fields===array('activationApproved','request')&&$approval['activationApproved']===true,'Explicit fixture key activation approval required');
+    $request=vne_adapter_validate_key_handshake_request($approval['request'],time());$control='/adapter-fixture/control';$root=$control.'/candidates/'.$request['operationId'];$candidate=$root.'/health-key.json';$previous=$root.'/previous-health-key.json';$active=$control.'/health-key.json';$meta=$root.'/activation.json';$lock=$control.'/receiver.lock';
+    foreach(array($control,$control.'/candidates',$root,$lock) as $path)vne_adapter_path($path);
+    foreach(array($control,$control.'/candidates',$root) as $dir)vne_adapter_need(is_dir($dir)&&(lstat($dir)['mode']&07777)===0700,'Key activation private directory differs');
+    $handle=@fopen($lock,'r+');vne_adapter_need(is_resource($handle),'Key activation requires reservation');$held=false;
+    $exists=function($path){clearstatcache(true,$path);return file_exists($path)||is_link($path);};
+    $verify=function($path,$fingerprint)use($request){$key=vne_adapter_read_key_stage_fixture($path,$fingerprint,$request['target']);$key['key']='';};
+    try{
+        $held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Key activation reservation busy');$raw=vne_adapter_key_reservation_owned_fixture($request,$handle);
+        $allowed=array('health-key.json','previous-health-key.json','activation.json');foreach(array_diff(scandir($root),array('.','..')) as $entry)vne_adapter_need(in_array($entry,$allowed,true),'Incomplete activation files retained; inspect');
+        $retry=$exists($meta);
+        if(!$retry){
+            vne_adapter_need(!$exists($previous),'Unexpected previous key; inspect');$verify($candidate,$request['candidateFingerprint']);
+            if($request['kind']==='initial')vne_adapter_need(!$exists($active),'Initial activation conflicts with active key');else $verify($active,$request['expectedActiveFingerprint']);
+            vne_adapter_write_key_activation_fixture($request,'PREPARED');
+        }
+        $state=vne_adapter_read_key_activation_fixture($request);vne_adapter_need(in_array($state['phase'],array('PREPARED','ACTIVATED'),true),'Rollback state refuses activation');$switched=false;
+        if($exists($active)){
+            try{$verify($active,$request['candidateFingerprint']);$switched=true;}
+            catch(Throwable $e){if($request['kind']==='initial')throw $e;$verify($active,$request['expectedActiveFingerprint']);}
+        }
+        if($state['phase']==='ACTIVATED')vne_adapter_need($switched,'Activated key changed; inspect');
+        if($switched){vne_adapter_need(!$exists($candidate),'Ambiguous active and candidate copies; inspect');}
+        else{
+            vne_adapter_need($state['phase']==='PREPARED','Key activation cannot resume');$verify($candidate,$request['candidateFingerprint']);
+            if($request['kind']==='rotation'){
+                if($exists($previous)){vne_adapter_need(!$exists($active),'Both previous and old active key present; inspect');$verify($previous,$request['expectedActiveFingerprint']);}
+                else{vne_adapter_need($exists($active),'Missing old active/previous key; inspect');$verify($active,$request['expectedActiveFingerprint']);vne_adapter_need(rename($active,$previous),'Old key preservation failed');}
+            }else vne_adapter_need(!$exists($previous)&&!$exists($active),'Initial activation state conflict');
+            vne_adapter_need(vne_adapter_key_reservation_owned_fixture($request,$handle)===$raw,'Key activation reservation changed before switch');vne_adapter_need(!$exists($active),'Active key appeared; inspect');
+            vne_adapter_need(rename($candidate,$active),'Candidate key switch failed; previous key retained');
+        }
+        $verify($active,$request['candidateFingerprint']);if($request['kind']==='rotation')$verify($previous,$request['expectedActiveFingerprint']);else vne_adapter_need(!$exists($previous),'Initial activation has unexpected previous key');
+        vne_adapter_need(vne_adapter_key_reservation_owned_fixture($request,$handle)===$raw,'Key activation reservation changed after switch');
+        if($state['phase']!=='ACTIVATED')vne_adapter_write_key_activation_fixture($request,'ACTIVATED');
+        return array('status'=>$state['phase']==='ACTIVATED'?'FIXTURE_KEY_ALREADY_ACTIVATED':'FIXTURE_KEY_ACTIVATED','candidateFingerprint'=>$request['candidateFingerprint'],'previousFingerprint'=>$request['expectedActiveFingerprint'],'previousKeyRetained'=>$request['kind']==='rotation','productionWriteAuthorized'=>false,'twoSideCommitImplemented'=>false);
+    }finally{if($held)flock($handle,LOCK_UN);fclose($handle);}
+}
+function vne_adapter_rollback_key_candidate_fixture($approval) {
+    vne_adapter_write_scope();$fields=is_array($approval)?array_keys($approval):array();sort($fields);
+    vne_adapter_need($fields===array('expectedPhase','recoveryApproved','request')&&$approval['recoveryApproved']===true&&in_array($approval['expectedPhase'],array('PREPARED','ACTIVATED'),true),'Explicit fixture key recovery approval required');
+    $request=$approval['request'];$request=vne_adapter_validate_key_handshake_request($request,is_array($request)?($request['issuedAt']??time()):time());vne_adapter_need($request['issuedAt']<=time(),'Key recovery request is from the future');
+    $control='/adapter-fixture/control';$root=$control.'/candidates/'.$request['operationId'];$active=$control.'/health-key.json';$candidate=$root.'/health-key.json';$previous=$root.'/previous-health-key.json';$lock=$control.'/receiver.lock';
+    foreach(array($control,$control.'/candidates',$root,$lock) as $path)vne_adapter_path($path);foreach(array($control,$control.'/candidates',$root) as $dir)vne_adapter_need(is_dir($dir)&&(lstat($dir)['mode']&07777)===0700,'Key recovery directory mode/type differs');
+    $handle=@fopen($lock,'r+');vne_adapter_need(is_resource($handle),'Key recovery requires own reservation');$held=false;
+    $exists=function($path){clearstatcache(true,$path);return file_exists($path)||is_link($path);};$verify=function($path,$fp)use($request){$record=vne_adapter_read_key_stage_fixture($path,$fp,$request['target']);$record['key']='';};
+    try{
+        $held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Key recovery reservation busy');$raw=vne_adapter_key_reservation_owned_fixture($request,$handle,true);$state=vne_adapter_read_key_activation_fixture($request);
+        vne_adapter_need(in_array($state['phase'],array($approval['expectedPhase'],'ROLLBACK_PREPARED','ROLLED_BACK'),true),'Key recovery expected phase differs');
+        foreach(array_diff(scandir($root),array('.','..')) as $entry)vne_adapter_need(in_array($entry,array('health-key.json','previous-health-key.json','activation.json'),true),'Unknown key recovery file; inspect');
+        $hasCandidate=$exists($candidate);$hasPrevious=$exists($previous);$activeKind='absent';
+        if($hasCandidate)$verify($candidate,$request['candidateFingerprint']);if($hasPrevious){vne_adapter_need($request['kind']==='rotation','Unexpected previous key in initial recovery');$verify($previous,$request['expectedActiveFingerprint']);}
+        if($exists($active)){try{$verify($active,$request['candidateFingerprint']);$activeKind='candidate';}catch(Throwable $e){if($request['kind']!=='rotation')throw $e;$verify($active,$request['expectedActiveFingerprint']);$activeKind='previous';}}
+        if($request['kind']==='initial')$baseline=$activeKind==='absent'&&$hasCandidate&&!$hasPrevious;
+        else $baseline=$activeKind==='previous'&&$hasCandidate&&!$hasPrevious;
+        $between=$request['kind']==='rotation'&&$activeKind==='absent'&&$hasCandidate&&$hasPrevious;
+        $switched=$activeKind==='candidate'&&!$hasCandidate&&($request['kind']==='rotation'?$hasPrevious:!$hasPrevious);
+        vne_adapter_need($baseline||$between||$switched,'Key recovery file arrangement conflicts; inspect');
+        if($state['phase']==='ACTIVATED')vne_adapter_need($switched,'Activated key drift before recovery; inspect');
+        if($state['phase']==='ROLLED_BACK')vne_adapter_need($baseline,'Rolled-back key drift; inspect');
+        else{
+            if($state['phase']!=='ROLLBACK_PREPARED')vne_adapter_write_key_activation_fixture($request,'ROLLBACK_PREPARED');
+            vne_adapter_need(vne_adapter_key_reservation_owned_fixture($request,$handle,true)===$raw,'Key recovery reservation changed');
+            if($switched){vne_adapter_need(!$exists($candidate),'Recovery candidate appeared; inspect');vne_adapter_need(rename($active,$candidate),'Preserve candidate before rollback failed');}
+            if($request['kind']==='rotation'&&($between||$switched)){vne_adapter_need(!$exists($active),'Recovery active key appeared; inspect');$verify($previous,$request['expectedActiveFingerprint']);vne_adapter_need(rename($previous,$active),'Previous key restore failed; inspect retained files');}
+            $verify($candidate,$request['candidateFingerprint']);if($request['kind']==='rotation')$verify($active,$request['expectedActiveFingerprint']);else vne_adapter_need(!$exists($active),'Initial rollback active key conflict');
+            vne_adapter_need(!$exists($previous)&&vne_adapter_key_reservation_owned_fixture($request,$handle,true)===$raw,'Key recovery state changed after restore');vne_adapter_write_key_activation_fixture($request,'ROLLED_BACK');
+        }
+        return array('status'=>$state['phase']==='ROLLED_BACK'?'FIXTURE_KEY_ALREADY_ROLLED_BACK':'FIXTURE_KEY_ROLLED_BACK','candidateRetained'=>true,'activeFingerprint'=>$request['expectedActiveFingerprint'],'productionWriteAuthorized'=>false,'twoSideRecoveryImplemented'=>false);
+    }finally{if($held)flock($handle,LOCK_UN);fclose($handle);}
+}
 // Caller must pin this file BEFORE including it. Runtime writes are local-fixture-only.
 if(PHP_SAPI!=='cli')throw new RuntimeException('CLI required');
 function vne_adapter_need($ok,$message){if(!$ok)throw new RuntimeException($message);}
@@ -49,12 +329,17 @@ function vne_adapter_inspect($a){
     $manifestPath=$paths['inbox'].'/manifest.json';vne_adapter_path($manifestPath);
     vne_adapter_need(filesize($manifestPath)<=262144&&hash_file('sha256',$manifestPath)===$a['manifestSha256'],'Manifest external pin differs');
     $m=json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR);
-    vne_adapter_need(($m['format']??null)===1&&($m['profile']??'')==='vibelab-v2-r6-css-adapter-schema3'&&($m['sourceSha']??'')===$a['sourceSha'],'Profile/source differs');
+    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport;
+    vne_adapter_need(($m['format']??null)===1&&(($m['profile']??'')==='vibelab-v2-r6-css-adapter-schema3'||$productionInspection)&&($m['sourceSha']??'')===$a['sourceSha'],'Profile/source differs');
     vne_adapter_need(($m['controller']['sourceSha']??'')===$a['controllerSourceSha']&&($m['controller']['path']??'')==='receiver.php'&&($m['controller']['sha256']??'')===$a['receiverSha256'],'Controller identity differs');
     $baseline='fa4c67821008e0fcc4307fedf202bcdf95b85bb6';
     vne_adapter_need($a['expectedParent']===$baseline&&($m['expectedProductionParent']??'')===$baseline&&($m['productionBaselinePayload']??'')===$baseline&&($m['productionBaselineManifestSha256']??'')==='1f77dd2b82aa621c2d7cc586601de3697dab491b15bcea24bc26224a7912ebc2','R6 parent/baseline differs');
     vne_adapter_need(($m['schema']??null)===3&&($m['pluginVersion']??'')==='0.4.4'&&($m['themeVersion']??'')==='2.0.1'&&($m['pluginUnchanged']??null)===true,'Versions differ');
-    vne_adapter_need(($m['approval']['deployAuthorized']??null)===false&&($m['controller']['capabilities']??null)===array('inspect-inbox'),'Inspect-only policy differs');
+    $capabilities=$productionInspection?array('inspect-inbox','inspect-production-context','inspect-production-storage'):array('inspect-inbox');
+    if($proofImport)$capabilities[]='import-production-proof';
+    vne_adapter_need(($m['approval']['deployAuthorized']??null)===false&&($m['controller']['capabilities']??null)===$capabilities,'Inspect-only policy differs');
+    if($productionInspection)vne_adapter_need(($m['scope']??null)===($proofImport?'production-proof-import-only':'production-inspection-only')&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($proofImport)vne_adapter_need(($m['productionProofImportPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'createsKeys'=>false,'requiresExistingJournal'=>true,'requiresExistingKey'=>true),'Production proof import policy differs');
     $listed=array();vne_adapter_need(count($m['files']??array())===5,'Manifest entry count differs');
     foreach($m['files'] as $file){
         $name=$file['path']??'';vne_adapter_need(in_array($name,array_slice($expected,1),true)&&!isset($listed[$name]),'Unsafe/duplicate manifest path');$listed[$name]=true;
@@ -72,8 +357,59 @@ function vne_adapter_dispatch($mode,$approval){
     vne_adapter_need($mode==='inspect-inbox','Write/runtime modes not implemented; install blocked');
     return vne_adapter_inspect($approval);
 }
+function vne_adapter_production_inspection_dispatch($mode,$a){
+    vne_adapter_need(in_array($mode,array('inspect-inbox','inspect-production-context','inspect-production-storage'),true),'Production inspection mode only');
+    $fields=array('sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','environment','profile');if($mode==='inspect-production-context')$fields[]='contextPhase';
+    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3'),true),'Production inspection approval differs');
+    if($mode==='inspect-production-context')vne_adapter_need(in_array($a['contextPhase'],array('baseline','candidate'),true),'Production inspection context phase differs');
+    if($mode!=='inspect-production-context')vne_adapter_need(!function_exists('get_option')&&!isset($GLOBALS['wpdb']),'Use no-WordPress file inspection');
+    $inbox=vne_adapter_inspect($a);vne_adapter_need($inbox['profile']===$a['profile'],'Production inspection profile differs');
+    if($mode==='inspect-inbox')return $inbox;
+    $result=$mode==='inspect-production-context'?vne_adapter_validate_production_context(vne_adapter_observe_production_context(),$a['contextPhase'],$a['sourceSha']):vne_adapter_inspect_production_storage();
+    return array('status'=>'PRODUCTION_INSPECTION_COMPLETE','mode'=>$mode,'sourceSha'=>$a['sourceSha'],'controllerSourceSha'=>$a['controllerSourceSha'],'payloadSha'=>$a['payloadSha'],'manifestSha256'=>$a['manifestSha256'],'inspection'=>$result,'productionRuntimeEnabled'=>false,'installAuthorized'=>false);
+}
 
 // Runtime integration is deliberately restricted to an owned LOCAL WordPress fixture.
+// Production binding is validated separately; these helpers do not enable writers
+// or appear in the public dispatch/profile capabilities.
+function vne_adapter_production_policy(){
+    $base='/var/www/vhosts/vneconomics.com';
+    return array('root'=>$base.'/store.vneconomics.com','home'=>'https://store.vneconomics.com','database'=>'vne35060_wp_kmqnf','control'=>$base.'/deploy-control/production','keyPath'=>$base.'/deploy-control/production/health-key.json','uid'=>10044,'gid'=>1004,'stylesheet'=>'vibelab-v2','pluginVersion'=>'0.4.4','schema'=>3,'activePlugins'=>array('ai-provider-for-anthropic/plugin.php','visa-acceptance-solutions/visa-acceptance-solutions.php','vne-library-core/vne-library-core.php','woocommerce/woocommerce.php'));
+}
+function vne_adapter_observe_production_context(){
+    vne_adapter_need(PHP_SAPI==='cli'&&function_exists('get_option')&&function_exists('current_user_can')&&isset($GLOBALS['wpdb']),'Loaded CLI WordPress context required');
+    $root=defined('ABSPATH')?rtrim(ABSPATH,'/'):'';vne_adapter_need($root===vne_adapter_production_policy()['root'],'Production root differs');vne_adapter_path($root);
+    $wpdb=$GLOBALS['wpdb'];$theme=wp_get_theme();
+    return array('root'=>$root,'database'=>defined('DB_NAME')?DB_NAME:null,'mysql'=>($wpdb instanceof wpdb)&&($wpdb->is_mysql??null)===true,'sqlite'=>defined('DB_FILE')||defined('DB_DIR'),'home'=>home_url(),'siteurl'=>get_option('siteurl'),'indexing'=>(string)get_option('blog_public'),'stylesheet'=>get_stylesheet(),'template'=>get_template(),'themeVersion'=>$theme->get('Version'),'marker'=>defined('VIBELAB_V2_RELEASE_MARKER')?VIBELAB_V2_RELEASE_MARKER:null,'pluginVersion'=>defined('VNE_LIBRARY_VERSION')?VNE_LIBRARY_VERSION:null,'schema'=>(int)get_option('vne_library_schema_version'),'activePlugins'=>get_option('active_plugins'),'canUpdateThemes'=>current_user_can('update_themes'));
+}
+function vne_adapter_validate_production_context($c,$phase,$sourceSha){
+    $p=vne_adapter_production_policy();vne_adapter_need(in_array($phase,array('baseline','candidate'),true),'Unknown production context phase');
+    vne_adapter_need(is_string($sourceSha)&&preg_match('/^[a-f0-9]{40}$/D',$sourceSha),'Exact source required');
+    $fields=array('root','database','mysql','sqlite','home','siteurl','indexing','stylesheet','template','themeVersion','marker','pluginVersion','schema','activePlugins','canUpdateThemes');$keys=is_array($c)?array_keys($c):array();sort($fields);sort($keys);vne_adapter_need($keys===$fields,'Production context fields differ');
+    foreach(array('root','database','home','stylesheet','pluginVersion','schema') as $field)vne_adapter_need(($c[$field]??null)===$p[$field],'Production context differs: '.$field);
+    vne_adapter_need($c['mysql']===true&&$c['sqlite']===false,'Production MySQL context required');
+    vne_adapter_need($c['siteurl']===$p['home']&&$c['indexing']==='1'&&$c['template']===$p['stylesheet'],'Production URL/indexing/template differs');
+    vne_adapter_need($c['canUpdateThemes']===true,'Production theme update capability required');
+    vne_adapter_need(is_array($c['activePlugins'])&&array_is_list($c['activePlugins']),'Production plugins invalid');$actual=$c['activePlugins'];$expected=$p['activePlugins'];sort($actual);sort($expected);vne_adapter_need($actual===$expected,'Production active plugins differ');
+    vne_adapter_need($c['themeVersion']===($phase==='baseline'?'2.0.0':'2.0.1')&&$c['marker']===($phase==='baseline'?'r52-v2-20261028':'r6-css-'.substr($sourceSha,0,12)),'Production theme version/marker differs');
+    return array('status'=>'PRODUCTION_CONTEXT_BINDING_VERIFIED','phase'=>$phase,'databaseHostVerified'=>false,'databaseContentsVerified'=>false,'productionRuntimeEnabled'=>false,'installAuthorized'=>false);
+}
+function vne_adapter_validate_production_storage($s,$key){
+    $p=vne_adapter_production_policy();$expected=array('path','canonical','directory','symlink','uid','gid','mode','keyPath','keyCanonical','keyRegular','keySymlink','keyUid','keyMode');
+    $fields=is_array($s)?array_keys($s):array();sort($expected);sort($fields);vne_adapter_need($fields===$expected,'Production storage fields differ');
+    vne_adapter_need($s['path']===$p['control']&&$s['keyPath']===$p['keyPath']&&$s['canonical']===true&&$s['keyCanonical']===true&&$s['directory']===true&&$s['keyRegular']===true&&$s['symlink']===false&&$s['keySymlink']===false,'Private control path/type differs');
+    vne_adapter_need($s['uid']===$p['uid']&&$s['gid']===$p['gid']&&$s['mode']==='0700'&&$s['keyUid']===$p['uid']&&$s['keyMode']==='0600','Private control owner/mode differs');
+    $keyFields=is_array($key)?array_keys($key):array();sort($keyFields);vne_adapter_need($keyFields===array('format','key','purpose','target')&&$key['format']===1&&$key['purpose']==='r6-css-health-proof'&&$key['target']===$p['home'],'Production key envelope differs');
+    vne_adapter_need(is_string($key['key'])&&preg_match('/^[a-f0-9]{64}$/D',$key['key']),'Production key must encode32 bytes');
+    return array('status'=>'PRODUCTION_STORAGE_BINDING_VERIFIED','keyFingerprintSha256'=>hash('sha256',hex2bin($key['key'])),'keyReturned'=>false,'storageProvisioningAuthorized'=>false,'productionRuntimeEnabled'=>false,'installAuthorized'=>false);
+}
+function vne_adapter_inspect_production_storage(){
+    $p=vne_adapter_production_policy();vne_adapter_path($p['control']);vne_adapter_path($p['keyPath']);
+    vne_adapter_need(is_dir($p['control'])&&is_file($p['keyPath'])&&filesize($p['keyPath'])<=4096,'Private control/key file invalid');
+    $directory=stat($p['control']);$file=stat($p['keyPath']);
+    $s=array('path'=>$p['control'],'canonical'=>true,'directory'=>true,'symlink'=>false,'uid'=>$directory['uid'],'gid'=>$directory['gid'],'mode'=>sprintf('%04o',$directory['mode']&0777),'keyPath'=>$p['keyPath'],'keyCanonical'=>true,'keyRegular'=>true,'keySymlink'=>false,'keyUid'=>$file['uid'],'keyMode'=>sprintf('%04o',$file['mode']&0777));
+    return vne_adapter_validate_production_storage($s,json_decode(file_get_contents($p['keyPath']),true,16,JSON_THROW_ON_ERROR));
+}
 function vne_adapter_runtime_scope($a){
     vne_adapter_need(($a['environment']??'')==='local-runtime'&&($a['productionApproved']??null)===false,'Production runtime is disabled');
     $paths=vne_adapter_paths('local-runtime');
@@ -83,6 +419,88 @@ function vne_adapter_runtime_scope($a){
     vne_adapter_need(defined('DB_FILE')&&DB_FILE==='.ht.sqlite'&&defined('DB_DIR')&&DB_DIR==='/wordpress/wp-content/database/','Unexpected fixture database');
     vne_adapter_need(get_stylesheet()==='vibelab-v2'&&defined('VNE_LIBRARY_VERSION')&&VNE_LIBRARY_VERSION==='0.4.4'&&(int)get_option('vne_library_schema_version')===3,'Runtime component pair differs');
     return $paths;
+}
+// Pure verification only: not exposed by the production inspection dispatcher.
+function vne_adapter_verify_production_proof($a,$j,$proof,$key,$expectedCssSha256){
+    $requestFields=array('environment','protocol','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','baselineSha256','owner','keyFingerprintSha256');$actual=is_array($a)?array_keys($a):array();sort($actual);sort($requestFields);vne_adapter_need($actual===$requestFields,'Production proof request fields differ');
+    vne_adapter_need($a['environment']==='production'&&$a['protocol']==='r6-css-production-proof-v1'&&$a['expectedParent']==='fa4c67821008e0fcc4307fedf202bcdf95b85bb6','Production proof scope differs');
+    foreach(array('sourceSha'=>40,'controllerSourceSha'=>40,'payloadSha'=>40,'expectedParent'=>40,'manifestSha256'=>64,'receiverSha256'=>64,'baselineSha256'=>64,'owner'=>32,'keyFingerprintSha256'=>64) as $field=>$length)vne_adapter_need(is_string($a[$field])&&preg_match('/^[a-f0-9]{'.$length.'}$/D',$a[$field]),'Invalid production proof pin');
+    foreach($requestFields as $field)vne_adapter_need(($j[$field]??null)===$a[$field],'Production journal identity differs');
+    vne_adapter_need(in_array($j['phase']??null,array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true)&&is_string($j['challenge']??null)&&preg_match('/^[a-f0-9]{64}$/D',$j['challenge']),'Production proof phase/challenge invalid');
+    $now=time();vne_adapter_need(is_int($j['issuedAt']??null)&&is_int($j['expiresAt']??null)&&$j['issuedAt']<=$now&&$j['expiresAt']>=$now&&$j['expiresAt']>$j['issuedAt']&&$j['expiresAt']-$j['issuedAt']<=120,'Production challenge expired/invalid');
+    $h=vne_adapter_decode_production_proof($a,$proof,$key);
+    vne_adapter_need($h['phase']===$j['phase']&&$h['challenge']===$j['challenge'],'Production proof challenge/phase differs');
+    vne_adapter_need(is_int($h['observedAt'])&&$h['observedAt']>=$j['issuedAt']&&$h['observedAt']<=$now,'Production proof stale/future');
+    $expectedMarker=$j['phase']==='AWAIT_HEALTH'?'r6-css-'.substr($a['sourceSha'],0,12):'r52-v2-20261028';
+    vne_adapter_need(is_string($expectedCssSha256)&&preg_match('/^[a-f0-9]{64}$/D',$expectedCssSha256),'Expected production health pins invalid');
+    return array('status'=>'AUTHENTIC_PRODUCTION_HEALTH_OBSERVATION','healthPassed'=>$h['httpStatus']===200&&$h['cssStatus']===200&&$h['marker']===$expectedMarker&&$h['cssSha256']===$expectedCssSha256,'productionWriteAuthorized'=>false);
+}
+function vne_adapter_decode_production_proof($a,$proof,$key){
+    $keyFields=is_array($key)?array_keys($key):array();sort($keyFields);vne_adapter_need($keyFields===array('format','key','purpose','target')&&$key['format']===1&&$key['purpose']==='r6-css-health-proof'&&$key['target']===vne_adapter_production_policy()['home']&&is_string($key['key'])&&preg_match('/^[a-f0-9]{64}$/D',$key['key']),'Production key envelope invalid');
+    vne_adapter_need(hash_equals($a['keyFingerprintSha256'],hash('sha256',hex2bin($key['key']))),'Production key fingerprint differs');
+    $fields=is_array($proof)?array_keys($proof):array();sort($fields);vne_adapter_need($fields===array('body','signature')&&is_string($proof['body'])&&strlen($proof['body'])<=10924&&is_string($proof['signature'])&&preg_match('/^[a-f0-9]{64}$/D',$proof['signature']),'Production proof envelope invalid');
+    $body=base64_decode($proof['body'],true);vne_adapter_need(is_string($body)&&strlen($body)<=8192&&base64_encode($body)===$proof['body']&&hash_equals(hash_hmac('sha256',$body,hex2bin($key['key'])),$proof['signature']),'Production proof signature invalid');
+    $h=json_decode($body,true,32,JSON_THROW_ON_ERROR);$identity=array('protocol','owner','sourceSha','controllerSourceSha','payloadSha','manifestSha256','receiverSha256','baselineSha256','keyFingerprintSha256');$expected=array_merge($identity,array('phase','challenge','observedAt','url','httpStatus','cssStatus','marker','cssSha256'));$fields=is_array($h)?array_keys($h):array();sort($expected);sort($fields);vne_adapter_need($fields===$expected,'Production observation fields differ');
+    foreach($identity as $field)vne_adapter_need($h[$field]===$a[$field],'Production proof identity differs');
+    vne_adapter_need(in_array($h['phase'],array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true)&&is_string($h['challenge'])&&preg_match('/^[a-f0-9]{64}$/D',$h['challenge'])&&is_int($h['observedAt'])&&$h['observedAt']>=0&&$h['observedAt']<=time(),'Production observation clock/phase invalid');
+    vne_adapter_need($h['url']===vne_adapter_production_policy()['home'].'/','Production proof target differs');
+    foreach(array('httpStatus','cssStatus') as $field)vne_adapter_need(is_int($h[$field])&&$h[$field]>=100&&$h[$field]<=599,'Production HTTP status invalid');
+    vne_adapter_need(is_string($h['cssSha256'])&&preg_match('/^[a-f0-9]{64}$/D',$h['cssSha256'])&&($h['marker']===null||(is_string($h['marker'])&&strlen($h['marker'])<=128)),'Production CSS/marker invalid');return $h;
+}
+// Separate production entry requests proof-only writes; fixture entry keeps its guard.
+function vne_adapter_store_production_proof_fixture($a,$proof,$expectedCssSha256){
+    return vne_adapter_store_production_proof_transaction($a,$proof,$expectedCssSha256,'fixture');
+}
+function vne_adapter_import_production_proof($approval,$proof){
+    $fields=array('environment','profile','protocol','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','owner','baselineSha256','keyFingerprintSha256','proofImportApproved','expectedChallenge','phase');$actual=is_array($approval)?array_keys($approval):array();sort($fields);sort($actual);
+    vne_adapter_need($fields===$actual&&$approval['environment']==='production'&&$approval['profile']==='vibelab-v2-r6-css-production-proof-import-schema3'&&$approval['proofImportApproved']===true,'Production proof import approval differs');
+    vne_adapter_need(in_array($approval['phase'],array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true)&&is_string($approval['expectedChallenge'])&&preg_match('/^[a-f0-9]{64}$/D',$approval['expectedChallenge']),'Production proof import phase/challenge invalid');
+    $fields=array('environment','protocol','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','baselineSha256','owner','keyFingerprintSha256');$a=array_intersect_key($approval,array_flip($fields));
+    return vne_adapter_store_production_proof_transaction($a,$proof,null,'production',$approval);
+}
+function vne_adapter_production_proof_preflight($approval,$a,$j){
+    $p=vne_adapter_verified_package($approval);vne_adapter_need($p['manifest']['profile']==='vibelab-v2-r6-css-production-proof-import-schema3','Production proof import profile differs');
+    vne_adapter_need($j['phase']===$approval['phase']&&$j['challenge']===$approval['expectedChallenge'],'Production import journal changed phase/challenge');
+    $previous=$j['phase']==='ROLLBACK_AWAIT_HEALTH';vne_adapter_validate_production_context(vne_adapter_observe_production_context(),$previous?'baseline':'candidate',$a['sourceSha']);
+    vne_adapter_need(defined('WP_CONTENT_DIR')&&WP_CONTENT_DIR===$p['paths']['root'].'/wp-content'&&defined('WP_PLUGIN_DIR')&&WP_PLUGIN_DIR===WP_CONTENT_DIR.'/plugins','Production content/plugin path differs');
+    vne_adapter_need(vne_adapter_runtime_state($p,$previous)===$j['baseline'],'Production proof import file/data baseline differs');
+    return hash('sha256',$p['maps'][$previous?'previous-theme':'theme']['vibelab-v2/style.css']);
+}
+function vne_adapter_store_production_proof_transaction($a,$proof,$expectedCssSha256,$backend,$approval=null){
+    vne_adapter_need(in_array($backend,array('fixture','production'),true),'Unknown proof storage backend');
+    if($backend==='fixture'){vne_adapter_write_scope();$control='/adapter-fixture/control';}
+    else{
+        vne_adapter_need(is_array($approval)&&($approval['proofImportApproved']??null)===true&&($approval['profile']??null)==='vibelab-v2-r6-css-production-proof-import-schema3','Production proof backend requires approval');
+        foreach($a as $field=>$value)vne_adapter_need(($approval[$field]??null)===$value,'Production proof request/approval differs');
+        vne_adapter_validate_production_context(vne_adapter_observe_production_context(),$approval['phase']==='ROLLBACK_AWAIT_HEALTH'?'baseline':'candidate',$a['sourceSha']);vne_adapter_inspect($approval);$storage=vne_adapter_inspect_production_storage();vne_adapter_need($storage['keyFingerprintSha256']===($a['keyFingerprintSha256']??null),'Production storage key fingerprint differs');$control=vne_adapter_production_policy()['control'];
+    }
+    vne_adapter_need(is_string($a['owner']??null)&&preg_match('/^[a-f0-9]{32}$/D',$a['owner']),'Invalid proof store owner');
+    vne_adapter_need(($a['receiverSha256']??null)===hash_file('sha256',__FILE__),'Proof store controller pin differs');
+    $paths=array($control.'/journal-'.$a['owner'].'.json',$control.'/receiver.lock');[$journal,$lock]=$paths;vne_adapter_path($journal);vne_adapter_path($lock);$handle=fopen($lock,'r+');vne_adapter_need($handle!==false,'Cannot open proof store mutex');$held=false;
+    try{
+        $held=flock($handle,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Proof store busy; inspect before retry');
+        $journalRaw=file_get_contents($journal);$journalHash=hash('sha256',$journalRaw);$j=json_decode($journalRaw,true,32,JSON_THROW_ON_ERROR);rewind($handle);$lockRaw=stream_get_contents($handle);$lockHash=hash('sha256',$lockRaw);$l=json_decode($lockRaw,true,32,JSON_THROW_ON_ERROR);
+        $snapshot=$j;[$journal,$lock,$j]=vne_adapter_owned_at($a,$j['phase']??'', $handle,$paths);vne_adapter_need($j===$snapshot,'Proof store journal changed during read; inspect');
+        foreach($a as $field=>$value)vne_adapter_need(($j[$field]??null)===$value&&($l[$field]??null)===$value,'Proof store journal/lock identity differs');
+        if($backend==='production')$expectedCssSha256=vne_adapter_production_proof_preflight($approval,$a,$j);
+        $keyPath=vne_adapter_path($control.'/health-key.json');$keyRaw=file_get_contents($keyPath);$keyHash=hash('sha256',$keyRaw);$key=json_decode($keyRaw,true,32,JSON_THROW_ON_ERROR);$verified=vne_adapter_verify_production_proof($a,$j,$proof,$key,$expectedCssSha256);
+        $unchanged=function()use($journal,$journalHash,$handle,$lockHash,$keyPath,$keyHash){rewind($handle);vne_adapter_need(hash_file('sha256',$journal)===$journalHash&&hash('sha256',stream_get_contents($handle))===$lockHash&&hash_file('sha256',$keyPath)===$keyHash,'Proof store journal/lock/key changed; inspect');};
+        $path=$control.'/proof-'.$a['owner'].'.json';vne_adapter_need(!is_link($path),'Proof store symlink refused');$bytes=json_encode(array('body'=>$proof['body'],'signature'=>$proof['signature']),JSON_THROW_ON_ERROR);$same=false;
+        if(file_exists($path)){
+            vne_adapter_path($path);vne_adapter_need(is_file($path)&&filesize($path)<=12000,'Existing production proof invalid');$old=file_get_contents($path);$same=$old===$bytes;
+            $prior=vne_adapter_decode_production_proof($a,json_decode($old,true,32,JSON_THROW_ON_ERROR),$key);$next=vne_adapter_decode_production_proof($a,$proof,$key);
+            vne_adapter_need($same||$next['observedAt']>$prior['observedAt']||($next['observedAt']===$prior['observedAt']&&$next['challenge']!==$prior['challenge']),'Production proof observation regressed/replayed');
+        }
+        $unchanged();vne_adapter_owned_at($a,$j['phase'],$handle,$paths);
+        if($backend==='production'){vne_adapter_inspect($approval);vne_adapter_need(vne_adapter_inspect_production_storage()['keyFingerprintSha256']===$a['keyFingerprintSha256'],'Production key changed before proof write');}
+        if(!$same){
+            $temp=$path.'.tmp-'.bin2hex(random_bytes(8));$out=null;
+            try{$out=fopen($temp,'x');vne_adapter_need($out!==false,'Exclusive proof store temp create failed');vne_adapter_need(chmod($temp,0600),'Proof store mode failed');vne_adapter_need(fwrite($out,$bytes)===strlen($bytes),'Proof store write failed');vne_adapter_need(fclose($out),'Proof store close failed');$out=null;vne_adapter_need(rename($temp,$path),'Proof store rename failed');}
+            finally{if(is_resource($out))fclose($out);if(is_file($temp))unlink($temp);}
+        }
+        $unchanged();
+        return array('status'=>$same?'PRODUCTION_PROOF_ALREADY_STORED':'PRODUCTION_PROOF_STORED','phase'=>$j['phase'],'proofSha256'=>hash('sha256',$bytes),'healthPassed'=>$verified['healthPassed'],'backend'=>$backend==='production'?'production-private-control':'owned-local-fixture','productionWriteAuthorized'=>$backend==='production','applicationWritePerformed'=>false);
+    }finally{if($held)flock($handle,LOCK_UN);fclose($handle);}
 }
 function vne_adapter_data(){
     global $wpdb;$state=array();
@@ -112,7 +530,10 @@ function vne_adapter_zip($path,$spec,$slug,$count){
     }finally{$z->close();}ksort($out);return $out;
 }
 function vne_adapter_runtime_package($a){
-    vne_adapter_inspect($a);$paths=vne_adapter_runtime_scope($a);$m=json_decode(file_get_contents($paths['inbox'].'/manifest.json'),true,512,JSON_THROW_ON_ERROR);
+    vne_adapter_runtime_scope($a);$p=vne_adapter_verified_package($a);vne_adapter_need($p['manifest']['profile']==='vibelab-v2-r6-css-adapter-schema3','Production inspection profile cannot enter fixture writer');return $p;
+}
+function vne_adapter_verified_package($a){
+    vne_adapter_inspect($a);$paths=vne_adapter_paths($a['environment']);$m=json_decode(file_get_contents($paths['inbox'].'/manifest.json'),true,512,JSON_THROW_ON_ERROR);
     vne_adapter_need(($m['installPolicy']['themeOnly']??null)===true&&($m['installPolicy']['reinstallPlugin']??null)===false&&($m['installPolicy']['switchTheme']??null)===false&&($m['installPolicy']['restoreDatabase']??null)===false,'Unreviewed install policy');
     $maps=array();foreach(array('theme'=>array('vibelab-v2',24),'previous-theme'=>array('vibelab-v2',24),'plugin'=>array('vne-library-core',11),'previous-plugin'=>array('vne-library-core',11)) as $key=>$spec){
         vne_adapter_need(($m['components'][$key]['archive']??'')===$key.'.zip','Archive name differs');$maps[$key]=vne_adapter_zip($paths['inbox'].'/'.$key.'.zip',$m['components'][$key],$spec[0],$spec[1]);
@@ -148,7 +569,10 @@ function vne_adapter_write_journal($path,$j){
     finally{if(is_resource($handle))fclose($handle);if(is_file($temp))unlink($temp);}
 }
 function vne_adapter_owned($a,$phase,$operationHandle=null){
-    [$path,$lock]=vne_adapter_journal_paths($a);$j=vne_adapter_json($path);
+    return vne_adapter_owned_at($a,$phase,$operationHandle,vne_adapter_journal_paths($a));
+}
+function vne_adapter_owned_at($a,$phase,$operationHandle,$paths){
+    [$path,$lock]=$paths;$j=vne_adapter_json($path);
     if(is_resource($operationHandle)){
         vne_adapter_path($lock);$opened=fstat($operationHandle);$current=stat($lock);vne_adapter_need($opened['ino']===$current['ino']&&$opened['dev']===$current['dev'],'Operation lock replaced');
         rewind($operationHandle);$l=json_decode(stream_get_contents($operationHandle),true,512,JSON_THROW_ON_ERROR);
