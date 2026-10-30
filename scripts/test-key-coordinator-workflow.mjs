@@ -4,7 +4,7 @@ import {spawnSync} from 'node:child_process';
 import {sha256} from './release-lib.mjs';
 
 assert.equal(process.argv.length,2,'No source/host/path overrides');
-const path='.github/workflows/key-coordinator-check.yml',text=readFileSync(path,'utf8');
+const path='.github/workflows/key-coordinator-check.yml',text=readFileSync(path,'utf8').replace(/\r\n/g,'\n');
 const inputGuard="$ErrorActionPreference = 'Stop'\nif ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}\\z') { throw 'Exact lowercase source SHA required' }";
 const checkoutGuard="$ErrorActionPreference = 'Stop'\n$actual = (git rev-parse HEAD).Trim()\nif ($LASTEXITCODE -ne 0 -or $actual -cne $env:SOURCE_SHA) { throw 'Checked-out source differs' }\nWrite-Output ('SOURCE_SHA=' + $actual)";
 const block=(value,name)=>value.match(new RegExp('      - name: '+name+'\n        shell: pwsh\n        run: \\|\n([\\s\\S]*?)(?=^      -)','m'))?.[1].trim().split('\n').map(line=>line.trim()).join('\n');
@@ -31,7 +31,7 @@ for(const change of [
  v=>v.replace('  workflow_dispatch:','  push:'),v=>v.replace('  workflow_dispatch:','  pull_request:\n  workflow_dispatch:'),v=>v.replace('contents: read','contents: write'),v=>v.replace('persist-credentials: false','persist-credentials: true'),v=>v.replace('ref: ${{ env.SOURCE_SHA }}','ref: main'),v=>v.replace('checkout@3d3c42e5aac5ba805825da76410c181273ba90b1','checkout@v7'),v=>v.replace('-cnotmatch','-cmatch'),v=>v.replace('$actual -cne','$actual -ceq'),v=>v.replace('npm ci --ignore-scripts','npm ci'),v=>v.replace('npm run test:key-coordinator\n','npm run build:candidate\n'),v=>v.replace('timeout-minutes: 10','timeout-minutes: 120'),v=>v.replace('key-coordinator-check-${{ github.ref }}','production-payload-promotion'),v=>v.replace('run: npm run test:key-coordinator','if: false\n        run: npm run test:key-coordinator'),v=>v+'      - run: git push\n',v=>v.replace('    steps:','    secrets: inherit\n    steps:'),
  v=>v.replace('jobs:\n',"env:\n  EXTRA: ${{ secrets['KEY'] }}\njobs:\n"),
  v=>v+'"on":\n  push:\n',
-]){const changed=change(text);assert.notEqual(changed,text);assert.throws(()=>validate(changed));rejected++;}
+]){const changed=change(text);assert.notEqual(changed,text);for(const ending of ['\n','\r\n']){assert.throws(()=>validate(changed.replace(/\n/g,ending)));rejected++;}}
 const head=spawnSync('git',['rev-parse','HEAD'],{encoding:'utf8',windowsHide:true});assert.equal(head.status,0);const sha=head.stdout.trim(),run=(code,source)=>spawnSync('pwsh',['-NoProfile','-NonInteractive','-Command',code],{encoding:'utf8',windowsHide:true,timeout:15000,env:{...process.env,SOURCE_SHA:source}});
 const actualInput=block(text.replace(/\r\n/g,'\n'),'Validate source SHA'),actualCheckout=block(text.replace(/\r\n/g,'\n'),'Verify checked-out source');let executed=0;
 for(const [source,accepted] of [[sha,true],['main',false],[sha.toUpperCase(),false],['a'.repeat(40)+';Write-Output INJECTED',false],['a'.repeat(40)+'\n',false]]){const result=run(actualInput,source);assert.equal(result.status===0,accepted,'Actual workflow input guard differs');executed++;}
