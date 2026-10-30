@@ -7,6 +7,13 @@ on:
       - 'scripts/test-r6-css-adapter.mjs'
       - 'scripts/test-r6-css-adapter-runtime.mjs'
       - 'scripts/r6-css-operator.mjs'
+      - 'scripts/r6-css-key-*.mjs'
+      - 'scripts/r6-css-production-proof.mjs'
+      - 'scripts/test-key-coordinator*.mjs'
+      - 'scripts/test-r738-fixture-single-flight.mjs'
+      - 'scripts/test-r739-checkpoint-fixture.mjs'
+      - 'scripts/test-r740-fixture-state-pin.mjs'
+      - '.github/workflows/key-coordinator-check.yml'
       - 'scripts/test-r6-css-operator.mjs'
       - 'scripts/local-runtime.mjs'
       - 'scripts/fixtures/s06-theme-seed.php'
@@ -43,3 +50,9 @@ jobs:
       - name: Check adapter inspect runtime update health rollback and conflicts
         shell: pwsh
         run: node scripts/run-clean.mjs script scripts/test-r6-css-adapter.mjs --native
+      - name: Check coordinator workflow contract
+        shell: pwsh
+        run: npm run test:key-coordinator-workflow
+      - name: Check coordinator state pins checkpoints and serialization
+        shell: pwsh
+        run: npm run test:key-coordinator
