@@ -1,0 +1,52 @@
+name: Private key client fixture checks
+on:
+  pull_request:
+    paths:
+      - 'scripts/r6-css-private-key.mjs'
+      - 'scripts/r6-css-key-lifecycle.mjs'
+      - 'scripts/r6-css-production-proof.mjs'
+      - 'scripts/r6-css-operator.mjs'
+      - 'scripts/release-lib.mjs'
+      - 'scripts/release-r6-css.mjs'
+      - 'scripts/run-clean.mjs'
+      - 'scripts/test-key-client*.mjs'
+      - 'scripts/test-r726-private-key.mjs'
+      - 'scripts/test-r729-key-lifecycle.mjs'
+      - 'package*.json'
+      - '.github/workflows/key-client-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: key-client-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  client:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2025, ubuntu-24.04]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - name: Validate exact source SHA
+        run: node -e "const s=process.env.SOURCE_SHA||''; if(s.length!==40||!/^[a-f0-9]+$/.test(s)) throw Error('Exact source SHA required')"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify checkout source
+        run: node -e "const s=require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); if(s!==process.env.SOURCE_SHA) throw Error('Checkout SHA differs'); console.log('SOURCE_SHA='+s)"
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Check client workflow contract
+        run: npm run test:key-client-workflow
+      - name: Check native private loader and candidate staging
+        run: npm run test:key-client
