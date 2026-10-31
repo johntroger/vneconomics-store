@@ -1,0 +1,54 @@
+name: Theme publisher and native release review
+on:
+  pull_request:
+    paths:
+      - 'themes/**'
+      - 'plugins/**'
+      - 'scripts/theme-*.mjs'
+      - 'scripts/test-theme-release.mjs'
+      - 'scripts/test-r6-css-native.mjs'
+      - 'scripts/release-lib.mjs'
+      - 'scripts/run-clean.mjs'
+      - 'deploy/theme-release-baseline.json'
+      - 'package*.json'
+      - '.github/workflows/theme-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: theme-release-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  package:
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env:
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_SHA }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify exact source and production payload baseline
+        shell: pwsh
+        run: |
+          if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$') { throw 'Exact source required' }
+          if ((git rev-parse HEAD) -cne $env:SOURCE_SHA) { throw 'Checkout source differs' }
+          $baseline = Get-Content deploy/theme-release-baseline.json -Raw | ConvertFrom-Json
+          $remote = git ls-remote origin refs/heads/release-production
+          if ($LASTEXITCODE -ne 0 -or $remote -cnotmatch ('^'+$baseline.payloadSha+'\s+refs/heads/release-production$')) { throw 'Production baseline moved' }
+      - run: npm ci --ignore-scripts
+      - name: Check publisher and native install rollback
+        run: npm run test:theme-release
+      - name: Upload review package
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: theme-release-${{ env.SOURCE_SHA }}
+          path: artifacts/theme-release/${{ env.SOURCE_SHA }}/
+          if-no-files-found: error
+          retention-days: 21
