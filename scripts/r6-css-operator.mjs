@@ -61,7 +61,7 @@ export function buildProductionInspectionBootstrap(mode,approval){
  assert.ok(approval&&Object.getPrototypeOf(approval)===Object.prototype,'Plain approval required');
  const context=mode==='inspect-production-context';
  assert.deepEqual(Object.keys(approval).sort(),[...Object.keys(pins),'environment','profile',...(context?['contextPhase']:[])].sort(),'Production inspection approval fields differ');
- assert.equal(approval.environment,'production');assert.ok(['vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3'].includes(approval.profile),'Production inspection profile differs');
+ assert.equal(approval.environment,'production');assert.ok(['vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3'].includes(approval.profile),'Production inspection profile differs');
  for(const [key,length] of Object.entries(pins))exactHex(approval[key],length,key);
  assert.equal(approval.expectedParent,r6CssProfile.payload);
  if(context)assert.ok(['baseline','candidate'].includes(approval.contextPhase),'Invalid context phase');
@@ -90,6 +90,22 @@ export function buildProductionProofImportBootstrap(a,proof){
  const base=buildProductionInspectionBootstrap('inspect-production-context',{...read,contextPhase:'baseline'}),includeAt=base.code.indexOf('require "');assert.ok(includeAt>0);
  const code=base.code.slice(0,includeAt)+'$a=json_decode(base64_decode("'+Buffer.from(JSON.stringify(a)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR);require "/var/www/vhosts/vneconomics.com/deploy-inbox/production/receiver.php";echo json_encode(vne_adapter_import_production_proof($a,json_decode(base64_decode("'+Buffer.from(JSON.stringify(proof)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR)),JSON_THROW_ON_ERROR);';
  assert.ok(!code.includes("'"));return {code,command:"eval '"+code+"' --user=1",scope:'production-private-proof-json-write',privateProofWriteRequested:true,applicationWriteRequested:false,requiresSeparateHostingApproval:true};
+}
+export function buildProductionRuntimeBootstrap(mode,a,proof){
+ assert.ok(['inspect-state','install','import-health','finish','rollback','confirm-rollback'].includes(mode),'Unknown production runtime mode');
+ assert.ok(a&&Object.getPrototypeOf(a)===Object.prototype,'Plain runtime approval required');
+ assert.deepEqual(Object.keys(a).sort(),[...Object.keys(pins),'environment','profile','protocol','owner','baselineSha256','keyFingerprintSha256','productionApproved','requiredFreeBytes'].sort(),'Runtime approval fields differ');
+ assert.equal(a.profile,'vibelab-v2-r6-css-production-runtime-schema3');assert.equal(a.protocol,'r6-css-production-proof-v1');assert.equal(a.productionApproved,true);
+ for(const field of ['baselineSha256','keyFingerprintSha256'])exactHex(a[field],64,field);exactHex(a.owner,32,'owner');
+ assert.ok(Number.isSafeInteger(a.requiredFreeBytes)&&a.requiredFreeBytes>=268435456,'Invalid approved disk reserve');
+ if(mode==='import-health'){
+  assert.ok(proof&&Object.getPrototypeOf(proof)===Object.prototype);assert.deepEqual(Object.keys(proof).sort(),['body','signature']);
+  assert.ok(typeof proof.body==='string'&&proof.body.length>0&&proof.body.length<=10924);exactHex(proof.signature,64,'proof signature');
+ }else assert.equal(proof,undefined,'Proof input only allowed for import-health');
+ const read=Object.fromEntries([...Object.keys(pins),'environment','profile'].map(field=>[field,a[field]]));
+ const base=buildProductionInspectionBootstrap('inspect-production-context',{...read,contextPhase:'baseline'}),at=base.code.indexOf('require "');assert.ok(at>0);
+ const code=base.code.slice(0,at)+'$a=json_decode(base64_decode("'+Buffer.from(JSON.stringify(a)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR);require "/var/www/vhosts/vneconomics.com/deploy-inbox/production/receiver.php";echo json_encode(vne_adapter_production_runtime_dispatch("'+mode+'",$a'+(mode==='import-health'?',json_decode(base64_decode("'+Buffer.from(JSON.stringify(proof)).toString('base64')+'",true),true,32,JSON_THROW_ON_ERROR)':'')+'),JSON_THROW_ON_ERROR);';
+ assert.ok(!code.includes("'"));return {code,command:"eval '"+code+"' --user=1",scope:'production-css-runtime',applicationWriteRequested:mode!=='inspect-state'&&mode!=='import-health',privateWriteRequested:mode!=='inspect-state',requiresSeparateHostingApproval:true,automationEnabled:false};
 }
 async function readBounded(response,limit){
  const reader=response.body?.getReader();assert.ok(reader,'HTTP response body missing');let bytes=0;const chunks=[];

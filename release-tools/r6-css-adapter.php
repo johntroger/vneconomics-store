@@ -329,7 +329,8 @@ function vne_adapter_inspect($a){
     $manifestPath=$paths['inbox'].'/manifest.json';vne_adapter_path($manifestPath);
     vne_adapter_need(filesize($manifestPath)<=262144&&hash_file('sha256',$manifestPath)===$a['manifestSha256'],'Manifest external pin differs');
     $m=json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR);
-    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport;
+    $productionRuntime=($m['profile']??'')==='vibelab-v2-r6-css-production-runtime-schema3';
+    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport||$productionRuntime;
     vne_adapter_need(($m['format']??null)===1&&(($m['profile']??'')==='vibelab-v2-r6-css-adapter-schema3'||$productionInspection)&&($m['sourceSha']??'')===$a['sourceSha'],'Profile/source differs');
     vne_adapter_need(($m['controller']['sourceSha']??'')===$a['controllerSourceSha']&&($m['controller']['path']??'')==='receiver.php'&&($m['controller']['sha256']??'')===$a['receiverSha256'],'Controller identity differs');
     $baseline='fa4c67821008e0fcc4307fedf202bcdf95b85bb6';
@@ -337,8 +338,10 @@ function vne_adapter_inspect($a){
     vne_adapter_need(($m['schema']??null)===3&&($m['pluginVersion']??'')==='0.4.4'&&($m['themeVersion']??'')==='2.0.1'&&($m['pluginUnchanged']??null)===true,'Versions differ');
     $capabilities=$productionInspection?array('inspect-inbox','inspect-production-context','inspect-production-storage'):array('inspect-inbox');
     if($proofImport)$capabilities[]='import-production-proof';
+    if($productionRuntime)$capabilities[]='css-runtime';
     vne_adapter_need(($m['approval']['deployAuthorized']??null)===false&&($m['controller']['capabilities']??null)===$capabilities,'Inspect-only policy differs');
-    if($productionInspection)vne_adapter_need(($m['scope']??null)===($proofImport?'production-proof-import-only':'production-inspection-only')&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($productionInspection)vne_adapter_need(($m['scope']??null)===($productionRuntime?'production-css-runtime':($proofImport?'production-proof-import-only':'production-inspection-only'))&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($productionRuntime)vne_adapter_need(($m['productionRuntimePolicy']??null)===array('themeOnly'=>true,'databaseRestore'=>false,'createsKeys'=>false,'requiresExistingKey'=>true,'automatic'=>false),'Production runtime policy differs');
     if($proofImport)vne_adapter_need(($m['productionProofImportPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'createsKeys'=>false,'requiresExistingJournal'=>true,'requiresExistingKey'=>true),'Production proof import policy differs');
     $listed=array();vne_adapter_need(count($m['files']??array())===5,'Manifest entry count differs');
     foreach($m['files'] as $file){
@@ -360,7 +363,7 @@ function vne_adapter_dispatch($mode,$approval){
 function vne_adapter_production_inspection_dispatch($mode,$a){
     vne_adapter_need(in_array($mode,array('inspect-inbox','inspect-production-context','inspect-production-storage'),true),'Production inspection mode only');
     $fields=array('sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','environment','profile');if($mode==='inspect-production-context')$fields[]='contextPhase';
-    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3'),true),'Production inspection approval differs');
+    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3'),true),'Production inspection approval differs');
     if($mode==='inspect-production-context')vne_adapter_need(in_array($a['contextPhase'],array('baseline','candidate'),true),'Production inspection context phase differs');
     if($mode!=='inspect-production-context')vne_adapter_need(!function_exists('get_option')&&!isset($GLOBALS['wpdb']),'Use no-WordPress file inspection');
     $inbox=vne_adapter_inspect($a);vne_adapter_need($inbox['profile']===$a['profile'],'Production inspection profile differs');
@@ -704,4 +707,186 @@ function vne_adapter_runtime_dispatch_locked($mode,$a,$operationHandle=null,$pro
         catch(Throwable $e){$j['phase']='STOPPED_INSPECT';vne_adapter_write_journal($path,$j);throw $e;}
     }
     vne_adapter_write_journal($path,$j);vne_adapter_owned($a,$j['phase'],$operationHandle);vne_adapter_need(unlink($lock),'Own lock cleanup failed');return $j;
+}
+
+// Separate production transaction. No fixture/environment override in its entry.
+function vne_adapter_validate_css_runtime_request($mode,$a,$proof){
+    vne_adapter_need(in_array($mode,array('inspect-state','install','import-health','finish','rollback','confirm-rollback'),true),'Unknown production runtime mode');
+    $pins=array('sourceSha'=>40,'controllerSourceSha'=>40,'payloadSha'=>40,'expectedParent'=>40,'manifestSha256'=>64,'receiverSha256'=>64,'owner'=>32,'baselineSha256'=>64,'keyFingerprintSha256'=>64);
+    $fields=array_merge(array_keys($pins),array('environment','profile','protocol','productionApproved','requiredFreeBytes'));$actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);
+    vne_adapter_need($fields===$actual&&$a['environment']==='production'&&$a['profile']==='vibelab-v2-r6-css-production-runtime-schema3'&&$a['protocol']==='r6-css-production-proof-v1'&&$a['productionApproved']===true,'Production runtime approval differs');
+    foreach($pins as $key=>$length)vne_adapter_need(is_string($a[$key])&&preg_match('/^[a-f0-9]{'.$length.'}$/D',$a[$key]),'Invalid production runtime pin '.$key);
+    vne_adapter_need($a['expectedParent']==='fa4c67821008e0fcc4307fedf202bcdf95b85bb6'&&is_int($a['requiredFreeBytes'])&&$a['requiredFreeBytes']>=268435456,'Production parent/disk approval differs');
+    vne_adapter_need($mode==='import-health'||$proof===null,'Proof input only allowed for import-health');
+    if($mode==='import-health')vne_adapter_need(is_array($proof),'Signed proof required');
+}
+function vne_adapter_css_runtime_identity($a){
+    return array_intersect_key($a,array_flip(array('environment','protocol','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','baselineSha256','owner','keyFingerprintSha256')));
+}
+// IO is constructed inside the production entry; tests supply an owned local backend.
+// This engine alone grants no filesystem access or production certification.
+function vne_adapter_css_transaction($mode,$a,$io,$proof=null){
+    vne_adapter_validate_css_runtime_request($mode,$a,$proof);
+    $release=$io['acquire']();
+    try{
+        $j=$io['read']('journal');$lock=$io['read']('lock');
+        if($j!==null){
+            vne_adapter_need(is_array($j)&&isset($j['approval'],$j['baseline'],$j['createdAt'],$j['phase'])&&$j['approval']===$a,'Runtime journal approval differs; inspect');
+            foreach(vne_adapter_css_runtime_identity($a) as $key=>$value)vne_adapter_need(($j[$key]??null)===$value,'Runtime journal identity differs');
+            vne_adapter_need(is_int($j['createdAt'])&&$j['createdAt']<=time()&&hash('sha256',wp_json_encode($j['baseline']))===$a['baselineSha256'],'Runtime journal baseline/clock differs');
+            vne_adapter_need(in_array($j['phase'],array('INSTALLING','AWAIT_HEALTH','ROLLING_BACK','ROLLBACK_AWAIT_HEALTH','STOPPED_INSPECT','COMPLETE','ROLLED_BACK'),true),'Runtime journal phase differs');
+            if($lock!==null)vne_adapter_need($lock===array('approval'=>$a,'baseline'=>$j['baseline'],'createdAt'=>$j['createdAt']),'Runtime lock ownership differs; inspect');
+            else vne_adapter_need(in_array($j['phase'],array('COMPLETE','ROLLED_BACK'),true),'Missing runtime lock; inspect');
+        }else vne_adapter_need($lock===null,'Foreign runtime lock; inspect');
+        $phase=$j===null?'baseline':(in_array($j['phase'],array('ROLLBACK_AWAIT_HEALTH','ROLLED_BACK'),true)?'baseline':(in_array($j['phase'],array('INSTALLING','ROLLING_BACK','STOPPED_INSPECT'),true)?'mixed':'candidate'));
+        $data=$io['preflight']($phase);
+        vne_adapter_need(hash('sha256',wp_json_encode($data))===$a['baselineSha256']&&($j===null||$data===$j['baseline']),'Production runtime data baseline differs; inspect');
+        if($mode==='inspect-state')return array('phase'=>$j['phase']??'BASELINE','data'=>$data,'baselineSha256'=>$a['baselineSha256'],'lockPresent'=>$lock!==null,'installAuthorized'=>false);
+        if($j!==null&&in_array($j['phase'],array('COMPLETE','ROLLED_BACK'),true)){
+            vne_adapter_need(($j['phase']==='COMPLETE'&&in_array($mode,array('install','finish'),true))||($j['phase']==='ROLLED_BACK'&&in_array($mode,array('rollback','confirm-rollback'),true)),'Terminal operation differs');
+            if($lock!==null)$io['releaseLogical']($lock);return $j;
+        }
+        if($mode==='install'){
+            if($j!==null){vne_adapter_need($j['phase']==='AWAIT_HEALTH','Interrupted install; inspect or explicit rollback');return $j;}
+            $j=array_merge(vne_adapter_css_runtime_identity($a),array('approval'=>$a,'baseline'=>$data,'createdAt'=>time(),'phase'=>'INSTALLING'));
+            $lock=array('approval'=>$a,'baseline'=>$data,'createdAt'=>$j['createdAt']);$io['begin']($lock,$j);
+            try{vne_adapter_css_validate_before_upgrade($a,$j,$io);$io['upgrade'](false);vne_adapter_need($io['preflight']('candidate')===$data,'Install data conflict');$io['maintenanceOff']();vne_adapter_challenge($j,'AWAIT_HEALTH');$io['save']($j);return $j;}
+            catch(Throwable $e){$j['phase']='STOPPED_INSPECT';$io['save']($j);throw $e;}
+        }
+        vne_adapter_need($j!==null,'Runtime operation not started');
+        if($mode==='import-health'){
+            vne_adapter_need(in_array($j['phase'],array('AWAIT_HEALTH','ROLLBACK_AWAIT_HEALTH'),true),'Proof phase differs');
+            $good=$io['health']($j,$proof);$io['storeProof']($proof,$j);
+            return array('status'=>'CSS_RUNTIME_PROOF_STORED','phase'=>$j['phase'],'healthPassed'=>$good,'proofSha256'=>hash('sha256',json_encode($proof,JSON_THROW_ON_ERROR)));
+        }
+        if($mode==='confirm-rollback'){
+            vne_adapter_need($j['phase']==='ROLLBACK_AWAIT_HEALTH','Rollback confirmation phase differs');
+            vne_adapter_need($io['health']($j,$io['read']('proof')),'Rollback HTTP health failed');$j['phase']='ROLLED_BACK';
+        }elseif($mode==='finish'){
+            vne_adapter_need($j['phase']==='AWAIT_HEALTH','Finish phase differs');
+            if($io['health']($j,$io['read']('proof')))$j['phase']='COMPLETE';
+            else return vne_adapter_css_rollback_transaction($a,$j,$io);
+        }else{
+            if($mode==='rollback'&&$j['phase']==='ROLLBACK_AWAIT_HEALTH')return $j;
+            vne_adapter_need($mode==='rollback'&&in_array($j['phase'],array('AWAIT_HEALTH','INSTALLING','ROLLING_BACK','STOPPED_INSPECT'),true),'Rollback phase differs');
+            return vne_adapter_css_rollback_transaction($a,$j,$io);
+        }
+        $io['save']($j);$io['releaseLogical']($lock);return $j;
+    }finally{$release();}
+}
+function vne_adapter_css_rollback_transaction($a,$j,$io){
+    // Preflight has already required unchanged persisted data and reviewed file bytes.
+    $j['phase']='ROLLING_BACK';$io['save']($j);
+    try{vne_adapter_css_validate_before_upgrade($a,$j,$io);$io['upgrade'](true);vne_adapter_need($io['preflight']('baseline')===$j['baseline'],'Rollback data conflict');$io['maintenanceOff']();vne_adapter_challenge($j,'ROLLBACK_AWAIT_HEALTH');$io['save']($j);return $j;}
+    catch(Throwable $e){$j['phase']='STOPPED_INSPECT';$io['save']($j);throw $e;}
+}
+function vne_adapter_css_validate_before_upgrade($a,$j,$io){
+    $current=$io['preflight']('mixed');
+    vne_adapter_need($current===$j['baseline']&&hash('sha256',wp_json_encode($current))===$a['baselineSha256'],'Production runtime data changed before native update; inspect');
+}
+function vne_adapter_production_runtime_file($path){
+    vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);$p=vne_adapter_production_policy();
+    vne_adapter_need(($s['mode']&0170000)===0100000&&$s['nlink']===1&&$s['uid']===$p['uid']&&($s['mode']&0777)===0600&&$s['size']<=262144,'Private runtime file metadata differs');
+    $h=fopen($path,'rb');vne_adapter_need(is_resource($h),'Private runtime file open failed');
+    try{
+        $identity=vne_adapter_key_stat_identity($s);vne_adapter_need(vne_adapter_key_stat_identity(fstat($h))===$identity,'Private runtime file replaced before read');
+        $bytes=stream_get_contents($h,262145);clearstatcache(true,$path);vne_adapter_path($path);
+        vne_adapter_need(is_string($bytes)&&strlen($bytes)===$s['size']&&vne_adapter_key_stat_identity(fstat($h))===$identity&&vne_adapter_key_stat_identity(lstat($path))===$identity,'Private runtime file changed during read');return $bytes;
+    }finally{fclose($h);}
+}
+function vne_adapter_production_runtime_dispatch($mode,$a,$proof=null){
+    vne_adapter_validate_css_runtime_request($mode,$a,$proof);
+    vne_adapter_need(!defined('VNE_ADAPTER_RUNTIME_TOKEN')&&!defined('VNE_ADAPTER_FIXTURE_TOKEN'),'Fixture token refused by production runtime');
+    $policy=vne_adapter_production_policy();
+    vne_adapter_need(PHP_SAPI==='cli'&&defined('ABSPATH')&&ABSPATH===$policy['root'].'/'&&defined('WP_CONTENT_DIR')&&WP_CONTENT_DIR===$policy['root'].'/wp-content'&&defined('WP_PLUGIN_DIR')&&WP_PLUGIN_DIR===WP_CONTENT_DIR.'/plugins','Production runtime paths differ');
+    $p=vne_adapter_verified_package($a);vne_adapter_need($p['manifest']['profile']===$a['profile'],'Production runtime profile differs');
+    $keyFile=$policy['keyPath'];$keyBytes=vne_adapter_production_runtime_file($keyFile);$keyHash=hash('sha256',$keyBytes);$key=json_decode($keyBytes,true,16,JSON_THROW_ON_ERROR);unset($keyBytes);
+    $storage=vne_adapter_inspect_production_storage();vne_adapter_need($storage['keyFingerprintSha256']===$a['keyFingerprintSha256'],'Production runtime key differs');
+    $control=$policy['control'];$paths=array('journal'=>$control.'/journal-'.$a['owner'].'.json','lock'=>$control.'/receiver.lock','proof'=>$control.'/proof-'.$a['owner'].'.json');
+    $hashes=array();$mutexGuard=null;
+    $read=function($kind)use($paths,&$hashes){$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');if(!file_exists($path)){$hashes[$kind]=null;return null;}$raw=vne_adapter_production_runtime_file($path);$hashes[$kind]=hash('sha256',$raw);return json_decode($raw,true,32,JSON_THROW_ON_ERROR);};
+    $check=function($kind)use($paths,&$hashes,&$mutexGuard){if($mutexGuard!==null)$mutexGuard();$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');$now=file_exists($path)?hash('sha256',vne_adapter_production_runtime_file($path)):null;vne_adapter_need(array_key_exists($kind,$hashes)&&$now===$hashes[$kind],'Private runtime changed; inspect');};
+    $write=function($kind,$value,$exclusive=false)use($paths,&$hashes,$check){
+        $check($kind);$path=$paths[$kind];$bytes=json_encode($value,JSON_THROW_ON_ERROR);$temp=$exclusive?$path:$path.'.tmp-'.bin2hex(random_bytes(8));$h=null;
+        try{
+            // umask is set before create; no interval with world-readable bytes.
+            $mask=umask(0077);try{$h=fopen($temp,'x');}finally{umask($mask);}vne_adapter_need($h!==false,'Exclusive private runtime create failed');
+            vne_adapter_need(chmod($temp,0600)&&fwrite($h,$bytes)===strlen($bytes)&&fflush($h),'Private runtime write failed');vne_adapter_need(fclose($h),'Private runtime close failed');$h=null;
+            if(!$exclusive){$check($kind);vne_adapter_need(rename($temp,$path),'Private runtime atomic rename failed');}$hashes[$kind]=hash('sha256',$bytes);
+        }finally{if(is_resource($h))fclose($h);if(!$exclusive&&is_file($temp))unlink($temp);}
+    };
+    $preflight=function($phase)use($a,$p,$keyFile,$keyHash){
+        vne_adapter_inspect($a);vne_adapter_need(hash('sha256',vne_adapter_production_runtime_file($keyFile))===$keyHash,'Production runtime key changed');
+        vne_adapter_need(vne_adapter_inspect_production_storage()['keyFingerprintSha256']===$a['keyFingerprintSha256'],'Production runtime storage changed');
+        $context=vne_adapter_observe_production_context();
+        // PHP constants describe the code loaded at CLI startup, not the files
+        // after an in-process upgrade. Verify that loaded identity separately;
+        // maps below always verify the current on-disk theme for the phase.
+        vne_adapter_need(defined('VIBELAB_V2_VERSION'),'Loaded theme version required');$context['themeVersion']=VIBELAB_V2_VERSION;
+        $which=$context['marker']==='r52-v2-20261028'?'baseline':'candidate';vne_adapter_validate_production_context($context,$which,$a['sourceSha']);
+        if($phase==='mixed'){vne_adapter_css_mixed_files($p);return vne_adapter_data();}
+        return vne_adapter_runtime_state($p,$phase==='baseline');
+    };
+    // Reject wrong application/data/capability before creating the private mutex;
+    // repeat the phase-specific checks under the mutex in the transaction.
+    vne_adapter_need(hash('sha256',wp_json_encode($preflight('mixed')))===$a['baselineSha256'],'Production runtime data baseline differs; inspect');
+    $maintenanceReceipt=null;
+    $io=array(
+        // Persistent mutex is never unlinked: fresh opens share the same inode.
+        'acquire'=>function()use($control,$mode,&$mutexGuard){
+            $path=$control.'/runtime-mutex.lock';vne_adapter_need(!is_link($path),'Runtime mutex symlink refused');
+            if($mode==='inspect-state'&&!file_exists($path))return function(){};
+            if(!file_exists($path)){$mask=umask(0077);try{$h=fopen($path,'x+');}finally{umask($mask);}vne_adapter_need($h!==false,'Runtime mutex create failed');vne_adapter_need(chmod($path,0600),'Runtime mutex mode failed');}
+            else{vne_adapter_production_runtime_file($path);$h=fopen($path,'r+');}
+            vne_adapter_need(is_resource($h),'Runtime mutex open failed');$s=fstat($h);$now=lstat($path);vne_adapter_need($s['ino']===$now['ino']&&$s['dev']===$now['dev'],'Runtime mutex replaced');
+            if(!flock($h,LOCK_EX|LOCK_NB)){fclose($h);throw new RuntimeException('Production runtime busy; inspect');}
+            $mutexGuard=function()use($h,$path,$s){clearstatcache(true,$path);vne_adapter_production_runtime_file($path);$current=lstat($path);$opened=fstat($h);vne_adapter_need($current['ino']===$s['ino']&&$current['dev']===$s['dev']&&$opened['ino']===$s['ino']&&$opened['dev']===$s['dev'],'Runtime mutex changed; inspect');};
+            return function()use($h,&$mutexGuard){$mutexGuard=null;flock($h,LOCK_UN);fclose($h);};
+        },
+        'read'=>$read,'preflight'=>$preflight,
+        'begin'=>function($lock,$j)use($write,$read,$a,$p){
+            vne_adapter_need(!file_exists(ABSPATH.'.maintenance')&&!is_link(ABSPATH.'.maintenance'),'Existing maintenance; inspect');
+            $needed=268435456;foreach($p['manifest']['components'] as $component){$needed+=$component['bytes'];foreach($component['files'] as $f)$needed+=$f['bytes'];}
+            vne_adapter_need($a['requiredFreeBytes']>=$needed,'Disk reserve not approved');$free=disk_free_space(WP_CONTENT_DIR);vne_adapter_need($free!==false&&$free>=$a['requiredFreeBytes'],'Insufficient disk reserve (hosting quota needs separate verification)');
+            $write('lock',$lock,true);$write('journal',$j,true);
+        },
+        'save'=>function($j)use($write,$check){$check('lock');$write('journal',$j);},
+        'health'=>function($j,$envelope)use($a,$key,$p){vne_adapter_need(is_array($envelope),'Signed runtime proof missing');$css=hash('sha256',$p['maps'][$j['phase']==='ROLLBACK_AWAIT_HEALTH'?'previous-theme':'theme']['vibelab-v2/style.css']);return vne_adapter_verify_production_proof(vne_adapter_css_runtime_identity($a),$j,$envelope,$key,$css)['healthPassed'];},
+        'storeProof'=>function($envelope,$j)use($read,$write,$check,$a,$key){$prior=$read('proof');if($prior!==null){$old=vne_adapter_decode_production_proof(vne_adapter_css_runtime_identity($a),$prior,$key);$new=vne_adapter_decode_production_proof(vne_adapter_css_runtime_identity($a),$envelope,$key);vne_adapter_need($prior===$envelope||$new['observedAt']>$old['observedAt']||($new['observedAt']===$old['observedAt']&&$new['challenge']!==$old['challenge']),'Runtime proof regressed/replayed');}$check('journal');$check('lock');if($prior!==$envelope)$write('proof',$envelope);},
+        'releaseLogical'=>function($lock)use($read,$check,$paths){vne_adapter_need($read('lock')===$lock,'Runtime terminal lock differs');$check('journal');$check('lock');vne_adapter_need(unlink($paths['lock']),'Runtime lock cleanup failed');},
+        'upgrade'=>function($previous)use($p,$preflight,$check,$a,&$maintenanceReceipt){
+            $maintenanceReceipt=vne_adapter_css_native_upgrade($p['paths']['inbox'].'/'.($previous?'previous-theme':'theme').'.zip',$a['owner'],function()use($preflight,$check,$a){vne_adapter_need(hash('sha256',wp_json_encode($preflight('mixed')))===$a['baselineSha256'],'Production runtime data changed at native boundary; inspect');$check('journal');$check('lock');});
+        },
+        'maintenanceOff'=>function()use(&$maintenanceReceipt){vne_adapter_css_end_maintenance($maintenanceReceipt);$maintenanceReceipt=null;}
+    );
+    return vne_adapter_css_transaction($mode,$a,$io,$proof);
+}
+function vne_adapter_css_mixed_files($p){
+    $directory=WP_CONTENT_DIR.'/themes/vibelab-v2';vne_adapter_path($directory);$expected=array();
+    foreach($p['maps']['theme'] as $name=>$bytes){$path=$directory.'/'.substr($name,strpos($name,'/')+1);vne_adapter_path($path);$hash=hash_file('sha256',$path);vne_adapter_need(is_file($path)&&in_array($hash,array(hash('sha256',$bytes),hash('sha256',$p['maps']['previous-theme'][$name])),true),'Interrupted runtime file conflict');$expected[$path]=true;}
+    foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($directory,FilesystemIterator::SKIP_DOTS)) as $f)vne_adapter_need(!$f->isLink()&&(!$f->isFile()||isset($expected[$f->getPathname()])),'Unexpected interrupted runtime file');
+    vne_adapter_files(WP_PLUGIN_DIR.'/vne-library-core',$p['maps']['plugin']);
+}
+// Shared native primitive, tested using owned local WordPress; callers provide
+// their own full scope guard. It never consumes a request-supplied destination.
+function vne_adapter_css_native_upgrade($zip,$owner,$guard){
+    $guard();vne_adapter_need(is_string($owner)&&preg_match('/^[a-f0-9]{32}$/D',$owner),'Maintenance owner invalid');vne_adapter_path($zip);
+    $path=ABSPATH.'.maintenance';vne_adapter_need(!is_link($path),'Maintenance symlink refused');
+    if(file_exists($path)){
+        vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);
+        vne_adapter_need(($s['mode']&0170000)===0100000&&$s['nlink']===1&&$s['size']<=512&&$s['uid']===stat(ABSPATH)['uid'],'Foreign maintenance metadata; inspect');$raw=file_get_contents($path);
+        vne_adapter_need(preg_match('~^<\?php \$upgrading = [0-9]+; /\* vne-css-runtime:'.preg_quote($owner,'~').' \*/$~D',$raw),'Foreign maintenance; inspect');
+    }else{
+        $raw='<?php $upgrading = '.time().'; /* vne-css-runtime:'.$owner.' */';$mask=umask(0077);try{$h=fopen($path,'x');}finally{umask($mask);}vne_adapter_need($h!==false,'Exclusive maintenance create failed');
+        try{vne_adapter_need(fwrite($h,$raw)===strlen($raw)&&fflush($h),'Maintenance write failed');}finally{fclose($h);}$s=lstat($path);
+    }
+    $receipt=array('path'=>$path,'sha256'=>hash('sha256',$raw),'ino'=>$s['ino'],'dev'=>$s['dev']);
+    require_once ABSPATH.'wp-admin/includes/class-wp-upgrader.php';require_once ABSPATH.'wp-admin/includes/file.php';vne_adapter_need(WP_Filesystem(),'Direct filesystem unavailable');global $wp_filesystem;vne_adapter_need($wp_filesystem instanceof WP_Filesystem_Direct,'Direct filesystem required');
+    $u=new WP_Upgrader(new Automatic_Upgrader_Skin());$was=wp_installing();wp_installing(true);
+    try{$r=$u->run(array('package'=>$zip,'destination'=>WP_CONTENT_DIR.'/themes/vibelab-v2/','clear_destination'=>true,'abort_if_destination_exists'=>false,'clear_working'=>true,'hook_extra'=>array('type'=>'theme','action'=>'update','theme'=>'vibelab-v2')));vne_adapter_need(!is_wp_error($r)&&$r,'Production native update failed');}finally{wp_installing($was);}
+    return $receipt;
+}
+function vne_adapter_css_end_maintenance($receipt){
+    vne_adapter_need(is_array($receipt)&&($receipt['path']??null)===ABSPATH.'.maintenance','Owned maintenance receipt required');$path=vne_adapter_path($receipt['path']);clearstatcache(true,$path);$s=lstat($path);
+    vne_adapter_need(($s['mode']&0170000)===0100000&&$s['nlink']===1&&$s['ino']===$receipt['ino']&&$s['dev']===$receipt['dev']&&hash_file('sha256',$path)===$receipt['sha256'],'Maintenance changed; inspect');vne_adapter_need(unlink($path),'Owned maintenance cleanup failed');
 }
