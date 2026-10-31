@@ -1,0 +1,53 @@
+name: Native WordPress MariaDB dispatcher checks
+on:
+  pull_request:
+    paths:
+      - 'release-tools/r6-css-adapter.php'
+      - 'scripts/release-r6-css*.mjs'
+      - 'scripts/r6-css-operator.mjs'
+      - 'scripts/r6-css-key-observer.mjs'
+      - 'scripts/r6-css-key-handshake.mjs'
+      - 'scripts/r6-css-key-reservation.mjs'
+      - 'scripts/r6-css-production-proof.mjs'
+      - 'scripts/release-lib.mjs'
+      - 'scripts/release-policy.mjs'
+      - 'scripts/release-profiles.mjs'
+      - 'scripts/test-css-dispatcher-native.mjs'
+      - 'scripts/fixtures/css-dispatcher-native.php'
+      - 'scripts/run-clean.mjs'
+      - 'package*.json'
+      - '.github/workflows/css-dispatcher-native-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: css-dispatcher-native-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  dispatcher:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - name: Validate exact source SHA
+        run: node -e "const s=process.env.SOURCE_SHA||''; if(s.length!==40||!/^[a-f0-9]+$/.test(s)) throw Error('Exact source SHA required')"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_SHA }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify checkout source
+        run: node -e "const s=require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); if(s!==process.env.SOURCE_SHA) throw Error('Checkout SHA differs'); console.log('SOURCE_SHA='+s)"
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Prepare pinned WordPress image
+        run: docker --context default pull wordpress@sha256:8901759bfbb7ebc567dbc44a244c0d96d720d0a67c17bc4f42ec355ddba2e863
+      - name: Prepare pinned MariaDB image
+        run: docker --context default pull mariadb@sha256:d1891ede5a559f1086f55053bb8cc1569b0298338c4d72d71725a7f74f6ba620
+      - name: Check native dispatcher database and cleanup
+        run: npm run test:css-dispatcher-native

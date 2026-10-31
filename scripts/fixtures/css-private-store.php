@@ -20,6 +20,8 @@ file_put_contents($policy['keyPath'],json_encode($key,JSON_THROW_ON_ERROR));chow
 $foreign=$control.'/foreign-root-owned.json';file_put_contents($foreign,'{"foreign":true}');chmod($foreign,0600);$foreignInode=fileinode($foreign);
 test_need(posix_setgid(1004)&&posix_setuid(10044),'Cannot drop fixture identity');test_need(posix_geteuid()===10044&&posix_getegid()===1004,'Fixture identity differs');
 $checks=array();$store=vne_adapter_css_private_store($owner);$checks[]='fixed production private path and key metadata accept actual UID10044 GID1004 and private modes';
+test_need(rename($policy['keyPath'],$control.'/kept-synthetic-key'),'Cannot stash fixture key');
+test_reject(fn()=>vne_adapter_css_private_store($owner),'/Canonical path|metadata|private/i');$metadata=vne_adapter_private_store($owner);$readOnly=$metadata['acquire'](true);$readOnly();test_need(!file_exists($control.'/runtime-mutex.lock'),'Metadata inspector created mutex');test_need(rename($control.'/kept-synthetic-key',$policy['keyPath']),'Cannot restore fixture key');$checks[]='application wrapper retains missing-active-key guard while key-agnostic metadata core can inspect without creating a key or mutex';
 $noop=$store['acquire'](true);test_need(!file_exists($control.'/runtime-mutex.lock'),'Readonly created mutex');$noop();
 test_reject(fn()=>$store['write']('journal',array('phase'=>'READY'),true),'/mutex required/');$checks[]='readonly missing-mutex inspection creates no file and cannot write';
 $release=$store['acquire']();$mutex=$control.'/runtime-mutex.lock';$mutexInode=fileinode($mutex);$store['read']('journal');$store['read']('lock');

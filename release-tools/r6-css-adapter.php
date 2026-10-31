@@ -28,7 +28,7 @@ function vne_adapter_key_candidate_possession($request, $record, $now) {
     return array('body'=>base64_encode($bytes),'signature'=>hash_hmac('sha256',$bytes,$key));
     } finally { $record['key'] = ''; if (function_exists('sodium_memzero')) { sodium_memzero($key); } else { $key = ''; } }
 }
-// Read-only observer; intentionally absent from dispatcher/bootstrap capabilities.
+// Read-only primitive; exposed only by the separate package-pinned observation profile.
 function vne_adapter_validate_key_private_metadata($s,$directory) {
     $p=vne_adapter_production_policy();vne_adapter_need(is_array($s)&&is_bool($directory),'Candidate metadata invalid');
     foreach(array('uid','gid','mode','nlink','size') as $field)vne_adapter_need(isset($s[$field])&&is_int($s[$field]),'Candidate metadata field invalid');
@@ -81,6 +81,59 @@ function vne_adapter_observe_key_candidate($request,$contextPins) {
         vne_adapter_validate_key_handshake_request($request,time());
         return array('status'=>'SERVER_CANDIDATE_OBSERVATION','proof'=>$proof,'keyReturned'=>false,'serverOriginVerified'=>false,'writerReservationVerified'=>false,'activationAuthorized'=>false,'provisioningAuthorized'=>false);
     } finally { if(is_array($key))$key['key']='';if(is_array($active))$active['key']=''; }
+}
+function vne_adapter_production_key_observation_dispatch($a,$request){
+    $fields=array('environment','profile','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','contextPhase');$actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);
+    vne_adapter_need($actual===$fields&&$a['environment']==='production'&&in_array($a['profile'],array('vibelab-v2-r6-css-production-key-observe-schema3','vibelab-v2-r6-css-production-key-reservation-schema3'),true)&&in_array($a['contextPhase'],array('baseline','candidate'),true),'Key observation approval differs');
+    vne_adapter_need(!defined('VNE_ADAPTER_RUNTIME_TOKEN')&&!defined('VNE_ADAPTER_FIXTURE_TOKEN'),'Fixture token refused by key observation');
+    $request=vne_adapter_validate_key_handshake_request($request,time());$package=vne_adapter_inspect($a);
+    vne_adapter_need($package['profile']===$a['profile'],'Key observation package profile differs');
+    return vne_adapter_observe_key_candidate($request,array('contextPhase'=>$a['contextPhase'],'sourceSha'=>$a['sourceSha']));
+}
+function vne_adapter_validate_key_reservation_intent($i){
+    $order=array('protocol','target','operationId','kind','expectedActiveFingerprint','candidateFingerprint');$fields=$order;$keys=is_array($i)?array_keys($i):array();sort($fields);sort($keys);
+    vne_adapter_need($fields===$keys&&$i['protocol']==='r6-css-key-reservation-intent-v1'&&$i['target']===vne_adapter_production_policy()['home'],'Key reservation intent scope differs');
+    $hex=function($v,$n){return is_string($v)&&strlen($v)===$n&&preg_match('/^[a-f0-9]+$/D',$v);};
+    vne_adapter_need($hex($i['operationId'],32)&&$hex($i['candidateFingerprint'],64)&&in_array($i['kind'],array('initial','rotation'),true),'Key reservation intent identity differs');
+    vne_adapter_need($i['kind']==='initial'?$i['expectedActiveFingerprint']===null:($hex($i['expectedActiveFingerprint'],64)&&$i['expectedActiveFingerprint']!==$i['candidateFingerprint']),'Key reservation active fingerprint differs');$canonical=array();foreach($order as $field)$canonical[$field]=$i[$field];return $canonical;
+}
+// Metadata reservation only. Candidate/active key writes and activation are absent.
+function vne_adapter_production_key_reservation_dispatch($mode,$a,$intent){
+    vne_adapter_need(in_array($mode,array('reserve','inspect','release'),true),'Key reservation mode differs');
+    $fields=array('environment','profile','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','contextPhase','reservationWriteApproved');$keys=is_array($a)?array_keys($a):array();sort($fields);sort($keys);
+    vne_adapter_need($fields===$keys&&$a['environment']==='production'&&$a['profile']==='vibelab-v2-r6-css-production-key-reservation-schema3'&&in_array($a['contextPhase'],array('baseline','candidate'),true)&&$a['reservationWriteApproved']===($mode!=='inspect'),'Key reservation approval differs');
+    vne_adapter_need(!defined('VNE_ADAPTER_RUNTIME_TOKEN')&&!defined('VNE_ADAPTER_FIXTURE_TOKEN'),'Fixture token refused by key reservation');$intent=vne_adapter_validate_key_reservation_intent($intent);$binding=array();foreach(array('environment','profile','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','contextPhase') as $field)$binding[$field]=$a[$field];
+    $guard=function()use($a,$intent){
+        $p=vne_adapter_inspect($a);vne_adapter_need($p['profile']===$a['profile'],'Key reservation package profile differs');vne_adapter_validate_production_context(vne_adapter_observe_production_context(),$a['contextPhase'],$a['sourceSha']);
+        $policy=vne_adapter_production_policy();vne_adapter_key_private_stat($policy['control'],true);$path=$policy['keyPath'];
+        if($intent['kind']==='initial'){vne_adapter_need(!file_exists($path)&&!is_link($path),'Initial reservation conflicts with active key');return null;}
+        $record=vne_adapter_read_key_observation($path);try{vne_adapter_validate_candidate_key_record($record,$intent['expectedActiveFingerprint'],$intent['target']);return array(vne_adapter_key_stat_identity(lstat($path)),hash_file('sha256',$path));}finally{$record['key']='';}
+    };
+    $baseline=$guard();$store=vne_adapter_private_store($intent['operationId']);$release=$store['acquire']($mode!=='reserve');
+    try{
+        vne_adapter_need($guard()===$baseline,'Active key changed before reservation');$j=$store['read']('journal');$lock=$store['read']('lock');$status=null;
+        $paths=array('journal'=>vne_adapter_production_policy()['control'].'/journal-'.$intent['operationId'].'.json','lock'=>vne_adapter_production_policy()['control'].'/receiver.lock');foreach(array('journal'=>$j,'lock'=>$lock) as $kind=>$record){vne_adapter_need($record===null?(!file_exists($paths[$kind])&&!is_link($paths[$kind])):is_array($record),'Invalid key reservation JSON; inspect');}
+        if($j===null){
+            vne_adapter_need($lock===null,'Foreign or incomplete reservation; inspect');
+            if($mode==='inspect')return array('status'=>'KEY_RESERVATION_ABSENT','phase'=>'ABSENT','lockOwned'=>false,'activationAuthorized'=>false);
+            vne_adapter_need($mode==='reserve','Key reservation does not exist');
+            foreach(glob(vne_adapter_production_policy()['control'].'/journal-*.json') as $path){vne_adapter_need(preg_match('~/journal-[a-f0-9]{32}\.json$~D',$path),'Unknown journal filename; inspect');$old=json_decode(vne_adapter_production_runtime_file($path),true,32,JSON_THROW_ON_ERROR);vne_adapter_need(in_array($old['phase']??null,array('COMPLETE','ROLLED_BACK','RELEASED'),true),'Nonterminal journal without lock; inspect');}
+            $j=array('protocol'=>'r6-css-production-key-reservation-v1','binding'=>$binding,'intent'=>$intent,'phase'=>'RESERVED','createdAt'=>time());vne_adapter_need($guard()===$baseline,'Active key changed before reservation write');
+            $store['write']('lock',$j,true);$store['write']('journal',$j,true);$lock=$j;$status='KEY_RESERVATION_CREATED';
+        }else{
+            $jf=array_keys($j);sort($jf);vne_adapter_need($jf===array('binding','createdAt','intent','phase','protocol')&&$j['protocol']==='r6-css-production-key-reservation-v1'&&$j['binding']===$binding&&$j['intent']===$intent&&is_int($j['createdAt'])&&$j['createdAt']>=0&&$j['createdAt']<=time()&&in_array($j['phase'],array('RESERVED','RELEASED'),true),'Key reservation journal identity differs');
+            $expected=$j;$expected['phase']='RESERVED';
+            if($lock===null)vne_adapter_need($j['phase']==='RELEASED','Missing key reservation lock; inspect');else vne_adapter_need($lock===$expected,'Key reservation lock identity differs');
+            if($mode==='reserve'){vne_adapter_need($j['phase']==='RESERVED','Terminal reservation cannot be reused');$status='KEY_RESERVATION_ALREADY_HELD';}
+        }
+        if($mode==='release'){
+            $activation=vne_adapter_production_policy()['control'].'/candidates/'.$intent['operationId'].'/activation.json';vne_adapter_need(!file_exists($activation)&&!is_link($activation),'Activation state present; retain reservation and inspect');
+            vne_adapter_need($guard()===$baseline,'Active key changed before reservation release');
+            if($j['phase']!=='RELEASED'){$j['phase']='RELEASED';$store['write']('journal',$j);}
+            if($lock!==null){$store['releaseLogical']($lock);$lock=null;$status='KEY_RESERVATION_RELEASED';}else $status='KEY_RESERVATION_ALREADY_RELEASED';
+        }
+        return array('status'=>$status??($j['phase']==='RELEASED'?($lock===null?'KEY_RESERVATION_ALREADY_RELEASED':'KEY_RESERVATION_RELEASE_PENDING'):'KEY_RESERVATION_VERIFIED'),'phase'=>$j['phase'],'operationId'=>$intent['operationId'],'createdAt'=>$j['createdAt'],'lockOwned'=>$lock!==null,'candidateVerified'=>false,'activationAuthorized'=>false,'keyWriteRequested'=>false);
+    }finally{$release();}
 }
 // Reservation writer is fixture-only. It coordinates with the existing receiver.lock.
 function vne_adapter_validate_key_reservation_record($record,$request) {
@@ -330,7 +383,8 @@ function vne_adapter_inspect($a){
     vne_adapter_need(filesize($manifestPath)<=262144&&hash_file('sha256',$manifestPath)===$a['manifestSha256'],'Manifest external pin differs');
     $m=json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR);
     $productionRuntime=($m['profile']??'')==='vibelab-v2-r6-css-production-runtime-schema3';
-    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport||$productionRuntime;
+    $keyReservation=($m['profile']??'')==='vibelab-v2-r6-css-production-key-reservation-schema3';$keyObservation=($m['profile']??'')==='vibelab-v2-r6-css-production-key-observe-schema3'||$keyReservation;
+    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport||$productionRuntime||$keyObservation;
     vne_adapter_need(($m['format']??null)===1&&(($m['profile']??'')==='vibelab-v2-r6-css-adapter-schema3'||$productionInspection)&&($m['sourceSha']??'')===$a['sourceSha'],'Profile/source differs');
     vne_adapter_need(($m['controller']['sourceSha']??'')===$a['controllerSourceSha']&&($m['controller']['path']??'')==='receiver.php'&&($m['controller']['sha256']??'')===$a['receiverSha256'],'Controller identity differs');
     $baseline='fa4c67821008e0fcc4307fedf202bcdf95b85bb6';
@@ -339,8 +393,12 @@ function vne_adapter_inspect($a){
     $capabilities=$productionInspection?array('inspect-inbox','inspect-production-context','inspect-production-storage'):array('inspect-inbox');
     if($proofImport)$capabilities[]='import-production-proof';
     if($productionRuntime)$capabilities[]='css-runtime';
+    if($keyObservation)$capabilities[]='observe-key-candidate';
+    if($keyReservation)$capabilities[]='key-reservation';
     vne_adapter_need(($m['approval']['deployAuthorized']??null)===false&&($m['controller']['capabilities']??null)===$capabilities,'Inspect-only policy differs');
-    if($productionInspection)vne_adapter_need(($m['scope']??null)===($productionRuntime?'production-css-runtime':($proofImport?'production-proof-import-only':'production-inspection-only'))&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($productionInspection)vne_adapter_need(($m['scope']??null)===($keyReservation?'production-key-reservation-only':($keyObservation?'production-key-candidate-observation':($productionRuntime?'production-css-runtime':($proofImport?'production-proof-import-only':'production-inspection-only'))))&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($keyObservation)vne_adapter_need(($m['productionKeyObservationPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'privateWrites'=>false,'createsKeys'=>false,'activatesKeys'=>false),'Key observation policy differs');
+    if($keyReservation)vne_adapter_need(($m['productionKeyReservationPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'keyWrites'=>false,'createsKeys'=>false,'activatesKeys'=>false,'reservationWrites'=>true,'usesRuntimeMutex'=>true),'Key reservation policy differs');
     if($productionRuntime)vne_adapter_need(($m['productionRuntimePolicy']??null)===array('themeOnly'=>true,'databaseRestore'=>false,'createsKeys'=>false,'requiresExistingKey'=>true,'automatic'=>false),'Production runtime policy differs');
     if($proofImport)vne_adapter_need(($m['productionProofImportPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'createsKeys'=>false,'requiresExistingJournal'=>true,'requiresExistingKey'=>true),'Production proof import policy differs');
     $listed=array();vne_adapter_need(count($m['files']??array())===5,'Manifest entry count differs');
@@ -363,7 +421,7 @@ function vne_adapter_dispatch($mode,$approval){
 function vne_adapter_production_inspection_dispatch($mode,$a){
     vne_adapter_need(in_array($mode,array('inspect-inbox','inspect-production-context','inspect-production-storage'),true),'Production inspection mode only');
     $fields=array('sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','environment','profile');if($mode==='inspect-production-context')$fields[]='contextPhase';
-    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3'),true),'Production inspection approval differs');
+    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3','vibelab-v2-r6-css-production-key-observe-schema3','vibelab-v2-r6-css-production-key-reservation-schema3'),true),'Production inspection approval differs');
     if($mode==='inspect-production-context')vne_adapter_need(in_array($a['contextPhase'],array('baseline','candidate'),true),'Production inspection context phase differs');
     if($mode!=='inspect-production-context')vne_adapter_need(!function_exists('get_option')&&!isset($GLOBALS['wpdb']),'Use no-WordPress file inspection');
     $inbox=vne_adapter_inspect($a);vne_adapter_need($inbox['profile']===$a['profile'],'Production inspection profile differs');
@@ -799,6 +857,11 @@ function vne_adapter_production_runtime_file($path){
 function vne_adapter_css_private_store($owner){
     vne_adapter_need(PHP_SAPI==='cli'&&is_string($owner)&&preg_match('/^[a-f0-9]{32}$/D',$owner),'Private runtime owner invalid');
     $policy=vne_adapter_production_policy();vne_adapter_key_private_stat($policy['control'],true);vne_adapter_production_runtime_file($policy['keyPath']);vne_adapter_inspect_production_storage();
+    return vne_adapter_private_store($owner);
+}
+function vne_adapter_private_store($owner){
+    vne_adapter_need(PHP_SAPI==='cli'&&is_string($owner)&&preg_match('/^[a-f0-9]{32}$/D',$owner),'Private runtime owner invalid');
+    $policy=vne_adapter_production_policy();vne_adapter_key_private_stat($policy['control'],true);
     $control=$policy['control'];$paths=array('journal'=>$control.'/journal-'.$owner.'.json','lock'=>$control.'/receiver.lock','proof'=>$control.'/proof-'.$owner.'.json');
     $hashes=array();$mutexGuard=null;
     $kindGuard=function($kind)use($paths){vne_adapter_need(is_string($kind)&&isset($paths[$kind]),'Private runtime kind invalid');};
