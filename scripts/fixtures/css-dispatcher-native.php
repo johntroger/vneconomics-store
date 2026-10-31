@@ -61,6 +61,27 @@ PHP_CONFIG;
   native_need(is_array($input)&&array_keys($input)===array('code')&&is_string($input['code']),'Fixture command shape differs');eval($input['code']);exit;
  }
  require $inbox.'/receiver.php';
+ if($mode==='--select-package'){
+  native_need(in_array($input['package']??null,array('runtime','observer'),true),'Unknown fixture package');$which=$input['package'];$from=$which==='runtime'?'/fixture/package':'/fixture/observer-package';
+  foreach(array('manifest.json','receiver.php','theme.zip','previous-theme.zip','plugin.zip','previous-plugin.zip') as $name)native_need(copy($from.'/'.$name,$inbox.'/'.$name),'Fixture package switch failed');
+  $meta=json_decode(file_get_contents('/fixture/meta.json'),true);file_put_contents($base.'/git/vneconomics-store-production.git/refs/heads/release-production',($which==='runtime'?$meta['approval']['payloadSha']:$meta['observerPayload']).PHP_EOL);echo json_encode(array('selected'=>$which));exit;
+ }
+ if($mode==='--private-snapshot'){
+  $out=array();$paths=array($control);foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($control,FilesystemIterator::SKIP_DOTS),RecursiveIteratorIterator::SELF_FIRST) as $f)$paths[]=$f->getPathname();
+  foreach($paths as $path){$s=lstat($path);$out[$path]=array_intersect_key($s,array_flip(array('dev','ino','mode','nlink','uid','gid','size','mtime','ctime')));if(is_file($path))$out[$path]['sha256']=hash_file('sha256',$path);}ksort($out);echo json_encode($out);exit;
+ }
+ if($mode==='--observer-fixture'){
+  $request=vne_adapter_validate_key_handshake_request($input['request'],time());$dir=$control.'/candidates/'.$request['operationId'];$path=$dir.'/health-key.json';$action=$input['action']??'';
+  if($action==='stage'){
+   vne_adapter_validate_candidate_key_record($input['record'],$request['candidateFingerprint'],$request['target']);
+   foreach(array($control.'/candidates',$dir) as $d)if(!is_dir($d))native_need(mkdir($d,0700),'Fixture candidate directory failed');
+   $mask=umask(0077);try{$h=fopen($path,'x');}finally{umask($mask);}native_need(is_resource($h),'Fixture candidate exists');try{fwrite($h,json_encode($input['record'],JSON_THROW_ON_ERROR));}finally{fclose($h);}
+  }elseif($action==='broad-mode'||$action==='private-mode')native_need(chmod($path,$action==='broad-mode'?0644:0600),'Fixture candidate chmod failed');
+  elseif($action==='active-away')native_need(!file_exists($base.'/.native-kept-active-key')&&rename($control.'/health-key.json',$base.'/.native-kept-active-key'),'Fixture active stash failed');
+  elseif($action==='active-back')native_need(!file_exists($control.'/health-key.json')&&rename($base.'/.native-kept-active-key',$control.'/health-key.json'),'Fixture active restore failed');
+  else throw new RuntimeException('Unknown observer fixture action');
+  echo json_encode(array('prepared'=>true));exit;
+ }
  if($mode==='--baseline'){
   $data=vne_adapter_data();$key=json_decode(vne_adapter_production_runtime_file($control.'/health-key.json'),true);
   echo json_encode(array('data'=>$data,'baselineSha256'=>hash('sha256',wp_json_encode($data)),'keyFingerprintSha256'=>hash('sha256',hex2bin($key['key'])),'php'=>PHP_VERSION,'wordpress'=>$wp_version,'database'=>$wpdb->db_version(),'dbName'=>DB_NAME,'mysql'=>$wpdb instanceof wpdb&&$wpdb->is_mysql===true,'uid'=>posix_geteuid(),'gid'=>posix_getegid()));exit;

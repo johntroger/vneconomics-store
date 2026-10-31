@@ -9,6 +9,7 @@ export const adapterProfile='vibelab-v2-r6-css-adapter-schema3';
 export const productionInspectionProfile='vibelab-v2-r6-css-production-inspect-schema3';
 export const productionProofImportProfile='vibelab-v2-r6-css-production-proof-import-schema3';
 export const productionRuntimeProfile='vibelab-v2-r6-css-production-runtime-schema3';
+export const productionKeyObservationProfile='vibelab-v2-r6-css-production-key-observe-schema3';
 export const controllerPath='release-tools/r6-css-adapter.php';
 // Caller selects a reviewed exact controller SHA; no controller from working tree.
 export function prepareCssAdapter(sourceSha,controllerSourceSha,{readGit=git}={}){
@@ -60,5 +61,14 @@ export function prepareProductionRuntimeAdapter(source,controller,options){
   controller:{...base.manifest.controller,capabilities:[...base.manifest.controller.capabilities,'css-runtime']},
   productionRuntimePolicy:{themeOnly:true,databaseRestore:false,createsKeys:false,requiresExistingKey:true,automatic:false},
   requiredRemainingGates:[...base.manifest.requiredRemainingGates,'production-runtime-review','production-key-transport','production-write-hosting-approval']};
+ return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
+}
+export function prepareProductionKeyObservationAdapter(source,controller,options){
+ const base=prepareProductionInspectionAdapter(source,controller,options);
+ assert.ok(base.buffers['receiver.php'].includes(Buffer.from('function vne_adapter_production_key_observation_dispatch(')),'Controller lacks candidate observation entry');
+ const manifest={...base.manifest,profile:productionKeyObservationProfile,scope:'production-key-candidate-observation',
+  controller:{...base.manifest.controller,capabilities:[...base.manifest.controller.capabilities,'observe-key-candidate']},
+  productionKeyObservationPolicy:{applicationWrites:false,databaseWrites:false,privateWrites:false,createsKeys:false,activatesKeys:false},
+  requiredRemainingGates:[...base.manifest.requiredRemainingGates,'key-observer-source-CI','key-observation-hosting-approval']};
  return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
 }

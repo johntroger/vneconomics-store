@@ -61,7 +61,7 @@ export function buildProductionInspectionBootstrap(mode,approval){
  assert.ok(approval&&Object.getPrototypeOf(approval)===Object.prototype,'Plain approval required');
  const context=mode==='inspect-production-context';
  assert.deepEqual(Object.keys(approval).sort(),[...Object.keys(pins),'environment','profile',...(context?['contextPhase']:[])].sort(),'Production inspection approval fields differ');
- assert.equal(approval.environment,'production');assert.ok(['vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3'].includes(approval.profile),'Production inspection profile differs');
+ assert.equal(approval.environment,'production');assert.ok(['vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3','vibelab-v2-r6-css-production-key-observe-schema3'].includes(approval.profile),'Production inspection profile differs');
  for(const [key,length] of Object.entries(pins))exactHex(approval[key],length,key);
  assert.equal(approval.expectedParent,r6CssProfile.payload);
  if(context)assert.ok(['baseline','candidate'].includes(approval.contextPhase),'Invalid context phase');

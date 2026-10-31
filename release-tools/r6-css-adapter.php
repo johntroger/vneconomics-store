@@ -28,7 +28,7 @@ function vne_adapter_key_candidate_possession($request, $record, $now) {
     return array('body'=>base64_encode($bytes),'signature'=>hash_hmac('sha256',$bytes,$key));
     } finally { $record['key'] = ''; if (function_exists('sodium_memzero')) { sodium_memzero($key); } else { $key = ''; } }
 }
-// Read-only observer; intentionally absent from dispatcher/bootstrap capabilities.
+// Read-only primitive; exposed only by the separate package-pinned observation profile.
 function vne_adapter_validate_key_private_metadata($s,$directory) {
     $p=vne_adapter_production_policy();vne_adapter_need(is_array($s)&&is_bool($directory),'Candidate metadata invalid');
     foreach(array('uid','gid','mode','nlink','size') as $field)vne_adapter_need(isset($s[$field])&&is_int($s[$field]),'Candidate metadata field invalid');
@@ -81,6 +81,14 @@ function vne_adapter_observe_key_candidate($request,$contextPins) {
         vne_adapter_validate_key_handshake_request($request,time());
         return array('status'=>'SERVER_CANDIDATE_OBSERVATION','proof'=>$proof,'keyReturned'=>false,'serverOriginVerified'=>false,'writerReservationVerified'=>false,'activationAuthorized'=>false,'provisioningAuthorized'=>false);
     } finally { if(is_array($key))$key['key']='';if(is_array($active))$active['key']=''; }
+}
+function vne_adapter_production_key_observation_dispatch($a,$request){
+    $fields=array('environment','profile','sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','contextPhase');$actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);
+    vne_adapter_need($actual===$fields&&$a['environment']==='production'&&$a['profile']==='vibelab-v2-r6-css-production-key-observe-schema3'&&in_array($a['contextPhase'],array('baseline','candidate'),true),'Key observation approval differs');
+    vne_adapter_need(!defined('VNE_ADAPTER_RUNTIME_TOKEN')&&!defined('VNE_ADAPTER_FIXTURE_TOKEN'),'Fixture token refused by key observation');
+    $request=vne_adapter_validate_key_handshake_request($request,time());$package=vne_adapter_inspect($a);
+    vne_adapter_need($package['profile']===$a['profile'],'Key observation package profile differs');
+    return vne_adapter_observe_key_candidate($request,array('contextPhase'=>$a['contextPhase'],'sourceSha'=>$a['sourceSha']));
 }
 // Reservation writer is fixture-only. It coordinates with the existing receiver.lock.
 function vne_adapter_validate_key_reservation_record($record,$request) {
@@ -330,7 +338,8 @@ function vne_adapter_inspect($a){
     vne_adapter_need(filesize($manifestPath)<=262144&&hash_file('sha256',$manifestPath)===$a['manifestSha256'],'Manifest external pin differs');
     $m=json_decode(file_get_contents($manifestPath),true,512,JSON_THROW_ON_ERROR);
     $productionRuntime=($m['profile']??'')==='vibelab-v2-r6-css-production-runtime-schema3';
-    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport||$productionRuntime;
+    $keyObservation=($m['profile']??'')==='vibelab-v2-r6-css-production-key-observe-schema3';
+    $proofImport=($m['profile']??'')==='vibelab-v2-r6-css-production-proof-import-schema3';$productionInspection=($m['profile']??'')==='vibelab-v2-r6-css-production-inspect-schema3'||$proofImport||$productionRuntime||$keyObservation;
     vne_adapter_need(($m['format']??null)===1&&(($m['profile']??'')==='vibelab-v2-r6-css-adapter-schema3'||$productionInspection)&&($m['sourceSha']??'')===$a['sourceSha'],'Profile/source differs');
     vne_adapter_need(($m['controller']['sourceSha']??'')===$a['controllerSourceSha']&&($m['controller']['path']??'')==='receiver.php'&&($m['controller']['sha256']??'')===$a['receiverSha256'],'Controller identity differs');
     $baseline='fa4c67821008e0fcc4307fedf202bcdf95b85bb6';
@@ -339,8 +348,10 @@ function vne_adapter_inspect($a){
     $capabilities=$productionInspection?array('inspect-inbox','inspect-production-context','inspect-production-storage'):array('inspect-inbox');
     if($proofImport)$capabilities[]='import-production-proof';
     if($productionRuntime)$capabilities[]='css-runtime';
+    if($keyObservation)$capabilities[]='observe-key-candidate';
     vne_adapter_need(($m['approval']['deployAuthorized']??null)===false&&($m['controller']['capabilities']??null)===$capabilities,'Inspect-only policy differs');
-    if($productionInspection)vne_adapter_need(($m['scope']??null)===($productionRuntime?'production-css-runtime':($proofImport?'production-proof-import-only':'production-inspection-only'))&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($productionInspection)vne_adapter_need(($m['scope']??null)===($keyObservation?'production-key-candidate-observation':($productionRuntime?'production-css-runtime':($proofImport?'production-proof-import-only':'production-inspection-only')))&&($m['productionPolicy']??null)===vne_adapter_production_policy(),'Production inspection policy differs');
+    if($keyObservation)vne_adapter_need(($m['productionKeyObservationPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'privateWrites'=>false,'createsKeys'=>false,'activatesKeys'=>false),'Key observation policy differs');
     if($productionRuntime)vne_adapter_need(($m['productionRuntimePolicy']??null)===array('themeOnly'=>true,'databaseRestore'=>false,'createsKeys'=>false,'requiresExistingKey'=>true,'automatic'=>false),'Production runtime policy differs');
     if($proofImport)vne_adapter_need(($m['productionProofImportPolicy']??null)===array('applicationWrites'=>false,'databaseWrites'=>false,'createsKeys'=>false,'requiresExistingJournal'=>true,'requiresExistingKey'=>true),'Production proof import policy differs');
     $listed=array();vne_adapter_need(count($m['files']??array())===5,'Manifest entry count differs');
@@ -363,7 +374,7 @@ function vne_adapter_dispatch($mode,$approval){
 function vne_adapter_production_inspection_dispatch($mode,$a){
     vne_adapter_need(in_array($mode,array('inspect-inbox','inspect-production-context','inspect-production-storage'),true),'Production inspection mode only');
     $fields=array('sourceSha','controllerSourceSha','payloadSha','expectedParent','manifestSha256','receiverSha256','environment','profile');if($mode==='inspect-production-context')$fields[]='contextPhase';
-    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3'),true),'Production inspection approval differs');
+    $actual=is_array($a)?array_keys($a):array();sort($fields);sort($actual);vne_adapter_need($actual===$fields&&($a['environment']??null)==='production'&&in_array($a['profile']??null,array('vibelab-v2-r6-css-production-inspect-schema3','vibelab-v2-r6-css-production-proof-import-schema3','vibelab-v2-r6-css-production-runtime-schema3','vibelab-v2-r6-css-production-key-observe-schema3'),true),'Production inspection approval differs');
     if($mode==='inspect-production-context')vne_adapter_need(in_array($a['contextPhase'],array('baseline','candidate'),true),'Production inspection context phase differs');
     if($mode!=='inspect-production-context')vne_adapter_need(!function_exists('get_option')&&!isset($GLOBALS['wpdb']),'Use no-WordPress file inspection');
     $inbox=vne_adapter_inspect($a);vne_adapter_need($inbox['profile']===$a['profile'],'Production inspection profile differs');
