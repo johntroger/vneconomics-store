@@ -44,6 +44,19 @@ PHP_CONFIG;
   echo json_encode(array('installed'=>true,'wordpress'=>$wp_version,'database'=>$wpdb->db_version()));exit;
  }
  wp_set_current_user($mode==='--run-no-user'?0:1);
+ if($mode==='--crash-run'){
+  native_need(is_array($input)&&array_keys($input)===array('code','expectedPhase','expectedCssSha256')&&is_string($input['code'])&&in_array($input['expectedPhase'],array('INSTALLING','ROLLING_BACK'),true)&&preg_match('/^[a-f0-9]{64}$/D',$input['expectedCssSha256']),'Native crash request differs');
+  add_action('upgrader_process_complete',function()use($input,$base,$control){
+   // Read owner from the durable lock; setup metadata belongs to the first case.
+   $lock=json_decode(file_get_contents($control.'/receiver.lock'),true,32,JSON_THROW_ON_ERROR);$owner=$lock['approval']['owner']??'';
+   native_need(is_string($owner)&&preg_match('/^[a-f0-9]{32}$/D',$owner),'Crash lock owner differs');
+   $j=vne_adapter_json($control.'/journal-'.$owner.'.json');$css=hash_file('sha256',WP_CONTENT_DIR.'/themes/vibelab-v2/style.css');
+   native_need($j['phase']===$input['expectedPhase']&&$css===$input['expectedCssSha256']&&file_exists(ABSPATH.'.maintenance'),'Native update did not reach crash checkpoint');
+   $path=$base.'/.native-crash-checkpoint';file_put_contents($path,json_encode(array('pid'=>getmypid(),'phase'=>$j['phase'],'cssSha256'=>$css,'signal'=>9)),LOCK_EX);chmod($path,0600);
+   native_need(posix_kill(getmypid(),9),'Cannot SIGKILL owned fixture PHP');throw new RuntimeException('SIGKILL did not stop fixture PHP');
+  },PHP_INT_MAX);
+  eval($input['code']);throw new RuntimeException('Native crash hook was not reached');
+ }
  if($mode==='--run'||$mode==='--run-no-user'){
   native_need(is_array($input)&&array_keys($input)===array('code')&&is_string($input['code']),'Fixture command shape differs');eval($input['code']);exit;
  }
@@ -63,7 +76,7 @@ PHP_CONFIG;
  }
  if($mode==='--owner-edit'){update_option('vne_native_owner_edit','keep');echo json_encode(array('edited'=>true));exit;}
  if($mode==='--state'){
-  $a=$input['approval'];vne_adapter_validate_css_runtime_request('finish',$a,null);$j=$control.'/journal-'.$a['owner'].'.json';echo json_encode(array('phase'=>is_file($j)?vne_adapter_json($j)['phase']:null,'lockPresent'=>file_exists($control.'/receiver.lock'),'mutexPresent'=>file_exists($control.'/runtime-mutex.lock'),'maintenancePresent'=>file_exists(ABSPATH.'.maintenance'),'ownerEdit'=>get_option('vne_native_owner_edit'),'cssSha256'=>hash_file('sha256',WP_CONTENT_DIR.'/themes/vibelab-v2/style.css'),'marker'=>VIBELAB_V2_RELEASE_MARKER));exit;
+  $a=$input['approval'];vne_adapter_validate_css_runtime_request('finish',$a,null);$j=$control.'/journal-'.$a['owner'].'.json';$hash=function($p){return is_file($p)?hash_file('sha256',$p):null;};echo json_encode(array('phase'=>is_file($j)?vne_adapter_json($j)['phase']:null,'lockPresent'=>file_exists($control.'/receiver.lock'),'mutexPresent'=>file_exists($control.'/runtime-mutex.lock'),'maintenancePresent'=>file_exists(ABSPATH.'.maintenance'),'ownerEdit'=>get_option('vne_native_owner_edit'),'cssSha256'=>hash_file('sha256',WP_CONTENT_DIR.'/themes/vibelab-v2/style.css'),'marker'=>VIBELAB_V2_RELEASE_MARKER,'journalSha256'=>$hash($j),'lockSha256'=>$hash($control.'/receiver.lock'),'maintenanceSha256'=>$hash(ABSPATH.'.maintenance'),'pid'=>getmypid(),'crashCheckpoint'=>is_file($base.'/.native-crash-checkpoint')?json_decode(file_get_contents($base.'/.native-crash-checkpoint'),true):null));exit;
  }
  throw new RuntimeException('Unknown native fixture mode');
 }catch(Throwable $e){echo json_encode(array('error'=>$e->getMessage()));}
