@@ -2,11 +2,11 @@
 import assert from 'node:assert/strict';
 import {buildProductionInspectionBootstrap} from './r6-css-operator.mjs';
 import {validateKeyHandshakeRequest} from './r6-css-key-handshake.mjs';
-import {productionKeyObservationProfile} from './release-r6-css-adapter.mjs';
+import {productionKeyObservationProfile,productionKeyReservationProfile} from './release-r6-css-adapter.mjs';
 
 export function buildProductionKeyObservationBootstrap(approval,request,...extra){
  assert.equal(extra.length,0,'Key observation overrides refused');
- assert.equal(approval?.profile,productionKeyObservationProfile,'Candidate observation profile required');
+ assert.ok([productionKeyObservationProfile,productionKeyReservationProfile].includes(approval?.profile),'Candidate observation profile required');
  validateKeyHandshakeRequest(request);
  const base=buildProductionInspectionBootstrap('inspect-production-context',approval);
  const at=base.code.indexOf('echo json_encode(');assert.ok(at>0);

@@ -44,6 +44,14 @@ PHP_CONFIG;
   echo json_encode(array('installed'=>true,'wordpress'=>$wp_version,'database'=>$wpdb->db_version()));exit;
  }
  wp_set_current_user($mode==='--run-no-user'?0:1);
+ if($mode==='--kill-after-reservation'){
+  native_need(array_keys($input)===array('code','expectedStatus')&&is_string($input['code'])&&in_array($input['expectedStatus'],array('KEY_RESERVATION_CREATED','KEY_RESERVATION_RELEASED'),true),'Fixture reservation crash request differs');
+  ob_start();eval($input['code']);$raw=ob_get_clean();$r=json_decode($raw,true,32,JSON_THROW_ON_ERROR);native_need(($r['status']??null)===$input['expectedStatus'],'Reservation did not reach lost-receipt checkpoint');
+  file_put_contents($base.'/.native-key-crash',json_encode(array('pid'=>getmypid(),'status'=>$r['status'])));chmod($base.'/.native-key-crash',0600);native_need(posix_kill(getmypid(),9),'Cannot stop reservation fixture PHP');throw new RuntimeException('Reservation SIGKILL did not stop PHP');
+ }
+ if($mode==='--run-mutex-held'){
+  native_need(array_keys($input)===array('code')&&is_string($input['code']),'Fixture mutex command differs');$h=fopen($control.'/runtime-mutex.lock','r+');native_need(is_resource($h)&&flock($h,LOCK_EX|LOCK_NB),'Fixture shared mutex unavailable');try{eval($input['code']);}finally{flock($h,LOCK_UN);fclose($h);}exit;
+ }
  if($mode==='--crash-run'){
   native_need(is_array($input)&&array_keys($input)===array('code','expectedPhase','expectedCssSha256')&&is_string($input['code'])&&in_array($input['expectedPhase'],array('INSTALLING','ROLLING_BACK'),true)&&preg_match('/^[a-f0-9]{64}$/D',$input['expectedCssSha256']),'Native crash request differs');
   add_action('upgrader_process_complete',function()use($input,$base,$control){
@@ -62,9 +70,9 @@ PHP_CONFIG;
  }
  require $inbox.'/receiver.php';
  if($mode==='--select-package'){
-  native_need(in_array($input['package']??null,array('runtime','observer'),true),'Unknown fixture package');$which=$input['package'];$from=$which==='runtime'?'/fixture/package':'/fixture/observer-package';
+  native_need(in_array($input['package']??null,array('runtime','observer','reservation'),true),'Unknown fixture package');$which=$input['package'];$from=$which==='runtime'?'/fixture/package':($which==='observer'?'/fixture/observer-package':'/fixture/reservation-package');
   foreach(array('manifest.json','receiver.php','theme.zip','previous-theme.zip','plugin.zip','previous-plugin.zip') as $name)native_need(copy($from.'/'.$name,$inbox.'/'.$name),'Fixture package switch failed');
-  $meta=json_decode(file_get_contents('/fixture/meta.json'),true);file_put_contents($base.'/git/vneconomics-store-production.git/refs/heads/release-production',($which==='runtime'?$meta['approval']['payloadSha']:$meta['observerPayload']).PHP_EOL);echo json_encode(array('selected'=>$which));exit;
+  $meta=json_decode(file_get_contents('/fixture/meta.json'),true);file_put_contents($base.'/git/vneconomics-store-production.git/refs/heads/release-production',($which==='runtime'?$meta['approval']['payloadSha']:($which==='observer'?$meta['observerPayload']:$meta['reservationPayload'])).PHP_EOL);echo json_encode(array('selected'=>$which));exit;
  }
  if($mode==='--private-snapshot'){
   $out=array();$paths=array($control);foreach(new RecursiveIteratorIterator(new RecursiveDirectoryIterator($control,FilesystemIterator::SKIP_DOTS),RecursiveIteratorIterator::SELF_FIRST) as $f)$paths[]=$f->getPathname();
@@ -79,8 +87,17 @@ PHP_CONFIG;
   }elseif($action==='broad-mode'||$action==='private-mode')native_need(chmod($path,$action==='broad-mode'?0644:0600),'Fixture candidate chmod failed');
   elseif($action==='active-away')native_need(!file_exists($base.'/.native-kept-active-key')&&rename($control.'/health-key.json',$base.'/.native-kept-active-key'),'Fixture active stash failed');
   elseif($action==='active-back')native_need(!file_exists($control.'/health-key.json')&&rename($base.'/.native-kept-active-key',$control.'/health-key.json'),'Fixture active restore failed');
+  elseif($action==='activation-marker'){native_need(is_dir($dir),'Fixture candidate directory missing');file_put_contents($dir.'/activation.json','{"fixture":true}');chmod($dir.'/activation.json',0600);}
+  elseif($action==='remove-activation-marker')native_need(unlink($dir.'/activation.json'),'Fixture marker cleanup failed');
   else throw new RuntimeException('Unknown observer fixture action');
   echo json_encode(array('prepared'=>true));exit;
+ }
+ if($mode==='--key-crash-state'){echo json_encode(array('checkpoint'=>json_decode(file_get_contents($base.'/.native-key-crash'),true),'pid'=>getmypid()));exit;}
+ if($mode==='--reservation-record-fixture'){
+  native_need(in_array($input['kind']??null,array('journal','lock'),true)&&preg_match('/^[a-f0-9]{32}$/D',$input['operationId']??''),'Fixture record identity differs');$kind=$input['kind'];$target=$kind==='journal'?$control.'/journal-'.$input['operationId'].'.json':$control.'/receiver.lock';$saved=$base.'/.native-record-'.$kind;$action=$input['action']??'';
+  if($action==='null'||$action==='away'){native_need(!file_exists($saved)&&is_file($target)&&!is_link($target)&&rename($target,$saved),'Fixture record stash failed');if($action==='null'){file_put_contents($target,'null');chmod($target,0600);}}
+  elseif($action==='restore'){native_need(is_file($saved)&&(!file_exists($target)||file_get_contents($target)==='null'),'Fixture record restore precondition differs');if(file_exists($target))native_need(unlink($target),'Fixture invalid record cleanup failed');native_need(rename($saved,$target),'Fixture record restore failed');}
+  else throw new RuntimeException('Unknown fixture record action');echo json_encode(array('prepared'=>true));exit;
  }
  if($mode==='--baseline'){
   $data=vne_adapter_data();$key=json_decode(vne_adapter_production_runtime_file($control.'/health-key.json'),true);

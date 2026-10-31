@@ -7,6 +7,7 @@ on:
       - 'scripts/r6-css-operator.mjs'
       - 'scripts/r6-css-key-observer.mjs'
       - 'scripts/r6-css-key-handshake.mjs'
+      - 'scripts/r6-css-key-reservation.mjs'
       - 'scripts/r6-css-production-proof.mjs'
       - 'scripts/release-lib.mjs'
       - 'scripts/release-policy.mjs'

@@ -10,6 +10,7 @@ export const productionInspectionProfile='vibelab-v2-r6-css-production-inspect-s
 export const productionProofImportProfile='vibelab-v2-r6-css-production-proof-import-schema3';
 export const productionRuntimeProfile='vibelab-v2-r6-css-production-runtime-schema3';
 export const productionKeyObservationProfile='vibelab-v2-r6-css-production-key-observe-schema3';
+export const productionKeyReservationProfile='vibelab-v2-r6-css-production-key-reservation-schema3';
 export const controllerPath='release-tools/r6-css-adapter.php';
 // Caller selects a reviewed exact controller SHA; no controller from working tree.
 export function prepareCssAdapter(sourceSha,controllerSourceSha,{readGit=git}={}){
@@ -70,5 +71,14 @@ export function prepareProductionKeyObservationAdapter(source,controller,options
   controller:{...base.manifest.controller,capabilities:[...base.manifest.controller.capabilities,'observe-key-candidate']},
   productionKeyObservationPolicy:{applicationWrites:false,databaseWrites:false,privateWrites:false,createsKeys:false,activatesKeys:false},
   requiredRemainingGates:[...base.manifest.requiredRemainingGates,'key-observer-source-CI','key-observation-hosting-approval']};
+ return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
+}
+export function prepareProductionKeyReservationAdapter(source,controller,options){
+ const base=prepareProductionKeyObservationAdapter(source,controller,options);
+ assert.ok(base.buffers['receiver.php'].includes(Buffer.from('function vne_adapter_production_key_reservation_dispatch(')),'Controller lacks key reservation entry');
+ const manifest={...base.manifest,profile:productionKeyReservationProfile,scope:'production-key-reservation-only',
+  controller:{...base.manifest.controller,capabilities:[...base.manifest.controller.capabilities,'key-reservation']},
+  productionKeyReservationPolicy:{applicationWrites:false,databaseWrites:false,keyWrites:false,createsKeys:false,activatesKeys:false,reservationWrites:true,usesRuntimeMutex:true},
+  requiredRemainingGates:[...base.manifest.requiredRemainingGates,'key-reservation-source-CI','key-reservation-write-hosting-approval']};
  return {manifest,buffers:{...base.buffers,'manifest.json':Buffer.from(JSON.stringify(manifest,null,2)+'\n')}};
 }
