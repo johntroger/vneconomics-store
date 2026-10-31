@@ -1,0 +1,44 @@
+name: Native private store filesystem checks
+on:
+  pull_request:
+    paths:
+      - 'release-tools/r6-css-adapter.php'
+      - 'scripts/test-css-private-store*.mjs'
+      - 'scripts/fixtures/css-private-store.php'
+      - 'scripts/run-clean.mjs'
+      - 'package*.json'
+      - '.github/workflows/css-private-store-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: css-private-store-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  store:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - name: Validate exact source SHA
+        run: node -e "const s=process.env.SOURCE_SHA||''; if(s.length!==40||!/^[a-f0-9]+$/.test(s)) throw Error('Exact source SHA required')"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Verify checkout source
+        run: node -e "const s=require('node:child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); if(s!==process.env.SOURCE_SHA) throw Error('Checkout SHA differs'); console.log('SOURCE_SHA='+s)"
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts
+      - name: Check private store workflow contract
+        run: npm run test:css-private-store-workflow
+      - name: Prepare pinned PHP native image
+        run: docker --context default pull php@sha256:d07db734bd519927010bbc66fa42c0d6f0207a4ee8419998df40931b884a5919
+      - name: Check native private filesystem and cleanup
+        run: npm run test:css-private-store
