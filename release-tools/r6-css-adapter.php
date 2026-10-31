@@ -786,13 +786,49 @@ function vne_adapter_css_validate_before_upgrade($a,$j,$io){
 }
 function vne_adapter_production_runtime_file($path){
     vne_adapter_path($path);clearstatcache(true,$path);$s=lstat($path);$p=vne_adapter_production_policy();
-    vne_adapter_need(($s['mode']&0170000)===0100000&&$s['nlink']===1&&$s['uid']===$p['uid']&&($s['mode']&0777)===0600&&$s['size']<=262144,'Private runtime file metadata differs');
+    vne_adapter_need(($s['mode']&0170000)===0100000&&$s['nlink']===1&&$s['uid']===$p['uid']&&($s['mode']&07777)===0600&&$s['size']<=262144,'Private runtime file metadata differs');
     $h=fopen($path,'rb');vne_adapter_need(is_resource($h),'Private runtime file open failed');
     try{
         $identity=vne_adapter_key_stat_identity($s);vne_adapter_need(vne_adapter_key_stat_identity(fstat($h))===$identity,'Private runtime file replaced before read');
         $bytes=stream_get_contents($h,262145);clearstatcache(true,$path);vne_adapter_path($path);
         vne_adapter_need(is_string($bytes)&&strlen($bytes)===$s['size']&&vne_adapter_key_stat_identity(fstat($h))===$identity&&vne_adapter_key_stat_identity(lstat($path))===$identity,'Private runtime file changed during read');return $bytes;
     }finally{fclose($h);}
+}
+// Fixed private filesystem only. No application/database operation or key
+// provisioning. Public runtime entry still performs all package/context gates.
+function vne_adapter_css_private_store($owner){
+    vne_adapter_need(PHP_SAPI==='cli'&&is_string($owner)&&preg_match('/^[a-f0-9]{32}$/D',$owner),'Private runtime owner invalid');
+    $policy=vne_adapter_production_policy();vne_adapter_key_private_stat($policy['control'],true);vne_adapter_production_runtime_file($policy['keyPath']);vne_adapter_inspect_production_storage();
+    $control=$policy['control'];$paths=array('journal'=>$control.'/journal-'.$owner.'.json','lock'=>$control.'/receiver.lock','proof'=>$control.'/proof-'.$owner.'.json');
+    $hashes=array();$mutexGuard=null;
+    $kindGuard=function($kind)use($paths){vne_adapter_need(is_string($kind)&&isset($paths[$kind]),'Private runtime kind invalid');};
+    $read=function($kind)use($paths,&$hashes,$kindGuard){$kindGuard($kind);$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');if(!file_exists($path)){$hashes[$kind]=null;return null;}$raw=vne_adapter_production_runtime_file($path);$hashes[$kind]=hash('sha256',$raw);return json_decode($raw,true,32,JSON_THROW_ON_ERROR);};
+    $check=function($kind)use($paths,&$hashes,&$mutexGuard,$kindGuard){$kindGuard($kind);if($mutexGuard!==null)$mutexGuard();$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');$now=file_exists($path)?hash('sha256',vne_adapter_production_runtime_file($path)):null;vne_adapter_need(array_key_exists($kind,$hashes)&&$now===$hashes[$kind],'Private runtime changed; inspect');};
+    $write=function($kind,$value,$exclusive=false)use($paths,&$hashes,&$mutexGuard,$check){
+        vne_adapter_need($mutexGuard!==null,'Private runtime mutex required');$check($kind);$path=$paths[$kind];$bytes=json_encode($value,JSON_THROW_ON_ERROR);vne_adapter_need(strlen($bytes)<=262144,'Private runtime JSON too large');vne_adapter_need(!$exclusive||!file_exists($path),'Exclusive private runtime target exists');$temp=$exclusive?$path:$path.'.tmp-'.bin2hex(random_bytes(8));$h=null;
+        try{
+            // umask is set before create; no interval with world-readable bytes.
+            $mask=umask(0077);try{$h=fopen($temp,'x');}finally{umask($mask);}vne_adapter_need($h!==false,'Exclusive private runtime create failed');
+            vne_adapter_need(chmod($temp,0600)&&fwrite($h,$bytes)===strlen($bytes)&&fflush($h),'Private runtime write failed');vne_adapter_need(fclose($h),'Private runtime close failed');$h=null;
+            if(!$exclusive){$check($kind);vne_adapter_need(rename($temp,$path),'Private runtime atomic rename failed');}$hashes[$kind]=hash('sha256',$bytes);
+        }finally{if(is_resource($h))fclose($h);if(!$exclusive&&is_file($temp))unlink($temp);}
+    };
+    $acquire=function($readOnly=false)use($control,&$mutexGuard){
+        vne_adapter_need(is_bool($readOnly)&&$mutexGuard===null,'Private runtime mutex already held or mode invalid');
+        $path=$control.'/runtime-mutex.lock';vne_adapter_need(!is_link($path),'Runtime mutex symlink refused');
+        if($readOnly&&!file_exists($path))return function(){};
+        if(!file_exists($path)){$mask=umask(0077);try{$h=fopen($path,'x+');}finally{umask($mask);}vne_adapter_need($h!==false,'Runtime mutex create failed');}
+        else{vne_adapter_production_runtime_file($path);$h=fopen($path,'r+');}
+        vne_adapter_need(is_resource($h),'Runtime mutex open failed');$held=false;
+        try{
+            $s=fstat($h);clearstatcache(true,$path);$now=lstat($path);vne_adapter_need($s['ino']===$now['ino']&&$s['dev']===$now['dev'],'Runtime mutex replaced');vne_adapter_production_runtime_file($path);
+            $held=flock($h,LOCK_EX|LOCK_NB);vne_adapter_need($held,'Production runtime busy; inspect');
+            $mutexGuard=function()use($h,$path,$s){clearstatcache(true,$path);vne_adapter_production_runtime_file($path);$current=lstat($path);$opened=fstat($h);vne_adapter_need($current['ino']===$s['ino']&&$current['dev']===$s['dev']&&$opened['ino']===$s['ino']&&$opened['dev']===$s['dev'],'Runtime mutex changed; inspect');};
+            return function()use($h,&$mutexGuard){$mutexGuard=null;flock($h,LOCK_UN);fclose($h);};
+        }catch(Throwable $e){if($held)flock($h,LOCK_UN);fclose($h);throw $e;}
+    };
+    $releaseLogical=function($lock)use($read,$check,$paths,&$mutexGuard){vne_adapter_need($mutexGuard!==null,'Private runtime mutex required');vne_adapter_need($read('lock')===$lock,'Runtime terminal lock differs');$check('journal');$check('lock');vne_adapter_need(unlink($paths['lock']),'Runtime lock cleanup failed');};
+    return array('read'=>$read,'check'=>$check,'write'=>$write,'acquire'=>$acquire,'releaseLogical'=>$releaseLogical);
 }
 function vne_adapter_production_runtime_dispatch($mode,$a,$proof=null){
     vne_adapter_validate_css_runtime_request($mode,$a,$proof);
@@ -802,19 +838,7 @@ function vne_adapter_production_runtime_dispatch($mode,$a,$proof=null){
     $p=vne_adapter_verified_package($a);vne_adapter_need($p['manifest']['profile']===$a['profile'],'Production runtime profile differs');
     $keyFile=$policy['keyPath'];$keyBytes=vne_adapter_production_runtime_file($keyFile);$keyHash=hash('sha256',$keyBytes);$key=json_decode($keyBytes,true,16,JSON_THROW_ON_ERROR);unset($keyBytes);
     $storage=vne_adapter_inspect_production_storage();vne_adapter_need($storage['keyFingerprintSha256']===$a['keyFingerprintSha256'],'Production runtime key differs');
-    $control=$policy['control'];$paths=array('journal'=>$control.'/journal-'.$a['owner'].'.json','lock'=>$control.'/receiver.lock','proof'=>$control.'/proof-'.$a['owner'].'.json');
-    $hashes=array();$mutexGuard=null;
-    $read=function($kind)use($paths,&$hashes){$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');if(!file_exists($path)){$hashes[$kind]=null;return null;}$raw=vne_adapter_production_runtime_file($path);$hashes[$kind]=hash('sha256',$raw);return json_decode($raw,true,32,JSON_THROW_ON_ERROR);};
-    $check=function($kind)use($paths,&$hashes,&$mutexGuard){if($mutexGuard!==null)$mutexGuard();$path=$paths[$kind];vne_adapter_need(!is_link($path),'Private runtime symlink refused');$now=file_exists($path)?hash('sha256',vne_adapter_production_runtime_file($path)):null;vne_adapter_need(array_key_exists($kind,$hashes)&&$now===$hashes[$kind],'Private runtime changed; inspect');};
-    $write=function($kind,$value,$exclusive=false)use($paths,&$hashes,$check){
-        $check($kind);$path=$paths[$kind];$bytes=json_encode($value,JSON_THROW_ON_ERROR);$temp=$exclusive?$path:$path.'.tmp-'.bin2hex(random_bytes(8));$h=null;
-        try{
-            // umask is set before create; no interval with world-readable bytes.
-            $mask=umask(0077);try{$h=fopen($temp,'x');}finally{umask($mask);}vne_adapter_need($h!==false,'Exclusive private runtime create failed');
-            vne_adapter_need(chmod($temp,0600)&&fwrite($h,$bytes)===strlen($bytes)&&fflush($h),'Private runtime write failed');vne_adapter_need(fclose($h),'Private runtime close failed');$h=null;
-            if(!$exclusive){$check($kind);vne_adapter_need(rename($temp,$path),'Private runtime atomic rename failed');}$hashes[$kind]=hash('sha256',$bytes);
-        }finally{if(is_resource($h))fclose($h);if(!$exclusive&&is_file($temp))unlink($temp);}
-    };
+    $store=vne_adapter_css_private_store($a['owner']);$read=$store['read'];$check=$store['check'];$write=$store['write'];
     $preflight=function($phase)use($a,$p,$keyFile,$keyHash){
         vne_adapter_inspect($a);vne_adapter_need(hash('sha256',vne_adapter_production_runtime_file($keyFile))===$keyHash,'Production runtime key changed');
         vne_adapter_need(vne_adapter_inspect_production_storage()['keyFingerprintSha256']===$a['keyFingerprintSha256'],'Production runtime storage changed');
@@ -833,16 +857,7 @@ function vne_adapter_production_runtime_dispatch($mode,$a,$proof=null){
     $maintenanceReceipt=null;
     $io=array(
         // Persistent mutex is never unlinked: fresh opens share the same inode.
-        'acquire'=>function()use($control,$mode,&$mutexGuard){
-            $path=$control.'/runtime-mutex.lock';vne_adapter_need(!is_link($path),'Runtime mutex symlink refused');
-            if($mode==='inspect-state'&&!file_exists($path))return function(){};
-            if(!file_exists($path)){$mask=umask(0077);try{$h=fopen($path,'x+');}finally{umask($mask);}vne_adapter_need($h!==false,'Runtime mutex create failed');vne_adapter_need(chmod($path,0600),'Runtime mutex mode failed');}
-            else{vne_adapter_production_runtime_file($path);$h=fopen($path,'r+');}
-            vne_adapter_need(is_resource($h),'Runtime mutex open failed');$s=fstat($h);$now=lstat($path);vne_adapter_need($s['ino']===$now['ino']&&$s['dev']===$now['dev'],'Runtime mutex replaced');
-            if(!flock($h,LOCK_EX|LOCK_NB)){fclose($h);throw new RuntimeException('Production runtime busy; inspect');}
-            $mutexGuard=function()use($h,$path,$s){clearstatcache(true,$path);vne_adapter_production_runtime_file($path);$current=lstat($path);$opened=fstat($h);vne_adapter_need($current['ino']===$s['ino']&&$current['dev']===$s['dev']&&$opened['ino']===$s['ino']&&$opened['dev']===$s['dev'],'Runtime mutex changed; inspect');};
-            return function()use($h,&$mutexGuard){$mutexGuard=null;flock($h,LOCK_UN);fclose($h);};
-        },
+        'acquire'=>function()use($store,$mode){return $store['acquire']($mode==='inspect-state');},
         'read'=>$read,'preflight'=>$preflight,
         'begin'=>function($lock,$j)use($write,$read,$a,$p){
             vne_adapter_need(!file_exists(ABSPATH.'.maintenance')&&!is_link(ABSPATH.'.maintenance'),'Existing maintenance; inspect');
@@ -853,7 +868,7 @@ function vne_adapter_production_runtime_dispatch($mode,$a,$proof=null){
         'save'=>function($j)use($write,$check){$check('lock');$write('journal',$j);},
         'health'=>function($j,$envelope)use($a,$key,$p){vne_adapter_need(is_array($envelope),'Signed runtime proof missing');$css=hash('sha256',$p['maps'][$j['phase']==='ROLLBACK_AWAIT_HEALTH'?'previous-theme':'theme']['vibelab-v2/style.css']);return vne_adapter_verify_production_proof(vne_adapter_css_runtime_identity($a),$j,$envelope,$key,$css)['healthPassed'];},
         'storeProof'=>function($envelope,$j)use($read,$write,$check,$a,$key){$prior=$read('proof');if($prior!==null){$old=vne_adapter_decode_production_proof(vne_adapter_css_runtime_identity($a),$prior,$key);$new=vne_adapter_decode_production_proof(vne_adapter_css_runtime_identity($a),$envelope,$key);vne_adapter_need($prior===$envelope||$new['observedAt']>$old['observedAt']||($new['observedAt']===$old['observedAt']&&$new['challenge']!==$old['challenge']),'Runtime proof regressed/replayed');}$check('journal');$check('lock');if($prior!==$envelope)$write('proof',$envelope);},
-        'releaseLogical'=>function($lock)use($read,$check,$paths){vne_adapter_need($read('lock')===$lock,'Runtime terminal lock differs');$check('journal');$check('lock');vne_adapter_need(unlink($paths['lock']),'Runtime lock cleanup failed');},
+        'releaseLogical'=>$store['releaseLogical'],
         'upgrade'=>function($previous)use($p,$preflight,$check,$a,&$maintenanceReceipt){
             $maintenanceReceipt=vne_adapter_css_native_upgrade($p['paths']['inbox'].'/'.($previous?'previous-theme':'theme').'.zip',$a['owner'],function()use($preflight,$check,$a){vne_adapter_need(hash('sha256',wp_json_encode($preflight('mixed')))===$a['baselineSha256'],'Production runtime data changed at native boundary; inspect');$check('journal');$check('lock');});
         },

@@ -17,6 +17,8 @@
     "test:key-client-workflow": "node scripts/run-clean.mjs script scripts/test-key-client-workflow.mjs",
     "test:css-production-runtime": "node scripts/run-clean.mjs script scripts/test-css-production-runtime.mjs",
     "test:css-production-runtime-workflow": "node scripts/run-clean.mjs script scripts/test-css-production-runtime-workflow.mjs",
+    "test:css-private-store": "node scripts/run-clean.mjs script scripts/test-css-private-store.mjs",
+    "test:css-private-store-workflow": "node scripts/run-clean.mjs script scripts/test-css-private-store-workflow.mjs",
     "test:workflow-contract": "node scripts/run-clean.mjs script scripts/test-r0b-workflows.mjs",
     "test:promote-validator": "node scripts/run-clean.mjs script scripts/test-promote-validator.mjs",
     "test:candidate": "node scripts/run-clean.mjs script scripts/release-candidate.mjs test",
