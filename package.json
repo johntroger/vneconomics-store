@@ -88,9 +88,13 @@
     "test:github-stars-ui": "node scripts/run-clean.mjs script scripts/test-g03-wordpress.mjs --stars-u2",
     "test:github-stars-publication": "node scripts/run-clean.mjs script scripts/test-github-stars-publication.mjs",
     "publish:github-stars": "node scripts/run-clean.mjs script scripts/publish-github-stars.mjs",
-    "test:github-stars-production": "node scripts/run-clean.mjs script scripts/test-github-stars-production.mjs"
+    "test:github-stars-production": "node scripts/run-clean.mjs script scripts/test-github-stars-production.mjs",
+    "test:theme-release": "node scripts/run-clean.mjs script scripts/test-theme-release.mjs",
+    "build:theme-release": "node scripts/run-clean.mjs script scripts/theme-release.mjs build",
+    "release:theme": "node scripts/run-clean.mjs script scripts/theme-candidate.mjs"
   },
   "devDependencies": {
-    "@wp-playground/cli": "3.1.58"
+    "@wp-playground/cli": "3.1.58",
+    "@zip.js/zip.js": "2.7.57"
   }
 }
