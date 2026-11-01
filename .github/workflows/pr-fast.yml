@@ -11,27 +11,42 @@ jobs:
   fast:
     runs-on: windows-2025
     timeout-minutes: 8
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ env.SOURCE_SHA }}
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
           cache: npm
+      - name: Verify metadata-only closeout or require full checks
+        id: scope
+        run: node scripts/run-clean.mjs script scripts/release-ci-scope.mjs
       - name: Install locked dependencies
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: npm ci --ignore-scripts
       - name: Check JavaScript syntax
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: npm run test:ci-fast
       - name: Check workflow security contract
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: npm run test:workflow-contract
       - name: Check candidate evidence policy
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: npm run test:pipeline-ci -- --u2
       - name: Check R6 CSS candidate policy
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs
+      - name: Check metadata CI guards
+        if: steps.scope.outputs.metadata_only != 'true'
+        run: node scripts/run-clean.mjs script scripts/test-release-ci-scope.mjs

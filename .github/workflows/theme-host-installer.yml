@@ -8,6 +8,7 @@ on:
       - 'scripts/theme-release.mjs'
       - 'scripts/local-runtime.mjs'
       - 'scripts/run-clean.mjs'
+      - 'scripts/*release-ci-scope.mjs'
       - 'deploy/theme-release-baseline.json'
       - 'package*.json'
       - '.github/workflows/theme-host-installer.yml'
@@ -22,6 +23,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 15
     env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
       SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -33,15 +35,22 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Verify metadata-only closeout or require full checks
+        id: scope
+        run: node scripts/run-clean.mjs script scripts/release-ci-scope.mjs
       - name: Verify exact source
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: |
           if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$' -or (git rev-parse HEAD) -cne $env:SOURCE_SHA) { throw 'Source differs' }
       - run: npm ci --ignore-scripts
+        if: steps.scope.outputs.metadata_only != 'true'
       - name: Native PHP install health rollback and guard tests
+        if: steps.scope.outputs.metadata_only != 'true'
         id: test
         run: npm run test:theme-host-installer
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: steps.scope.outputs.metadata_only != 'true'
         with:
           name: theme-host-installer-${{ env.SOURCE_SHA }}
           path: ${{ steps.test.outputs.directory }}/
