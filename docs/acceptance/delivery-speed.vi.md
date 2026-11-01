@@ -21,4 +21,6 @@ Thay đổi này không sửa website, bộ cài, quyền token, post-action ho�
 
 CI ứng dụng chạy một lần cho exact source; sau PASS, xác minh candidate → merge → promote nối tiếp, không đọc lại bộ hồ sơ lịch sử giữa các lệnh. Dùng một watch kết quả thay cho hỏi trạng thái nhiều lần. Hậu kiểm HTTP homepage/CSS và smoke phù hợp; chủ dự án tự xem phần nhìn. Không browser/chụp ảnh hoặc đăng nhập Plesk thường kỳ. Chỉ closeout baseline sau hậu kiểm đạt, dùng nhánh metadata nhẹ; không đánh đồng job PASS với private journal/DB production nếu chưa đọc chúng.
 
-Số liệu đường metadata mới sẽ bổ sung sau lần CI tài liệu thật; chưa tuyên bố toàn bộ chuỗi còn bao nhiêu phút trước khi đo.
+## Kết quả đo đường nhẹ
+
+PR28 đã merge sau full fast/native/package CI41314327588/41314327611/41314327659 SUCCESS. PR29 là báo cáo tài liệu thật, không phải ứng dụng canary: [metadata CI41314594084](https://github.com/johntroger/vneconomics-store/actions/runs/41314594084) SUCCESS trong **24giây**, so với fast closeout cũ63giây, giảm khoảng**62%**. Job xác minh metadata đạt rồi skip npm install và các application/policy suite không bị tác động. Đây là đo fast job cho PR tài liệu; chưa đo critical path của cả ba job baseline-only hoặc toàn chuỗi release sau tối ưu, không tuyên bố mọi lần phát hành chỉ còn24giây.
