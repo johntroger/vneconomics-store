@@ -1,0 +1,15 @@
+{
+  "format": 1,
+  "profile": "vibelab-theme-host-installer-v1",
+  "sourceSha": "d59d6354b51b262f85c9b56c476e9a408d2c52ec",
+  "scope": "private-cli-tool-only",
+  "files": [
+    {
+      "path": "theme-host-installer.php",
+      "bytes": 18651,
+      "sha256": "bd1f53c3751d800d8b1111d6a96bbad8731627f18e970afd6e96be4551572145"
+    }
+  ],
+  "productionAuthorized": false,
+  "applicationPayloadIncluded": false
+}
