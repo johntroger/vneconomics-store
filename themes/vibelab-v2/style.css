@@ -366,6 +366,10 @@ p {
   border-top: 2px solid var(--v2-ink);
 }
 
+.v2-resource-actions {
+  margin-top: 24px;
+}
+
 .v2-resource-row {
   display: grid;
   grid-template-columns: 54px minmax(0, 1fr) minmax(130px, 180px) minmax(130px, 160px) auto;
