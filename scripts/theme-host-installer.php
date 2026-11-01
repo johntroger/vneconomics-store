@@ -151,7 +151,21 @@ final class VneThemeHostInstaller {
         $lock = $this->c['control'].'/theme-install.lock'; self::need(!is_link($lock), 'Lock symlink refused'); if (file_exists($lock)) self::safe($lock);
         $fd = fopen($lock,'c+b'); self::need($fd !== false, 'Cannot open lock');
         try {
-            self::need(chmod($lock,0600) && flock($fd,LOCK_EX|LOCK_NB), 'Installer busy'); $this->verifyRef(); $this->boot(); $j = $this->readJournal();
+            self::need(chmod($lock,0600) && flock($fd,LOCK_EX|LOCK_NB), 'Installer busy'); $this->verifyRef(); $j = $this->readJournal();
+            // Validate executable theme/plugin bytes and unresolved state before WordPress can load them.
+            if (in_array($mode,array('install','apply'),true)) {
+                if ($j && $j['status'] === 'COMPLETE' && $j['manifestSha256'] === $this->digest) $this->same($j);
+                elseif ($j) {
+                    self::need($j['status'] === 'COMPLETE', 'Previous run not complete; inspect');
+                    self::need($j['payloadSha'] === $this->m['expectedProductionParent'], 'Previous receipt is not baseline');
+                }
+                $this->tree($j && $j['status'] === 'COMPLETE' && $j['manifestSha256'] === $this->digest ? 'theme' : 'previous-theme', $this->c['root'].'/wp-content/themes/vibelab-v2');
+            } else {
+                self::need($j !== null, 'No pending release'); $this->same($j);
+                self::need($j['status'] === 'PENDING_HEALTH' && time()-$j['startedAt'] <= 300, 'Release phase/timeout requires inspection');
+                $this->tree('theme', $this->c['root'].'/wp-content/themes/vibelab-v2');
+            }
+            $this->tree('plugin', $this->c['root'].'/wp-content/plugins/vne-library-core'); $this->boot();
             if (in_array($mode,array('install','apply'),true)) {
                 if ($j && $j['status'] === 'COMPLETE' && $j['manifestSha256'] === $this->digest) { $this->same($j); $this->tree('theme',WP_CONTENT_DIR.'/themes/vibelab-v2'); return array('status'=>'ALREADY_COMPLETE','manifestSha256'=>$this->digest); }
                 if ($j) {
