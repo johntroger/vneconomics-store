@@ -9,6 +9,7 @@ on:
       - 'scripts/test-r6-css-native.mjs'
       - 'scripts/release-lib.mjs'
       - 'scripts/run-clean.mjs'
+      - 'scripts/*release-ci-scope.mjs'
       - 'deploy/theme-release-baseline.json'
       - 'package*.json'
       - '.github/workflows/theme-release.yml'
@@ -23,6 +24,7 @@ jobs:
     runs-on: windows-2025
     timeout-minutes: 15
     env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
       SOURCE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -34,7 +36,11 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Verify metadata-only closeout or require full checks
+        id: scope
+        run: node scripts/run-clean.mjs script scripts/release-ci-scope.mjs
       - name: Verify exact source and production payload baseline
+        if: steps.scope.outputs.metadata_only != 'true'
         shell: pwsh
         run: |
           if ($env:SOURCE_SHA -cnotmatch '^[a-f0-9]{40}$') { throw 'Exact source required' }
@@ -43,9 +49,12 @@ jobs:
           $remote = git ls-remote origin refs/heads/release-production
           if ($LASTEXITCODE -ne 0 -or $remote -cnotmatch ('^'+$baseline.payloadSha+'\s+refs/heads/release-production$')) { throw 'Production baseline moved' }
       - run: npm ci --ignore-scripts
+        if: steps.scope.outputs.metadata_only != 'true'
       - name: Check publisher and native install rollback
+        if: steps.scope.outputs.metadata_only != 'true'
         run: npm run test:theme-release
       - name: Upload review package
+        if: steps.scope.outputs.metadata_only != 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         with:
           name: theme-release-${{ env.SOURCE_SHA }}
