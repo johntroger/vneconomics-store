@@ -50,3 +50,9 @@ jobs:
       - name: Check metadata CI guards
         if: steps.scope.outputs.metadata_only != 'true'
         run: node scripts/run-clean.mjs script scripts/test-release-ci-scope.mjs
+      - name: Check candidate blob transport
+        if: steps.scope.outputs.metadata_only != 'true'
+        run: node scripts/run-clean.mjs script scripts/test-theme-candidate-transport.mjs
+      - name: Check shallow promote validator
+        if: steps.scope.outputs.metadata_only != 'true'
+        run: npm run test:promote-validator
