@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {candidateTree,gitBlobSha} from './theme-candidate.mjs';
+import {spawnSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
+const binary=Buffer.from([0,255,128,10,13,0]);const gitHash=spawnSync('git',['hash-object','--stdin'],{input:binary,encoding:'utf8',windowsHide:true});assert.equal(gitHash.status,0);assert.equal(gitBlobSha(binary),gitHash.stdout.trim());
+const names=['manifest.json','theme.zip','plugin.zip','previous-theme.zip','previous-plugin.zip'];
+const base=Object.fromEntries(names.map(p=>[p,Buffer.from(p==='previous-plugin.zip'?'plugin.zip':p)]));
+const blobs=names.map(path=>({path,bytes:base[path],sha:gitBlobSha(base[path])}));
+const files={...base,'manifest.json':Buffer.from('new manifest'),'theme.zip':Buffer.from('new theme'),'previous-theme.zip':base['theme.zip']};
+let uploads=0;const plan=candidateTree(files,blobs,b=>{uploads++;return gitBlobSha(b);});
+assert.equal(uploads,2);assert.equal(plan.uploadedBlobs,2);assert.equal(plan.reusedBlobs,3);
+for(const entry of plan.tree)assert.equal(entry.sha,gitBlobSha(files[entry.path]));
+assert.equal(candidateTree(base,blobs,()=>{throw Error('Unexpected upload');}).uploadedBlobs,0);
+assert.throws(()=>candidateTree(files,blobs.map((b,i)=>i?b:{...b,sha:'0'.repeat(40)}),gitBlobSha));
+assert.throws(()=>candidateTree(files,blobs,()=> '0'.repeat(40)));
+assert.throws(()=>candidateTree(files,blobs.slice(1),gitBlobSha));
+const promote=readFileSync('.github/workflows/promote-production.yml','utf8');assert.match(promote,/fetch-depth: 1/);assert.equal((promote.match(/git fetch --depth=2 origin/g)||[]).length,2);assert.doesNotMatch(promote,/cache: npm|--force/);
+console.log('PASS candidate tree preserves exact Git blob identities; only2 uploads/3 reuses; rejects bad baseline/server identities');

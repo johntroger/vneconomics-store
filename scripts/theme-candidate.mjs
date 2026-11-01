@@ -3,12 +3,26 @@ import assert from 'node:assert/strict';
 import {readFileSync,writeFileSync,existsSync,mkdirSync,lstatSync,readdirSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {spawnSync} from 'node:child_process';
+import {spawnSync,execFile} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {ZipReader,Uint8ArrayReader,Uint8ArrayWriter} from '@zip.js/zip.js';
 import {sha256} from './release-lib.mjs';
 import {hex,prepareThemeRelease,verifyThemeDirectory,themePayloadNames,assertReviewPath} from './theme-release.mjs';
 const repository='johntroger/vneconomics-store';
 function call(command,args,{input,binary=false}={}){const r=spawnSync(command,args,{input,encoding:binary?null:'utf8',windowsHide:true,timeout:120000,maxBuffer:48*1024*1024});assert.equal(r.status,0,r.stderr?.toString()||command+' failed');return binary?r.stdout:r.stdout.trim();}
+function readApi(path){return new Promise((done,fail)=>execFile('gh',['api','repos/'+repository+'/'+path],{encoding:'utf8',windowsHide:true,timeout:120000,maxBuffer:48*1024*1024},(error,out,err)=>{if(error)return fail(new Error(err||error.message));try{done(JSON.parse(out));}catch(e){fail(e);}}));}
+export const gitBlobSha=bytes=>createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
+export function candidateTree(files,baselineBlobs,createBlob){
+ assert.deepEqual(baselineBlobs.map(b=>b.path).sort(),[...themePayloadNames].sort());
+ const cache=new Map();let uploadedBlobs=0,reusedBlobs=0;
+ for(const b of baselineBlobs){assert.equal(b.sha,gitBlobSha(b.bytes),'Baseline Git blob identity differs');cache.set(sha256(b.bytes),{bytes:b.bytes,sha:b.sha});}
+ const tree=themePayloadNames.map(path=>{
+  const bytes=files[path];assert.ok(Buffer.isBuffer(bytes));const digest=sha256(bytes),prior=cache.get(digest);let sha;
+  if(prior&&prior.bytes.equals(bytes)){sha=prior.sha;reusedBlobs++;}
+  else{sha=createBlob(bytes);assert.equal(sha,gitBlobSha(bytes),'Created Git blob identity differs');cache.set(digest,{bytes,sha});uploadedBlobs++;}
+  return {path,mode:'100644',type:'blob',sha};
+ });return {tree,uploadedBlobs,reusedBlobs};
+}
 export function validateThemeCi(run,workflow,jobs,artifacts){
  assert.equal(run.repository?.full_name,repository);assert.equal(run.head_repository?.full_name,repository);assert.ok(hex(run.head_sha,40));assert.equal(run.status,'completed');assert.equal(run.conclusion,'success');assert.ok(['pull_request','workflow_dispatch'].includes(run.event));assert.ok(Number.isSafeInteger(run.run_attempt)&&run.run_attempt>0);
  assert.equal(workflow.path,'.github/workflows/theme-release.yml');assert.equal(workflow.id,run.workflow_id);assert.equal(jobs.total_count,1);const job=jobs.jobs[0];assert.equal(job.name,'package');assert.equal(job.conclusion,'success');for(const name of ['Check publisher and native install rollback','Upload review package'])assert.equal(job.steps.find(s=>s.name===name)?.conclusion,'success');
@@ -21,7 +35,9 @@ export async function decodeThemeArtifact(bytes,digest){
 async function main(){
  const [mode,runId,...extra]=process.argv.slice(2);assert.ok(['review','candidate'].includes(mode)&&typeof runId==='string'&&runId.length>0&&runId.length<=20&&!/[^0-9]/.test(runId)&&extra.length===0,'Use review|candidate <CI run ID>');
  const git=(args,input)=>call('git',args,{input}),api=path=>JSON.parse(call('gh',['api','repos/'+repository+'/'+path]));assert.equal(git(['remote','get-url','origin']),'https://github.com/'+repository+'.git');
- const run=api('actions/runs/'+runId),workflow=api('actions/workflows/'+run.workflow_id),jobs=api('actions/runs/'+runId+'/jobs?filter=latest&per_page=100'),artifacts=api('actions/runs/'+runId+'/artifacts?per_page=100'),artifact=validateThemeCi(run,workflow,jobs,artifacts);
+ const run=api('actions/runs/'+runId);
+ const [workflow,jobs,artifacts]=await Promise.all([readApi('actions/workflows/'+run.workflow_id),readApi('actions/runs/'+runId+'/jobs?filter=latest&per_page=100'),readApi('actions/runs/'+runId+'/artifacts?per_page=100')]);
+ const artifact=validateThemeCi(run,workflow,jobs,artifacts);
  const archive=call('gh',['api','repos/'+repository+'/actions/artifacts/'+artifact.id+'/zip'],{binary:true}),files=await decodeThemeArtifact(archive,artifact.digest),directory=resolve('artifacts/theme-ci',runId+'-'+run.run_attempt);
  assertReviewPath(directory);
  if(!existsSync(directory)){mkdirSync(directory,{recursive:true});for(const [name,b] of Object.entries(files))writeFileSync(join(directory,name),b,{flag:'wx'});}else{assert.ok(lstatSync(directory).isDirectory());for(const name of readdirSync(directory)){assert.ok(Object.hasOwn(files,name)||name==='verification.json','Unknown existing review file');const s=lstatSync(join(directory,name));assert.ok(s.isFile()&&!s.isSymbolicLink()&&s.nlink===1,'Unsafe review file');}for(const [name,b] of Object.entries(files))assert.ok(readFileSync(join(directory,name)).equals(b),'Existing artifact differs; inspect');}
@@ -38,10 +54,12 @@ async function main(){
   const latest=api('actions/runs/'+runId);assert.equal(latest.run_attempt,run.run_attempt);assert.equal(latest.conclusion,'success');assert.equal(latest.head_sha,run.head_sha);assert.equal(remote(),manifest.expectedProductionParent);
   const branch='candidate-production/'+run.head_sha,prior=git(['ls-remote','origin','refs/heads/'+branch]);assert.equal(prior,'','Candidate already exists; inspect rather than overwrite');
   const post=(path,data)=>JSON.parse(call('gh',['api','--method','POST','repos/'+repository+'/'+path,'--input','-'],{input:JSON.stringify(data)}));
-  const tree=post('git/trees',{tree:themePayloadNames.map(name=>({path:name,mode:'100644',type:'blob',sha:post('git/blobs',{content:files[name].toString('base64'),encoding:'base64'}).sha}))}).sha;
+  const baselineBlobs=themePayloadNames.map(path=>({path,bytes:call('git',['show',baseline.payloadSha+':'+path],{binary:true}),sha:git(['rev-parse',baseline.payloadSha+':'+path])}));
+  const plan=candidateTree(files,baselineBlobs,bytes=>post('git/blobs',{content:bytes.toString('base64'),encoding:'base64'}).sha);
+  const tree=post('git/trees',{tree:plan.tree}).sha;
   const sha=post('git/commits',{message:'Theme candidate from verified GitHub CI '+runId,tree,parents:[manifest.expectedProductionParent]}).sha;assert.equal(remote(),manifest.expectedProductionParent,'Production moved before candidate ref creation');
   // GitHub create-ref fails if the branch exists; it never updates/forces a ref.
-  post('git/refs',{ref:'refs/heads/'+branch,sha});assert.equal(git(['ls-remote','origin','refs/heads/'+branch]).split(/\s+/)[0],sha);receipt.status='PUBLISHED_THEME_CANDIDATE_ONLY';receipt.payloadSha=sha;receipt.candidateBranch=branch;
+  post('git/refs',{ref:'refs/heads/'+branch,sha});assert.equal(git(['ls-remote','origin','refs/heads/'+branch]).split(/\s+/)[0],sha);receipt.status='PUBLISHED_THEME_CANDIDATE_ONLY';receipt.payloadSha=sha;receipt.candidateBranch=branch;receipt.uploadedBlobs=plan.uploadedBlobs;receipt.reusedBlobs=plan.reusedBlobs;
  }
  writeFileSync(join(directory,'verification.json'),JSON.stringify(receipt,null,2)+'\n');console.log(JSON.stringify(receipt));
 }
