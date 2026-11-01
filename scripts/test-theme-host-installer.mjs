@@ -7,7 +7,9 @@ import {prepareThemeRelease} from './theme-release.mjs';
 import {sha256} from './release-lib.mjs';
 
 assert.equal(process.argv.length,2,'No fixture/production path overrides');
-const controller=readFileSync('scripts/theme-host-installer.php'),digest=sha256(controller),checks=[],started=Date.now();
+const committed=process.env.CI?spawnSync('git',['show','HEAD:scripts/theme-host-installer.php'],{encoding:null,windowsHide:true}):null;
+if(committed)assert.equal(committed.status,0,committed.stderr?.toString());
+const controller=committed?committed.stdout:readFileSync('scripts/theme-host-installer.php'),digest=sha256(controller),checks=[],started=Date.now();
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/theme-host-')),repo=join(fixture,'git');
 let r=spawnSync('git',['clone','--shared','--no-checkout',resolve('.'),repo],{encoding:'utf8',windowsHide:true});assert.equal(r.status,0,r.stderr);
 const git=(args,input)=>{const r=spawnSync('git',args,{cwd:repo,input,encoding:null,windowsHide:true,maxBuffer:32*1024*1024});assert.equal(r.status,0,r.stderr?.toString());return r.stdout;};
