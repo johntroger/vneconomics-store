@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test:theme-host-installer": "node scripts/run-clean.mjs script scripts/test-theme-host-installer.mjs",
+    "review:theme-host-installer": "node scripts/run-clean.mjs script scripts/verify-theme-host-installer.mjs",
     "dev:v2": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs dev",
     "test:v2-smoke": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs smoke",
     "test:v2-preview": "node scripts/run-clean.mjs script scripts/test-rebuild-preview.mjs",
