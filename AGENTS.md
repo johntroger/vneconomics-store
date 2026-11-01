@@ -1,3 +1,10 @@
+# Quyền tự động thực hiện và phát hành — chỉ đạo ngày 01/11/2026
+
+- Chủ dự án yêu cầu: “làm tự động luôn, sau này khỏi hỏi xin duyệt”. Đây là quyền thường xuyên cho các thay đổi website mà chủ dự án giao, thay yêu cầu dừng xin duyệt từng bước/merge/phát hành ở các phần lịch sử bên dưới.
+- Trong đúng phạm vi thay đổi được giao, Codex tự sửa code, kiểm thử phù hợp, tạo PR/candidate, kiểm CI, merge, promote payload qua GitHub, để Plesk nhận/cài tự động, hậu kiểm và chốt baseline; không hỏi duyệt lại từng lượt khi các điều kiện đều đạt. Áp dụng ngay cho PR24 đổi màu nút và các cập nhật website tiếp theo.
+- Giữ nguyên các kiểm chứng kỹ thuật: source/CI/payload/manifest/baseline pin, backup theo cấp thay đổi, rollback tương thích, cleanup và receipt. CI lỗi, drift, journal chưa rõ hoặc lỗi chặn phải được xử lý/inspect trước khi tiếp tục; không bỏ guard để chạy cho xong.
+- Quyền này áp dụng cho công việc website đã được giao và đường local → GitHub/CI → payload GitHub → Plesk production hiện hành; không tự mở thêm dự án hoặc phát hành nhánh không liên quan. Chỉ hỏi khi cần thông tin, đăng nhập hay hành động ngoài quyền đã cấp.
+
 # Quy tắc dọn dữ liệu sau mỗi lần chạy
 
 - Theo yêu cầu của chủ dự án, sau mỗi lần chạy phải tự dọn file tạm, cache của lần chạy và dữ liệu kiểm thử có thể tái tạo, kể cả khi kiểm thử thất bại. Không cần hỏi lại để dọn những dữ liệu này.
