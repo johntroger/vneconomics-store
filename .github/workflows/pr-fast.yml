@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   fast:
-    runs-on: windows-2025
+    runs-on: ubuntu-24.04
     timeout-minutes: 8
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha }}
