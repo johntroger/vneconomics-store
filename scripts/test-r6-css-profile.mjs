@@ -5,7 +5,7 @@ import {spawnSync} from 'node:child_process';
 import {sha256} from './release-lib.mjs';
 import {r6CssProfile,prepareR6CssCandidate,writeR6CssCandidate,verifyR6CssCandidate} from './release-r6-css.mjs';
 
-const native=process.argv.includes('--native');assert.ok(process.argv.slice(2).every(arg=>arg==='--native'),'Use optional --native');
+const native=process.argv.includes('--native'),receiver=process.argv.includes('--receiver');assert.ok(process.argv.slice(2).every(arg=>['--native','--receiver'].includes(arg)),'Use optional --native or --receiver');
 mkdirSync('tmp/tests',{recursive:true});const fixture=mkdtempSync(resolve('tmp/tests/r6-css-'));
 const repo=join(fixture,'git'),checks=[];const deadline=setTimeout(()=>{console.error('R6 CSS tests exceeded 600 seconds');process.exit(1);},600000);deadline.unref();
 function runGit(args,{input,cwd=repo}={}){const r=spawnSync('git',args,{cwd,input,encoding:null,windowsHide:true,maxBuffer:32*1024*1024});assert.equal(r.status,0,r.stderr?.toString());return r.stdout;}
@@ -52,5 +52,6 @@ try{
   const {exerciseR6CssNative}=await import('./test-r6-css-native.mjs');
   checks.push(...await exerciseR6CssNative({fixture,prepared}));
  }
- console.log(JSON.stringify({status:'PASS_R6_CSS_PROFILE',native,checks,sourceFixtureOnly:source,deployAuthorized:false}));
+ if(receiver){const {exerciseCssReceiver}=await import('./test-r6-css-receiver.mjs');checks.push(...await exerciseCssReceiver({fixture,prepared}));}
+ console.log(JSON.stringify({status:'PASS_R6_CSS_PROFILE',native,receiver,checks,sourceFixtureOnly:source,deployAuthorized:false}));
 }finally{clearTimeout(deadline);}

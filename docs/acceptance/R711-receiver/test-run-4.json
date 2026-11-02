@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "command": "node scripts/run-clean.mjs script scripts/test-r6-css-profile.mjs --receiver",
+  "output": [
+    "",
+    "WordPress Playground CLI",
+    "",
+    "PHP 8.3  WordPress 7.1.3",
+    "Extensions intl",
+    "Mount C:\\Users\\trant\\CodexProjects\\VneconomicsStore\\tmp\\tests\\r6-css-cGRCYT\\receiver-wordpress → /wordpress",
+    "",
+    "Worker count (1) is below the recommended threshold (6). Running fewer than 6 workers may increase the likelihood of deadlock due to workers blocking on file locks.",
+    "",
+    "Ready! WordPress is running on http://127.0.0.1:19481 (1 worker)",
+    "",
+    "PASS receiver negative preflight 12 cases; state preserved",
+    "{\"status\":\"PASS_R6_CSS_PROFILE\",\"native\":false,\"receiver\":true,\"checks\":[\"two builds for exact SHA are byte identical\",\"rollback uses actual R6 v2/plugin0.4.4 archives including stars\",\"branch refs, uppercase and short SHAs rejected\",\"no-op release rejected\",\"PHP, schema/plugin, deploy and extra app files rejected\",\"CSS symlink rejected\",\"external/escaped CSS and PHP markup rejected\",\"invalid UTF-8 and oversized CSS rejected\",\"manifest and both actual baseline ZIP hash drift rejected\",\"immutable output and package tampering guards\",\"production environment blocked\",\"anonymous update blocked\",\"manifest pin mismatch blocked\",\"source pin mismatch blocked\",\"document-root inbox blocked\",\"extra payload member blocked\",\"ZIP byte tampering blocked\",\"forged PHP despite repinned manifest blocked\",\"foreign stale lock preserved\",\"baseline code edit preserved\",\"existing maintenance preserved\",\"completed journal not relabeled\",\"negative preflight cases preserve application data/options\",\"successful native update plus real HTTP health completes and removes own lock\",\"failed health rolls theme back and confirms baseline HTTP/data without DB restore\",\"concurrent file conflict stops rollback and preserves edit/lock\",\"private inbox/controller unavailable through HTTP\",\"all five tables and protected options unchanged through success/rollback/conflict\"],\"sourceFixtureOnly\":\"f0933d5aa7994c5fb910a559aef1a54402e076c7\",\"deployAuthorized\":false}",
+    "Temporary test data and run cache cleaned; existing data and deliverables kept."
+  ],
+  "cleanupLockPresent": false
+}
