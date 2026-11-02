@@ -20,7 +20,7 @@ try {
   const code=`<?php define('ABSPATH','/wordpress/'); function language_attributes(){echo 'lang="vi"';} function bloginfo($key){echo 'UTF-8';} function home_url($path){return '${home}'.$path;} function wp_parse_url($url,$part){return parse_url($url,$part);} function is_preview(){return ${preview?'true':'false'};} ?>`+header;
   const result=await site.playground.run({code});
   assert.equal(result.exitCode,0,result.errors);assert.equal(result.errors,'');
-  assert.equal(result.text.includes('googletagmanager.com/gtag/js?id=G-LTKZZSC0G4'),expected);
+  assert.equal(result.text.includes('googletagmanager.com/gtag/js?id=G-H6KT7TDC9P'),expected);
   if(expected){
    assert.equal((result.text.match(/<script async /g)||[]).length,1);
    const js=result.text.match(/<script>\s*([\s\S]*?)<\/script>/)[1];
@@ -29,7 +29,7 @@ try {
    assert.equal(context.dataLayer.length,2);
    assert.equal(context.dataLayer[0][0],'js');
    assert.equal(context.dataLayer[1][0],'config');
-   assert.equal(context.dataLayer[1][1],'G-LTKZZSC0G4');
+   assert.equal(context.dataLayer[1][1],'G-H6KT7TDC9P');
   }
   checks.push({home,preview,tagPresent:expected});
  }

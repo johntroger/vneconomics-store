@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php if (wp_parse_url(home_url('/'), PHP_URL_HOST) === 'store.vneconomics.com' && !is_preview()) { ?>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LTKZZSC0G4"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6KT7TDC9P"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-LTKZZSC0G4');
+gtag('config', 'G-H6KT7TDC9P');
 </script>
 <?php } ?>
 <?php wp_head(); ?>
