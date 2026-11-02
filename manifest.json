@@ -1,17 +1,17 @@
 {
   "format": 1,
   "profile": "vibelab-v2-theme-update-schema3",
-  "sourceSha": "d1f88efb7073cde518a7abecc6294223fe168130",
+  "sourceSha": "8986f27ecb04ad6b28a027e4863d359ad56e094d",
   "schema": 3,
   "scope": "theme-only",
   "changeClass": "A",
-  "productionBaselineSource": "108a571441e28c1bfae6ab5c7f4d661f1f0cce1d",
-  "productionBaselinePayload": "959a3bf2788480c64e0ed27a755925f900167844",
-  "productionBaselineManifestSha256": "a2343f490b90039e5403a224088cab91fdc52440c0d339d8d6068a7eba1f60ac",
-  "expectedProductionParent": "959a3bf2788480c64e0ed27a755925f900167844",
-  "baselineThemeVersion": "2.0.5",
-  "themeVersion": "2.0.6",
-  "themeMarker": "theme-d1f88efb7073",
+  "productionBaselineSource": "d1f88efb7073cde518a7abecc6294223fe168130",
+  "productionBaselinePayload": "545dda0ec5a0ed92ec214a88ed5d68e21817660e",
+  "productionBaselineManifestSha256": "61e05c2a134f38abfbe2fe1538bfd9ca969e4be97d2c0e08b8545b5ce0e1037a",
+  "expectedProductionParent": "545dda0ec5a0ed92ec214a88ed5d68e21817660e",
+  "baselineThemeVersion": "2.0.6",
+  "themeVersion": "2.0.7",
+  "themeMarker": "theme-8986f27ecb04",
   "pluginVersion": "0.4.4",
   "pluginUnchanged": true,
   "sourceChanges": [
@@ -24,6 +24,195 @@
   "components": {
     "theme": {
       "archive": "theme.zip",
+      "bytes": 111062,
+      "sha256": "4097c1c78a38a385672eab6230e7331df66defc24f7caf6b95a08783e3aed0f4",
+      "files": [
+        {
+          "path": "vibelab-v2/404.php",
+          "bytes": 393,
+          "sha256": "8f6252af28e1c45e915a49a2832eff2f598292b84a69971c3e4be091db7aaa35"
+        },
+        {
+          "path": "vibelab-v2/archive-vne_guide.php",
+          "bytes": 3603,
+          "sha256": "5883c06fb82bbcdcceb3882754c5dfd977c26a5a57dc77fb88ff4da7f8bb80fe"
+        },
+        {
+          "path": "vibelab-v2/archive-vne_resource.php",
+          "bytes": 2490,
+          "sha256": "056f8f7eca1791a7b8978d96f7e4541d374728e3ab2df003ca7edb80d20e1e81"
+        },
+        {
+          "path": "vibelab-v2/footer.php",
+          "bytes": 735,
+          "sha256": "96be9a039ba5ab3b7d117288b0243da4f0eb01ab11b89dc39fc23feea1cdd541"
+        },
+        {
+          "path": "vibelab-v2/front-page.php",
+          "bytes": 4965,
+          "sha256": "140fb0d69404b33e8e7a20e903c5c37283301fa34b05ac456008381475a6709d"
+        },
+        {
+          "path": "vibelab-v2/functions.php",
+          "bytes": 1804,
+          "sha256": "159b07438f4583295cf20ac5f514605cf5317d2fa61ff31db8b31262aa5f5582"
+        },
+        {
+          "path": "vibelab-v2/header.php",
+          "bytes": 1898,
+          "sha256": "36a10b39b358c6907081843489732d6414b169c3a5586d1ba3304bf95c256e41"
+        },
+        {
+          "path": "vibelab-v2/inc/catalog.php",
+          "bytes": 1618,
+          "sha256": "8e6f26636247c87816ed4e796e75e94eec6d1cddba79bf2311e299146d50dc96"
+        },
+        {
+          "path": "vibelab-v2/inc/components.php",
+          "bytes": 1697,
+          "sha256": "26ce9534f178ad924296413ff89ec523355be41f06497927433095a5caec50e5"
+        },
+        {
+          "path": "vibelab-v2/inc/contract.php",
+          "bytes": 1660,
+          "sha256": "c67c8a0e5d5346c6ef323155419740ab01966ec996d916e7d4e76ed4c8d2a8fc"
+        },
+        {
+          "path": "vibelab-v2/inc/detail.php",
+          "bytes": 2422,
+          "sha256": "2caebbbea20c604a6203dd1dfe4bd72afe8096ddca5b29aa1b106f35f4d76e7b"
+        },
+        {
+          "path": "vibelab-v2/inc/guides.php",
+          "bytes": 2838,
+          "sha256": "d55ae2fab4d04b3fdcde9db055e649d41ed1f45a9429444fe4461c731522bed2"
+        },
+        {
+          "path": "vibelab-v2/inc/routes.php",
+          "bytes": 1784,
+          "sha256": "7b5d8d9bc1c326138661b43fe171b2e6f86529daacde56ee766c3ef9eadeaac8"
+        },
+        {
+          "path": "vibelab-v2/inc/search.php",
+          "bytes": 10383,
+          "sha256": "c046ccb7e1aacc60cde0b5d76d7f95167cd70ea5bf6e8f73cc28e904c1b5ab57"
+        },
+        {
+          "path": "vibelab-v2/inc/seo.php",
+          "bytes": 3353,
+          "sha256": "6157638f6e77152274cd3192fe46250a0b62440df9447c56f68b0f743805ae2d"
+        },
+        {
+          "path": "vibelab-v2/inc/support.php",
+          "bytes": 16622,
+          "sha256": "ffb8ee648a3dd2f61527958526fe2de02004fae116ca7a884ce7198a2a89c197"
+        },
+        {
+          "path": "vibelab-v2/index.php",
+          "bytes": 481,
+          "sha256": "b7f9590247e8afc9916b3a5a76c7c685d009b25825849675318c2b7eaf8d3918"
+        },
+        {
+          "path": "vibelab-v2/search.php",
+          "bytes": 7011,
+          "sha256": "2d9fbb0c32c77890882a905a4bd2464893acbbae8df51808e820d185b6726c61"
+        },
+        {
+          "path": "vibelab-v2/single-vne_guide.php",
+          "bytes": 4014,
+          "sha256": "bc31903cc2eba0fc1febe6bbb9039a62145c0ae64e1a335c111a8fa7175c4ac5"
+        },
+        {
+          "path": "vibelab-v2/single-vne_practice.php",
+          "bytes": 47,
+          "sha256": "f65911784e1b0d00cfe8700b209b82af053af6c07f34d59c7b1b8024ffa5b97a"
+        },
+        {
+          "path": "vibelab-v2/single-vne_resource.php",
+          "bytes": 6093,
+          "sha256": "2aa3d317abd16c163537b4efe189e95634069cff263a8a20d26bd476783caa88"
+        },
+        {
+          "path": "vibelab-v2/style.css",
+          "bytes": 25946,
+          "sha256": "d010a27a98f004ebec4e83a2a11cc643275da576ffbba72821a737b870c52a3e"
+        },
+        {
+          "path": "vibelab-v2/support-template.php",
+          "bytes": 6039,
+          "sha256": "f62d7b9f74da76dad49027707805eb8371b86cb11297f51b61a3e2021249fe13"
+        },
+        {
+          "path": "vibelab-v2/taxonomy-vne_category.php",
+          "bytes": 54,
+          "sha256": "5ea3835f43878d4ef7897a05482de6cdc7f6575c3dfb847283a7fadc1d219450"
+        }
+      ]
+    },
+    "plugin": {
+      "archive": "plugin.zip",
+      "bytes": 116856,
+      "sha256": "2becd448fc8dcefd0da18e5fdda5ce07a2766a6dd1d63b394ccaff6aa9e6d7cf",
+      "files": [
+        {
+          "path": "vne-library-core/admin.php",
+          "bytes": 11523,
+          "sha256": "6a8fe22ca5c5e9f2de1abf74eae6091a2165f798303a31461b75117195a9e128"
+        },
+        {
+          "path": "vne-library-core/api.php",
+          "bytes": 2771,
+          "sha256": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890"
+        },
+        {
+          "path": "vne-library-core/cache.php",
+          "bytes": 8150,
+          "sha256": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6"
+        },
+        {
+          "path": "vne-library-core/model.php",
+          "bytes": 19014,
+          "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
+        },
+        {
+          "path": "vne-library-core/reports.php",
+          "bytes": 17364,
+          "sha256": "5fcec3ba8973ea01d4cf9727968b889f6e31d9010f1b78140bd7f0e9d3708ca2"
+        },
+        {
+          "path": "vne-library-core/revision-admin.php",
+          "bytes": 5512,
+          "sha256": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8"
+        },
+        {
+          "path": "vne-library-core/revisions.php",
+          "bytes": 15448,
+          "sha256": "8790af31f601854e7a3ae514afd4a0407d67527b2a7ef1749114bec4a2323f0d"
+        },
+        {
+          "path": "vne-library-core/stars.php",
+          "bytes": 8150,
+          "sha256": "0894bd77912ee7b31282f798858878473791ed9836a1514658b2c4df974ddfc5"
+        },
+        {
+          "path": "vne-library-core/state-admin.php",
+          "bytes": 6874,
+          "sha256": "ddf6e732ddbbbabeae2f7d9b9e085622a986691f2df7e35c9b7f8e856be0e8d2"
+        },
+        {
+          "path": "vne-library-core/state.php",
+          "bytes": 18959,
+          "sha256": "6eeb6e319dba378d8d9ebe43860682b9aeaba9d921a82c3e31c163a1b1aeb42b"
+        },
+        {
+          "path": "vne-library-core/vne-library-core.php",
+          "bytes": 1601,
+          "sha256": "fedd4fb9dd573698b8b45e65f5e1c82b3a299dbd02d8c13e5a92bb66545021b7"
+        }
+      ]
+    },
+    "previous-theme": {
+      "archive": "previous-theme.zip",
       "bytes": 111113,
       "sha256": "e332ca5a0aa43966f1d976cf49be1ee66ffb370c8b12cf91e96b9db5aff30c26",
       "files": [
@@ -149,195 +338,6 @@
         }
       ]
     },
-    "plugin": {
-      "archive": "plugin.zip",
-      "bytes": 116856,
-      "sha256": "2becd448fc8dcefd0da18e5fdda5ce07a2766a6dd1d63b394ccaff6aa9e6d7cf",
-      "files": [
-        {
-          "path": "vne-library-core/admin.php",
-          "bytes": 11523,
-          "sha256": "6a8fe22ca5c5e9f2de1abf74eae6091a2165f798303a31461b75117195a9e128"
-        },
-        {
-          "path": "vne-library-core/api.php",
-          "bytes": 2771,
-          "sha256": "7b878579be7ce4208937bc3bc0b4b1067a332564e45bfb96580ae7bcab5ee890"
-        },
-        {
-          "path": "vne-library-core/cache.php",
-          "bytes": 8150,
-          "sha256": "43034bb50123f3b0fdedd6373b7a69c6c4647334377d59d0929fde948d7014b6"
-        },
-        {
-          "path": "vne-library-core/model.php",
-          "bytes": 19014,
-          "sha256": "294eb68b3b4b2373d7780fc7a48600fff50deecef95b6de84ccab38348b8d64a"
-        },
-        {
-          "path": "vne-library-core/reports.php",
-          "bytes": 17364,
-          "sha256": "5fcec3ba8973ea01d4cf9727968b889f6e31d9010f1b78140bd7f0e9d3708ca2"
-        },
-        {
-          "path": "vne-library-core/revision-admin.php",
-          "bytes": 5512,
-          "sha256": "587c0ec4d43a2216720b07e346b13643820dbf2be996f317e89139c09e6f8fa8"
-        },
-        {
-          "path": "vne-library-core/revisions.php",
-          "bytes": 15448,
-          "sha256": "8790af31f601854e7a3ae514afd4a0407d67527b2a7ef1749114bec4a2323f0d"
-        },
-        {
-          "path": "vne-library-core/stars.php",
-          "bytes": 8150,
-          "sha256": "0894bd77912ee7b31282f798858878473791ed9836a1514658b2c4df974ddfc5"
-        },
-        {
-          "path": "vne-library-core/state-admin.php",
-          "bytes": 6874,
-          "sha256": "ddf6e732ddbbbabeae2f7d9b9e085622a986691f2df7e35c9b7f8e856be0e8d2"
-        },
-        {
-          "path": "vne-library-core/state.php",
-          "bytes": 18959,
-          "sha256": "6eeb6e319dba378d8d9ebe43860682b9aeaba9d921a82c3e31c163a1b1aeb42b"
-        },
-        {
-          "path": "vne-library-core/vne-library-core.php",
-          "bytes": 1601,
-          "sha256": "fedd4fb9dd573698b8b45e65f5e1c82b3a299dbd02d8c13e5a92bb66545021b7"
-        }
-      ]
-    },
-    "previous-theme": {
-      "archive": "previous-theme.zip",
-      "bytes": 111062,
-      "sha256": "55b21d2b9055f6695f73823832cbfd359e3de31d892ab2596ce4ef701739fd92",
-      "files": [
-        {
-          "path": "vibelab-v2/404.php",
-          "bytes": 393,
-          "sha256": "8f6252af28e1c45e915a49a2832eff2f598292b84a69971c3e4be091db7aaa35"
-        },
-        {
-          "path": "vibelab-v2/archive-vne_guide.php",
-          "bytes": 3603,
-          "sha256": "5883c06fb82bbcdcceb3882754c5dfd977c26a5a57dc77fb88ff4da7f8bb80fe"
-        },
-        {
-          "path": "vibelab-v2/archive-vne_resource.php",
-          "bytes": 2490,
-          "sha256": "056f8f7eca1791a7b8978d96f7e4541d374728e3ab2df003ca7edb80d20e1e81"
-        },
-        {
-          "path": "vibelab-v2/footer.php",
-          "bytes": 735,
-          "sha256": "96be9a039ba5ab3b7d117288b0243da4f0eb01ab11b89dc39fc23feea1cdd541"
-        },
-        {
-          "path": "vibelab-v2/front-page.php",
-          "bytes": 4965,
-          "sha256": "140fb0d69404b33e8e7a20e903c5c37283301fa34b05ac456008381475a6709d"
-        },
-        {
-          "path": "vibelab-v2/functions.php",
-          "bytes": 1804,
-          "sha256": "c6081ca78cce4b03a2f5e098c1463e9c14b24a0d79e0d2769c4b316c40ada8f0"
-        },
-        {
-          "path": "vibelab-v2/header.php",
-          "bytes": 1898,
-          "sha256": "36a10b39b358c6907081843489732d6414b169c3a5586d1ba3304bf95c256e41"
-        },
-        {
-          "path": "vibelab-v2/inc/catalog.php",
-          "bytes": 1618,
-          "sha256": "8e6f26636247c87816ed4e796e75e94eec6d1cddba79bf2311e299146d50dc96"
-        },
-        {
-          "path": "vibelab-v2/inc/components.php",
-          "bytes": 1697,
-          "sha256": "26ce9534f178ad924296413ff89ec523355be41f06497927433095a5caec50e5"
-        },
-        {
-          "path": "vibelab-v2/inc/contract.php",
-          "bytes": 1660,
-          "sha256": "c67c8a0e5d5346c6ef323155419740ab01966ec996d916e7d4e76ed4c8d2a8fc"
-        },
-        {
-          "path": "vibelab-v2/inc/detail.php",
-          "bytes": 2422,
-          "sha256": "2caebbbea20c604a6203dd1dfe4bd72afe8096ddca5b29aa1b106f35f4d76e7b"
-        },
-        {
-          "path": "vibelab-v2/inc/guides.php",
-          "bytes": 2838,
-          "sha256": "d55ae2fab4d04b3fdcde9db055e649d41ed1f45a9429444fe4461c731522bed2"
-        },
-        {
-          "path": "vibelab-v2/inc/routes.php",
-          "bytes": 1784,
-          "sha256": "7b5d8d9bc1c326138661b43fe171b2e6f86529daacde56ee766c3ef9eadeaac8"
-        },
-        {
-          "path": "vibelab-v2/inc/search.php",
-          "bytes": 10383,
-          "sha256": "c046ccb7e1aacc60cde0b5d76d7f95167cd70ea5bf6e8f73cc28e904c1b5ab57"
-        },
-        {
-          "path": "vibelab-v2/inc/seo.php",
-          "bytes": 3353,
-          "sha256": "6157638f6e77152274cd3192fe46250a0b62440df9447c56f68b0f743805ae2d"
-        },
-        {
-          "path": "vibelab-v2/inc/support.php",
-          "bytes": 16622,
-          "sha256": "ffb8ee648a3dd2f61527958526fe2de02004fae116ca7a884ce7198a2a89c197"
-        },
-        {
-          "path": "vibelab-v2/index.php",
-          "bytes": 481,
-          "sha256": "b7f9590247e8afc9916b3a5a76c7c685d009b25825849675318c2b7eaf8d3918"
-        },
-        {
-          "path": "vibelab-v2/search.php",
-          "bytes": 7011,
-          "sha256": "2d9fbb0c32c77890882a905a4bd2464893acbbae8df51808e820d185b6726c61"
-        },
-        {
-          "path": "vibelab-v2/single-vne_guide.php",
-          "bytes": 4014,
-          "sha256": "bc31903cc2eba0fc1febe6bbb9039a62145c0ae64e1a335c111a8fa7175c4ac5"
-        },
-        {
-          "path": "vibelab-v2/single-vne_practice.php",
-          "bytes": 47,
-          "sha256": "f65911784e1b0d00cfe8700b209b82af053af6c07f34d59c7b1b8024ffa5b97a"
-        },
-        {
-          "path": "vibelab-v2/single-vne_resource.php",
-          "bytes": 6093,
-          "sha256": "2aa3d317abd16c163537b4efe189e95634069cff263a8a20d26bd476783caa88"
-        },
-        {
-          "path": "vibelab-v2/style.css",
-          "bytes": 25946,
-          "sha256": "0d03b47a1375c092a460af5a1d45c0ecc9811f4fad3a6a408269d12949f6d752"
-        },
-        {
-          "path": "vibelab-v2/support-template.php",
-          "bytes": 6039,
-          "sha256": "f62d7b9f74da76dad49027707805eb8371b86cb11297f51b61a3e2021249fe13"
-        },
-        {
-          "path": "vibelab-v2/taxonomy-vne_category.php",
-          "bytes": 54,
-          "sha256": "5ea3835f43878d4ef7897a05482de6cdc7f6575c3dfb847283a7fadc1d219450"
-        }
-      ]
-    },
     "previous-plugin": {
       "archive": "previous-plugin.zip",
       "bytes": 116856,
@@ -404,8 +404,8 @@
   "files": [
     {
       "path": "theme.zip",
-      "bytes": 111113,
-      "sha256": "e332ca5a0aa43966f1d976cf49be1ee66ffb370c8b12cf91e96b9db5aff30c26"
+      "bytes": 111062,
+      "sha256": "4097c1c78a38a385672eab6230e7331df66defc24f7caf6b95a08783e3aed0f4"
     },
     {
       "path": "plugin.zip",
@@ -414,8 +414,8 @@
     },
     {
       "path": "previous-theme.zip",
-      "bytes": 111062,
-      "sha256": "55b21d2b9055f6695f73823832cbfd359e3de31d892ab2596ce4ef701739fd92"
+      "bytes": 111113,
+      "sha256": "e332ca5a0aa43966f1d976cf49be1ee66ffb370c8b12cf91e96b9db5aff30c26"
     },
     {
       "path": "previous-plugin.zip",
