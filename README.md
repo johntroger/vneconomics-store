@@ -76,6 +76,8 @@ SQLite/PHP WebAssembly không thay thế kiểm thử PHP/MySQL/cache/plugin tr�
 
 ## Quy trình phát hành
 
+CSS cấp A dùng [lệnh điều phối phát hành tự động](docs/release-auto.vi.md): `npm run release:auto -- <so-PR> [thoi-diem-nhan-yeu-cau-ISO]`. Quyền tự động hiện hành theo AGENTS.md; các mô tả Manual bên dưới là lịch sử, không thay cấu hình production đã vận hành.
+
 Fast CI kiểm PR; bản sửa R7.3 thêm hủy lượt fast cũ cùng PR và chuyển build
 R52 sang gọi thủ công với exact source đã pin. Các sửa workflow cần được review
 qua PR trước khi áp dụng vào default branch; xem [R7.3](docs/acceptance/R73-ci.vi.md). Builder R52 là lịch sử,

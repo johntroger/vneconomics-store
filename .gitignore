@@ -11,3 +11,4 @@ artifacts/theme-release/
 artifacts/theme-ci/
 artifacts/theme-host-installer/
 artifacts/theme-host-installer-ci/
+artifacts/release-auto/

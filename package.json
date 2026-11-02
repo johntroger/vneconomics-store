@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "release:auto": "node scripts/run-clean.mjs script scripts/release-auto.mjs",
+    "test:release-auto": "node scripts/run-clean.mjs script scripts/test-release-auto.mjs",
     "test:theme-host-installer": "node scripts/run-clean.mjs script scripts/test-theme-host-installer.mjs",
     "review:theme-host-installer": "node scripts/run-clean.mjs script scripts/verify-theme-host-installer.mjs",
     "dev:v2": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs dev",

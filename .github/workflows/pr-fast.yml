@@ -56,3 +56,6 @@ jobs:
       - name: Check shallow promote validator
         if: steps.scope.outputs.metadata_only != 'true'
         run: npm run test:promote-validator
+      - name: Check automatic release coordinator
+        if: steps.scope.outputs.metadata_only != 'true'
+        run: npm run test:release-auto
