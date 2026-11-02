@@ -4,6 +4,16 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php if (wp_parse_url(home_url('/'), PHP_URL_HOST) === 'store.vneconomics.com' && !is_preview()) { ?>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LTKZZSC0G4"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-LTKZZSC0G4');
+</script>
+<?php } ?>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> data-vibelab-release="<?php echo esc_attr(VIBELAB_V2_RELEASE_MARKER); ?>">
