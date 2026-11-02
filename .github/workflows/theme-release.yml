@@ -7,6 +7,7 @@ on:
       - 'scripts/theme-*.mjs'
       - 'scripts/test-theme-release.mjs'
       - 'scripts/test-r6-css-native.mjs'
+      - 'scripts/test-deployed-payload-bytes.mjs'
       - 'scripts/release-lib.mjs'
       - 'scripts/run-clean.mjs'
       - 'scripts/*release-ci-scope.mjs'
@@ -21,7 +22,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   package:
-    runs-on: windows-2025
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -53,6 +54,9 @@ jobs:
       - name: Check publisher and native install rollback
         if: steps.scope.outputs.metadata_only != 'true'
         run: npm run test:theme-release
+      - name: Check deployed payload byte compatibility
+        if: steps.scope.outputs.metadata_only != 'true'
+        run: node scripts/run-clean.mjs script scripts/test-deployed-payload-bytes.mjs
       - name: Upload review package
         if: steps.scope.outputs.metadata_only != 'true'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {prepareThemeRelease,themePayloadNames} from './theme-release.mjs';
+import {git,sha256} from './release-lib.mjs';
+const baseline=JSON.parse(readFileSync('deploy/theme-release-baseline.json','utf8'));
+const manifestBytes=git(['show',baseline.payloadSha+':manifest.json']);
+assert.equal(sha256(manifestBytes),baseline.manifestSha256);
+const m=JSON.parse(manifestBytes);
+assert.equal(m.profile,'vibelab-v2-theme-update-schema3');
+const previous={payloadSha:m.productionBaselinePayload,manifestSha256:m.productionBaselineManifestSha256};
+const rebuilt=prepareThemeRelease(m.sourceSha,previous);assert.ok(rebuilt.manifest);
+for(const name of themePayloadNames)assert.ok(rebuilt.buffers[name].equals(git(['show',baseline.payloadSha+':'+name])),'Platform changed deployed package bytes: '+name);
+console.log(JSON.stringify({status:'PASS_DEPLOYED_PAYLOAD_BYTES',platform:process.platform,payloadSha:baseline.payloadSha,manifestSha256:baseline.manifestSha256,themeVersion:m.themeVersion,files:themePayloadNames.length,hostingContacted:false}));
