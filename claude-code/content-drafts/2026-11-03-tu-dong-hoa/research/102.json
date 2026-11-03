@@ -1,0 +1,33 @@
+{
+  "key": 102,
+  "repo": "node-red/node-red",
+  "repoId": "12618379",
+  "url": "https://github.com/node-red/node-red",
+  "stars": 23806,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-10-26T10:16:22Z",
+  "defaultBranch": "main",
+  "description": "Low-code programming for event-driven applications",
+  "homepage": "http://nodered.org",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/node-red/node-red/main/README.md",
+    "sha256": "1cd81f510ce63f317c2c72b52971b98e4f749a6d11e0ce67453d139e380f32bc",
+    "bytes": 5289,
+    "sectionsRead": [
+      "Quick Start",
+      "Links",
+      "Development",
+      "Copyright and License"
+    ]
+  },
+  "unknowns": [
+    "Yêu cầu phiên bản Node.js hiện hành chưa đọc trong tài liệu chính thức.",
+    "Chất lượng node cộng đồng chưa đánh giá."
+  ],
+  "runtimeValidated": false
+}

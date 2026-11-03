@@ -1,0 +1,1038 @@
+{
+  "format": 1,
+  "campaign": "github-cloud-20261103-tu-dong-hoa",
+  "batch": 11,
+  "scope": "Draft only from cloud session; not approved for import; no runtime validation claims; batch ids 11-20 reserved for this topic group",
+  "items": [
+    {
+      "key": 101,
+      "batch": 11,
+      "slug": "kestra",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Kestra: tìm hiểu cách mô tả workflow bằng YAML và theo dõi từng lần chạy",
+        "excerpt": "Làm quen cách định nghĩa workflow theo kiểu khai báo bằng YAML, kèm trình soạn thảo, trigger theo lịch hoặc sự kiện. Chỉ nên thử với dữ liệu giả.",
+        "content": "<p>Kestra là nền tảng điều phối workflow mã nguồn mở. Theo README, workflow được mô tả bằng YAML, có thể chỉnh trong trình soạn mã, trình No-Code hoặc AI Copilot, và có thể chạy theo lịch hoặc khi có sự kiện. README cũng nói đến plugin cho cơ sở dữ liệu, kho lưu trữ, API và việc chạy script nhiều ngôn ngữ.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: mô tả một flow nhỏ chạy theo lịch, đọc một file CSV mẫu và ghi ra số dòng, để làm quen cách một flow gồm trigger, task và kết quả. Đây là tình huống gợi ý, chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người đã quen khái niệm cron/script và muốn gom các tác vụ rời rạc về một nơi có giao diện theo dõi; phù hợp với nhóm có người đọc được YAML.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README trình bày nhiều đường khởi động (có mẫu triển khai trên AWS và hướng dẫn trong tài liệu). Chưa rõ từng đường cần cấu hình hạ tầng nào, nên cần đọc mục Quick Start và tài liệu chính thức trước khi chọn. Kestra 2.0 có mục breaking changes riêng, cần xem hướng dẫn migration nếu đọc ví dụ cũ.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Viết ra trigger, các bước và kết quả mong muốn của một tác vụ nhỏ bằng lời, chưa cần nối dịch vụ thật.</li><li>Đọc mục Key Concepts và Quick Start của README, chọn đường khởi động nhẹ nhất mà tài liệu mô tả.</li><li>Dùng dữ liệu giả để làm quen việc một flow YAML được thể hiện trong trình soạn và trong trang theo dõi lần chạy.</li></ol><h2>Giới hạn cần biết</h2><p>Dịch vụ ngoài (cloud, API, model AI) có thể phát sinh chi phí riêng; README không nêu tổng chi phí vận hành. Chưa rõ ranh giới giữa bản mã nguồn mở và các tính năng thương mại, cần đọc tài liệu và điều khoản trước khi dùng cho công việc thật.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>kestra-io</strong> có <strong>30.127 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0 và README ghi Kestra dùng Apache 2.0 License. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/kestra-io/kestra/blob/develop/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/kestra-io/kestra\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 101. Chưa cài/chạy thử; không tạo validation. Snapshot sao 30127; repo_id 204164353; README SHA256 7a5e7b2a455732a1aabf8154b4217deefc1d48aea3fc5c9ebeed1e3f47ce9a12.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/kestra-io/kestra",
+          "repo_id": "204164353",
+          "source_path": "",
+          "source_revision": "README-SHA256:7a5e7b2a455732a1aabf8154b4217deefc1d48aea3fc5c9ebeed1e3f47ce9a12",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/kestra-io/kestra",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README trình bày nhiều đường khởi động (có mẫu triển khai trên AWS và hướng dẫn trong tài liệu). Chưa rõ từng đường cần cấu hình hạ tầng nào, nên cần đọc mục Quick Start và tài liệu chính thức trước khi chọn. Kestra 2.0 có mục breaking changes riêng, cần xem hướng dẫn migration nếu đọc ví dụ cũ.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/kestra-io/kestra/blob/develop/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/kestra-io/kestra/blob/develop/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "kestra-io/kestra",
+        "stars": 30127,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/kestra-io/kestra/develop/README.md",
+        "readmeSha256": "7a5e7b2a455732a1aabf8154b4217deefc1d48aea3fc5c9ebeed1e3f47ce9a12",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 102,
+      "batch": 11,
+      "slug": "node-red",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Node-RED: khám phá cách nối các sự kiện bằng sơ đồ luồng kéo thả",
+        "excerpt": "Làm quen lập trình low-code theo sự kiện bằng các nút nối thành luồng, có kho node và flow do cộng đồng chia sẻ.",
+        "content": "<p>Node-RED được README mô tả là công cụ low-code cho ứng dụng hướng sự kiện, chạy trên Node.js và mở giao diện soạn luồng trong trình duyệt. README nhắc tới thư viện node tùy chỉnh, flow chia sẻ và bộ sưu tập node của cộng đồng; dự án thuộc OpenJS Foundation.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: dựng một luồng nhận một thông điệp mẫu, đổi định dạng rồi hiển thị ra bảng gỡ lỗi để hiểu cách dữ liệu đi qua từng nút. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người muốn hiểu tư duy luồng sự kiện, làm việc với thiết bị, API hoặc webhook và chấp nhận chỉnh một ít mã JavaScript khi cần; cũng hợp để giảng viên minh họa khái niệm luồng dữ liệu.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README hướng dẫn cài qua npm ở mức toàn cục rồi mở giao diện cục bộ; đọc kỹ tài liệu Getting started của dự án để biết yêu cầu phiên bản Node.js và quyền cài đặt trước khi làm theo. Chúng tôi chưa chạy các bước này.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc trang Getting started của tài liệu Node-RED để biết yêu cầu môi trường.</li><li>Bắt đầu với luồng chỉ có nguồn dữ liệu giả và một nút hiển thị kết quả.</li><li>Khi cần tích hợp, xem thư viện node cộng đồng và đọc kỹ nguồn, giấy phép, mức độ duy trì của từng node trước khi cài.</li></ol><h2>Giới hạn cần biết</h2><p>Node và flow của cộng đồng do nhiều bên viết, chất lượng và bảo mật khác nhau; README không bảo đảm các mục này. Luồng nối với thiết bị hoặc tài khoản thật có thể gây tác động ngoài hệ thống, nên thử cách ly trước.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>node-red</strong> có <strong>23.806 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-10-26. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; README ghi Node-RED là dự án của OpenJS Foundation theo Apache 2.0. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/node-red/node-red/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/node-red/node-red\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 102. Chưa cài/chạy thử; không tạo validation. Snapshot sao 23806; repo_id 12618379; README SHA256 1cd81f510ce63f317c2c72b52971b98e4f749a6d11e0ce67453d139e380f32bc.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/node-red/node-red",
+          "repo_id": "12618379",
+          "source_path": "",
+          "source_revision": "README-SHA256:1cd81f510ce63f317c2c72b52971b98e4f749a6d11e0ce67453d139e380f32bc",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/node-red/node-red",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README hướng dẫn cài qua npm ở mức toàn cục rồi mở giao diện cục bộ; đọc kỹ tài liệu Getting started của dự án để biết yêu cầu phiên bản Node.js và quyền cài đặt trước khi làm theo. Chúng tôi chưa chạy các bước này.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/node-red/node-red/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/node-red/node-red/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "node-red/node-red",
+        "stars": 23806,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/node-red/node-red/main/README.md",
+        "readmeSha256": "1cd81f510ce63f317c2c72b52971b98e4f749a6d11e0ce67453d139e380f32bc",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 103,
+      "batch": 11,
+      "slug": "huginn",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Huginn: tìm hiểu các agent theo dõi web và gửi thông báo do bạn tự quản lý",
+        "excerpt": "Hiểu mô hình agent tạo và nhận sự kiện theo đồ thị, dùng để theo dõi trang web, RSS hay webhook. Cần cân nhắc quyền và dữ liệu khi tự host.",
+        "content": "<p>Huginn là hệ thống để dựng các agent tự động thực hiện việc trên web: đọc web, theo dõi sự kiện và hành động thay bạn. README nêu các agent tạo và tiêu thụ sự kiện, truyền theo đồ thị có hướng, với ví dụ như theo dõi thay đổi trang web, RSS, hộp thư, webhook, gửi thông báo, và viết logic bằng JavaScript, Liquid hoặc jq. Ở đây 'agent' là khối xử lý của Huginn, không mặc định là agent AI.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: theo dõi một trang công khai do bạn sở hữu hoặc được phép đọc, rồi chỉ tạo bản tóm tắt khi nội dung đổi. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người thích tự quản lý công cụ, muốn gom nhiều nguồn tin về một nơi và chấp nhận vận hành một ứng dụng Ruby; phù hợp để hiểu mô hình sự kiện trước khi chuyển sang công cụ khác.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README nhắc đường chạy bằng Docker image chính thức và đường phát triển cục bộ cần cơ sở dữ liệu MySQL hoặc PostgreSQL, Ruby và Node.js; tài khoản quản trị được tạo khi khởi động. Chúng tôi chưa chạy các bước này; hãy đọc tài liệu Docker và wiki của dự án.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc phần 'What is Huginn?' và danh sách ví dụ để nắm khái niệm agent và event.</li><li>Đọc Novice setup guide trên wiki của dự án trước khi chọn cách cài.</li><li>Bắt đầu với một agent chỉ đọc nguồn công khai và chưa gửi gì ra ngoài, rồi xem sự kiện sinh ra.</li></ol><h2>Giới hạn cần biết</h2><p>Agent theo dõi web có thể vướng điều khoản của trang được theo dõi. Agent gửi tin nhắn hoặc gọi API ngoài cần khóa và quyền; lưu khóa an toàn. Là ứng dụng tự host nên bạn chịu trách nhiệm cập nhật, sao lưu và bảo mật.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>huginn</strong> có <strong>50.272 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT; README ghi Huginn theo MIT License. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/huginn/huginn/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/huginn/huginn\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 103. Chưa cài/chạy thử; không tạo validation. Snapshot sao 50272; repo_id 8681349; README SHA256 e52d6bf256d7f0ca1605421a032da0fa1e553d1d9c48c6acbd8b38340dfbb7cc.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/huginn/huginn",
+          "repo_id": "8681349",
+          "source_path": "",
+          "source_revision": "README-SHA256:e52d6bf256d7f0ca1605421a032da0fa1e553d1d9c48c6acbd8b38340dfbb7cc",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "MIT",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/huginn/huginn",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README nhắc đường chạy bằng Docker image chính thức và đường phát triển cục bộ cần cơ sở dữ liệu MySQL hoặc PostgreSQL, Ruby và Node.js; tài khoản quản trị được tạo khi khởi động. Chúng tôi chưa chạy các bước này; hãy đọc tài liệu Docker và wiki của dự án.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/huginn/huginn/blob/master/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/huginn/huginn/blob/master/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "huginn/huginn",
+        "stars": 50272,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/huginn/huginn/master/README.md",
+        "readmeSha256": "e52d6bf256d7f0ca1605421a032da0fa1e553d1d9c48c6acbd8b38340dfbb7cc",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 104,
+      "batch": 11,
+      "slug": "prefect",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Prefect: tìm hiểu cách biến script Python thành workflow có lịch và theo dõi",
+        "excerpt": "Làm quen khái niệm flow và task trong Python, kèm lịch chạy, thử lại và theo dõi hoạt động. Phù hợp người đã biết Python cơ bản.",
+        "content": "<p>Prefect là framework điều phối workflow cho pipeline dữ liệu bằng Python. README mô tả việc gắn decorator flow và task vào code Python để có lập lịch, cache, thử lại và tự động hóa theo sự kiện; hoạt động có thể theo dõi bằng Prefect server tự host hoặc Prefect Cloud.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: lấy một script đọc dữ liệu mẫu, tách thành hai task nhỏ, rồi quan sát cách thử lại khi một bước báo lỗi giả lập. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người đã viết được script Python và muốn thêm lịch chạy, thử lại, nhật ký cho công việc dữ liệu lặp lại.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README nêu yêu cầu Python 3.11 trở lên và cách cài từ PyPI. Dùng Prefect Cloud là dịch vụ riêng, có điều kiện tài khoản và giá do nhà cung cấp quy định mà bài này chưa kiểm tra.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Kiểm tra phiên bản Python và đọc mục Getting started của README.</li><li>Đọc tài liệu về flow và task, thử với script không đụng dữ liệu thật.</li><li>Quyết định tự host server hay dùng cloud sau khi đọc tài liệu từng đường.</li></ol><h2>Giới hạn cần biết</h2><p>Công cụ nhắm vào kỹ sư hoặc người viết code; người chưa biết Python sẽ khó dùng. Script gọi API hoặc cơ sở dữ liệu thật cần kiểm soát khóa và quyền. Chi phí hạ tầng hoặc cloud nằm ngoài README.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>PrefectHQ</strong> có <strong>24.106 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; bài chưa đối chiếu toàn bộ file LICENSE và phụ thuộc. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/PrefectHQ/prefect/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/PrefectHQ/prefect\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 104. Chưa cài/chạy thử; không tạo validation. Snapshot sao 24106; repo_id 139199684; README SHA256 ea65184760f7e6d32def7fc740e6b1bebe31edae113323a891d80243d704795e.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/PrefectHQ/prefect",
+          "repo_id": "139199684",
+          "source_path": "",
+          "source_revision": "README-SHA256:ea65184760f7e6d32def7fc740e6b1bebe31edae113323a891d80243d704795e",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/PrefectHQ/prefect",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README nêu yêu cầu Python 3.11 trở lên và cách cài từ PyPI. Dùng Prefect Cloud là dịch vụ riêng, có điều kiện tài khoản và giá do nhà cung cấp quy định mà bài này chưa kiểm tra.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/PrefectHQ/prefect/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/PrefectHQ/prefect/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "PrefectHQ/prefect",
+        "stars": 24106,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/PrefectHQ/prefect/main/README.md",
+        "readmeSha256": "ea65184760f7e6d32def7fc740e6b1bebe31edae113323a891d80243d704795e",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 105,
+      "batch": 11,
+      "slug": "apache-airflow",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Apache Airflow: hiểu workflow khai báo bằng mã, có lịch chạy và giao diện theo dõi",
+        "excerpt": "Làm quen cách xây DAG để lập lịch và theo dõi các tác vụ phụ thuộc nhau. Phù hợp công việc dữ liệu tương đối ổn định, cần đọc kỹ yêu cầu phiên bản.",
+        "content": "<p>Apache Airflow là nền tảng để viết, lập lịch và theo dõi workflow bằng mã. README nói workflow là các Dag, scheduler chạy tác vụ trên các worker theo phụ thuộc, có công cụ dòng lệnh và giao diện web. Mục Project Focus nêu Airflow phù hợp nhất với workflow khá tĩnh, ít thay đổi giữa các lần chạy; README cũng nhắc việc dùng cho machine learning và workload AI.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: vẽ ra trên giấy một chuỗi ba tác vụ (lấy dữ liệu, làm sạch, xuất báo cáo) và phụ thuộc giữa chúng, trước khi nghĩ đến cài đặt. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Nhóm dữ liệu hoặc kỹ sư muốn tiêu chuẩn phổ biến trong điều phối pipeline theo lịch, và giảng viên muốn giải thích khái niệm DAG, phụ thuộc, lập lịch.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README có bảng yêu cầu: Python, hệ điều hành và phiên bản Kubernetes được kiểm thử theo từng nhánh phiên bản; mỗi nhánh dùng danh sách khác nhau. Cần đọc đúng bảng của phiên bản định cài. Cài đặt đầy đủ thường cần cơ sở dữ liệu và cấu hình riêng; chi tiết xem tài liệu chính thức, chưa kiểm chứng ở đây.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc Project Focus và Principles để biết Airflow có hợp với việc cần làm không.</li><li>Đọc bảng Requirements và Installing from PyPI của README cho đúng phiên bản.</li><li>Bắt đầu với một DAG mẫu hai ba tác vụ, chưa nối hệ thống thật.</li></ol><h2>Giới hạn cần biết</h2><p>Theo chính README, Airflow không tối ưu cho workflow thay đổi cấu trúc liên tục, và không nên chuyển khối lượng dữ liệu lớn giữa các tác vụ. Đường cong học khá dốc với người mới; vận hành thực tế cần hạ tầng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>apache</strong> có <strong>47.350 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-03. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; dự án thuộc Apache Software Foundation. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/apache/airflow/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/apache/airflow\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 105. Chưa cài/chạy thử; không tạo validation. Snapshot sao 47350; repo_id 33884891; README SHA256 fc3d9c199fab44c83d305358c219b1cbd9b6d102f87f76beed6be34879d4ac34.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/apache/airflow",
+          "repo_id": "33884891",
+          "source_path": "",
+          "source_revision": "README-SHA256:fc3d9c199fab44c83d305358c219b1cbd9b6d102f87f76beed6be34879d4ac34",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/airflow",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README có bảng yêu cầu: Python, hệ điều hành và phiên bản Kubernetes được kiểm thử theo từng nhánh phiên bản; mỗi nhánh dùng danh sách khác nhau. Cần đọc đúng bảng của phiên bản định cài. Cài đặt đầy đủ thường cần cơ sở dữ liệu và cấu hình riêng; chi tiết xem tài liệu chính thức, chưa kiểm chứng ở đây.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/airflow/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/apache/airflow/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "apache/airflow",
+        "stars": 47350,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/apache/airflow/main/README.md",
+        "readmeSha256": "fc3d9c199fab44c83d305358c219b1cbd9b6d102f87f76beed6be34879d4ac34",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 106,
+      "batch": 11,
+      "slug": "trigger-dev",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Trigger.dev: khám phá tác vụ nền bền bỉ viết bằng TypeScript cho ứng dụng và agent",
+        "excerpt": "Làm quen cách chạy tác vụ dài, có thử lại và hàng đợi viết trong chính code TypeScript của dự án, tự host hoặc dùng dịch vụ của nhà phát triển.",
+        "content": "<p>Trigger.dev được README mô tả là nền tảng mã nguồn mở để dựng workflow AI bằng TypeScript. Các tác vụ được viết trong codebase của bạn, chạy lâu không giới hạn thời gian, có thử lại, hàng đợi, lịch cron, bước chờ người duyệt và theo dõi từng lần chạy. README nêu có cả đường tự host (Docker, Kubernetes) lẫn dịch vụ đám mây của nhà phát triển.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: viết một tác vụ nền nhỏ xử lý danh sách dữ liệu giả và quan sát lịch sử chạy cùng kết quả sau khi thử lại. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Lập trình viên web/TypeScript cần chạy tác vụ nền vượt giới hạn thời gian của hạ tầng serverless thông thường.</p><h2>Điều kiện trước khi bắt đầu</h2><p>Cần dự án TypeScript và quyết định dùng dịch vụ cloud hay tự host; README dẫn tới hướng dẫn Docker và Kubernetes. Giá, hạn mức và điều kiện của dịch vụ cloud chưa kiểm tra.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc About và Key features để xem nhu cầu có khớp (tác vụ dài, thử lại, hàng đợi).</li><li>Xem phần Self-hosting nếu cần kiểm soát hạ tầng, hoặc điều khoản dịch vụ nếu dùng cloud.</li><li>Thử với một tác vụ không đụng dữ liệu hoặc tài khoản thật.</li></ol><h2>Giới hạn cần biết</h2><p>Dành cho người viết code; không phải công cụ kéo thả. Tác vụ chạy lâu có thể phát sinh chi phí tính toán và gọi API/model; cần đặt giới hạn. Tự host đòi hỏi vận hành hạ tầng.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>triggerdotdev</strong> có <strong>16.700 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-10-31. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; bài chưa đối chiếu phạm vi giữa mã nguồn mở và dịch vụ cloud. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/triggerdotdev/trigger.dev/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/triggerdotdev/trigger.dev\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 106. Chưa cài/chạy thử; không tạo validation. Snapshot sao 16700; repo_id 572570113; README SHA256 d6d51b1b37db827d0781974b4a8456342640d4ea32f2b9da9c66f7c0b3ca3266.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev",
+          "repo_id": "572570113",
+          "source_path": "",
+          "source_revision": "README-SHA256:d6d51b1b37db827d0781974b4a8456342640d4ea32f2b9da9c66f7c0b3ca3266",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/triggerdotdev/trigger.dev",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "Cần dự án TypeScript và quyết định dùng dịch vụ cloud hay tự host; README dẫn tới hướng dẫn Docker và Kubernetes. Giá, hạn mức và điều kiện của dịch vụ cloud chưa kiểm tra.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/triggerdotdev/trigger.dev/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/triggerdotdev/trigger.dev/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "triggerdotdev/trigger.dev",
+        "stars": 16700,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/main/README.md",
+        "readmeSha256": "d6d51b1b37db827d0781974b4a8456342640d4ea32f2b9da9c66f7c0b3ca3266",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 107,
+      "batch": 11,
+      "slug": "dagster",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Dagster: tìm hiểu cách khai báo dữ liệu cần tạo thay vì chỉ liệt kê các bước chạy",
+        "excerpt": "Làm quen cách mô tả asset dữ liệu bằng hàm Python và để công cụ lo thứ tự chạy, lineage và quan sát.",
+        "content": "<p>Dagster được README mô tả là bộ điều phối pipeline dữ liệu: bạn khai báo các asset (bảng, tập dữ liệu, mô hình, báo cáo) dưới dạng hàm Python, và công cụ giúp chạy đúng lúc, cập nhật asset, kèm lineage và khả năng quan sát. README có ví dụ ba asset nối nhau và giao diện web hiển thị đồ thị.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: khai báo hai asset nhỏ từ dữ liệu giả, asset thứ hai phụ thuộc asset thứ nhất, rồi đọc đồ thị phụ thuộc. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người làm dữ liệu quen Python, muốn nghĩ theo 'dữ liệu cần có' thay vì 'chuỗi lệnh cần chạy'; hợp để dạy khái niệm lineage.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README nêu hỗ trợ Python 3.9 đến 3.14 và mẫu cài bằng uv; có tutorial ETL chính thức. Ví dụ trong README đọc dữ liệu từ một URL ngoài, nên khi thử hãy thay bằng dữ liệu mẫu cục bộ. Chưa kiểm chứng cài đặt.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc đoạn mô tả asset và ví dụ ba asset của README.</li><li>Làm theo tutorial ETL trong tài liệu chính thức khi bạn đã sẵn sàng cài đặt.</li><li>Dùng dữ liệu giả; tránh nối kho dữ liệu thật trong bước đầu.</li></ol><h2>Giới hạn cần biết</h2><p>Cần nền Python; khái niệm asset khác cách nghĩ theo tác vụ truyền thống nên cần thời gian làm quen. Dịch vụ cloud và hạ tầng sản xuất nằm ngoài README.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>dagster-io</strong> có <strong>16.361 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; badge trong README cũng ghi Apache 2.0. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/dagster-io/dagster/blob/master/python_modules/dagster/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/dagster-io/dagster\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 107. Chưa cài/chạy thử; không tạo validation. Snapshot sao 16361; repo_id 131619646; README SHA256 c67be78a0355a34b38964ba3e64fa615604e175afbc00bef4506afd4bf0a0b34.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/dagster-io/dagster",
+          "repo_id": "131619646",
+          "source_path": "",
+          "source_revision": "README-SHA256:c67be78a0355a34b38964ba3e64fa615604e175afbc00bef4506afd4bf0a0b34",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/dagster-io/dagster",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README nêu hỗ trợ Python 3.9 đến 3.14 và mẫu cài bằng uv; có tutorial ETL chính thức. Ví dụ trong README đọc dữ liệu từ một URL ngoài, nên khi thử hãy thay bằng dữ liệu mẫu cục bộ. Chưa kiểm chứng cài đặt.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/dagster-io/dagster/blob/master/python_modules/dagster/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/dagster-io/dagster/blob/master/python_modules/dagster/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "dagster-io/dagster",
+        "stars": 16361,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/dagster-io/dagster/master/python_modules/dagster/README.md",
+        "readmeSha256": "c67be78a0355a34b38964ba3e64fa615604e175afbc00bef4506afd4bf0a0b34",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 108,
+      "batch": 11,
+      "slug": "temporal",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Temporal: hiểu ý tưởng thực thi bền bỉ để workflow không mất trạng thái khi lỗi",
+        "excerpt": "Làm quen khái niệm workflow, activity và worker, nơi server tự xử lý thử lại khi lỗi chập chờn. Phù hợp lập trình viên.",
+        "content": "<p>Temporal được README mô tả là nền tảng durable execution: server chạy các Workflow (đơn vị logic ứng dụng) một cách bền bỉ, tự xử lý lỗi chập chờn và thử lại thao tác lỗi. README nêu rõ repo này chứa mã nguồn của Temporal server; để viết Workflow, Activity và Worker bạn dùng SDK của ngôn ngữ được hỗ trợ. README cũng cho biết Temporal xuất phát từ bản fork của Cadence do Uber tạo ra.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: chạy mẫu 'hello world' của tài liệu rồi xem lịch sử thực thi trên giao diện web để hiểu workflow có trạng thái. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Lập trình viên backend cần quy trình nhiều bước, chạy lâu, phải chịu được lỗi mạng hoặc tiến trình dừng giữa chừng.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README hướng dẫn chạy server phát triển cục bộ bằng Temporal CLI (có nhắc cài qua Homebrew), mẫu Go và Java, giao diện web cục bộ. Cần chọn SDK ngôn ngữ riêng; sản xuất cần quyết định cách vận hành server. Chưa kiểm chứng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc Introduction để hiểu workflow và durable execution.</li><li>Đọc tài liệu Temporal 101 mà README liên kết.</li><li>Chỉ chạy mẫu cục bộ khi bạn sẵn sàng; chưa nối hệ thống thật.</li></ol><h2>Giới hạn cần biết</h2><p>Không phải công cụ cho người không lập trình; mô hình tư duy mới và khá dày về khái niệm. Vận hành server sản xuất có chi phí kỹ thuật mà README không bàn chi tiết.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>temporalio</strong> có <strong>24.143 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-03. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép MIT; README ghi MIT License. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/temporalio/temporal/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/temporalio/temporal\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 108. Chưa cài/chạy thử; không tạo validation. Snapshot sao 24143; repo_id 215654064; README SHA256 269838d3de5da90d4c2c0b45bf7fc745b384a5a05c0932582e923638e8994189.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/temporalio/temporal",
+          "repo_id": "215654064",
+          "source_path": "",
+          "source_revision": "README-SHA256:269838d3de5da90d4c2c0b45bf7fc745b384a5a05c0932582e923638e8994189",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "MIT",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/temporalio/temporal",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README hướng dẫn chạy server phát triển cục bộ bằng Temporal CLI (có nhắc cài qua Homebrew), mẫu Go và Java, giao diện web cục bộ. Cần chọn SDK ngôn ngữ riêng; sản xuất cần quyết định cách vận hành server. Chưa kiểm chứng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/temporalio/temporal/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/temporalio/temporal/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "temporalio/temporal",
+        "stars": 24143,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/temporalio/temporal/main/README.md",
+        "readmeSha256": "269838d3de5da90d4c2c0b45bf7fc745b384a5a05c0932582e923638e8994189",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 109,
+      "batch": 11,
+      "slug": "changedetection-io",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "changedetection.io: tìm hiểu việc theo dõi thay đổi của trang web và nhận thông báo",
+        "excerpt": "Hiểu cách theo dõi trang web, so sánh nội dung và gửi thông báo qua nhiều kênh. Có bản tự host và dịch vụ trả phí riêng của tác giả.",
+        "content": "<p>changedetection.io là công cụ theo dõi thay đổi trang web: README nêu thông báo qua Discord, email, Slack, Telegram, webhook, ví dụ giá thay đổi, hàng có lại, và hiển thị khác biệt theo từ, dòng hoặc ký tự. Có Visual Selector và Browser Steps nhưng README ghi các tính năng này cần kết nối Playwright content fetcher. README cũng nêu tính năng AI dùng LLM do người dùng cung cấp để tóm tắt thay đổi.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: theo dõi một trang công khai của chính bạn và xem ảnh so sánh khi bạn sửa nội dung. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người muốn theo dõi cập nhật chính sách, giá, tài liệu hay trang tuyển dụng mà không phải mở trang thủ công.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README quảng bá dịch vụ trả phí của tác giả (không cần cài đặt) song song với bản mã nguồn mở tự host; mức phí ghi trong README là của dịch vụ đó, bài này không kiểm chứng. Đường cài tự host cần đọc README và wiki. Tính năng AI cần khóa API hoặc model cục bộ riêng và có chi phí tùy nhà cung cấp.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc phần giới thiệu và danh sách use case, quyết định tự host hay dùng dịch vụ.</li><li>Bắt đầu với trang công khai của bạn, tần suất kiểm tra thấp.</li><li>Chỉ bật AI và thông báo ngoài sau khi biết dữ liệu nào sẽ gửi đi.</li></ol><h2>Giới hạn cần biết</h2><p>Theo dõi trang của bên khác có thể vướng điều khoản của họ; hãy kiểm tra trước. Trang cần đăng nhập hoặc render JavaScript đòi hỏi Playwright. Gửi nội dung trang tới LLM bên ngoài có thể rò rỉ thông tin.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>dgtlmoon</strong> có <strong>35.467 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; README có badge giấy phép, bài chưa đọc file LICENSE. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/dgtlmoon/changedetection.io/blob/master/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/dgtlmoon/changedetection.io\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 109. Chưa cài/chạy thử; không tạo validation. Snapshot sao 35467; repo_id 333483116; README SHA256 2c700b5b1068d54faa4bc5a45f5337ab253ce8b0ce839bc2df03534d8f9b122d.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/dgtlmoon/changedetection.io",
+          "repo_id": "333483116",
+          "source_path": "",
+          "source_revision": "README-SHA256:2c700b5b1068d54faa4bc5a45f5337ab253ce8b0ce839bc2df03534d8f9b122d",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/dgtlmoon/changedetection.io",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README quảng bá dịch vụ trả phí của tác giả (không cần cài đặt) song song với bản mã nguồn mở tự host; mức phí ghi trong README là của dịch vụ đó, bài này không kiểm chứng. Đường cài tự host cần đọc README và wiki. Tính năng AI cần khóa API hoặc model cục bộ riêng và có chi phí tùy nhà cung cấp.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/dgtlmoon/changedetection.io/blob/master/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/dgtlmoon/changedetection.io/blob/master/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "dgtlmoon/changedetection.io",
+        "stars": 35467,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/README.md",
+        "readmeSha256": "2c700b5b1068d54faa4bc5a45f5337ab253ce8b0ce839bc2df03534d8f9b122d",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    },
+    {
+      "key": 110,
+      "batch": 11,
+      "slug": "apache-nifi",
+      "category": "Workflow và ứng dụng trực quan",
+      "need": "Tự động hóa công việc",
+      "payload": {
+        "post_type": "vne_resource",
+        "title": "Apache NiFi: tìm hiểu cách thiết kế luồng chuyển và xử lý dữ liệu trên giao diện trình duyệt",
+        "excerpt": "Làm quen khái niệm processor, luồng dữ liệu và provenance (lịch sử nguồn gốc dữ liệu) trong công cụ của Apache.",
+        "content": "<p>Apache NiFi là hệ thống xử lý và phân phối dữ liệu. README nêu giao diện trình duyệt để thiết kế, điều khiển, giám sát; xử lý có ưu tiên cấu hình được, giao nhận có thử lại, mở rộng bằng cụm; theo dõi provenance cho từng quyết định xử lý; mở rộng bằng Processor và Controller Service, kể cả Processor viết bằng Python; có REST API và các tùy chọn đăng nhập như OpenID Connect hay SAML 2.</p><h2>Việc nào đáng dùng để tìm hiểu?</h2><p>Ví dụ biên tập đề xuất: vẽ trên giấy luồng đọc file, đổi định dạng, ghi đích để hiểu khái niệm processor và hàng đợi giữa các bước. Chưa phải kết quả đã chạy thử.</p><p><strong>Ai nên xem:</strong> Người làm tích hợp dữ liệu muốn bức tranh luồng có giám sát và lịch sử nguồn gốc; hợp với tổ chức đã có đội vận hành.</p><h2>Điều kiện trước khi bắt đầu</h2><p>README dẫn tới Getting Started, User Guide và Administrator Guide của dự án; yêu cầu phần mềm cụ thể cần xem trong đó. Bài chưa đọc các tài liệu này nên chưa nêu yêu cầu Java hay phần cứng.</p><h2>Lối bắt đầu cho người mới</h2><ol><li>Đọc danh sách Features của README để nắm khái niệm.</li><li>Đọc Getting Started và User Guide chính thức.</li><li>Thử với dữ liệu giả trên máy riêng, chưa nối nguồn thật.</li></ol><h2>Giới hạn cần biết</h2><p>Công cụ nặng với nhu cầu nhỏ; học khái niệm khá nhiều. Cấu hình bảo mật và vận hành cần người có kinh nghiệm. Số sao thấp hơn nhiều công cụ cùng nhóm không có nghĩa là kém hay đáng tin hơn.</p><h2>Sao GitHub và tình trạng nguồn</h2><p>Repo của <strong>apache</strong> có <strong>6.289 sao GitHub</strong> tại lần quan sát 2026-11-03; commit gần nhất theo GitHub vào 2026-11-02. Số sao là tín hiệu được quan tâm, không phải điểm đánh giá chất lượng hoặc bằng chứng đã dùng thử. Chưa có lịch sử để kết luận tốc độ tăng sao.</p><h2>Giấy phép và chi phí</h2><p>GitHub nhận diện giấy phép Apache-2.0; dự án thuộc Apache Software Foundation. Bài chưa kiểm tra toàn bộ phạm vi giấy phép; hãy đọc mục License của repo trước khi dùng hoặc phân phối lại. Phí dịch vụ, model/API hoặc hạ tầng nếu có cần xem riêng; website không cấp tài khoản hay hạn mức dùng công cụ.</p><h2>Nguồn và phạm vi biên tập</h2><p>Đối chiếu <a href=\"https://github.com/apache/nifi/blob/main/README.md\" target=\"_blank\" rel=\"noopener noreferrer\">README của tác giả</a> và <a href=\"https://github.com/apache/nifi\" target=\"_blank\" rel=\"noopener noreferrer\">repo gốc</a> ngày 2026-11-03. Bài giới thiệu do AI viết từ README, chưa cài/chạy repo, chưa xác minh tương thích trên máy người đọc.</p>",
+        "status": "publish",
+        "primary_category": 0,
+        "categories": [],
+        "needs": [],
+        "tools": [],
+        "editorial_note": "Bản nháp AI từ README ngày 2026-11-03. Đợt cloud 2026-11-03, nhóm tự động hóa, key 110. Chưa cài/chạy thử; không tạo validation. Snapshot sao 6289; repo_id 27911088; README SHA256 0d1019aa65d49b67dc6afbb1de85c597bfe925abb242ec547a8fe6796b655303.",
+        "data": {
+          "resource_type": "tool",
+          "source_url": "https://github.com/apache/nifi",
+          "repo_id": "27911088",
+          "source_path": "",
+          "source_revision": "README-SHA256:0d1019aa65d49b67dc6afbb1de85c597bfe925abb242ec547a8fe6796b655303",
+          "source_verified": true,
+          "observed_at": "2026-11-03",
+          "claims": {
+            "cost": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa xác minh tổng chi phí theo cách triển khai; xem phí phần mềm/dịch vụ/model/hạ tầng riêng.",
+              "conflict_sources": []
+            },
+            "license": {
+              "value": "Apache-2.0",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/nifi",
+              "observed_at": "2026-11-03",
+              "note": "SPDX theo GitHub; chưa đối chiếu đầy đủ file LICENSE và phụ thuộc.",
+              "conflict_sources": []
+            },
+            "requirements": {
+              "value": "README dẫn tới Getting Started, User Guide và Administrator Guide của dự án; yêu cầu phần mềm cụ thể cần xem trong đó. Bài chưa đọc các tài liệu này nên chưa nêu yêu cầu Java hay phần cứng.",
+              "verification_status": "upstream_claimed",
+              "source_url": "https://github.com/apache/nifi/blob/main/README.md",
+              "observed_at": "2026-11-03",
+              "note": "Theo README đã đọc; chưa chứng nhận cài/chạy trong môi trường người đọc.",
+              "conflict_sources": []
+            },
+            "permissions": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Workflow có thể gửi dữ liệu hoặc kích hoạt hành động ở dịch vụ ngoài; chỉ bật sau khi biết từng bước làm gì.",
+              "conflict_sources": []
+            },
+            "compatibility": {
+              "value": null,
+              "verification_status": "unknown",
+              "source_url": null,
+              "observed_at": null,
+              "note": "Chưa kiểm chứng tương thích; đọc đúng phiên bản và môi trường trong README.",
+              "conflict_sources": []
+            }
+          }
+        }
+      },
+      "state": {
+        "source_access": {
+          "status": "available",
+          "source_url": "https://github.com/apache/nifi/blob/main/README.md",
+          "observed_at": "2026-11-03",
+          "note": "README đọc được qua raw.githubusercontent.com ngày 2026-11-03; số sao, giấy phép, ngày commit lấy từ GitHub Search API. Chưa chạy hay cài repo."
+        },
+        "maintenance": {
+          "status": "unknown",
+          "source_url": "",
+          "observed_at": "",
+          "note": "Không suy tình trạng duy trì chỉ từ số sao hoặc một lần truy cập."
+        },
+        "recommendation": {
+          "status": "normal",
+          "reason": ""
+        },
+        "review": {
+          "needed": true,
+          "reason": "Bản nháp từ phiên cloud; cần chủ site rà soát trước khi nhập.",
+          "reviewed_at": "",
+          "review_due_at": ""
+        }
+      },
+      "evidence": {
+        "repo": "apache/nifi",
+        "stars": 6289,
+        "observedAt": "2026-11-03T00:00:00Z",
+        "readmeUrl": "https://raw.githubusercontent.com/apache/nifi/main/README.md",
+        "readmeSha256": "0d1019aa65d49b67dc6afbb1de85c597bfe925abb242ec547a8fe6796b655303",
+        "reviewer": "AI draft in cloud session, not independent human review",
+        "runtimeValidated": false
+      }
+    }
+  ]
+}

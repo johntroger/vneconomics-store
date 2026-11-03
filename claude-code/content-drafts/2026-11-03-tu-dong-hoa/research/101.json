@@ -1,0 +1,34 @@
+{
+  "key": 101,
+  "repo": "kestra-io/kestra",
+  "repoId": "204164353",
+  "url": "https://github.com/kestra-io/kestra",
+  "stars": 30127,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-11-02T21:04:38Z",
+  "defaultBranch": "develop",
+  "description": "Orchestrate everything, everywhere. The open-source control plane for workflows across data, infrastructure, business processes and AI agents. Declarative YAML, event-driven, any language, Git-versioned, scalable to millions of executions.",
+  "homepage": "https://go.kestra.io/home",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/kestra-io/kestra/develop/README.md",
+    "sha256": "7a5e7b2a455732a1aabf8154b4217deefc1d48aea3fc5c9ebeed1e3f47ce9a12",
+    "bytes": 22585,
+    "sectionsRead": [
+      "What is Kestra?",
+      "Key Features",
+      "What's New in 2.0",
+      "Quick Start",
+      "License"
+    ]
+  },
+  "unknowns": [
+    "Chi phí vận hành thực tế và phạm vi tính năng thương mại chưa kiểm tra.",
+    "Chưa đọc kỹ từng đường Quick Start."
+  ],
+  "runtimeValidated": false
+}

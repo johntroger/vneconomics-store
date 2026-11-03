@@ -1,0 +1,32 @@
+{
+  "key": 106,
+  "repo": "triggerdotdev/trigger.dev",
+  "repoId": "572570113",
+  "url": "https://github.com/triggerdotdev/trigger.dev",
+  "stars": 16700,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-10-31T11:59:31Z",
+  "defaultBranch": "main",
+  "description": "Trigger.dev – build and deploy durable AI agents and workflows",
+  "homepage": "https://trigger.dev/changelog",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/triggerdotdev/trigger.dev/main/README.md",
+    "sha256": "d6d51b1b37db827d0781974b4a8456342640d4ea32f2b9da9c66f7c0b3ca3266",
+    "bytes": 9330,
+    "sectionsRead": [
+      "About / AI agents",
+      "Key features",
+      "Self-hosting"
+    ]
+  },
+  "unknowns": [
+    "Giá dịch vụ cloud chưa kiểm tra.",
+    "Mức độ đầy đủ của bản tự host so với cloud chưa xác minh."
+  ],
+  "runtimeValidated": false
+}
