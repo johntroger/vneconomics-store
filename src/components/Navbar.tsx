@@ -264,7 +264,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
                         onClick={(e) => handleSearchSubmit(e)}
                         className="mt-2.5 px-4 py-1.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-xs font-semibold"
                       >
-                        Tìm trong toàn bộ 100+ công cụ
+                        Tìm trong toàn bộ {resources.length}+ công cụ
                       </button>
                     </div>
                   )
@@ -376,7 +376,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
             >
               <ShoppingCart className="w-5 h-5 text-ink-700" />
               <span className="absolute -top-1.5 -right-1.5 bg-brand-600 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-2xs">
-                100
+                {resources.length}
               </span>
             </Link>
 
@@ -461,7 +461,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between overflow-x-auto whitespace-nowrap text-ink-600">
           <div className="flex items-center gap-6">
             <Link to="/" className="font-bold text-ink-900 hover:text-brand-600 transition-colors">TRANG CHỦ</Link>
-            <Link to="/tai-nguyen" className="font-bold text-brand-600 hover:underline">SÀN CÔNG CỤ (100+)</Link>
+            <Link to="/tai-nguyen" className="font-bold text-brand-600 hover:underline">SÀN CÔNG CỤ ({resources.length}+)</Link>
             <Link to="/danh-muc/chuyen-doi-tai-lieu" className="hover:text-brand-600 transition-colors">Chuyển đổi tài liệu</Link>
             <Link to="/danh-muc/ghi-chu-tri-thuc" className="hover:text-brand-600 transition-colors">Ghi chú tri thức</Link>
             <Link to="/danh-muc/ai-tren-may" className="hover:text-brand-600 transition-colors">AI trên máy</Link>
@@ -524,7 +524,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-brand-600 font-bold"
           >
-            Sàn công cụ (Tất cả 100+)
+            Sàn công cụ (Tất cả {resources.length}+)
           </Link>
           <Link
             to="/danh-muc/chuyen-doi-tai-lieu"
