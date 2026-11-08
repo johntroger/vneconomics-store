@@ -9,24 +9,24 @@ export default {
     extend: {
       colors: {
         brand: {
-          50: '#f0f5ff',
-          100: '#e0ebff',
-          200: '#bad4ff',
-          300: '#8ab4ff',
-          400: '#528dff',
-          500: '#165dff', // Primary Brand Blue
-          600: '#0e46d7',
-          700: '#0a35ab',
-          800: '#0d2d88',
-          900: '#10276d',
-          950: '#0a1643',
+          50: '#f4f7fc',
+          100: '#e8edf7',
+          200: '#d2dcf0',
+          300: '#acc1e4',
+          400: '#7ea1d5',
+          500: '#4f7fc3',
+          600: '#2456b8', // Original soothing Vneconomics deep blue
+          700: '#1e4494',
+          800: '#1c3a7a',
+          900: '#1b3263',
+          950: '#101d3b',
         },
-        cyan: {
-          50: '#effbfa',
-          100: '#d7f6f5',
-          400: '#26d0ce',
-          500: '#00a7c4', // Electric Cyan
-          600: '#0285a0',
+        support: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          500: '#14b8a6',
+          600: '#126a61', // Original Vneconomics teal support
+          700: '#0f564f',
         },
         surface: {
           50: '#ffffff',
@@ -35,12 +35,12 @@ export default {
           300: '#e2e8f0',
         },
         ink: {
-          900: '#0f172a', // Slate 900
-          800: '#1e293b',
-          700: '#334155',
-          600: '#475569',
-          500: '#64748b',
-          400: '#94a3b8',
+          900: '#16243a', // Original soft deep navy ink
+          800: '#22334f',
+          700: '#374967',
+          600: '#485a76',
+          500: '#62738d',
+          400: '#8ca0bb',
         }
       },
       fontFamily: {
@@ -48,9 +48,9 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
+        'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
         'card': '0 0 0 1px rgba(226, 232, 240, 0.8), 0 2px 8px -2px rgba(15, 23, 42, 0.04)',
-        'card-hover': '0 0 0 1px rgba(22, 93, 255, 0.3), 0 8px 24px -4px rgba(22, 93, 255, 0.12)',
+        'card-hover': '0 0 0 1px rgba(36, 86, 184, 0.25), 0 10px 25px -5px rgba(36, 86, 184, 0.08)',
       }
     },
   },

@@ -12,7 +12,7 @@ interface CoverOptions {
 }
 
 const categoryPalettes: Record<string, { from: string; to: string; accent: string }> = {
-  'Tài liệu và công việc văn phòng': { from: '#0f2b5c', to: '#165dff', accent: '#38bdf8' },
+  'Tài liệu và công việc văn phòng': { from: '#141d2c', to: '#2456b8', accent: '#60a5fa' },
   'Ghi chú và tri thức cá nhân': { from: '#2e1065', to: '#6366f1', accent: '#a855f7' },
   'Workflow và ứng dụng trực quan': { from: '#064e3b', to: '#059669', accent: '#34d399' },
   'AI trên máy và không gian trò chuyện': { from: '#083344', to: '#0891b2', accent: '#22d3ee' },
@@ -25,7 +25,7 @@ const categoryPalettes: Record<string, { from: string; to: string; accent: strin
 };
 
 export function getProductCover({ title, category, need, stars }: CoverOptions): string {
-  const palette = categoryPalettes[category] || { from: '#10243e', to: '#165dff', accent: '#00a7c4' };
+  const palette = categoryPalettes[category] || { from: '#141d2c', to: '#2456b8', accent: '#60a5fa' };
   
   // Format stars
   const starsLabel = stars ? (stars >= 1000 ? `${(stars / 1000).toFixed(1)}k★` : `${stars}★`) : 'Verified';

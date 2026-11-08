@@ -59,14 +59,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
         </div>
 
         {/* Top-Right: 100% Miễn Phí Ribbon */}
-        <div className="absolute top-0 right-0 z-10 bg-cyan-400 text-brand-950 text-[10px] font-black px-1.5 py-1 text-center leading-tight shadow-xs">
+        <div className="absolute top-0 right-0 z-10 bg-amber-400/95 text-amber-950 text-[10px] font-black px-1.5 py-1 text-center leading-tight shadow-xs">
           <span className="block font-black">-100%</span>
-          <span className="text-white text-[9px] uppercase font-bold block bg-brand-700 px-0.5 rounded-2xs mt-0.5">MIỄN PHÍ</span>
+          <span className="text-white text-[9px] uppercase font-bold block bg-amber-700 px-0.5 rounded-2xs mt-0.5">0 ĐỒNG</span>
         </div>
 
         {/* Bottom Tag: EEAT Verified */}
         <div className="absolute bottom-1.5 left-1.5">
-          <span className="bg-emerald-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-2xs uppercase tracking-wider shadow-2xs flex items-center gap-1">
+          <span className="bg-emerald-700/95 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-2xs uppercase tracking-wider shadow-2xs flex items-center gap-1">
             <ShieldCheck className="w-3 h-3" />
             <span>EEAT VERIFIED</span>
           </span>

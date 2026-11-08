@@ -220,9 +220,9 @@ export const ProductDetailPage: React.FC = () => {
                 />
                 
                 {/* Ribbon Badges */}
-                <div className="absolute top-0 right-0 bg-cyan-400 text-brand-950 px-2.5 py-1 text-[11px] font-black uppercase text-center leading-tight shadow-xs">
+                <div className="absolute top-0 right-0 bg-amber-400 text-amber-950 px-2.5 py-1 text-[11px] font-black uppercase text-center leading-tight shadow-xs">
                   <div>-100%</div>
-                  <div className="text-white bg-brand-700 px-1 text-[9px] rounded-2xs">MIỄN PHÍ</div>
+                  <div className="text-white bg-amber-700 px-1 text-[9px] rounded-2xs">0 ĐỒNG</div>
                 </div>
 
                 <div className="absolute top-2 left-2 flex items-center gap-1.5">
@@ -352,7 +352,7 @@ export const ProductDetailPage: React.FC = () => {
                   <span className="px-2 py-1 bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold rounded text-[11px]">
                     Chuẩn Thẩm Định EEAT
                   </span>
-                  <span className="px-2 py-1 bg-cyan-50 border border-cyan-300 text-cyan-800 font-bold rounded text-[11px]">
+                  <span className="px-2 py-1 bg-slate-100 border border-slate-200 text-ink-700 font-bold rounded text-[11px]">
                     Không Quảng Cáo
                   </span>
                 </div>
@@ -472,10 +472,10 @@ export const ProductDetailPage: React.FC = () => {
         <div className="bg-white rounded-xl shadow-soft border border-slate-200 p-5 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="relative">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-cyan-500 text-white flex items-center justify-center font-black text-xl shadow-xs">
+              <div className="w-16 h-16 rounded-2xl bg-slate-800 text-white flex items-center justify-center font-black text-xl shadow-xs">
                 VNE
               </div>
-              <span className="absolute -bottom-1 -right-1 bg-brand-700 text-white text-[9px] font-black px-1.5 py-0.2 rounded">
+              <span className="absolute -bottom-1 -right-1 bg-brand-600 text-white text-[9px] font-bold px-1.5 py-0.2 rounded">
                 STORE
               </span>
             </div>

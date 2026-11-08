@@ -299,44 +299,44 @@ export const CategoryPage: React.FC = () => {
     <div className="bg-surface-100 min-h-screen pb-16 text-ink-900">
       
       {/* Category Top Banner */}
-      <div className="bg-gradient-to-r from-brand-700 via-brand-600 to-brand-800 text-white py-8 border-b border-brand-800">
+      <div className="bg-white border-b border-slate-200/90 py-7 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-xs text-white/80 mb-3">
-            <Link to="/" className="hover:text-white transition-colors">Trang chủ</Link>
+          <div className="flex items-center gap-2 text-xs text-ink-500 mb-3">
+            <Link to="/" className="text-brand-600 hover:underline">Trang chủ</Link>
             <span>›</span>
-            <Link to="/tai-nguyen" className="hover:text-white transition-colors">Sàn công cụ</Link>
+            <Link to="/tai-nguyen" className="text-brand-600 hover:underline">Sàn công cụ</Link>
             <span>›</span>
-            <span className="text-white font-bold">{category.name}</span>
+            <span className="text-ink-800 font-bold">{category.name}</span>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2.5 mb-1.5">
-                <span className="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-cyan-400 text-brand-950">
+                <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-ink-700 border border-slate-200">
                   CHUYÊN MỤC TUYỂN CHỌN
                 </span>
-                <span className="text-xs font-medium text-white/90 flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+                <span className="text-xs font-semibold text-emerald-700 flex items-center gap-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   Đã thẩm định EEAT
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-ink-900">
                 {category.name}
               </h1>
-              <p className="text-xs sm:text-sm text-white/90 mt-1 max-w-2xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-ink-600 mt-1 max-w-2xl leading-relaxed">
                 {category.description}
               </p>
             </div>
 
-            <div className="flex items-center gap-3 bg-black/20 backdrop-blur-xs p-3 rounded-lg border border-white/20 self-start md:self-auto">
+            <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 self-start md:self-auto shadow-2xs">
               <div className="text-center px-2">
-                <div className="text-lg font-black text-white">{categoryProducts.length}</div>
-                <div className="text-[10px] uppercase text-white/80 font-bold">Công cụ 0đ</div>
+                <div className="text-lg font-black text-ink-900">{categoryProducts.length}</div>
+                <div className="text-[10px] uppercase text-ink-500 font-bold">Công cụ 0đ</div>
               </div>
-              <div className="w-px h-8 bg-white/20" />
+              <div className="w-px h-8 bg-slate-200" />
               <div className="text-center px-2">
-                <div className="text-lg font-black text-amber-300">5.0 ★</div>
-                <div className="text-[10px] uppercase text-white/80 font-bold">Thẩm định</div>
+                <div className="text-lg font-black text-amber-600">5.0 ★</div>
+                <div className="text-[10px] uppercase text-ink-500 font-bold">Thẩm định</div>
               </div>
             </div>
           </div>
