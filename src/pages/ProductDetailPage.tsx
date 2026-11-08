@@ -21,6 +21,7 @@ import { categories } from '../data/categories';
 import { getProductCover } from '../utils/imageGenerator';
 import { ProductCard } from '../components/ProductCard';
 import { useSEO } from '../utils/useSEO';
+import { ReviewSection } from '../components/ReviewSection';
 
 export const ProductDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -580,82 +581,8 @@ export const ProductDetailPage: React.FC = () => {
 
         </div>
 
-        {/* Customer Reviews Box */}
-        <div className="bg-white rounded-xl shadow-soft border border-slate-200 p-6 space-y-6">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-ink-900">
-            ĐÁNH GIÁ TỪ CỘNG ĐỒNG NHÀ PHÁT TRIỂN
-          </h2>
-
-          <div className="bg-brand-50/50 border border-brand-200/60 p-5 rounded-lg flex flex-col md:flex-row md:items-center gap-6">
-            <div className="text-center md:border-r border-slate-200 md:pr-6">
-              <div className="text-3xl font-black text-brand-600">5.0 <span className="text-base font-normal">trên 5</span></div>
-              <div className="flex text-amber-500 justify-center mt-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 flex-wrap text-xs">
-              <button className="px-3 py-1.5 rounded border border-brand-600 bg-white text-brand-700 font-bold">
-                Tất Cả ({reviewCount})
-              </button>
-              <button className="px-3 py-1.5 rounded border border-slate-200 bg-white text-ink-700 hover:border-slate-300">
-                5 Sao ({reviewCount - 4})
-              </button>
-              <button className="px-3 py-1.5 rounded border border-slate-200 bg-white text-ink-700 hover:border-slate-300">
-                Có Bình Luận ({Math.floor(reviewCount * 0.7)})
-              </button>
-              <button className="px-3 py-1.5 rounded border border-slate-200 bg-white text-ink-700 hover:border-slate-300">
-                Đã Triển Khai Thực Tế ({Math.floor(reviewCount * 0.4)})
-              </button>
-            </div>
-          </div>
-
-          {/* Sample Reviews */}
-          <div className="space-y-4 divide-y divide-slate-100 text-xs">
-            <div className="pt-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center font-bold text-ink-700">
-                  N
-                </div>
-                <div>
-                  <span className="font-bold text-ink-900">nguyenvana_tech</span>
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-current" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="text-ink-400 text-[11px]">2026-11-05 14:20 | Môi trường: All</div>
-              <p className="text-ink-700 leading-relaxed">
-                Công cụ rất chuẩn, đúng như biên tập Vneconomics mô tả. Tải về và cấu hình chạy theo đúng hướng dẫn là hoàn thành ngay công việc. 5 sao cho sàn công cụ VibeLab Việt!
-              </p>
-            </div>
-
-            <div className="pt-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-slate-200 flex items-center justify-center font-bold text-ink-700">
-                  T
-                </div>
-                <div>
-                  <span className="font-bold text-ink-900">tran_developer_vn</span>
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 fill-current" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="text-ink-400 text-[11px]">2026-11-02 09:15 | Môi trường: Windows</div>
-              <p className="text-ink-700 leading-relaxed">
-                Mã nguồn mở xịn, không gắn backlink ẩn hay mã độc. Thẩm định EEAT rất có tâm, nói rõ yêu cầu RAM và GPU trước khi chạy.
-              </p>
-            </div>
-          </div>
-
-        </div>
+        {/* Customer Reviews Box - Google Firebase Realtime */}
+        <ReviewSection productSlug={product.slug} productTitle={product.title} />
 
         {/* Sản phẩm tương tự */}
         {relatedProducts.length > 0 && (
