@@ -4,14 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "release:auto": "node scripts/run-clean.mjs script scripts/release-auto.mjs",
-    "test:release-auto": "node scripts/run-clean.mjs script scripts/test-release-auto.mjs",
-    "test:theme-host-installer": "node scripts/run-clean.mjs script scripts/test-theme-host-installer.mjs",
-    "review:theme-host-installer": "node scripts/run-clean.mjs script scripts/verify-theme-host-installer.mjs",
-    "dev:v2": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs dev",
-    "test:v2-smoke": "node scripts/run-clean.mjs script scripts/rebuild-preview.mjs smoke",
-    "test:v2-preview": "node scripts/run-clean.mjs script scripts/test-rebuild-preview.mjs",
-    "dev": "node scripts/run-clean.mjs script scripts/dev.mjs",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "legacy:dev": "node scripts/run-clean.mjs script scripts/dev.mjs",
     "test": "node scripts/run-clean.mjs script scripts/smoke.mjs",
     "test:fast": "npm test",
     "test:ci-fast": "node scripts/run-clean.mjs script scripts/test-ci-fast.mjs",
@@ -98,7 +95,23 @@
     "release:theme": "node scripts/run-clean.mjs script scripts/theme-candidate.mjs"
   },
   "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
     "@wp-playground/cli": "3.1.58",
-    "@zip.js/zip.js": "2.7.57"
+    "@zip.js/zip.js": "2.7.57",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.5"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.5",
+    "tailwind-merge": "^2.6.1"
   }
 }

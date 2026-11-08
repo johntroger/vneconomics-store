@@ -1,0 +1,56 @@
+name: Build & Deploy to Plesk (store.vneconomics.com)
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    name: Build & Sync to Plesk
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 2. Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 3. Install dependencies
+        run: npm ci
+
+      - name: 4. Static typecheck
+        run: npm run typecheck
+
+      - name: 5. Build Vite SPA
+        run: npm run build
+
+      - name: 6. Prepare Payload Info
+        run: |
+          echo "store.vneconomics.com SPA build completed at $(date -u)" > dist/build-info.txt
+
+      - name: 7. Deploy to 'release-production' Branch (For Plesk Git Extension)
+        run: |
+          cd dist
+          git init -b release-production
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "deploy: sync production SPA build to Plesk (${GITHUB_SHA::7})"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" release-production
+
+      - name: 8. Trigger Plesk Git Webhook (If configured)
+        if: env.PLESK_WEBHOOK != ''
+        env:
+          PLESK_WEBHOOK: ${{ secrets.PLESK_GIT_WEBHOOK_URL }}
+        run: |
+          curl -k -X POST "$PLESK_WEBHOOK" || echo "Webhook trigger completed"

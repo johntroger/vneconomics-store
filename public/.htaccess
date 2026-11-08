@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Security Headers
+  <IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+  </IfModule>
+
+  # SPA Routing: Route non-existing files/directories to index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Chặn truy cập trực tiếp file nhạy cảm
+<FilesMatch "(\.env|\.sql|\.jsonl|_store\.json|config\.php)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
