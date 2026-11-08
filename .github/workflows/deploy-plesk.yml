@@ -34,8 +34,9 @@ jobs:
       - name: 5. Build Vite SPA
         run: npm run build
 
-      - name: 6. Prepare Payload Info
+      - name: 6. Prepare Payload Info & Routing
         run: |
+          cp public/.htaccess dist/.htaccess 2>/dev/null || true
           echo "store.vneconomics.com SPA build completed at $(date -u)" > dist/build-info.txt
 
       - name: 7. Deploy to 'release-production' Branch (For Plesk Git Extension)
