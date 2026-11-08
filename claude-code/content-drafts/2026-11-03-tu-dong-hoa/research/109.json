@@ -1,0 +1,34 @@
+{
+  "key": 109,
+  "repo": "dgtlmoon/changedetection.io",
+  "repoId": "333483116",
+  "url": "https://github.com/dgtlmoon/changedetection.io",
+  "stars": 35467,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-11-02T17:30:32Z",
+  "defaultBranch": "master",
+  "description": "Best and simplest tool for website change detection, web page monitoring, and website change alerts. Perfect for tracking content changes, price drops, restock alerts, and website defacement monitoring—all for free or enjoy our SaaS plan!",
+  "homepage": "https://changedetection.io",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/dgtlmoon/changedetection.io/master/README.md",
+    "sha256": "2c700b5b1068d54faa4bc5a45f5337ab253ce8b0ce839bc2df03534d8f9b122d",
+    "bytes": 21975,
+    "sectionsRead": [
+      "Giới thiệu",
+      "AI change detection",
+      "Visual Selector/Browser Steps",
+      "Restock & price",
+      "Use cases"
+    ]
+  },
+  "unknowns": [
+    "Chưa đọc hướng dẫn cài tự host.",
+    "Phạm vi bản miễn phí so với dịch vụ trả phí chưa đối chiếu."
+  ],
+  "runtimeValidated": false
+}

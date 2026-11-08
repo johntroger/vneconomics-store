@@ -1,0 +1,32 @@
+{
+  "key": 105,
+  "repo": "apache/airflow",
+  "repoId": "33884891",
+  "url": "https://github.com/apache/airflow",
+  "stars": 47350,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-11-03T02:44:04Z",
+  "defaultBranch": "main",
+  "description": "Apache Airflow - A platform to programmatically author, schedule, and monitor workflows",
+  "homepage": "https://airflow.apache.org/",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/apache/airflow/main/README.md",
+    "sha256": "fc3d9c199fab44c83d305358c219b1cbd9b6d102f87f76beed6be34879d4ac34",
+    "bytes": 41758,
+    "sectionsRead": [
+      "Project Focus",
+      "Requirements",
+      "Getting started (mục lục)"
+    ]
+  },
+  "unknowns": [
+    "Bảng phiên bản hỗ trợ sẽ thay đổi, cần đối chiếu lại khi đọc.",
+    "Chưa đọc mục Installation chi tiết."
+  ],
+  "runtimeValidated": false
+}

@@ -1,0 +1,32 @@
+{
+  "key": 107,
+  "repo": "dagster-io/dagster",
+  "repoId": "131619646",
+  "url": "https://github.com/dagster-io/dagster",
+  "stars": 16361,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-11-02T21:05:45Z",
+  "defaultBranch": "master",
+  "description": "An orchestration platform for the development, production, and observation of data assets.",
+  "homepage": "https://dagster.io",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/dagster-io/dagster/master/python_modules/dagster/README.md",
+    "sha256": "c67be78a0355a34b38964ba3e64fa615604e175afbc00bef4506afd4bf0a0b34",
+    "bytes": 6831,
+    "sectionsRead": [
+      "Giới thiệu và ví dụ asset",
+      "Quick Start",
+      "Key Features"
+    ]
+  },
+  "unknowns": [
+    "README chính ở thư mục gốc chỉ là file trỏ; bài dùng README trong python_modules/dagster.",
+    "Điều kiện dịch vụ cloud chưa kiểm tra."
+  ],
+  "runtimeValidated": false
+}

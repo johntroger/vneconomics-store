@@ -1,0 +1,31 @@
+{
+  "key": 104,
+  "repo": "PrefectHQ/prefect",
+  "repoId": "139199684",
+  "url": "https://github.com/PrefectHQ/prefect",
+  "stars": 24106,
+  "starsObservedAt": "2026-11-03",
+  "archived": false,
+  "license": "Apache-2.0",
+  "licenseSource": "GitHub Search API spdx_id",
+  "pushedAt": "2026-11-02T22:21:02Z",
+  "defaultBranch": "main",
+  "description": "Prefect is a workflow orchestration framework for building resilient data pipelines in Python.",
+  "homepage": "https://prefect.io",
+  "observedAt": "2026-11-03",
+  "method": "README via raw.githubusercontent.com; metadata via GitHub Search API (repo endpoint blocked by proxy in this session)",
+  "readme": {
+    "url": "https://raw.githubusercontent.com/PrefectHQ/prefect/main/README.md",
+    "sha256": "ea65184760f7e6d32def7fc740e6b1bebe31edae113323a891d80243d704795e",
+    "bytes": 9018,
+    "sectionsRead": [
+      "Prefect (giới thiệu)",
+      "Getting started"
+    ]
+  },
+  "unknowns": [
+    "Giá và điều kiện Prefect Cloud chưa kiểm tra.",
+    "Chưa đọc hết phần còn lại của README ngoài ví dụ."
+  ],
+  "runtimeValidated": false
+}
