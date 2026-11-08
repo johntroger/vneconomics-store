@@ -3,7 +3,6 @@ import {
   collection, 
   query, 
   where, 
-  orderBy, 
   onSnapshot, 
   addDoc, 
   serverTimestamp,
@@ -11,7 +10,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import { useAuth } from '../context/AuthContext';
-import { Star, MessageSquare, Send, CheckCircle2, User as UserIcon, LogIn } from 'lucide-react';
+import { Star, MessageSquare, Send, CheckCircle2, User as UserIcon, LogIn, AlertCircle } from 'lucide-react';
 
 interface Review {
   id: string;
@@ -38,40 +37,55 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
   const [commentText, setCommentText] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  // Real-time listener for reviews of this product
+  // Real-time listener for reviews (Single field query - NO composite index required)
   useEffect(() => {
     setLoading(true);
-    const reviewsRef = collection(db, 'reviews');
-    const q = query(
-      reviewsRef,
-      where('productSlug', '==', productSlug),
-      orderBy('createdAt', 'desc')
-    );
+    setErrorMessage(null);
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const items: Review[] = [];
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        items.push({
-          id: doc.id,
-          productSlug: data.productSlug,
-          userId: data.userId,
-          userName: data.userName || 'Người dùng ẩn danh',
-          userAvatar: data.userAvatar || '',
-          rating: data.rating || 5,
-          comment: data.comment || '',
-          createdAt: data.createdAt || null,
+    try {
+      const reviewsRef = collection(db, 'reviews');
+      const q = query(
+        reviewsRef,
+        where('productSlug', '==', productSlug)
+      );
+
+      const unsubscribe = onSnapshot(q, (snapshot) => {
+        const items: Review[] = [];
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          items.push({
+            id: doc.id,
+            productSlug: data.productSlug,
+            userId: data.userId,
+            userName: data.userName || 'Người dùng ẩn danh',
+            userAvatar: data.userAvatar || '',
+            rating: data.rating || 5,
+            comment: data.comment || '',
+            createdAt: data.createdAt || null,
+          });
         });
-      });
-      setReviews(items);
-      setLoading(false);
-    }, (error) => {
-      console.warn('Firestore reviews fetch notice:', error.message);
-      setLoading(false);
-    });
 
-    return () => unsubscribe();
+        // Client-side sort by createdAt desc (Safest, avoids Firestore index errors)
+        items.sort((a, b) => {
+          const tA = a.createdAt?.toMillis ? a.createdAt.toMillis() : ((a.createdAt as any)?.seconds ? (a.createdAt as any).seconds * 1000 : 0);
+          const tB = b.createdAt?.toMillis ? b.createdAt.toMillis() : ((b.createdAt as any)?.seconds ? (b.createdAt as any).seconds * 1000 : 0);
+          return tB - tA;
+        });
+
+        setReviews(items);
+        setLoading(false);
+      }, (error) => {
+        console.warn('Firestore reviews fetch notice:', error.message);
+        setLoading(false);
+      });
+
+      return () => unsubscribe();
+    } catch (err: any) {
+      console.warn('Firestore setup error:', err);
+      setLoading(false);
+    }
   }, [productSlug]);
 
   // Average Rating
@@ -91,6 +105,8 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
+
     if (!user) {
       await signInWithGoogle();
       return;
@@ -107,7 +123,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
         productSlug,
         productTitle,
         userId: user.uid,
-        userName: user.displayName || 'Người dùng Google',
+        userName: user.displayName || user.email?.split('@')[0] || 'Người dùng Google',
         userAvatar: user.photoURL || '',
         rating: selectedRating,
         comment: commentText.trim(),
@@ -116,10 +132,14 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
 
       setCommentText('');
       setSubmitSuccess(true);
-      setTimeout(() => setSubmitSuccess(false), 4000);
+      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error: any) {
       console.error('Error adding review:', error);
-      alert(`Không thể gửi đánh giá: ${error.message}`);
+      if (error.code === 'permission-denied' || error.message?.includes('permission')) {
+        setErrorMessage('Quyền truy cập Firestore chưa được bật: Vui lòng vào Firebase Console > Firestore Database > Rules và dán quy tắc: allow read: if true; allow create: if request.auth != null; rồi bấm Publish.');
+      } else {
+        setErrorMessage(`Lỗi gửi đánh giá (${error.code || 'error'}): ${error.message}`);
+      }
     } finally {
       setSubmitting(false);
     }
@@ -231,7 +251,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors shadow-xs disabled:opacity-50"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-colors shadow-xs disabled:opacity-50 cursor-pointer"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>{submitting ? 'Đang gửi...' : 'Đăng đánh giá'}</span>
@@ -240,7 +260,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
               <button
                 type="button"
                 onClick={signInWithGoogle}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-ink-800 font-semibold text-xs transition-colors shadow-2xs"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-ink-800 font-semibold text-xs transition-colors shadow-2xs cursor-pointer"
               >
                 <LogIn className="w-4 h-4 text-brand-600" />
                 <span>Đăng nhập Google để gửi đánh giá</span>
@@ -248,10 +268,17 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
             )}
           </div>
 
+          {errorMessage && (
+            <div className="mt-3 p-3.5 bg-rose-50 border border-rose-200 text-rose-800 text-xs rounded-xl flex items-start gap-2 animate-in fade-in leading-relaxed">
+              <AlertCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
           {submitSuccess && (
             <div className="mt-3 p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs rounded-xl flex items-center gap-2 animate-in fade-in">
               <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-              <span>Cảm ơn bạn! Đánh giá của bạn đã được xuất bản trực tiếp lên cộng đồng.</span>
+              <span>Cảm ơn bạn! Đánh giá của bạn đã được lưu và hiển thị trực tiếp.</span>
             </div>
           )}
         </form>
@@ -279,7 +306,6 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
                         alt={rev.userName}
                         className="w-8 h-8 rounded-full object-cover border border-slate-200"
                         onError={(e) => {
-                          // Fallback to initial icon if image fails to load
                           (e.target as HTMLElement).style.display = 'none';
                         }}
                       />
@@ -310,7 +336,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({ productSlug, produ
                         </div>
                         {rev.createdAt && (
                           <span className="text-[10px] text-ink-400">
-                            • {new Date(rev.createdAt.toDate ? rev.createdAt.toDate() : Date.now()).toLocaleDateString('vi-VN')}
+                            • {new Date(rev.createdAt.toDate ? rev.createdAt.toDate() : (rev.createdAt as any).seconds ? (rev.createdAt as any).seconds * 1000 : Date.now()).toLocaleDateString('vi-VN')}
                           </span>
                         )}
                       </div>

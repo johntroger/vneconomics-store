@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { 
   User, 
   signInWithPopup, 
+  signInWithRedirect,
   signOut, 
   onAuthStateChanged 
 } from 'firebase/auth';
@@ -37,10 +38,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (error: any) {
-      console.error('Google Sign-In Error:', error);
-      // Suppress user-aborted popup close error
-      if (error.code !== 'auth/popup-closed-by-user') {
-        alert(`Đăng nhập Google không thành công: ${error.message}`);
+      console.warn('Google Sign-In Popup Warning/Error:', error);
+      if (error.code === 'auth/popup-blocked') {
+        // Fallback to redirect if popup is blocked by browser
+        await signInWithRedirect(auth, googleProvider);
+      } else if (error.code !== 'auth/popup-closed-by-user') {
+        alert(`Đăng nhập Google: ${error.message}`);
       }
     }
   };
