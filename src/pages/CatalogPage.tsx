@@ -1,15 +1,16 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { Search, X, ArrowUpDown } from 'lucide-react';
-import { ResourceCard } from '../components/ResourceCard';
+import { ProductCard } from '../components/ProductCard';
 import { ResourceDetailModal } from '../components/ResourceDetailModal';
 import { resources } from '../data/resources';
 import { categories, needs } from '../data/categories';
 import { Resource } from '../types';
+import { useSEO } from '../utils/useSEO';
 
 export const CatalogPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Resource | null>(null);
 
   const initialQuery = searchParams.get('q') || '';
   const initialCategory = searchParams.get('category') || '';
@@ -26,8 +27,43 @@ export const CatalogPage: React.FC = () => {
     if (searchParams.get('need') !== null) setSelectedNeed(searchParams.get('need') || '');
   }, [searchParams]);
 
+  // SEO & Structured Data for Marketplace Catalog
+  useSEO({
+    title: 'Sàn Công Cụ Số — Danh Mục & Bảng Xếp Hạng 100+ Giải Pháp',
+    description: 'Khám phá hơn 100 công cụ, thư viện và giải pháp phần mềm chọn lọc theo chuẩn thương mại điện tử. Hỗ trợ lọc theo danh mục, nhu cầu và số sao GitHub.',
+    canonicalUrl: 'https://store.vneconomics.com/tai-nguyen',
+    keywords: ['sàn công cụ số', 'marketplace', 'phần mềm', 'công cụ AI', 'VibeLab Việt'],
+    jsonLdSchemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        'name': 'Sàn Công Cụ Số VibeLab Việt',
+        'description': 'Danh mục hơn 100 giải pháp phần mềm và công cụ số',
+        'url': 'https://store.vneconomics.com/tai-nguyen'
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Trang chủ',
+            'item': 'https://store.vneconomics.com/'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Sàn tài nguyên',
+            'item': 'https://store.vneconomics.com/tai-nguyen'
+          }
+        ]
+      }
+    ]
+  });
+
   // Filter & Sort logic
-  const filteredResources = useMemo(() => {
+  const filteredProducts = useMemo(() => {
     return resources
       .filter((item) => {
         const matchesSearch =
@@ -71,14 +107,35 @@ export const CatalogPage: React.FC = () => {
       {/* Header section */}
       <div className="mb-8">
         <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
-          Kho lưu trữ có thẩm định
+          Sàn Công Cụ Kỹ Thuật Số
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-ink-900 mt-2">
-          Thư viện tài nguyên & công cụ
+          Kho sản phẩm & phần mềm tuyển chọn
         </h1>
         <p className="text-sm text-ink-500 mt-1 max-w-2xl">
-          Toàn bộ 100 tài nguyên được tuyển chọn, phân loại theo mục đích cụ thể và đi kèm thông tin điều kiện, nguồn tác giả.
+          Hơn 100 giải pháp công nghệ được đóng gói theo định dạng sản phẩm thương mại điện tử, có URL riêng cho từng danh mục và bài viết.
         </p>
+      </div>
+
+      {/* Category Pills Bar (Quick jump to dedicated category URLs) */}
+      <div className="mb-8 overflow-x-auto pb-2 scrollbar-none">
+        <div className="flex items-center gap-2 min-w-max">
+          <Link
+            to="/tai-nguyen"
+            className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-brand-600 text-white shadow-xs"
+          >
+            Tất cả (100)
+          </Link>
+          {categories.map((c) => (
+            <Link
+              key={c.id}
+              to={`/danh-muc/${c.slug}`}
+              className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white border border-slate-200 text-ink-700 hover:border-brand-400 hover:text-brand-600 transition-colors shadow-2xs"
+            >
+              {c.name}
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Search & Filter Toolbar */}
@@ -92,7 +149,7 @@ export const CatalogPage: React.FC = () => {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Tìm theo tên công cụ, việc cần làm, từ khóa..."
+              placeholder="Tìm theo tên công cụ, tính năng, nhu cầu..."
               className="w-full pl-10 pr-9 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-sm focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-all"
             />
             {searchTerm && (
@@ -131,7 +188,7 @@ export const CatalogPage: React.FC = () => {
               onChange={(e) => setSelectedCategory(e.target.value)}
               className="w-full text-xs py-2 px-3 rounded-lg border border-slate-200 bg-slate-50 text-ink-700 focus:bg-white focus:outline-none focus:border-brand-500"
             >
-              <option value="">Tất cả danh mục (10)</option>
+              <option value="">Lọc theo danh mục (10)</option>
               {categories.map((c) => (
                 <option key={c.id} value={c.name}>
                   {c.name}
@@ -146,7 +203,7 @@ export const CatalogPage: React.FC = () => {
               onChange={(e) => setSelectedNeed(e.target.value)}
               className="w-full text-xs py-2 px-3 rounded-lg border border-slate-200 bg-slate-50 text-ink-700 focus:bg-white focus:outline-none focus:border-brand-500"
             >
-              <option value="">Tất cả nhu cầu công việc (10)</option>
+              <option value="">Lọc theo việc cần làm (10)</option>
               {needs.map((n) => (
                 <option key={n.id} value={n.name}>
                   {n.name}
@@ -172,18 +229,18 @@ export const CatalogPage: React.FC = () => {
       {/* Results header / count */}
       <div className="flex items-center justify-between mb-6 text-xs text-ink-500">
         <p>
-          Tìm thấy <strong className="text-ink-900 font-bold">{filteredResources.length}</strong> / {resources.length} tài nguyên phù hợp
+          Tìm thấy <strong className="text-ink-900 font-bold">{filteredProducts.length}</strong> / {resources.length} sản phẩm phù hợp
         </p>
       </div>
 
-      {/* Grid of Resource Cards */}
-      {filteredResources.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredResources.map((item) => (
-            <ResourceCard
+      {/* Grid of Product Cards (Marketplace E-Commerce Style) */}
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProducts.map((item) => (
+            <ProductCard
               key={item.id}
-              resource={item}
-              onSelect={setSelectedResource}
+              product={item}
+              onSelect={setSelectedProduct}
             />
           ))}
         </div>
@@ -193,23 +250,23 @@ export const CatalogPage: React.FC = () => {
           <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mx-auto text-ink-400 mb-4">
             <Search className="w-6 h-6" />
           </div>
-          <h3 className="text-base font-bold text-ink-900">Không tìm thấy tài nguyên phù hợp</h3>
+          <h3 className="text-base font-bold text-ink-900">Không tìm thấy sản phẩm phù hợp</h3>
           <p className="mt-1 text-xs text-ink-500 max-w-sm mx-auto">
-            Hãy thử tìm bằng từ khóa tổng quát hơn hoặc xóa bớt bộ lọc danh mục và nhu cầu.
+            Hãy thử tìm bằng từ khóa tổng quát hơn hoặc xóa bớt bộ lọc.
           </p>
           <button
             onClick={handleClearFilters}
             className="mt-4 px-4 py-2 rounded-xl bg-brand-50 text-brand-700 text-xs font-semibold hover:bg-brand-100 transition-colors"
           >
-            Khôi phục tất cả tài nguyên
+            Khôi phục toàn bộ sản phẩm
           </button>
         </div>
       )}
 
       {/* Quick View Modal */}
       <ResourceDetailModal
-        resource={selectedResource}
-        onClose={() => setSelectedResource(null)}
+        resource={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
       />
 
     </div>

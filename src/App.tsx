@@ -4,13 +4,15 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { CatalogPage } from './pages/CatalogPage';
-import { ResourceDetailPage } from './pages/ResourceDetailPage';
+import { CategoryPage } from './pages/CategoryPage';
+import { ProductDetailPage } from './pages/ProductDetailPage';
 import { GuidesPage } from './pages/GuidesPage';
+import { GuideDetailPage } from './pages/GuideDetailPage';
 import { CriteriaPage } from './pages/CriteriaPage';
 import { Search, X, Star } from 'lucide-react';
 import { resources } from './data/resources';
 
-// Scroll to top component on route change
+// Scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -21,7 +23,7 @@ function ScrollToTop() {
   return null;
 }
 
-// Global Quick Search Dialog
+// Global Quick Search Dialog (Ctrl+K)
 function QuickSearchDialog({
   isOpen,
   onClose,
@@ -36,7 +38,7 @@ function QuickSearchDialog({
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        onClose(); // toggle
+        onClose();
       }
       if (e.key === 'Escape' && isOpen) {
         onClose();
@@ -93,7 +95,7 @@ function QuickSearchDialog({
                 key={r.id}
                 onClick={() => {
                   onClose();
-                  navigate(`/tai-nguyen/${r.slug}`);
+                  navigate(`/san-pham/${r.slug}`);
                 }}
                 className="p-3 rounded-xl hover:bg-slate-50 cursor-pointer flex items-center justify-between text-left group"
               >
@@ -120,7 +122,7 @@ function QuickSearchDialog({
           </div>
         ) : (
           <div className="p-4 bg-slate-50 text-[11px] text-ink-400 flex items-center justify-between">
-            <span>Gõ từ khóa để tìm trong hơn 100 tài nguyên</span>
+            <span>Gõ từ khóa để tìm trong hơn 100 sản phẩm</span>
             <span className="font-mono">ESC để đóng</span>
           </div>
         )}
@@ -141,9 +143,21 @@ export function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/tai-nguyen" element={<CatalogPage />} />
-            <Route path="/tai-nguyen/:slug" element={<ResourceDetailPage />} />
+            
+            {/* Mỗi category có URL riêng */}
+            <Route path="/danh-muc/:slug" element={<CategoryPage />} />
+            
+            {/* Mỗi sản phẩm / bài viết có URL riêng */}
+            <Route path="/san-pham/:slug" element={<ProductDetailPage />} />
+            <Route path="/tai-nguyen/:slug" element={<ProductDetailPage />} />
+            
+            {/* Mỗi cẩm nang có URL riêng */}
             <Route path="/huong-dan" element={<GuidesPage />} />
+            <Route path="/huong-dan/:slug" element={<GuideDetailPage />} />
+            
+            {/* Tiêu chí tuyển chọn */}
             <Route path="/tieu-chi" element={<CriteriaPage />} />
+            
             <Route path="*" element={<HomePage />} />
           </Routes>
         </main>

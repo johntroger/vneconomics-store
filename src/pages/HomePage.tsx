@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
-import { ResourceCard } from '../components/ResourceCard';
+import { ProductCard } from '../components/ProductCard';
 import { ResourceDetailModal } from '../components/ResourceDetailModal';
 import { resources } from '../data/resources';
 import { categories } from '../data/categories';
 import { guides } from '../data/guides';
 import { Resource } from '../types';
+import { useSEO } from '../utils/useSEO';
 import { 
   ArrowRight, 
   Layers, 
@@ -20,14 +21,15 @@ import {
   LayoutGrid, 
   FolderArchive,
   CheckCircle2,
-  Clock
+  Clock,
+  ShoppingBag
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
-  const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Resource | null>(null);
 
-  // Top featured resources (picked from first batch & popular)
-  const featuredResources = resources.slice(0, 6);
+  // Top featured products (picked from first batch & popular)
+  const featuredProducts = resources.slice(0, 6);
 
   // Category Icon mapper
   const getCategoryIcon = (iconName: string) => {
@@ -45,23 +47,56 @@ export const HomePage: React.FC = () => {
     }
   };
 
+  // SEO & Schema for HomePage
+  useSEO({
+    title: 'VibeLab Việt — Sàn Thư Viện Công Cụ Số Có Biên Tập',
+    description: 'Sàn thư viện công cụ số, giải pháp công nghệ và phần mềm chọn lọc dành cho người Việt. Chuẩn thẩm định EEAT, SEO, AEO và GEO.',
+    canonicalUrl: 'https://store.vneconomics.com/',
+    ogImage: 'https://store.vneconomics.com/favicon.svg',
+    keywords: ['sàn công cụ số', 'VibeLab Việt', 'vneconomics store', 'công cụ AI', 'phần mềm miễn phí', 'mã nguồn mở'],
+    jsonLdSchemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'VibeLab Việt',
+        'url': 'https://store.vneconomics.com/',
+        'description': 'Sàn thư viện công cụ số có biên tập dành cho người Việt',
+        'potentialAction': {
+          '@type': 'SearchAction',
+          'target': 'https://store.vneconomics.com/tai-nguyen?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        'name': 'Vneconomics',
+        'url': 'https://store.vneconomics.com/',
+        'logo': 'https://store.vneconomics.com/favicon.svg',
+        'sameAs': [
+          'https://github.com/johntroger/vneconomics-store'
+        ]
+      }
+    ]
+  });
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <Hero resources={resources} onSelectResource={setSelectedResource} />
+      <Hero resources={resources} onSelectResource={setSelectedProduct} />
 
-      {/* Bento Grid: Khám phá theo nhu cầu & danh mục */}
+      {/* Sàn Danh mục Sản phẩm (Bento Grid) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
-              Cấu trúc theo mục đích
+              Chuyên mục Sàn giao dịch
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-900 mt-2">
-              Khám phá theo việc bạn cần làm
+              Khám phá theo danh mục sản phẩm
             </h2>
             <p className="text-sm text-ink-500 mt-1 max-w-xl">
-              Chọn nhóm nhu cầu thực tế để lọc ra các công cụ đã được đối chiếu điều kiện và tài liệu tác giả.
+              Mỗi danh mục có đường dẫn URL chuyên biệt, tối ưu chuẩn SEO và kiểm định chất lượng nghiêm ngặt.
             </p>
           </div>
           <Link
@@ -73,11 +108,11 @@ export const HomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {categories.slice(0, 8).map((cat) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {categories.map((cat) => (
             <Link
               key={cat.id}
-              to={`/tai-nguyen?category=${encodeURIComponent(cat.name)}`}
+              to={`/danh-muc/${cat.slug}`}
               className="group p-5 rounded-2xl bg-white border border-slate-200/80 hover:border-brand-400/60 hover:shadow-card-hover transition-all flex flex-col justify-between"
             >
               <div>
@@ -92,7 +127,7 @@ export const HomePage: React.FC = () => {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-ink-400 group-hover:text-brand-600">
-                <span className="font-medium">Xem công cụ</span>
+                <span className="font-semibold">Vào danh mục</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -100,53 +135,54 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Resources Section */}
+      {/* Featured Products Showcase (E-Commerce Style) */}
       <section className="bg-slate-50/70 border-y border-slate-200/70 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
-                Chọn có lý do
+                Sản phẩm nổi bật
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-900 mt-2">
-                Tài nguyên để bắt đầu
+                Top công cụ được cộng đồng đánh giá cao
               </h2>
               <p className="text-sm text-ink-500 mt-1 max-w-xl">
-                Mỗi mục cho biết công dụng, mức độ quan tâm từ cộng đồng và tình trạng xác minh. Mở chi tiết trước khi sang nguồn bên ngoài.
+                Hình ảnh đại diện phù hợp nội dung, dẫn về nguồn tác giả chính thức và kiểm duyệt theo chuẩn EEAT.
               </p>
             </div>
             <Link
               to="/tai-nguyen"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-semibold shadow-xs transition-all"
             >
-              <span>Xem toàn bộ 100+ tài nguyên</span>
+              <ShoppingBag className="w-4 h-4" />
+              <span>Xem toàn bộ 100 sản phẩm</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredResources.map((item) => (
-              <ResourceCard
+            {featuredProducts.map((item) => (
+              <ProductCard
                 key={item.id}
-                resource={item}
-                onSelect={setSelectedResource}
+                product={item}
+                onSelect={setSelectedProduct}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3 Steps: Lộ trình từ câu hỏi đến việc làm được */}
+      {/* 3 Steps: Lộ trình cho người dùng */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
-            Một lộ trình ngắn
+            Quy trình chuẩn
           </span>
           <h2 className="text-3xl font-extrabold text-ink-900 mt-3">
-            Từ câu hỏi đến việc làm được
+            Quy trình 3 bước tiếp cận công cụ an toàn
           </h2>
           <p className="text-sm text-ink-500 mt-2">
-            Ba bước này là trình tự thật, giúp bạn tiếp cận công cụ số an toàn và không bị ngợp.
+            Đảm bảo bạn nắm chắc điều kiện và cách dùng trước khi đưa vào sản phẩm thật.
           </p>
         </div>
 
@@ -155,9 +191,9 @@ export const HomePage: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-lg bg-blue-50 text-brand-700 font-mono text-xs font-bold mb-4">
               Bước 1
             </span>
-            <h3 className="text-lg font-bold text-ink-900">Nói việc bạn cần làm</h3>
+            <h3 className="text-lg font-bold text-ink-900">Xác định việc cần làm</h3>
             <p className="mt-2 text-sm text-ink-500 leading-relaxed">
-              Bắt đầu từ kết quả mong muốn, chẳng hạn chuyển đổi tài liệu, ghi chú kiến thức hoặc dựng trang giới thiệu — thay vì đuổi theo công nghệ mới nhất.
+              Tìm theo kết quả mong muốn trong danh mục sản phẩm tương ứng, tránh việc cài đặt quá nhiều công cụ trùng lặp.
             </p>
           </div>
 
@@ -165,9 +201,9 @@ export const HomePage: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-lg bg-amber-50 text-amber-700 font-mono text-xs font-bold mb-4">
               Bước 2
             </span>
-            <h3 className="text-lg font-bold text-ink-900">Đọc điều kiện và giới hạn</h3>
+            <h3 className="text-lg font-bold text-ink-900">Kiểm tra thông số kỹ thuật</h3>
             <p className="mt-2 text-sm text-ink-500 leading-relaxed">
-              Kiểm tra kỹ giấy phép, yêu cầu phần cứng/RAM, phiên bản ngôn ngữ và chi phí mô hình AI trước khi tiến hành cài đặt vào máy.
+              Đọc kỹ bảng Tech Specs và báo cáo thẩm định EEAT để biết trước yêu cầu cấu hình RAM, GPU, Python và chi phí.
             </p>
           </div>
 
@@ -175,9 +211,9 @@ export const HomePage: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 font-mono text-xs font-bold mb-4">
               Bước 3
             </span>
-            <h3 className="text-lg font-bold text-ink-900">Bắt đầu với đầu ra nhỏ</h3>
+            <h3 className="text-lg font-bold text-ink-900">Thực hành trên môi trường thử</h3>
             <p className="mt-2 text-sm text-ink-500 leading-relaxed">
-              Làm theo các bài hướng dẫn mẫu, tạo một thay đổi có thể kiểm chứng được ngay và luôn chuẩn bị phương án sao lưu, khôi phục.
+              Làm theo các bài hướng dẫn mẫu, tạo đầu ra kiểm chứng được và giữ nguyên trạng bản sao lưu an toàn.
             </p>
           </div>
         </div>
@@ -189,13 +225,13 @@ export const HomePage: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200">
-                Thực hành an toàn
+                Cẩm nang thực hành
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-ink-900 mt-2">
-                Bài hướng dẫn & thử nghiệm
+                Bài viết hướng dẫn & Thử nghiệm
               </h2>
               <p className="text-sm text-ink-500 mt-1 max-w-xl">
-                Các quy trình mẫu giúp bạn thử nghiệm công cụ trên môi trường an toàn.
+                Từng bài viết có URL riêng, tối ưu chuẩn SEO và hướng dẫn chi tiết từng thao tác.
               </p>
             </div>
             <Link
@@ -209,7 +245,7 @@ export const HomePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {guides.map((g) => (
-              <div key={g.id} className="bg-white border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
+              <article key={g.id} className="bg-white border border-slate-200/80 rounded-2xl p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 text-xs text-ink-400 mb-3">
                     <Clock className="w-3.5 h-3.5" />
@@ -227,58 +263,58 @@ export const HomePage: React.FC = () => {
                     to={`/huong-dan/${g.slug}`}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-600 hover:text-brand-800"
                   >
-                    <span>Xem hướng dẫn từng bước</span>
+                    <span>Xem bài viết chi tiết</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Principles Section */}
+      {/* EEAT Principles Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-gradient-to-tr from-brand-900 to-ink-900 text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             <span className="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-white/10 px-3 py-1 rounded-full border border-white/20">
-              Tiêu chí tuyển chọn
+              Cam kết chất lượng sàn
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold mt-4 tracking-tight">
-              Ít phỏng đoán hơn. Nhiều dấu vết hơn.
+              Đảm bảo Chuẩn SEO, AEO, GEO & Thẩm định EEAT
             </h2>
             <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-              Thư viện ưu tiên nội dung giúp người mới quyết định có nên dùng một công cụ, thay vì biến độ phổ biến thành lời khuyên mù quáng.
+              Mọi sản phẩm trên sàn đều được chuẩn hóa cấu trúc dữ liệu JSON-LD (SoftwareApplication, BreadcrumbList, FAQPage) giúp các công cụ tìm kiếm và AI Answers trích xuất câu trả lời chính xác nhất.
             </p>
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-white/10">
               <div>
                 <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Dẫn về nguồn cụ thể
+                  URL riêng biệt
                 </h4>
                 <p className="mt-1 text-xs text-slate-400">
-                  Repo, commit hoặc tài liệu của tác giả luôn được đối chiếu rõ ràng.
+                  Mỗi category, mỗi bài viết đều có canonical URL riêng biệt không trùng lặp.
                 </p>
               </div>
 
               <div>
                 <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Minh bạch giới hạn
+                  Ảnh đại diện 16:9
                 </h4>
                 <p className="mt-1 text-xs text-slate-400">
-                  Thông tin chưa biết hoặc chưa kiểm thử được nói thẳng với người đọc.
+                  Đầy đủ ảnh bìa chất lượng cao, tối ưu thẻ OpenGraph chia sẻ mạng xã hội.
                 </p>
               </div>
 
               <div>
                 <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Không tạo số liệu ảo
+                  AEO & GEO Ready
                 </h4>
                 <p className="mt-1 text-xs text-slate-400">
-                  Số sao GitHub, nhãn kiểm thử đều dựa trên dữ liệu thật tại thời điểm quan sát.
+                  Định dạng hỏi - đáp trực tiếp phục vụ các mô hình ngôn ngữ lớn và Perplexity.
                 </p>
               </div>
             </div>
@@ -288,7 +324,7 @@ export const HomePage: React.FC = () => {
                 to="/tieu-chi"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-brand-900 font-semibold text-xs sm:text-sm hover:bg-slate-100 transition-colors shadow-sm"
               >
-                <span>Đọc toàn bộ tiêu chí biên tập</span>
+                <span>Đọc quy chuẩn thẩm định</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -298,8 +334,8 @@ export const HomePage: React.FC = () => {
 
       {/* Modal Quick View */}
       <ResourceDetailModal
-        resource={selectedResource}
-        onClose={() => setSelectedResource(null)}
+        resource={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
       />
     </div>
   );

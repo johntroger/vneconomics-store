@@ -3,62 +3,72 @@ import { CategoryInfo, NeedInfo } from '../types';
 export const categories: CategoryInfo[] = [
   {
     id: 'tai-lieu-va-cong-viec-van-phong',
+    slug: 'tai-lieu-va-cong-viec-van-phong',
     name: 'Tài liệu và công việc văn phòng',
-    description: 'Chuyển đổi PDF, Markdown, tự động hóa tài liệu và xử lý văn bản.',
+    description: 'Chuyển đổi PDF, Markdown, tự động hóa tài liệu và xử lý văn bản chuyên nghiệp.',
     iconName: 'FileText'
   },
   {
     id: 'ghi-chu-va-tri-thuc-ca-nhan',
+    slug: 'ghi-chu-va-tri-thuc-ca-nhan',
     name: 'Ghi chú và tri thức cá nhân',
-    description: 'Quản lý kiến thức, kết nối ý tưởng và kho tài liệu cá nhân PKM.',
+    description: 'Quản lý kiến thức (PKM), kết nối ý tưởng và xây dựng bộ não thứ hai (Second Brain).',
     iconName: 'BookOpen'
   },
   {
     id: 'workflow-va-ung-dung-truc-quan',
+    slug: 'workflow-va-ung-dung-truc-quan',
     name: 'Workflow và ứng dụng trực quan',
-    description: 'Tự động hóa luồng làm việc, tích hợp API không cần viết mã.',
+    description: 'Tự động hóa luồng làm việc, kết nối API và tạo công cụ không cần viết mã.',
     iconName: 'GitFork'
   },
   {
     id: 'ai-tren-may-va-khong-gian-tro-chuyen',
+    slug: 'ai-tren-may-va-khong-gian-tro-chuyen',
     name: 'AI trên máy và không gian trò chuyện',
-    description: 'Mô hình ngôn ngữ cục bộ, giao diện chat riêng tư bảo mật dữ liệu.',
+    description: 'Chạy mô hình ngôn ngữ lớn (LLM) cục bộ, bảo mật tuyệt đối dữ liệu doanh nghiệp.',
     iconName: 'Cpu'
   },
   {
     id: 'coding-agent-va-cach-lam-du-an',
+    slug: 'coding-agent-va-cach-lam-du-an',
     name: 'Coding agent và cách làm dự án',
-    description: 'Hỗ trợ lập trình viên tạo mã nguồn, sửa lỗi và kiến trúc phần mềm.',
+    description: 'Trợ lý lập trình viên AI hỗ trợ sinh mã nguồn, tự động kiểm thử và refactor.',
     iconName: 'Terminal'
   },
   {
     id: 'skills-va-phuong-phap-lam-viec',
+    slug: 'skills-va-phuong-phap-lam-viec',
     name: 'Skills và phương pháp làm việc',
-    description: 'Kỹ năng làm việc chuyên sâu, quy trình tối ưu hiệu suất công việc.',
+    description: 'Bộ kỹ năng, quy chuẩn prompt và quy trình nâng cao hiệu suất làm việc số.',
     iconName: 'Zap'
   },
   {
     id: 'thiet-ke-va-hinh-anh',
+    slug: 'thiet-ke-va-hinh-anh',
     name: 'Thiết kế và hình ảnh',
-    description: 'Xử lý hình ảnh, UI/UX, đồ họa vector và thiết kế thương hiệu.',
+    description: 'Xử lý hình ảnh, UI/UX, đồ họa vector và thiết kế thương hiệu chuẩn nhận diện.',
     iconName: 'Palette'
   },
   {
     id: 'am-thanh-va-video',
+    slug: 'am-thanh-va-video',
     name: 'Âm thanh và video',
-    description: 'Biên tập đa phương tiện, chuyển giọng nói thành văn bản, tạo phụ đề.',
+    description: 'Biên tập đa phương tiện, lọc ồn, phụ đề tự động và chuyển đổi giọng nói.',
     iconName: 'Video'
   },
   {
     id: 'du-lieu-va-giao-dien-ung-dung',
+    slug: 'du-lieu-va-giao-dien-ung-dung',
     name: 'Dữ liệu và giao diện ứng dụng',
-    description: 'Trực quan hóa dữ liệu, bảng dashboard và giao diện quản trị.',
+    description: 'Trực quan hóa dữ liệu lớn, bảng dashboard và giao diện quản trị hiện đại.',
     iconName: 'LayoutGrid'
   },
   {
     id: 'luu-tru-va-cong-cu-ca-nhan',
+    slug: 'luu-tru-va-cong-cu-ca-nhan',
     name: 'Lưu trữ và công cụ cá nhân',
-    description: 'Bảo mật mật khẩu, đồng bộ tệp tin, công cụ tiện ích hàng ngày.',
+    description: 'Quản trị mật khẩu, đồng bộ tệp tin đám mây và các tiện ích bảo mật hàng ngày.',
     iconName: 'FolderArchive'
   }
 ];

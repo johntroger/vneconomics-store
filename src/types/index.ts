@@ -31,6 +31,7 @@ export interface Guide {
 
 export interface CategoryInfo {
   id: string;
+  slug: string;
   name: string;
   description: string;
   iconName: string;

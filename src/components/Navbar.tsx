@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Layers, Search, BookOpen, ShieldCheck, Menu, X, Github } from 'lucide-react';
+import { Layers, Search, BookOpen, ShieldCheck, Menu, X, Github, ShoppingBag } from 'lucide-react';
 
 interface NavbarProps {
   onOpenSearch?: () => void;
@@ -12,9 +12,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
 
   const navLinks = [
     { to: '/', label: 'Trang chủ', icon: Layers },
-    { to: '/tai-nguyen', label: 'Tài nguyên', icon: Search },
-    { to: '/huong-dan', label: 'Hướng dẫn', icon: BookOpen },
-    { to: '/tieu-chi', label: 'Tiêu chí tuyển chọn', icon: ShieldCheck },
+    { to: '/tai-nguyen', label: 'Sàn công cụ', icon: ShoppingBag },
+    { to: '/huong-dan', label: 'Cẩm nang', icon: BookOpen },
+    { to: '/tieu-chi', label: 'Tiêu chí EEAT', icon: ShieldCheck },
   ];
 
   const isActive = (path: string) => {
@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             <div>
               <span className="text-lg font-bold tracking-tight text-ink-900 group-hover:text-brand-600 transition-colors flex items-center gap-1.5">
                 VibeLab Việt
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 border border-brand-200">v2.0</span>
+                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-brand-50 text-brand-600 border border-brand-200">Sàn TMĐT</span>
               </span>
               <p className="text-xs text-ink-500 hidden sm:block">store.vneconomics.com</p>
             </div>
@@ -70,7 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 title="Tìm kiếm nhanh (Ctrl+K)"
               >
                 <Search className="w-3.5 h-3.5" />
-                <span>Tìm nhanh...</span>
+                <span>Tìm sản phẩm...</span>
                 <kbd className="px-1.5 py-0.5 text-[10px] bg-white border border-slate-200 rounded text-slate-400 font-mono">⌘K</kbd>
               </button>
             )}
