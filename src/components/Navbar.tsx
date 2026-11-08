@@ -10,8 +10,12 @@ import {
   Menu, 
   X,
   Layers,
-  ShieldCheck
+  ShieldCheck,
+  LogIn,
+  LogOut,
+  User as UserIcon
 } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 
 interface NavbarProps {
   onOpenSearch?: () => void;
@@ -20,6 +24,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const { user, signInWithGoogle, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -44,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-200/90 shadow-xs">
       
-      {/* Top Utility Bar (Soothing Slate Background, Easy on the eyes) */}
+      {/* Top Utility Bar */}
       <div className="bg-slate-50/80 border-b border-slate-200/70 text-[11px] font-medium hidden md:block text-ink-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-between">
           
@@ -85,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
         </div>
       </div>
 
-      {/* Main Search & Logo Bar (White Background, Clear Visual Hierarchy) */}
+      {/* Main Search & Logo Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2.5">
         <div className="flex items-center justify-between gap-4 sm:gap-8">
           
@@ -99,53 +105,112 @@ export const Navbar: React.FC<NavbarProps> = () => {
                 <span className="text-xl sm:text-2xl font-black tracking-tight text-ink-900 group-hover:text-brand-700 transition-colors">
                   VibeLab Việt
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-ink-700 border border-slate-200 px-1.5 py-0.5 rounded shadow-2xs">
-                  Store
+                <span className="bg-brand-600 text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide">
+                  MALL
                 </span>
               </div>
-              <p className="text-[11px] text-ink-500 font-medium tracking-wide mt-1">Sàn Thư Viện Công Cụ Số Có Biên Tập</p>
+              <p className="text-[10px] text-ink-500 font-medium tracking-wide mt-1">
+                bởi Vneconomics Store • Chuẩn EEAT 2026
+              </p>
             </div>
           </Link>
 
-          {/* E-Commerce Search Bar */}
-          <div className="flex-1 max-w-2xl">
-            <form onSubmit={handleSearch} className="relative flex items-center">
-              <div className="w-full bg-slate-50 border border-slate-300 hover:border-slate-400 focus-within:border-brand-600 focus-within:bg-white rounded-lg p-0.5 shadow-2xs flex items-center transition-all">
+          {/* Shopee-style Search Box */}
+          <div className="flex-1 max-w-2xl hidden sm:block">
+            <form onSubmit={handleSearch} className="relative">
+              <div className="flex items-center bg-white border-2 border-brand-600 rounded-xl overflow-hidden shadow-2xs focus-within:border-brand-700 transition-colors">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Tìm kiếm hơn 100 công cụ số, AI, Markdown, PDF, Coding Agent..."
-                  className="w-full pl-3.5 pr-2 py-2 text-xs sm:text-sm text-ink-900 placeholder:text-slate-400 bg-transparent focus:outline-none"
+                  placeholder="Tìm kiếm công cụ mã nguồn mở, chuyển đổi PDF, AI Agent, tài liệu..."
+                  className="w-full px-4 py-2.5 text-xs sm:text-sm text-ink-900 placeholder:text-ink-400 focus:outline-none"
                 />
                 <button
                   type="submit"
-                  className="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-md flex items-center justify-center transition-colors shrink-0 font-semibold text-xs shadow-2xs gap-1.5"
-                  aria-label="Tìm kiếm công cụ"
+                  className="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 font-semibold text-xs sm:text-sm flex items-center justify-center transition-colors shrink-0"
                 >
-                  <Search className="w-4 h-4" />
-                  <span className="hidden sm:inline">Tìm</span>
+                  <Search className="w-4 h-4 mr-1.5" />
+                  <span>Tìm kiếm</span>
                 </button>
               </div>
             </form>
 
-            {/* Trending tags */}
-            <div className="hidden sm:flex items-center gap-3 mt-1.5 text-[11px] text-ink-500 overflow-hidden whitespace-nowrap">
-              <span className="text-slate-400">Gợi ý:</span>
-              {trendingTags.map((tag) => (
-                <button
-                  key={tag.q}
-                  onClick={() => navigate(`/tai-nguyen?q=${encodeURIComponent(tag.q)}`)}
-                  className="hover:text-brand-600 hover:underline transition-colors"
-                >
-                  {tag.label}
-                </button>
-              ))}
+            {/* Trending Suggestions Ribbon */}
+            <div className="flex items-center gap-3 mt-1.5 text-[11px] text-ink-500 overflow-hidden whitespace-nowrap">
+              <span className="text-ink-400 font-medium shrink-0">Tìm kiếm phổ biến:</span>
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                {trendingTags.map((t) => (
+                  <Link
+                    key={t.q}
+                    to={`/tai-nguyen?q=${encodeURIComponent(t.q)}`}
+                    className="hover:text-brand-600 transition-colors"
+                  >
+                    {t.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Cart / Tool Inventory Icon */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Right Actions: Auth + Inventory Pill + Mobile Toggle */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            
+            {/* User Authentication Button / Dropdown */}
+            {user ? (
+              <div className="relative">
+                <button
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  className="flex items-center gap-2 p-1.5 sm:px-3 sm:py-1.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors"
+                >
+                  {user.photoURL ? (
+                    <img 
+                      src={user.photoURL} 
+                      alt={user.displayName || 'Avatar'} 
+                      className="w-7 h-7 rounded-full object-cover border border-slate-200"
+                    />
+                  ) : (
+                    <div className="w-7 h-7 rounded-full bg-brand-100 text-brand-700 font-bold flex items-center justify-center text-xs">
+                      {user.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}
+                    </div>
+                  )}
+                  <span className="hidden lg:inline text-xs font-semibold text-ink-800 max-w-[120px] truncate">
+                    {user.displayName || user.email}
+                  </span>
+                </button>
+
+                {/* Dropdown Menu */}
+                {userDropdownOpen && (
+                  <div 
+                    className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 text-xs animate-in fade-in"
+                    onClick={() => setUserDropdownOpen(false)}
+                  >
+                    <div className="px-4 py-2 border-b border-slate-100">
+                      <p className="font-bold text-ink-900 truncate">{user.displayName || 'Tài khoản Google'}</p>
+                      <p className="text-[11px] text-ink-500 truncate mt-0.5">{user.email}</p>
+                    </div>
+                    <button
+                      onClick={logout}
+                      className="w-full text-left px-4 py-2 text-rose-600 hover:bg-rose-50 font-semibold flex items-center gap-2 transition-colors mt-1"
+                    >
+                      <LogOut className="w-3.5 h-3.5" />
+                      <span>Đăng xuất</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={signInWithGoogle}
+                className="inline-flex items-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-ink-800 font-semibold text-xs shadow-2xs transition-colors"
+                title="Đăng nhập với Google"
+              >
+                <LogIn className="w-3.5 h-3.5 text-brand-600" />
+                <span className="hidden sm:inline">Đăng nhập</span>
+              </button>
+            )}
+
+            {/* Inventory Bag Button */}
             <Link 
               to="/tai-nguyen" 
               className="relative p-2.5 hover:bg-slate-100 rounded-xl transition-colors border border-slate-200/80 bg-white"
@@ -170,7 +235,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
         </div>
       </div>
 
-      {/* Category Navigation Ribbon (Calm Slate Background) */}
+      {/* Category Navigation Ribbon */}
       <div className="bg-slate-50/70 border-t border-slate-200/80 text-xs hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between overflow-x-auto whitespace-nowrap text-ink-600">
           <div className="flex items-center gap-6">
@@ -195,6 +260,37 @@ export const Navbar: React.FC<NavbarProps> = () => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3 text-sm">
+          {!user ? (
+            <button
+              onClick={() => {
+                signInWithGoogle();
+                setMobileMenuOpen(false);
+              }}
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-brand-50 border border-brand-200 text-brand-700 font-bold rounded-xl"
+            >
+              <LogIn className="w-4 h-4" />
+              <span>Đăng nhập với Google</span>
+            </button>
+          ) : (
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2">
+                <UserIcon className="w-4 h-4 text-brand-600" />
+                <span className="font-bold text-ink-900 text-xs truncate max-w-[200px]">
+                  {user.displayName || user.email}
+                </span>
+              </div>
+              <button
+                onClick={() => {
+                  logout();
+                  setMobileMenuOpen(false);
+                }}
+                className="text-xs text-rose-600 font-bold"
+              >
+                Đăng xuất
+              </button>
+            </div>
+          )}
+
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -50,68 +51,70 @@ function QuickSearchDialog({
 
   if (!isOpen) return null;
 
-  const results = query.trim()
+  const filtered = query.trim()
     ? resources
         .filter(
           (r) =>
             r.title.toLowerCase().includes(query.toLowerCase()) ||
-            r.need.toLowerCase().includes(query.toLowerCase()) ||
-            r.category.toLowerCase().includes(query.toLowerCase())
+            r.excerpt.toLowerCase().includes(query.toLowerCase()) ||
+            r.category.toLowerCase().includes(query.toLowerCase()) ||
+            r.need.toLowerCase().includes(query.toLowerCase())
         )
-        .slice(0, 6)
+        .slice(0, 8)
     : [];
 
   return (
-    <div 
-      className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-xs flex items-start justify-center pt-20 px-4"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-ink-950/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
-        className="bg-white rounded-2xl w-full max-w-xl shadow-2xl border border-slate-200 overflow-hidden"
+        className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-3 border-b border-slate-100 flex items-center gap-3">
-          <Search className="w-5 h-5 text-brand-600 shrink-0 ml-2" />
+        <div className="flex items-center px-4 border-b border-slate-100">
+          <Search className="w-5 h-5 text-ink-400 mr-3" />
           <input
             type="text"
-            autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Tìm nhanh tài nguyên, công cụ, nhu cầu..."
-            className="w-full text-sm py-1.5 focus:outline-none placeholder:text-ink-400"
+            placeholder="Tìm kiếm công cụ, tài liệu, AI, tác giả..."
+            className="w-full py-4 text-sm text-ink-900 placeholder:text-ink-400 focus:outline-none"
+            autoFocus
           />
-          <button 
-            onClick={onClose} 
-            className="p-1 rounded-md text-ink-400 hover:text-ink-700"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          {query && (
+            <button 
+              onClick={() => setQuery('')}
+              className="p-1 text-ink-400 hover:text-ink-600 rounded-lg"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          )}
         </div>
 
-        {results.length > 0 ? (
-          <div className="max-h-80 overflow-y-auto p-2 space-y-1">
-            {results.map((r) => (
+        {filtered.length > 0 ? (
+          <div className="max-h-96 overflow-y-auto divide-y divide-slate-100">
+            {filtered.map((r) => (
               <div
                 key={r.id}
                 onClick={() => {
-                  onClose();
                   navigate(`/san-pham/${r.slug}`);
+                  onClose();
                 }}
-                className="p-3 rounded-xl hover:bg-slate-50 cursor-pointer flex items-center justify-between text-left group"
+                className="p-3.5 hover:bg-slate-50 cursor-pointer flex items-center justify-between transition-colors"
               >
                 <div>
-                  <h4 className="text-sm font-semibold text-ink-900 group-hover:text-brand-600 line-clamp-1">
-                    {r.title}
-                  </h4>
-                  <p className="text-xs text-ink-400 mt-0.5">
-                    {r.category} • {r.need}
-                  </p>
+                  <h4 className="text-xs font-bold text-ink-900 line-clamp-1">{r.title}</h4>
+                  <p className="text-[11px] text-ink-500 line-clamp-1 mt-0.5">{r.excerpt}</p>
+                  <div className="flex items-center gap-2 mt-1">
+                    <span className="text-[10px] font-semibold text-primary bg-primary/10 px-1.5 py-0.5 rounded">
+                      {r.category}
+                    </span>
+                    <span className="text-[10px] text-ink-400">• {r.need}</span>
+                  </div>
                 </div>
                 {r.stars && (
-                  <span className="text-xs font-semibold text-amber-600 flex items-center gap-1 shrink-0 ml-2">
-                    <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-                    {r.stars.toLocaleString()}
-                  </span>
+                  <div className="flex items-center text-amber-500 text-xs font-medium shrink-0 ml-3">
+                    <Star className="w-3.5 h-3.5 fill-current mr-1" />
+                    <span>{r.stars.toLocaleString()}</span>
+                  </div>
                 )}
               </div>
             ))}
@@ -136,37 +139,39 @@ export function App() {
 
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar onOpenSearch={() => setSearchOpen(true)} />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/tai-nguyen" element={<CatalogPage />} />
-            
-            {/* Mỗi category có URL riêng */}
-            <Route path="/danh-muc/:slug" element={<CategoryPage />} />
-            
-            {/* Mỗi sản phẩm / bài viết có URL riêng */}
-            <Route path="/san-pham/:slug" element={<ProductDetailPage />} />
-            <Route path="/tai-nguyen/:slug" element={<ProductDetailPage />} />
-            
-            {/* Mỗi cẩm nang có URL riêng */}
-            <Route path="/huong-dan" element={<GuidesPage />} />
-            <Route path="/huong-dan/:slug" element={<GuideDetailPage />} />
-            
-            {/* Tiêu chí tuyển chọn */}
-            <Route path="/tieu-chi" element={<CriteriaPage />} />
-            
-            <Route path="*" element={<HomePage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <QuickSearchDialog 
-          isOpen={searchOpen} 
-          onClose={() => setSearchOpen(false)} 
-        />
-      </div>
+      <AuthProvider>
+        <ScrollToTop />
+        <div className="flex flex-col min-h-screen">
+          <Navbar onOpenSearch={() => setSearchOpen(true)} />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/tai-nguyen" element={<CatalogPage />} />
+              
+              {/* Mỗi category có URL riêng */}
+              <Route path="/danh-muc/:slug" element={<CategoryPage />} />
+              
+              {/* Mỗi sản phẩm / bài viết có URL riêng */}
+              <Route path="/san-pham/:slug" element={<ProductDetailPage />} />
+              <Route path="/tai-nguyen/:slug" element={<ProductDetailPage />} />
+              
+              {/* Mỗi cẩm nang có URL riêng */}
+              <Route path="/huong-dan" element={<GuidesPage />} />
+              <Route path="/huong-dan/:slug" element={<GuideDetailPage />} />
+              
+              {/* Tiêu chí tuyển chọn */}
+              <Route path="/tieu-chi" element={<CriteriaPage />} />
+              
+              <Route path="*" element={<HomePage />} />
+            </Routes>
+          </main>
+          <Footer />
+          <QuickSearchDialog 
+            isOpen={searchOpen} 
+            onClose={() => setSearchOpen(false)} 
+          />
+        </div>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
