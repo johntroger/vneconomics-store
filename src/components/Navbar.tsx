@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
     { label: 'AI Offline Trên Máy', q: 'ai' },
     { label: 'Coding Agent', q: 'agent' },
     { label: 'Làm Landing Page', q: 'landing page' },
-    { label: 'Mã Nguồn Mở 0đ', q: 'mã nguồn mở' }
+    { label: 'Mã Nguồn Mở', q: 'mã nguồn mở' }
   ];
 
   return (

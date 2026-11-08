@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProductCard } from '../components/ProductCard';
 import { resources } from '../data/resources';
@@ -6,51 +6,35 @@ import { categories } from '../data/categories';
 import { guides } from '../data/guides';
 import { useSEO } from '../utils/useSEO';
 import { 
-  Zap, 
   ShieldCheck, 
   Truck, 
   RotateCcw, 
   ChevronRight, 
   Sparkles, 
-  Flame, 
-  Gift, 
   Bot, 
   FileCode, 
   Star,
   Layers,
   Clock,
-  CheckCircle2
+  CheckCircle2,
+  TrendingUp,
+  Bookmark
 } from 'lucide-react';
 
 export const HomePage: React.FC = () => {
-  // Countdown timer state
-  const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 45, seconds: 18 });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { ...prev, minutes: 59, seconds: 59 };
-        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return { hours: 2, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   // Products subsets
-  const flashSaleProducts = resources.slice(0, 6);
-  const mallProducts = resources.filter(r => (r.stars || 0) >= 50000).slice(0, 6);
+  const spotlightProducts = resources.slice(0, 6);
+  const highlyRatedProducts = resources.filter(r => (r.stars || 0) >= 50000).slice(0, 6);
   const [discoverLimit, setDiscoverLimit] = useState(18);
   const discoverProducts = resources.slice(0, discoverLimit);
 
   // SEO & Schema for HomePage
   useSEO({
     title: 'VibeLab Việt — Sàn Thư Viện Công Cụ Số Có Biên Tập Chuẩn EEAT',
-    description: 'Sàn thư viện công cụ số, AI tools, phần mềm mã nguồn mở với giá 0đ. Đã thẩm định EEAT, chuẩn SEO, AEO và GEO.',
+    description: 'Sàn thư viện công cụ số, AI tools, phần mềm mã nguồn mở tuyển chọn dành cho người Việt. Đã thẩm định EEAT, chuẩn SEO, AEO và GEO.',
     canonicalUrl: 'https://store.vneconomics.com/',
     ogImage: 'https://store.vneconomics.com/favicon.svg',
-    keywords: ['VibeLab Việt', 'sàn công cụ số', 'vneconomics store', 'công cụ AI 0d', 'mã nguồn mở', 'chuẩn EEAT'],
+    keywords: ['VibeLab Việt', 'sàn công cụ số', 'vneconomics store', 'công cụ AI', 'mã nguồn mở', 'chuẩn EEAT'],
     jsonLdSchemas: [
       {
         '@context': 'https://schema.org',
@@ -74,16 +58,16 @@ export const HomePage: React.FC = () => {
     ]
   });
 
-  // Quick shortcuts (Gentle muted colors, easy on eyes)
+  // Quick shortcuts for developers & researchers
   const quickShortcuts = [
-    { label: 'Khung Giờ Săn 0Đ', icon: <Flame className="w-5 h-5 text-amber-600" />, link: '/tai-nguyen' },
-    { label: 'Thư Viện Chính Hãng', icon: <ShieldCheck className="w-5 h-5 text-brand-600" />, link: '/tai-nguyen?stars=100000' },
-    { label: 'Mã Giảm 100%', icon: <Gift className="w-5 h-5 text-indigo-600" />, link: '/tai-nguyen' },
-    { label: 'Phân Phối 0đ', icon: <Truck className="w-5 h-5 text-emerald-600" />, link: '/tai-nguyen' },
+    { label: 'Công Cụ Mới Nhất', icon: <TrendingUp className="w-5 h-5 text-brand-600" />, link: '/tai-nguyen' },
+    { label: 'Kho Mã Nguồn Mở', icon: <ShieldCheck className="w-5 h-5 text-slate-700" />, link: '/tai-nguyen?stars=50000' },
+    { label: 'Tài Liệu Hướng Dẫn', icon: <Bookmark className="w-5 h-5 text-indigo-600" />, link: '/huong-dan' },
+    { label: 'Toàn Bộ Thư Viện', icon: <Layers className="w-5 h-5 text-teal-700" />, link: '/tai-nguyen' },
     { label: 'AI Agents & LLM', icon: <Bot className="w-5 h-5 text-blue-600" />, link: '/danh-muc/coding-agent' },
     { label: 'Markdown & PDF', icon: <FileCode className="w-5 h-5 text-slate-700" />, link: '/danh-muc/chuyen-doi-tai-lieu' },
     { label: 'Thẩm Định EEAT', icon: <CheckCircle2 className="w-5 h-5 text-emerald-600" />, link: '/tieu-chi' },
-    { label: 'Top GitHub Sao', icon: <Star className="w-5 h-5 text-amber-500" />, link: '/tai-nguyen?stars=50000' },
+    { label: 'Top GitHub Stars', icon: <Star className="w-5 h-5 text-amber-500" />, link: '/tai-nguyen?stars=100000' },
   ];
 
   return (
@@ -145,10 +129,10 @@ export const HomePage: React.FC = () => {
               <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-5 text-ink-900 flex flex-col justify-between shadow-2xs hover:border-slate-300 transition-colors">
                 <div>
                   <span className="text-[10px] uppercase font-bold tracking-wider bg-brand-50 text-brand-700 border border-brand-200 px-2 py-0.5 rounded">
-                    PHÂN PHỐI 0Đ
+                    TRUY CẬP TRỰC TIẾP
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-ink-900 mt-2">Truy Cập Miễn Phí</h3>
-                  <p className="text-xs text-ink-500 mt-0.5">Giao tức thì đường dẫn và tài liệu chính thức.</p>
+                  <h3 className="text-sm sm:text-base font-bold text-ink-900 mt-2">Dẫn Về Nguồn Gốc</h3>
+                  <p className="text-xs text-ink-500 mt-0.5">Dẫn trực tiếp về kho lưu trữ và tài liệu gốc.</p>
                 </div>
                 <Link to="/tai-nguyen" className="text-xs font-semibold flex items-center gap-1 text-brand-600 hover:underline pt-2">
                   <span>Về kho phần mềm</span>
@@ -220,23 +204,16 @@ export const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* 3. "FLASH SPOTLIGHT" Section */}
+        {/* 3. "CÔNG CỤ NỔI BẬT" Section (Replaces promotional flash sale) */}
         <section className="bg-white rounded-xl shadow-soft border border-slate-200 p-5">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4 flex-wrap gap-2">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5 text-amber-700 font-bold text-sm sm:text-base tracking-tight">
-                <Zap className="w-4 h-4 fill-amber-600 text-amber-600" />
-                <span>TIÊU ĐIỂM SÔI ĐỘNG</span>
-              </div>
-
-              {/* Countdown box */}
-              <div className="flex items-center gap-1 text-xs font-semibold text-ink-800">
-                <span className="bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-ink-900">{String(timeLeft.hours).padStart(2, '0')}</span>
-                <span>:</span>
-                <span className="bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-ink-900">{String(timeLeft.minutes).padStart(2, '0')}</span>
-                <span>:</span>
-                <span className="bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-ink-900">{String(timeLeft.seconds).padStart(2, '0')}</span>
-              </div>
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-200 px-2.5 py-0.5 rounded">
+                TIÊU ĐIỂM
+              </span>
+              <h2 className="text-sm sm:text-base font-bold text-ink-900 tracking-tight">
+                Công cụ nổi bật & được đánh giá cao
+              </h2>
             </div>
 
             <Link to="/tai-nguyen" className="text-xs text-brand-600 font-semibold hover:underline flex items-center">
@@ -245,7 +222,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {flashSaleProducts.map((product) => (
+            {spotlightProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -278,7 +255,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {mallProducts.map((product) => (
+            {highlyRatedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

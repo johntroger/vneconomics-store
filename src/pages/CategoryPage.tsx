@@ -81,7 +81,7 @@ export const CategoryPage: React.FC = () => {
     title: category ? `${category.name} — Tuyển Chọn Công Cụ Số Chuẩn EEAT | VibeLab Việt` : 'Danh mục công cụ',
     description: category?.description || 'Khám phá các công cụ và phần mềm chọn lọc theo danh mục tại VibeLab Việt.',
     canonicalUrl: category ? `https://store.vneconomics.com/danh-muc/${category.slug}` : 'https://store.vneconomics.com/tai-nguyen',
-    keywords: category ? [category.name, 'công cụ số', 'phần mềm 0đ', 'mã nguồn mở', 'VibeLab Việt'] : [],
+    keywords: category ? [category.name, 'công cụ số', 'phần mềm mã nguồn mở', 'kho thư viện', 'VibeLab Việt'] : [],
     jsonLdSchemas: category ? [
       {
         '@context': 'https://schema.org',
@@ -185,14 +185,10 @@ export const CategoryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Dịch Vụ & Tiêu Chuẩn */}
+      {/* 2. Tiêu Chuẩn Biên Tập */}
       <div className="pt-3 border-t border-slate-200">
-        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Dịch Vụ & Tiêu Chuẩn</h4>
+        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Tiêu Chuẩn Biên Tập</h4>
         <div className="space-y-1.5 text-xs text-ink-600">
-          <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
-            <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
-            <span>Miễn phí 0đ (Kỹ thuật số)</span>
-          </label>
           <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
             <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
             <span>Thẩm định EEAT Verified</span>
@@ -200,6 +196,10 @@ export const CategoryPage: React.FC = () => {
           <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
             <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
             <span>Mã Nguồn Mở 100%</span>
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
+            <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
+            <span>Có hướng dẫn thực hành</span>
           </label>
         </div>
       </div>
@@ -254,32 +254,6 @@ export const CategoryPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 5. Khoảng Giá */}
-      <div className="pt-3 border-t border-slate-200">
-        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Khoảng Giá</h4>
-        <div className="flex items-center gap-2 text-xs">
-          <input
-            type="text"
-            readOnly
-            value="₫ 0"
-            className="w-full bg-slate-100 border border-slate-300 rounded py-1 px-2 text-center text-ink-700 font-bold text-[11px]"
-          />
-          <span>-</span>
-          <input
-            type="text"
-            readOnly
-            value="₫ 0"
-            className="w-full bg-slate-100 border border-slate-300 rounded py-1 px-2 text-center text-ink-700 font-bold text-[11px]"
-          />
-        </div>
-        <button
-          disabled
-          className="w-full mt-2 py-1.5 bg-brand-600 text-white text-xs font-bold rounded uppercase tracking-wider opacity-90 cursor-default"
-        >
-          ÁP DỤNG (MIỄN PHÍ)
-        </button>
-      </div>
-
       {/* Clear Button */}
       {hasActiveFilters && (
         <div className="pt-3 border-t border-slate-200">
@@ -331,7 +305,7 @@ export const CategoryPage: React.FC = () => {
             <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200 self-start md:self-auto shadow-2xs">
               <div className="text-center px-2">
                 <div className="text-lg font-black text-ink-900">{categoryProducts.length}</div>
-                <div className="text-[10px] uppercase text-ink-500 font-bold">Công cụ 0đ</div>
+                <div className="text-[10px] uppercase text-ink-500 font-bold">Tuyển chọn</div>
               </div>
               <div className="w-px h-8 bg-slate-200" />
               <div className="text-center px-2">
@@ -368,7 +342,7 @@ export const CategoryPage: React.FC = () => {
                       : 'bg-white text-ink-800 hover:bg-slate-50'
                   }`}
                 >
-                  Bán chạy nhất
+                  Nhiều sao nhất
                 </button>
 
                 <button

@@ -49,7 +49,7 @@ export const CatalogPage: React.FC = () => {
   // SEO
   useSEO({
     title: 'Sàn Công Cụ Số Có Biên Tập — VibeLab Việt',
-    description: 'Khám phá và tra cứu hơn 100 công cụ số, AI tools, markdown converter với giá 0đ. Kiểm định chuẩn EEAT trên VibeLab Việt.',
+    description: 'Khám phá và tra cứu hơn 100 công cụ số, AI tools, markdown converter tuyển chọn. Kiểm định chuẩn EEAT trên VibeLab Việt.',
     canonicalUrl: 'https://store.vneconomics.com/tai-nguyen',
     keywords: ['vibelab việt', 'sàn công cụ số', 'thư viện công cụ số', 'phần mềm miễn phí', 'mã nguồn mở', 'vneconomics'],
   });
@@ -148,14 +148,10 @@ export const CatalogPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Dịch Vụ & Tiêu Chuẩn */}
+      {/* 2. Tiêu Chuẩn Thẩm Định */}
       <div className="pt-3 border-t border-slate-200">
-        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Dịch Vụ & Tiêu Chuẩn</h4>
+        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Tiêu Chuẩn Biên Tập</h4>
         <div className="space-y-1.5 text-xs text-ink-600">
-          <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
-            <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
-            <span>Miễn phí 0đ (Kỹ thuật số)</span>
-          </label>
           <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
             <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
             <span>Thẩm định EEAT Verified</span>
@@ -163,6 +159,10 @@ export const CatalogPage: React.FC = () => {
           <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
             <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
             <span>Mã Nguồn Mở 100%</span>
+          </label>
+          <label className="flex items-center gap-2 cursor-pointer hover:text-brand-600">
+            <input type="checkbox" defaultChecked className="accent-brand-600 rounded" />
+            <span>Có hướng dẫn thực hành</span>
           </label>
         </div>
       </div>
@@ -214,32 +214,6 @@ export const CatalogPage: React.FC = () => {
             </button>
           ))}
         </div>
-      </div>
-
-      {/* 5. Khoảng Giá */}
-      <div className="pt-3 border-t border-slate-200">
-        <h4 className="text-xs font-bold uppercase mb-2 text-ink-900">Khoảng Giá</h4>
-        <div className="flex items-center gap-1.5 text-xs">
-          <input
-            type="text"
-            disabled
-            value="₫ 0"
-            className="w-full bg-slate-100 border border-slate-300 px-2 py-1 rounded text-center text-ink-600 text-[11px] font-bold"
-          />
-          <span>-</span>
-          <input
-            type="text"
-            disabled
-            value="₫ 0"
-            className="w-full bg-slate-100 border border-slate-300 px-2 py-1 rounded text-center text-ink-600 text-[11px] font-bold"
-          />
-        </div>
-        <button
-          onClick={handleClearFilters}
-          className="w-full mt-2 py-1.5 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold uppercase tracking-wider rounded shadow-xs transition-colors"
-        >
-          ÁP DỤNG (MIỄN PHÍ)
-        </button>
       </div>
 
       {/* Button: XÓA TẤT CẢ */}
@@ -339,7 +313,7 @@ export const CatalogPage: React.FC = () => {
                       : 'bg-white text-ink-800 hover:bg-white/80'
                   }`}
                 >
-                  Bán chạy nhất
+                  Nhiều sao nhất
                 </button>
 
                 <button
