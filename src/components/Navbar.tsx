@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { 
   Search, 
   ShoppingCart, 
@@ -13,29 +13,73 @@ import {
   ShieldCheck,
   LogIn,
   LogOut,
-  User as UserIcon
+  User as UserIcon,
+  Star,
+  ArrowRight
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { resources } from '../data/resources';
+import { searchResources } from '../utils/search';
 
 interface NavbarProps {
   onOpenSearch?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) => {
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, signInWithGoogle, logout } = useAuth();
+
   const [searchQuery, setSearchQuery] = useState('');
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  const { user, signInWithGoogle, logout } = useAuth();
-  const navigate = useNavigate();
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+  const mobileSearchRef = useRef<HTMLDivElement>(null);
 
-  const handleSearch = (e: React.FormEvent) => {
+  // Sync search input with URL query param if on /tai-nguyen
+  useEffect(() => {
+    if (location.pathname === '/tai-nguyen') {
+      const q = searchParams.get('q') || '';
+      setSearchQuery(q);
+    }
+  }, [location.pathname, searchParams]);
+
+  // Click outside to close search dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(e.target as Node) &&
+        mobileSearchRef.current &&
+        !mobileSearchRef.current.contains(e.target as Node)
+      ) {
+        setIsSearchFocused(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const handleSearchSubmit = (e: React.FormEvent, customQuery?: string) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/tai-nguyen?q=${encodeURIComponent(searchQuery.trim())}`);
+    const q = (customQuery !== undefined ? customQuery : searchQuery).trim();
+    setIsSearchFocused(false);
+    if (q) {
+      navigate(`/tai-nguyen?q=${encodeURIComponent(q)}`);
     } else {
       navigate('/tai-nguyen');
     }
   };
+
+  const handleSelectSuggestion = (slug: string) => {
+    setIsSearchFocused(false);
+    navigate(`/san-pham/${slug}`);
+  };
+
+  // Live matching results
+  const searchResults = searchQuery.trim() ? searchResources(resources, searchQuery, 5) : [];
 
   const trendingTags = [
     { label: 'MarkItDown', q: 'markitdown' },
@@ -93,48 +137,162 @@ export const Navbar: React.FC<NavbarProps> = () => {
 
       {/* Main Search & Logo Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-3 pb-2.5">
-        <div className="flex items-center justify-between gap-4 sm:gap-8">
+        <div className="flex items-center justify-between gap-3 sm:gap-8">
           
           {/* Brand Logo */}
-          <Link to="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200/80 flex items-center justify-center text-brand-600 shadow-2xs group-hover:scale-105 group-hover:border-brand-300 transition-all">
+          <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-50 border border-brand-200/80 flex items-center justify-center text-brand-600 shadow-2xs group-hover:scale-105 group-hover:border-brand-300 transition-all">
               <Layers className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div className="leading-none">
               <div className="flex items-center gap-1.5">
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-ink-900 group-hover:text-brand-700 transition-colors">
+                <span className="text-lg sm:text-2xl font-black tracking-tight text-ink-900 group-hover:text-brand-700 transition-colors">
                   VibeLab Việt
                 </span>
                 <span className="bg-brand-600 text-white text-[9px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide">
                   MALL
                 </span>
               </div>
-              <p className="text-[10px] text-ink-500 font-medium tracking-wide mt-1">
+              <p className="text-[10px] text-ink-500 font-medium tracking-wide mt-1 hidden sm:block">
                 bởi Vneconomics Store • Chuẩn EEAT 2026
               </p>
             </div>
           </Link>
 
-          {/* Shopee-style Search Box */}
-          <div className="flex-1 max-w-2xl hidden sm:block">
-            <form onSubmit={handleSearch} className="relative">
+          {/* Desktop Search Box with Instant Autocomplete Dropdown */}
+          <div ref={searchContainerRef} className="flex-1 max-w-2xl hidden sm:block relative">
+            <form onSubmit={handleSearchSubmit} className="relative">
               <div className="flex items-center bg-white border-2 border-brand-600 rounded-xl overflow-hidden shadow-2xs focus-within:border-brand-700 transition-colors">
                 <input
                   type="text"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setIsSearchFocused(true);
+                  }}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Escape') setIsSearchFocused(false);
+                  }}
                   placeholder="Tìm kiếm công cụ mã nguồn mở, chuyển đổi PDF, AI Agent, tài liệu..."
                   className="w-full px-4 py-2.5 text-xs sm:text-sm text-ink-900 placeholder:text-ink-400 focus:outline-none"
                 />
+
+                {/* Clear Button */}
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsSearchFocused(true);
+                    }}
+                    className="p-1.5 text-slate-400 hover:text-slate-600 rounded-full mr-1 transition-colors"
+                    title="Xóa tìm kiếm"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                )}
+
                 <button
                   type="submit"
-                  className="bg-brand-600 hover:bg-brand-700 text-white px-6 py-2.5 font-semibold text-xs sm:text-sm flex items-center justify-center transition-colors shrink-0"
+                  className="bg-brand-600 hover:bg-brand-700 text-white px-5 sm:px-6 py-2.5 font-semibold text-xs sm:text-sm flex items-center justify-center transition-colors shrink-0"
                 >
                   <Search className="w-4 h-4 mr-1.5" />
                   <span>Tìm kiếm</span>
                 </button>
               </div>
             </form>
+
+            {/* Live Autocomplete Suggestions Dropdown */}
+            {isSearchFocused && (
+              <div className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-xl shadow-2xl border border-slate-200/90 py-2.5 z-50 text-xs animate-in fade-in max-h-96 overflow-y-auto">
+                {searchQuery.trim() ? (
+                  searchResults.length > 0 ? (
+                    <div>
+                      <div className="px-3.5 pb-1.5 pt-0.5 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 flex items-center justify-between">
+                        <span>Gợi ý công cụ ({searchResults.length})</span>
+                        <span className="text-[10px] lowercase font-normal text-slate-400">bấm để xem chi tiết</span>
+                      </div>
+                      <div className="divide-y divide-slate-100">
+                        {searchResults.map((item) => (
+                          <div
+                            key={item.id}
+                            onClick={() => handleSelectSuggestion(item.slug)}
+                            className="px-3.5 py-2.5 hover:bg-slate-50 cursor-pointer flex items-center justify-between gap-3 transition-colors group"
+                          >
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-bold text-ink-900 group-hover:text-brand-600 transition-colors truncate">
+                                  {item.title}
+                                </span>
+                                <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 shrink-0">
+                                  {item.category}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-ink-500 truncate mt-0.5">
+                                {item.excerpt}
+                              </p>
+                            </div>
+                            <div className="flex items-center gap-1.5 shrink-0 text-amber-500 font-semibold text-[11px]">
+                              <Star className="w-3.5 h-3.5 fill-current" />
+                              <span>{item.stars ? `${(item.stars / 1000).toFixed(0)}k★` : '5.0★'}</span>
+                              <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-brand-600 transition-colors ml-1" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Footer: View all results in Catalog */}
+                      <div className="pt-2 px-3 border-t border-slate-100 mt-1">
+                        <button
+                          type="button"
+                          onClick={(e) => handleSearchSubmit(e)}
+                          className="w-full py-2 px-3 bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold text-xs rounded-lg flex items-center justify-center gap-1.5 transition-colors"
+                        >
+                          <Search className="w-3.5 h-3.5" />
+                          <span>Xem tất cả kết quả cho "{searchQuery}"</span>
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    /* No results found popup */
+                    <div className="p-4 text-center">
+                      <p className="text-ink-600 font-medium">Không tìm thấy công cụ khớp với "{searchQuery}"</p>
+                      <p className="text-[11px] text-ink-400 mt-1">Thử từ khóa chung hơn hoặc nhấn Enter để tìm trong kho</p>
+                      <button
+                        type="button"
+                        onClick={(e) => handleSearchSubmit(e)}
+                        className="mt-2.5 px-4 py-1.5 bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-xs font-semibold"
+                      >
+                        Tìm trong toàn bộ 100+ công cụ
+                      </button>
+                    </div>
+                  )
+                ) : (
+                  /* Focused with empty query: Trending Suggestions */
+                  <div className="px-3.5 py-1">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                      Gợi ý từ khóa phổ biến
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {trendingTags.map((t) => (
+                        <button
+                          key={t.q}
+                          type="button"
+                          onClick={(e) => {
+                            setSearchQuery(t.q);
+                            handleSearchSubmit(e, t.q);
+                          }}
+                          className="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-brand-50 hover:text-brand-700 text-ink-700 text-xs font-medium transition-colors"
+                        >
+                          {t.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Trending Suggestions Ribbon */}
             <div className="flex items-center gap-3 mt-1.5 text-[11px] text-ink-500 overflow-hidden whitespace-nowrap">
@@ -233,6 +391,69 @@ export const Navbar: React.FC<NavbarProps> = () => {
           </div>
 
         </div>
+
+        {/* Mobile Search Input (Visible only on small screens < sm) */}
+        <div ref={mobileSearchRef} className="sm:hidden mt-2.5 relative">
+          <form onSubmit={handleSearchSubmit} className="relative">
+            <div className="flex items-center bg-white border border-brand-500 rounded-xl overflow-hidden shadow-2xs">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setIsSearchFocused(true);
+                }}
+                onFocus={() => setIsSearchFocused(true)}
+                placeholder="Tìm công cụ, PDF, AI, mã nguồn..."
+                className="w-full px-3 py-2 text-xs text-ink-900 placeholder:text-ink-400 focus:outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="p-1 text-slate-400 mr-1"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
+              <button
+                type="submit"
+                className="bg-brand-600 text-white px-3.5 py-2 font-semibold text-xs flex items-center justify-center"
+              >
+                <Search className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </form>
+
+          {/* Mobile Live Suggestions Dropdown */}
+          {isSearchFocused && searchQuery.trim() && searchResults.length > 0 && (
+            <div className="absolute left-0 right-0 top-full mt-1 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 text-xs max-h-72 overflow-y-auto">
+              {searchResults.map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => handleSelectSuggestion(item.slug)}
+                  className="px-3 py-2 hover:bg-slate-50 cursor-pointer border-b border-slate-100 last:border-0"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-bold text-ink-900">{item.title}</span>
+                    <span className="text-[10px] text-amber-500 font-semibold">{item.stars ? `${(item.stars / 1000).toFixed(0)}k★` : '5★'}</span>
+                  </div>
+                  <p className="text-[11px] text-ink-500 truncate mt-0.5">{item.excerpt}</p>
+                </div>
+              ))}
+              <div className="p-2 border-t border-slate-100">
+                <button
+                  type="button"
+                  onClick={(e) => handleSearchSubmit(e)}
+                  className="w-full py-1.5 bg-brand-50 text-brand-700 font-bold text-xs rounded text-center"
+                >
+                  Xem kết quả trên Sàn công cụ
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+
       </div>
 
       {/* Category Navigation Ribbon */}
@@ -311,6 +532,13 @@ export const Navbar: React.FC<NavbarProps> = () => {
             className="block py-2 text-ink-600 hover:text-ink-900"
           >
             Chuyển đổi tài liệu
+          </Link>
+          <Link
+            to="/danh-muc/ghi-chu-tri-thuc"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-ink-600 hover:text-ink-900"
+          >
+            Ghi chú tri thức
           </Link>
           <Link
             to="/danh-muc/coding-agent"

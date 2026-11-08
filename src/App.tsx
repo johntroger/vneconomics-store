@@ -12,6 +12,7 @@ import { GuideDetailPage } from './pages/GuideDetailPage';
 import { CriteriaPage } from './pages/CriteriaPage';
 import { Search, X, Star } from 'lucide-react';
 import { resources } from './data/resources';
+import { searchResources } from './utils/search';
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -51,17 +52,7 @@ function QuickSearchDialog({
 
   if (!isOpen) return null;
 
-  const filtered = query.trim()
-    ? resources
-        .filter(
-          (r) =>
-            r.title.toLowerCase().includes(query.toLowerCase()) ||
-            r.excerpt.toLowerCase().includes(query.toLowerCase()) ||
-            r.category.toLowerCase().includes(query.toLowerCase()) ||
-            r.need.toLowerCase().includes(query.toLowerCase())
-        )
-        .slice(0, 8)
-    : [];
+  const filtered = query.trim() ? searchResources(resources, query, 8) : [];
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-ink-950/60 backdrop-blur-sm animate-in fade-in duration-200">

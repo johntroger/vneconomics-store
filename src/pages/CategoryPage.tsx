@@ -4,6 +4,7 @@ import { categories, needs } from '../data/categories';
 import { resources } from '../data/resources';
 import { ProductCard } from '../components/ProductCard';
 import { useSEO } from '../utils/useSEO';
+import { matchResource } from '../utils/search';
 import { 
   Filter, 
   ChevronRight, 
@@ -41,12 +42,7 @@ export const CategoryPage: React.FC = () => {
   const filteredProducts = useMemo(() => {
     return categoryProducts
       .filter((p) => {
-        const matchesSearch =
-          !searchTerm.trim() ||
-          p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          p.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          p.requirements.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          p.need.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = matchResource(p, searchTerm);
 
         const matchesNeed = !selectedNeed || p.need.toLowerCase() === selectedNeed.toLowerCase();
         const matchesStars = !minStars || (p.stars !== null && p.stars >= minStars);

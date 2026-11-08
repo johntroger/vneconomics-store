@@ -5,11 +5,11 @@ import {
   Filter, 
   Star, 
   ChevronRight, 
-  ChevronLeft,
-  RotateCcw,
-  SlidersHorizontal,
-  X,
-  Check
+  ChevronLeft, 
+  RotateCcw, 
+  SlidersHorizontal, 
+  X, 
+  Check 
 } from 'lucide-react';
 import { ProductCard } from '../components/ProductCard';
 import { ResourceDetailModal } from '../components/ResourceDetailModal';
@@ -17,6 +17,7 @@ import { resources } from '../data/resources';
 import { categories, needs } from '../data/categories';
 import { Resource } from '../types';
 import { useSEO } from '../utils/useSEO';
+import { matchResource } from '../utils/search';
 
 export const CatalogPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -39,10 +40,10 @@ export const CatalogPage: React.FC = () => {
   const [sortBy, setSortBy] = useState<'popular' | 'latest' | 'top_sales'>('top_sales');
 
   useEffect(() => {
-    if (searchParams.get('q') !== null) setSearchTerm(searchParams.get('q') || '');
-    if (searchParams.get('category') !== null) setSelectedCategory(searchParams.get('category') || '');
-    if (searchParams.get('need') !== null) setSelectedNeed(searchParams.get('need') || '');
-    if (searchParams.get('stars') !== null) setMinStars(parseInt(searchParams.get('stars') || '0', 10));
+    setSearchTerm(searchParams.get('q') || '');
+    setSelectedCategory(searchParams.get('category') || '');
+    setSelectedNeed(searchParams.get('need') || '');
+    setMinStars(parseInt(searchParams.get('stars') || '0', 10));
     setCurrentPage(1); // Reset page on filter change
   }, [searchParams]);
 
@@ -54,16 +55,11 @@ export const CatalogPage: React.FC = () => {
     keywords: ['vibelab việt', 'sàn công cụ số', 'thư viện công cụ số', 'phần mềm miễn phí', 'mã nguồn mở', 'vneconomics'],
   });
 
-  // Filter & Sort
+  // Filter & Sort using multi-attribute accent-insensitive search
   const filteredProducts = useMemo(() => {
     return resources
       .filter((item) => {
-        const matchesSearch =
-          !searchTerm.trim() ||
-          item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.requirements.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.need.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesSearch = matchResource(item, searchTerm);
 
         const matchesCategory =
           !selectedCategory || item.category.toLowerCase() === selectedCategory.toLowerCase();
@@ -102,6 +98,13 @@ export const CatalogPage: React.FC = () => {
     setMinStars(0);
     setSearchParams({});
     setCurrentPage(1);
+  };
+
+  const handleRemoveSearchTerm = () => {
+    setSearchTerm('');
+    const newParams = new URLSearchParams(searchParams);
+    newParams.delete('q');
+    setSearchParams(newParams);
   };
 
   const hasActiveFilters = Boolean(searchTerm || selectedCategory || selectedNeed || minStars > 0);
@@ -299,6 +302,46 @@ export const CatalogPage: React.FC = () => {
           {/* RIGHT COLUMN: CONTENT & PRODUCTS */}
           <section className="flex-1 min-w-0 w-full space-y-3">
             
+            {/* In-Catalog Instant Search Bar */}
+            <div className="bg-white border border-slate-200/90 rounded-xl p-3 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="relative w-full sm:w-96">
+                <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setSearchTerm(val);
+                    setCurrentPage(1);
+                    const newParams = new URLSearchParams(searchParams);
+                    if (val.trim()) {
+                      newParams.set('q', val.trim());
+                    } else {
+                      newParams.delete('q');
+                    }
+                    setSearchParams(newParams, { replace: true });
+                  }}
+                  placeholder="Lọc nhanh công cụ trên trang này..."
+                  className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 rounded-lg text-ink-900 focus:outline-none focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+                />
+                {searchTerm && (
+                  <button
+                    onClick={handleRemoveSearchTerm}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
+                    title="Xóa từ khóa"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </div>
+              <div className="text-xs text-ink-500 font-medium w-full sm:w-auto text-right flex items-center justify-between sm:justify-end gap-2">
+                <span>Kết quả lọc:</span>
+                <span className="font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-200/60">
+                  {filteredProducts.length} công cụ
+                </span>
+              </div>
+            </div>
+
             {/* Sort Bar */}
             <div className="bg-slate-200/70 p-3 rounded-lg flex flex-wrap items-center justify-between gap-3 text-xs">
               
@@ -389,7 +432,7 @@ export const CatalogPage: React.FC = () => {
                 {searchTerm && (
                   <span className="inline-flex items-center gap-1 border border-slate-300 text-ink-800 bg-slate-50 px-2 py-0.5 rounded">
                     <span>"{searchTerm}"</span>
-                    <X className="w-3 h-3 cursor-pointer" onClick={() => setSearchTerm('')} />
+                    <X className="w-3 h-3 cursor-pointer" onClick={handleRemoveSearchTerm} />
                   </span>
                 )}
               </div>
