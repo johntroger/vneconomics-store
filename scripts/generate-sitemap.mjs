@@ -35,7 +35,7 @@ Sitemap: ${BASE_URL}/sitemap.xml
 
   // Extract slugs
   const resourceSlugs = [];
-  const resourceMatches = resourcesContent.matchAll(/"slug":\s*['"]([^'"]+)['"]/g);
+  const resourceMatches = resourcesContent.matchAll(/(?:"slug"|\bslug)\s*:\s*['"]([^'"]+)['"]/g);
   for (const match of resourceMatches) {
     if (!resourceSlugs.includes(match[1])) {
       resourceSlugs.push(match[1]);
