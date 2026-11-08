@@ -14,13 +14,21 @@ import { Search, X, Star } from 'lucide-react';
 import { resources } from './data/resources';
 import { searchResources } from './utils/search';
 
-// Scroll to top on route change
+// Scroll to top on route change & track page view in Google Analytics
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+    // Send virtual page view to GA4
+    if (typeof (window as unknown as { gtag?: Function }).gtag === 'function') {
+      (window as unknown as { gtag: Function }).gtag('event', 'page_view', {
+        page_path: pathname + search,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
+  }, [pathname, search]);
 
   return null;
 }
