@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ExternalLink, Bookmark, CheckCircle2 } from 'lucide-react';
+import { Star, ShieldCheck, Heart } from 'lucide-react';
 import { Resource } from '../types';
 import { getProductCover } from '../utils/imageGenerator';
 
@@ -10,10 +10,8 @@ interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) => {
-  const [bookmarked, setBookmarked] = useState(false);
-
-  const formatStars = (stars: number | null) => {
-    if (!stars) return '4.8';
+  const formatSoldCount = (stars: number | null) => {
+    if (!stars) return '1.2k';
     if (stars >= 1000) return `${(stars / 1000).toFixed(1)}k`;
     return stars.toLocaleString();
   };
@@ -33,106 +31,109 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelect }) =
     }
   };
 
+  // Extract author or vendor from title/URL
+  const vendorName = product.source_url?.includes('github.com/')
+    ? product.source_url.split('github.com/')[1]?.split('/')[0]
+    : 'Toàn cầu';
+
   return (
-    <article className="group bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-xs hover:shadow-card-hover hover:border-brand-400/60 transition-all flex flex-col justify-between">
+    <article className="group relative bg-white border border-slate-200 hover:border-brand-500 rounded-sm shadow-soft hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-150 flex flex-col justify-between overflow-hidden">
       
-      {/* 16:9 Image Cover with Badges */}
-      <div className="relative aspect-video w-full overflow-hidden bg-slate-100">
+      {/* Product Image + Badges */}
+      <div className="relative aspect-square w-full overflow-hidden bg-slate-50">
         <Link to={`/san-pham/${product.slug}`} onClick={handleCardClick} className="block w-full h-full">
           <img
             src={coverUrl}
             alt={product.title}
             loading="lazy"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-200"
           />
         </Link>
 
-        {/* Floating Top Badges */}
-        <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-          <span className="px-2 py-0.5 rounded-full text-[11px] font-bold bg-white/95 text-brand-700 shadow-xs border border-white/40">
-            {product.category}
-          </span>
-          <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-600/95 text-white shadow-xs flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3" />
-            <span>Đã thẩm định</span>
+        {/* Top-Left: Tuyển Chọn Badge */}
+        <div className="absolute top-2 left-0 z-10">
+          <span className="bg-brand-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-r-xs shadow-xs flex items-center gap-1">
+            <Heart className="w-2.5 h-2.5 fill-white" />
+            <span>Tuyển Chọn+</span>
           </span>
         </div>
 
-        {/* Bookmark button */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            setBookmarked(!bookmarked);
-          }}
-          className={`absolute top-2.5 right-2.5 p-1.5 rounded-full shadow-xs transition-colors ${
-            bookmarked ? 'bg-brand-600 text-white' : 'bg-white/90 text-ink-600 hover:bg-white'
-          }`}
-          title={bookmarked ? 'Đã lưu vào danh sách' : 'Lưu sản phẩm'}
-        >
-          <Bookmark className="w-3.5 h-3.5 fill-current" />
-        </button>
+        {/* Top-Right: 100% Miễn Phí Ribbon */}
+        <div className="absolute top-0 right-0 z-10 bg-cyan-400 text-brand-950 text-[10px] font-black px-1.5 py-1 text-center leading-tight shadow-xs">
+          <span className="block font-black">-100%</span>
+          <span className="text-white text-[9px] uppercase font-bold block bg-brand-700 px-0.5 rounded-2xs mt-0.5">MIỄN PHÍ</span>
+        </div>
 
-        {/* Bottom image overlay: Price / License */}
-        <div className="absolute bottom-2 left-2.5">
-          <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider bg-ink-900/80 text-white backdrop-blur-xs">
-            0đ • Miễn phí
+        {/* Bottom Tag: EEAT Verified */}
+        <div className="absolute bottom-1.5 left-1.5">
+          <span className="bg-emerald-600 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-2xs uppercase tracking-wider shadow-2xs flex items-center gap-1">
+            <ShieldCheck className="w-3 h-3" />
+            <span>EEAT VERIFIED</span>
           </span>
         </div>
       </div>
 
-      {/* Content Area */}
-      <div className="p-4 flex-1 flex flex-col justify-between">
+      {/* Product Body */}
+      <div className="p-2.5 flex-1 flex flex-col justify-between space-y-2">
         <div>
-          {/* Rating & Need */}
-          <div className="flex items-center justify-between text-xs text-ink-500 mb-2">
-            <span className="font-medium text-brand-700 bg-brand-50/80 px-2 py-0.5 rounded text-[11px]">
-              {product.need}
-            </span>
-            {product.stars && (
-              <span className="flex items-center gap-1 text-xs font-bold text-amber-600">
-                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
-                {formatStars(product.stars)}
-              </span>
-            )}
-          </div>
-
-          {/* Product Title */}
+          {/* Title: 2 lines clamp */}
           <Link
             to={`/san-pham/${product.slug}`}
             onClick={handleCardClick}
-            className="block text-sm sm:text-base font-bold text-ink-900 group-hover:text-brand-600 transition-colors line-clamp-2 leading-snug"
+            className="block text-xs font-semibold text-ink-900 group-hover:text-brand-600 transition-colors line-clamp-2 leading-relaxed"
+            title={product.title}
           >
+            <span className="bg-brand-50 text-brand-700 border border-brand-200 text-[9px] font-bold px-1 py-0.2 rounded-2xs mr-1 align-baseline">
+              Chính hãng
+            </span>
             {product.title}
           </Link>
 
-          {/* Excerpt */}
-          <p className="mt-2 text-xs text-ink-500 line-clamp-2 leading-relaxed">
-            {product.excerpt}
-          </p>
+          {/* Tags */}
+          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[10px]">
+            <span className="border border-brand-300 text-brand-700 bg-brand-50/50 px-1 rounded-2xs font-medium">
+              Mã nguồn mở 0đ
+            </span>
+            <span className="bg-emerald-50 text-emerald-700 border border-emerald-200 px-1 rounded-2xs font-semibold">
+              Đã thẩm định
+            </span>
+          </div>
         </div>
 
-        {/* Action Bar (E-Commerce style) */}
-        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-          <Link
-            to={`/san-pham/${product.slug}`}
-            onClick={handleCardClick}
-            className="flex-1 py-1.5 px-3 rounded-xl bg-brand-50 hover:bg-brand-600 text-brand-700 hover:text-white font-semibold text-xs text-center transition-all"
-          >
-            Xem chi tiết
-          </Link>
+        <div>
+          {/* Price Row: 0đ */}
+          <div className="flex items-baseline gap-1.5 pt-1">
+            <span className="text-[11px] text-ink-400 line-through">
+              ₫990.000
+            </span>
+            <span className="text-sm sm:text-base font-extrabold text-brand-600 leading-none">
+              ₫0
+            </span>
+          </div>
 
-          {product.source_url && (
-            <a
-              href={product.source_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-1.5 rounded-xl border border-slate-200 hover:border-ink-800 text-ink-500 hover:text-ink-900 transition-colors"
-              title="Đến nguồn tác giả"
-            >
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          )}
+          {/* Rating, Sold count & Vendor */}
+          <div className="pt-2 flex items-center justify-between text-[11px] text-ink-500 border-t border-slate-100 mt-2">
+            <div className="flex items-center gap-1">
+              <div className="flex items-center text-amber-500">
+                <Star className="w-3 h-3 fill-current" />
+              </div>
+              <span className="text-[10px] text-ink-800 font-bold">5.0</span>
+              <span className="text-[10px] text-ink-400">
+                • Đã dùng {formatSoldCount(product.stars)}
+              </span>
+            </div>
+
+            <span className="text-[10px] text-ink-400 truncate max-w-[80px]" title={vendorName}>
+              {vendorName}
+            </span>
+          </div>
         </div>
+
+      </div>
+
+      {/* Hover action bar */}
+      <div className="bg-brand-600 text-white text-center text-xs font-bold py-1.5 hidden group-hover:block transition-all">
+        Xem chi tiết công cụ
       </div>
 
     </article>

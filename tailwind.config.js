@@ -38,6 +38,7 @@ export default {
           900: '#0f172a', // Slate 900
           800: '#1e293b',
           700: '#334155',
+          600: '#475569',
           500: '#64748b',
           400: '#94a3b8',
         }
@@ -49,7 +50,7 @@ export default {
       boxShadow: {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03)',
         'card': '0 0 0 1px rgba(226, 232, 240, 0.8), 0 2px 8px -2px rgba(15, 23, 42, 0.04)',
-        'card-hover': '0 0 0 1px rgba(22, 93, 255, 0.25), 0 8px 24px -4px rgba(22, 93, 255, 0.08)',
+        'card-hover': '0 0 0 1px rgba(22, 93, 255, 0.3), 0 8px 24px -4px rgba(22, 93, 255, 0.12)',
       }
     },
   },
