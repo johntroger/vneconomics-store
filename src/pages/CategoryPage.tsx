@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { categories, needs } from '../data/categories';
 import { resources } from '../data/resources';
@@ -18,6 +18,25 @@ import {
   Award
 } from 'lucide-react';
 
+const CATEGORY_SLUG_ALIASES: Record<string, string> = {
+  'chuyen-doi-tai-lieu': 'tai-lieu-va-cong-viec-van-phong',
+  'tai-lieu-van-phong': 'tai-lieu-va-cong-viec-van-phong',
+  'ghi-chu-tri-thuc': 'ghi-chu-va-tri-thuc-ca-nhan',
+  'to-chuc-ghi-chu': 'ghi-chu-va-tri-thuc-ca-nhan',
+  'tu-dong-hoa-cong-viec': 'workflow-va-ung-dung-truc-quan',
+  'workflow': 'workflow-va-ung-dung-truc-quan',
+  'ai-tren-may': 'ai-tren-may-va-khong-gian-tro-chuyen',
+  'chon-moi-truong-ai': 'ai-tren-may-va-khong-gian-tro-chuyen',
+  'coding-agent': 'coding-agent-va-cach-lam-du-an',
+  'lam-viec-voi-coding-agent': 'coding-agent-va-cach-lam-du-an',
+  'chon-skills-va-quy-trinh': 'skills-va-phuong-phap-lam-viec',
+  'skills': 'skills-va-phuong-phap-lam-viec',
+  'thiet-ke-noi-dung-truc-quan': 'thiet-ke-va-hinh-anh',
+  'xu-ly-noi-dung-da-phuong-tien': 'am-thanh-va-video',
+  'trinh-bay-du-lieu': 'du-lieu-va-giao-dien-ung-dung',
+  'quan-ly-tep-va-ung-dung': 'luu-tru-va-cong-cu-ca-nhan',
+};
+
 export const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [searchTerm, setSearchTerm] = useState('');
@@ -27,9 +46,15 @@ export const CategoryPage: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [slug]);
+
   // Find category by slug or id
   const category = useMemo(() => {
-    return categories.find((c) => c.slug === slug || c.id === slug);
+    if (!slug) return undefined;
+    const normalizedSlug = CATEGORY_SLUG_ALIASES[slug] || slug;
+    return categories.find((c) => c.slug === normalizedSlug || c.id === normalizedSlug);
   }, [slug]);
 
   // Filter products belonging to this category

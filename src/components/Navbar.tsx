@@ -541,6 +541,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
             Ghi chú tri thức
           </Link>
           <Link
+            to="/danh-muc/ai-tren-may"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-ink-600 hover:text-ink-900"
+          >
+            AI trên máy
+          </Link>
+          <Link
             to="/danh-muc/coding-agent"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-ink-600 hover:text-ink-900"
