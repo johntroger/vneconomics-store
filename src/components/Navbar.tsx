@@ -14,7 +14,8 @@ import {
   LogOut,
   User as UserIcon,
   Star,
-  ArrowRight
+  ArrowRight,
+  ExternalLink
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { resources } from '../data/resources';
@@ -310,9 +311,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
             </div>
           </div>
 
-          {/* Right Actions: Auth + Inventory Pill + Mobile Toggle */}
+          {/* Right Actions: Parent Site + Auth + Inventory Pill + Mobile Toggle */}
           <div className="flex items-center gap-2 sm:gap-3">
             
+            {/* Parent Website Button */}
+            <a
+              href="https://vneconomics.com/"
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-brand-50 hover:bg-brand-100 border border-brand-200 text-brand-700 font-semibold text-xs shadow-2xs transition-colors shrink-0"
+              title="Về trang mẹ Vneconomics.com"
+            >
+              <span>Về Vneconomics</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+
             {/* User Authentication Button / Dropdown */}
             {user ? (
               <div className="relative">
@@ -518,6 +529,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
           >
             Trang chủ
           </Link>
+          <a
+            href="https://vneconomics.com/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 px-3 rounded-lg bg-brand-50 text-brand-700 font-semibold border border-brand-200/80"
+          >
+            <span>Về trang mẹ Vneconomics.com</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
           <Link
             to="/tai-nguyen"
             onClick={() => setMobileMenuOpen(false)}
