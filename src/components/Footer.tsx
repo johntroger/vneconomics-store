@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, Github, ShieldCheck, Heart } from 'lucide-react';
+import { Github, ShieldCheck, Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -11,8 +11,8 @@ export const Footer: React.FC = () => {
           {/* Brand info */}
           <div className="md:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-cyan-500 flex items-center justify-center text-white shadow-sm">
-                <Layers className="w-4 h-4" />
+              <div className="w-9 h-9 rounded-lg bg-white border border-slate-200 flex items-center justify-center p-0.5 shadow-sm overflow-hidden">
+                <img src="/logo.png" alt="Vneconomics - VibeLab Việt" className="w-full h-full object-contain" />
               </div>
               <span className="text-lg font-bold tracking-tight text-ink-900">VibeLab Việt</span>
             </Link>

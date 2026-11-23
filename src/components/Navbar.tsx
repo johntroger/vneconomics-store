@@ -9,7 +9,6 @@ import {
   Github, 
   Menu, 
   X,
-  Layers,
   ShieldCheck,
   LogIn,
   LogOut,
@@ -141,8 +140,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch: _onOpenSearch }) =
           
           {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-brand-50 border border-brand-200/80 flex items-center justify-center text-brand-600 shadow-2xs group-hover:scale-105 group-hover:border-brand-300 transition-all">
-              <Layers className="w-5 h-5 stroke-[2.2]" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center p-1 shadow-2xs group-hover:scale-105 group-hover:border-brand-300 transition-all overflow-hidden">
+              <img src="/logo.png" alt="Vneconomics - VibeLab Việt" className="w-full h-full object-contain" />
             </div>
             <div className="leading-none">
               <div className="flex items-center gap-1.5">

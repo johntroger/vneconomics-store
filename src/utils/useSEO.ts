@@ -17,7 +17,7 @@ export function useSEO({
   description,
   keywords,
   canonicalUrl = typeof window !== 'undefined' ? window.location.href : 'https://store.vneconomics.com/',
-  ogImage = 'https://store.vneconomics.com/favicon.svg',
+  ogImage = 'https://store.vneconomics.com/logo.png',
   ogType = 'website',
   publishedTime,
   modifiedTime,

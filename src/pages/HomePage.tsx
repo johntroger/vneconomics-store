@@ -33,7 +33,7 @@ export const HomePage: React.FC = () => {
     title: 'VibeLab Việt — Sàn Thư Viện Công Cụ Số Có Biên Tập Chuẩn EEAT',
     description: 'Sàn thư viện công cụ số, AI tools, phần mềm mã nguồn mở tuyển chọn dành cho người Việt. Đã thẩm định EEAT, chuẩn SEO, AEO và GEO.',
     canonicalUrl: 'https://store.vneconomics.com/',
-    ogImage: 'https://store.vneconomics.com/favicon.svg',
+    ogImage: 'https://store.vneconomics.com/logo.png',
     keywords: ['VibeLab Việt', 'sàn công cụ số', 'vneconomics store', 'công cụ AI', 'mã nguồn mở', 'chuẩn EEAT'],
     jsonLdSchemas: [
       {
@@ -53,7 +53,7 @@ export const HomePage: React.FC = () => {
         '@type': 'Organization',
         'name': 'Vneconomics',
         'url': 'https://store.vneconomics.com/',
-        'logo': 'https://store.vneconomics.com/favicon.svg'
+        'logo': 'https://store.vneconomics.com/logo.png'
       }
     ]
   });
