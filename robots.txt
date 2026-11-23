@@ -1,0 +1,9 @@
+# Robots.txt for VibeLab Store (store.vneconomics.com)
+User-agent: *
+Allow: /
+
+# Host
+Host: https://store.vneconomics.com
+
+# Sitemap
+Sitemap: https://store.vneconomics.com/sitemap.xml
